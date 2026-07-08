@@ -1,0 +1,26 @@
+# JVtools documentation site — Retype (Pro)
+# Docs: https://retype.com/configuration/project/
+
+input: .
+output: .retype
+
+# The public base URL of the site. Update this to the real domain before the
+# first production deploy (e.g. https://docs.jvtools.com).
+url: https://jovanmaric.github.io/jvtools-docs/
+
+branding:
+  title: JVtools
+  label: Docs
+
+# Top navigation (header links). Add one entry per product as the family grows.
+links:
+  - text: Products
+    link: /
+    icon: home
+  - text: RPLidar In
+    link: /rplidar-in/
+    icon: ":satellite:"
+
+# Pro: once the license key is active you can remove the "Made with Retype"
+# footer. Verify the exact key against retype.com docs before enabling.
+# poweredByRetype: false

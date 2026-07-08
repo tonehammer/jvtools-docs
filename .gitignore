@@ -1,0 +1,12 @@
+# Retype build output
+.retype/
+retype-output/
+
+# Retype CLI (if vendored locally)
+retype.exe
+*.retype-cache
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/

@@ -22,6 +22,6 @@ links:
     link: /rplidar-in/
     icon: ":satellite:"
 
-# Pro: once the license key is active you can remove the "Made with Retype"
-# footer. Verify the exact key against retype.com docs before enabling.
-# poweredByRetype: false
+# Pro: remove the "Made with Retype" footer (requires the RETYPE_KEY secret
+# to be present at build time, else the build fails on this Pro-only option).
+poweredByRetype: false

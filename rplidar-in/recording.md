@@ -1,5 +1,5 @@
 ---
-icon: :red_circle:
+icon: dot-fill
 order: 70
 ---
 

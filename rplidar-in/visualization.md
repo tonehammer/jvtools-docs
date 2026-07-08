@@ -1,5 +1,5 @@
 ---
-icon: :eye:
+icon: eye
 order: 60
 ---
 

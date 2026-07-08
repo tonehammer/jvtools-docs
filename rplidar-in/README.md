@@ -1,5 +1,5 @@
 ---
-icon: :satellite:
+icon: book
 order: 110
 ---
 

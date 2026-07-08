@@ -1,5 +1,5 @@
 ---
-icon: :scissors:
+icon: filter
 order: 50
 ---
 

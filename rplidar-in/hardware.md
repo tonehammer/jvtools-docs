@@ -1,5 +1,5 @@
 ---
-icon: :electric_plug:
+icon: plug
 order: 90
 ---
 

@@ -1,5 +1,5 @@
 ---
-icon: :sparkles:
+icon: zap
 order: 40
 ---
 

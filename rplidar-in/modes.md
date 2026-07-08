@@ -1,5 +1,5 @@
 ---
-icon: :arrows_counterclockwise:
+icon: sync
 order: 80
 ---
 

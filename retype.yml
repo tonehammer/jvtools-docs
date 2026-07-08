@@ -4,6 +4,10 @@
 input: .
 output: .retype
 
+# Keep the CLAUDE.md hub in the repo but out of the built site.
+exclude:
+  - "CLAUDE.md"
+
 # The public base URL of the site. Must EXACTLY match the domain the Retype
 # Pro license key is registered to (here: tonehammer.github.io). If you later
 # move to a custom domain, update this AND re-license the key to that domain.
@@ -20,7 +24,7 @@ links:
     icon: home
   - text: RPLidar In
     link: /rplidar-in/
-    icon: ":satellite:"
+    icon: broadcast
 
 # Pro: remove the "Made with Retype" footer (requires the RETYPE_KEY secret
 # to be present at build time, else the build fails on this Pro-only option).

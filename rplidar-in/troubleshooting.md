@@ -1,5 +1,5 @@
 ---
-icon: :wrench:
+icon: bug
 order: 10
 ---
 

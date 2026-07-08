@@ -1,5 +1,5 @@
 ---
-icon: :control_knobs:
+icon: sliders
 order: 20
 ---
 

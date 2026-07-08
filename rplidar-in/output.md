@@ -1,5 +1,5 @@
 ---
-icon: :outbox_tray:
+icon: upload
 order: 30
 ---
 

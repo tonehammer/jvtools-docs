@@ -28,6 +28,21 @@ User-facing docs here must stay in sync with each HDA's **parameter tooltips / H
 | RPLidar In | `rplidar-in/` | `C:\Users\Jovan\Documents\GitHub\RPLidar for Houdini` | `houdini/rplidar_sop.py` → `setup_hda_parms()` (parm names + `setHelp` tooltips) |
 | Reallusion Importer for Houdini | *(section not yet created)* | `C:\Users\Jovan\Documents\GitHub\Reallusion Importer for Houdini` | *(TBD — probe the asset's parm builder / tooltips when starting this section)* |
 
+## Authoring reference
+
+- **Icons:** page/folder/nav `icon:` must be a **bare Octicon name** (`icon: rocket`, `icon: broadcast`) — NOT an emoji shortcode (`:rocket:` silently renders nothing). Full list: retype.com/components/octicons. In-body icon component is `:icon-<name>:`.
+- **Colored callouts (FREE, not Pro):** `!!!<type>` … `!!!`. Types: `primary` (blue), `info` (light-blue), `success`/`tip` (green), `warning` (yellow), `danger` (red), `question` (purple), `secondary` (gray), `base/light/dark/ghost/contrast`. Optional title after the type. Collapsible: `!!-` (collapsed) / `!!+` (expanded), e.g. `!!-danger Title`. (Needed for the Reallusion Importer section.)
+- **Cards** (landing pages): `[!card title="…" icon="…" text="…"](/path/README.md)`.
+- **Exclude from build:** the `exclude:` list in retype.yml (CLAUDE.md is already excluded — keeps the hub in-repo but off the site).
+
+## Retype Pro backlog (license unlocks these — implement when useful)
+
+Already active: breadcrumbs, right-side Table of Contents, footer removed (`poweredByRetype: false`).
+- **Quick wins:** Last-Updated label (git timestamps per page); Next/Previous nav buttons; Branding base color (one accent color for the whole site).
+- **As the family grows:** Stack navigation mode (stacked per-product sidebar); Nav badges/tags ("New"/"Beta"); Hub link (if a jvtools.com portal ever exists).
+- **CI hardening:** Strict build mode — fail the build on broken links instead of shipping them. Turn on soon.
+- **If needed:** Private/Protected pages (password-gate unreleased-product docs).
+
 ## Working rules
 
 - **Minimal chat formatting**, get to the point (Jovan is technical).

@@ -26,7 +26,7 @@ User-facing docs here must stay in sync with each HDA's **parameter tooltips / H
 | Product | Docs folder | Code repo on disk | Ground truth |
 | --- | --- | --- | --- |
 | RPLidar In | `rplidar-in/` | `C:\Users\Jovan\Documents\GitHub\RPLidar for Houdini` | `houdini/rplidar_sop.py` → `setup_hda_parms()` (parm names + `setHelp` tooltips) |
-| Reallusion Importer for Houdini | *(add folder)* | *(path TBD — fill in)* | *(TBD)* |
+| Reallusion Importer for Houdini | *(section not yet created)* | `C:\Users\Jovan\Documents\GitHub\Reallusion Importer for Houdini` | *(TBD — probe the asset's parm builder / tooltips when starting this section)* |
 
 ## Working rules
 

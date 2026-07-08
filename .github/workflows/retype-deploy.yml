@@ -1,0 +1,33 @@
+# Build the Retype site and publish it to GitHub Pages on every push to main.
+# Retype's official actions: https://retype.com/guides/github-actions/
+#
+# One-time GitHub setup (after this repo is pushed to GitHub):
+#   1. Settings -> Pages -> Build and deployment -> Source: "Deploy from a
+#      branch", Branch: "retype" / root. (action-github-pages creates that
+#      branch on first run.)
+#   2. Settings -> Actions -> General -> Workflow permissions:
+#      "Read and write permissions".
+name: Publish Retype site to GitHub Pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - uses: retypeapp/action-build@latest
+
+      - uses: retypeapp/action-github-pages@latest
+        with:
+          update-branch: true

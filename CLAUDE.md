@@ -8,7 +8,7 @@ A **Retype** static documentation site. Each product (HDA) is a folder under the
 
 - **Tool:** Retype **Pro** (one-time license — no subscription). Config: `retype.yml`.
 - **Local preview:** `retype start` (live-reload dev server). **Build:** `retype build` → static site in `.retype/` (git-ignored).
-- **Deploy:** push to GitHub → auto-build → live (GitHub Pages via Retype's GitHub Action, or Cloudflare Pages watching the repo). Set up once; after that **push = live**, like GitBook's git sync. ⏳ Deploy wiring is TODO — pending Jovan's Retype Pro key + a chosen domain (`url:` in retype.yml is a placeholder).
+- **Deploy target (decided 2026-07-08):** GitHub Pages **project site** at **`https://tonehammer.github.io/jvtools-docs/`** (free github.io for now; migrate to a custom domain later — Pro license has 3 project slots). The Retype Pro **license key is registered to the domain `tonehammer.github.io`** and only builds projects whose retype.yml `url` matches — so `url:` is set to that exact base. Push to `main` → the workflow in `.github/workflows/retype-deploy.yml` builds and publishes → live. ⏳ Still TODO: create+push the GitHub repo, add the license key (repo secret for the Action), enable Pages.
 
 ## Structure & conventions
 

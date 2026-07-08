@@ -4,9 +4,10 @@
 input: .
 output: .retype
 
-# The public base URL of the site. Update this to the real domain before the
-# first production deploy (e.g. https://docs.jvtools.com).
-url: https://jovanmaric.github.io/jvtools-docs/
+# The public base URL of the site. Must EXACTLY match the domain the Retype
+# Pro license key is registered to (here: tonehammer.github.io). If you later
+# move to a custom domain, update this AND re-license the key to that domain.
+url: https://tonehammer.github.io/jvtools-docs/
 
 branding:
   title: JVtools

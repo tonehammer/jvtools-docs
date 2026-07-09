@@ -26,7 +26,7 @@ User-facing docs here must stay in sync with each HDA's **parameter tooltips / H
 | Product | Docs folder | Code repo on disk | Ground truth |
 | --- | --- | --- | --- |
 | RPLidar In | `rplidar-in/` | `C:\Users\Jovan\Documents\GitHub\RPLidar for Houdini` | `houdini/rplidar_sop.py` → `setup_hda_parms()` (parm names + `setHelp` tooltips) |
-| Reallusion Importer for Houdini | *(section not yet created)* | `C:\Users\Jovan\Documents\GitHub\Reallusion Importer for Houdini` | *(TBD — probe the asset's parm builder / tooltips when starting this section)* |
+| Reallusion Importer for Houdini | `reallusion-importer/` | `C:\Users\Jovan\Documents\GitHub\Reallusion Importer for Houdini` | The HDA's per-parm **Help fields** (typed in Edit Parameter Interface) + `houdini/reallusion_importer_help.txt`. ⚠ Docs are **dual-hosted**: this Retype section AND a still-**live GitBook** in the product repo's `docs/` (existing customers point there). Keep **both** in sync until the GitBook→Retype migration completes "down the line". |
 
 ## Authoring reference
 
@@ -47,5 +47,5 @@ Already active: breadcrumbs, right-side Table of Contents, footer removed (`powe
 
 - **Minimal chat formatting**, get to the point (Jovan is technical).
 - **The tooltip/Help field in the HDA is authoritative.** Docs are synced to it manually — change the parm, update the doc; there's no auto-binding.
-- **Pushing:** this is a docs repo (not module code), so summarize changes and get Jovan's go-ahead before pushing, unless he says otherwise. (Mirrors the product-repo push tiers.)
+- **Pushing (granted 2026-07-09):** this is a docs repo — Claude may commit + push **at will, without asking**. Still summarize what changed in the message. (A push to `main` triggers the Retype CI build → live site.)
 - Typical flow: Jovan asks for a feature → in one session Claude edits the **product code** (its repo) *and* the **docs** (here) → pushes both → Retype rebuilds the site.

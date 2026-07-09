@@ -1,0 +1,74 @@
+---
+icon: meter
+order: 90
+---
+
+# Performance & Caching
+
+Character Creator characters are detailed, and detailed characters use memory. This page explains where the cost comes from and how to keep your sessions fast and lean.
+
+## Why the first build is slow
+
+When you import a character, the slow part is Houdini loading and expanding the FBX — particularly its blendshapes (the facial expression targets). A fully-featured CC character has many of these, and expanding them is memory- and time-intensive. This is inherent to how Houdini handles FBX character data, not something specific to this tool.
+
+The good news: this cost is paid **once**, at build time. After that, adjusting your look on the controller is fast, because the materials just reference the controller — they don't re-cook the character.
+
+!!!info
+Expect a heavy or HD character to use a substantial amount of RAM once loaded — this is normal for film-quality character data in Houdini. Lighter characters are correspondingly cheaper.
+!!!
+
+!!!info On the roadmap
+Reducing this memory footprint is a known priority. A future version may improve it by adopting Houdini's newer USD-based character import, which handles this data more efficiently than the current FBX path. See [Limitations & Expectations](limitations.md).
+!!!
+
+## Keeping look-dev fast
+
+While you're working on the look, use these to stay responsive:
+
+* **Quality ▸ Preview** — turns off subsurface scattering and uses cheap eyes. The single biggest speed-up. (See [The Lookdev Controller](../using/lookdev-controller.md).)
+* **Displacement ▸ Disable or Bump** — true displacement is expensive; use it only for final renders.
+* **Hero Eyes off** — for any character whose eyes aren't the focus.
+
+Switch all of these to full quality only when you're ready for final renders.
+
+## Managing memory
+
+### Animation clips are heavy
+
+Animation is the single biggest driver of memory use in the tool — bigger than the character itself. Each clip you add to the database uses a significant amount of memory, and the cost scales with the clip's **length**: Houdini holds the expanded character for every frame in the range. A few hundred frames is comfortable; multi-thousand-frame clips can balloon RAM fast. Keep your clip frame-ranges to what you actually need, add only the clips you'll use, and use **Remove Animation** to free clips you're done with. (See [Animation](../using/animation.md).)
+
+### Clear Scene Cache
+
+The **Clear Scene Cache** button (in the Utilities section) unloads cached geometry from Houdini's caches to reclaim memory — useful after deleting characters or removing animation clips.
+
+![](../static/clear-scene-cache-button.png)
+
+!!!warning Geometry that's currently displayed won't unload
+Houdini keeps actively-displayed data resident by design. Clear Scene Cache reclaims cooked data that's no longer needed (from deleted characters or removed animations), not the character you're currently looking at. To free a loaded character's memory, delete or bypass its nodes first, then clear the cache.
+!!!
+
+## Skin Cache (Save / Load to Disk)
+
+The first import of a heavy or HD character is the slow part. To avoid paying that cost every time you open the scene, the tool lets you **save the character's cooked geometry to a cache file on disk** and load that back instantly.
+
+In the **Skin Cache (recommended)** folder on the Reallusion Importer node:
+
+* **Save to Disk** — writes the current character geometry to a cache file (`.bgeo.sc`) at the location set in the **Geometry Cache File** field. Recommended for heavy/HD characters.
+* **Load from Disk** — loads the cached geometry from disk instead of re-importing and re-expanding the FBX. Much faster for heavy characters.
+* **Reload** — re-reads the cache from disk (use after re-saving the cache).
+
+![](../static/geometry-caching-folder.png)
+
+!!!success Workflow
+Import the character once, click **Save to Disk**, then switch to **Load from Disk**. From then on the character loads from the fast cache instead of the slow FBX expansion. Re-save whenever you change the source character.
+!!!
+
+!!!info Keep the FBX File set
+The cache accelerates the geometry side only — the heavy mesh and blendshape expansion. The skeleton and animation always read from the FBX, so the **FBX File** field must stay filled even when loading from disk (the cache makes it fast, not optional).
+!!!
+
+**About the node's second output:** the Reallusion Importer node has two outputs. The first is the finished character. The second, **Utility Cache**, is an internal tap of the character's rest geometry that the **Save to Disk** button reads from — it isn't meant to be wired into your scene. Leave it unconnected.
+
+## Multiple characters
+
+You can have several characters in one scene — each gets its own stem-prefixed nodes and its own lookdev controller, so they don't interfere with each other. Just be mindful that each one carries its own memory cost. On a memory-constrained machine, work with one character at a time.

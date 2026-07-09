@@ -22,6 +22,9 @@ links:
   - text: Products
     link: /
     icon: home
+  - text: Reallusion Importer
+    link: /reallusion-importer/
+    icon: person
   - text: RPLidar In
     link: /rplidar-in/
     icon: broadcast

@@ -1,6 +1,6 @@
 {
   "product": "Reallusion Importer for Houdini",
-  "latest": "1.1",
+  "latest": "1.2",
   "url": "https://jvtonehammer.gumroad.com/l/reallusionimporterforhoudini",
-  "notes": "Fixed the Documentation/YouTube link buttons, updated the Discord invite link, moved documentation to the new JVtools docs site, and clarified the Broken Elements tooltip."
+  "notes": "TEST bump to demo the in-app update notice. Revert to 1.1 after testing."
 }

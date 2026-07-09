@@ -10,7 +10,7 @@ Houdini digital assets and tools for artists and technical directors. Pick a pro
 
 ## Products
 
-[!card title="Reallusion Importer for Houdini" icon=":performing_arts:" text="Turn a Character Creator 5 / iClone 8 FBX character into a fully shaded, animatable, render-ready Solaris character with Karma XPU MaterialX materials — in one click."](/reallusion-importer/README.md)
+[!card title="Reallusion Importer for Houdini" image="/reallusion-importer/static/card.png" text="Turn a Character Creator 5 / iClone 8 FBX character into a fully shaded, animatable, render-ready Solaris character with Karma XPU MaterialX materials — in one click." footer="[Get it on Gumroad →](https://jvtonehammer.gumroad.com/l/reallusionimporterforhoudini)"](/reallusion-importer/README.md)
 
 [!card title="RPLidar In" icon=":satellite:" text="Bring live Slamtec RPLIDAR point-cloud data into Houdini as SOP geometry — stream, record, visualize, and drive live simulations."](/rplidar-in/README.md)
 

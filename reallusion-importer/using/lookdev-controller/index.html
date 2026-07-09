@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="turbo-root" content="/jvtools-docs">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.836902828027">
+
+    <!-- See retype.com -->
+    <meta name="generator" content="Retype 4.6.0">
+
+    <!-- Primary Meta Tags -->
+    <title>The Lookdev Controller</title>
+    <meta name="title" content="The Lookdev Controller">
+    <meta name="description" content="When you click Build Character, the tool creates a bright red controller node in the LOP network (Solaris). This node is the heart of the whole">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/lookdev-controller/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://tonehammer.github.io/jvtools-docs/sitemap.xml">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/lookdev-controller/">
+    <meta property="og:title" content="The Lookdev Controller">
+    <meta property="og:description" content="When you click Build Character, the tool creates a bright red controller node in the LOP network (Solaris). This node is the heart of the whole">
+    <meta property="og:image" content="https://tonehammer.github.io/jvtools-docs/reallusion-importer/static/elysse_lookdev_controller.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="The Lookdev Controller">
+    <meta property="og:site_name" content="JVtools">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/lookdev-controller/">
+    <meta name="twitter:title" content="The Lookdev Controller">
+    <meta name="twitter:description" content="When you click Build Character, the tool creates a bright red controller node in the LOP network (Solaris). This node is the heart of the whole">
+    <meta name="twitter:image" content="https://tonehammer.github.io/jvtools-docs/reallusion-importer/static/elysse_lookdev_controller.png">
+    <meta name="twitter:image:alt" content="The Lookdev Controller">
+
+    <!-- Alternate Markdown -->
+    <link rel="alternate" type="text/markdown" href="https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/lookdev-controller.md">
+
+    <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
+
+    <link href="../../../resources/css/retype.css?v=4.6.0.836902828027" rel="stylesheet">
+
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.836902828027" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.836902828027" data-turbo-eval="false" defer></script>
+</head>
+<body>
+    <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
+    <div class="absolute bottom-0 left-0" style="top: 5rem; right: 50%"></div>
+
+    <header id="retype-header" class="sticky top-0 z-30 flex w-full h-16 bg-header-bg border-b border-header-border md:h-20">
+        <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
+            <!-- Mobile menu button skeleton -->
+            <button v-cloak class="skeleton retype-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-hidden rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+            <div v-cloak id="retype-sidebar-left-toggle-button"></div>
+    
+            <!-- Logo -->
+            <div class="flex items-center justify-between h-full py-2 md:w-75">
+                <div class="flex items-center px-2 md:px-6">
+                    <a id="retype-branding-logo" href="https://tonehammer.github.io/jvtools-docs/" class="flex items-center leading-snug text-2xl">
+                        <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">JVtools</span>
+                    </a><span id="retype-branding-label" class="inline-flex mt-1 px-2 py-1 ml-4 text-xs font-medium leading-none items-center rounded-md bg-branding-label-bg text-branding-label-text ring-1 ring-branding-label-border ring-inset md:inline-block">Docs</span>
+                </div>
+    
+                <span class="hidden h-8 border-r md:inline-block border-base-border"></span>
+            </div>
+    
+            <div class="flex justify-between md:grow">
+                <!-- Top Nav -->
+                <nav id="retype-header-nav" class="hidden md:flex">
+                    <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+                        <li class="mr-6">
+                            <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"/>
+                                </svg>
+                                <span>Products</span>
+                            </a>
+                        </li>
+                        <li class="mr-6">
+                            <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../reallusion-importer/">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <path d="M12 2.5a5.5 5.5 0 0 1 3.096 10.047 9.005 9.005 0 0 1 5.9 8.181.75.75 0 1 1-1.499.044 7.5 7.5 0 0 0-14.993 0 .75.75 0 0 1-1.5-.045 9.005 9.005 0 0 1 5.9-8.18A5.5 5.5 0 0 1 12 2.5ZM8 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z"/>
+                                </svg>
+                                <span>Reallusion Importer</span>
+                            </a>
+                        </li>
+                        <li class="mr-6">
+                            <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../rplidar-in/">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <path d="M20.485 2.515a.75.75 0 0 0-1.06 1.06A10.465 10.465 0 0 1 22.5 11c0 2.9-1.174 5.523-3.075 7.424a.75.75 0 0 0 1.06 1.061A11.965 11.965 0 0 0 24 11c0-3.314-1.344-6.315-3.515-8.485Zm-15.91 1.06a.75.75 0 0 0-1.06-1.06A11.965 11.965 0 0 0 0 11c0 3.313 1.344 6.314 3.515 8.485a.75.75 0 0 0 1.06-1.06A10.465 10.465 0 0 1 1.5 11c0-2.9 1.174-5.524 3.075-7.425ZM8.11 7.11a.75.75 0 0 0-1.06-1.06A6.98 6.98 0 0 0 5 11a6.98 6.98 0 0 0 2.05 4.95.75.75 0 0 0 1.06-1.061 5.48 5.48 0 0 1-1.61-3.89 5.48 5.48 0 0 1 1.61-3.888Zm8.84-1.06a.75.75 0 1 0-1.06 1.06A5.48 5.48 0 0 1 17.5 11a5.48 5.48 0 0 1-1.61 3.889.75.75 0 1 0 1.06 1.06A6.98 6.98 0 0 0 19 11a6.98 6.98 0 0 0-2.05-4.949ZM14 11a2 2 0 0 1-1.25 1.855v8.395a.75.75 0 0 1-1.5 0v-8.395A2 2 0 1 1 14 11Z"/>
+                                </svg>
+                                <span>RPLidar In</span>
+                            </a>
+                        </li>
+    
+                    </ul>
+                </nav>
+    
+                <div v-cloak class="flex justify-end grow">
+                    <div id="retype-mobile-search-button"></div>
+                    <doc-search-desktop></doc-search-desktop>
+    
+                    <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                    <doc-history></doc-history>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div id="retype-container" class="container relative flex bg-white">
+        <!-- Sidebar Skeleton -->
+        <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-sidebar-left-bg border-sidebar-left-border sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton">
+        
+            <div class="flex items-center h-16 px-6">
+                <input id="retype-filter-input-mock" class="w-full h-10 pl-8 px-3 py-2 transition-colors duration-200 ease-linear bg-filter-bg border border-filter-border rounded-lg shadow-none md:text-sm hover:border-filter-border-hover focus:outline-hidden focus:border-filter-border-focus placeholder-filter-placeholder" type="text">
+            </div>
+        
+            <div class="pl-6 mt-1 mb-4">
+                <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            </div>
+        
+        </div>
+        
+        <!-- Sidebar component -->
+        <doc-sidebar v-cloak>
+            <template #sidebar-footer>
+                <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-base-border">
+        
+                    <div class="py-3 px-6 md:hidden border-b dark:border-base-border">
+                        <nav>
+                            <ul class="flex flex-wrap justify-center items-center">
+                                <li class="mr-6">
+                                    <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                            <path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"/>
+                                        </svg>
+                                        <span>Products</span>
+                                    </a>
+                                </li>
+                                <li class="mr-6">
+                                    <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../reallusion-importer/">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                            <path d="M12 2.5a5.5 5.5 0 0 1 3.096 10.047 9.005 9.005 0 0 1 5.9 8.181.75.75 0 1 1-1.499.044 7.5 7.5 0 0 0-14.993 0 .75.75 0 0 1-1.5-.045 9.005 9.005 0 0 1 5.9-8.18A5.5 5.5 0 0 1 12 2.5ZM8 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z"/>
+                                        </svg>
+                                        <span>Reallusion Importer</span>
+                                    </a>
+                                </li>
+                                <li class="mr-6">
+                                    <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../rplidar-in/">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                            <path d="M20.485 2.515a.75.75 0 0 0-1.06 1.06A10.465 10.465 0 0 1 22.5 11c0 2.9-1.174 5.523-3.075 7.424a.75.75 0 0 0 1.06 1.061A11.965 11.965 0 0 0 24 11c0-3.314-1.344-6.315-3.515-8.485Zm-15.91 1.06a.75.75 0 0 0-1.06-1.06A11.965 11.965 0 0 0 0 11c0 3.313 1.344 6.314 3.515 8.485a.75.75 0 0 0 1.06-1.06A10.465 10.465 0 0 1 1.5 11c0-2.9 1.174-5.524 3.075-7.425ZM8.11 7.11a.75.75 0 0 0-1.06-1.06A6.98 6.98 0 0 0 5 11a6.98 6.98 0 0 0 2.05 4.95.75.75 0 0 0 1.06-1.061 5.48 5.48 0 0 1-1.61-3.89 5.48 5.48 0 0 1 1.61-3.888Zm8.84-1.06a.75.75 0 1 0-1.06 1.06A5.48 5.48 0 0 1 17.5 11a5.48 5.48 0 0 1-1.61 3.889.75.75 0 1 0 1.06 1.06A6.98 6.98 0 0 0 19 11a6.98 6.98 0 0 0-2.05-4.949ZM14 11a2 2 0 0 1-1.25 1.855v8.395a.75.75 0 0 1-1.5 0v-8.395A2 2 0 1 1 14 11Z"/>
+                                        </svg>
+                                        <span>RPLidar In</span>
+                                    </a>
+                                </li>
+        
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </template>
+        </doc-sidebar>
+
+        <div class="grow min-w-0 bg-body-bg">
+            <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+<div class="flex">
+    <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
+        <main class="relative pb-12 lg:pt-2">
+            <div class="relative retype-markdown" id="retype-content">
+                <!-- Rendered if sidebar right is enabled -->
+                <div id="retype-sidebar-right-toggle"></div>
+                <nav id="retype-breadcrumb" class="breadcrumb" aria-label="Breadcrumb">
+                    <ol role="list">
+                        <li class="pr-4">
+                            <a href="../../../" class="pr-4">
+                                Products
+                            </a>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/>
+                            </svg>
+                        </li>
+                        <li class="pr-4">
+                            <a href="../../../reallusion-importer/" class="pr-4">
+                                Reallusion Importer for Houdini
+                            </a>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/>
+                            </svg>
+                        </li>
+                        <li class="pr-4">
+                            <span class="pr-4">
+                                Using the Asset
+                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/>
+                            </svg>
+                        </li>
+                        <li class="pr-4">
+                            <a href="../../../reallusion-importer/using/lookdev-controller/" class="pr-4">
+                                The Lookdev Controller
+                            </a>
+                        </li>
+                    </ol>
+                </nav>
+
+                <doc-page-actions></doc-page-actions>
+
+                <!-- Page content  -->
+<h1 id="the-lookdev-controller">The Lookdev Controller</h1>
+<p>When you click <strong>Build Character</strong>, the tool creates a bright <strong>red controller node</strong> in the LOP network (Solaris). This node is the heart of the whole look-development workflow — every material the tool builds references it, so adjusting a control here updates your character&#x27;s look live in the Karma render.</p>
+<figure class="content-center">
+    <img src="../../static/elysse_lookdev_controller.png" alt="" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="1007" height="983" />
+    <figcaption class="caption"></figcaption>
+</figure>
+<h2 id="finding-it">Finding it</h2>
+<p>Click the <strong>Go to LOPs</strong> button on the Reallusion Importer node to jump straight to the controller. It&#x27;s the red, circular node — hard to miss. If you have several characters in your scene, each one gets its own controller, named after that character.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>Think of the controller as your character&#x27;s &quot;look dashboard.&quot; The materials don&#x27;t store their own settings — instead they read from this controller. That means:</p>
+<ul>
+<li><strong>Changes are live.</strong> Drag a slider and the Karma render updates (with a couple of exceptions noted below).</li>
+<li><strong>Your settings survive rebuilds.</strong> If you rebuild the character (for example after changing an export), your dialed-in look values are preserved — the controller isn&#x27;t wiped.</li>
+<li><strong>Everything is in one place.</strong> No hunting through dozens of shader nodes.</li>
+</ul>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>A few controls need a render restart</h5>
+<p>Most controls update live. A small number — the eye light controls and SSS Quality — are Karma <em>render properties</em>, which Karma only reads when a render starts. If one of these doesn&#x27;t seem to update, restart your Karma render. Each such control says so in its tooltip, and we note it on the relevant pages.</p>
+        </div>
+    </div>
+</div>
+<h2 id="the-control-folders">The control folders</h2>
+<p>The controller&#x27;s parameters are organized into folders, each covering one aspect of the character. Every folder has its own page in this documentation:</p>
+<ul>
+<li><strong>Quality</strong> — fast preview vs. full production quality, plus the light rig preset. Covered below.</li>
+<li><a href="../skin/"><strong>Skin</strong></a> — roughness, normal detail, color contrast; contains the Skin Re-tint, Teeth, Subsurface, Wrinkles, and Displacement sub-folders.
+<ul>
+<li><a href="../wrinkles/"><strong>Wrinkles</strong></a> — the animated expression-wrinkle system.</li>
+<li><a href="../displacement/"><strong>Displacement</strong></a> — fine surface relief from displacement maps.</li>
+</ul>
+</li>
+<li><a href="../eyes/"><strong>Eyes</strong></a> — stylized glow and eyes-as-light-source.</li>
+<li><a href="../hair/"><strong>Hair</strong></a> — re-dyeing, highlights, and realistic sheen; contains the Brows sub-folder.</li>
+</ul>
+<h2 id="clothing--accessories">Clothing &amp; accessories</h2>
+<p>You&#x27;ll notice there&#x27;s no folder for clothing or accessories — that&#x27;s intentional. The tool shades clothing, shoes, props, horns, GoZ garments, and other accessories <strong>automatically</strong> as physically-based dielectric MaterialX materials, using the textures (and, for untextured custom accessories, the colors stored in the character&#x27;s <code translate="no" v-pre>.json</code>). They come in looking correct with no controls to dial, which is why they don&#x27;t appear on the controller.</p>
+<p>The one related control lives in the <strong>Skin</strong> folder: <strong>Respect Metallic Maps</strong>. Character Creator sometimes writes junk metallic maps onto fabric and inner-mouth materials; the tool ignores them by default so those surfaces read correctly. Turn it on only for a character with genuinely metallic clothing or accessories. See <a href="../skin/">Skin</a>.</p>
+<h2 id="the-quality-folder">The Quality folder</h2>
+<p>The Quality folder is worth understanding first, because it controls the speed-vs-fidelity trade-off for your whole look-dev session.</p>
+<h3 id="quality-preview--production">Quality (Preview / Production)</h3>
+<p>This is a master preset with two settings:</p>
+<ul>
+<li><strong>Preview</strong> — turns off subsurface scattering and uses cheap, fast eyes. Use this while you&#x27;re framing shots and dialing in poses; it&#x27;s much faster to render.</li>
+<li><strong>Production</strong> — restores full subsurface scattering and high-quality refractive eyes. Switch to this for your final renders.</li>
+</ul>
+<p>Switching this preset flips the two toggles below it automatically.</p>
+<h3 id="remove-sss">Remove SSS</h3>
+<p>Disables subsurface scattering on skin and teeth. Subsurface scattering is what gives skin its soft, translucent, lifelike quality — but it&#x27;s also the single most expensive part of the render. Turning it off is the biggest single speed-up available, which is why Preview mode uses it.</p>
+<h3 id="hero-eyes">Hero Eyes</h3>
+<p>Switches the eyes between two quality levels:</p>
+<ul>
+<li><strong>On</strong> — refractive, ray-traced corneas for close-up realism. Use for hero shots where the eyes are prominent.</li>
+<li><strong>Off</strong> — a cheaper cutout cornea, faster and perfectly fine for distant or background characters.</li>
+</ul>
+<h3 id="light-setup">Light Setup</h3>
+<p>Switches the auto-generated light rig between two pre-tuned looks:</p>
+<ul>
+<li><strong>Cinematic</strong> — a warm key light with moody, richly shadowed fill. Good for portrait and dramatic hero shots.</li>
+<li><strong>Neutral</strong> — flat, even, neutral-white lighting. Good for look-dev where you want to see the materials clearly without a strong mood.</li>
+</ul>
+<p>Changing this re-tints the rig immediately. It only affects the three-point rig the tool built — your own lights are untouched. If you haven&#x27;t used <strong>Create Render Setup</strong> this control has no effect.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-success"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-success" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M21 9.09c-.55 0-1 .45-1 1v.92c0 4.96-4.04 8.99-9 8.99-4.97 0-9-4.04-9-9s4.04-9 9-9c1.27 0 2.5.26 3.66.78.51.22 1.1 0 1.32-.51.23-.5 0-1.1-.51-1.32C14.06.32 12.56 0 11.01 0H11C4.94 0 0 4.93 0 10.99 0 17.06 4.93 22 10.99 22H11c6.06 0 11-4.93 11-10.99v-.92c0-.56-.45-1-1-1z"></path>
+                    <path d="M8.71 9.31a.996.996 0 10-1.41 1.41l3 3c.19.19.44.29.71.29.27 0 .52-.11.71-.29l10-10.01a.996.996 0 10-1.41-1.41L11 11.6 8.71 9.31z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Workflow tip</h5>
+<p>Stay in <strong>Preview</strong> while you set up your shot and animation, then switch to <strong>Production</strong> only for your final, high-quality renders. You&#x27;ll spend far less time waiting for the viewport to refresh.</p>
+        </div>
+    </div>
+</div>
+<h2 id="top-buttons">Top buttons</h2>
+<p>At the top of the controller, sharing one row, are two buttons:</p>
+<ul>
+<li><strong>Go to SOPs</strong> — jumps back to the Reallusion Importer node (useful when you&#x27;re deep in the LOP network).</li>
+<li><strong>Reset to Defaults</strong> — returns every control on the controller to its original default value, restoring the out-of-the-box look. It asks for confirmation first, because it discards all your dialed-in settings and can&#x27;t be undone from here. Reset only changes the controller&#x27;s values — it doesn&#x27;t rebuild the character or retint the light rig.</li>
+</ul>
+<p>There&#x27;s one more helper button elsewhere:</p>
+<ul>
+<li>Inside the Wrinkles folder, <strong>Go to Max Wrinkle Frame</strong> — automatically scrubs the timeline to the frame where the character&#x27;s facial expression is most extreme, so you can judge wrinkles at their strongest. See <a href="../wrinkles/">Wrinkles</a>.</li>
+</ul>
+<div id="retype-backlinks">
+    <h2>See also</h2>
+<div class="card-compact-group">
+<div class="card-compact-container">
+    <a href="/jvtools-docs/reallusion-importer/reference/performance/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M12 2.5a9.5 9.5 0 1 0 9.5 9.5c0-1.406-.305-2.74-.852-3.939a.75.75 0 0 1 1.364-.622C22.648 8.829 23 10.374 23 12c0 6.075-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1c1.626 0 3.17.353 4.561.988a.75.75 0 1 1-.622 1.364A9.463 9.463 0 0 0 12 2.5Zm9.03.47a.75.75 0 0 1 0 1.06l-6.445 6.446a3 3 0 1 1-1.06-1.06L19.97 2.97a.75.75 0 0 1 1.06 0ZM12 10.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z"/></svg></span>
+                <span class="card-compact-title">Performance & Caching</span>
+            </div>
+            <p class="card-compact-description">Character Creator characters are detailed, and detailed characters use memory. This page explains where the cost comes from and how to keep your sessions fast and lean.</p>
+        </div>
+    </a>
+</div>
+<div class="card-compact-container">
+    <a href="/jvtools-docs/reallusion-importer/getting-started/quick-start/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M15.716 1.329a1.341 1.341 0 0 1 2.109 1.55L15.147 9h4.161c1.623 0 2.372 2.016 1.143 3.075L8.102 22.721a1.148 1.148 0 0 1-1.81-1.317L8.996 15H4.674c-1.619 0-2.37-2.008-1.148-3.07l12.19-10.6Zm.452 1.595L4.51 13.061a.25.25 0 0 0 .164.439h5.45a.749.749 0 0 1 .692 1.041l-2.559 6.066 11.215-9.668a.25.25 0 0 0-.164-.439H14a.75.75 0 0 1-.687-1.05Z"/></svg></span>
+                <span class="card-compact-title">Quick Start</span>
+            </div>
+            <p class="card-compact-description">This page gets you from a fresh Houdini scene to a shaded, rendered character in about five steps. We'll keep it simple here — every control is explained in depth later in the Using the Asset section.</p>
+        </div>
+    </a>
+</div>
+<div class="card-compact-container">
+    <a href="/jvtools-docs/reallusion-importer/using/rendering/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M21.333 5.333c.734 0 1.334.6 1.334 1.334v12c0 .733-.6 1.333-1.334 1.333H2.667c-.734 0-1.334-.6-1.334-1.333v-12c0-.734.6-1.334 1.334-1.334C2.667 4.6 3.267 4 4 4h5.333c.734 0 1.334.6 1.334 1.333h10.666Zm-6 12A4.655 4.655 0 0 0 20 12.667 4.655 4.655 0 0 0 15.333 8a4.655 4.655 0 0 0-4.666 4.667 4.655 4.655 0 0 0 4.666 4.666Zm3.334-4.666A3.343 3.343 0 0 1 15.333 16 3.352 3.352 0 0 1 12 12.667a3.352 3.352 0 0 1 3.333-3.334 3.352 3.352 0 0 1 3.334 3.334ZM9.333 8V6.667H4V8h5.333Z"/></svg></span>
+                <span class="card-compact-title">Rendering</span>
+            </div>
+            <p class="card-compact-description">The tool builds your character's materials specifically for Karma XPU, Houdini's GPU-accelerated production renderer. This page covers how to get your character on screen and the optional one-click render setup.</p>
+        </div>
+    </a>
+</div>
+</div>
+</div>
+
+                
+                <!-- Required only on API pages -->
+                <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
+            </div>
+            <footer id="retype-content-footer" class="clear-both">
+            
+                <nav id="retype-nextprev" class="print:hidden flex mt-14">
+                    <div class="w-1/2">
+                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../reallusion-importer/getting-started/preparing-your-character/">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                            <span>
+                                <span class="block text-xs font-normal text-base-text-muted">Previous</span>
+                                <span class="block mt-1">Preparing Your Character in Character Creator</span>
+                            </span>
+                        </a>
+                    </div>
+            
+                    <div class="w-1/2">
+                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../reallusion-importer/using/skin/">
+                            <span>
+                                <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
+                                <span class="block mt-1">Skin</span>
+                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                        </a>
+                    </div>
+                </nav>
+            </footer>
+        </main>
+
+        <div id="retype-page-footer" class="print:border-none border-t border-base-border pt-6 mb-8">
+            <footer class="flex flex-wrap items-center justify-between print:justify-center">
+                <div id="retype-footer-links" class="print:hidden">
+                    <ul class="flex flex-wrap items-center text-sm">
+                    </ul>
+                </div>
+                <div id="retype-copyright" class="print:justify-center py-2 text-footer-text font-footer-link text-sm leading-relaxed"></div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Rendered if sidebar right is enabled -->
+    <!-- Sidebar right skeleton-->
+    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-sidebar-right-bg border-sidebar-right-border lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:translate-x-0 sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton">
+        <div class="pl-5">
+            <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+        </div>
+    </div>
+
+    <!-- User should be able to hide sidebar right -->
+    <doc-sidebar-right v-cloak></doc-sidebar-right>
+</div>
+
+        </div>
+    </div>
+
+    <doc-search-mobile></doc-search-mobile>
+    <doc-back-to-top></doc-back-to-top>
+</div>
+
+
+    <div id="retype-overlay-target"></div>
+
+        <script data-cfasync="false">window.__DOCS__ = { "title": "The Lookdev Controller", level: 3, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/reallusion-importer/using/lookdev-controller.md" }</script>
+</body>
+</html>

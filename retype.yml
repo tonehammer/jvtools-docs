@@ -4,9 +4,12 @@
 input: .
 output: .retype
 
-# Keep the CLAUDE.md hub in the repo but out of the built site.
+# Keep the CLAUDE.md hub and the version manifests in the repo but out of the
+# built docs site. (versions/*.json is read by the HDAs' update check via the
+# GitHub raw URL, not served as a doc page.)
 exclude:
   - "CLAUDE.md"
+  - "versions"
 
 # The public base URL of the site. Must EXACTLY match the domain the Retype
 # Pro license key is registered to (here: tonehammer.github.io). If you later

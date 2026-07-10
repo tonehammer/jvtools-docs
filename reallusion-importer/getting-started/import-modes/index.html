@@ -11,38 +11,38 @@
     <meta name="generator" content="Retype 4.6.0">
 
     <!-- Primary Meta Tags -->
-    <title>Recording &amp; Playback</title>
-    <meta name="title" content="Recording & Playback">
-    <meta name="description" content="Recording captures the live stream to disk so you can replay it later — develop offline, iterate on a solver against a repeatable take, or archive an installation.">
+    <title>Import Modes — USD &amp; FBX</title>
+    <meta name="title" content="Import Modes — USD & FBX">
+    <meta name="description" content="Version 1.2 added a second way to bring your character in. At the very top of the node is an Import dropdown with two choices:">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://tonehammer.github.io/jvtools-docs/rplidar-in/recording/">
+    <link rel="canonical" href="https://tonehammer.github.io/jvtools-docs/reallusion-importer/getting-started/import-modes/">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="https://tonehammer.github.io/jvtools-docs/sitemap.xml">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/rplidar-in/recording/">
-    <meta property="og:title" content="Recording & Playback">
-    <meta property="og:description" content="Recording captures the live stream to disk so you can replay it later — develop offline, iterate on a solver against a repeatable take, or archive an installation.">
+    <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/reallusion-importer/getting-started/import-modes/">
+    <meta property="og:title" content="Import Modes — USD & FBX">
+    <meta property="og:description" content="Version 1.2 added a second way to bring your character in. At the very top of the node is an Import dropdown with two choices:">
     <meta property="og:site_name" content="JVtools">
     <meta property="og:locale" content="en_US">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/rplidar-in/recording/">
-    <meta name="twitter:title" content="Recording & Playback">
-    <meta name="twitter:description" content="Recording captures the live stream to disk so you can replay it later — develop offline, iterate on a solver against a repeatable take, or archive an installation.">
+    <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/reallusion-importer/getting-started/import-modes/">
+    <meta name="twitter:title" content="Import Modes — USD & FBX">
+    <meta name="twitter:description" content="Version 1.2 added a second way to bring your character in. At the very top of the node is an Import dropdown with two choices:">
 
     <!-- Alternate Markdown -->
-    <link rel="alternate" type="text/markdown" href="https://tonehammer.github.io/jvtools-docs/rplidar-in/recording.md">
+    <link rel="alternate" type="text/markdown" href="https://tonehammer.github.io/jvtools-docs/reallusion-importer/getting-started/import-modes.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.837029118595" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.837029118595" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837029118595" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837029118595" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837029118595" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837029118595" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -70,7 +70,7 @@
                 <nav id="retype-header-nav" class="hidden md:flex">
                     <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
                         <li class="mr-6">
-                            <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../">
+                            <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
                                     <path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"/>
                                 </svg>
@@ -78,7 +78,7 @@
                             </a>
                         </li>
                         <li class="mr-6">
-                            <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../reallusion-importer/">
+                            <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../reallusion-importer/">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
                                     <path d="M12 2.5a5.5 5.5 0 0 1 3.096 10.047 9.005 9.005 0 0 1 5.9 8.181.75.75 0 1 1-1.499.044 7.5 7.5 0 0 0-14.993 0 .75.75 0 0 1-1.5-.045 9.005 9.005 0 0 1 5.9-8.18A5.5 5.5 0 0 1 12 2.5ZM8 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z"/>
                                 </svg>
@@ -86,7 +86,7 @@
                             </a>
                         </li>
                         <li class="mr-6">
-                            <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../rplidar-in/">
+                            <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../rplidar-in/">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
                                     <path d="M20.485 2.515a.75.75 0 0 0-1.06 1.06A10.465 10.465 0 0 1 22.5 11c0 2.9-1.174 5.523-3.075 7.424a.75.75 0 0 0 1.06 1.061A11.965 11.965 0 0 0 24 11c0-3.314-1.344-6.315-3.515-8.485Zm-15.91 1.06a.75.75 0 0 0-1.06-1.06A11.965 11.965 0 0 0 0 11c0 3.313 1.344 6.314 3.515 8.485a.75.75 0 0 0 1.06-1.06A10.465 10.465 0 0 1 1.5 11c0-2.9 1.174-5.524 3.075-7.425ZM8.11 7.11a.75.75 0 0 0-1.06-1.06A6.98 6.98 0 0 0 5 11a6.98 6.98 0 0 0 2.05 4.95.75.75 0 0 0 1.06-1.061 5.48 5.48 0 0 1-1.61-3.89 5.48 5.48 0 0 1 1.61-3.888Zm8.84-1.06a.75.75 0 1 0-1.06 1.06A5.48 5.48 0 0 1 17.5 11a5.48 5.48 0 0 1-1.61 3.889.75.75 0 1 0 1.06 1.06A6.98 6.98 0 0 0 19 11a6.98 6.98 0 0 0-2.05-4.949ZM14 11a2 2 0 0 1-1.25 1.855v8.395a.75.75 0 0 1-1.5 0v-8.395A2 2 0 1 1 14 11Z"/>
                                 </svg>
@@ -137,7 +137,7 @@
                         <nav>
                             <ul class="flex flex-wrap justify-center items-center">
                                 <li class="mr-6">
-                                    <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../">
+                                    <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
                                             <path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"/>
                                         </svg>
@@ -145,7 +145,7 @@
                                     </a>
                                 </li>
                                 <li class="mr-6">
-                                    <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../reallusion-importer/">
+                                    <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../reallusion-importer/">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
                                             <path d="M12 2.5a5.5 5.5 0 0 1 3.096 10.047 9.005 9.005 0 0 1 5.9 8.181.75.75 0 1 1-1.499.044 7.5 7.5 0 0 0-14.993 0 .75.75 0 0 1-1.5-.045 9.005 9.005 0 0 1 5.9-8.18A5.5 5.5 0 0 1 12 2.5ZM8 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z"/>
                                         </svg>
@@ -153,7 +153,7 @@
                                     </a>
                                 </li>
                                 <li class="mr-6">
-                                    <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../rplidar-in/">
+                                    <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../rplidar-in/">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
                                             <path d="M20.485 2.515a.75.75 0 0 0-1.06 1.06A10.465 10.465 0 0 1 22.5 11c0 2.9-1.174 5.523-3.075 7.424a.75.75 0 0 0 1.06 1.061A11.965 11.965 0 0 0 24 11c0-3.314-1.344-6.315-3.515-8.485Zm-15.91 1.06a.75.75 0 0 0-1.06-1.06A11.965 11.965 0 0 0 0 11c0 3.313 1.344 6.314 3.515 8.485a.75.75 0 0 0 1.06-1.06A10.465 10.465 0 0 1 1.5 11c0-2.9 1.174-5.524 3.075-7.425ZM8.11 7.11a.75.75 0 0 0-1.06-1.06A6.98 6.98 0 0 0 5 11a6.98 6.98 0 0 0 2.05 4.95.75.75 0 0 0 1.06-1.061 5.48 5.48 0 0 1-1.61-3.89 5.48 5.48 0 0 1 1.61-3.888Zm8.84-1.06a.75.75 0 1 0-1.06 1.06A5.48 5.48 0 0 1 17.5 11a5.48 5.48 0 0 1-1.61 3.889.75.75 0 1 0 1.06 1.06A6.98 6.98 0 0 0 19 11a6.98 6.98 0 0 0-2.05-4.949ZM14 11a2 2 0 0 1-1.25 1.855v8.395a.75.75 0 0 1-1.5 0v-8.395A2 2 0 1 1 14 11Z"/>
                                         </svg>
@@ -179,7 +179,7 @@
                 <nav id="retype-breadcrumb" class="breadcrumb" aria-label="Breadcrumb">
                     <ol role="list">
                         <li class="pr-4">
-                            <a href="../../" class="pr-4">
+                            <a href="../../../" class="pr-4">
                                 Products
                             </a>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
@@ -187,16 +187,24 @@
                             </svg>
                         </li>
                         <li class="pr-4">
-                            <a href="../../rplidar-in/" class="pr-4">
-                                RP​Lidar In
+                            <a href="../../../reallusion-importer/" class="pr-4">
+                                Reallusion Importer for Houdini
                             </a>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
                                 <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/>
                             </svg>
                         </li>
                         <li class="pr-4">
-                            <a href="../../rplidar-in/recording/" class="pr-4">
-                                Recording &amp; Playback
+                            <span class="pr-4">
+                                Getting Started
+                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/>
+                            </svg>
+                        </li>
+                        <li class="pr-4">
+                            <a href="../../../reallusion-importer/getting-started/import-modes/" class="pr-4">
+                                Import Modes — USD &amp; FBX
                             </a>
                         </li>
                     </ol>
@@ -205,103 +213,140 @@
                 <doc-page-actions></doc-page-actions>
 
                 <!-- Page content  -->
-<h1 id="recording--playback">Recording &amp; Playback</h1>
-<p>Recording captures the live stream to disk so you can replay it later — develop offline, iterate on a solver against a repeatable take, or archive an installation.</p>
-<p>Each recording is a <code translate="no" v-pre>.jsonl</code> file: one JSON line per rotation, holding the timestamp and the rotation&#x27;s samples.</p>
-<h2 id="the-recording-folder">The Recording folder</h2>
-<retype-table copy-text="| Parameter | What it does |
-| --- | --- |
-| **Recording Directory** | Where recordings are saved and listed from. Defaults to `$HIP/rplidar-recordings`. |
-| **Recording File** | The file used for Playback. The dropdown lists the directory. Leave it **blank to use the newest file** in the directory. |
-| **Loop Playback** | Loop the recording. When off, the last scan is held after the file ends. |
-| **Start Recording** | Begin writing the live stream to a new timestamped file. *Live mode only.* |
-| **Stop Recording** | Finish the recording and auto-select it in **Recording File**. |
-| **Delete Recording** | Delete the file currently picked in **Recording File** (asks for confirmation). |">
+<h1 id="import-modes--usd--fbx">Import Modes — USD &amp; FBX</h1>
+<p>Version 1.2 added a second way to bring your character in. At the very top of the node is an <strong>Import</strong> dropdown with two choices:</p>
+<ul>
+<li><strong>USD</strong> <em>(default)</em> — imports Character Creator&#x27;s <strong>Export USD (Omniverse)</strong> output. Dramatically faster and lighter on memory.</li>
+<li><strong>FBX</strong> — the original path, importing a standard <strong>Export FBX</strong> file. Needed for a few features Character Creator only writes to FBX.</li>
+</ul>
+<p>Both modes produce the same shaded, animatable character with the same lookdev controller. They differ only in how fast the import is and in a small number of features that depend on data Character Creator includes in one export but not the other.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-success"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-success" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M21 9.09c-.55 0-1 .45-1 1v.92c0 4.96-4.04 8.99-9 8.99-4.97 0-9-4.04-9-9s4.04-9 9-9c1.27 0 2.5.26 3.66.78.51.22 1.1 0 1.32-.51.23-.5 0-1.1-.51-1.32C14.06.32 12.56 0 11.01 0H11C4.94 0 0 4.93 0 10.99 0 17.06 4.93 22 10.99 22H11c6.06 0 11-4.93 11-10.99v-.92c0-.56-.45-1-1-1z"></path>
+                    <path d="M8.71 9.31a.996.996 0 10-1.41 1.41l3 3c.19.19.44.29.71.29.27 0 .52-.11.71-.29l10-10.01a.996.996 0 10-1.41-1.41L11 11.6 8.71 9.31z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>The short version</h5>
+<p>Use <strong>USD</strong> for almost everything — it&#x27;s much faster and uses a fraction of the memory. Switch to <strong>FBX</strong> only if you specifically need <strong>animated expression wrinkles</strong> or the <strong>root-to-tip / highlight hair re-dye</strong>, which USD exports don&#x27;t carry (see below).</p>
+        </div>
+    </div>
+</div>
+<h2 id="why-usd-is-the-default--speed-and-memory">Why USD is the default — speed and memory</h2>
+<p>Character Creator&#x27;s FBX stores every facial blendshape as a full mesh copy, and Houdini has to expand all of them on import. On a heavy HD character that means tens of gigabytes of RAM and a minute or more of waiting. The USD export keeps those blendshapes sparse, so Houdini reads them almost instantly.</p>
+<p>The difference is not subtle. In our tests:</p>
+<retype-table copy-text="| Character | FBX import | USD import |
+|---|---|---|
+| A standard base character | ~19 s, ~5 GB | **~0.4 s, ~0.5 GB** |
+| A heavy HD character | ~96 s, ~13 GB | **~1.3 s, ~0.9 GB** |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
 <tr>
-<th>Parameter</th>
-<th>What it does</th>
+<th>Character</th>
+<th>FBX import</th>
+<th>USD import</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Recording Directory</strong></td>
-<td>Where recordings are saved and listed from. Defaults to <code translate="no" v-pre>$HIP/rplidar-recordings</code>.</td>
+<td>A standard base character</td>
+<td>~19 s, ~5 GB</td>
+<td><strong>~0.4 s, ~0.5 GB</strong></td>
 </tr>
 <tr>
-<td><strong>Recording File</strong></td>
-<td>The file used for Playback. The dropdown lists the directory. Leave it <strong>blank to use the newest file</strong> in the directory.</td>
-</tr>
-<tr>
-<td><strong>Loop Playback</strong></td>
-<td>Loop the recording. When off, the last scan is held after the file ends.</td>
-</tr>
-<tr>
-<td><strong>Start Recording</strong></td>
-<td>Begin writing the live stream to a new timestamped file. <em>Live mode only.</em></td>
-</tr>
-<tr>
-<td><strong>Stop Recording</strong></td>
-<td>Finish the recording and auto-select it in <strong>Recording File</strong>.</td>
-</tr>
-<tr>
-<td><strong>Delete Recording</strong></td>
-<td>Delete the file currently picked in <strong>Recording File</strong> (asks for confirmation).</td>
+<td>A heavy HD character</td>
+<td>~96 s, ~13 GB</td>
+<td><strong>~1.3 s, ~0.9 GB</strong></td>
 </tr>
 </tbody>
 </table>
 </div>
 </retype-table>
-<h2 id="recording-a-take">Recording a take</h2>
-<ol>
-<li>Set <strong>Mode → Live</strong> and confirm points are streaming.</li>
-<li>Press <strong>Start Recording</strong>. A new timestamped <code translate="no" v-pre>.jsonl</code> file is created in the Recording Directory.</li>
-<li>Perform your take (walk through the scene, move objects, etc.).</li>
-<li>Press <strong>Stop Recording</strong>. The finished file is selected in <strong>Recording File</strong> automatically.</li>
-</ol>
-<p>Recording happens on the sensor&#x27;s background reader thread, so no rotations are missed between Houdini cooks.</p>
-<h2 id="playing-it-back">Playing it back</h2>
-<ol>
-<li>Set <strong>Mode → Playback</strong>.</li>
-<li>Pick a file in <strong>Recording File</strong> (or leave blank for the newest).</li>
-<li>Scrub the timeline or press Play — the scan is driven by the playbar clock.</li>
-</ol>
-<p>Use <strong>Loop Playback</strong> to cycle a short take continuously while you tune a downstream network.</p>
+<p>That&#x27;s roughly <strong>50–75× faster</strong> and <strong>10–14× less memory</strong>, and the gap grows the heavier your character is. Because USD imports in about a second, the <a href="../../reference/performance/">Skin Cache</a> is unnecessary in USD mode — so its controls are hidden there.</p>
+<h2 id="whats-identical-in-both-modes">What&#x27;s identical in both modes</h2>
+<p>Everything that makes up the character and its look is the same:</p>
+<ul>
+<li>Geometry, skeleton, and animation (body + facial)</li>
+<li>All materials — skin, eyes, teeth, hair, clothing, accessories</li>
+<li>Subsurface scattering, displacement, the full lookdev controller</li>
+<li>Retargeting, Split Body/Facial animation, Skin Fix, and the optional render setup</li>
+</ul>
+<p>You art-direct a USD-imported character exactly the way you would an FBX one.</p>
+<h2 id="what-usd-does-better--real-character-creator-eye--skin-values">What USD does <em>better</em> — real Character Creator eye &amp; skin values</h2>
+<p>The FBX export leaves out most of Character Creator&#x27;s HD eye shader, so in FBX mode the eye controls start from sensible-but-generic defaults you dial in by eye. <strong>The USD export carries Character Creator&#x27;s actual shader values</strong>, so in USD mode the tool reads them and seeds the controller with the real thing automatically:</p>
+<ul>
+<li><strong>Iris color</strong> — your character&#x27;s real iris tint, already applied (only when Character Creator actually tinted it; fully-textured eyes are left untouched).</li>
+<li><strong>Iris size and limbal ring</strong> — sized to Character Creator&#x27;s own values.</li>
+<li><strong>Sclera shading and subsurface amount</strong> — seeded from the real per-character values.</li>
+</ul>
+<p>You can still change all of it — these are just smarter starting points. See <a href="../../using/eyes/">Eyes</a>.</p>
+<h2 id="what-usd-mode-does-not-carry">What USD mode does <em>not</em> carry</h2>
+<p>Character Creator&#x27;s USD export omits some data the FBX export includes. Where that happens, the affected controls stay visible but are <strong>disabled with an &quot;(FBX import only)&quot; note</strong> — so nothing is hidden or silently broken, you can always see what a mode does and doesn&#x27;t do.</p>
+<ul>
+<li><strong>Expression wrinkles.</strong> The animated head-wrinkle system is <strong>FBX only</strong> — the USD export contains no wrinkle maps or weights. If your character&#x27;s performance relies on forehead/brow wrinkles, import it as FBX. See <a href="../../using/wrinkles/">Wrinkles</a>.</li>
+<li><strong>Root-to-tip and highlight hair re-dye.</strong> Character Creator&#x27;s USD export leaves out the hair root, ID, and flow maps, so the <strong>ombré (root/tip) recolor, ID-based highlight streaks, and flow-based anisotropic sheen are FBX only</strong>. A <strong>flat re-dye and the Lightness (Bleach) control still work</strong> in USD mode — you can recolor and lighten hair, just not drive a root-to-tip gradient or highlight streaks. See <a href="../../using/hair/">Hair</a>.</li>
+</ul>
+<p>Everything else — including <strong>displacement</strong> — works in both modes.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Mixing sources</h5>
+<p>USD characters bind in a T-pose (FBX binds in an A-pose). This only matters if you drive a <strong>USD</strong> character with an <strong>FBX</strong> animation-database clip from a <em>different</em> character — the pose conventions differ, so turn <strong>Retarget Animation</strong> on in that case. A character driven by its own embedded animation is always correct. See <a href="../../using/animation/">Animation</a>.</p>
+        </div>
+    </div>
+</div>
+<h2 id="switching-modes">Switching modes</h2>
+<p>The <strong>Import</strong> dropdown swaps which file field is shown — <strong>CC5/iClone USD</strong> or <strong>CC5/iClone FBX</strong> — and rebuilds accordingly when you click <strong>Build Character</strong>. You can switch an existing node between modes at any time; just make sure the matching file is set. Scenes saved before 1.2 keep working: they load in FBX mode automatically, so nothing you built before changes.</p>
+<p>Next: <a href="../preparing-your-character/">Preparing Your Character</a> covers how to export for <strong>both</strong> modes.</p>
 <div id="retype-backlinks">
     <h2>See also</h2>
 <div class="card-compact-group">
 <div class="card-compact-container">
-    <a href="/jvtools-docs/rplidar-in/getting-started/" class="group card-compact no-link">
+    <a href="/jvtools-docs/reallusion-importer/reference/changelog/" class="group card-compact no-link">
         <div class="card-compact-body">
             <div class="card-compact-header">
-                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M20.322.75h1.176a1.75 1.75 0 0 1 1.75 1.749v1.177a10.75 10.75 0 0 1-2.925 7.374l-1.228 1.304a23.699 23.699 0 0 1-1.596 1.542v5.038c0 .615-.323 1.184-.85 1.5l-4.514 2.709a.75.75 0 0 1-1.12-.488l-.963-4.572a1.305 1.305 0 0 1-.14-.129L8.04 15.96l-1.994-1.873a1.305 1.305 0 0 1-.129-.14l-4.571-.963a.75.75 0 0 1-.49-1.12l2.71-4.514c.316-.527.885-.85 1.5-.85h5.037a23.668 23.668 0 0 1 1.542-1.594l1.304-1.23A10.753 10.753 0 0 1 20.321.75Zm-6.344 4.018v-.001l-1.304 1.23a22.275 22.275 0 0 0-3.255 3.851l-2.193 3.29 1.859 1.744a.545.545 0 0 1 .034.034l1.743 1.858 3.288-2.192a22.263 22.263 0 0 0 3.854-3.257l1.228-1.303a9.251 9.251 0 0 0 2.517-6.346V2.5a.25.25 0 0 0-.25-.25h-1.177a9.252 9.252 0 0 0-6.344 2.518ZM6.5 21c-1.209 1.209-3.901 1.445-4.743 1.49a.236.236 0 0 1-.18-.067.236.236 0 0 1-.067-.18c.045-.842.281-3.534 1.49-4.743.9-.9 2.6-.9 3.5 0 .9.9.9 2.6 0 3.5Zm-.592-8.588L8.17 9.017c.23-.346.47-.685.717-1.017H5.066a.25.25 0 0 0-.214.121l-2.167 3.612ZM16 15.112c-.333.248-.672.487-1.018.718l-3.393 2.262.678 3.223 3.612-2.167a.25.25 0 0 0 .121-.214ZM17.5 8a1.5 1.5 0 1 1-3.001-.001A1.5 1.5 0 0 1 17.5 8Z"/></svg></span>
-                <span class="card-compact-title">Getting Started</span>
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M11.998 2.5A9.503 9.503 0 0 0 3.378 8H5.75a.75.75 0 0 1 0 1.5H2a1 1 0 0 1-1-1V4.75a.75.75 0 0 1 1.5 0v1.697A10.997 10.997 0 0 1 11.998 1C18.074 1 23 5.925 23 12s-4.926 11-11.002 11C6.014 23 1.146 18.223 1 12.275a.75.75 0 0 1 1.5-.037 9.5 9.5 0 0 0 9.498 9.262c5.248 0 9.502-4.253 9.502-9.5s-4.254-9.5-9.502-9.5Z"/><path d="M12.5 7.25a.75.75 0 0 0-1.5 0v5.5c0 .27.144.518.378.651l3.5 2a.75.75 0 0 0 .744-1.302L12.5 12.315V7.25Z"/></svg></span>
+                <span class="card-compact-title">Changelog</span>
             </div>
-            <p class="card-compact-description">Copy the RPLidar_In.hdalc file into your Houdini otls directory, or use File → Import → Houdini Digital Asset and point it at the file. It installs the SOP node type RPLidar In.</p>
+            <p class="card-compact-description">USD import mode</p>
         </div>
     </a>
 </div>
 <div class="card-compact-container">
-    <a href="/jvtools-docs/rplidar-in/modes/" class="group card-compact no-link">
+    <a href="/jvtools-docs/reallusion-importer/getting-started/preparing-your-character/" class="group card-compact no-link">
         <div class="card-compact-body">
             <div class="card-compact-header">
-                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M3.38 8A9.502 9.502 0 0 1 12 2.5a9.502 9.502 0 0 1 9.215 7.182.75.75 0 1 0 1.456-.364C21.473 4.539 17.15 1 12 1a10.995 10.995 0 0 0-9.5 5.452V4.75a.75.75 0 0 0-1.5 0V8.5a1 1 0 0 0 1 1h3.75a.75.75 0 0 0 0-1.5H3.38Zm-.595 6.318a.75.75 0 0 0-1.455.364C2.527 19.461 6.85 23 12 23c4.052 0 7.592-2.191 9.5-5.451v1.701a.75.75 0 0 0 1.5 0V15.5a1 1 0 0 0-1-1h-3.75a.75.75 0 0 0 0 1.5h2.37A9.502 9.502 0 0 1 12 21.5c-4.446 0-8.181-3.055-9.215-7.182Z"/></svg></span>
-                <span class="card-compact-title">Modes</span>
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M3.5 3.75a.25.25 0 0 1 .25-.25h13.5a.25.25 0 0 1 .25.25v10a.75.75 0 0 0 1.5 0v-10A1.75 1.75 0 0 0 17.25 2H3.75A1.75 1.75 0 0 0 2 3.75v16.5c0 .966.784 1.75 1.75 1.75h7a.75.75 0 0 0 0-1.5h-7a.25.25 0 0 1-.25-.25V3.75Z"/><path d="M6.25 7a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5Zm-.75 4.75a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Zm16.28 4.53a.75.75 0 1 0-1.06-1.06l-4.97 4.97-1.97-1.97a.75.75 0 1 0-1.06 1.06l2.5 2.5a.75.75 0 0 0 1.06 0l5.5-5.5Z"/></svg></span>
+                <span class="card-compact-title">Preparing Your Character in Character Creator</span>
             </div>
-            <p class="card-compact-description">The Mode parameter is the master switch for the node. It has three settings.</p>
+            <p class="card-compact-description">This is the most important setup page in the documentation. Getting your Character Creator export settings right is the difference between a character that imports perfectly and one that's missing textures, wrinkles, or hair detail.</p>
         </div>
     </a>
 </div>
 <div class="card-compact-container">
-    <a href="/jvtools-docs/rplidar-in/parameters/" class="group card-compact no-link">
+    <a href="/jvtools-docs/reallusion-importer/getting-started/quick-start/" class="group card-compact no-link">
         <div class="card-compact-body">
             <div class="card-compact-header">
-                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M11 18.25a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1-.75-.75Zm-8-12a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 3 6.25Zm13 6a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 0 1.5h-3.5a.75.75 0 0 1-.75-.75ZM8.75 16a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75Z"/><path d="M3 18.25a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Zm0-6a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1-.75-.75ZM16.75 10a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75ZM14 6.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 0 1.5h-5.5a.75.75 0 0 1-.75-.75ZM11.25 4a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75Z"/></svg></span>
-                <span class="card-compact-title">Parameter Reference</span>
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M15.716 1.329a1.341 1.341 0 0 1 2.109 1.55L15.147 9h4.161c1.623 0 2.372 2.016 1.143 3.075L8.102 22.721a1.148 1.148 0 0 1-1.81-1.317L8.996 15H4.674c-1.619 0-2.37-2.008-1.148-3.07l12.19-10.6Zm.452 1.595L4.51 13.061a.25.25 0 0 0 .164.439h5.45a.749.749 0 0 1 .692 1.041l-2.559 6.066 11.215-9.668a.25.25 0 0 0-.164-.439H14a.75.75 0 0 1-.687-1.05Z"/></svg></span>
+                <span class="card-compact-title">Quick Start</span>
             </div>
-            <p class="card-compact-description">Every parameter on the RPLidar In node, grouped by function. Names in code are the internal parameter names.</p>
+            <p class="card-compact-description">This page gets you from a fresh Houdini scene to a shaded, rendered character in about five steps. We'll keep it simple here — every control is explained in depth later in the Using the Asset section.</p>
         </div>
     </a>
 </div>
@@ -316,20 +361,20 @@
             
                 <nav id="retype-nextprev" class="print:hidden flex mt-14">
                     <div class="w-1/2">
-                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../rplidar-in/modes/">
+                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../reallusion-importer/getting-started/installation/">
                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                             <span>
                                 <span class="block text-xs font-normal text-base-text-muted">Previous</span>
-                                <span class="block mt-1">Modes</span>
+                                <span class="block mt-1">Requirements &amp; Installation</span>
                             </span>
                         </a>
                     </div>
             
                     <div class="w-1/2">
-                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../rplidar-in/visualization/">
+                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../reallusion-importer/getting-started/quick-start/">
                             <span>
                                 <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
-                                <span class="block mt-1">Visualization</span>
+                                <span class="block mt-1">Quick Start</span>
                             </span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                         </a>
@@ -373,6 +418,6 @@
 
     <div id="retype-overlay-target"></div>
 
-        <script data-cfasync="false">window.__DOCS__ = { "title": "Recording & Playback", level: 2, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/rplidar-in/recording.md" }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Import Modes — USD & FBX", level: 3, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/reallusion-importer/getting-started/import-modes.md" }</script>
 </body>
 </html>

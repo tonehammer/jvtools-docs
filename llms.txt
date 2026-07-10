@@ -11,6 +11,7 @@
 ### Getting Started
 
 - [Requirements & Installation](https://tonehammer.github.io/jvtools-docs/reallusion-importer/getting-started/installation.md): Before you start, make sure you have:
+- [Import Modes — USD & FBX](https://tonehammer.github.io/jvtools-docs/reallusion-importer/getting-started/import-modes.md): Version 1.2 added a second way to bring your character in. At the very top of the node is an Import dropdown with two choices:
 - [Quick Start](https://tonehammer.github.io/jvtools-docs/reallusion-importer/getting-started/quick-start.md): This page gets you from a fresh Houdini scene to a shaded, rendered character in about five steps. We'll keep it simple here — every control is explained in depth later in the Using the Asset section.
 - [Preparing Your Character in Character Creator](https://tonehammer.github.io/jvtools-docs/reallusion-importer/getting-started/preparing-your-character.md): This is the most important setup page in the documentation. Getting your Character Creator export settings right is the difference between a character that imports perfectly and one that's missing textures, wrinkles, or hair detail.
 
@@ -31,7 +32,7 @@
 - [Limitations & Expectations](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/limitations.md): This page is here to set honest expectations before and after you buy. The tool does a lot, but Character Creator's FBX export — and Houdini itself — impose some hard limits that no importer can work around.
 - [Performance & Caching](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/performance.md): Character Creator characters are detailed, and detailed characters use memory. This page explains where the cost comes from and how to keep your sessions fast and lean.
 - [Troubleshooting & FAQ](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/troubleshooting.md): Common issues and their fixes. Most import problems trace back to either an export setting or a moved file.
-- [Changelog](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/changelog.md): The first public release.
+- [Changelog](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/changelog.md): USD import mode
 - [License](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/license.md): This is the End User License Agreement for the Reallusion Importer for Houdini. By downloading, installing, or using the asset, you agree to these terms.
 
 ## RPLidar In

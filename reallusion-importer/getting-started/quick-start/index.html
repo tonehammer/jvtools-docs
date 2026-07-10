@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.836910246284">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837029118595">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -44,11 +44,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.6.0.836910246284" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.837029118595" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.836910246284" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837029118595" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.836910246284" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837029118595" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -244,8 +244,9 @@
     <img src="../../static/reallusion_importer_fresh_node.png" alt="" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="457" height="163" />
     <figcaption class="caption"></figcaption>
 </figure>
-<h2 id="step-2--point-it-at-your-fbx">Step 2 — Point it at your FBX</h2>
-<p>On the node&#x27;s parameters, find the <strong>CC5/iClone FBX</strong> field and set it to your exported <code translate="no" v-pre>.fbx</code> file.</p>
+<h2 id="step-2--choose-an-import-mode-and-point-it-at-your-file">Step 2 — Choose an import mode and point it at your file</h2>
+<p>At the top of the node is an <strong>Import</strong> dropdown. Leave it on <strong>USD</strong> (the default, and much faster) if you exported a USD file, or switch it to <strong>FBX</strong> for an FBX export. New to the two modes? See <a href="../import-modes/">Import Modes</a>.</p>
+<p>Then set the file field the dropdown shows — <strong>CC5/iClone USD</strong> or <strong>CC5/iClone FBX</strong> — to your exported file.</p>
 <figure class="content-center">
     <img src="../../static/elysse-fbx-filepath.png" alt="" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="759" height="69" />
     <figcaption class="caption"></figcaption>
@@ -263,7 +264,7 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p>The tool expects your textures to sit in a <code translate="no" v-pre>textures</code> folder next to the FBX (this is how Character Creator exports them by default). Keep the FBX and its texture folder together.</p>
+<p>Keep your character&#x27;s textures beside its file, exactly as Character Creator exports them — a <code translate="no" v-pre>Materials</code> folder next to the <code translate="no" v-pre>.usd</code>, or a <code translate="no" v-pre>textures</code> folder next to the <code translate="no" v-pre>.fbx</code>. The tool resolves them relative to the character file.</p>
         </div>
     </div>
 </div>
@@ -286,7 +287,7 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p>The first build of a character is the slow part, because Houdini has to load and expand the FBX. Subsequent look changes are fast. See <a href="../../reference/performance/">Performance &amp; Caching</a> for details.</p>
+<p>In <strong>FBX</strong> mode the first build is the slow part, because Houdini has to load and expand the FBX (subsequent look changes are fast). In <strong>USD</strong> mode import takes about a second even on heavy characters — this is the main reason USD is the default. See <a href="../../reference/performance/">Performance &amp; Caching</a> for details.</p>
         </div>
     </div>
 </div>
@@ -358,11 +359,11 @@
             
                 <nav id="retype-nextprev" class="print:hidden flex mt-14">
                     <div class="w-1/2">
-                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../reallusion-importer/getting-started/installation/">
+                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../reallusion-importer/getting-started/import-modes/">
                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                             <span>
                                 <span class="block text-xs font-normal text-base-text-muted">Previous</span>
-                                <span class="block mt-1">Requirements &amp; Installation</span>
+                                <span class="block mt-1">Import Modes — USD &amp; FBX</span>
                             </span>
                         </a>
                     </div>

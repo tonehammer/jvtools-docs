@@ -12,14 +12,16 @@ Inside a Geometry object, press **Tab**, type **Reallusion**, and place a **Real
 
 ![](../static/reallusion_importer_fresh_node.png)
 
-## Step 2 — Point it at your FBX
+## Step 2 — Choose an import mode and point it at your file
 
-On the node's parameters, find the **CC5/iClone FBX** field and set it to your exported `.fbx` file.
+At the top of the node is an **Import** dropdown. Leave it on **USD** (the default, and much faster) if you exported a USD file, or switch it to **FBX** for an FBX export. New to the two modes? See [Import Modes](import-modes.md).
+
+Then set the file field the dropdown shows — **CC5/iClone USD** or **CC5/iClone FBX** — to your exported file.
 
 ![](../static/elysse-FBX-filepath.png)
 
 !!!info
-The tool expects your textures to sit in a `textures` folder next to the FBX (this is how Character Creator exports them by default). Keep the FBX and its texture folder together.
+Keep your character's textures beside its file, exactly as Character Creator exports them — a `Materials` folder next to the `.usd`, or a `textures` folder next to the `.fbx`. The tool resolves them relative to the character file.
 !!!
 
 ## Step 3 — Build the character
@@ -31,7 +33,7 @@ The tool will now import the character, build all of its materials, set up displ
 ![](../static/elysse-buildchar-button.png)
 
 !!!warning
-The first build of a character is the slow part, because Houdini has to load and expand the FBX. Subsequent look changes are fast. See [Performance & Caching](../reference/performance.md) for details.
+In **FBX** mode the first build is the slow part, because Houdini has to load and expand the FBX (subsequent look changes are fast). In **USD** mode import takes about a second even on heavy characters — this is the main reason USD is the default. See [Performance & Caching](../reference/performance.md) for details.
 !!!
 
 ## Step 4 — Look at your character

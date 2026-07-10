@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.836910246284">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837029118595">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -44,11 +44,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.6.0.836910246284" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.837029118595" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.836910246284" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837029118595" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.836910246284" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837029118595" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -234,11 +234,41 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p>Note: this page will be talking about FBX export settings for <strong>Character Creator</strong>. For <strong>iClone</strong> the settings are the same, just in different places in the export menu.</p>
+<p>For <strong>iClone</strong> the settings are the same, just in different places in the export menu.</p>
         </div>
     </div>
 </div>
-<h2 id="exporting-from-character-creator">Exporting from Character Creator</h2>
+<h2 id="which-export--usd-or-fbx">Which export — USD or FBX?</h2>
+<p>Version 1.2 can import either Character Creator&#x27;s <strong>USD (Omniverse)</strong> export or its <strong>FBX</strong> export, chosen with the <strong>Import</strong> dropdown at the top of the node. <strong>USD is the default and recommended</strong> — it imports far faster and uses a fraction of the memory. Export as <strong>FBX</strong> only if you need <strong>animated expression wrinkles</strong> or the <strong>root-to-tip / highlight hair re-dye</strong>, which USD exports don&#x27;t carry. See <a href="../import-modes/">Import Modes</a> for the full comparison.</p>
+<p>Both exports are quick once you know the settings. Follow the section for the mode you&#x27;re using — <strong><doc-anchor-trigger to="#exporting-as-usd-recommended">USD</doc-anchor-trigger></strong> or <strong><doc-anchor-trigger to="#exporting-as-fbx">FBX</doc-anchor-trigger></strong>.</p>
+<h2 id="exporting-as-usd-recommended">Exporting as USD (recommended)</h2>
+<p>In Character Creator, go to <strong>File ▸ Export ▸ Export USD (Omniverse)</strong>. In the Export USD panel:</p>
+<ul>
+<li><strong>Export → Character</strong> — <em>not</em> <strong>All</strong>. &quot;All&quot; drags scene lights, cameras, and a shadow-catcher into the file. The tool copes with either, but <strong>Character</strong> keeps the file clean.</li>
+<li><strong>Include Motion → ON</strong>, set to your <strong>Current Animation</strong>, to bring the animation in. Turn it off for a static character.</li>
+<li><strong>Motion FPS</strong> — match your Houdini scene&#x27;s FPS (<strong>24</strong> if you haven&#x27;t changed Houdini&#x27;s default; see the note under the FBX section about matching frame rate).</li>
+<li>Everything else (Render Mode, <strong>Unit: Centimeter</strong>, Post Effects: None) can stay at its default.</li>
+</ul>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Delete Hidden Faces is fine</h5>
+<p>Character Creator&#x27;s <strong>Delete Hidden Faces</strong> option (on by default) trims faces hidden under clothing. The tool fully handles this — leave it at its default.</p>
+        </div>
+    </div>
+</div>
+<p>After export you&#x27;ll have a <code translate="no" v-pre>.usd</code> file with a <strong><code translate="no" v-pre>Materials</code></strong> folder beside it (holding <code translate="no" v-pre>Materials/Textures/&lt;Material&gt;/…</code>). <strong>Keep the <code translate="no" v-pre>.usd</code> and its <code translate="no" v-pre>Materials</code> folder together</strong> — the tool resolves textures relative to the <code translate="no" v-pre>.usd</code>. There is <strong>no <code translate="no" v-pre>.json</code> sidecar</strong> in USD mode: Character Creator writes the material data (subsurface, displacement, eye/skin shader values, accessory colors) directly into the USD instead. That&#x27;s everything for USD — you can skip ahead to the <a href="../quick-start/">Quick Start</a>.</p>
+<h2 id="exporting-as-fbx">Exporting as FBX</h2>
 <p>In Character Creator, with your character ready, go to <strong>File ▸ Export ▸ Clothed Character ▸ FBX</strong>. You&#x27;ll see the Export FBX panel. Here&#x27;s how to set it, top to bottom.</p>
 <figure class="content-center">
     <img src="../../static/cc5-export-settings.png" alt="" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="818" height="880" />
@@ -385,6 +415,17 @@ textures/
 <div id="retype-backlinks">
     <h2>See also</h2>
 <div class="card-compact-group">
+<div class="card-compact-container">
+    <a href="/jvtools-docs/reallusion-importer/getting-started/import-modes/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M7.72 21.78a.75.75 0 0 0 1.06-1.06L5.56 17.5h14.69a.75.75 0 0 0 0-1.5H5.56l3.22-3.22a.75.75 0 1 0-1.06-1.06l-4.5 4.5a.75.75 0 0 0 0 1.06l4.5 4.5Zm8.56-9.5a.75.75 0 1 1-1.06-1.06L18.44 8H3.75a.75.75 0 0 1 0-1.5h14.69l-3.22-3.22a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5Z"/></svg></span>
+                <span class="card-compact-title">Import Modes — USD & FBX</span>
+            </div>
+            <p class="card-compact-description">Version 1.2 added a second way to bring your character in. At the very top of the node is an Import dropdown with two choices:</p>
+        </div>
+    </a>
+</div>
 <div class="card-compact-container">
     <a href="/jvtools-docs/reallusion-importer/getting-started/quick-start/" class="group card-compact no-link">
         <div class="card-compact-body">

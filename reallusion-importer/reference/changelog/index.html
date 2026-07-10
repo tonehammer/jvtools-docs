@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837029264925">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837030004027">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.6.0.837029264925" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.837030004027" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837029264925" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837030004027" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837029264925" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837030004027" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -217,7 +217,7 @@
 <h2 id="version-12">Version 1.2</h2>
 <p><strong>USD import mode</strong></p>
 <ul>
-<li><strong>New USD import path.</strong> A new <strong>Import</strong> dropdown at the top of the node lets you import Character Creator&#x27;s <strong>Export USD (Omniverse)</strong> output instead of FBX. USD import is <strong>dramatically faster and lighter on memory</strong> — around 50–75× faster and 10–14× less RAM, with the gap widening on heavier characters — and is now the <strong>default</strong> mode. FBX import is unchanged and still available. See <a href="../../getting-started/import-modes/">Import Modes</a>.</li>
+<li><strong>New USD import path.</strong> A new <strong>Import</strong> dropdown at the top of the node lets you import Character Creator&#x27;s <strong>Export USD (Omniverse)</strong> output instead of FBX. USD import is <strong>dramatically faster and lighter on memory</strong> — around 50–75× faster and 10–14× less RAM, with the gap widening on heavier characters — and is now the <strong>default</strong> mode. FBX import is unchanged and still available. See <a href="../../getting-started/import-modes/">USD vs FBX</a>.</li>
 <li><strong>Real Character Creator eye &amp; skin values.</strong> In USD mode the tool reads Character Creator&#x27;s actual shader values and seeds the lookdev controller with them automatically — real iris color, iris size, limbal ring, sclera shading, and subsurface amount — instead of the generic starting points the FBX export forces. Reset to Defaults returns to these real values in USD mode.</li>
 <li><strong>Honest feature gating.</strong> Character Creator&#x27;s USD export omits the data behind <strong>expression wrinkles</strong> and the <strong>root-to-tip / highlight hair re-dye</strong>, so those controls are clearly disabled with an &quot;(FBX import only)&quot; note in USD mode. Flat hair re-dye, the Lightness (Bleach) control, displacement, and everything else work in both modes.</li>
 <li>Scenes saved before 1.2 open in FBX mode automatically — existing work is unaffected.</li>

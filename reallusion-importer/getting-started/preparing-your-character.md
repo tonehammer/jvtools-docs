@@ -10,7 +10,7 @@ For **iClone** the settings are the same, just in different places in the export
 
 ## Which export — USD or FBX?
 
-Version 1.2 can import either Character Creator's **USD (Omniverse)** export or its **FBX** export, chosen with the **Import** dropdown at the top of the node. **USD is the default and recommended** — it imports far faster and uses a fraction of the memory. Export as **FBX** only if you need **animated expression wrinkles** or the **root-to-tip / highlight hair re-dye**, which USD exports don't carry. See [Import Modes](import-modes.md) for the full comparison.
+Version 1.2 can import either Character Creator's **USD (Omniverse)** export or its **FBX** export, chosen with the **Import** dropdown at the top of the node. **USD is the default and recommended** — it imports far faster and uses a fraction of the memory. Export as **FBX** only if you need **animated expression wrinkles** or the **root-to-tip / highlight hair re-dye**, which USD exports don't carry. See [USD vs FBX](import-modes.md) for the full comparison.
 
 Both exports are quick once you know the settings. Follow the section for the mode you're using — **[USD](#exporting-as-usd-recommended)** or **[FBX](#exporting-as-fbx)**.
 
@@ -22,6 +22,8 @@ In Character Creator, go to **File ▸ Export ▸ Export USD (Omniverse)**. In t
 * **Include Motion → ON**, set to your **Current Animation**, to bring the animation in. Turn it off for a static character.
 * **Motion FPS** — match your Houdini scene's FPS (**24** if you haven't changed Houdini's default; see the note under the FBX section about matching frame rate).
 * Everything else (Render Mode, **Unit: Centimeter**, Post Effects: None) can stay at its default.
+
+![Character Creator's Export USD (Omniverse) panel](../static/cc-export-usd-settings.png)
 
 !!!info Delete Hidden Faces is fine
 Character Creator's **Delete Hidden Faces** option (on by default) trims faces hidden under clothing. The tool fully handles this — leave it at its default.

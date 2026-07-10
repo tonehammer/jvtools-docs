@@ -10,10 +10,31 @@ This is the most important setup page in the documentation. Getting your Charact
 The good news: once you know the correct settings, exporting is quick and you can reuse the same settings every time.
 
 !!!success
-Note: this page will be talking about FBX export settings for **Character Creator**. For **iClone** the settings are the same, just in different places in the export menu.
+For **iClone** the settings are the same, just in different places in the export menu.
 !!!
 
-## Exporting from Character Creator
+## Which export — USD or FBX?
+
+Version 1.2 can import either Character Creator's **USD (Omniverse)** export or its **FBX** export, chosen with the **Import** dropdown at the top of the node. **USD is the default and recommended** — it imports far faster and uses a fraction of the memory. Export as **FBX** only if you need **animated expression wrinkles** or the **root-to-tip / highlight hair re-dye**, which USD exports don't carry. See [Import Modes](import-modes.md) for the full comparison.
+
+Both exports are quick once you know the settings. Follow the section for the mode you're using — **[USD](#exporting-as-usd-recommended)** or **[FBX](#exporting-as-fbx)**.
+
+## Exporting as USD (recommended)
+
+In Character Creator, go to **File ▸ Export ▸ Export USD (Omniverse)**. In the Export USD panel:
+
+* **Export → Character** — *not* **All**. "All" drags scene lights, cameras, and a shadow-catcher into the file. The tool copes with either, but **Character** keeps the file clean.
+* **Include Motion → ON**, set to your **Current Animation**, to bring the animation in. Turn it off for a static character.
+* **Motion FPS** — match your Houdini scene's FPS (**24** if you haven't changed Houdini's default; see the note under the FBX section about matching frame rate).
+* Everything else (Render Mode, **Unit: Centimeter**, Post Effects: None) can stay at its default.
+
+!!!info Delete Hidden Faces is fine
+Character Creator's **Delete Hidden Faces** option (on by default) trims faces hidden under clothing. The tool fully handles this — leave it at its default.
+!!!
+
+After export you'll have a `.usd` file with a **`Materials`** folder beside it (holding `Materials/Textures/<Material>/…`). **Keep the `.usd` and its `Materials` folder together** — the tool resolves textures relative to the `.usd`. There is **no `.json` sidecar** in USD mode: Character Creator writes the material data (subsurface, displacement, eye/skin shader values, accessory colors) directly into the USD instead. That's everything for USD — you can skip ahead to the [Quick Start](quick-start.md).
+
+## Exporting as FBX
 
 In Character Creator, with your character ready, go to **File ▸ Export ▸ Clothed Character ▸ FBX**. You'll see the Export FBX panel. Here's how to set it, top to bottom.
 

@@ -5,6 +5,22 @@ order: 70
 
 # Changelog
 
+## Version 1.2
+
+**USD import mode**
+
+* **New USD import path.** A new **Import** dropdown at the top of the node lets you import Character Creator's **Export USD (Omniverse)** output instead of FBX. USD import is **dramatically faster and lighter on memory** — around 50–75× faster and 10–14× less RAM, with the gap widening on heavier characters — and is now the **default** mode. FBX import is unchanged and still available. See [Import Modes](../getting-started/import-modes.md).
+* **Real Character Creator eye & skin values.** In USD mode the tool reads Character Creator's actual shader values and seeds the lookdev controller with them automatically — real iris color, iris size, limbal ring, sclera shading, and subsurface amount — instead of the generic starting points the FBX export forces. Reset to Defaults returns to these real values in USD mode.
+* **Honest feature gating.** Character Creator's USD export omits the data behind **expression wrinkles** and the **root-to-tip / highlight hair re-dye**, so those controls are clearly disabled with an "(FBX import only)" note in USD mode. Flat hair re-dye, the Lightness (Bleach) control, displacement, and everything else work in both modes.
+* Scenes saved before 1.2 open in FBX mode automatically — existing work is unaffected.
+* Bug fixes and improvements.
+
+## Version 1.1
+
+* **Documentation moved to the new JVtools docs site** (the one you're reading now).
+* **In-app update check.** The asset now checks for a newer version when you build a character and shows an unobtrusive notice if one is available — so you never miss an update. A version label on the node shows which version you have.
+* Bug fixes and improvements.
+
 ## Version 1.0
 
 The first public release.

@@ -7,17 +7,21 @@ Most of these fall into three buckets: **what Character Creator doesn't export**
 ## Memory (the big one, READ BEFORE BUYING)
 
 !!!danger
-**Character Creator characters are memory-heavy in Houdini.** A fully-featured HD character can use **20–40 GB of RAM**, and each added animation clip adds several gigabytes more. Plan for **48 GB minimum** (for simpler characters)**, 64 GB recommended**.
+**Character Creator characters are memory-heavy in Houdini when imported via FBX.** A fully-featured HD character can use **20–40 GB of RAM**, and each added animation clip adds several gigabytes more. Plan for **48 GB minimum** (for simpler characters)**, 64 GB recommended**.
 !!!
 
-This isn't a flaw in the tool — it's how Houdini expands FBX character data (especially the facial blendshapes) into memory on import. The tool includes geometry-caching and memory-reclaim utilities to help you manage it, but they can't change the underlying footprint.
+!!!success USD import dramatically reduces this
+The figures above are for **FBX import**. Version 1.2's **USD import mode** (now the default) keeps the facial blendshapes sparse, cutting import memory by roughly **10–14×** and import time by **50–75×** — a heavy character that needs 20–40 GB via FBX imports in about a second at a fraction of the RAM. **If memory is a concern, export and import as USD.** See [Import Modes](../getting-started/import-modes.md). The FBX figures still apply when you specifically need FBX-only features (wrinkles, root-to-tip/highlight hair re-dye).
+!!!
+
+This isn't a flaw in the tool — it's how Houdini expands **FBX** character data (especially the facial blendshapes) into memory on import. The tool includes geometry-caching and memory-reclaim utilities to help you manage it, but they can't change the underlying footprint (USD import sidesteps it instead).
 
 **Animation is the biggest memory driver of all.** A clip's cost scales with its frame-length, because Houdini holds the expanded character for every frame in the range — so a long, multi-thousand-frame clip can use far more RAM than the static character. Keep your animation frame-ranges to what you actually need. See [Performance & Caching](performance.md).
 
 If you're on 16 GB or less, expect to struggle with HD characters or animation. See [Performance & Caching](performance.md) for strategies. Recommended 64+ GB.
 
-!!!info On the roadmap
-Reducing this memory footprint is a known priority. A future version may improve it significantly by adopting Houdini's newer USD-based character import options, which handle this data more efficiently than the current FBX path. No promises on timing, but it's actively on the radar.
+!!!success This is largely solved in 1.2
+The USD-based character import mentioned as a plan in earlier versions **shipped in Version 1.2** and is now the default — it's the biggest single reduction in this memory footprint. Import as USD to get it. (A deeper USD-native rebuild remains on the longer-term roadmap.)
 !!!
 
 ## The eyes

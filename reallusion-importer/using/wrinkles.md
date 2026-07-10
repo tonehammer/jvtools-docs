@@ -2,6 +2,10 @@
 
 One of the tool's standout features is its **animated expression-wrinkle system**. Character Creator faces have a sophisticated wrinkle system — as a character frowns, squints, or opens their mouth, fine wrinkles appear in the right places. This tool reconstructs that system live in Karma, so your character's wrinkles react to their animation in real time.
 
+!!!warning FBX import only
+The wrinkle system needs data that Character Creator writes only to its **FBX** export, so wrinkles are available in **FBX import mode only**. In USD mode these controls are disabled with an "(FBX import only)" note. If your character's performance relies on expression wrinkles, import it as FBX — see [Import Modes](../getting-started/import-modes.md).
+!!!
+
 ![Eyebrow Strength at 1 vs 2.5](../static/eyebrow-presentation.png)
 
 ## How it works (the short version)

@@ -2,18 +2,20 @@
 
 Character Creator characters are detailed, and detailed characters use memory. This page explains where the cost comes from and how to keep your sessions fast and lean.
 
-## Why the first build is slow
+## The fastest fix: import as USD
 
-When you import a character, the slow part is Houdini loading and expanding the FBX — particularly its blendshapes (the facial expression targets). A fully-featured CC character has many of these, and expanding them is memory- and time-intensive. This is inherent to how Houdini handles FBX character data, not something specific to this tool.
+Version 1.2's **USD import mode** sidesteps almost all of this cost, and it's the default. Character Creator's USD export keeps the facial blendshapes sparse, so Houdini imports even a heavy HD character in **about a second, using a fraction of the memory** — roughly **50–75× faster and 10–14× less RAM** than the FBX path. If performance or memory is a concern, exporting and importing as **USD is the single biggest thing you can do**. See [Import Modes](../getting-started/import-modes.md).
+
+The rest of this page applies mainly to **FBX import**, which still has to expand the character on load (and which you'd use for FBX-only features like wrinkles).
+
+## Why the first FBX build is slow
+
+When you import an FBX character, the slow part is Houdini loading and expanding it — particularly its blendshapes (the facial expression targets). A fully-featured CC character has many of these, and expanding them is memory- and time-intensive. This is inherent to how Houdini handles FBX character data, not something specific to this tool. (USD import avoids it — see above.)
 
 The good news: this cost is paid **once**, at build time. After that, adjusting your look on the controller is fast, because the materials just reference the controller — they don't re-cook the character.
 
 !!!info
-Expect a heavy or HD character to use a substantial amount of RAM once loaded — this is normal for film-quality character data in Houdini. Lighter characters are correspondingly cheaper.
-!!!
-
-!!!info On the roadmap
-Reducing this memory footprint is a known priority. A future version may improve it by adopting Houdini's newer USD-based character import, which handles this data more efficiently than the current FBX path. See [Limitations & Expectations](limitations.md).
+Expect a heavy or HD character imported **via FBX** to use a substantial amount of RAM once loaded — this is normal for film-quality character data in Houdini. Lighter characters are correspondingly cheaper, and USD import is cheaper across the board.
 !!!
 
 ## Keeping look-dev fast
@@ -44,7 +46,11 @@ Houdini keeps actively-displayed data resident by design. Clear Scene Cache recl
 
 ## Skin Cache (Save / Load to Disk)
 
-The first import of a heavy or HD character is the slow part. To avoid paying that cost every time you open the scene, the tool lets you **save the character's cooked geometry to a cache file on disk** and load that back instantly.
+!!!info FBX mode only
+The Skin Cache exists to avoid the slow FBX expansion. **USD import is already about a second**, so the cache is unnecessary there — its folder is hidden in USD mode. This section applies to **FBX import**.
+!!!
+
+The first FBX import of a heavy or HD character is the slow part. To avoid paying that cost every time you open the scene, the tool lets you **save the character's cooked geometry to a cache file on disk** and load that back instantly.
 
 In the **Skin Cache (recommended)** folder on the Reallusion Importer node:
 

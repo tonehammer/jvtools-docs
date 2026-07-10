@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837029118595">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837029264925">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.6.0.837029118595" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.837029264925" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837029118595" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837029264925" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837029118595" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837029264925" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -229,28 +229,44 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p><strong>Character Creator characters are memory-heavy in Houdini.</strong> A fully-featured HD character can use <strong>20–40 GB of RAM</strong>, and each added animation clip adds several gigabytes more. Plan for <strong>48 GB minimum</strong> (for simpler characters)<strong>, 64 GB recommended</strong>.</p>
+<p><strong>Character Creator characters are memory-heavy in Houdini when imported via FBX.</strong> A fully-featured HD character can use <strong>20–40 GB of RAM</strong>, and each added animation clip adds several gigabytes more. Plan for <strong>48 GB minimum</strong> (for simpler characters)<strong>, 64 GB recommended</strong>.</p>
         </div>
     </div>
 </div>
-<p>This isn&#x27;t a flaw in the tool — it&#x27;s how Houdini expands FBX character data (especially the facial blendshapes) into memory on import. The tool includes geometry-caching and memory-reclaim utilities to help you manage it, but they can&#x27;t change the underlying footprint.</p>
-<p><strong>Animation is the biggest memory driver of all.</strong> A clip&#x27;s cost scales with its frame-length, because Houdini holds the expanded character for every frame in the range — so a long, multi-thousand-frame clip can use far more RAM than the static character. Keep your animation frame-ranges to what you actually need. See <a href="../performance/">Performance &amp; Caching</a>.</p>
-<p>If you&#x27;re on 16 GB or less, expect to struggle with HD characters or animation. See <a href="../performance/">Performance &amp; Caching</a> for strategies. Recommended 64+ GB.</p>
 <div class="flex mb-6">
-    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-success"></div>
     <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
         <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-success" width="22" height="22" viewBox="0 0 24 24" role="presentation">
                 <g fill="currentColor"><g>
-                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
-                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                    <path fill="none" d="M0 0h24v24H0z"></path>
+                    <path d="M21 9.09c-.55 0-1 .45-1 1v.92c0 4.96-4.04 8.99-9 8.99-4.97 0-9-4.04-9-9s4.04-9 9-9c1.27 0 2.5.26 3.66.78.51.22 1.1 0 1.32-.51.23-.5 0-1.1-.51-1.32C14.06.32 12.56 0 11.01 0H11C4.94 0 0 4.93 0 10.99 0 17.06 4.93 22 10.99 22H11c6.06 0 11-4.93 11-10.99v-.92c0-.56-.45-1-1-1z"></path>
+                    <path d="M8.71 9.31a.996.996 0 10-1.41 1.41l3 3c.19.19.44.29.71.29.27 0 .52-.11.71-.29l10-10.01a.996.996 0 10-1.41-1.41L11 11.6 8.71 9.31z"></path>
                 </g></g>
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-            <h5>On the roadmap</h5>
-<p>Reducing this memory footprint is a known priority. A future version may improve it significantly by adopting Houdini&#x27;s newer USD-based character import options, which handle this data more efficiently than the current FBX path. No promises on timing, but it&#x27;s actively on the radar.</p>
+            <h5>USD import dramatically reduces this</h5>
+<p>The figures above are for <strong>FBX import</strong>. Version 1.2&#x27;s <strong>USD import mode</strong> (now the default) keeps the facial blendshapes sparse, cutting import memory by roughly <strong>10–14×</strong> and import time by <strong>50–75×</strong> — a heavy character that needs 20–40 GB via FBX imports in about a second at a fraction of the RAM. <strong>If memory is a concern, export and import as USD.</strong> See <a href="../../getting-started/import-modes/">Import Modes</a>. The FBX figures still apply when you specifically need FBX-only features (wrinkles, root-to-tip/highlight hair re-dye).</p>
+        </div>
+    </div>
+</div>
+<p>This isn&#x27;t a flaw in the tool — it&#x27;s how Houdini expands <strong>FBX</strong> character data (especially the facial blendshapes) into memory on import. The tool includes geometry-caching and memory-reclaim utilities to help you manage it, but they can&#x27;t change the underlying footprint (USD import sidesteps it instead).</p>
+<p><strong>Animation is the biggest memory driver of all.</strong> A clip&#x27;s cost scales with its frame-length, because Houdini holds the expanded character for every frame in the range — so a long, multi-thousand-frame clip can use far more RAM than the static character. Keep your animation frame-ranges to what you actually need. See <a href="../performance/">Performance &amp; Caching</a>.</p>
+<p>If you&#x27;re on 16 GB or less, expect to struggle with HD characters or animation. See <a href="../performance/">Performance &amp; Caching</a> for strategies. Recommended 64+ GB.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-success"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-success" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M21 9.09c-.55 0-1 .45-1 1v.92c0 4.96-4.04 8.99-9 8.99-4.97 0-9-4.04-9-9s4.04-9 9-9c1.27 0 2.5.26 3.66.78.51.22 1.1 0 1.32-.51.23-.5 0-1.1-.51-1.32C14.06.32 12.56 0 11.01 0H11C4.94 0 0 4.93 0 10.99 0 17.06 4.93 22 10.99 22H11c6.06 0 11-4.93 11-10.99v-.92c0-.56-.45-1-1-1z"></path>
+                    <path d="M8.71 9.31a.996.996 0 10-1.41 1.41l3 3c.19.19.44.29.71.29.27 0 .52-.11.71-.29l10-10.01a.996.996 0 10-1.41-1.41L11 11.6 8.71 9.31z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>This is largely solved in 1.2</h5>
+<p>The USD-based character import mentioned as a plan in earlier versions <strong>shipped in Version 1.2</strong> and is now the default — it&#x27;s the biggest single reduction in this memory footprint. Import as USD to get it. (A deeper USD-native rebuild remains on the longer-term roadmap.)</p>
         </div>
     </div>
 </div>
@@ -336,17 +352,6 @@
                 <span class="card-compact-title">Hair</span>
             </div>
             <p class="card-compact-description">The Hair folder is one of the tool's most powerful features: a complete hair re-dye system. You can recolor any compatible character's hair — change it from brown to silver, add ombré fades, paint in highlight streaks — all without going back to Character Creator.</p>
-        </div>
-    </a>
-</div>
-<div class="card-compact-container">
-    <a href="/jvtools-docs/reallusion-importer/reference/performance/" class="group card-compact no-link">
-        <div class="card-compact-body">
-            <div class="card-compact-header">
-                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M12 2.5a9.5 9.5 0 1 0 9.5 9.5c0-1.406-.305-2.74-.852-3.939a.75.75 0 0 1 1.364-.622C22.648 8.829 23 10.374 23 12c0 6.075-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1c1.626 0 3.17.353 4.561.988a.75.75 0 1 1-.622 1.364A9.463 9.463 0 0 0 12 2.5Zm9.03.47a.75.75 0 0 1 0 1.06l-6.445 6.446a3 3 0 1 1-1.06-1.06L19.97 2.97a.75.75 0 0 1 1.06 0ZM12 10.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z"/></svg></span>
-                <span class="card-compact-title">Performance & Caching</span>
-            </div>
-            <p class="card-compact-description">Character Creator characters are detailed, and detailed characters use memory. This page explains where the cost comes from and how to keep your sessions fast and lean.</p>
         </div>
     </a>
 </div>

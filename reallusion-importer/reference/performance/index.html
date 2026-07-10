@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837029118595">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837029264925">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -44,11 +44,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.6.0.837029118595" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.837029264925" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837029118595" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837029264925" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837029118595" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837029264925" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -221,8 +221,11 @@
                 <!-- Page content  -->
 <h1 id="performance--caching">Performance &amp; Caching</h1>
 <p>Character Creator characters are detailed, and detailed characters use memory. This page explains where the cost comes from and how to keep your sessions fast and lean.</p>
-<h2 id="why-the-first-build-is-slow">Why the first build is slow</h2>
-<p>When you import a character, the slow part is Houdini loading and expanding the FBX — particularly its blendshapes (the facial expression targets). A fully-featured CC character has many of these, and expanding them is memory- and time-intensive. This is inherent to how Houdini handles FBX character data, not something specific to this tool.</p>
+<h2 id="the-fastest-fix-import-as-usd">The fastest fix: import as USD</h2>
+<p>Version 1.2&#x27;s <strong>USD import mode</strong> sidesteps almost all of this cost, and it&#x27;s the default. Character Creator&#x27;s USD export keeps the facial blendshapes sparse, so Houdini imports even a heavy HD character in <strong>about a second, using a fraction of the memory</strong> — roughly <strong>50–75× faster and 10–14× less RAM</strong> than the FBX path. If performance or memory is a concern, exporting and importing as <strong>USD is the single biggest thing you can do</strong>. See <a href="../../getting-started/import-modes/">Import Modes</a>.</p>
+<p>The rest of this page applies mainly to <strong>FBX import</strong>, which still has to expand the character on load (and which you&#x27;d use for FBX-only features like wrinkles).</p>
+<h2 id="why-the-first-fbx-build-is-slow">Why the first FBX build is slow</h2>
+<p>When you import an FBX character, the slow part is Houdini loading and expanding it — particularly its blendshapes (the facial expression targets). A fully-featured CC character has many of these, and expanding them is memory- and time-intensive. This is inherent to how Houdini handles FBX character data, not something specific to this tool. (USD import avoids it — see above.)</p>
 <p>The good news: this cost is paid <strong>once</strong>, at build time. After that, adjusting your look on the controller is fast, because the materials just reference the controller — they don&#x27;t re-cook the character.</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
@@ -237,25 +240,7 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p>Expect a heavy or HD character to use a substantial amount of RAM once loaded — this is normal for film-quality character data in Houdini. Lighter characters are correspondingly cheaper.</p>
-        </div>
-    </div>
-</div>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
-    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
-                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                    <path fill="none" d="M0 0h24v24H0z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-            <h5>On the roadmap</h5>
-<p>Reducing this memory footprint is a known priority. A future version may improve it by adopting Houdini&#x27;s newer USD-based character import, which handles this data more efficiently than the current FBX path. See <a href="../limitations/">Limitations &amp; Expectations</a>.</p>
+<p>Expect a heavy or HD character imported <strong>via FBX</strong> to use a substantial amount of RAM once loaded — this is normal for film-quality character data in Houdini. Lighter characters are correspondingly cheaper, and USD import is cheaper across the board.</p>
         </div>
     </div>
 </div>
@@ -294,7 +279,25 @@
     </div>
 </div>
 <h2 id="skin-cache-save--load-to-disk">Skin Cache (Save / Load to Disk)</h2>
-<p>The first import of a heavy or HD character is the slow part. To avoid paying that cost every time you open the scene, the tool lets you <strong>save the character&#x27;s cooked geometry to a cache file on disk</strong> and load that back instantly.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>FBX mode only</h5>
+<p>The Skin Cache exists to avoid the slow FBX expansion. <strong>USD import is already about a second</strong>, so the cache is unnecessary there — its folder is hidden in USD mode. This section applies to <strong>FBX import</strong>.</p>
+        </div>
+    </div>
+</div>
+<p>The first FBX import of a heavy or HD character is the slow part. To avoid paying that cost every time you open the scene, the tool lets you <strong>save the character&#x27;s cooked geometry to a cache file on disk</strong> and load that back instantly.</p>
 <p>In the <strong>Skin Cache (recommended)</strong> folder on the Reallusion Importer node:</p>
 <ul>
 <li><strong>Save to Disk</strong> — writes the current character geometry to a cache file (<code translate="no" v-pre>.bgeo.sc</code>) at the location set in the <strong>Geometry Cache File</strong> field. Recommended for heavy/HD characters.</li>

@@ -13,11 +13,11 @@
     <lastmod>2026-07-08T19:04:52Z</lastmod>
   </url>
   <url>
-    <loc>https://tonehammer.github.io/jvtools-docs/reallusion-importer/getting-started/quick-start/</loc>
+    <loc>https://tonehammer.github.io/jvtools-docs/reallusion-importer/getting-started/import-modes/</loc>
     <lastmod>2026-07-10T22:04:50Z</lastmod>
   </url>
   <url>
-    <loc>https://tonehammer.github.io/jvtools-docs/reallusion-importer/getting-started/import-modes/</loc>
+    <loc>https://tonehammer.github.io/jvtools-docs/reallusion-importer/getting-started/quick-start/</loc>
     <lastmod>2026-07-10T22:04:50Z</lastmod>
   </url>
   <url>
@@ -38,11 +38,15 @@
   </url>
   <url>
     <loc>https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/hair/</loc>
-    <lastmod>2026-07-09T10:59:51Z</lastmod>
+    <lastmod>2026-07-10T22:07:32Z</lastmod>
   </url>
   <url>
     <loc>https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/eyes/</loc>
-    <lastmod>2026-07-09T10:59:51Z</lastmod>
+    <lastmod>2026-07-10T22:07:32Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/limitations/</loc>
+    <lastmod>2026-07-10T22:07:32Z</lastmod>
   </url>
   <url>
     <loc>https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/troubleshooting/</loc>
@@ -58,11 +62,7 @@
   </url>
   <url>
     <loc>https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/wrinkles/</loc>
-    <lastmod>2026-07-09T10:59:51Z</lastmod>
-  </url>
-  <url>
-    <loc>https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/limitations/</loc>
-    <lastmod>2026-07-09T10:59:51Z</lastmod>
+    <lastmod>2026-07-10T22:07:32Z</lastmod>
   </url>
   <url>
     <loc>https://tonehammer.github.io/jvtools-docs/rplidar-in/modes/</loc>
@@ -90,7 +90,7 @@
   </url>
   <url>
     <loc>https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/performance/</loc>
-    <lastmod>2026-07-09T10:59:51Z</lastmod>
+    <lastmod>2026-07-10T22:07:32Z</lastmod>
   </url>
   <url>
     <loc>https://tonehammer.github.io/jvtools-docs/rplidar-in/visualization/</loc>

@@ -9,7 +9,7 @@ Character Creator characters are detailed, and detailed characters use memory. T
 
 ## The fastest fix: import as USD
 
-Version 1.2's **USD import mode** sidesteps almost all of this cost, and it's the default. Character Creator's USD export keeps the facial blendshapes sparse, so Houdini imports even a heavy HD character in **about a second, using a fraction of the memory** — roughly **50–75× faster and 10–14× less RAM** than the FBX path. If performance or memory is a concern, exporting and importing as **USD is the single biggest thing you can do**. See [Import Modes](../getting-started/import-modes.md).
+Version 1.2's **USD import mode** sidesteps almost all of this cost, and it's the default. Character Creator's USD export keeps the facial blendshapes sparse, so Houdini imports even a heavy HD character in **about a second, using a fraction of the memory** — roughly **50–75× faster and 10–14× less RAM** than the FBX path. If performance or memory is a concern, exporting and importing as **USD is the single biggest thing you can do**. See [USD vs FBX](../getting-started/import-modes.md).
 
 The rest of this page applies mainly to **FBX import**, which still has to expand the character on load (and which you'd use for FBX-only features like wrinkles).
 

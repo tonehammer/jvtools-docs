@@ -19,7 +19,7 @@ Inside a Geometry object, press **Tab**, type **Reallusion**, and place a **Real
 
 ## Step 2 — Choose an import mode and point it at your file
 
-At the top of the node is an **Import** dropdown. Leave it on **USD** (the default, and much faster) if you exported a USD file, or switch it to **FBX** for an FBX export. New to the two modes? See [Import Modes](import-modes.md).
+At the top of the node is an **Import** dropdown. Leave it on **USD** (the default, and much faster) if you exported a USD file, or switch it to **FBX** for an FBX export. New to the two modes? See [USD vs FBX](import-modes.md).
 
 Then set the file field the dropdown shows — **CC5/iClone USD** or **CC5/iClone FBX** — to your exported file.
 

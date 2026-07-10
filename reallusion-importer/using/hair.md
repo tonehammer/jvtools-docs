@@ -19,6 +19,10 @@ This works on hair that carries Character Creator's hair maps (the root, ID, and
 This is one of several character-dependent features — see [Limitations & Expectations](../reference/limitations.md) for the full picture of what varies by export.
 !!!
 
+!!!warning USD import — some hair features are FBX only
+The root-to-tip **ombré**, **ID-based highlight streaks**, and **flow-based anisotropic sheen** rely on Character Creator's hair root/ID/flow maps, which its **USD** export leaves out — so those are **FBX import only** (their controls are disabled in USD mode). A **flat re-dye** and the **Lightness (Bleach)** control still work in USD mode, so you can recolor and lighten hair — just not drive a root-to-tip gradient or paint highlight streaks. Import as FBX for the full hair system. See [Import Modes](../getting-started/import-modes.md).
+!!!
+
 ## Hair Color Mode
 
 The master switch for the whole system:

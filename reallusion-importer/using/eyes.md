@@ -13,6 +13,10 @@ The Eyes folder gives you deep control over your character's eyes — recreating
 Character Creator's HD eye shader bakes very little of its look into the exported file, so the eye imports with a neutral base color. These controls rebuild that look in Houdini. A few aspects of CC's eye (true depth/parallax, pupil resize) can't be reproduced because the data isn't exported — see [Limitations](../reference/limitations.md). The short version: author your eye look here, not by trying to match a CC render.
 !!!
 
+!!!success USD import — real Character Creator values already applied
+If you imported via **USD**, the tool reads Character Creator's actual eye shader values and has **already seeded these controls with them** — real iris color, iris size, limbal ring width, and sclera shading — so your starting point is the character's real eye rather than a generic default. (In FBX mode those values aren't exported, so you dial them in yourself.) Everything here stays fully adjustable either way, and **Reset to Defaults** returns to the real Character Creator values in USD mode.
+!!!
+
 ## Eye Normal Strength
 
 At the top of the Eyes folder, separate from the head skin. Controls the strength of the eyeball's surface detail (sclera veins, iris relief). Kept low by default (0.2) because Character Creator's eye normal map is very strong — at full strength the veins read as raised welts. Raise for more surface detail, lower for a smoother eyeball.

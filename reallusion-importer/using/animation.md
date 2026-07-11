@@ -85,7 +85,7 @@ A display-only field showing the name of the clip currently playing.
 Removes a clip from the library and frees its memory. If you remove the last clip, the source falls back to Embedded FBX Animation.
 
 !!!danger
-**FBX animation is the biggest driver of memory use in the whole tool** — and the cost scales with a clip's **length**, since Houdini holds the expanded character for every frame in the range. Often several gigabytes per clip, and far more for long, multi-thousand-frame clips. Keep your frame-ranges to what you actually need, add only the clips you'll use, and use **Remove Animation** to free clips you're done with (it also clears the scene cache to reclaim RAM). **USD motion clips don't have this problem** — they stay light regardless of length. See [Performance & Caching](../reference/performance.md).
+**FBX animation is the biggest driver of memory use in the whole tool** — and the cost scales with a clip's **length**, since Houdini holds the expanded character for every frame in the range. Often several gigabytes per clip, and far more for long, multi-thousand-frame clips. Keep your frame-ranges to what you actually need, add only the clips you'll use, and use **Remove Animation** to free clips you're done with (it also clears the scene cache to reclaim RAM). **USD motion clips don't have this problem** — as stored clips they stay light regardless of length. (Separately, *playing* a long range fills Houdini's playback cache in either mode — see [Long animations and playback memory](../reference/performance.md#long-animations-and-playback-memory).) See [Performance & Caching](../reference/performance.md).
 !!!
 
 ## Workflow tips

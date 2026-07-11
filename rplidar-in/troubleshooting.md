@@ -27,7 +27,7 @@ The motor runs independently of Houdini once started. Stop it by unplugging the 
 
 ## Guides ended up in my simulation
 
-You fed the solver from **Output 0** (Points & Guides). Switch to **Output 1** (Points), which strips the `rplidar_viz` guide geometry. Alternatively turn off the Visualize guides or delete the `rplidar_viz` group downstream. See [Output & Attributes](output.md).
+You fed the solver from **Output 0** (Points & Guides). Switch to **Output 1** (Points), which strips the `rplidar_viz` guide geometry. Alternatively turn off the Visualize guides or delete the `rplidar_viz` group downstream. See [Outputs and Attributes](using.md#outputs-and-attributes).
 
 ## Playback shows nothing
 

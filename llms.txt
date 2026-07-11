@@ -4,7 +4,7 @@
 
 - [JVtools](https://tonehammer.github.io/jvtools-docs/index.md): JVtools
 - [Reallusion Importer for Houdini](https://tonehammer.github.io/jvtools-docs/reallusion-importer/readme.md): Welcome! Reallusion Importer for Houdini turns a Character Creator 5 or iClone 8 character into a fully shaded, animatable, render-ready character in Houdini's Solaris environment — in seconds instead of hours.
-- [RPLidar In](https://tonehammer.github.io/jvtools-docs/rplidar-in/readme.md): RPLidar In brings live Slamtec RPLIDAR point-cloud data straight into Houdini as SOP geometry. Plug in the sensor, drop the node, and every rotation of the spinning laser becomes a fresh ring of points you can feed into simulations, visualizations, or interactive installations — in real time.
+- [RPLidar In](https://tonehammer.github.io/jvtools-docs/rplidar-in/readme.md): Welcome! RPLidar In brings live Slamtec RPLIDAR point-cloud data straight into Houdini as SOP geometry. Plug in the sensor, drop the node, and every
 
 ## Reallusion Importer for Houdini
 
@@ -29,6 +29,7 @@
 
 ### Reference
 
+- [Parameter Reference](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/parameter-reference.md): Every control on the Reallusion Importer, grouped by where you find it. There are two panels:
 - [Limitations & Expectations](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/limitations.md): This page is here to set honest expectations before and after you buy. The tool does a lot, but Character Creator's FBX export — and Houdini itself — impose some hard limits that no importer can work around.
 - [Performance & Caching](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/performance.md): Character Creator characters are detailed, and detailed characters use memory. This page explains where the cost comes from and how to keep your sessions fast and lean.
 - [Troubleshooting & FAQ](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/troubleshooting.md): Common issues and their fixes. Most import problems trace back to either an export setting or a moved file.
@@ -37,13 +38,9 @@
 
 ## RPLidar In
 
-- [Getting Started](https://tonehammer.github.io/jvtools-docs/rplidar-in/getting-started.md): Copy the RPLidar_In.hdalc file into your Houdini otls directory, or use File → Import → Houdini Digital Asset and point it at the file. It installs the SOP node type RPLidar In.
-- [Hardware & Cabling](https://tonehammer.github.io/jvtools-docs/rplidar-in/hardware.md): RPLidar In was developed against the Slamtec RPLIDAR A2M12 — a 360°, 16 m range, spinning laser scanner. Other A2-family units should behave the same. The sensor stays completely silent until Houdini commands the motor to spin, so no lights or sound when you first plug it in is normal.
-- [Modes](https://tonehammer.github.io/jvtools-docs/rplidar-in/modes.md): The Mode parameter is the master switch for the node. It has three settings.
-- [Recording & Playback](https://tonehammer.github.io/jvtools-docs/rplidar-in/recording.md): Recording captures the live stream to disk so you can replay it later — develop offline, iterate on a solver against a repeatable take, or archive an installation.
-- [Visualization](https://tonehammer.github.io/jvtools-docs/rplidar-in/visualization.md): The Visualize folder draws optional on-screen guides so you can see the sensor, its range, and its beams. All guides are extra geometry tagged with the point/primitive group rplidar_viz.
-- [Crop](https://tonehammer.github.io/jvtools-docs/rplidar-in/crop.md): The Crop folder culls scan points that fall outside a rectangle on the ground, so only points inside the rectangle reach downstream nodes. This is useful
-- [Live Simulation (POP Network)](https://tonehammer.github.io/jvtools-docs/rplidar-in/live-sim.md): RPLidar In's point cloud is ordinary SOP geometry, so it can feed any solver — POPs, Vellum, or your own network. The Create POP Network button sets up a working example for you in one click.
-- [Output & Attributes](https://tonehammer.github.io/jvtools-docs/rplidar-in/output.md): RPLidar In has two outputs and no inputs.
+- [Getting Started](https://tonehammer.github.io/jvtools-docs/rplidar-in/getting-started.md): This page takes you from an unopened sensor to your first live scan in Houdini.
+- [Using RPLidar In](https://tonehammer.github.io/jvtools-docs/rplidar-in/using.md): This page covers everything the node does once it's installed and connected: the three modes, the two outputs and their attributes, the on-screen guides, cropping, recording, and driving a live simulation.
 - [Parameter Reference](https://tonehammer.github.io/jvtools-docs/rplidar-in/parameters.md): Every parameter on the RPLidar In node, grouped by function. Names in code are the internal parameter names.
 - [Troubleshooting](https://tonehammer.github.io/jvtools-docs/rplidar-in/troubleshooting.md): Press Test Sensor. It prints the sensor's identity, health, and available scan modes. No response means Houdini can't talk to the sensor.
+- [Changelog](https://tonehammer.github.io/jvtools-docs/rplidar-in/changelog.md): The first public release.
+- [License](https://tonehammer.github.io/jvtools-docs/rplidar-in/license.md): This is the End User License Agreement for RPLidar In. By downloading, installing, or using the asset, you agree to these terms.

@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="turbo-root" content="/jvtools-docs">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837104984890">
+
+    <!-- See retype.com -->
+    <meta name="generator" content="Retype 4.6.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Parameter Reference</title>
+    <meta name="title" content="Parameter Reference">
+    <meta name="description" content="Every control on the Reallusion Importer, grouped by where you find it. There are two panels:">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/parameter-reference/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://tonehammer.github.io/jvtools-docs/sitemap.xml">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/parameter-reference/">
+    <meta property="og:title" content="Parameter Reference">
+    <meta property="og:description" content="Every control on the Reallusion Importer, grouped by where you find it. There are two panels:">
+    <meta property="og:site_name" content="JVtools">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/parameter-reference/">
+    <meta name="twitter:title" content="Parameter Reference">
+    <meta name="twitter:description" content="Every control on the Reallusion Importer, grouped by where you find it. There are two panels:">
+
+    <!-- Alternate Markdown -->
+    <link rel="alternate" type="text/markdown" href="https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/parameter-reference.md">
+
+    <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
+
+    <link href="../../../resources/css/retype.css?v=4.6.0.837104984890" rel="stylesheet">
+
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837104984890" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837104984890" data-turbo-eval="false" defer></script>
+</head>
+<body>
+    <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
+    <div class="absolute bottom-0 left-0" style="top: 5rem; right: 50%"></div>
+
+    <header id="retype-header" class="sticky top-0 z-30 flex w-full h-16 bg-header-bg border-b border-header-border md:h-20">
+        <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
+            <!-- Mobile menu button skeleton -->
+            <button v-cloak class="skeleton retype-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-hidden rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+            <div v-cloak id="retype-sidebar-left-toggle-button"></div>
+    
+            <!-- Logo -->
+            <div class="flex items-center justify-between h-full py-2 md:w-75">
+                <div class="flex items-center px-2 md:px-6">
+                    <a id="retype-branding-logo" href="https://tonehammer.github.io/jvtools-docs/" class="flex items-center leading-snug text-2xl">
+                        <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">JVtools</span>
+                    </a><span id="retype-branding-label" class="inline-flex mt-1 px-2 py-1 ml-4 text-xs font-medium leading-none items-center rounded-md bg-branding-label-bg text-branding-label-text ring-1 ring-branding-label-border ring-inset md:inline-block">Docs</span>
+                </div>
+    
+                <span class="hidden h-8 border-r md:inline-block border-base-border"></span>
+            </div>
+    
+            <div class="flex justify-between md:grow">
+                <!-- Top Nav -->
+                <nav id="retype-header-nav" class="hidden md:flex">
+                    <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+                        <li class="mr-6">
+                            <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"/>
+                                </svg>
+                                <span>Products</span>
+                            </a>
+                        </li>
+                        <li class="mr-6">
+                            <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../reallusion-importer/">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <path d="M12 2.5a5.5 5.5 0 0 1 3.096 10.047 9.005 9.005 0 0 1 5.9 8.181.75.75 0 1 1-1.499.044 7.5 7.5 0 0 0-14.993 0 .75.75 0 0 1-1.5-.045 9.005 9.005 0 0 1 5.9-8.18A5.5 5.5 0 0 1 12 2.5ZM8 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z"/>
+                                </svg>
+                                <span>Reallusion Importer</span>
+                            </a>
+                        </li>
+                        <li class="mr-6">
+                            <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../rplidar-in/">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <path d="M20.485 2.515a.75.75 0 0 0-1.06 1.06A10.465 10.465 0 0 1 22.5 11c0 2.9-1.174 5.523-3.075 7.424a.75.75 0 0 0 1.06 1.061A11.965 11.965 0 0 0 24 11c0-3.314-1.344-6.315-3.515-8.485Zm-15.91 1.06a.75.75 0 0 0-1.06-1.06A11.965 11.965 0 0 0 0 11c0 3.313 1.344 6.314 3.515 8.485a.75.75 0 0 0 1.06-1.06A10.465 10.465 0 0 1 1.5 11c0-2.9 1.174-5.524 3.075-7.425ZM8.11 7.11a.75.75 0 0 0-1.06-1.06A6.98 6.98 0 0 0 5 11a6.98 6.98 0 0 0 2.05 4.95.75.75 0 0 0 1.06-1.061 5.48 5.48 0 0 1-1.61-3.89 5.48 5.48 0 0 1 1.61-3.888Zm8.84-1.06a.75.75 0 1 0-1.06 1.06A5.48 5.48 0 0 1 17.5 11a5.48 5.48 0 0 1-1.61 3.889.75.75 0 1 0 1.06 1.06A6.98 6.98 0 0 0 19 11a6.98 6.98 0 0 0-2.05-4.949ZM14 11a2 2 0 0 1-1.25 1.855v8.395a.75.75 0 0 1-1.5 0v-8.395A2 2 0 1 1 14 11Z"/>
+                                </svg>
+                                <span>RPLidar In</span>
+                            </a>
+                        </li>
+    
+                    </ul>
+                </nav>
+    
+                <div v-cloak class="flex justify-end grow">
+                    <div id="retype-mobile-search-button"></div>
+                    <doc-search-desktop></doc-search-desktop>
+    
+                    <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                    <doc-history></doc-history>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div id="retype-container" class="container relative flex bg-white">
+        <!-- Sidebar Skeleton -->
+        <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-sidebar-left-bg border-sidebar-left-border sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton">
+        
+            <div class="flex items-center h-16 px-6">
+                <input id="retype-filter-input-mock" class="w-full h-10 pl-8 px-3 py-2 transition-colors duration-200 ease-linear bg-filter-bg border border-filter-border rounded-lg shadow-none md:text-sm hover:border-filter-border-hover focus:outline-hidden focus:border-filter-border-focus placeholder-filter-placeholder" type="text">
+            </div>
+        
+            <div class="pl-6 mt-1 mb-4">
+                <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            </div>
+        
+        </div>
+        
+        <!-- Sidebar component -->
+        <doc-sidebar v-cloak>
+            <template #sidebar-footer>
+                <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-base-border">
+        
+                    <div class="py-3 px-6 md:hidden border-b dark:border-base-border">
+                        <nav>
+                            <ul class="flex flex-wrap justify-center items-center">
+                                <li class="mr-6">
+                                    <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                            <path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"/>
+                                        </svg>
+                                        <span>Products</span>
+                                    </a>
+                                </li>
+                                <li class="mr-6">
+                                    <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../reallusion-importer/">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                            <path d="M12 2.5a5.5 5.5 0 0 1 3.096 10.047 9.005 9.005 0 0 1 5.9 8.181.75.75 0 1 1-1.499.044 7.5 7.5 0 0 0-14.993 0 .75.75 0 0 1-1.5-.045 9.005 9.005 0 0 1 5.9-8.18A5.5 5.5 0 0 1 12 2.5ZM8 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z"/>
+                                        </svg>
+                                        <span>Reallusion Importer</span>
+                                    </a>
+                                </li>
+                                <li class="mr-6">
+                                    <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../rplidar-in/">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                            <path d="M20.485 2.515a.75.75 0 0 0-1.06 1.06A10.465 10.465 0 0 1 22.5 11c0 2.9-1.174 5.523-3.075 7.424a.75.75 0 0 0 1.06 1.061A11.965 11.965 0 0 0 24 11c0-3.314-1.344-6.315-3.515-8.485Zm-15.91 1.06a.75.75 0 0 0-1.06-1.06A11.965 11.965 0 0 0 0 11c0 3.313 1.344 6.314 3.515 8.485a.75.75 0 0 0 1.06-1.06A10.465 10.465 0 0 1 1.5 11c0-2.9 1.174-5.524 3.075-7.425ZM8.11 7.11a.75.75 0 0 0-1.06-1.06A6.98 6.98 0 0 0 5 11a6.98 6.98 0 0 0 2.05 4.95.75.75 0 0 0 1.06-1.061 5.48 5.48 0 0 1-1.61-3.89 5.48 5.48 0 0 1 1.61-3.888Zm8.84-1.06a.75.75 0 1 0-1.06 1.06A5.48 5.48 0 0 1 17.5 11a5.48 5.48 0 0 1-1.61 3.889.75.75 0 1 0 1.06 1.06A6.98 6.98 0 0 0 19 11a6.98 6.98 0 0 0-2.05-4.949ZM14 11a2 2 0 0 1-1.25 1.855v8.395a.75.75 0 0 1-1.5 0v-8.395A2 2 0 1 1 14 11Z"/>
+                                        </svg>
+                                        <span>RPLidar In</span>
+                                    </a>
+                                </li>
+        
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </template>
+        </doc-sidebar>
+
+        <div class="grow min-w-0 bg-body-bg">
+            <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+<div class="flex">
+    <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
+        <main class="relative pb-12 lg:pt-2">
+            <div class="relative retype-markdown" id="retype-content">
+                <!-- Rendered if sidebar right is enabled -->
+                <div id="retype-sidebar-right-toggle"></div>
+                <nav id="retype-breadcrumb" class="breadcrumb" aria-label="Breadcrumb">
+                    <ol role="list">
+                        <li class="pr-4">
+                            <a href="../../../" class="pr-4">
+                                Products
+                            </a>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/>
+                            </svg>
+                        </li>
+                        <li class="pr-4">
+                            <a href="../../../reallusion-importer/" class="pr-4">
+                                Reallusion Importer for Houdini
+                            </a>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/>
+                            </svg>
+                        </li>
+                        <li class="pr-4">
+                            <span class="pr-4">
+                                Reference
+                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/>
+                            </svg>
+                        </li>
+                        <li class="pr-4">
+                            <a href="../../../reallusion-importer/reference/parameter-reference/" class="pr-4">
+                                Parameter Reference
+                            </a>
+                        </li>
+                    </ol>
+                </nav>
+
+                <doc-page-actions></doc-page-actions>
+
+                <!-- Page content  -->
+<h1 id="parameter-reference">Parameter Reference</h1>
+<p>Every control on the Reallusion Importer, grouped by where you find it. There are two panels:</p>
+<ul>
+<li><strong>The Reallusion Importer node</strong> (in SOPs) — import, build, animation, and utility controls.</li>
+<li><strong>The Lookdev Controller</strong> (a red node in LOPs, created by <strong>Build Character</strong> and reached with <strong>Go to LOPs</strong>) — every look control for skin, eyes, hair, wrinkles, and displacement.</li>
+</ul>
+<p>Each section links to the fuller walkthrough in <a href="../using/">Using the Asset</a>.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+<p>Hovering any parameter in Houdini shows its tooltip, which is the authoritative, always-current description. If this page and a tooltip ever disagree, trust the tooltip.</p>
+        </div>
+    </div>
+</div>
+<hr>
+<h2 id="on-the-reallusion-importer-node-sops">On the Reallusion Importer node (SOPs)</h2>
+<h3 id="import">Import</h3>
+<retype-table copy-text="| Parameter | Description |
+| --- | --- |
+| **Import** | Choose the source format: **USD** (Character Creator's &quot;Export USD (Omniverse)&quot; — fast, light, the default) or **FBX**. See [USD vs FBX](../getting-started/import-modes.md). |
+| **USD File** / **FBX File** | Path to the character export to import. Keep the exported textures folder (and the `.json` sidecar, for FBX) beside the file when moving it. Which field shows depends on the Import mode. |
+| **Go to LOPs** | Jumps to the LOP network and frames this character's lookdev controller. Build the character first. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Import</strong></td>
+<td>Choose the source format: <strong>USD</strong> (Character Creator&#x27;s &quot;Export USD (Omniverse)&quot; — fast, light, the default) or <strong>FBX</strong>. See <a href="../../getting-started/import-modes/">USD vs FBX</a>.</td>
+</tr>
+<tr>
+<td><strong>USD File</strong> / <strong>FBX File</strong></td>
+<td>Path to the character export to import. Keep the exported textures folder (and the <code translate="no" v-pre>.json</code> sidecar, for FBX) beside the file when moving it. Which field shows depends on the Import mode.</td>
+</tr>
+<tr>
+<td><strong>Go to LOPs</strong></td>
+<td>Jumps to the LOP network and frames this character&#x27;s lookdev controller. Build the character first.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="build">Build</h3>
+<retype-table copy-text="| Parameter | Description |
+| --- | --- |
+| **Create Render Setup** | When on, **Build Character** also creates a three-point light rig, a bust-framed camera, and a Karma XPU render settings node for an immediately renderable scene. Created once and not overwritten on rebuilds, so your light tweaks survive. See [Rendering](../using/rendering.md). |
+| **Build Character** | Imports the character and generates everything: geometry, materials, displacement, the wrinkle system, and the lookdev controller. Your dialed-in controller values are preserved across rebuilds. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Create Render Setup</strong></td>
+<td>When on, <strong>Build Character</strong> also creates a three-point light rig, a bust-framed camera, and a Karma XPU render settings node for an immediately renderable scene. Created once and not overwritten on rebuilds, so your light tweaks survive. See <a href="../../using/rendering/">Rendering</a>.</td>
+</tr>
+<tr>
+<td><strong>Build Character</strong></td>
+<td>Imports the character and generates everything: geometry, materials, displacement, the wrinkle system, and the lookdev controller. Your dialed-in controller values are preserved across rebuilds.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="fix-broken-blendshape">Fix Broken Blendshape</h3>
+<p>A workaround for a rare Character Creator export glitch that mangles certain elements (often facial hair) once animation plays. Only needed if you actually see an element breaking up.</p>
+<retype-table copy-text="| Parameter | Description |
+| --- | --- |
+| **Broken Elements** | The element(s) to exclude from the blendshape deform, entered as an `@name` group. Listed elements are point-deformed by the nearest face/body geometry instead. |
+| **Fix Broken Blendshape** | Performs the bypass-to-point-deform. Off by default; enable only after specifying a Broken Element (with none picked it would bypass the entire mesh). |
+| **Radius** | Point-deform capture radius for the bypassed elements. Adjust if you see deforming artifacts on the fixed element. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Broken Elements</strong></td>
+<td>The element(s) to exclude from the blendshape deform, entered as an <code translate="no" v-pre>@name</code> group. Listed elements are point-deformed by the nearest face/body geometry instead.</td>
+</tr>
+<tr>
+<td><strong>Fix Broken Blendshape</strong></td>
+<td>Performs the bypass-to-point-deform. Off by default; enable only after specifying a Broken Element (with none picked it would bypass the entire mesh).</td>
+</tr>
+<tr>
+<td><strong>Radius</strong></td>
+<td>Point-deform capture radius for the bypassed elements. Adjust if you see deforming artifacts on the fixed element.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="skin-cache-recommended">Skin Cache (recommended)</h3>
+<p>Caches the imported geometry to disk to avoid the slow FBX re-import on every session. <em>FBX mode only — hidden in USD mode, where import is already about a second.</em> See <a href="../performance/">Performance &amp; Caching</a>.</p>
+<retype-table copy-text="| Parameter | Description |
+| --- | --- |
+| **Load from Disk** | Loads the cached geometry from disk instead of re-importing the FBX. Much faster for heavy characters. Enable after saving a cache. |
+| **Reload Geometry** | Re-reads the cache from disk. Use after re-saving the cache for the same character. |
+| **Save to Disk** | Writes the current character geometry to the cache file. Recommended for heavy/HD characters. Re-save if you re-export the character. |
+| **Geometry File** | Disk location of the geometry cache (`.bgeo.sc`). The **FBX File** must stay set even with Load from Disk on — the skeleton and animation always read from the FBX. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Load from Disk</strong></td>
+<td>Loads the cached geometry from disk instead of re-importing the FBX. Much faster for heavy characters. Enable after saving a cache.</td>
+</tr>
+<tr>
+<td><strong>Reload Geometry</strong></td>
+<td>Re-reads the cache from disk. Use after re-saving the cache for the same character.</td>
+</tr>
+<tr>
+<td><strong>Save to Disk</strong></td>
+<td>Writes the current character geometry to the cache file. Recommended for heavy/HD characters. Re-save if you re-export the character.</td>
+</tr>
+<tr>
+<td><strong>Geometry File</strong></td>
+<td>Disk location of the geometry cache (<code translate="no" v-pre>.bgeo.sc</code>). The <strong>FBX File</strong> must stay set even with Load from Disk on — the skeleton and animation always read from the FBX.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="animation">Animation</h3>
+<p>Play the motion baked into the imported character, or a library of clips you add from other FBX / USD files. See <a href="../../using/animation/">Animation</a>.</p>
+<retype-table copy-text="| Parameter | Description |
+| --- | --- |
+| **Body Animation Source** | Which motion drives the **body** (skeleton): Embedded Animation, Animation Database (the active added clip), or No Animation (static pose). |
+| **Facial Animation Source** | Where the **face** comes from, independent of the body: Embedded Animation, Animation Database, or Bypass Animation (calms the facial blendshapes). Mix a borrowed body clip with this character's own face. |
+| **Add Animation** | Opens a file browser to add a motion clip (FBX or USD). The first clip creates the animation database subnet, switches the source to Animation Database, and makes the new clip active. |
+| **Remove Animation** | Removes a chosen clip and frees its memory (also clears the scene cache). If the last clip is removed, the source falls back to Embedded. |
+| **Select Animation** | Chooses which database clip plays, and switches the source to Animation Database. |
+| **Current Animation** | Shows the name of the active database clip. Display only. |
+| **Retarget Animation** | Off by default. Turn on for a clip authored on a **differently-proportioned** Character Creator character — it remaps the motion onto this character (proportions matched, teeth/tongue/eyes seated, facial performance carried over). Auto-engages when the facial and body sources differ, or when a clip's format differs from the import mode. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Body Animation Source</strong></td>
+<td>Which motion drives the <strong>body</strong> (skeleton): Embedded Animation, Animation Database (the active added clip), or No Animation (static pose).</td>
+</tr>
+<tr>
+<td><strong>Facial Animation Source</strong></td>
+<td>Where the <strong>face</strong> comes from, independent of the body: Embedded Animation, Animation Database, or Bypass Animation (calms the facial blendshapes). Mix a borrowed body clip with this character&#x27;s own face.</td>
+</tr>
+<tr>
+<td><strong>Add Animation</strong></td>
+<td>Opens a file browser to add a motion clip (FBX or USD). The first clip creates the animation database subnet, switches the source to Animation Database, and makes the new clip active.</td>
+</tr>
+<tr>
+<td><strong>Remove Animation</strong></td>
+<td>Removes a chosen clip and frees its memory (also clears the scene cache). If the last clip is removed, the source falls back to Embedded.</td>
+</tr>
+<tr>
+<td><strong>Select Animation</strong></td>
+<td>Chooses which database clip plays, and switches the source to Animation Database.</td>
+</tr>
+<tr>
+<td><strong>Current Animation</strong></td>
+<td>Shows the name of the active database clip. Display only.</td>
+</tr>
+<tr>
+<td><strong>Retarget Animation</strong></td>
+<td>Off by default. Turn on for a clip authored on a <strong>differently-proportioned</strong> Character Creator character — it remaps the motion onto this character (proportions matched, teeth/tongue/eyes seated, facial performance carried over). Auto-engages when the facial and body sources differ, or when a clip&#x27;s format differs from the import mode.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="skin-fix">Skin Fix</h3>
+<p>Quick point-level fixes to mesh intersections (clothing poking through the body), in an editable subnetwork beside the node. See <a href="../../using/skin-fix/">Skin Fix</a>.</p>
+<retype-table copy-text="| Parameter | Description |
+| --- | --- |
+| **Create Skin-Fix Setup** | Creates (or jumps to) the skin-fix subnetwork. Inside, use the green **Sculpt** and **Soft Edit** nodes to push points where the body and clothing intersect. Move points only — don't add, delete, or change the point count. |
+| **Use Skin Fix** | Switches the character onto the edited mesh. Off by default; safe to toggle even before a subnetwork exists (it falls back to the unedited mesh). |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Create Skin-Fix Setup</strong></td>
+<td>Creates (or jumps to) the skin-fix subnetwork. Inside, use the green <strong>Sculpt</strong> and <strong>Soft Edit</strong> nodes to push points where the body and clothing intersect. Move points only — don&#x27;t add, delete, or change the point count.</td>
+</tr>
+<tr>
+<td><strong>Use Skin Fix</strong></td>
+<td>Switches the character onto the edited mesh. Off by default; safe to toggle even before a subnetwork exists (it falls back to the unedited mesh).</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="utilities">Utilities</h3>
+<retype-table copy-text="| Parameter | Description |
+| --- | --- |
+| **Clear Scene Cache** | Unloads cached geometry from Houdini's caches to reclaim memory — useful after deleting characters or removing animations. Currently-displayed geometry won't unload (delete or bypass those nodes first). |
+| **Documentation / Gumroad / Discord / YouTube** | Links out to the online documentation, the product page, the community Discord, and video tutorials. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Clear Scene Cache</strong></td>
+<td>Unloads cached geometry from Houdini&#x27;s caches to reclaim memory — useful after deleting characters or removing animations. Currently-displayed geometry won&#x27;t unload (delete or bypass those nodes first).</td>
+</tr>
+<tr>
+<td><strong>Documentation / Gumroad / Discord / YouTube</strong></td>
+<td>Links out to the online documentation, the product page, the community Discord, and video tutorials.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<hr>
+<h2 id="on-the-lookdev-controller-lops">On the Lookdev Controller (LOPs)</h2>
+<p><strong>Build Character</strong> creates a red controller node in the LOP network hosting all look controls. Material expressions reference it, so adjusting a control updates the Karma render <strong>live</strong> — except the render-property controls noted below, which need the render restarted. See <a href="../../using/lookdev-controller/">The Lookdev Controller</a>.</p>
+<p>Two buttons sit at the top: <strong>Go to SOPs</strong> jumps back to the Reallusion Importer node, and <strong>Reset to Defaults</strong> returns every control on the controller to its original value (after a confirmation prompt).</p>
+<h3 id="quality">Quality</h3>
+<retype-table copy-text="| Parameter | Description |
+| --- | --- |
+| **Quality** | Preset that sets the two toggles below. *Preview* turns subsurface off and uses cheap cutout corneas for fast look-dev; *Production* restores full quality. |
+| **Remove SSS** | Disables subsurface scattering on skin and teeth — the single biggest render-time saving. |
+| **Hero Eyes** | Refractive ray-traced corneas for close-up realism. Off uses a cheaper cutout cornea for distant or background characters. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Quality</strong></td>
+<td>Preset that sets the two toggles below. <em>Preview</em> turns subsurface off and uses cheap cutout corneas for fast look-dev; <em>Production</em> restores full quality.</td>
+</tr>
+<tr>
+<td><strong>Remove SSS</strong></td>
+<td>Disables subsurface scattering on skin and teeth — the single biggest render-time saving.</td>
+</tr>
+<tr>
+<td><strong>Hero Eyes</strong></td>
+<td>Refractive ray-traced corneas for close-up realism. Off uses a cheaper cutout cornea for distant or background characters.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="skin">Skin</h3>
+<p>See <a href="../../using/skin/">Skin</a>.</p>
+<retype-table copy-text="| Parameter | Description |
+| --- | --- |
+| **Skin Normal Strength** | Intensity of the base skin normal map (pore and surface detail). |
+| **Skin Roughness** | Multiplier on skin roughness. Below 1 = glossier and more lifelike; above 1 = more matte. |
+| **Diffuse Contrast** | Contrast of the skin color texture around mid-grey. Very sensitive — useful range roughly 1.0–1.1. |
+| **Respect Metallic Maps** | Honor Character Creator's metallic textures on teeth, tongue, and clothing. Off by default (these are dielectric and CC's metallic maps on them are usually junk). |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Skin Normal Strength</strong></td>
+<td>Intensity of the base skin normal map (pore and surface detail).</td>
+</tr>
+<tr>
+<td><strong>Skin Roughness</strong></td>
+<td>Multiplier on skin roughness. Below 1 = glossier and more lifelike; above 1 = more matte.</td>
+</tr>
+<tr>
+<td><strong>Diffuse Contrast</strong></td>
+<td>Contrast of the skin color texture around mid-grey. Very sensitive — useful range roughly 1.0–1.1.</td>
+</tr>
+<tr>
+<td><strong>Respect Metallic Maps</strong></td>
+<td>Honor Character Creator&#x27;s metallic textures on teeth, tongue, and clothing. Off by default (these are dielectric and CC&#x27;s metallic maps on them are usually junk).</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<p><strong>Skin Re-tint</strong> (sub-folder)</p>
+<retype-table copy-text="| Parameter | Description |
+| --- | --- |
+| **Skin Re-tint Color** | The color the skin diffuse is tinted toward. White (default) is a no-op. Affects diffuse only, across all skin. |
+| **Skin Re-tint Amount** | How strongly the re-tint color is applied. 0 = untouched; 1 = full multiply. Caps at 3 but accepts higher typed values for an overdriven push. |
+| **Skip Nails** | Exclude the fingernail/toenail material from the re-tint. Off by default. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Skin Re-tint Color</strong></td>
+<td>The color the skin diffuse is tinted toward. White (default) is a no-op. Affects diffuse only, across all skin.</td>
+</tr>
+<tr>
+<td><strong>Skin Re-tint Amount</strong></td>
+<td>How strongly the re-tint color is applied. 0 = untouched; 1 = full multiply. Caps at 3 but accepts higher typed values for an overdriven push.</td>
+</tr>
+<tr>
+<td><strong>Skip Nails</strong></td>
+<td>Exclude the fingernail/toenail material from the re-tint. Off by default.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<p><strong>Teeth</strong> (sub-folder)</p>
+<retype-table copy-text="| Parameter | Description |
+| --- | --- |
+| **Teeth Brightness** | Overall brightness of the teeth/tongue diffuse. Pull below 1 for more natural teeth (CC exports them near-white). 1 = as exported. |
+| **Teeth Roughness** | Multiplier on teeth/tongue roughness. Raise above 1 to soften a glary specular; below 1 for a wetter look. |
+| **Teeth Specular** | Strength of the wet specular reflection on teeth/tongue. Lower it to reduce blown-out catchlights. |
+| **Teeth SSS Amount** | Subsurface scattering on teeth/tongue only. Lower it to make teeth read more solid. Disabled when Remove SSS is on. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Teeth Brightness</strong></td>
+<td>Overall brightness of the teeth/tongue diffuse. Pull below 1 for more natural teeth (CC exports them near-white). 1 = as exported.</td>
+</tr>
+<tr>
+<td><strong>Teeth Roughness</strong></td>
+<td>Multiplier on teeth/tongue roughness. Raise above 1 to soften a glary specular; below 1 for a wetter look.</td>
+</tr>
+<tr>
+<td><strong>Teeth Specular</strong></td>
+<td>Strength of the wet specular reflection on teeth/tongue. Lower it to reduce blown-out catchlights.</td>
+</tr>
+<tr>
+<td><strong>Teeth SSS Amount</strong></td>
+<td>Subsurface scattering on teeth/tongue only. Lower it to make teeth read more solid. Disabled when Remove SSS is on.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<p><strong>Subsurface</strong> (sub-folder — disabled when Remove SSS is on)</p>
+<retype-table copy-text="| Parameter | Description |
+| --- | --- |
+| **SSS Color** | Per-channel scatter falloff color. Default a warm skin tone; cooler = bluer scatter, warmer = redder. Applies to skin and teeth. |
+| **SSS Amount** | How much subsurface scattering skin and teeth receive. 1 = full lifelike scatter; lower recovers surface detail; 0 = none. |
+| **SSS Radius** | How deep light scatters. Higher = softer and more translucent but washes out detail. |
+| **SSS Quality** | Subsurface ray limit (higher = cleaner and slower). A Karma **render property** — a change may only take effect after restarting the render. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SSS Color</strong></td>
+<td>Per-channel scatter falloff color. Default a warm skin tone; cooler = bluer scatter, warmer = redder. Applies to skin and teeth.</td>
+</tr>
+<tr>
+<td><strong>SSS Amount</strong></td>
+<td>How much subsurface scattering skin and teeth receive. 1 = full lifelike scatter; lower recovers surface detail; 0 = none.</td>
+</tr>
+<tr>
+<td><strong>SSS Radius</strong></td>
+<td>How deep light scatters. Higher = softer and more translucent but washes out detail.</td>
+</tr>
+<tr>
+<td><strong>SSS Quality</strong></td>
+<td>Subsurface ray limit (higher = cleaner and slower). A Karma <strong>render property</strong> — a change may only take effect after restarting the render.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<p><strong>Wrinkles</strong> <em>(FBX import only)</em></p>
+<p>See <a href="../../using/wrinkles/">Wrinkles</a>.</p>
+<retype-table copy-text="| Parameter | Description |
+| --- | --- |
+| **Wrinkle Strength** | Master intensity of all wrinkle channels. 0 disables wrinkles; 1 is as authored. |
+| **Normal / Diffuse / Roughness Strength** | Per-channel trims on top of the master strength (relief, crease darkening, sheen). |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Wrinkle Strength</strong></td>
+<td>Master intensity of all wrinkle channels. 0 disables wrinkles; 1 is as authored.</td>
+</tr>
+<tr>
+<td><strong>Normal / Diffuse / Roughness Strength</strong></td>
+<td>Per-channel trims on top of the master strength (relief, crease darkening, sheen).</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<p><strong>Displacement</strong></p>
+<p>See <a href="../../using/displacement/">Displacement</a>.</p>
+<retype-table copy-text="| Parameter | Description |
+| --- | --- |
+| **Mode** | How displacement maps render: **Bump** (cheap), **True Displacement** (real geometry, needs subdivision, slower), or **Disable**. Only matters for characters exported with displacement maps. |
+| **Displacement Strength** | Scale of the displacement effect. Small values (~0.002) are typical. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mode</strong></td>
+<td>How displacement maps render: <strong>Bump</strong> (cheap), <strong>True Displacement</strong> (real geometry, needs subdivision, slower), or <strong>Disable</strong>. Only matters for characters exported with displacement maps.</td>
+</tr>
+<tr>
+<td><strong>Displacement Strength</strong></td>
+<td>Scale of the displacement effect. Small values (~0.002) are typical.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="eyes">Eyes</h3>
+<p>Rebuilds Character Creator&#x27;s HD eye look, which barely travels in the export. Organized into Iris / Limbus / Sclera / Eye Shadow / Wetness tabs, with Glow below. See <a href="../../using/eyes/">Eyes</a>.</p>
+<retype-table copy-text="| Parameter | Description |
+| --- | --- |
+| **Eye Normal Strength** | Eyeball surface detail (sclera veins, iris relief), separate from the head. Low by default (0.2) — CC's eye normal is strong. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Eye Normal Strength</strong></td>
+<td>Eyeball surface detail (sclera veins, iris relief), separate from the head. Low by default (0.2) — CC&#x27;s eye normal is strong.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<p><strong>Iris tab</strong></p>
+<retype-table copy-text="| Parameter | Description |
+| --- | --- |
+| **Iris Color Tint** / **Iris Tint Amount** | Reproduce CC's iris color (masked to the iris, so the sclera stays white). Amount can exceed 1 to over-saturate. |
+| **Iris Scale** | Resizes the iris. |
+| **Iris Tint Radius** / **Iris Tint Feather** | Size and soften the tint disc. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Iris Color Tint</strong> / <strong>Iris Tint Amount</strong></td>
+<td>Reproduce CC&#x27;s iris color (masked to the iris, so the sclera stays white). Amount can exceed 1 to over-saturate.</td>
+</tr>
+<tr>
+<td><strong>Iris Scale</strong></td>
+<td>Resizes the iris.</td>
+</tr>
+<tr>
+<td><strong>Iris Tint Radius</strong> / <strong>Iris Tint Feather</strong></td>
+<td>Size and soften the tint disc.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<p><strong>Limbus tab</strong></p>
+<retype-table copy-text="| Parameter | Description |
+| --- | --- |
+| **Limbus Color / Width / Scale / Strength / Feather** | The dark ring at the iris/sclera edge. Strength 0 by default (a little reads as depth); Width and Feather set thickness and edge softness; Scale fits the ring to the iris. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Limbus Color / Width / Scale / Strength / Feather</strong></td>
+<td>The dark ring at the iris/sclera edge. Strength 0 by default (a little reads as depth); Width and Feather set thickness and edge softness; Scale fits the ring to the iris.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<p><strong>Sclera tab</strong></p>
+<retype-table copy-text="| Parameter | Description |
+| --- | --- |
+| **Sclera Color** / **Sclera Tint Amount** | Tint the white of the eye. Amount 0 by default; the tint is the exact inverse of the iris mask, so the iris is never affected. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sclera Color</strong> / <strong>Sclera Tint Amount</strong></td>
+<td>Tint the white of the eye. Amount 0 by default; the tint is the exact inverse of the iris mask, so the iris is never affected.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<p><strong>Eye Shadow tab</strong></p>
+<retype-table copy-text="| Parameter | Description |
+| --- | --- |
+| **Color / Strength / Radius / Feather** | The eyelid contact shadow on the eyeball (top-biased). Strength 0 by default; bigger Radius reaches further in. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Color / Strength / Radius / Feather</strong></td>
+<td>The eyelid contact shadow on the eyeball (top-biased). Strength 0 by default; bigger Radius reaches further in.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<p><strong>Wetness tab</strong></p>
+<retype-table copy-text="| Parameter | Description |
+| --- | --- |
+| **Eye Glossiness** | Overall eyeball shine/wetness. Works on every character (try 1.2–2 for a wet look). |
+| **Tearline Gloss / Presence / Ripple** | The wet lid rim — only on characters that ship a tear-line mesh (no effect otherwise; use Eye Glossiness instead). Gloss is roughness, Presence scales the reflection, Ripple adds micro wet-bump detail. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Eye Glossiness</strong></td>
+<td>Overall eyeball shine/wetness. Works on every character (try 1.2–2 for a wet look).</td>
+</tr>
+<tr>
+<td><strong>Tearline Gloss / Presence / Ripple</strong></td>
+<td>The wet lid rim — only on characters that ship a tear-line mesh (no effect otherwise; use Eye Glossiness instead). Gloss is roughness, Presence scales the reflection, Ripple adds micro wet-bump detail.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<p><strong>Glow</strong></p>
+<retype-table copy-text="| Parameter | Description |
+| --- | --- |
+| **Glow Mode** | Stylized eye emission: *Flat Color*, *Use Eye Texture*, *Multiply with Texture*, *Iris (Circle)*, *Iris (Dot)*. None by default. |
+| **Eyes Cast Light** | Treats the glowing eyes as a light source that illuminates nearby surfaces. A Karma **render property** — this and the two controls below may only take effect after restarting the render. |
+| **Light Quality / Light Intensity** | Sampling quality of the eye light (reduces noise) and how strongly the eyes light their surroundings. |
+| **Glow Strength / Glow Color** | Brightness and color for the Flat, Texture, and Multiply modes. |
+| **Iris Color** | Color of the iris glow for both Iris modes. |
+| **Iris Strength / Iris Radius / Iris Feather** | Per-mode brightness, disc size, and (Dot) edge softness for the Iris modes. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Glow Mode</strong></td>
+<td>Stylized eye emission: <em>Flat Color</em>, <em>Use Eye Texture</em>, <em>Multiply with Texture</em>, <em>Iris (Circle)</em>, <em>Iris (Dot)</em>. None by default.</td>
+</tr>
+<tr>
+<td><strong>Eyes Cast Light</strong></td>
+<td>Treats the glowing eyes as a light source that illuminates nearby surfaces. A Karma <strong>render property</strong> — this and the two controls below may only take effect after restarting the render.</td>
+</tr>
+<tr>
+<td><strong>Light Quality / Light Intensity</strong></td>
+<td>Sampling quality of the eye light (reduces noise) and how strongly the eyes light their surroundings.</td>
+</tr>
+<tr>
+<td><strong>Glow Strength / Glow Color</strong></td>
+<td>Brightness and color for the Flat, Texture, and Multiply modes.</td>
+</tr>
+<tr>
+<td><strong>Iris Color</strong></td>
+<td>Color of the iris glow for both Iris modes.</td>
+</tr>
+<tr>
+<td><strong>Iris Strength / Iris Radius / Iris Feather</strong></td>
+<td>Per-mode brightness, disc size, and (Dot) edge softness for the Iris modes.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="hair">Hair</h3>
+<p>Re-dye and shade the character&#x27;s scalp hair. Applies to hair carrying CC&#x27;s hair maps (root, ID, flow); simpler hair and caps keep their baked color. See <a href="../../using/hair/">Hair</a>.</p>
+<retype-table copy-text="| Parameter | Description |
+| --- | --- |
+| **Hair Color Mode** | *Baked (CC)* keeps the exported hair color; *Custom* re-dyes from the controls below, keeping strand detail. |
+| **Root Color** / **Tip Color** | The roots-to-tips ombré gradient in Custom mode. *(FBX import only — USD mode does a flat re-dye from Root Color.)* |
+| **Lightness (Bleach)** | Lightens or bleaches the hair, in **both** Baked and Custom modes. 1 = unchanged; above 1 bleaches toward light/blonde (slider to 20, accepts higher); below 1 darkens. |
+| **Highlight Color** / **Highlight Amount** | A second color blended into highlighted strands (balayage/streaks) and how strongly it shows. 0 disables highlights. *(FBX import only.)* |
+| **Controlled Specular Highlights** | Uses the hair's specular mask to restrain over-exposed highlights (CC's intended look). Off gives full specular. |
+| **Hair Anisotropy** | Stretches the specular highlight along the strands (directional hair sheen), steered by the flow map. 0 is off. *(FBX import only.)* |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Hair Color Mode</strong></td>
+<td><em>Baked (CC)</em> keeps the exported hair color; <em>Custom</em> re-dyes from the controls below, keeping strand detail.</td>
+</tr>
+<tr>
+<td><strong>Root Color</strong> / <strong>Tip Color</strong></td>
+<td>The roots-to-tips ombré gradient in Custom mode. <em>(FBX import only — USD mode does a flat re-dye from Root Color.)</em></td>
+</tr>
+<tr>
+<td><strong>Lightness (Bleach)</strong></td>
+<td>Lightens or bleaches the hair, in <strong>both</strong> Baked and Custom modes. 1 = unchanged; above 1 bleaches toward light/blonde (slider to 20, accepts higher); below 1 darkens.</td>
+</tr>
+<tr>
+<td><strong>Highlight Color</strong> / <strong>Highlight Amount</strong></td>
+<td>A second color blended into highlighted strands (balayage/streaks) and how strongly it shows. 0 disables highlights. <em>(FBX import only.)</em></td>
+</tr>
+<tr>
+<td><strong>Controlled Specular Highlights</strong></td>
+<td>Uses the hair&#x27;s specular mask to restrain over-exposed highlights (CC&#x27;s intended look). Off gives full specular.</td>
+</tr>
+<tr>
+<td><strong>Hair Anisotropy</strong></td>
+<td>Stretches the specular highlight along the strands (directional hair sheen), steered by the flow map. 0 is off. <em>(FBX import only.)</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<p><strong>Brows</strong> (sub-folder)</p>
+<retype-table copy-text="| Parameter | Description |
+| --- | --- |
+| **Brow Tint Color** / **Brow Tint Amount** | Re-tint the eyebrows independently of scalp hair, keeping strand detail. Amount 0 by default. Use to match brows to dyed hair. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Brow Tint Color</strong> / <strong>Brow Tint Amount</strong></td>
+<td>Re-tint the eyebrows independently of scalp hair, keeping strand detail. Amount 0 by default. Use to match brows to dyed hair.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+
+                
+                <!-- Required only on API pages -->
+                <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
+            </div>
+            <footer id="retype-content-footer" class="clear-both">
+            
+                <nav id="retype-nextprev" class="print:hidden flex mt-14">
+                    <div class="w-1/2">
+                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../reallusion-importer/using/rendering/">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                            <span>
+                                <span class="block text-xs font-normal text-base-text-muted">Previous</span>
+                                <span class="block mt-1">Rendering</span>
+                            </span>
+                        </a>
+                    </div>
+            
+                    <div class="w-1/2">
+                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../reallusion-importer/reference/limitations/">
+                            <span>
+                                <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
+                                <span class="block mt-1">Limitations &amp; Expectations</span>
+                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                        </a>
+                    </div>
+                </nav>
+            </footer>
+        </main>
+
+        <div id="retype-page-footer" class="print:border-none border-t border-base-border pt-6 mb-8">
+            <footer class="flex flex-wrap items-center justify-between print:justify-center">
+                <div id="retype-footer-links" class="print:hidden">
+                    <ul class="flex flex-wrap items-center text-sm">
+                    </ul>
+                </div>
+                <div id="retype-copyright" class="print:justify-center py-2 text-footer-text font-footer-link text-sm leading-relaxed"></div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Rendered if sidebar right is enabled -->
+    <!-- Sidebar right skeleton-->
+    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-sidebar-right-bg border-sidebar-right-border lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:translate-x-0 sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton">
+        <div class="pl-5">
+            <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+        </div>
+    </div>
+
+    <!-- User should be able to hide sidebar right -->
+    <doc-sidebar-right v-cloak></doc-sidebar-right>
+</div>
+
+        </div>
+    </div>
+
+    <doc-search-mobile></doc-search-mobile>
+    <doc-back-to-top></doc-back-to-top>
+</div>
+
+
+    <div id="retype-overlay-target"></div>
+
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Parameter Reference", level: 3, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/reallusion-importer/reference/parameter-reference.md" }</script>
+</body>
+</html>

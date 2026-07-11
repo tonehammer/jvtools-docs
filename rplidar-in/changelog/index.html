@@ -5,44 +5,44 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837077331465">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837104984890">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
 
     <!-- Primary Meta Tags -->
-    <title>Hardware &amp; Cabling</title>
-    <meta name="title" content="Hardware & Cabling">
-    <meta name="description" content="RPLidar In was developed against the Slamtec RPLIDAR A2M12 — a 360°, 16 m range, spinning laser scanner. Other A2-family units should behave the same. The sensor stays completely silent until Houdini commands the motor to spin, so no lights or sound when you first plug it in is normal.">
+    <title>Changelog</title>
+    <meta name="title" content="Changelog">
+    <meta name="description" content="The first public release.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://tonehammer.github.io/jvtools-docs/rplidar-in/hardware/">
+    <link rel="canonical" href="https://tonehammer.github.io/jvtools-docs/rplidar-in/changelog/">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="https://tonehammer.github.io/jvtools-docs/sitemap.xml">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/rplidar-in/hardware/">
-    <meta property="og:title" content="Hardware & Cabling">
-    <meta property="og:description" content="RPLidar In was developed against the Slamtec RPLIDAR A2M12 — a 360°, 16 m range, spinning laser scanner. Other A2-family units should behave the same. The sensor stays completely silent until Houdini commands the motor to spin, so no lights or sound when you first plug it in is normal.">
+    <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/rplidar-in/changelog/">
+    <meta property="og:title" content="Changelog">
+    <meta property="og:description" content="The first public release.">
     <meta property="og:site_name" content="JVtools">
     <meta property="og:locale" content="en_US">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/rplidar-in/hardware/">
-    <meta name="twitter:title" content="Hardware & Cabling">
-    <meta name="twitter:description" content="RPLidar In was developed against the Slamtec RPLIDAR A2M12 — a 360°, 16 m range, spinning laser scanner. Other A2-family units should behave the same. The sensor stays completely silent until Houdini commands the motor to spin, so no lights or sound when you first plug it in is normal.">
+    <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/rplidar-in/changelog/">
+    <meta name="twitter:title" content="Changelog">
+    <meta name="twitter:description" content="The first public release.">
 
     <!-- Alternate Markdown -->
-    <link rel="alternate" type="text/markdown" href="https://tonehammer.github.io/jvtools-docs/rplidar-in/hardware.md">
+    <link rel="alternate" type="text/markdown" href="https://tonehammer.github.io/jvtools-docs/rplidar-in/changelog.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.837077331465" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.837104984890" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837077331465" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837104984890" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837077331465" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837104984890" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -195,8 +195,8 @@
                             </svg>
                         </li>
                         <li class="pr-4">
-                            <a href="../../rplidar-in/hardware/" class="pr-4">
-                                Hardware &amp; Cabling
+                            <a href="../../rplidar-in/changelog/" class="pr-4">
+                                Changelog
                             </a>
                         </li>
                     </ol>
@@ -205,69 +205,58 @@
                 <doc-page-actions></doc-page-actions>
 
                 <!-- Page content  -->
-<h1 id="hardware--cabling">Hardware &amp; Cabling</h1>
-<h2 id="the-sensor">The sensor</h2>
-<p>RPLidar In was developed against the <strong>Slamtec RPLIDAR A2M12</strong> — a 360°, 16 m range, spinning laser scanner. Other A2-family units should behave the same. The sensor stays completely silent until Houdini commands the motor to spin, so <em>no lights or sound when you first plug it in is normal</em>.</p>
-<h2 id="the-two-cables">The two cables</h2>
-<p>RPLIDAR units use two separate leads:</p>
-<retype-table copy-text="| Cable | Carries | Plug into |
-| --- | --- | --- |
-| **USB / data** | Data + adapter power, through the USB/UART adapter | Your computer |
-| **5V / motor** | Motor power only | Any USB port or USB charger |">
-<div class="table-wrapper scrollbar overflow-hidden">
-<table class="comfortable">
-<thead>
-<tr>
-<th>Cable</th>
-<th>Carries</th>
-<th>Plug into</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>USB / data</strong></td>
-<td>Data + adapter power, through the USB/UART adapter</td>
-<td>Your computer</td>
-</tr>
-<tr>
-<td><strong>5V / motor</strong></td>
-<td>Motor power only</td>
-<td>Any USB port or USB charger</td>
-</tr>
-</tbody>
-</table>
-</div>
-</retype-table>
-<p>Both must be connected for a scan. The motor lead can go to a plain charger — it does not need to be the same machine.</p>
-<h2 id="the-usbuart-adapter">The USB/UART adapter</h2>
-<p>The sensor connects through a <strong>Silicon Labs CP210x</strong> USB-to-serial adapter, which enumerates as a COM port on Windows (the driver ships with Windows 11). The adapter has a <strong>baud-rate switch</strong> — it <strong>must be set to 256000</strong> for the A2 family. At the wrong setting the device is completely silent.</p>
-<h2 id="finding-the-port">Finding the port</h2>
-<p>Leave the node&#x27;s <strong>Port</strong> parameter blank and it auto-detects the CP210x adapter. If auto-detect picks the wrong device (e.g. you have several serial adapters), set the port explicitly — for example <code translate="no" v-pre>COM3</code> on Windows.</p>
-<h2 id="baud-rate">Baud rate</h2>
-<p>The <strong>Baud Rate</strong> parameter defaults to <strong>256000</strong>, which is correct for the A2 family and the only value tested. It exists so you can experiment with other models (A1 uses 115200, S2 uses 1000000), but those are untested. Changing it while Live restarts the stream.</p>
-<h2 id="only-one-program-at-a-time">Only one program at a time</h2>
-<p>A serial port can only be opened by one process. If Houdini can&#x27;t open the sensor, make sure no other program holds the port — a separate tester app, another Houdini session in Live mode, or a stale process. Set <strong>Mode → Off</strong> in any session you&#x27;re not actively using.</p>
-<h2 id="common-wiring-problems">Common wiring problems</h2>
+<h1 id="changelog">Changelog</h1>
+<h2 id="version-10">Version 1.0</h2>
+<p>The first public release.</p>
+<p><strong>Streaming</strong></p>
 <ul>
-<li><strong>No Windows chime, nothing new in Device Manager</strong> → cable or port problem, not a driver problem. Try the other USB port and swap the data cable — a dud data cable will stop the device enumerating entirely.</li>
-<li><strong>Enumerates but no data</strong> → check the adapter baud switch is on 256000.</li>
+<li>Live streaming of Slamtec RPLIDAR sensor data into Houdini as SOP geometry — one point per laser return, updated every cook</li>
+<li>Standard (<sub>4k samples/s) and Express (</sub>8k samples/s) scan modes</li>
+<li>Background reader thread so no rotations are dropped between cooks, including while recording</li>
+<li>Self-contained single asset file — talks the RPLIDAR serial protocol directly, with no Python packages to install</li>
+<li>Auto-detection of the CP210x USB/UART adapter (with a manual <strong>Port</strong> override), and a <strong>Units per Meter</strong> control for working in meters, centimeters, or any scale</li>
 </ul>
-<p>See <a href="../troubleshooting/">Troubleshooting</a> for more.</p>
-<div id="retype-backlinks">
-    <h2>See also</h2>
-<div class="card-compact-group">
-<div class="card-compact-container">
-    <a href="/jvtools-docs/rplidar-in/getting-started/" class="group card-compact no-link">
-        <div class="card-compact-body">
-            <div class="card-compact-header">
-                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M20.322.75h1.176a1.75 1.75 0 0 1 1.75 1.749v1.177a10.75 10.75 0 0 1-2.925 7.374l-1.228 1.304a23.699 23.699 0 0 1-1.596 1.542v5.038c0 .615-.323 1.184-.85 1.5l-4.514 2.709a.75.75 0 0 1-1.12-.488l-.963-4.572a1.305 1.305 0 0 1-.14-.129L8.04 15.96l-1.994-1.873a1.305 1.305 0 0 1-.129-.14l-4.571-.963a.75.75 0 0 1-.49-1.12l2.71-4.514c.316-.527.885-.85 1.5-.85h5.037a23.668 23.668 0 0 1 1.542-1.594l1.304-1.23A10.753 10.753 0 0 1 20.321.75Zm-6.344 4.018v-.001l-1.304 1.23a22.275 22.275 0 0 0-3.255 3.851l-2.193 3.29 1.859 1.744a.545.545 0 0 1 .034.034l1.743 1.858 3.288-2.192a22.263 22.263 0 0 0 3.854-3.257l1.228-1.303a9.251 9.251 0 0 0 2.517-6.346V2.5a.25.25 0 0 0-.25-.25h-1.177a9.252 9.252 0 0 0-6.344 2.518ZM6.5 21c-1.209 1.209-3.901 1.445-4.743 1.49a.236.236 0 0 1-.18-.067.236.236 0 0 1-.067-.18c.045-.842.281-3.534 1.49-4.743.9-.9 2.6-.9 3.5 0 .9.9.9 2.6 0 3.5Zm-.592-8.588L8.17 9.017c.23-.346.47-.685.717-1.017H5.066a.25.25 0 0 0-.214.121l-2.167 3.612ZM16 15.112c-.333.248-.672.487-1.018.718l-3.393 2.262.678 3.223 3.612-2.167a.25.25 0 0 0 .121-.214ZM17.5 8a1.5 1.5 0 1 1-3.001-.001A1.5 1.5 0 0 1 17.5 8Z"/></svg></span>
-                <span class="card-compact-title">Getting Started</span>
-            </div>
-            <p class="card-compact-description">Copy the RPLidar_In.hdalc file into your Houdini otls directory, or use File → Import → Houdini Digital Asset and point it at the file. It installs the SOP node type RPLidar In.</p>
+<p><strong>Recording &amp; playback</strong></p>
+<ul>
+<li>Record the live stream to disk as <code translate="no" v-pre>.jsonl</code> and replay it against the playbar clock — develop and iterate with the sensor disconnected</li>
+<li>Recording folder management: directory, file picker (blank = newest), loop, and delete</li>
+</ul>
+<p><strong>Visualization</strong></p>
+<ul>
+<li>Sensor marker and range-ring guides, with adjustable color, range, and sensor size</li>
+<li>Connect Points (beam fan) — draw a ray from the sensor to each scan point</li>
+<li>Static map bake — capture a short slice of the live stream into a fixed reference map</li>
+</ul>
+<p><strong>Crop</strong></p>
+<ul>
+<li>Cull scan points outside a rotatable ground rectangle, so only the region you care about reaches your solver</li>
+</ul>
+<p><strong>Live simulation</strong></p>
+<ul>
+<li>One-click <strong>Create POP Network</strong> button that builds a ready-to-run POP network wired to the solver-ready output, plus a <code translate="no" v-pre>_run</code> helper to start/stop/reset the live sim</li>
+<li>Two outputs — Points &amp; Guides (display) and Points (solver-ready, guides stripped)</li>
+</ul>
+<p><strong>Test Sensor</strong></p>
+<ul>
+<li>Prints the sensor&#x27;s identity, health, and available scan modes to the console — and live stream statistics while streaming</li>
+</ul>
+<hr>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
         </div>
-    </a>
-</div>
-</div>
+        <div class="pr-5 ml-3 w-full">
+<p>Future updates and their changes will be listed here. RPLidar In is a free tool, and updates are included at no cost — check back after updating the asset to see what&#x27;s new.</p>
+        </div>
+    </div>
 </div>
 
                 
@@ -278,20 +267,20 @@
             
                 <nav id="retype-nextprev" class="print:hidden flex mt-14">
                     <div class="w-1/2">
-                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../rplidar-in/getting-started/">
+                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../rplidar-in/troubleshooting/">
                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                             <span>
                                 <span class="block text-xs font-normal text-base-text-muted">Previous</span>
-                                <span class="block mt-1">Getting Started</span>
+                                <span class="block mt-1">Troubleshooting</span>
                             </span>
                         </a>
                     </div>
             
                     <div class="w-1/2">
-                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../rplidar-in/modes/">
+                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../rplidar-in/license/">
                             <span>
                                 <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
-                                <span class="block mt-1">Modes</span>
+                                <span class="block mt-1">License</span>
                             </span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                         </a>
@@ -335,6 +324,6 @@
 
     <div id="retype-overlay-target"></div>
 
-        <script data-cfasync="false">window.__DOCS__ = { "title": "Hardware & Cabling", level: 2, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/rplidar-in/hardware.md" }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Changelog", level: 2, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/rplidar-in/changelog.md" }</script>
 </body>
 </html>

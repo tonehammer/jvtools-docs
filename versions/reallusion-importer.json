@@ -1,6 +1,6 @@
 {
   "product": "Reallusion Importer for Houdini",
-  "latest": "1.1",
+  "latest": "1.2",
   "url": "https://jvtonehammer.gumroad.com/l/reallusionimporterforhoudini",
-  "notes": "Fixed the Documentation/YouTube link buttons, updated the Discord invite link, moved documentation to the new JVtools docs site, and clarified the Broken Elements tooltip."
+  "notes": "New USD import mode: dramatically faster and lighter on memory, with Character Creator's real eye and skin shader values applied automatically. Plus bug fixes and improvements."
 }

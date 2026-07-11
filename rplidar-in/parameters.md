@@ -1,6 +1,6 @@
 ---
 icon: sliders
-order: 20
+order: 80
 ---
 
 # Parameter Reference
@@ -11,9 +11,9 @@ Every parameter on the RPLidar In node, grouped by function. Names in `code` are
 
 | Parameter | Name | Description |
 | --- | --- | --- |
-| Mode | `mode` | Off / Live / Playback. The master switch. See [Modes](modes.md). |
+| Mode | `mode` | Off / Live / Playback. The master switch. See [Modes](using.md#modes). |
 | Test Sensor | `testdevice` | Prints identity, health, and scan modes to the console. While Live, prints stream statistics instead. |
-| Create POP Network | `createpop` | Builds a ready-to-run POP network wired to the live points. See [Live Simulation](live-sim.md). |
+| Create POP Network | `createpop` | Builds a ready-to-run POP network wired to the live points. See [Live Simulation](using.md#live-simulation). |
 | Port | `port` | Serial port of the sensor's USB adapter (e.g. `COM3`). Blank = auto-detect the CP210x. |
 | Scan Mode | `scanmode` | Standard (~4k samples/s) or Express (~8k). Live only; changing it while Live restarts the stream. |
 | Baud Rate | `baud` | Serial baud. 256000 is correct for the A2 family; other values are untested. |
@@ -33,7 +33,7 @@ Every parameter on the RPLidar In node, grouped by function. Names in `code` are
 | Show Static Map | `mapshow` | Overlay the baked static map. |
 | Map Color | `mapcolor` | Color of the baked map marks. |
 
-See [Visualization](visualization.md).
+See [Visualization](using.md#visualization).
 
 ## Crop
 
@@ -44,7 +44,7 @@ See [Visualization](visualization.md).
 | Size | `cropsize` | Rectangle extent along X and Z. Default 32 × 32. |
 | Rotation | `croprot` | Rotation of the rectangle about the sensor's vertical axis. |
 
-See [Crop](crop.md).
+See [Crop](using.md#crop).
 
 ## Recording
 
@@ -57,7 +57,7 @@ See [Crop](crop.md).
 | Stop Recording | `recstop` | Finish and select the new recording. |
 | Delete Recording | `recdelete` | Delete the picked file (with confirmation). |
 
-See [Recording & Playback](recording.md).
+See [Recording & Playback](using.md#recording-and-playback).
 
 ---
 

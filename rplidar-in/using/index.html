@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837104984890">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837106563066">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.837104984890" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.837106563066" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837104984890" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837106563066" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837104984890" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837106563066" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -209,6 +209,10 @@
 <p>This page covers everything the node does once it&#x27;s installed and connected: the three modes, the two outputs and their attributes, the on-screen guides, cropping, recording, and driving a live simulation. For a flat list of every control, see the <a href="../parameters/">Parameter Reference</a>.</p>
 <h2 id="modes">Modes</h2>
 <p>The <strong>Mode</strong> parameter is the master switch for the node. It has three settings.</p>
+<figure class="content-center">
+    <img src="static/mode-menu.png" alt="The Mode parameter — Off, Live, Playback" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption">The Mode parameter — Off, Live, Playback</figcaption>
+</figure>
 <h3 id="off">Off</h3>
 <p>Motor stopped, empty output. Use this whenever you aren&#x27;t actively reading the sensor — it releases the serial port so other programs (or other Houdini sessions) can use it, and it stops the motor spinning.</p>
 <blockquote>
@@ -252,6 +256,10 @@
 </div>
 </retype-table>
 <p>Express roughly doubles the point density. Changing Scan Mode while Live restarts the stream (about two seconds).</p>
+<figure class="content-center">
+    <img src="static/scan-mode-comparison.png" alt="Standard vs Express point density on the same scene" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption">Standard vs Express point density on the same scene</figcaption>
+</figure>
 <h3 id="playback">Playback</h3>
 <p>Plays a recorded <code translate="no" v-pre>.jsonl</code> file against the playbar clock, so the scan is time-dependent and scrubs and renders like any other animated geometry. This lets you develop and iterate with the sensor disconnected. See <doc-anchor-trigger to="#recording-and-playback">Recording &amp; Playback</doc-anchor-trigger>.</p>
 <h3 id="a-note-on-invalid-returns">A note on invalid returns</h3>
@@ -290,6 +298,10 @@
 </table>
 </div>
 </retype-table>
+<figure class="content-center">
+    <img src="static/outputs.png" alt="The node's two outputs — Points &amp; Guides, and Points" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption">The node's two outputs — Points &amp; Guides, and Points</figcaption>
+</figure>
 <p>Output 0 is the default display, so you see the sensor guide and range ring while you work. When you connect the node into a simulation, pull from <strong>Output 1</strong> — it removes the <code translate="no" v-pre>rplidar_viz</code> guide geometry for you, so nothing display-only leaks into your solver.</p>
 <blockquote>
 <p>If you feed a solver from Output 0 by mistake, the guide points get simulated too. Either switch to Output 1, turn off the Visualize guides, or delete the <code translate="no" v-pre>rplidar_viz</code> group downstream.</p>
@@ -381,6 +393,10 @@
 </table>
 </div>
 </retype-table>
+<figure class="content-center">
+    <img src="static/sensor-guide.png" alt="The sensor guide — origin marker and range ring around the scan points" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption">The sensor guide — origin marker and range ring around the scan points</figcaption>
+</figure>
 <h3 id="connect-points-beam-fan">Connect Points (beam fan)</h3>
 <retype-table copy-text="| Parameter | What it does |
 | --- | --- |
@@ -408,6 +424,10 @@
 </div>
 </retype-table>
 <p>The rays use copies of the scan points, so your real scan points keep their own attributes untouched.</p>
+<figure class="content-center">
+    <img src="static/beam-fan.png" alt="The beam fan — rays drawn from the sensor to each scan point" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption">The beam fan — rays drawn from the sensor to each scan point</figcaption>
+</figure>
 <h3 id="static-map-bake">Static map (bake)</h3>
 <p>Baking captures a short slice of the live stream into a fixed map — useful for seeing where the room&#x27;s walls are while the live points keep moving.</p>
 <retype-table copy-text="| Parameter | What it does |
@@ -440,6 +460,10 @@
 </table>
 </div>
 </retype-table>
+<figure class="content-center">
+    <img src="static/static-map.png" alt="A baked static map showing the room's walls behind the live points" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption">A baked static map showing the room's walls behind the live points</figcaption>
+</figure>
 <hr>
 <h2 id="crop">Crop</h2>
 <p>The <strong>Crop</strong> controls cull scan points that fall outside a rectangle on the ground, so only points inside the rectangle reach downstream nodes. This is useful when the sensor sits in the corner of a room and you only care about a stage, a doorway, or a walkway — everything outside the box is discarded before it hits your solver.</p>
@@ -479,6 +503,10 @@
 </div>
 </retype-table>
 <p>The Center, Size, and Rotation controls are disabled until <strong>Enable Crop</strong> is on.</p>
+<figure class="content-center">
+    <img src="static/crop-rectangle.png" alt="The red crop rectangle guide over a walkway, culling points outside it" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption">The red crop rectangle guide over a walkway, culling points outside it</figcaption>
+</figure>
 <p><strong>Typical setup:</strong></p>
 <ol>
 <li>Sensor in a room corner, scanning a walkway.</li>
@@ -556,6 +584,10 @@
 <p>RPLidar In&#x27;s point cloud is ordinary SOP geometry, so it can feed any solver — POPs, Vellum, or your own network. The <strong>Create POP Network</strong> button sets up a working example for you in one click.</p>
 <h3 id="create-pop-network">Create POP Network</h3>
 <p>Press <strong>Create POP Network</strong> and the node builds a ready-to-run POP network below itself, wired to the <strong>solver-ready output</strong> (Output 1, guides stripped) with sensible presets for live work. It also drops a small green helper control — the <strong><code translate="no" v-pre>_run</code> null</strong> — for driving everything.</p>
+<figure class="content-center">
+    <img src="static/pop-network.png" alt="The generated POP network wired to Output 1, with the green _run helper null" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption">The generated POP network wired to Output 1, with the green _run helper null</figcaption>
+</figure>
 <h3 id="the-_run-helper">The _run helper</h3>
 <p>The helper is a null with three buttons. It is <strong>not required</strong> — the RPLidar In node generates points on its own, and you can play the timeline and toggle Live Nodes by hand — but it wires the common actions together:</p>
 <retype-table copy-text="| Button | What it does |

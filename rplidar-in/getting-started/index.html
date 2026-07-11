@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837104984890">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837106563066">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.837104984890" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.837106563066" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837104984890" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837106563066" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837104984890" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837106563066" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -260,9 +260,17 @@
 </div>
 </retype-table>
 <p>The motor lead can go to a plain charger — it does not need to be the same machine.</p>
+<figure class="content-center">
+    <img src="static/two-cables.png" alt="The RPLIDAR sensor with its two leads and the CP210x USB/UART adapter" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption">The RPLIDAR sensor with its two leads and the CP210x USB/UART adapter</figcaption>
+</figure>
 <h3 id="the-usbuart-adapter">The USB/UART adapter</h3>
 <p>The sensor connects through a <strong>Silicon Labs CP210x</strong> USB-to-serial adapter, which enumerates as a COM port on Windows (the driver ships with Windows 11, so it installs automatically). The adapter has a <strong>baud-rate switch</strong> — it <strong>must be set to 256000</strong> for the A2 family. At the wrong setting the device is completely silent.</p>
 <p>Once connected, Windows gives the adapter a COM port (e.g. <code translate="no" v-pre>COM3</code>).</p>
+<figure class="content-center">
+    <img src="static/adapter-baud-switch.png" alt="Close-up of the adapter's baud-rate switch set to 256000" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption">Close-up of the adapter's baud-rate switch set to 256000</figcaption>
+</figure>
 <h2 id="3-see-your-first-scan">3. See your first scan</h2>
 <ol>
 <li>Drop down an <strong>RPLidar In</strong> SOP (inside a Geometry object).</li>
@@ -270,6 +278,10 @@
 <li>Cook the node (display it in the viewport).</li>
 </ol>
 <p>The motor spins up over about two seconds, then a ring of points appears — one point per laser return. Empty space in front of the sensor produces gaps; walls and objects produce dense arcs.</p>
+<figure class="content-center">
+    <img src="static/first-scan.png" alt="The first scan — a dense arc of points where the sensor faces a wall" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption">The first scan — a dense arc of points where the sensor faces a wall</figcaption>
+</figure>
 <div class="flex mb-6">
     <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
     <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
@@ -289,6 +301,10 @@
     </div>
 </div>
 <p>If nothing appears, press <strong>Test Sensor</strong> to print the sensor&#x27;s identity, health, and available scan modes to the console, then check <a href="../troubleshooting/">Troubleshooting</a>.</p>
+<figure class="content-center">
+    <img src="static/test-sensor-console.png" alt="Test Sensor console output showing the sensor's identity, health, and scan modes" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption">Test Sensor console output showing the sensor's identity, health, and scan modes</figcaption>
+</figure>
 <h2 id="4-set-your-working-scale">4. Set your working scale</h2>
 <p>Sensor distances are real-world meters. The <strong>Units per Meter</strong> parameter maps them to Houdini units:</p>
 <ul>

@@ -46,7 +46,7 @@ Character Creator's USD export omits some data the FBX export includes. Where th
 Everything else — including **displacement** — works in both modes.
 
 !!!info Mixing sources
-USD characters bind in a T-pose (FBX binds in an A-pose). This only matters if you drive a **USD** character with an **FBX** animation-database clip from a *different* character — turn **Retarget Animation** on in that case. A character driven by its own embedded animation is always correct. See [Animation](../using/animation.md).
+The animation database accepts **both FBX and USD motion clips, in either import mode** — and USD clips are far lighter (see [Animation](../using/animation.md)). USD binds in a T-pose while FBX binds in an A-pose, so when a clip's format differs from the Import mode the tool turns **Retarget Animation** on automatically. A character driven by its own embedded animation is always correct.
 !!!
 
 ## Switching modes

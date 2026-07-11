@@ -35,9 +35,9 @@ Switch all of these to full quality only when you're ready for final renders.
 
 ## Managing memory
 
-### Animation clips are heavy
+### FBX animation clips are heavy
 
-Animation is the single biggest driver of memory use in the tool — bigger than the character itself. Each clip you add to the database uses a significant amount of memory, and the cost scales with the clip's **length**: Houdini holds the expanded character for every frame in the range. A few hundred frames is comfortable; multi-thousand-frame clips can balloon RAM fast. Keep your clip frame-ranges to what you actually need, add only the clips you'll use, and use **Remove Animation** to free clips you're done with. (See [Animation](../using/animation.md).)
+FBX animation is the single biggest driver of memory use in the tool — bigger than the character itself. Each FBX clip you add to the database uses a significant amount of memory, and the cost scales with the clip's **length**: Houdini holds the expanded character for every frame in the range. A few hundred frames is comfortable; multi-thousand-frame clips can balloon RAM fast. Keep your clip frame-ranges to what you actually need, add only the clips you'll use, and use **Remove Animation** to free clips you're done with. **USD motion clips sidestep all of this** — they load instantly and stay light regardless of length, so prefer them when available. (See [Animation](../using/animation.md).)
 
 ### Clear Scene Cache
 

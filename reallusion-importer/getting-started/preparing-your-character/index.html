@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837045885832">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837077331465">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -44,11 +44,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.6.0.837045885832" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.837077331465" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837045885832" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837077331465" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837045885832" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837077331465" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -271,7 +271,7 @@
         </div>
     </div>
 </div>
-<p>After export you&#x27;ll have a <code translate="no" v-pre>.usd</code> file with a <strong><code translate="no" v-pre>Materials</code></strong> folder beside it (holding <code translate="no" v-pre>Materials/Textures/&lt;Material&gt;/…</code>). <strong>Keep the <code translate="no" v-pre>.usd</code> and its <code translate="no" v-pre>Materials</code> folder together</strong> — the tool resolves textures relative to the <code translate="no" v-pre>.usd</code>. There is <strong>no <code translate="no" v-pre>.json</code> sidecar</strong> in USD mode: Character Creator writes the material data (subsurface, displacement, eye/skin shader values, accessory colors) directly into the USD instead. That&#x27;s everything for USD — you can skip ahead to the <a href="../quick-start/">Quick Start</a>.</p>
+<p>After export you&#x27;ll have a <code translate="no" v-pre>.usd</code> file with a <strong><code translate="no" v-pre>Materials</code></strong> folder beside it (holding <code translate="no" v-pre>Materials/Textures/&lt;Material&gt;/…</code>), and — when motion was included — a <strong><code translate="no" v-pre>Motions</code></strong> folder with the animation as its own small <code translate="no" v-pre>.usd</code> clip. <strong>Keep the <code translate="no" v-pre>.usd</code> and its folders together</strong> — the tool resolves textures relative to the <code translate="no" v-pre>.usd</code>. The <code translate="no" v-pre>Motions</code> clip is also exactly what <strong>Add Animation</strong> takes as a lightweight <a href="../../using/animation/#add-animation">animation-database clip</a>, so USD exports double as a cheap way to bank motion clips. There is <strong>no <code translate="no" v-pre>.json</code> sidecar</strong> in USD mode: Character Creator writes the material data (subsurface, displacement, eye/skin shader values, accessory colors) directly into the USD instead. That&#x27;s everything for USD — you can skip ahead to the <a href="../quick-start/">Quick Start</a>.</p>
 <h2 id="exporting-as-fbx">Exporting as FBX</h2>
 <p>In Character Creator, with your character ready, go to <strong>File ▸ Export ▸ Clothed Character ▸ FBX</strong>. You&#x27;ll see the Export FBX panel. Here&#x27;s how to set it, top to bottom.</p>
 <figure class="content-center">

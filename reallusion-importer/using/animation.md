@@ -1,6 +1,6 @@
 # Animation
 
-The tool can play the motion baked into your character's FBX, and it can also manage a small library of additional animation clips that you add from other FBX files — letting you switch between different motions on the same character.
+The tool can play the motion baked into your imported character, and it can also manage a small library of additional animation clips — added from **FBX files or USD motion clips** — letting you switch between different motions on the same character.
 
 ![](../static/animation_folder.png)
 
@@ -45,19 +45,25 @@ A motion clip is normally tied to the proportions of the character it was made f
 If a database clip makes the character look broken — teeth or eyes clipping through the face, or distorted proportions — it almost certainly came from a different character. Turn Retarget Animation on and it snaps into place.
 !!!
 
-It's most useful when **Body Animation Source** is **Animation Database** with a clip from another character. It also turns on **automatically** whenever **Facial Animation Source** differs from **Body Animation Source** — grafting one clip's face onto another clip's body needs the body conformed to this character first. Retargeting adds some cooking cost, so for a clip made for this character, leave it off.
+It's most useful when **Body Animation Source** is **Animation Database** with a clip from another character. It also turns on **automatically** in two situations: whenever **Facial Animation Source** differs from **Body Animation Source** (grafting one clip's face onto another clip's body needs the body conformed to this character first), and whenever a database clip's **format** (USD/FBX) differs from the **Import** mode (the two exports bind different rest poses). Retargeting adds some cooking cost, so for a clip made for this character in the same format, leave it off.
+
+If this character has rig parts the clip's character doesn't — hair spring bones, accessory rigs — those can't receive motion from the clip. They follow along rigidly instead (hair rides the head, without its secondary motion).
 
 !!!success
-Even with automatic retargeting, things may break if the characters are different enough (eg. a stylized animal getting animation from a humanoid character). Keep all serious animation authoring in Character Creator/iClone.
+Even with automatic retargeting, retargeting is approximate: proportions may distort if the characters are different enough (eg. a stylized animal getting animation from a humanoid character). Keep all serious animation authoring in Character Creator/iClone.
 !!!
 
 ## Building an animation library
 
-You can add extra motion clips from other FBX files and switch between them.
+You can add extra motion clips — FBX or USD — and switch between them.
 
 ### Add Animation
 
-Opens a file browser to add a motion clip from an FBX file. The first clip you add creates a small **animation database** — a green container node placed next to the Reallusion Importer. Adding a clip automatically switches the source to Animation Database and makes the new clip active.
+Opens a file browser to add a motion clip: an **FBX** animation export, or a **USD motion clip** (the `Motions` folder Character Creator writes beside every USD character export). The first clip you add creates a small **animation database** — a green container node placed next to the Reallusion Importer. Adding a clip automatically switches the source to Animation Database and makes the new clip active.
+
+**USD clips are the light option** — they load instantly and use very little memory, while each FBX clip costs significant RAM. A USD clip binds to the character's USD export, which is found automatically next to the clip; you're only asked to point at it if none is found.
+
+Both formats mix freely in one database, and either works in either import mode. Driving an **FBX-imported character with USD clips** is a particularly good combination: you keep the FBX-only features (expression wrinkles, full hair re-dye) while the clips stay featherweight. When a clip's format differs from the Import mode, [**Retarget Animation**](#retarget-animation) turns on automatically.
 
 ![](../static/animaton-database.png)
 
@@ -74,11 +80,12 @@ A display-only field showing the name of the clip currently playing.
 Removes a clip from the library and frees its memory. If you remove the last clip, the source falls back to Embedded FBX Animation.
 
 !!!danger
-**Animation is the biggest driver of memory use in the whole tool** — and the cost scales with a clip's **length**, since Houdini holds the expanded character for every frame in the range. Often several gigabytes per clip, and far more for long, multi-thousand-frame clips. Keep your frame-ranges to what you actually need, add only the clips you'll use, and use **Remove Animation** to free clips you're done with (it also clears the scene cache to reclaim RAM). See [Performance & Caching](../reference/performance.md).
+**FBX animation is the biggest driver of memory use in the whole tool** — and the cost scales with a clip's **length**, since Houdini holds the expanded character for every frame in the range. Often several gigabytes per clip, and far more for long, multi-thousand-frame clips. Keep your frame-ranges to what you actually need, add only the clips you'll use, and use **Remove Animation** to free clips you're done with (it also clears the scene cache to reclaim RAM). **USD motion clips don't have this problem** — they stay light regardless of length. See [Performance & Caching](../reference/performance.md).
 !!!
 
 ## Workflow tips
 
-* Keep your animation library lean. Two or three active clips is comfortable; a dozen will eat your RAM.
-* When you finish with a clip, remove it rather than leaving it loaded.
+* **Prefer USD motion clips when you have them** — instant to load, near-zero RAM, and they work on FBX-imported characters too.
+* Keep your FBX clip library lean. Two or three active clips is comfortable; a dozen will eat your RAM.
+* When you finish with an FBX clip, remove it rather than leaving it loaded.
 * Probably you're only ever using the character's own baked motion ("Mesh + Motion" FBX export in CC), you don't need the database at all — just leave the source on Embedded FBX Animation.

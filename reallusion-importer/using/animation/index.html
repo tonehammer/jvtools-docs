@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837045885832">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837077331465">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Animation</title>
     <meta name="title" content="Animation">
-    <meta name="description" content="The tool can play the motion baked into your character's FBX, and it can also manage a small library of additional animation clips that you add from other FBX files — letting you switch between different motions on the same character.">
+    <meta name="description" content="The tool can play the motion baked into your imported character, and it can also manage a small library of additional animation clips — added from FBX files or USD motion clips — letting you switch between different motions on the same character.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/animation/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/animation/">
     <meta property="og:title" content="Animation">
-    <meta property="og:description" content="The tool can play the motion baked into your character's FBX, and it can also manage a small library of additional animation clips that you add from other FBX files — letting you switch between different motions on the same character.">
+    <meta property="og:description" content="The tool can play the motion baked into your imported character, and it can also manage a small library of additional animation clips — added from FBX files or USD motion clips — letting you switch between different motions on the same character.">
     <meta property="og:image" content="https://tonehammer.github.io/jvtools-docs/reallusion-importer/static/animation_folder.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -35,7 +35,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/animation/">
     <meta name="twitter:title" content="Animation">
-    <meta name="twitter:description" content="The tool can play the motion baked into your character's FBX, and it can also manage a small library of additional animation clips that you add from other FBX files — letting you switch between different motions on the same character.">
+    <meta name="twitter:description" content="The tool can play the motion baked into your imported character, and it can also manage a small library of additional animation clips — added from FBX files or USD motion clips — letting you switch between different motions on the same character.">
     <meta name="twitter:image" content="https://tonehammer.github.io/jvtools-docs/reallusion-importer/static/animation_folder.png">
     <meta name="twitter:image:alt" content="Animation">
 
@@ -44,11 +44,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.6.0.837045885832" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.837077331465" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837045885832" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837077331465" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837045885832" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837077331465" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -220,7 +220,7 @@
 
                 <!-- Page content  -->
 <h1 id="animation">Animation</h1>
-<p>The tool can play the motion baked into your character&#x27;s FBX, and it can also manage a small library of additional animation clips that you add from other FBX files — letting you switch between different motions on the same character.</p>
+<p>The tool can play the motion baked into your imported character, and it can also manage a small library of additional animation clips — added from <strong>FBX files or USD motion clips</strong> — letting you switch between different motions on the same character.</p>
 <figure class="content-center">
     <img src="../../static/animation_folder.png" alt="" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="761" height="153" />
     <figcaption class="caption"></figcaption>
@@ -305,7 +305,8 @@
         </div>
     </div>
 </div>
-<p>It&#x27;s most useful when <strong>Body Animation Source</strong> is <strong>Animation Database</strong> with a clip from another character. It also turns on <strong>automatically</strong> whenever <strong>Facial Animation Source</strong> differs from <strong>Body Animation Source</strong> — grafting one clip&#x27;s face onto another clip&#x27;s body needs the body conformed to this character first. Retargeting adds some cooking cost, so for a clip made for this character, leave it off.</p>
+<p>It&#x27;s most useful when <strong>Body Animation Source</strong> is <strong>Animation Database</strong> with a clip from another character. It also turns on <strong>automatically</strong> in two situations: whenever <strong>Facial Animation Source</strong> differs from <strong>Body Animation Source</strong> (grafting one clip&#x27;s face onto another clip&#x27;s body needs the body conformed to this character first), and whenever a database clip&#x27;s <strong>format</strong> (USD/FBX) differs from the <strong>Import</strong> mode (the two exports bind different rest poses). Retargeting adds some cooking cost, so for a clip made for this character in the same format, leave it off.</p>
+<p>If this character has rig parts the clip&#x27;s character doesn&#x27;t — hair spring bones, accessory rigs — those can&#x27;t receive motion from the clip. They follow along rigidly instead (hair rides the head, without its secondary motion).</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-success"></div>
     <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
@@ -318,14 +319,16 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p>Even with automatic retargeting, things may break if the characters are different enough (eg. a stylized animal getting animation from a humanoid character). Keep all serious animation authoring in Character Creator/iClone.</p>
+<p>Even with automatic retargeting, retargeting is approximate: proportions may distort if the characters are different enough (eg. a stylized animal getting animation from a humanoid character). Keep all serious animation authoring in Character Creator/iClone.</p>
         </div>
     </div>
 </div>
 <h2 id="building-an-animation-library">Building an animation library</h2>
-<p>You can add extra motion clips from other FBX files and switch between them.</p>
+<p>You can add extra motion clips — FBX or USD — and switch between them.</p>
 <h3 id="add-animation">Add Animation</h3>
-<p>Opens a file browser to add a motion clip from an FBX file. The first clip you add creates a small <strong>animation database</strong> — a green container node placed next to the Reallusion Importer. Adding a clip automatically switches the source to Animation Database and makes the new clip active.</p>
+<p>Opens a file browser to add a motion clip: an <strong>FBX</strong> animation export, or a <strong>USD motion clip</strong> (the <code translate="no" v-pre>Motions</code> folder Character Creator writes beside every USD character export). The first clip you add creates a small <strong>animation database</strong> — a green container node placed next to the Reallusion Importer. Adding a clip automatically switches the source to Animation Database and makes the new clip active.</p>
+<p><strong>USD clips are the light option</strong> — they load instantly and use very little memory, while each FBX clip costs significant RAM. A USD clip binds to the character&#x27;s USD export, which is found automatically next to the clip; you&#x27;re only asked to point at it if none is found.</p>
+<p>Both formats mix freely in one database, and either works in either import mode. Driving an <strong>FBX-imported character with USD clips</strong> is a particularly good combination: you keep the FBX-only features (expression wrinkles, full hair re-dye) while the clips stay featherweight. When a clip&#x27;s format differs from the Import mode, <doc-anchor-trigger to="#retarget-animation"><strong>Retarget Animation</strong></doc-anchor-trigger> turns on automatically.</p>
 <figure class="content-center">
     <img src="../../static/animaton-database.png" alt="" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="497" height="345" />
     <figcaption class="caption"></figcaption>
@@ -348,14 +351,15 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p><strong>Animation is the biggest driver of memory use in the whole tool</strong> — and the cost scales with a clip&#x27;s <strong>length</strong>, since Houdini holds the expanded character for every frame in the range. Often several gigabytes per clip, and far more for long, multi-thousand-frame clips. Keep your frame-ranges to what you actually need, add only the clips you&#x27;ll use, and use <strong>Remove Animation</strong> to free clips you&#x27;re done with (it also clears the scene cache to reclaim RAM). See <a href="../../reference/performance/">Performance &amp; Caching</a>.</p>
+<p><strong>FBX animation is the biggest driver of memory use in the whole tool</strong> — and the cost scales with a clip&#x27;s <strong>length</strong>, since Houdini holds the expanded character for every frame in the range. Often several gigabytes per clip, and far more for long, multi-thousand-frame clips. Keep your frame-ranges to what you actually need, add only the clips you&#x27;ll use, and use <strong>Remove Animation</strong> to free clips you&#x27;re done with (it also clears the scene cache to reclaim RAM). <strong>USD motion clips don&#x27;t have this problem</strong> — they stay light regardless of length. See <a href="../../reference/performance/">Performance &amp; Caching</a>.</p>
         </div>
     </div>
 </div>
 <h2 id="workflow-tips">Workflow tips</h2>
 <ul>
-<li>Keep your animation library lean. Two or three active clips is comfortable; a dozen will eat your RAM.</li>
-<li>When you finish with a clip, remove it rather than leaving it loaded.</li>
+<li><strong>Prefer USD motion clips when you have them</strong> — instant to load, near-zero RAM, and they work on FBX-imported characters too.</li>
+<li>Keep your FBX clip library lean. Two or three active clips is comfortable; a dozen will eat your RAM.</li>
+<li>When you finish with an FBX clip, remove it rather than leaving it loaded.</li>
 <li>Probably you&#x27;re only ever using the character&#x27;s own baked motion (&quot;Mesh + Motion&quot; FBX export in CC), you don&#x27;t need the database at all — just leave the source on Embedded FBX Animation.</li>
 </ul>
 <div id="retype-backlinks">

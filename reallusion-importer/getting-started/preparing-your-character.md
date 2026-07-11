@@ -29,7 +29,7 @@ In Character Creator, go to **File ▸ Export ▸ Export USD (Omniverse)**. In t
 Character Creator's **Delete Hidden Faces** option (on by default) trims faces hidden under clothing. The tool fully handles this — leave it at its default.
 !!!
 
-After export you'll have a `.usd` file with a **`Materials`** folder beside it (holding `Materials/Textures/<Material>/…`). **Keep the `.usd` and its `Materials` folder together** — the tool resolves textures relative to the `.usd`. There is **no `.json` sidecar** in USD mode: Character Creator writes the material data (subsurface, displacement, eye/skin shader values, accessory colors) directly into the USD instead. That's everything for USD — you can skip ahead to the [Quick Start](quick-start.md).
+After export you'll have a `.usd` file with a **`Materials`** folder beside it (holding `Materials/Textures/<Material>/…`), and — when motion was included — a **`Motions`** folder with the animation as its own small `.usd` clip. **Keep the `.usd` and its folders together** — the tool resolves textures relative to the `.usd`. The `Motions` clip is also exactly what **Add Animation** takes as a lightweight [animation-database clip](../using/animation.md#add-animation), so USD exports double as a cheap way to bank motion clips. There is **no `.json` sidecar** in USD mode: Character Creator writes the material data (subsurface, displacement, eye/skin shader values, accessory colors) directly into the USD instead. That's everything for USD — you can skip ahead to the [Quick Start](quick-start.md).
 
 ## Exporting as FBX
 

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837045885832">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837077331465">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -44,11 +44,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.6.0.837045885832" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.837077331465" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837045885832" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837077331465" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837045885832" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837077331465" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -344,7 +344,7 @@
         </div>
         <div class="pr-5 ml-3 w-full">
             <h5>Mixing sources</h5>
-<p>USD characters bind in a T-pose (FBX binds in an A-pose). This only matters if you drive a <strong>USD</strong> character with an <strong>FBX</strong> animation-database clip from a <em>different</em> character — turn <strong>Retarget Animation</strong> on in that case. A character driven by its own embedded animation is always correct. See <a href="../../using/animation/">Animation</a>.</p>
+<p>The animation database accepts <strong>both FBX and USD motion clips, in either import mode</strong> — and USD clips are far lighter (see <a href="../../using/animation/">Animation</a>). USD binds in a T-pose while FBX binds in an A-pose, so when a clip&#x27;s format differs from the Import mode the tool turns <strong>Retarget Animation</strong> on automatically. A character driven by its own embedded animation is always correct.</p>
         </div>
     </div>
 </div>

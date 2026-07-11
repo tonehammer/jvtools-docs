@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837045885832">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837077331465">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -44,11 +44,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.6.0.837045885832" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.837077331465" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837045885832" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837077331465" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837045885832" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837077331465" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -253,8 +253,8 @@
 </ul>
 <p>Switch all of these to full quality only when you&#x27;re ready for final renders.</p>
 <h2 id="managing-memory">Managing memory</h2>
-<h3 id="animation-clips-are-heavy">Animation clips are heavy</h3>
-<p>Animation is the single biggest driver of memory use in the tool — bigger than the character itself. Each clip you add to the database uses a significant amount of memory, and the cost scales with the clip&#x27;s <strong>length</strong>: Houdini holds the expanded character for every frame in the range. A few hundred frames is comfortable; multi-thousand-frame clips can balloon RAM fast. Keep your clip frame-ranges to what you actually need, add only the clips you&#x27;ll use, and use <strong>Remove Animation</strong> to free clips you&#x27;re done with. (See <a href="../../using/animation/">Animation</a>.)</p>
+<h3 id="fbx-animation-clips-are-heavy">FBX animation clips are heavy</h3>
+<p>FBX animation is the single biggest driver of memory use in the tool — bigger than the character itself. Each FBX clip you add to the database uses a significant amount of memory, and the cost scales with the clip&#x27;s <strong>length</strong>: Houdini holds the expanded character for every frame in the range. A few hundred frames is comfortable; multi-thousand-frame clips can balloon RAM fast. Keep your clip frame-ranges to what you actually need, add only the clips you&#x27;ll use, and use <strong>Remove Animation</strong> to free clips you&#x27;re done with. <strong>USD motion clips sidestep all of this</strong> — they load instantly and stay light regardless of length, so prefer them when available. (See <a href="../../using/animation/">Animation</a>.)</p>
 <h3 id="clear-scene-cache">Clear Scene Cache</h3>
 <p>The <strong>Clear Scene Cache</strong> button (in the Utilities section) unloads cached geometry from Houdini&#x27;s caches to reclaim memory — useful after deleting characters or removing animation clips.</p>
 <figure class="content-center">
@@ -356,7 +356,7 @@
                 <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M9.5 15.584V8.416a.5.5 0 0 1 .77-.42l5.576 3.583a.5.5 0 0 1 0 .842l-5.576 3.584a.5.5 0 0 1-.77-.42Z"/><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12Zm11-9.5A9.5 9.5 0 0 0 2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5Z"/></svg></span>
                 <span class="card-compact-title">Animation</span>
             </div>
-            <p class="card-compact-description">The tool can play the motion baked into your character's FBX, and it can also manage a small library of additional animation clips that you add from other FBX files — letting you switch between different motions on the same character.</p>
+            <p class="card-compact-description">The tool can play the motion baked into your imported character, and it can also manage a small library of additional animation clips — added from FBX files or USD motion clips — letting you switch between different motions on the same character.</p>
         </div>
     </a>
 </div>

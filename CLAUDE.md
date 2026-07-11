@@ -2,6 +2,8 @@
 
 **Auto-loaded into every Claude Code session in this repo.** This is the single documentation site for the **JVtools** family of Houdini digital assets (Jovan Maric's tools). One site, many products, each a top-level section. Read fully before editing.
 
+> **⛔ THIS REPO IS DOCUMENTATION ONLY (Jovan, 2026-07-11).** A session started here edits the Retype docs and **nothing else** — **never** run hython, edit `.hdalc`/HDA files, or do any Houdini asset surgery from this session. That work lives in each product's own code repo (`RPLidar for Houdini`, `Reallusion Importer for Houdini`), whose CLAUDE.md owns the direct-asset-edit workflow. If a docs task seems to need an asset change (e.g. "add this logo to the HDA"), it means add it to the **docs** — product logos/screenshots are plain image copies under each product folder's `static/`.
+
 ## What this repo is
 
 A **Retype** static documentation site. Each product (HDA) is a folder under the repo root; the root `index.md` is the landing page with product cards. Adding a new product = add a folder + a nav link, touching nothing else.

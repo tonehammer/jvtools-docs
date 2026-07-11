@@ -11,6 +11,8 @@ This page covers everything the node does once it's installed and connected: the
 
 The **Mode** parameter is the master switch for the node. It has three settings.
 
+![The Mode parameter — Off, Live, Playback](static/mode-menu.png)
+
 ### Off
 
 Motor stopped, empty output. Use this whenever you aren't actively reading the sensor — it releases the serial port so other programs (or other Houdini sessions) can use it, and it stops the motor spinning.
@@ -36,6 +38,8 @@ Live only. Controls how fast the sensor samples:
 
 Express roughly doubles the point density. Changing Scan Mode while Live restarts the stream (about two seconds).
 
+![Standard vs Express point density on the same scene](static/scan-mode-comparison.png)
+
 ### Playback
 
 Plays a recorded `.jsonl` file against the playbar clock, so the scan is time-dependent and scrubs and renders like any other animated geometry. This lets you develop and iterate with the sensor disconnected. See [Recording & Playback](#recording-and-playback).
@@ -54,6 +58,8 @@ RPLidar In has **two outputs** and no inputs.
 | --- | --- | --- | --- |
 | **0** | Points & Guides | Scan points **plus** any enabled visualization guides | Display / setup — this is the default when you display the node |
 | **1** | Points | Scan points **only**, all guides stripped | Feeding solvers and downstream networks |
+
+![The node's two outputs — Points & Guides, and Points](static/outputs.png)
 
 Output 0 is the default display, so you see the sensor guide and range ring while you work. When you connect the node into a simulation, pull from **Output 1** — it removes the `rplidar_viz` guide geometry for you, so nothing display-only leaks into your solver.
 
@@ -98,6 +104,8 @@ The **Visualize** controls draw optional on-screen guides so you can see the sen
 | **Range (m)** | Radius of the range circle in real meters. The A2M12's maximum range is 16 m. |
 | **Sensor Size (m)** | Diameter of the origin sphere marking the sensor, in real meters. |
 
+![The sensor guide — origin marker and range ring around the scan points](static/sensor-guide.png)
+
 ### Connect Points (beam fan)
 
 | Parameter | What it does |
@@ -106,6 +114,8 @@ The **Visualize** controls draw optional on-screen guides so you can see the sen
 | **Ray Color** | Color of the connecting rays (point `Cd`). |
 
 The rays use copies of the scan points, so your real scan points keep their own attributes untouched.
+
+![The beam fan — rays drawn from the sensor to each scan point](static/beam-fan.png)
 
 ### Static map (bake)
 
@@ -116,6 +126,8 @@ Baking captures a short slice of the live stream into a fixed map — useful for
 | **Bake Current Map** | Captures ~1.5 s of the live stream into a static map: short vertical marks where the beams are currently blocked. **Requires Mode = Live.** Re-baking overwrites the previous map. |
 | **Show Static Map** | Overlay the baked map. Part of the `rplidar_viz` group. |
 | **Map Color** | Color of the baked map marks (point `Cd`). |
+
+![A baked static map showing the room's walls behind the live points](static/static-map.png)
 
 ---
 
@@ -131,6 +143,8 @@ The **Crop** controls cull scan points that fall outside a rectangle on the grou
 | **Rotation** | Rotation of the rectangle about the sensor's vertical axis — align it to walls that aren't square to 0°. |
 
 The Center, Size, and Rotation controls are disabled until **Enable Crop** is on.
+
+![The red crop rectangle guide over a walkway, culling points outside it](static/crop-rectangle.png)
 
 **Typical setup:**
 
@@ -184,6 +198,8 @@ RPLidar In's point cloud is ordinary SOP geometry, so it can feed any solver —
 ### Create POP Network
 
 Press **Create POP Network** and the node builds a ready-to-run POP network below itself, wired to the **solver-ready output** (Output 1, guides stripped) with sensible presets for live work. It also drops a small green helper control — the **`_run` null** — for driving everything.
+
+![The generated POP network wired to Output 1, with the green _run helper null](static/pop-network.png)
 
 ### The _run helper
 

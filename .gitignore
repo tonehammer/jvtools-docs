@@ -10,3 +10,6 @@ retype.exe
 .DS_Store
 Thumbs.db
 .vscode/
+
+# Claude Code local settings (per-machine permission tuning)
+.claude/settings.local.json

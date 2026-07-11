@@ -5,9 +5,15 @@ order: 110
 
 # RPLidar In
 
+<div style="text-align:center; background:#0d1117; border-radius:16px; padding:2.5rem 1rem; margin:0.5rem 0 1.5rem;">
+  <img src="static/rplidar_logo.svg" alt="RPLidar In" width="150" style="max-width:60%;">
+</div>
+
 Welcome! **RPLidar In** brings live [Slamtec RPLIDAR](https://www.slamtec.com/) point-cloud data straight into Houdini as SOP geometry. Plug in the sensor, drop the node, and every rotation of the spinning laser becomes a fresh ring of points you can feed into simulations, visualizations, or interactive installations — in real time.
 
 It is built for **TouchDesigner-style interactive work**: a person walks past the sensor, and their outline drives a POP or Vellum solver live, with no baking step in between.
+
+![A live scan ring in the Houdini viewport, with the sensor guide and range ring](static/hero-scan.png)
 
 ## What it does for you
 

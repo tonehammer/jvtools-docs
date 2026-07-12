@@ -5,7 +5,7 @@ order: 95
 
 # USD vs FBX
 
-Version 1.2 added a second way to import your character. At the very top of the node is an **Import** dropdown with two choices — **USD** (the default) and **FBX**. Both produce the same shaded, animatable character with the same lookdev controller; they differ only in import speed and in a few features that depend on data Character Creator writes to one export but not the other.
+Version 1.2 added a second way to import your character. At the very top of the node is an **Import** dropdown with two choices — **USD** (the default) and **FBX**. Both produce the same shaded, animatable character with the same lookdev controller; they differ only in import speed, memory use, and a few features that depend on data Character Creator writes to one export but not the other.
 
 ![The Import dropdown at the top of the Reallusion Importer node](../static/import-mode-dropdown.png)
 
@@ -14,7 +14,7 @@ Version 1.2 added a second way to import your character. At the very top of the 
 | | **USD** *(default)* | **FBX** |
 |---|---|---|
 | **Import speed** | less than a minute, even for HD characters | 1 - 3 min (grows with character weight) |
-| **Memory (loaded & animating)** | less than 8GB, even for HD characters | ~10–40 GB |
+| **Memory (one loaded character)** | less than 8GB, even for HD characters | ~10–40 GB |
 | **RAM to plan for** | 16 GB min / 32 GB recommended | 48 GB min / 64 GB recommended (HD) |
 | **Skin Cache needed?** | No — USD loads fast without it | Recommended for heavy/HD characters |
 | Geometry, skeleton, body + facial animation | ✅ Full | ✅ Full |

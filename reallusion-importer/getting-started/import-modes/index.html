@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837170732828">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837171131125">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -44,11 +44,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.6.0.837170732828" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.837171131125" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837170732828" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837171131125" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837170732828" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837171131125" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -231,7 +231,7 @@
 | **Import speed** | less than a minute, even for HD characters | 1 - 3 min (grows with character weight) |
 | **Memory (loaded &amp; animating)** | less than 8GB, even for HD characters | ~10–40 GB |
 | **RAM to plan for** | 16 GB min / 32 GB recommended | 48 GB min / 64 GB recommended (HD) |
-| **Skin Cache needed?** | No — import is already instant | Recommended for heavy/HD characters |
+| **Skin Cache needed?** | No — USD loads fast without it | Recommended for heavy/HD characters |
 | Geometry, skeleton, body + facial animation | ✅ Full | ✅ Full |
 | Materials (skin, eyes, teeth, hair, clothing) | ✅ Full | ✅ Full |
 | Subsurface, displacement, retarget, Split Body/Facial, Skin Fix, render rig | ✅ Full | ✅ Full |
@@ -266,7 +266,7 @@
 </tr>
 <tr>
 <td><strong>Skin Cache needed?</strong></td>
-<td>No — import is already instant</td>
+<td>No — USD loads fast without it</td>
 <td>Recommended for heavy/HD characters</td>
 </tr>
 <tr>
@@ -326,7 +326,7 @@
     </div>
 </div>
 <h2 id="why-usd-is-so-much-faster-and-lighter">Why USD is so much faster and lighter</h2>
-<p>Character Creator&#x27;s FBX stores every facial blendshape as a full mesh copy, and Houdini has to expand all of them on import — tens of gigabytes of RAM and a minute or more on a heavy HD character. The USD export keeps those blendshapes sparse, and the tool keeps them sparse <strong>through deformation too</strong>: only the expressions actually active on the current frame are computed. In our tests the heaviest HD character went from <strong>~96 s and ~26 GB via FBX to ~1.3 s and under 3 GB via USD</strong> — and the gap grows the heavier the character. Because USD imports in about a second, the <a href="../../reference/performance/">Skin Cache</a> is unnecessary there and its controls are hidden. The only trade-off: scrubbing a very heavy HD character recomputes its face each frame, which is somewhat slower than FBX&#x27;s cached playback — a fair trade for fitting on a normal machine.</p>
+<p>Character Creator&#x27;s FBX stores every facial blendshape as a full mesh copy, and Houdini has to expand all of them on import — tens of gigabytes of RAM and a minute or more on a heavy HD character. The USD export keeps those blendshapes sparse, and the tool keeps them sparse <strong>through deformation too</strong>: only the expressions actually active on the current frame are computed. In our tests the heaviest HD character&#x27;s working footprint dropped from <strong>~26 GB via FBX to under 8 GB via USD</strong> in a live session, and the raw import went from a minute and a half to about a second — the gap grows the heavier the character. Because USD loads so fast, the <a href="../../reference/performance/">Skin Cache</a> is unnecessary there and its controls are hidden. The only trade-off: scrubbing a very heavy HD character recomputes its face each frame, which is somewhat slower than FBX&#x27;s cached playback — a fair trade for fitting on a normal machine.</p>
 <h2 id="what-usd-does-better--real-character-creator-eye--skin-values">What USD does <em>better</em> — real Character Creator eye &amp; skin values</h2>
 <p>The FBX export leaves out most of Character Creator&#x27;s HD eye shader, so in FBX mode the eye controls start from generic defaults you dial in by eye. <strong>The USD export carries Character Creator&#x27;s actual shader values</strong>, so in USD mode the tool reads them and seeds the controller automatically — real iris color (when CC actually tinted it), iris size and limbal ring, and sclera shading and subsurface amount from the real per-character values. It&#x27;s all still adjustable; these are just smarter starting points, and <strong>Reset to Defaults</strong> returns to them. See <a href="../../using/eyes/">Eyes</a>.</p>
 <h2 id="what-usd-mode-does-not-carry">What USD mode does <em>not</em> carry</h2>

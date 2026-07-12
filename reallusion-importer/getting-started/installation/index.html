@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837169025573">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837170637764">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -44,11 +44,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.6.0.837169025573" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.837170637764" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837169025573" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837170637764" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837169025573" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837170637764" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -255,7 +255,7 @@
 </doc-codeblock></div>
 <p>If the <code translate="no" v-pre>otls</code> folder doesn&#x27;t exist yet, create it.</p>
 <h3 id="step-2--copy-the-asset-file">Step 2 — Copy the asset file</h3>
-<p>Copy the downloaded <code translate="no" v-pre>.hdalc</code> file (for example, <code translate="no" v-pre>JV_Reallusion_Importer.hdalc</code>) into that <code translate="no" v-pre>otls</code> folder.</p>
+<p>Copy the downloaded <code translate="no" v-pre>.hdalc</code> file (for example, <code translate="no" v-pre>JV-Reallusion_Importer-v1.2.hdalc</code>) into that <code translate="no" v-pre>otls</code> folder.</p>
 <h3 id="step-3--restart-houdini">Step 3 — Restart Houdini</h3>
 <p>If Houdini was already running, restart it so it picks up the new asset. That&#x27;s it — the tool is now installed.</p>
 <h3 id="step-4--verify-the-install">Step 4 — Verify the install</h3>
@@ -278,7 +278,7 @@
 </ol>
 <p>The node will be available until you close Houdini. To make it permanent, use the <code translate="no" v-pre>otls</code> folder method above.</p>
 <h2 id="updating">Updating</h2>
-<p>When a new version is released, replace the old <code translate="no" v-pre>.hdalc</code> file in your <code translate="no" v-pre>otls</code> folder with the new one and restart Houdini. Your existing scenes will pick up the new version automatically.</p>
+<p>When a new version is released, copy the new <code translate="no" v-pre>.hdalc</code> into your <code translate="no" v-pre>otls</code> folder, <strong>delete the previous version&#x27;s file</strong> (the filename carries the version, e.g. <code translate="no" v-pre>JV-Reallusion_Importer-v1.2.hdalc</code>), and restart Houdini. Your existing scenes will pick up the new version automatically — no scene changes needed.</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
     <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">

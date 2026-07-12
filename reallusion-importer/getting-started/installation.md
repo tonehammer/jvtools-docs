@@ -35,7 +35,7 @@ If the `otls` folder doesn't exist yet, create it.
 
 ### Step 2 — Copy the asset file
 
-Copy the downloaded `.hdalc` file (for example, `JV_Reallusion_Importer.hdalc`) into that `otls` folder.
+Copy the downloaded `.hdalc` file (for example, `JV-Reallusion_Importer-v1.2.hdalc`) into that `otls` folder.
 
 ### Step 3 — Restart Houdini
 
@@ -64,7 +64,7 @@ The node will be available until you close Houdini. To make it permanent, use th
 
 ## Updating
 
-When a new version is released, replace the old `.hdalc` file in your `otls` folder with the new one and restart Houdini. Your existing scenes will pick up the new version automatically.
+When a new version is released, copy the new `.hdalc` into your `otls` folder, **delete the previous version's file** (the filename carries the version, e.g. `JV-Reallusion_Importer-v1.2.hdalc`), and restart Houdini. Your existing scenes will pick up the new version automatically — no scene changes needed.
 
 !!!info
 Because the tool stores all your look settings on a controller node _inside your scene_ (not inside the asset), updating the asset will not lose your dialed-in looks on existing characters.

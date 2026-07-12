@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837124927212">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837168683787">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -44,11 +44,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.6.0.837124927212" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.837168683787" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837124927212" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837168683787" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837124927212" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837168683787" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -229,7 +229,8 @@
 <retype-table copy-text="| | **USD** *(default)* | **FBX** |
 |---|---|---|
 | **Import speed** | ~1 second, even for HD characters | seconds to minutes (grows with character weight) |
-| **Import memory** | ~0.5–1 GB | ~5–40 GB |
+| **Memory (loaded &amp; animating)** | ~1–3 GB, even for HD characters | ~5–40 GB |
+| **RAM to plan for** | 16 GB min / 32 GB recommended | 48 GB min / 64 GB recommended (HD) |
 | **Skin Cache needed?** | No — import is already instant | Recommended for heavy/HD characters |
 | Geometry, skeleton, body + facial animation | ✅ Full | ✅ Full |
 | Materials (skin, eyes, teeth, hair, clothing) | ✅ Full | ✅ Full |
@@ -254,9 +255,14 @@
 <td>seconds to minutes (grows with character weight)</td>
 </tr>
 <tr>
-<td><strong>Import memory</strong></td>
-<td>~0.5–1 GB</td>
+<td><strong>Memory (loaded &amp; animating)</strong></td>
+<td>~1–3 GB, even for HD characters</td>
 <td>~5–40 GB</td>
+</tr>
+<tr>
+<td><strong>RAM to plan for</strong></td>
+<td>16 GB min / 32 GB recommended</td>
+<td>48 GB min / 64 GB recommended (HD)</td>
 </tr>
 <tr>
 <td><strong>Skin Cache needed?</strong></td>
@@ -319,8 +325,8 @@
         </div>
     </div>
 </div>
-<h2 id="why-usd-is-so-much-faster">Why USD is so much faster</h2>
-<p>Character Creator&#x27;s FBX stores every facial blendshape as a full mesh copy, and Houdini has to expand all of them on import — tens of gigabytes of RAM and a minute or more on a heavy HD character. The USD export keeps those blendshapes sparse, so Houdini reads them almost instantly. In our tests a heavy HD character that took ~96 s and ~13 GB via FBX imported in ~1.3 s and ~0.9 GB via USD — and the gap grows the heavier the character. Because USD imports in about a second, the <a href="../../reference/performance/">Skin Cache</a> is unnecessary there and its controls are hidden.</p>
+<h2 id="why-usd-is-so-much-faster-and-lighter">Why USD is so much faster and lighter</h2>
+<p>Character Creator&#x27;s FBX stores every facial blendshape as a full mesh copy, and Houdini has to expand all of them on import — tens of gigabytes of RAM and a minute or more on a heavy HD character. The USD export keeps those blendshapes sparse, and the tool keeps them sparse <strong>through deformation too</strong>: only the expressions actually active on the current frame are computed. In our tests the heaviest HD character went from <strong>~96 s and ~26 GB via FBX to ~1.3 s and under 3 GB via USD</strong> — and the gap grows the heavier the character. Because USD imports in about a second, the <a href="../../reference/performance/">Skin Cache</a> is unnecessary there and its controls are hidden. The only trade-off: scrubbing a very heavy HD character recomputes its face each frame, which is somewhat slower than FBX&#x27;s cached playback — a fair trade for fitting on a normal machine.</p>
 <h2 id="what-usd-does-better--real-character-creator-eye--skin-values">What USD does <em>better</em> — real Character Creator eye &amp; skin values</h2>
 <p>The FBX export leaves out most of Character Creator&#x27;s HD eye shader, so in FBX mode the eye controls start from generic defaults you dial in by eye. <strong>The USD export carries Character Creator&#x27;s actual shader values</strong>, so in USD mode the tool reads them and seeds the controller automatically — real iris color (when CC actually tinted it), iris size and limbal ring, and sclera shading and subsurface amount from the real per-character values. It&#x27;s all still adjustable; these are just smarter starting points, and <strong>Reset to Defaults</strong> returns to them. See <a href="../../using/eyes/">Eyes</a>.</p>
 <h2 id="what-usd-mode-does-not-carry">What USD mode does <em>not</em> carry</h2>
@@ -373,17 +379,6 @@
                 <span class="card-compact-title">Hair</span>
             </div>
             <p class="card-compact-description">The Hair folder is one of the tool's most powerful features: a complete hair re-dye system. You can recolor any compatible character's hair — change it from brown to silver, add ombré fades, paint in highlight streaks — all without going back to Character Creator.</p>
-        </div>
-    </a>
-</div>
-<div class="card-compact-container">
-    <a href="/jvtools-docs/reallusion-importer/reference/limitations/" class="group card-compact no-link">
-        <div class="card-compact-body">
-            <div class="card-compact-header">
-                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M13 17.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-.25-8.25a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0v-4.5Z"/><path d="M9.836 3.244c.963-1.665 3.365-1.665 4.328 0l8.967 15.504c.963 1.667-.24 3.752-2.165 3.752H3.034c-1.926 0-3.128-2.085-2.165-3.752Zm3.03.751a1.002 1.002 0 0 0-1.732 0L2.168 19.499A1.002 1.002 0 0 0 3.034 21h17.932a1.002 1.002 0 0 0 .866-1.5L12.866 3.994Z"/></svg></span>
-                <span class="card-compact-title">Limitations & Expectations</span>
-            </div>
-            <p class="card-compact-description">This page is here to set honest expectations before and after you buy. The tool does a lot, but Character Creator's FBX export — and Houdini itself — impose some hard limits that no importer can work around.</p>
         </div>
     </a>
 </div>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837124927212">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837168683787">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -44,11 +44,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.6.0.837124927212" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.837168683787" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837124927212" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837168683787" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837124927212" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837168683787" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -222,7 +222,8 @@
 <h1 id="performance--caching">Performance &amp; Caching</h1>
 <p>Character Creator characters are detailed, and detailed characters use memory. This page explains where the cost comes from and how to keep your sessions fast and lean.</p>
 <h2 id="the-fastest-fix-import-as-usd">The fastest fix: import as USD</h2>
-<p>Version 1.2&#x27;s <strong>USD import mode</strong> sidesteps almost all of this cost, and it&#x27;s the default. Character Creator&#x27;s USD export keeps the facial blendshapes sparse, so Houdini imports even a heavy HD character in <strong>about a second, using a fraction of the memory</strong> — roughly <strong>50–75× faster and 10–14× less RAM</strong> than the FBX path. If performance or memory is a concern, exporting and importing as <strong>USD is the single biggest thing you can do</strong>. See <a href="../../getting-started/import-modes/">USD vs FBX</a>.</p>
+<p>Version 1.2&#x27;s <strong>USD import mode</strong> sidesteps almost all of this cost, and it&#x27;s the default. Character Creator&#x27;s USD export keeps the facial blendshapes sparse, and the tool now keeps them sparse <strong>all the way through deformation</strong> — so a heavy HD character imports in <strong>about a second</strong> and runs at a few gigabytes while animating, where the same character costs 20–40 GB via FBX (in our tests, the heaviest HD character went from ~26 GB to under 3 GB). If performance or memory is a concern, exporting and importing as <strong>USD is the single biggest thing you can do</strong>. See <a href="../../getting-started/import-modes/">USD vs FBX</a>.</p>
+<p>The one trade-off: because the sparse path recomputes the facial deformation each frame instead of holding gigabytes of pre-expanded data, scrubbing a very heavy HD character is somewhat slower per frame. On standard characters you won&#x27;t notice.</p>
 <p>The rest of this page applies mainly to <strong>FBX import</strong>, which still has to expand the character on load (and which you&#x27;d use for FBX-only features like wrinkles). One thing USD does <strong>not</strong> change is playback memory over long frame ranges — see <doc-anchor-trigger to="#long-animations-and-playback-memory">Long animations and playback memory</doc-anchor-trigger> below.</p>
 <h2 id="why-the-first-fbx-build-is-slow">Why the first FBX build is slow</h2>
 <p>When you import an FBX character, the slow part is Houdini loading and expanding it — particularly its blendshapes (the facial expression targets). A fully-featured CC character has many of these, and expanding them is memory- and time-intensive. This is inherent to how Houdini handles FBX character data, not something specific to this tool. (USD import avoids it — see above.)</p>
@@ -257,7 +258,7 @@
 <p>FBX animation is the single biggest driver of memory use in the tool — bigger than the character itself. Each FBX clip you add to the database uses a significant amount of memory, and the cost scales with the clip&#x27;s <strong>length</strong>: Houdini holds the expanded character for every frame in the range. A few hundred frames is comfortable; multi-thousand-frame clips can balloon RAM fast. Keep your clip frame-ranges to what you actually need, add only the clips you&#x27;ll use, and use <strong>Remove Animation</strong> to free clips you&#x27;re done with. <strong>USD motion clips sidestep this</strong> — they <em>store</em> lightly and load instantly regardless of length, so prefer them when available. (Note this is about how the clip is <em>stored</em>; <em>playing</em> a long range still fills the playback cache in either mode — see the next section.) (See <a href="../../using/animation/">Animation</a>.)</p>
 <h3 id="long-animations-and-playback-memory">Long animations and playback memory</h3>
 <p>This one applies to <strong>both USD and FBX</strong>, and is separate from import cost. Once a character is animated, Houdini caches the <strong>deformed mesh for every frame you play or scrub</strong> so playback stays smooth. For a heavy or HD character that&#x27;s roughly <strong>20 MB per frame</strong>, so a several-hundred-frame range can add <strong>10–20 GB</strong> on top of the character itself — and it grows the more of the range you touch.</p>
-<p>USD does <strong>not</strong> avoid this: USD makes <em>import</em> cheap, but the per-frame deformed mesh is the same size whichever way you imported, so playing a long animation fills the cache the same. (This is why USD&#x27;s memory win is dramatic on import but only modest once you&#x27;re playing back a long clip.)</p>
+<p>USD does <strong>not</strong> avoid this: the per-frame deformed mesh is the same size whichever way you imported, so playing a long animation fills the cache the same. The difference is the baseline it stacks on — in USD mode the character itself only costs a few gigabytes, so even with a full playback cache you stay far below FBX-mode totals.</p>
 <p>To keep it under control:</p>
 <ul>
 <li><strong>Lower Houdini&#x27;s geometry cache limit</strong> — <em>Edit ▸ Preferences ▸ Cache</em>, &quot;Cache Memory (MB)&quot;. This is a hard ceiling on exactly this memory; a smaller value trades some scrub smoothness for a lower RAM cap.</li>

@@ -4,7 +4,9 @@ Character Creator characters are detailed, and detailed characters use memory. T
 
 ## The fastest fix: import as USD
 
-Version 1.2's **USD import mode** sidesteps almost all of this cost, and it's the default. Character Creator's USD export keeps the facial blendshapes sparse, so Houdini imports even a heavy HD character in **about a second, using a fraction of the memory** — roughly **50–75× faster and 10–14× less RAM** than the FBX path. If performance or memory is a concern, exporting and importing as **USD is the single biggest thing you can do**. See [USD vs FBX](../getting-started/import-modes.md).
+Version 1.2's **USD import mode** sidesteps almost all of this cost, and it's the default. Character Creator's USD export keeps the facial blendshapes sparse, and the tool now keeps them sparse **all the way through deformation** — so a heavy HD character imports in **about a second** and runs at a few gigabytes while animating, where the same character costs 20–40 GB via FBX (in our tests, the heaviest HD character went from ~26 GB to under 3 GB). If performance or memory is a concern, exporting and importing as **USD is the single biggest thing you can do**. See [USD vs FBX](../getting-started/import-modes.md).
+
+The one trade-off: because the sparse path recomputes the facial deformation each frame instead of holding gigabytes of pre-expanded data, scrubbing a very heavy HD character is somewhat slower per frame. On standard characters you won't notice.
 
 The rest of this page applies mainly to **FBX import**, which still has to expand the character on load (and which you'd use for FBX-only features like wrinkles). One thing USD does **not** change is playback memory over long frame ranges — see [Long animations and playback memory](#long-animations-and-playback-memory) below.
 
@@ -38,7 +40,7 @@ FBX animation is the single biggest driver of memory use in the tool — bigger 
 
 This one applies to **both USD and FBX**, and is separate from import cost. Once a character is animated, Houdini caches the **deformed mesh for every frame you play or scrub** so playback stays smooth. For a heavy or HD character that's roughly **20 MB per frame**, so a several-hundred-frame range can add **10–20 GB** on top of the character itself — and it grows the more of the range you touch.
 
-USD does **not** avoid this: USD makes *import* cheap, but the per-frame deformed mesh is the same size whichever way you imported, so playing a long animation fills the cache the same. (This is why USD's memory win is dramatic on import but only modest once you're playing back a long clip.)
+USD does **not** avoid this: the per-frame deformed mesh is the same size whichever way you imported, so playing a long animation fills the cache the same. The difference is the baseline it stacks on — in USD mode the character itself only costs a few gigabytes, so even with a full playback cache you stay far below FBX-mode totals.
 
 To keep it under control:
 

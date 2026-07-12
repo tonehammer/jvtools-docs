@@ -9,7 +9,8 @@ Version 1.2 added a second way to import your character. At the very top of the 
 | | **USD** *(default)* | **FBX** |
 |---|---|---|
 | **Import speed** | ~1 second, even for HD characters | seconds to minutes (grows with character weight) |
-| **Import memory** | ~0.5–1 GB | ~5–40 GB |
+| **Memory (loaded & animating)** | ~1–3 GB, even for HD characters | ~5–40 GB |
+| **RAM to plan for** | 16 GB min / 32 GB recommended | 48 GB min / 64 GB recommended (HD) |
 | **Skin Cache needed?** | No — import is already instant | Recommended for heavy/HD characters |
 | Geometry, skeleton, body + facial animation | ✅ Full | ✅ Full |
 | Materials (skin, eyes, teeth, hair, clothing) | ✅ Full | ✅ Full |
@@ -23,9 +24,9 @@ Version 1.2 added a second way to import your character. At the very top of the 
 Use **USD** for almost everything — it's far faster, far lighter, and *better* at eyes/skin because it carries Character Creator's real shader values. Switch to **FBX** only when you specifically need **animated expression wrinkles** or the **full hair re-dye** (root-to-tip / highlight streaks).
 !!!
 
-## Why USD is so much faster
+## Why USD is so much faster and lighter
 
-Character Creator's FBX stores every facial blendshape as a full mesh copy, and Houdini has to expand all of them on import — tens of gigabytes of RAM and a minute or more on a heavy HD character. The USD export keeps those blendshapes sparse, so Houdini reads them almost instantly. In our tests a heavy HD character that took ~96 s and ~13 GB via FBX imported in ~1.3 s and ~0.9 GB via USD — and the gap grows the heavier the character. Because USD imports in about a second, the [Skin Cache](../reference/performance.md) is unnecessary there and its controls are hidden.
+Character Creator's FBX stores every facial blendshape as a full mesh copy, and Houdini has to expand all of them on import — tens of gigabytes of RAM and a minute or more on a heavy HD character. The USD export keeps those blendshapes sparse, and the tool keeps them sparse **through deformation too**: only the expressions actually active on the current frame are computed. In our tests the heaviest HD character went from **~96 s and ~26 GB via FBX to ~1.3 s and under 3 GB via USD** — and the gap grows the heavier the character. Because USD imports in about a second, the [Skin Cache](../reference/performance.md) is unnecessary there and its controls are hidden. The only trade-off: scrubbing a very heavy HD character recomputes its face each frame, which is somewhat slower than FBX's cached playback — a fair trade for fitting on a normal machine.
 
 ## What USD does *better* — real Character Creator eye & skin values
 

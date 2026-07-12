@@ -13,8 +13,8 @@ Version 1.2 added a second way to import your character. At the very top of the 
 
 | | **USD** *(default)* | **FBX** |
 |---|---|---|
-| **Import speed** | ~1 second, even for HD characters | seconds to minutes (grows with character weight) |
-| **Memory (loaded & animating)** | ~1–3 GB, even for HD characters | ~5–40 GB |
+| **Import speed** | less than a minute, even for HD characters | 1 - 3 min (grows with character weight) |
+| **Memory (loaded & animating)** | less than 8GB, even for HD characters | ~10–40 GB |
 | **RAM to plan for** | 16 GB min / 32 GB recommended | 48 GB min / 64 GB recommended (HD) |
 | **Skin Cache needed?** | No — import is already instant | Recommended for heavy/HD characters |
 | Geometry, skeleton, body + facial animation | ✅ Full | ✅ Full |

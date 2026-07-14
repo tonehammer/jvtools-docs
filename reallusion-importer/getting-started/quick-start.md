@@ -18,6 +18,10 @@ At the top of the node is an **Import** dropdown. Leave it on **USD** (the defau
 
 Then set the file field the dropdown shows — **CC5/iClone USD** or **CC5/iClone FBX** — to your exported file.
 
+!!!info Chasing the best look?
+For animated characters, the best-quality path is an **FBX** import (for the expression wrinkles) driven by **lightweight USD motion clips** — see [the best-quality workflow](import-modes.md#the-best-quality-workflow).
+!!!
+
 ![](../static/elysse-FBX-filepath.png)
 
 !!!info

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837181077168">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837385323585">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -44,11 +44,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.6.0.837181077168" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.837385323585" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837181077168" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837385323585" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837181077168" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837385323585" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -234,7 +234,26 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p>For <strong>iClone</strong> the settings are the same, just in different places in the export menu.</p>
+            <h5>The best-quality workflow — an FBX character driven by lightweight USD clips</h5>
+<p>Expression wrinkles and the full hair re-dye are <strong>FBX-only</strong> — Character Creator leaves that data out of its USD export. So for the <strong>best-looking result</strong>, import your character as <strong>FBX</strong> and drive its motion with <strong>lightweight USD motion clips</strong> in the animation database rather than heavy FBX clips. You keep the FBX-only features (the wrinkles that make a Character Creator face look alive) while the animation stays featherweight. If all of the character&#x27;s motion will come from clips, you can export it <strong>Mesh only</strong>. See <a href="../import-modes/">USD vs FBX</a> for the full trade-off.</p>
+        </div>
+    </div>
+</div>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Using iClone?</h5>
+<p>The <strong>character</strong> export settings are the same as Character Creator&#x27;s, just in a different menu. iClone-authored <strong>animation</strong> needs one extra step to reach Houdini — see <doc-anchor-trigger to="#exporting-from-iclone">Exporting from iClone</doc-anchor-trigger> below.</p>
         </div>
     </div>
 </div>
@@ -337,6 +356,63 @@
 <li><strong>Normal — OpenGL (Y+)</strong> (Normal section) — must stay <strong>OpenGL (Y+)</strong> (the Maya-preset default), <em>not</em> DirectX (Y−). Houdini and Karma expect OpenGL-convention normal maps; the DirectX option flips the green channel, which inverts the skin&#x27;s fine surface detail (pores and wrinkles read inward instead of outward).</li>
 </ul>
 <p>Everything else in this panel can stay at its defaults.</p>
+<h2 id="exporting-from-iclone">Exporting from iClone</h2>
+<p>iClone is the other half of the Reallusion pipeline — it&#x27;s where you author and mocap <strong>animation</strong>. There are two things you might export from iClone: the <strong>character</strong> itself, and an <strong>animation</strong> you&#x27;ve built on it.</p>
+<h3 id="the-character">The character</h3>
+<p>Exporting a character from iClone uses the <strong>same settings</strong> described above for Character Creator — USD (<strong>File ▸ Export ▸ Export USD (Omniverse)</strong>) or FBX (<strong>File ▸ Export ▸ Export Clothed Character</strong>) — the panels are the same, just reached from iClone&#x27;s menus. Follow the <doc-anchor-trigger to="#exporting-as-usd-recommended">USD</doc-anchor-trigger> or <doc-anchor-trigger to="#exporting-as-fbx">FBX</doc-anchor-trigger> section above.</p>
+<figure class="content-center">
+    <img src="../static/iclone-export-menu.png" alt="The iClone export menu" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption">The iClone export menu</figcaption>
+</figure>
+<h3 id="getting-iclone-animation-into-houdini">Getting iClone animation into Houdini</h3>
+<p>If you&#x27;ve authored a performance in iClone that you want as a <strong>motion clip</strong> for the animation database, you have two routes.</p>
+<h4 id="option-a--usd-via-the-nvidia-omniverse-plugin-direct">Option A — USD, via the NVIDIA Omniverse plugin (direct)</h4>
+<p>Install Reallusion&#x27;s <a href="https://www.reallusion.com/iclone/nvidia-omniverse/" class="outbound" target="_blank"><span><strong>iClone Omniverse plugin</strong></span><svg xmlns="http://www.w3.org/2000/svg" class="retype-outbound-trigger docs-icon ml-1" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="currentColor"><path d="M15.5 2.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V4.06l-6.22 6.22a.75.75 0 1 1-1.06-1.06L19.94 3h-3.69a.75.75 0 0 1-.75-.75Z"/><path d="M2.5 4.25c0-.966.784-1.75 1.75-1.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.25.25 0 0 0-.25.25v15.5c0 .138.112.25.25.25h15.5a.25.25 0 0 0 .25-.25v-8.5a.75.75 0 0 1 1.5 0v8.5a1.75 1.75 0 0 1-1.75 1.75H4.25a1.75 1.75 0 0 1-1.75-1.75V4.25Z"/></g></svg></a>, following the <a href="https://manual.reallusion.com/Omniverse-Plug-in/Content/ENU/iC-8.3/01-Installation/Installation-Guide-for-Using-NVIDIA-Omnniverse.htm" class="outbound" target="_blank"><span>official installation guide</span><svg xmlns="http://www.w3.org/2000/svg" class="retype-outbound-trigger docs-icon ml-1" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="currentColor"><path d="M15.5 2.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V4.06l-6.22 6.22a.75.75 0 1 1-1.06-1.06L19.94 3h-3.69a.75.75 0 0 1-.75-.75Z"/><path d="M2.5 4.25c0-.966.784-1.75 1.75-1.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.25.25 0 0 0-.25.25v15.5c0 .138.112.25.25.25h15.5a.25.25 0 0 0 .25-.25v-8.5a.75.75 0 0 1 1.5 0v8.5a1.75 1.75 0 0 1-1.75 1.75H4.25a1.75 1.75 0 0 1-1.75-1.75V4.25Z"/></g></svg></a>. It adds USD export to iClone directly, so you can export USD (character and motion) the same way you would from Character Creator, and import it with this tool exactly like a Character Creator USD export.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-warning" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
+                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>It&#x27;s a large install</h5>
+<p>The Omniverse plugin takes roughly <strong>10–20 minutes to install</strong> and about <strong>10 GB of disk space</strong>. If you&#x27;d rather not install it, use Option B instead.</p>
+        </div>
+    </div>
+</div>
+<h4 id="option-b--fbx-round-trip-through-character-creator-no-omniverse">Option B — FBX round-trip through Character Creator (no Omniverse)</h4>
+<p>If you don&#x27;t want to install Omniverse, export your animation from iClone as <strong>FBX</strong>, then bring it onto the character in Character Creator, which re-exports it in a format this tool reads:</p>
+<ol>
+<li>In <strong>Character Creator</strong>, go <strong>Import ▸ Import External Motion</strong> and choose the FBX you exported from iClone.</li>
+<li>Wait while <strong>&quot;Fetching Characterization Profile&quot;</strong> finishes loading.</li>
+<li>In the <strong>Motion Import Settings</strong> dialog that follows, you can leave the defaults. Click <strong>Convert All</strong>.</li>
+<li>Re-export the character from Character Creator — as <strong>USD</strong> (recommended) or FBX — with that motion, using the export sections above.</li>
+</ol>
+<figure class="content-center">
+    <img src="../static/cc5-import-external-motion.png" alt="Character Creator's Motion Import Settings dialog — defaults are fine" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption">Character Creator's Motion Import Settings dialog — defaults are fine</figcaption>
+</figure>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-success"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-success" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M21 9.09c-.55 0-1 .45-1 1v.92c0 4.96-4.04 8.99-9 8.99-4.97 0-9-4.04-9-9s4.04-9 9-9c1.27 0 2.5.26 3.66.78.51.22 1.1 0 1.32-.51.23-.5 0-1.1-.51-1.32C14.06.32 12.56 0 11.01 0H11C4.94 0 0 4.93 0 10.99 0 17.06 4.93 22 10.99 22H11c6.06 0 11-4.93 11-10.99v-.92c0-.56-.45-1-1-1z"></path>
+                    <path d="M8.71 9.31a.996.996 0 10-1.41 1.41l3 3c.19.19.44.29.71.29.27 0 .52-.11.71-.29l10-10.01a.996.996 0 10-1.41-1.41L11 11.6 8.71 9.31z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+<p>Option B fits the <doc-anchor-trigger to="#preparing-your-character-in-character-creator">best-quality workflow</doc-anchor-trigger> neatly: keep your character as an FBX import for the expression wrinkles, and bring the iClone motion in as a light <strong>USD</strong> clip re-exported from Character Creator.</p>
+        </div>
+    </div>
+</div>
 <h2 id="animation">Animation</h2>
 <p>If you want the character&#x27;s motion to come in with it, export with the animation baked in. The tool reads the embedded FBX animation automatically, and you can add more clips later — see <a href="../../using/animation/">Animation</a>.</p>
 <div class="flex mb-6">

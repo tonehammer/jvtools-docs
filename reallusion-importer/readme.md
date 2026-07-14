@@ -10,6 +10,10 @@ You export your character from Character Creator — as **USD** (fast and light,
 
 The tool is designed for Character Creator 5 / iClone 8 and works with all CC3+ characters. It ships as a black-boxed Houdini Digital Asset, and its materials are tuned for Karma XPU while also rendering in Karma CPU.
 
+!!!success The best-quality workflow
+USD import is fast and light, but the **expression wrinkles** — the thing that makes a Character Creator face look alive — are **FBX-only**. For the best-looking result, import your character as **FBX** and drive its motion with **lightweight USD motion clips**. You keep the wrinkles while the animation stays featherweight. See [USD vs FBX](getting-started/import-modes.md#the-best-quality-workflow).
+!!!
+
 ![](static/mila_raw_v_render.png)
 
 _(Get it on_ [_Gumroad)_](https://jvtonehammer.gumroad.com/l/reallusionimporterforhoudini)

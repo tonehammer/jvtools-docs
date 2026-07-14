@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837181077168">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837385323585">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -44,11 +44,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.6.0.837181077168" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.837385323585" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837181077168" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837385323585" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837181077168" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837385323585" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -325,6 +325,31 @@
         </div>
     </div>
 </div>
+<h2 id="the-best-quality-workflow">The best-quality workflow</h2>
+<p><strong>An FBX character driven by USD motion clips.</strong> The expression wrinkles are the single feature that makes a Character Creator face read as <em>alive</em> in motion, and they&#x27;re <strong>FBX-only</strong>. So when the look matters, don&#x27;t treat this as an either/or:</p>
+<ul>
+<li><strong>Import the character as FBX</strong> — you get the expression wrinkles and the full hair re-dye. If all of its motion will come from clips, export it <strong>Mesh only</strong>.</li>
+<li><strong>Drive its animation with lightweight USD motion clips</strong> from the <a href="../../using/animation/#add-animation">animation database</a> — a USD clip loads instantly and costs almost no memory, where each FBX clip costs several gigabytes. USD clips drive an FBX-imported character perfectly (the tool turns <a href="../../using/animation/#retarget-animation">Retarget Animation</a> on for you, since the two formats bind different rest poses).</li>
+</ul>
+<p>That combination keeps the FBX-only look features while your animation stays featherweight.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>An honest caveat</h5>
+<p>This is the best-quality path, not the lightest one. An FBX-imported character is memory-heavy no matter what — that&#x27;s the cost of carrying the wrinkle data, and it&#x27;s unavoidable if you want wrinkles. What the USD clips save you is the <em>animation</em> cost: you avoid holding a heavy FBX clip (or a long baked-in FBX animation) in memory on top of the character. If you don&#x27;t need wrinkles at all, a plain <strong>USD</strong> import is the lighter choice.</p>
+        </div>
+    </div>
+</div>
 <h2 id="why-usd-is-so-much-faster-and-lighter">Why USD is so much faster and lighter</h2>
 <p>Character Creator&#x27;s FBX stores every facial blendshape as a full mesh copy, and Houdini has to expand all of them on import — tens of gigabytes of RAM and a minute or more on a heavy HD character. The USD export keeps those blendshapes sparse, and the tool keeps them sparse <strong>through deformation too</strong>: only the expressions actually active on the current frame are computed. In our tests the heaviest HD character&#x27;s working footprint dropped from <strong>~26 GB via FBX to under 8 GB via USD</strong> in a live session, and the raw import went from a minute and a half to about a second — the gap grows the heavier the character. Because USD loads so fast, the <a href="../../reference/performance/">Skin Cache</a> is unnecessary there and its controls are hidden. The only trade-off: scrubbing a very heavy HD character recomputes its face each frame, which is somewhat slower than FBX&#x27;s cached playback — a fair trade for fitting on a normal machine.</p>
 <h2 id="what-usd-does-better--real-character-creator-eye--skin-values">What USD does <em>better</em> — real Character Creator eye &amp; skin values</h2>
@@ -367,7 +392,7 @@
                 <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M11.998 2.5A9.503 9.503 0 0 0 3.378 8H5.75a.75.75 0 0 1 0 1.5H2a1 1 0 0 1-1-1V4.75a.75.75 0 0 1 1.5 0v1.697A10.997 10.997 0 0 1 11.998 1C18.074 1 23 5.925 23 12s-4.926 11-11.002 11C6.014 23 1.146 18.223 1 12.275a.75.75 0 0 1 1.5-.037 9.5 9.5 0 0 0 9.498 9.262c5.248 0 9.502-4.253 9.502-9.5s-4.254-9.5-9.502-9.5Z"/><path d="M12.5 7.25a.75.75 0 0 0-1.5 0v5.5c0 .27.144.518.378.651l3.5 2a.75.75 0 0 0 .744-1.302L12.5 12.315V7.25Z"/></svg></span>
                 <span class="card-compact-title">Changelog</span>
             </div>
-            <p class="card-compact-description">USD import mode</p>
+            <p class="card-compact-description">Added dedicated Character Creator FBX and USD export walkthroughs, and a new iClone export section — including how to bring iClone-authored motion into Houdini (via the NVIDIA Omniverse plugin, or an FBX round-trip through Character Creator).</p>
         </div>
     </a>
 </div>
@@ -423,6 +448,17 @@
                 <span class="card-compact-title">Quick Start</span>
             </div>
             <p class="card-compact-description">This page gets you from a fresh Houdini scene to a shaded, rendered character in about five steps. We'll keep it simple here — every control is explained in depth later in the Using the Asset section.</p>
+        </div>
+    </a>
+</div>
+<div class="card-compact-container">
+    <a href="/jvtools-docs/reallusion-importer/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M0 3.75A.75.75 0 0 1 .75 3h7.497c1.566 0 2.945.8 3.751 2.014A4.495 4.495 0 0 1 15.75 3h7.5a.75.75 0 0 1 .75.75v15.063a.752.752 0 0 1-.755.75l-7.682-.052a3 3 0 0 0-2.142.878l-.89.891a.75.75 0 0 1-1.061 0l-.902-.901a2.996 2.996 0 0 0-2.121-.879H.75a.75.75 0 0 1-.75-.75Zm12.75 15.232a4.503 4.503 0 0 1 2.823-.971l6.927.047V4.5h-6.75a3 3 0 0 0-3 3ZM11.247 7.497a3 3 0 0 0-3-2.997H1.5V18h6.947c1.018 0 2.006.346 2.803.98Z"/></svg></span>
+                <span class="card-compact-title">Reallusion Importer for Houdini</span>
+            </div>
+            <p class="card-compact-description">Welcome! Reallusion Importer for Houdini turns a Character Creator 5 or iClone 8 character into a fully shaded, animatable, render-ready character in Houdini's Solaris environment — in seconds instead of hours.</p>
         </div>
     </a>
 </div>

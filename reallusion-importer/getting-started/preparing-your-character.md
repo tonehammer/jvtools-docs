@@ -4,8 +4,12 @@ This is the most important setup page in the documentation. Getting your Charact
 
 The good news: once you know the correct settings, exporting is quick and you can reuse the same settings every time.
 
-!!!success
-For **iClone** the settings are the same, just in different places in the export menu.
+!!!success The best-quality workflow — an FBX character driven by lightweight USD clips
+Expression wrinkles and the full hair re-dye are **FBX-only** — Character Creator leaves that data out of its USD export. So for the **best-looking result**, import your character as **FBX** and drive its motion with **lightweight USD motion clips** in the animation database rather than heavy FBX clips. You keep the FBX-only features (the wrinkles that make a Character Creator face look alive) while the animation stays featherweight. If all of the character's motion will come from clips, you can export it **Mesh only**. See [USD vs FBX](import-modes.md) for the full trade-off.
+!!!
+
+!!!info Using iClone?
+The **character** export settings are the same as Character Creator's, just in a different menu. iClone-authored **animation** needs one extra step to reach Houdini — see [Exporting from iClone](#exporting-from-iclone) below.
 !!!
 
 ## Which export — USD or FBX?
@@ -87,6 +91,43 @@ The **⚙ gear icon** at the top of the Export FBX dialog opens an advanced pane
 * **Normal — OpenGL (Y+)** (Normal section) — must stay **OpenGL (Y+)** (the Maya-preset default), _not_ DirectX (Y−). Houdini and Karma expect OpenGL-convention normal maps; the DirectX option flips the green channel, which inverts the skin's fine surface detail (pores and wrinkles read inward instead of outward).
 
 Everything else in this panel can stay at its defaults.
+
+## Exporting from iClone
+
+iClone is the other half of the Reallusion pipeline — it's where you author and mocap **animation**. There are two things you might export from iClone: the **character** itself, and an **animation** you've built on it.
+
+### The character
+
+Exporting a character from iClone uses the **same settings** described above for Character Creator — USD (**File ▸ Export ▸ Export USD (Omniverse)**) or FBX (**File ▸ Export ▸ Export Clothed Character**) — the panels are the same, just reached from iClone's menus. Follow the [USD](#exporting-as-usd-recommended) or [FBX](#exporting-as-fbx) section above.
+
+![The iClone export menu](../static/iclone-export-menu.png)
+
+### Getting iClone animation into Houdini
+
+If you've authored a performance in iClone that you want as a **motion clip** for the animation database, you have two routes.
+
+#### Option A — USD, via the NVIDIA Omniverse plugin (direct)
+
+Install Reallusion's [**iClone Omniverse plugin**](https://www.reallusion.com/iclone/nvidia-omniverse/), following the [official installation guide](https://manual.reallusion.com/Omniverse-Plug-in/Content/ENU/iC-8.3/01-Installation/Installation-Guide-for-Using-NVIDIA-Omnniverse.htm). It adds USD export to iClone directly, so you can export USD (character and motion) the same way you would from Character Creator, and import it with this tool exactly like a Character Creator USD export.
+
+!!!warning It's a large install
+The Omniverse plugin takes roughly **10–20 minutes to install** and about **10 GB of disk space**. If you'd rather not install it, use Option B instead.
+!!!
+
+#### Option B — FBX round-trip through Character Creator (no Omniverse)
+
+If you don't want to install Omniverse, export your animation from iClone as **FBX**, then bring it onto the character in Character Creator, which re-exports it in a format this tool reads:
+
+1. In **Character Creator**, go **Import ▸ Import External Motion** and choose the FBX you exported from iClone.
+2. Wait while **"Fetching Characterization Profile"** finishes loading.
+3. In the **Motion Import Settings** dialog that follows, you can leave the defaults. Click **Convert All**.
+4. Re-export the character from Character Creator — as **USD** (recommended) or FBX — with that motion, using the export sections above.
+
+![Character Creator's Motion Import Settings dialog — defaults are fine](../static/cc5-import-external-motion.png)
+
+!!!success
+Option B fits the [best-quality workflow](#preparing-your-character-in-character-creator) neatly: keep your character as an FBX import for the expression wrinkles, and bring the iClone motion in as a light **USD** clip re-exported from Character Creator.
+!!!
 
 ## Animation
 

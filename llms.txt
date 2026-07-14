@@ -33,7 +33,7 @@
 - [Limitations & Expectations](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/limitations.md): This page is here to set honest expectations before and after you buy. The tool does a lot, but Character Creator's FBX export — and Houdini itself — impose some hard limits that no importer can work around.
 - [Performance & Caching](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/performance.md): Character Creator characters are detailed, and detailed characters use memory. This page explains where the cost comes from and how to keep your sessions fast and lean.
 - [Troubleshooting & FAQ](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/troubleshooting.md): Common issues and their fixes. Most import problems trace back to either an export setting or a moved file.
-- [Changelog](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/changelog.md): USD import mode
+- [Changelog](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/changelog.md): Added dedicated Character Creator FBX and USD export walkthroughs, and a new iClone export section — including how to bring iClone-authored motion into Houdini (via the NVIDIA Omniverse plugin, or an FBX round-trip through Character Creator).
 - [License](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/license.md): This is the End User License Agreement for the Reallusion Importer for Houdini. By downloading, installing, or using the asset, you agree to these terms.
 
 ## RPLidar In

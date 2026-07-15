@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837385323585">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837392635866">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Changelog</title>
     <meta name="title" content="Changelog">
-    <meta name="description" content="Added dedicated Character Creator FBX and USD export walkthroughs, and a new iClone export section — including how to bring iClone-authored motion into Houdini (via the NVIDIA Omniverse plugin, or an FBX round-trip through Character Creator).">
+    <meta name="description" content="Fixed: textures now load for iClone \"Export USD (Omniverse)\" characters, whose texture folders are laid out differently from Character Creator's USD export.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/changelog/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/changelog/">
     <meta property="og:title" content="Changelog">
-    <meta property="og:description" content="Added dedicated Character Creator FBX and USD export walkthroughs, and a new iClone export section — including how to bring iClone-authored motion into Houdini (via the NVIDIA Omniverse plugin, or an FBX round-trip through Character Creator).">
+    <meta property="og:description" content="Fixed: textures now load for iClone \"Export USD (Omniverse)\" characters, whose texture folders are laid out differently from Character Creator's USD export.">
     <meta property="og:site_name" content="JVtools">
     <meta property="og:locale" content="en_US">
 
@@ -31,18 +31,18 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/changelog/">
     <meta name="twitter:title" content="Changelog">
-    <meta name="twitter:description" content="Added dedicated Character Creator FBX and USD export walkthroughs, and a new iClone export section — including how to bring iClone-authored motion into Houdini (via the NVIDIA Omniverse plugin, or an FBX round-trip through Character Creator).">
+    <meta name="twitter:description" content="Fixed: textures now load for iClone \"Export USD (Omniverse)\" characters, whose texture folders are laid out differently from Character Creator's USD export.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/changelog.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.6.0.837385323585" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.837392635866" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837385323585" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837392635866" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837385323585" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837392635866" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -216,7 +216,8 @@
 <h1 id="changelog">Changelog</h1>
 <h2 id="version-121">Version 1.2.1</h2>
 <ul>
-<li>Added dedicated Character Creator <strong>FBX</strong> and <strong>USD</strong> export walkthroughs, and a new <strong>iClone</strong> export section — including how to bring iClone-authored motion into Houdini (via the NVIDIA Omniverse plugin, or an FBX round-trip through Character Creator).</li>
+<li><strong>Fixed:</strong> textures now load for iClone &quot;Export USD (Omniverse)&quot; characters, whose texture folders are laid out differently from Character Creator&#x27;s USD export.</li>
+<li>Added dedicated Character Creator <strong>FBX</strong> and <strong>USD</strong> export walkthroughs, and a new <strong>iClone</strong> export section — including how to bring iClone-authored motion into Houdini (an FBX round-trip through Character Creator, or the NVIDIA Omniverse plugin). Note: iClone&#x27;s direct USD export is experimental — standard characters work, stylized ones may not.</li>
 <li>Documented the <strong>best-quality workflow</strong>: an FBX-imported character driven by lightweight USD motion clips, so you keep the expression wrinkles while the animation stays light.</li>
 <li>Refreshed in-app tooltips and help that still referred only to FBX now that USD import is supported.</li>
 <li>Bug fixes and improvements.</li>

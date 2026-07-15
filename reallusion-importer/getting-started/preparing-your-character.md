@@ -134,7 +134,7 @@ Export your animation from iClone as **FBX**, then bring it onto the character i
 3. In the **Motion Import Settings** dialog that follows, you can leave the defaults. Click **Convert All**.
 4. Re-export the character from Character Creator — as **USD** (recommended) or FBX — with that motion, using the export sections above.
 
-![Character Creator's Motion Import Settings dialog — defaults are fine](../static/cc5-import-external-motion.png)
+![Character Creator's Motion Import Settings dialog — defaults are fine](../static/cs5-import-external-motion.png)
 
 !!!success
 Option B fits the [best-quality workflow](#preparing-your-character-in-character-creator) neatly: keep your character as an FBX import for the expression wrinkles, and bring the iClone motion in as a light **USD** clip re-exported from Character Creator.

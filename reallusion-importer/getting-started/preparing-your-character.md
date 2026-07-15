@@ -9,19 +9,26 @@ This is the most important setup page in the documentation. Getting your Charact
 
 The good news: once you know the correct settings, exporting is quick and you can reuse the same settings every time.
 
-!!!success The best-quality workflow — an FBX character driven by lightweight USD clips
-Expression wrinkles and the full hair re-dye are **FBX-only** — Character Creator leaves that data out of its USD export. So for the **best-looking result**, import your character as **FBX** and drive its motion with **lightweight USD motion clips** in the animation database rather than heavy FBX clips. You keep the FBX-only features (the wrinkles that make a Character Creator face look alive) while the animation stays featherweight. If all of the character's motion will come from clips, you can export it **Mesh only**. See [USD vs FBX](import-modes.md) for the full trade-off.
+## Which export — at a glance
+
+The tool imports **FBX** or **USD**, from either **Character Creator** or **iClone**, chosen with the **Import** dropdown at the top of the node. Here's the quick version:
+
+| Source & format | Status | When to use it |
+|---|---|---|
+| **Character Creator — USD** | ✅ Fully supported | The **fastest, lightest** import, with the best eye & skin values. No expression wrinkles / limited hair re-dye. The default. |
+| **Character Creator — FBX** | ✅ Fully supported | You want **expression wrinkles** or the **full hair re-dye** — both FBX-only. Heavier on memory. |
+| **iClone — FBX** | ✅ Fully supported | The reliable way to bring an iClone character or motion in — same settings as Character Creator's FBX. |
+| **iClone — USD (Omniverse)** | ⚠️ Experimental | Standard characters usually work; **stylized ones may import deformed**. Prefer FBX, or round-trip through Character Creator. |
+
+!!!success Recommended for the best look
+Import the character as **FBX** — it keeps the expression wrinkles and full hair re-dye that make a Character Creator face come alive — and drive its motion with **lightweight USD motion clips** from the animation database. You keep the FBX-only look while the animation stays featherweight; export the character **Mesh only** if all its motion will come from clips. See [USD vs FBX](import-modes.md) for the full trade-off.
 !!!
 
 !!!info Using iClone?
-The **character** export settings are the same as Character Creator's, just in a different menu. iClone-authored **animation** needs one extra step to reach Houdini — see [Exporting from iClone](#exporting-from-iclone) below.
+The **character** export settings match Character Creator's (just a different menu); iClone-authored **animation** needs one extra step to reach Houdini — see [Exporting from iClone](#exporting-from-iclone) below.
 !!!
 
-## Which export — USD or FBX?
-
-Version 1.2 can import either Character Creator's **USD (Omniverse)** export or its **FBX** export, chosen with the **Import** dropdown at the top of the node. **USD is the default and recommended** — it imports far faster and uses a fraction of the memory. Export as **FBX** only if you need **animated expression wrinkles** or the **root-to-tip / highlight hair re-dye**, which USD exports don't carry. See [USD vs FBX](import-modes.md) for the full comparison.
-
-Both exports are quick once you know the settings. Follow the section for the mode you're using — **[USD](#exporting-as-usd-recommended)** or **[FBX](#exporting-as-fbx)**.
+Both exports are quick once you know the settings. Follow the section for your export below — Character Creator **[USD](#exporting-as-usd-recommended)** or **[FBX](#exporting-as-fbx)**, then **[iClone](#exporting-from-iclone)** if that's your source.
 
 ## Exporting as USD (recommended)
 

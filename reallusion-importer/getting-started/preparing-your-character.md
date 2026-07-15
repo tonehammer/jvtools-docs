@@ -103,25 +103,24 @@ iClone is the other half of the Reallusion pipeline — it's where you author an
 
 ### The character
 
-Exporting a character from iClone uses the **same settings** described above for Character Creator — USD (**File ▸ Export ▸ Export USD (Omniverse)**) or FBX (**File ▸ Export ▸ Export Clothed Character**) — the panels are the same, just reached from iClone's menus. Follow the [USD](#exporting-as-usd-recommended) or [FBX](#exporting-as-fbx) section above.
+You can export a character from iClone the same way you would from Character Creator — the export panels are the same, just reached from iClone's menus:
+
+* **FBX** (**File ▸ Export ▸ Export Clothed Character**) — the reliable choice, identical to the [FBX section](#exporting-as-fbx) above.
+* **USD** via the NVIDIA Omniverse plugin (**File ▸ Export ▸ Export USD (Omniverse)**) — see the warning below.
 
 ![The iClone export menu](../static/iclone-export-menu.png)
 
-### Getting iClone animation into Houdini
-
-If you've authored a performance in iClone that you want as a **motion clip** for the animation database, you have two routes.
-
-#### Option A — USD, via the NVIDIA Omniverse plugin (direct)
-
-Install Reallusion's [**iClone Omniverse plugin**](https://www.reallusion.com/iclone/nvidia-omniverse/), following the [official installation guide](https://manual.reallusion.com/Omniverse-Plug-in/Content/ENU/iC-8.3/01-Installation/Installation-Guide-for-Using-NVIDIA-Omnniverse.htm). It adds USD export to iClone directly, so you can export USD (character and motion) the same way you would from Character Creator, and import it with this tool exactly like a Character Creator USD export.
-
-!!!warning It's a large install
-The Omniverse plugin takes roughly **10–20 minutes to install** and about **10 GB of disk space**. If you'd rather not install it, use Option B instead.
+!!!warning iClone's direct USD export is experimental
+iClone's "Export USD (Omniverse)" is structured differently from Character Creator's USD export, and this importer targets Character Creator's. **Standard characters generally import correctly** (with textures, as of version 1.2.1), but **stylized characters — especially ones with heavy custom hair or spring-bone rigs — can import badly deformed.** For the most reliable result with an iClone character, export it as **FBX**, or send it to **Character Creator** and export from there — Character Creator's own USD export is the fully-supported USD path.
 !!!
 
-#### Option B — FBX round-trip through Character Creator (no Omniverse)
+### Getting iClone animation into Houdini
 
-If you don't want to install Omniverse, export your animation from iClone as **FBX**, then bring it onto the character in Character Creator, which re-exports it in a format this tool reads:
+If you've authored a performance in iClone that you want as a **motion clip** for the animation database, you have two routes. **Option B (the Character Creator round-trip) is the reliable one** — Option A depends on iClone's experimental USD export above.
+
+#### Option B — FBX round-trip through Character Creator (recommended)
+
+Export your animation from iClone as **FBX**, then bring it onto the character in Character Creator, which re-exports it in a format this tool fully supports:
 
 1. In **Character Creator**, go **Import ▸ Import External Motion** and choose the FBX you exported from iClone.
 2. Wait while **"Fetching Characterization Profile"** finishes loading.
@@ -132,6 +131,14 @@ If you don't want to install Omniverse, export your animation from iClone as **F
 
 !!!success
 Option B fits the [best-quality workflow](#preparing-your-character-in-character-creator) neatly: keep your character as an FBX import for the expression wrinkles, and bring the iClone motion in as a light **USD** clip re-exported from Character Creator.
+!!!
+
+#### Option A — USD, via the NVIDIA Omniverse plugin (experimental)
+
+If you'd rather export USD straight from iClone, install Reallusion's [**iClone Omniverse plugin**](https://www.reallusion.com/iclone/nvidia-omniverse/), following the [official installation guide](https://manual.reallusion.com/Omniverse-Plug-in/Content/ENU/iC-8.3/01-Installation/Installation-Guide-for-Using-NVIDIA-Omnniverse.htm). It adds USD export to iClone directly, so you can export USD (character and motion) much as you would from Character Creator.
+
+!!!warning Large install, and experimental
+The Omniverse plugin takes roughly **10–20 minutes to install** and about **10 GB of disk space**. And as noted above, iClone's USD export is **experimental** with this tool — standard characters usually work, but stylized ones may not. If in doubt, prefer **Option B**.
 !!!
 
 ## Animation

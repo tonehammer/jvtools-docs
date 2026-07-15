@@ -7,7 +7,8 @@ order: 70
 
 ## Version 1.2.1
 
-* Added dedicated Character Creator **FBX** and **USD** export walkthroughs, and a new **iClone** export section — including how to bring iClone-authored motion into Houdini (via the NVIDIA Omniverse plugin, or an FBX round-trip through Character Creator).
+* **Fixed:** textures now load for iClone "Export USD (Omniverse)" characters, whose texture folders are laid out differently from Character Creator's USD export.
+* Added dedicated Character Creator **FBX** and **USD** export walkthroughs, and a new **iClone** export section — including how to bring iClone-authored motion into Houdini (an FBX round-trip through Character Creator, or the NVIDIA Omniverse plugin). Note: iClone's direct USD export is experimental — standard characters work, stylized ones may not.
 * Documented the **best-quality workflow**: an FBX-imported character driven by lightweight USD motion clips, so you keep the expression wrinkles while the animation stays light.
 * Refreshed in-app tooltips and help that still referred only to FBX now that USD import is supported.
 * Bug fixes and improvements.

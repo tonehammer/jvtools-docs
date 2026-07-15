@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837393106402">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837393513538">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -44,11 +44,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.6.0.837393106402" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.837393513538" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837393106402" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.837393513538" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837393106402" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.837393513538" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -222,6 +222,48 @@
 <h1 id="preparing-your-character-in-character-creator">Preparing Your Character in Character Creator</h1>
 <p>This is the most important setup page in the documentation. Getting your Character Creator export settings right is the difference between a character that imports perfectly and one that&#x27;s missing textures, wrinkles, or hair detail. Read this carefully — it&#x27;ll save you a lot of frustration.</p>
 <p>The good news: once you know the correct settings, exporting is quick and you can reuse the same settings every time.</p>
+<h2 id="which-export--at-a-glance">Which export — at a glance</h2>
+<p>The tool imports <strong>FBX</strong> or <strong>USD</strong>, from either <strong>Character Creator</strong> or <strong>iClone</strong>, chosen with the <strong>Import</strong> dropdown at the top of the node. Here&#x27;s the quick version:</p>
+<retype-table copy-text="| Source &amp; format | Status | When to use it |
+|---|---|---|
+| **Character Creator — USD** | ✅ Fully supported | The **fastest, lightest** import, with the best eye &amp; skin values. No expression wrinkles / limited hair re-dye. The default. |
+| **Character Creator — FBX** | ✅ Fully supported | You want **expression wrinkles** or the **full hair re-dye** — both FBX-only. Heavier on memory. |
+| **iClone — FBX** | ✅ Fully supported | The reliable way to bring an iClone character or motion in — same settings as Character Creator's FBX. |
+| **iClone — USD (Omniverse)** | ⚠️ Experimental | Standard characters usually work; **stylized ones may import deformed**. Prefer FBX, or round-trip through Character Creator. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Source &amp; format</th>
+<th>Status</th>
+<th>When to use it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Character Creator — USD</strong></td>
+<td><span class="docs-emoji">&#x2705;</span> Fully supported</td>
+<td>The <strong>fastest, lightest</strong> import, with the best eye &amp; skin values. No expression wrinkles / limited hair re-dye. The default.</td>
+</tr>
+<tr>
+<td><strong>Character Creator — FBX</strong></td>
+<td><span class="docs-emoji">&#x2705;</span> Fully supported</td>
+<td>You want <strong>expression wrinkles</strong> or the <strong>full hair re-dye</strong> — both FBX-only. Heavier on memory.</td>
+</tr>
+<tr>
+<td><strong>iClone — FBX</strong></td>
+<td><span class="docs-emoji">&#x2705;</span> Fully supported</td>
+<td>The reliable way to bring an iClone character or motion in — same settings as Character Creator&#x27;s FBX.</td>
+</tr>
+<tr>
+<td><strong>iClone — USD (Omniverse)</strong></td>
+<td><span class="docs-emoji">&#x26A0;&#xFE0F;</span> Experimental</td>
+<td>Standard characters usually work; <strong>stylized ones may import deformed</strong>. Prefer FBX, or round-trip through Character Creator.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
 <div class="flex mb-6">
     <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-success"></div>
     <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
@@ -234,8 +276,8 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-            <h5>The best-quality workflow — an FBX character driven by lightweight USD clips</h5>
-<p>Expression wrinkles and the full hair re-dye are <strong>FBX-only</strong> — Character Creator leaves that data out of its USD export. So for the <strong>best-looking result</strong>, import your character as <strong>FBX</strong> and drive its motion with <strong>lightweight USD motion clips</strong> in the animation database rather than heavy FBX clips. You keep the FBX-only features (the wrinkles that make a Character Creator face look alive) while the animation stays featherweight. If all of the character&#x27;s motion will come from clips, you can export it <strong>Mesh only</strong>. See <a href="../import-modes/">USD vs FBX</a> for the full trade-off.</p>
+            <h5>Recommended for the best look</h5>
+<p>Import the character as <strong>FBX</strong> — it keeps the expression wrinkles and full hair re-dye that make a Character Creator face come alive — and drive its motion with <strong>lightweight USD motion clips</strong> from the animation database. You keep the FBX-only look while the animation stays featherweight; export the character <strong>Mesh only</strong> if all its motion will come from clips. See <a href="../import-modes/">USD vs FBX</a> for the full trade-off.</p>
         </div>
     </div>
 </div>
@@ -253,13 +295,11 @@
         </div>
         <div class="pr-5 ml-3 w-full">
             <h5>Using iClone?</h5>
-<p>The <strong>character</strong> export settings are the same as Character Creator&#x27;s, just in a different menu. iClone-authored <strong>animation</strong> needs one extra step to reach Houdini — see <doc-anchor-trigger to="#exporting-from-iclone">Exporting from iClone</doc-anchor-trigger> below.</p>
+<p>The <strong>character</strong> export settings match Character Creator&#x27;s (just a different menu); iClone-authored <strong>animation</strong> needs one extra step to reach Houdini — see <doc-anchor-trigger to="#exporting-from-iclone">Exporting from iClone</doc-anchor-trigger> below.</p>
         </div>
     </div>
 </div>
-<h2 id="which-export--usd-or-fbx">Which export — USD or FBX?</h2>
-<p>Version 1.2 can import either Character Creator&#x27;s <strong>USD (Omniverse)</strong> export or its <strong>FBX</strong> export, chosen with the <strong>Import</strong> dropdown at the top of the node. <strong>USD is the default and recommended</strong> — it imports far faster and uses a fraction of the memory. Export as <strong>FBX</strong> only if you need <strong>animated expression wrinkles</strong> or the <strong>root-to-tip / highlight hair re-dye</strong>, which USD exports don&#x27;t carry. See <a href="../import-modes/">USD vs FBX</a> for the full comparison.</p>
-<p>Both exports are quick once you know the settings. Follow the section for the mode you&#x27;re using — <strong><doc-anchor-trigger to="#exporting-as-usd-recommended">USD</doc-anchor-trigger></strong> or <strong><doc-anchor-trigger to="#exporting-as-fbx">FBX</doc-anchor-trigger></strong>.</p>
+<p>Both exports are quick once you know the settings. Follow the section for your export below — Character Creator <strong><doc-anchor-trigger to="#exporting-as-usd-recommended">USD</doc-anchor-trigger></strong> or <strong><doc-anchor-trigger to="#exporting-as-fbx">FBX</doc-anchor-trigger></strong>, then <strong><doc-anchor-trigger to="#exporting-from-iclone">iClone</doc-anchor-trigger></strong> if that&#x27;s your source.</p>
 <h2 id="exporting-as-usd-recommended">Exporting as USD (recommended)</h2>
 <p>In Character Creator, go to <strong>File ▸ Export ▸ Export USD (Omniverse)</strong>. In the Export USD panel:</p>
 <ul>

@@ -40,7 +40,7 @@
 
 - [Getting Started](https://tonehammer.github.io/jvtools-docs/rplidar-in/getting-started.md): This page takes you from an unopened sensor to your first live scan in Houdini.
 - [Using RPLidar In](https://tonehammer.github.io/jvtools-docs/rplidar-in/using.md): This page covers everything the node does once it's installed and connected: the three modes, the two outputs and their attributes, the on-screen guides, cropping, recording, and driving a live simulation.
-- [Parameter Reference](https://tonehammer.github.io/jvtools-docs/rplidar-in/parameters.md): Every parameter on the RPLidar In node, grouped by function. Names in code are the internal parameter names.
+- [Parameter Reference](https://tonehammer.github.io/jvtools-docs/rplidar-in/parameters.md): Every parameter on the RPLidar In node, grouped as it appears in the interface. Names in code are the internal parameter names.
 - [Troubleshooting](https://tonehammer.github.io/jvtools-docs/rplidar-in/troubleshooting.md): Press Test Sensor. It prints the sensor's identity, health, and available scan modes. No response means Houdini can't talk to the sensor.
 - [Changelog](https://tonehammer.github.io/jvtools-docs/rplidar-in/changelog.md): The first public release.
 - [License](https://tonehammer.github.io/jvtools-docs/rplidar-in/license.md): This is the End User License Agreement for RPLidar In. By downloading, installing, or using the asset, you agree to these terms.

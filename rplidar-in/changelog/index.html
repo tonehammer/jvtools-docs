@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837393753652">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837613305151">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.837393753652" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.837613305151" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837393753652" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837613305151" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837393753652" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837613305151" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -226,14 +226,18 @@
 <li>Sensor marker and range-ring guides, with adjustable color, range, and sensor size</li>
 <li>Connect Points (beam fan) — draw a ray from the sensor to each scan point</li>
 <li>Static map bake — capture a short slice of the live stream into a fixed reference map</li>
+<li>Attribute color — tint the scan points by angle or distance through a color ramp, for a viewport-only view or baked into <code translate="no" v-pre>Cd</code> for downstream use</li>
 </ul>
-<p><strong>Crop</strong></p>
+<p><strong>Crop &amp; camera</strong></p>
 <ul>
 <li>Cull scan points outside a rotatable ground rectangle, so only the region you care about reaches your solver</li>
+<li>Interactive viewport handle — resize, move, and rotate the crop box directly in the Scene View</li>
+<li>One-click top-down orthographic camera, plus a Camera-to-Crop button that frames it to your crop region</li>
 </ul>
 <p><strong>Live simulation</strong></p>
 <ul>
-<li>One-click <strong>Create POP Network</strong> button that builds a ready-to-run POP network wired to the solver-ready output, plus a <code translate="no" v-pre>_run</code> helper to start/stop/reset the live sim</li>
+<li>One-click <strong>Create Generic POP Network</strong> button that builds a ready-to-run POP network wired to the solver-ready output, plus a control null to start, stop, and reset the live sim</li>
+<li>Recipes — load pre-built downstream networks (sim + look) from a single file</li>
 <li>Two outputs — Points &amp; Guides (display) and Points (solver-ready, guides stripped)</li>
 </ul>
 <p><strong>Test Sensor</strong></p>

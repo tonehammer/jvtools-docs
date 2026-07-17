@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837393753652">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837613305151">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.837393753652" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.837613305151" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837393753652" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837613305151" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837393753652" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837613305151" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -465,14 +465,76 @@
     <figcaption class="caption">A baked static map showing the room's walls behind the live points</figcaption>
 </figure>
 <hr>
+<h2 id="attribute-color">Attribute color</h2>
+<p>The <strong>Attribute color</strong> controls (in the Visualize folder, under <strong>Store as Cd</strong>) tint the scan points by their measured <strong>angle</strong> or <strong>distance</strong>, through a range remap and a color ramp. Use it to read the scan at a glance — near vs. far, or which direction each return came from — or to carry color downstream into a render.</p>
+<retype-table copy-text="| Parameter | What it does |
+| --- | --- |
+| **Store as Cd** | Master switch for where the color goes. **Off:** the color is shown for visualization only (on the Points &amp; Guides output); the solver-ready output stays uncolored. **On:** the color is baked into the `Cd` attribute and travels downstream (below the node) on the clean output too. |
+| **Angle** | Color the points by their `angle` attribute (which direction the return came from). |
+| **Angle Range** | The angle range (degrees) mapped across the Angle ramp. Values outside are clamped. |
+| **Angle Ramp** | The color ramp for angle. Default: an even yellow → blue → green → red around the circle. |
+| **Distance** | Color the points by their `dist` attribute (how far the return is). |
+| **Distance Range** | The distance range (millimeters) mapped across the Distance ramp. |
+| **Distance Ramp** | The color ramp for distance. Default: orange near → teal far. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Store as Cd</strong></td>
+<td>Master switch for where the color goes. <strong>Off:</strong> the color is shown for visualization only (on the Points &amp; Guides output); the solver-ready output stays uncolored. <strong>On:</strong> the color is baked into the <code translate="no" v-pre>Cd</code> attribute and travels downstream (below the node) on the clean output too.</td>
+</tr>
+<tr>
+<td><strong>Angle</strong></td>
+<td>Color the points by their <code translate="no" v-pre>angle</code> attribute (which direction the return came from).</td>
+</tr>
+<tr>
+<td><strong>Angle Range</strong></td>
+<td>The angle range (degrees) mapped across the Angle ramp. Values outside are clamped.</td>
+</tr>
+<tr>
+<td><strong>Angle Ramp</strong></td>
+<td>The color ramp for angle. Default: an even yellow → blue → green → red around the circle.</td>
+</tr>
+<tr>
+<td><strong>Distance</strong></td>
+<td>Color the points by their <code translate="no" v-pre>dist</code> attribute (how far the return is).</td>
+</tr>
+<tr>
+<td><strong>Distance Range</strong></td>
+<td>The distance range (millimeters) mapped across the Distance ramp.</td>
+</tr>
+<tr>
+<td><strong>Distance Ramp</strong></td>
+<td>The color ramp for distance. Default: orange near → teal far.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<p>Turn on <strong>Angle</strong>, <strong>Distance</strong>, or both. With both on, distance wins (it&#x27;s applied last). The guides keep their own colors — only the real scan points are tinted.</p>
+<figure class="content-center">
+    <img src="static/attribute-color.png" alt="Scan points colored by distance — orange near the sensor fading to teal at range" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption">Scan points colored by distance — orange near the sensor fading to teal at range</figcaption>
+</figure>
+<blockquote>
+<p><strong>Store as Cd is the on/off for feeding color downstream.</strong> Leave it off and the color is a viewport aid that never reaches your solver; turn it on when you want the <code translate="no" v-pre>Cd</code> in a render or a color-driven effect.</p>
+</blockquote>
+<hr>
 <h2 id="crop">Crop</h2>
 <p>The <strong>Crop</strong> controls cull scan points that fall outside a rectangle on the ground, so only points inside the rectangle reach downstream nodes. This is useful when the sensor sits in the corner of a room and you only care about a stage, a doorway, or a walkway — everything outside the box is discarded before it hits your solver.</p>
 <retype-table copy-text="| Parameter | What it does |
 | --- | --- |
 | **Enable Crop** | Turn culling on. Points outside the rectangle are removed. A red guide shows the rectangle while this is on. |
 | **Center** | Center of the rectangle on the ground (X, Z), relative to the sensor at the origin. |
-| **Size** | Rectangle extent along X and Z. Default `32 × 32` encloses the sensor's full 16 m range (so nothing is cropped until you shrink it). |
-| **Rotation** | Rotation of the rectangle about the sensor's vertical axis — align it to walls that aren't square to 0°. |">
+| **Size** | Rectangle extent along X and Z. Default `26 × 26` (the sensor's full 16 m range spans `32 × 32`). |
+| **Rotation** | Rotation of the rectangle about the sensor's vertical axis — align it to walls that aren't square to 0°. |
+| **Edit Crop in Viewport** | Enter the interactive crop handle (see below). |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -492,11 +554,15 @@
 </tr>
 <tr>
 <td><strong>Size</strong></td>
-<td>Rectangle extent along X and Z. Default <code translate="no" v-pre>32 × 32</code> encloses the sensor&#x27;s full 16 m range (so nothing is cropped until you shrink it).</td>
+<td>Rectangle extent along X and Z. Default <code translate="no" v-pre>26 × 26</code> (the sensor&#x27;s full 16 m range spans <code translate="no" v-pre>32 × 32</code>).</td>
 </tr>
 <tr>
 <td><strong>Rotation</strong></td>
 <td>Rotation of the rectangle about the sensor&#x27;s vertical axis — align it to walls that aren&#x27;t square to 0°.</td>
+</tr>
+<tr>
+<td><strong>Edit Crop in Viewport</strong></td>
+<td>Enter the interactive crop handle (see below).</td>
 </tr>
 </tbody>
 </table>
@@ -507,14 +573,58 @@
     <img src="static/crop-rectangle.png" alt="The red crop rectangle guide over a walkway, culling points outside it" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
     <figcaption class="caption">The red crop rectangle guide over a walkway, culling points outside it</figcaption>
 </figure>
+<h3 id="editing-the-crop-in-the-viewport">Editing the crop in the viewport</h3>
+<p>You don&#x27;t have to type numbers. Select the RPLidar In node in a Scene View (or press <strong>Edit Crop in Viewport</strong>) and a <strong>box handle</strong> appears over the crop rectangle, like a grid SOP:</p>
+<ul>
+<li><strong>Drag a side</strong> to resize that edge.</li>
+<li><strong>Drag the body</strong> to move the rectangle.</li>
+<li><strong>Drag the ring</strong> to rotate it.</li>
+</ul>
+<p>Everything writes straight back to the Center, Size, and Rotation parameters.</p>
 <p><strong>Typical setup:</strong></p>
 <ol>
 <li>Sensor in a room corner, scanning a walkway.</li>
 <li>Enable Crop and watch the red guide.</li>
-<li>Drag <strong>Center</strong> over the walkway and shrink <strong>Size</strong> to just cover it.</li>
-<li>If the walkway runs at an angle to the sensor, dial <strong>Rotation</strong> to line the box up.</li>
+<li>Drag the box <strong>sides</strong> over the walkway (or type into <strong>Center</strong> / <strong>Size</strong>).</li>
+<li>If the walkway runs at an angle to the sensor, <strong>rotate</strong> the box to line it up.</li>
 </ol>
 <p>Now only points on the walkway survive, and stray returns from the rest of the room never reach your simulation.</p>
+<hr>
+<h2 id="camera">Camera</h2>
+<p>The <strong>Camera</strong> controls set up a top-down orthographic camera for the classic overhead installation look — the scan laid out flat, seen from directly above.</p>
+<retype-table copy-text="| Parameter | What it does |
+| --- | --- |
+| **Create Orthographic Camera** | Creates (or retargets) an orthographic camera at the object level, looking straight down at the sensor from above, framing the full sensor range. Its **up** direction is **+X**. One camera per node — pressing again retargets the same camera. |
+| **Camera to Crop** | Moves and zooms that camera to frame the current **Crop** rectangle — centered on the crop, zoomed to its larger side, and rotated to match the crop's rotation. Create the camera first. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Create Orthographic Camera</strong></td>
+<td>Creates (or retargets) an orthographic camera at the object level, looking straight down at the sensor from above, framing the full sensor range. Its <strong>up</strong> direction is <strong>+X</strong>. One camera per node — pressing again retargets the same camera.</td>
+</tr>
+<tr>
+<td><strong>Camera to Crop</strong></td>
+<td>Moves and zooms that camera to frame the current <strong>Crop</strong> rectangle — centered on the crop, zoomed to its larger side, and rotated to match the crop&#x27;s rotation. Create the camera first.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<p>A typical flow: <strong>Create Orthographic Camera</strong> to get the overhead view, set up your <strong>Crop</strong> over the area of interest, then <strong>Camera to Crop</strong> to zoom the camera onto exactly that region.</p>
+<blockquote>
+<p>The camera is created at the object (<code translate="no" v-pre>/obj</code>) level, not inside the SOP network — look for it there (its path is printed to the console when created). Because it&#x27;s orthographic, &quot;zoom&quot; is the framing width, not a focal length.</p>
+</blockquote>
+<figure class="content-center">
+    <img src="static/camera-topdown.png" alt="The top-down orthographic view of a live scan, framed to the crop region" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption">The top-down orthographic view of a live scan, framed to the crop region</figcaption>
+</figure>
 <hr>
 <h2 id="recording-and-playback">Recording and playback</h2>
 <p>Recording captures the live stream to disk so you can replay it later — develop offline, iterate on a solver against a repeatable take, or archive an installation.</p>
@@ -581,20 +691,20 @@
 <p>Use <strong>Loop Playback</strong> to cycle a short take continuously while you tune a downstream network.</p>
 <hr>
 <h2 id="live-simulation">Live simulation</h2>
-<p>RPLidar In&#x27;s point cloud is ordinary SOP geometry, so it can feed any solver — POPs, Vellum, or your own network. The <strong>Create POP Network</strong> button sets up a working example for you in one click.</p>
-<h3 id="create-pop-network">Create POP Network</h3>
-<p>Press <strong>Create POP Network</strong> and the node builds a ready-to-run POP network below itself, wired to the <strong>solver-ready output</strong> (Output 1, guides stripped) with sensible presets for live work. It also drops a small green helper control — the <strong><code translate="no" v-pre>_run</code> null</strong> — for driving everything.</p>
+<p>RPLidar In&#x27;s point cloud is ordinary SOP geometry, so it can feed any solver — POPs, Vellum, or your own network. Two buttons set up a working example and its controls in one click.</p>
+<h3 id="create-generic-pop-network">Create Generic POP Network</h3>
+<p>Press <strong>Create Generic POP Network</strong> and the node builds a ready-to-run POP network below itself, wired to the <strong>solver-ready output</strong> (Output 1, guides stripped), with presets tuned for live work. It also creates (or reuses) a small green <strong>control null</strong> and registers the new sim on it.</p>
 <figure class="content-center">
-    <img src="static/pop-network.png" alt="The generated POP network wired to Output 1, with the green _run helper null" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
-    <figcaption class="caption">The generated POP network wired to Output 1, with the green _run helper null</figcaption>
+    <img src="static/pop-network.png" alt="The generated POP network wired to Output 1, with the green control null" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption">The generated POP network wired to Output 1, with the green control null</figcaption>
 </figure>
-<h3 id="the-_run-helper">The _run helper</h3>
-<p>The helper is a null with three buttons. It is <strong>not required</strong> — the RPLidar In node generates points on its own, and you can play the timeline and toggle Live Nodes by hand — but it wires the common actions together:</p>
+<h3 id="the-control-null">The control null</h3>
+<p>The green control null is the master runtime control for this sensor — <strong>one per RPLidar In node</strong>. (<strong>Create Control Null</strong> makes it on its own; Create Generic POP Network makes it for you.) It carries a <strong>Solvers</strong> list — every DOP network it drives — and three buttons:</p>
 <retype-table copy-text="| Button | What it does |
 | --- | --- |
-| **Start (Live)** | Sets RPLidar In to **Live**, plays the timeline, and enables **Live Nodes** (continuous cook) — starting the live simulation in real time. |
-| **Stop** | Stops playback, disables Live Nodes, and sets RPLidar In back to **Off** (which also stops the sensor motor). |
-| **Reset Sim** | Presses **Reset Simulation** on the POP network, clearing the current particles so it re-seeds. |">
+| **Start** | Sets RPLidar In to **Live** and plays the timeline in **real time**, running every listed sim against the live sensor. |
+| **Stop** | Stops playback and sets RPLidar In back to **Off** (which stops the sensor motor). |
+| **Reset** | Re-seeds every listed sim (clears the current particles) and rewinds, **without** stopping the motor. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -605,26 +715,47 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>Start (Live)</strong></td>
-<td>Sets RPLidar In to <strong>Live</strong>, plays the timeline, and enables <strong>Live Nodes</strong> (continuous cook) — starting the live simulation in real time.</td>
+<td><strong>Start</strong></td>
+<td>Sets RPLidar In to <strong>Live</strong> and plays the timeline in <strong>real time</strong>, running every listed sim against the live sensor.</td>
 </tr>
 <tr>
 <td><strong>Stop</strong></td>
-<td>Stops playback, disables Live Nodes, and sets RPLidar In back to <strong>Off</strong> (which also stops the sensor motor).</td>
+<td>Stops playback and sets RPLidar In back to <strong>Off</strong> (which stops the sensor motor).</td>
 </tr>
 <tr>
-<td><strong>Reset Sim</strong></td>
-<td>Presses <strong>Reset Simulation</strong> on the POP network, clearing the current particles so it re-seeds.</td>
+<td><strong>Reset</strong></td>
+<td>Re-seeds every listed sim (clears the current particles) and rewinds, <strong>without</strong> stopping the motor.</td>
 </tr>
 </tbody>
 </table>
 </div>
 </retype-table>
+<h3 id="how-it-actually-runs--no-live-nodes">How it actually runs — no Live Nodes</h3>
+<p>The live simulation is driven by <strong>plain real-time timeline playback</strong>, not by continuous cook / &quot;Live Nodes.&quot; Pressing <strong>Start</strong> simply plays the timeline: each frame advances the sim <em>and</em> re-reads the sensor for a fresh rotation. That&#x27;s all it needs.</p>
+<blockquote>
+<p><strong>What to watch:</strong> the &quot;it&#x27;s running&quot; indicator is the <strong>playbar frame counter climbing</strong> in real time — there is no live-simulation tick. If the frames are advancing and points are simulating, it&#x27;s working.</p>
+</blockquote>
+<p>Because a live installation never &quot;finishes,&quot; <strong>Start</strong> sets a very long frame range (start … start + 1,000,000) so playback can run for hours. Keep that in mind — it overwrites your scene&#x27;s frame range (see <doc-anchor-trigger to="#caching-a-take">Caching a take</doc-anchor-trigger> for when that matters).</p>
 <h3 id="two-ways-to-run-the-sim">Two ways to run the sim</h3>
 <ul>
-<li><strong>Real time (Live):</strong> Mode = Live + timeline playing + Live Nodes on. The solver advances against the live sensor as fast as it can cook. Best for interactive installations.</li>
-<li><strong>Over a frame range (Playback):</strong> Mode = Playback against a recording. The sim steps frame by frame, so you can scrub, cache, and render a repeatable result.</li>
+<li><strong>Real time (Live):</strong> press <strong>Start</strong> on the control null. The solver advances against the live sensor as the timeline plays. Best for interactive installations. Not deterministic — the input is whatever the room is doing right now.</li>
+<li><strong>Over a frame range (Playback):</strong> Mode = Playback against a recording. The sim steps frame by frame from a repeatable input, so you can scrub, cache, and render a deterministic result.</li>
 </ul>
+<h3 id="caching-a-take">Caching a take</h3>
+<p>A <strong>live</strong> sim can&#x27;t be cached deterministically — its input (the room) changes every real-world moment, so there&#x27;s no &quot;re-simulate frame 500 and get the same thing.&quot; To bake a repeatable result, go through the recording path:</p>
+<ol>
+<li><strong>Capture the input.</strong> In Live, <strong>Start Recording</strong>, perform your take, <strong>Stop Recording</strong> (see <doc-anchor-trigger to="#recording-and-playback">Recording &amp; Playback</doc-anchor-trigger>). The <code translate="no" v-pre>.jsonl</code> is frame-locked and repeatable.</li>
+<li><strong>Switch to Playback</strong> and pick the recording. Now every frame produces the same scan, so the sim downstream is fully deterministic.</li>
+<li><strong>Cache over a finite range.</strong> Set your frame range to the recording&#x27;s length — <strong>not</strong> the huge range that pressing Start leaves behind. Drop a <strong>File Cache SOP</strong> after the sim (or DOP I/O inside the network), set the range, and <strong>Save to Disk</strong>. Then flip it to <strong>Load from Disk</strong> to scrub and render the baked result.</li>
+</ol>
+<blockquote>
+<p>Don&#x27;t cache against the 1,000,000-frame range that <strong>Start</strong> sets. Set a finite range first (or just don&#x27;t press Start — for caching you drive the sim with the File Cache / the timeline yourself).</p>
+</blockquote>
+<h3 id="recipes">Recipes</h3>
+<p><strong>Recipes</strong> are pre-built downstream networks (a sim plus a look) shipped as a single <code translate="no" v-pre>.py</code> file, so you can drop a finished effect behind the sensor. Enable <strong>Use Recipe</strong>, point <strong>Recipe File</strong> at the <code translate="no" v-pre>.py</code>, and press <strong>Generate Recipe</strong> — it builds the network next to the node and registers its sims on the control null, ready to <strong>Start</strong>.</p>
+<blockquote>
+<p>Recipe files are executed Python. Only load recipe files from sources you trust.</p>
+</blockquote>
 <h3 id="building-your-own">Building your own</h3>
 <p>There&#x27;s nothing special about the generated network — you can wire the node&#x27;s <strong>Output 1</strong> into any solver&#x27;s source. Output 1 is the clean point cloud with all visualization guides removed, so it&#x27;s safe to feed directly. See <doc-anchor-trigger to="#outputs-and-attributes">Outputs and attributes</doc-anchor-trigger> for the per-point attributes you can read (<code translate="no" v-pre>quality</code>, <code translate="no" v-pre>angle</code>, <code translate="no" v-pre>dist</code>).</p>
 <div id="retype-backlinks">
@@ -648,7 +779,7 @@
                 <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M11 18.25a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1-.75-.75Zm-8-12a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 3 6.25Zm13 6a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 0 1.5h-3.5a.75.75 0 0 1-.75-.75ZM8.75 16a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75Z"/><path d="M3 18.25a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Zm0-6a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1-.75-.75ZM16.75 10a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75ZM14 6.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 0 1.5h-5.5a.75.75 0 0 1-.75-.75ZM11.25 4a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75Z"/></svg></span>
                 <span class="card-compact-title">Parameter Reference</span>
             </div>
-            <p class="card-compact-description">Every parameter on the RPLidar In node, grouped by function. Names in code are the internal parameter names.</p>
+            <p class="card-compact-description">Every parameter on the RPLidar In node, grouped as it appears in the interface. Names in code are the internal parameter names.</p>
         </div>
     </a>
 </div>

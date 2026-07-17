@@ -126,6 +126,28 @@ Baking captures a short slice of the live stream into a fixed map — useful for
 
 ---
 
+## Attribute color
+
+The **Attribute color** controls (in the Visualize folder, under **Store as Cd**) tint the scan points by their measured **angle** or **distance**, through a range remap and a color ramp. Use it to read the scan at a glance — near vs. far, or which direction each return came from — or to carry color downstream into a render.
+
+| Parameter | What it does |
+| --- | --- |
+| **Store as Cd** | Master switch for where the color goes. **Off:** the color is shown for visualization only (on the Points & Guides output); the solver-ready output stays uncolored. **On:** the color is baked into the `Cd` attribute and travels downstream (below the node) on the clean output too. |
+| **Angle** | Color the points by their `angle` attribute (which direction the return came from). |
+| **Angle Range** | The angle range (degrees) mapped across the Angle ramp. Values outside are clamped. |
+| **Angle Ramp** | The color ramp for angle. Default: an even yellow → blue → green → red around the circle. |
+| **Distance** | Color the points by their `dist` attribute (how far the return is). |
+| **Distance Range** | The distance range (millimeters) mapped across the Distance ramp. |
+| **Distance Ramp** | The color ramp for distance. Default: orange near → teal far. |
+
+Turn on **Angle**, **Distance**, or both. With both on, distance wins (it's applied last). The guides keep their own colors — only the real scan points are tinted.
+
+![Scan points colored by distance — orange near the sensor fading to teal at range](static/attribute-color.png)
+
+> **Store as Cd is the on/off for feeding color downstream.** Leave it off and the color is a viewport aid that never reaches your solver; turn it on when you want the `Cd` in a render or a color-driven effect.
+
+---
+
 ## Crop
 
 The **Crop** controls cull scan points that fall outside a rectangle on the ground, so only points inside the rectangle reach downstream nodes. This is useful when the sensor sits in the corner of a room and you only care about a stage, a doorway, or a walkway — everything outside the box is discarded before it hits your solver.
@@ -134,21 +156,49 @@ The **Crop** controls cull scan points that fall outside a rectangle on the grou
 | --- | --- |
 | **Enable Crop** | Turn culling on. Points outside the rectangle are removed. A red guide shows the rectangle while this is on. |
 | **Center** | Center of the rectangle on the ground (X, Z), relative to the sensor at the origin. |
-| **Size** | Rectangle extent along X and Z. Default `32 × 32` encloses the sensor's full 16 m range (so nothing is cropped until you shrink it). |
+| **Size** | Rectangle extent along X and Z. Default `26 × 26` (the sensor's full 16 m range spans `32 × 32`). |
 | **Rotation** | Rotation of the rectangle about the sensor's vertical axis — align it to walls that aren't square to 0°. |
+| **Edit Crop in Viewport** | Enter the interactive crop handle (see below). |
 
 The Center, Size, and Rotation controls are disabled until **Enable Crop** is on.
 
 ![The red crop rectangle guide over a walkway, culling points outside it](static/crop-rectangle.png)
 
+### Editing the crop in the viewport
+
+You don't have to type numbers. Select the RPLidar In node in a Scene View (or press **Edit Crop in Viewport**) and a **box handle** appears over the crop rectangle, like a grid SOP:
+
+* **Drag a side** to resize that edge.
+* **Drag the body** to move the rectangle.
+* **Drag the ring** to rotate it.
+
+Everything writes straight back to the Center, Size, and Rotation parameters.
+
 **Typical setup:**
 
 1. Sensor in a room corner, scanning a walkway.
 2. Enable Crop and watch the red guide.
-3. Drag **Center** over the walkway and shrink **Size** to just cover it.
-4. If the walkway runs at an angle to the sensor, dial **Rotation** to line the box up.
+3. Drag the box **sides** over the walkway (or type into **Center** / **Size**).
+4. If the walkway runs at an angle to the sensor, **rotate** the box to line it up.
 
 Now only points on the walkway survive, and stray returns from the rest of the room never reach your simulation.
+
+---
+
+## Camera
+
+The **Camera** controls set up a top-down orthographic camera for the classic overhead installation look — the scan laid out flat, seen from directly above.
+
+| Parameter | What it does |
+| --- | --- |
+| **Create Orthographic Camera** | Creates (or retargets) an orthographic camera at the object level, looking straight down at the sensor from above, framing the full sensor range. Its **up** direction is **+X**. One camera per node — pressing again retargets the same camera. |
+| **Camera to Crop** | Moves and zooms that camera to frame the current **Crop** rectangle — centered on the crop, zoomed to its larger side, and rotated to match the crop's rotation. Create the camera first. |
+
+A typical flow: **Create Orthographic Camera** to get the overhead view, set up your **Crop** over the area of interest, then **Camera to Crop** to zoom the camera onto exactly that region.
+
+> The camera is created at the object (`/obj`) level, not inside the SOP network — look for it there (its path is printed to the console when created). Because it's orthographic, "zoom" is the framing width, not a focal length.
+
+![The top-down orthographic view of a live scan, framed to the crop region](static/camera-topdown.png)
 
 ---
 
@@ -188,28 +238,52 @@ Use **Loop Playback** to cycle a short take continuously while you tune a downst
 
 ## Live simulation
 
-RPLidar In's point cloud is ordinary SOP geometry, so it can feed any solver — POPs, Vellum, or your own network. The **Create POP Network** button sets up a working example for you in one click.
+RPLidar In's point cloud is ordinary SOP geometry, so it can feed any solver — POPs, Vellum, or your own network. Two buttons set up a working example and its controls in one click.
 
-### Create POP Network
+### Create Generic POP Network
 
-Press **Create POP Network** and the node builds a ready-to-run POP network below itself, wired to the **solver-ready output** (Output 1, guides stripped) with sensible presets for live work. It also drops a small green helper control — the **`_run` null** — for driving everything.
+Press **Create Generic POP Network** and the node builds a ready-to-run POP network below itself, wired to the **solver-ready output** (Output 1, guides stripped), with presets tuned for live work. It also creates (or reuses) a small green **control null** and registers the new sim on it.
 
-![The generated POP network wired to Output 1, with the green _run helper null](static/pop-network.png)
+![The generated POP network wired to Output 1, with the green control null](static/pop-network.png)
 
-### The _run helper
+### The control null
 
-The helper is a null with three buttons. It is **not required** — the RPLidar In node generates points on its own, and you can play the timeline and toggle Live Nodes by hand — but it wires the common actions together:
+The green control null is the master runtime control for this sensor — **one per RPLidar In node**. (**Create Control Null** makes it on its own; Create Generic POP Network makes it for you.) It carries a **Solvers** list — every DOP network it drives — and three buttons:
 
 | Button | What it does |
 | --- | --- |
-| **Start (Live)** | Sets RPLidar In to **Live**, plays the timeline, and enables **Live Nodes** (continuous cook) — starting the live simulation in real time. |
-| **Stop** | Stops playback, disables Live Nodes, and sets RPLidar In back to **Off** (which also stops the sensor motor). |
-| **Reset Sim** | Presses **Reset Simulation** on the POP network, clearing the current particles so it re-seeds. |
+| **Start** | Sets RPLidar In to **Live** and plays the timeline in **real time**, running every listed sim against the live sensor. |
+| **Stop** | Stops playback and sets RPLidar In back to **Off** (which stops the sensor motor). |
+| **Reset** | Re-seeds every listed sim (clears the current particles) and rewinds, **without** stopping the motor. |
+
+### How it actually runs — no Live Nodes
+
+The live simulation is driven by **plain real-time timeline playback**, not by continuous cook / "Live Nodes." Pressing **Start** simply plays the timeline: each frame advances the sim *and* re-reads the sensor for a fresh rotation. That's all it needs.
+
+> **What to watch:** the "it's running" indicator is the **playbar frame counter climbing** in real time — there is no live-simulation tick. If the frames are advancing and points are simulating, it's working.
+
+Because a live installation never "finishes," **Start** sets a very long frame range (start … start + 1,000,000) so playback can run for hours. Keep that in mind — it overwrites your scene's frame range (see [Caching a take](#caching-a-take) for when that matters).
 
 ### Two ways to run the sim
 
-* **Real time (Live):** Mode = Live + timeline playing + Live Nodes on. The solver advances against the live sensor as fast as it can cook. Best for interactive installations.
-* **Over a frame range (Playback):** Mode = Playback against a recording. The sim steps frame by frame, so you can scrub, cache, and render a repeatable result.
+* **Real time (Live):** press **Start** on the control null. The solver advances against the live sensor as the timeline plays. Best for interactive installations. Not deterministic — the input is whatever the room is doing right now.
+* **Over a frame range (Playback):** Mode = Playback against a recording. The sim steps frame by frame from a repeatable input, so you can scrub, cache, and render a deterministic result.
+
+### Caching a take
+
+A **live** sim can't be cached deterministically — its input (the room) changes every real-world moment, so there's no "re-simulate frame 500 and get the same thing." To bake a repeatable result, go through the recording path:
+
+1. **Capture the input.** In Live, **Start Recording**, perform your take, **Stop Recording** (see [Recording & Playback](#recording-and-playback)). The `.jsonl` is frame-locked and repeatable.
+2. **Switch to Playback** and pick the recording. Now every frame produces the same scan, so the sim downstream is fully deterministic.
+3. **Cache over a finite range.** Set your frame range to the recording's length — **not** the huge range that pressing Start leaves behind. Drop a **File Cache SOP** after the sim (or DOP I/O inside the network), set the range, and **Save to Disk**. Then flip it to **Load from Disk** to scrub and render the baked result.
+
+> Don't cache against the 1,000,000-frame range that **Start** sets. Set a finite range first (or just don't press Start — for caching you drive the sim with the File Cache / the timeline yourself).
+
+### Recipes
+
+**Recipes** are pre-built downstream networks (a sim plus a look) shipped as a single `.py` file, so you can drop a finished effect behind the sensor. Enable **Use Recipe**, point **Recipe File** at the `.py`, and press **Generate Recipe** — it builds the network next to the node and registers its sims on the control null, ready to **Start**.
+
+> Recipe files are executed Python. Only load recipe files from sources you trust.
 
 ### Building your own
 

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837393753652">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837613305151">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../resources/css/retype.css?v=4.6.0.837393753652" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=4.6.0.837613305151" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=4.6.0.837393753652" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=4.6.0.837613305151" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=4.6.0.837393753652" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=4.6.0.837613305151" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -212,15 +212,18 @@
 <li><strong>Live streaming</strong> — reads the sensor over USB and outputs one point per laser return, updated every cook.</li>
 <li><strong>Recording &amp; playback</strong> — capture the stream to disk and replay it against the timeline, so you can develop offline without the hardware connected.</li>
 <li><strong>Built-in visualization</strong> — optional on-screen guides (sensor marker, range ring, beam fan, baked static map) so you can see what the sensor sees.</li>
-<li><strong>Crop</strong> — cull everything outside a rotatable ground rectangle, so only the points you care about reach your solver.</li>
-<li><strong>One-click live simulation</strong> — a button builds a ready-to-run POP network wired to the live points.</li>
+<li><strong>Crop</strong> — cull everything outside a rotatable ground rectangle (with an interactive viewport handle), so only the points you care about reach your solver.</li>
+<li><strong>Attribute color</strong> — tint the scan by angle or distance through a color ramp, for a readable view or to carry color into a render.</li>
+<li><strong>Top-down camera</strong> — one click for an overhead orthographic camera, and another to frame it to your crop region.</li>
+<li><strong>One-click live simulation</strong> — a button builds a ready-to-run POP network wired to the live points, plus a control null to start, stop, and reset it.</li>
+<li><strong>Recipes</strong> — drop in pre-built downstream networks (sim + look) as a single file.</li>
 <li><strong>Self-contained</strong> — a single asset file with no Python packages to install. Talks the RPLIDAR serial protocol directly.</li>
 </ul>
 <h2 id="who-its-for">Who it&#x27;s for</h2>
 <p>RPLidar In is for artists and technical directors building <strong>live, interactive, sensor-driven work</strong> in Houdini — installations, performances, and experiments where real movement in a room drives a simulation on screen. If you own an RPLIDAR and want its scan inside Houdini without writing serial code, this is for you.</p>
 <h2 id="requirements">Requirements</h2>
 <ul>
-<li><strong>Houdini 21.0</strong> (Indie or Apprentice — the asset ships as <code translate="no" v-pre>.hdalc</code>).</li>
+<li><strong>Houdini 21.0 or 22.0</strong> (Indie or Apprentice — the asset ships as <code translate="no" v-pre>.hdalc</code>).</li>
 <li>A <strong>Slamtec RPLIDAR</strong> sensor. Developed and verified against the <strong>A2M12</strong>; other A2-family models should work.</li>
 <li>The sensor&#x27;s <strong>USB/UART adapter</strong> (CP210x) — enumerates as a serial COM port.</li>
 <li><strong>Windows</strong> — the tested platform.</li>

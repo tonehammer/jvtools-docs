@@ -22,14 +22,18 @@ The first public release.
 * Sensor marker and range-ring guides, with adjustable color, range, and sensor size
 * Connect Points (beam fan) — draw a ray from the sensor to each scan point
 * Static map bake — capture a short slice of the live stream into a fixed reference map
+* Attribute color — tint the scan points by angle or distance through a color ramp, for a viewport-only view or baked into `Cd` for downstream use
 
-**Crop**
+**Crop & camera**
 
 * Cull scan points outside a rotatable ground rectangle, so only the region you care about reaches your solver
+* Interactive viewport handle — resize, move, and rotate the crop box directly in the Scene View
+* One-click top-down orthographic camera, plus a Camera-to-Crop button that frames it to your crop region
 
 **Live simulation**
 
-* One-click **Create POP Network** button that builds a ready-to-run POP network wired to the solver-ready output, plus a `_run` helper to start/stop/reset the live sim
+* One-click **Create Generic POP Network** button that builds a ready-to-run POP network wired to the solver-ready output, plus a control null to start, stop, and reset the live sim
+* Recipes — load pre-built downstream networks (sim + look) from a single file
 * Two outputs — Points & Guides (display) and Points (solver-ready, guides stripped)
 
 **Test Sensor**

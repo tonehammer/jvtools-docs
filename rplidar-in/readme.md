@@ -15,8 +15,11 @@ It is built for **TouchDesigner-style interactive work**: a person walks past th
 * **Live streaming** — reads the sensor over USB and outputs one point per laser return, updated every cook.
 * **Recording & playback** — capture the stream to disk and replay it against the timeline, so you can develop offline without the hardware connected.
 * **Built-in visualization** — optional on-screen guides (sensor marker, range ring, beam fan, baked static map) so you can see what the sensor sees.
-* **Crop** — cull everything outside a rotatable ground rectangle, so only the points you care about reach your solver.
-* **One-click live simulation** — a button builds a ready-to-run POP network wired to the live points.
+* **Crop** — cull everything outside a rotatable ground rectangle (with an interactive viewport handle), so only the points you care about reach your solver.
+* **Attribute color** — tint the scan by angle or distance through a color ramp, for a readable view or to carry color into a render.
+* **Top-down camera** — one click for an overhead orthographic camera, and another to frame it to your crop region.
+* **One-click live simulation** — a button builds a ready-to-run POP network wired to the live points, plus a control null to start, stop, and reset it.
+* **Recipes** — drop in pre-built downstream networks (sim + look) as a single file.
 * **Self-contained** — a single asset file with no Python packages to install. Talks the RPLIDAR serial protocol directly.
 
 ## Who it's for
@@ -25,7 +28,7 @@ RPLidar In is for artists and technical directors building **live, interactive, 
 
 ## Requirements
 
-* **Houdini 21.0** (Indie or Apprentice — the asset ships as `.hdalc`).
+* **Houdini 21.0 or 22.0** (Indie or Apprentice — the asset ships as `.hdalc`).
 * A **Slamtec RPLIDAR** sensor. Developed and verified against the **A2M12**; other A2-family models should work.
 * The sensor's **USB/UART adapter** (CP210x) — enumerates as a serial COM port.
 * **Windows** — the tested platform.

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837393753652">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.837613305151">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Parameter Reference</title>
     <meta name="title" content="Parameter Reference">
-    <meta name="description" content="Every parameter on the RPLidar In node, grouped by function. Names in code are the internal parameter names.">
+    <meta name="description" content="Every parameter on the RPLidar In node, grouped as it appears in the interface. Names in code are the internal parameter names.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://tonehammer.github.io/jvtools-docs/rplidar-in/parameters/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/rplidar-in/parameters/">
     <meta property="og:title" content="Parameter Reference">
-    <meta property="og:description" content="Every parameter on the RPLidar In node, grouped by function. Names in code are the internal parameter names.">
+    <meta property="og:description" content="Every parameter on the RPLidar In node, grouped as it appears in the interface. Names in code are the internal parameter names.">
     <meta property="og:site_name" content="JVtools">
     <meta property="og:locale" content="en_US">
 
@@ -31,18 +31,18 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/rplidar-in/parameters/">
     <meta name="twitter:title" content="Parameter Reference">
-    <meta name="twitter:description" content="Every parameter on the RPLidar In node, grouped by function. Names in code are the internal parameter names.">
+    <meta name="twitter:description" content="Every parameter on the RPLidar In node, grouped as it appears in the interface. Names in code are the internal parameter names.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://tonehammer.github.io/jvtools-docs/rplidar-in/parameters.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.837393753652" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.837613305151" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837393753652" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.837613305151" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837393753652" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.837613305151" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -206,17 +206,16 @@
 
                 <!-- Page content  -->
 <h1 id="parameter-reference">Parameter Reference</h1>
-<p>Every parameter on the RPLidar In node, grouped by function. Names in <code translate="no" v-pre>code</code> are the internal parameter names.</p>
+<p>Every parameter on the RPLidar In node, grouped as it appears in the interface. Names in <code translate="no" v-pre>code</code> are the internal parameter names.</p>
 <h2 id="main">Main</h2>
 <retype-table copy-text="| Parameter | Name | Description |
 | --- | --- | --- |
 | Mode | `mode` | Off / Live / Playback. The master switch. See [Modes](using.md#modes). |
-| Test Sensor | `testdevice` | Prints identity, health, and scan modes to the console. While Live, prints stream statistics instead. |
-| Create POP Network | `createpop` | Builds a ready-to-run POP network wired to the live points. See [Live Simulation](using.md#live-simulation). |
-| Port | `port` | Serial port of the sensor's USB adapter (e.g. `COM3`). Blank = auto-detect the CP210x. |
-| Scan Mode | `scanmode` | Standard (~4k samples/s) or Express (~8k). Live only; changing it while Live restarts the stream. |
-| Baud Rate | `baud` | Serial baud. 256000 is correct for the A2 family; other values are untested. |
-| Units per Meter | `unitscale` | How many Houdini units represent one real meter. 1 = meters, 100 = centimeters. |">
+| Create Control Null | `createnull` | Creates the master runtime-control null for this sensor (one per node) — Start / Stop / Reset buttons plus a Solvers list. See [Live Simulation](using.md#live-simulation). |
+| Create Generic POP Network | `createpop` | Builds a ready-to-run POP network wired to the solver-ready output, and registers it on the control null. See [Live Simulation](using.md#live-simulation). |
+| Use Recipe | `use_recipe` | Enables the recipe controls below. See [Recipes](using.md#recipes). |
+| Recipe File | `recipefile` | A JVtools recipe `.py` file — a pre-made downstream network (sim + look). |
+| Generate Recipe | `recipegen` | Builds the picked recipe file next to the node and registers its sims on the control null. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -233,19 +232,56 @@
 <td>Off / Live / Playback. The master switch. See <a href="../using/#modes">Modes</a>.</td>
 </tr>
 <tr>
+<td>Create Control Null</td>
+<td><code translate="no" v-pre>createnull</code></td>
+<td>Creates the master runtime-control null for this sensor (one per node) — Start / Stop / Reset buttons plus a Solvers list. See <a href="../using/#live-simulation">Live Simulation</a>.</td>
+</tr>
+<tr>
+<td>Create Generic POP Network</td>
+<td><code translate="no" v-pre>createpop</code></td>
+<td>Builds a ready-to-run POP network wired to the solver-ready output, and registers it on the control null. See <a href="../using/#live-simulation">Live Simulation</a>.</td>
+</tr>
+<tr>
+<td>Use Recipe</td>
+<td><code translate="no" v-pre>use_recipe</code></td>
+<td>Enables the recipe controls below. See <a href="../using/#recipes">Recipes</a>.</td>
+</tr>
+<tr>
+<td>Recipe File</td>
+<td><code translate="no" v-pre>recipefile</code></td>
+<td>A JVtools recipe <code translate="no" v-pre>.py</code> file — a pre-made downstream network (sim + look).</td>
+</tr>
+<tr>
+<td>Generate Recipe</td>
+<td><code translate="no" v-pre>recipegen</code></td>
+<td>Builds the picked recipe file next to the node and registers its sims on the control null.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h2 id="sensor">Sensor</h2>
+<retype-table copy-text="| Parameter | Name | Description |
+| --- | --- | --- |
+| Test Sensor | `testdevice` | Prints identity, health, and scan modes to the console. While Live, prints stream statistics instead. |
+| Scan Mode | `scanmode` | Standard (~4k samples/s) or Express (~8k). Live only; changing it while Live restarts the stream. |
+| Baud Rate | `baud` | Serial baud. 256000 is correct for the A2 family; other values are untested. |
+| Units per Meter | `unitscale` | How many Houdini units represent one real meter. 1 = meters, 100 = centimeters. |
+| Port | `port` | Serial port of the sensor's USB adapter (e.g. `COM3`). Blank = auto-detect the CP210x. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
 <td>Test Sensor</td>
 <td><code translate="no" v-pre>testdevice</code></td>
 <td>Prints identity, health, and scan modes to the console. While Live, prints stream statistics instead.</td>
-</tr>
-<tr>
-<td>Create POP Network</td>
-<td><code translate="no" v-pre>createpop</code></td>
-<td>Builds a ready-to-run POP network wired to the live points. See <a href="../using/#live-simulation">Live Simulation</a>.</td>
-</tr>
-<tr>
-<td>Port</td>
-<td><code translate="no" v-pre>port</code></td>
-<td>Serial port of the sensor&#x27;s USB adapter (e.g. <code translate="no" v-pre>COM3</code>). Blank = auto-detect the CP210x.</td>
 </tr>
 <tr>
 <td>Scan Mode</td>
@@ -262,89 +298,23 @@
 <td><code translate="no" v-pre>unitscale</code></td>
 <td>How many Houdini units represent one real meter. 1 = meters, 100 = centimeters.</td>
 </tr>
-</tbody>
-</table>
-</div>
-</retype-table>
-<h2 id="visualize">Visualize</h2>
-<retype-table copy-text="| Parameter | Name | Description |
-| --- | --- | --- |
-| Show Sensor Guide | `visualize` | Draw the origin sensor marker + range ring. On by default. |
-| Guide Color | `vizcolor` | Color of the guide geometry. |
-| Range (m) | `vizrange` | Radius of the range circle in real meters (A2M12 max 16 m). |
-| Sensor Size (m) | `vizsensor` | Diameter of the origin sphere, in real meters. |
-| Connect Points | `vizrays` | Draw a line from the sensor to each scan point (the beam fan). Off by default. |
-| Ray Color | `vizraycolor` | Color of the connecting rays. |
-| Bake Current Map | `mapbake` | Capture ~1.5 s of the live stream into a static map. Live only. |
-| Show Static Map | `mapshow` | Overlay the baked static map. |
-| Map Color | `mapcolor` | Color of the baked map marks. |">
-<div class="table-wrapper scrollbar overflow-hidden">
-<table class="comfortable">
-<thead>
 <tr>
-<th>Parameter</th>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Show Sensor Guide</td>
-<td><code translate="no" v-pre>visualize</code></td>
-<td>Draw the origin sensor marker + range ring. On by default.</td>
-</tr>
-<tr>
-<td>Guide Color</td>
-<td><code translate="no" v-pre>vizcolor</code></td>
-<td>Color of the guide geometry.</td>
-</tr>
-<tr>
-<td>Range (m)</td>
-<td><code translate="no" v-pre>vizrange</code></td>
-<td>Radius of the range circle in real meters (A2M12 max 16 m).</td>
-</tr>
-<tr>
-<td>Sensor Size (m)</td>
-<td><code translate="no" v-pre>vizsensor</code></td>
-<td>Diameter of the origin sphere, in real meters.</td>
-</tr>
-<tr>
-<td>Connect Points</td>
-<td><code translate="no" v-pre>vizrays</code></td>
-<td>Draw a line from the sensor to each scan point (the beam fan). Off by default.</td>
-</tr>
-<tr>
-<td>Ray Color</td>
-<td><code translate="no" v-pre>vizraycolor</code></td>
-<td>Color of the connecting rays.</td>
-</tr>
-<tr>
-<td>Bake Current Map</td>
-<td><code translate="no" v-pre>mapbake</code></td>
-<td>Capture ~1.5 s of the live stream into a static map. Live only.</td>
-</tr>
-<tr>
-<td>Show Static Map</td>
-<td><code translate="no" v-pre>mapshow</code></td>
-<td>Overlay the baked static map.</td>
-</tr>
-<tr>
-<td>Map Color</td>
-<td><code translate="no" v-pre>mapcolor</code></td>
-<td>Color of the baked map marks.</td>
+<td>Port</td>
+<td><code translate="no" v-pre>port</code></td>
+<td>Serial port of the sensor&#x27;s USB adapter (e.g. <code translate="no" v-pre>COM3</code>). Blank = auto-detect the CP210x.</td>
 </tr>
 </tbody>
 </table>
 </div>
 </retype-table>
-<p>See <a href="../using/#visualization">Visualization</a>.</p>
 <h2 id="crop">Crop</h2>
 <retype-table copy-text="| Parameter | Name | Description |
 | --- | --- | --- |
 | Enable Crop | `cropenable` | Cull scan points outside the rectangle. Shows a red guide. |
 | Center | `cropcenter` | Rectangle center on the ground (X, Z), relative to the sensor. |
-| Size | `cropsize` | Rectangle extent along X and Z. Default 32 × 32. |
-| Rotation | `croprot` | Rotation of the rectangle about the sensor's vertical axis. |">
+| Size | `cropsize` | Rectangle extent along X and Z. Default 26 × 26 (the sensor's 16 m range spans 32 × 32). |
+| Rotation | `croprot` | Rotation of the rectangle about the sensor's vertical axis. |
+| Edit Crop in Viewport | `editcrop` | Enter the interactive crop handle — drag the sides to resize, body to move, ring to rotate. See [Crop](using.md#crop). |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -368,18 +338,51 @@
 <tr>
 <td>Size</td>
 <td><code translate="no" v-pre>cropsize</code></td>
-<td>Rectangle extent along X and Z. Default 32 × 32.</td>
+<td>Rectangle extent along X and Z. Default 26 × 26 (the sensor&#x27;s 16 m range spans 32 × 32).</td>
 </tr>
 <tr>
 <td>Rotation</td>
 <td><code translate="no" v-pre>croprot</code></td>
 <td>Rotation of the rectangle about the sensor&#x27;s vertical axis.</td>
 </tr>
+<tr>
+<td>Edit Crop in Viewport</td>
+<td><code translate="no" v-pre>editcrop</code></td>
+<td>Enter the interactive crop handle — drag the sides to resize, body to move, ring to rotate. See <a href="../using/#crop">Crop</a>.</td>
+</tr>
 </tbody>
 </table>
 </div>
 </retype-table>
-<p>See <a href="../using/#crop">Crop</a>.</p>
+<h2 id="camera">Camera</h2>
+<retype-table copy-text="| Parameter | Name | Description |
+| --- | --- | --- |
+| Create Orthographic Camera | `makecam` | Create (or retarget) a top-down orthographic camera looking down at the sensor, up = +X. One per node. See [Camera](using.md#camera). |
+| Camera to Crop | `camtocrop` | Move and zoom that camera to frame the current Crop rectangle. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Create Orthographic Camera</td>
+<td><code translate="no" v-pre>makecam</code></td>
+<td>Create (or retarget) a top-down orthographic camera looking down at the sensor, up = +X. One per node. See <a href="../using/#camera">Camera</a>.</td>
+</tr>
+<tr>
+<td>Camera to Crop</td>
+<td><code translate="no" v-pre>camtocrop</code></td>
+<td>Move and zoom that camera to frame the current Crop rectangle.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
 <h2 id="recording">Recording</h2>
 <retype-table copy-text="| Parameter | Name | Description |
 | --- | --- | --- |
@@ -433,7 +436,120 @@
 </table>
 </div>
 </retype-table>
-<p>See <a href="../using/#recording-and-playback">Recording &amp; Playback</a>.</p>
+<h2 id="visualize">Visualize</h2>
+<retype-table copy-text="| Parameter | Name | Description |
+| --- | --- | --- |
+| Show Sensor Guide | `visualize` | Draw the origin sensor marker + range ring. On by default. |
+| Guide Color | `vizcolor` | Color of the guide geometry. |
+| Range (m) | `vizrange` | Radius of the range circle in real meters (A2M12 max 16 m). |
+| Sensor Size (m) | `vizsensor` | Diameter of the origin sphere, in real meters. |
+| Connect Points | `vizrays` | Draw a line from the sensor to each scan point (the beam fan). Off by default. |
+| Ray Color | `vizraycolor` | Color of the connecting rays. |
+| Store as Cd | `attrcd` | Bake the attribute colors below into `Cd` so they travel downstream. Off = the colors are shown for visualization only. See [Attribute color](using.md#attribute-color). |
+| Angle (enable) | `angle_enable` | Color the scan points by their `angle` attribute. |
+| Angle Range | `angle_range` | Attribute value range mapped onto the Angle ramp (outside clamped). |
+| Angle Ramp | `angle_ramp` | Color across the remapped angle range. |
+| Distance (enable) | `dist_enable` | Color the scan points by their `dist` attribute. |
+| Distance Range | `dist_range` | Attribute value range mapped onto the Distance ramp (outside clamped). |
+| Distance Ramp | `dist_ramp` | Color across the remapped distance range. |
+| Bake Current Map | `mapbake` | Capture ~1.5 s of the live stream into a static map. Live only. |
+| Show Static Map | `mapshow` | Overlay the baked static map. |
+| Map Color | `mapcolor` | Color of the baked map marks. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Show Sensor Guide</td>
+<td><code translate="no" v-pre>visualize</code></td>
+<td>Draw the origin sensor marker + range ring. On by default.</td>
+</tr>
+<tr>
+<td>Guide Color</td>
+<td><code translate="no" v-pre>vizcolor</code></td>
+<td>Color of the guide geometry.</td>
+</tr>
+<tr>
+<td>Range (m)</td>
+<td><code translate="no" v-pre>vizrange</code></td>
+<td>Radius of the range circle in real meters (A2M12 max 16 m).</td>
+</tr>
+<tr>
+<td>Sensor Size (m)</td>
+<td><code translate="no" v-pre>vizsensor</code></td>
+<td>Diameter of the origin sphere, in real meters.</td>
+</tr>
+<tr>
+<td>Connect Points</td>
+<td><code translate="no" v-pre>vizrays</code></td>
+<td>Draw a line from the sensor to each scan point (the beam fan). Off by default.</td>
+</tr>
+<tr>
+<td>Ray Color</td>
+<td><code translate="no" v-pre>vizraycolor</code></td>
+<td>Color of the connecting rays.</td>
+</tr>
+<tr>
+<td>Store as Cd</td>
+<td><code translate="no" v-pre>attrcd</code></td>
+<td>Bake the attribute colors below into <code translate="no" v-pre>Cd</code> so they travel downstream. Off = the colors are shown for visualization only. See <a href="../using/#attribute-color">Attribute color</a>.</td>
+</tr>
+<tr>
+<td>Angle (enable)</td>
+<td><code translate="no" v-pre>angle_enable</code></td>
+<td>Color the scan points by their <code translate="no" v-pre>angle</code> attribute.</td>
+</tr>
+<tr>
+<td>Angle Range</td>
+<td><code translate="no" v-pre>angle_range</code></td>
+<td>Attribute value range mapped onto the Angle ramp (outside clamped).</td>
+</tr>
+<tr>
+<td>Angle Ramp</td>
+<td><code translate="no" v-pre>angle_ramp</code></td>
+<td>Color across the remapped angle range.</td>
+</tr>
+<tr>
+<td>Distance (enable)</td>
+<td><code translate="no" v-pre>dist_enable</code></td>
+<td>Color the scan points by their <code translate="no" v-pre>dist</code> attribute.</td>
+</tr>
+<tr>
+<td>Distance Range</td>
+<td><code translate="no" v-pre>dist_range</code></td>
+<td>Attribute value range mapped onto the Distance ramp (outside clamped).</td>
+</tr>
+<tr>
+<td>Distance Ramp</td>
+<td><code translate="no" v-pre>dist_ramp</code></td>
+<td>Color across the remapped distance range.</td>
+</tr>
+<tr>
+<td>Bake Current Map</td>
+<td><code translate="no" v-pre>mapbake</code></td>
+<td>Capture ~1.5 s of the live stream into a static map. Live only.</td>
+</tr>
+<tr>
+<td>Show Static Map</td>
+<td><code translate="no" v-pre>mapshow</code></td>
+<td>Overlay the baked static map.</td>
+</tr>
+<tr>
+<td>Map Color</td>
+<td><code translate="no" v-pre>mapcolor</code></td>
+<td>Color of the baked map marks.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<p>See <a href="../using/#visualization">Visualization</a> and <a href="../using/#attribute-color">Attribute color</a>.</p>
 <hr>
 <blockquote>
 <p>Tooltips in Houdini (hover any parameter) are the authoritative, always-current descriptions. If this page and a tooltip ever disagree, trust the tooltip.</p>

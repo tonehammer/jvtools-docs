@@ -11,30 +11,30 @@
     <meta name="generator" content="Retype 4.6.0">
 
     <!-- Primary Meta Tags -->
-    <title>RPLidar In</title>
-    <meta name="title" content="RPLidar In">
-    <meta name="description" content="Welcome! RPLidar In brings live Slamtec RPLIDAR point-cloud data straight into Houdini as SOP geometry. Plug in the sensor, drop the node, and every">
+    <title>Advanced Velocity</title>
+    <meta name="title" content="Advanced Velocity">
+    <meta name="description" content="Welcome! Advanced Velocity is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, directional, exploding, and angular — and blends them together on one node.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://tonehammer.github.io/jvtools-docs/rplidar-in/">
+    <link rel="canonical" href="https://tonehammer.github.io/jvtools-docs/advanced-velocity/">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="https://tonehammer.github.io/jvtools-docs/sitemap.xml">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/rplidar-in/">
-    <meta property="og:title" content="RPLidar In">
-    <meta property="og:description" content="Welcome! RPLidar In brings live Slamtec RPLIDAR point-cloud data straight into Houdini as SOP geometry. Plug in the sensor, drop the node, and every">
+    <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/advanced-velocity/">
+    <meta property="og:title" content="Advanced Velocity">
+    <meta property="og:description" content="Welcome! Advanced Velocity is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, directional, exploding, and angular — and blends them together on one node.">
     <meta property="og:site_name" content="JVtools">
     <meta property="og:locale" content="en_US">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/rplidar-in/">
-    <meta name="twitter:title" content="RPLidar In">
-    <meta name="twitter:description" content="Welcome! RPLidar In brings live Slamtec RPLIDAR point-cloud data straight into Houdini as SOP geometry. Plug in the sensor, drop the node, and every">
+    <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/advanced-velocity/">
+    <meta name="twitter:title" content="Advanced Velocity">
+    <meta name="twitter:description" content="Welcome! Advanced Velocity is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, directional, exploding, and angular — and blends them together on one node.">
 
     <!-- Alternate Markdown -->
-    <link rel="alternate" type="text/markdown" href="https://tonehammer.github.io/jvtools-docs/rplidar-in/readme.md">
+    <link rel="alternate" type="text/markdown" href="https://tonehammer.github.io/jvtools-docs/advanced-velocity/readme.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
@@ -187,8 +187,8 @@
                             </svg>
                         </li>
                         <li class="pr-4">
-                            <a href="../rplidar-in/" class="pr-4">
-                                RP​Lidar In
+                            <a href="../advanced-velocity/" class="pr-4">
+                                Advanced Velocity
                             </a>
                         </li>
                     </ol>
@@ -197,67 +197,35 @@
                 <doc-page-actions></doc-page-actions>
 
                 <!-- Page content  -->
-<h1 id="rplidar-in">RPLidar In</h1>
-<div style="text-align:center; background:#0d1117; border-radius:16px; padding:2.5rem 1rem; margin:0.5rem 0 1.5rem;">
-  <img src="static/rplidar_logo.svg" alt="RPLidar In" width="150" style="max-width:60%;">
-</div>
-<p>Welcome! <strong>RPLidar In</strong> brings live <a href="https://www.slamtec.com/" class="outbound" target="_blank"><span>Slamtec RPLIDAR</span><svg xmlns="http://www.w3.org/2000/svg" class="retype-outbound-trigger docs-icon ml-1" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="currentColor"><path d="M15.5 2.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V4.06l-6.22 6.22a.75.75 0 1 1-1.06-1.06L19.94 3h-3.69a.75.75 0 0 1-.75-.75Z"/><path d="M2.5 4.25c0-.966.784-1.75 1.75-1.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.25.25 0 0 0-.25.25v15.5c0 .138.112.25.25.25h15.5a.25.25 0 0 0 .25-.25v-8.5a.75.75 0 0 1 1.5 0v8.5a1.75 1.75 0 0 1-1.75 1.75H4.25a1.75 1.75 0 0 1-1.75-1.75V4.25Z"/></g></svg></a> point-cloud data straight into Houdini as SOP geometry. Plug in the sensor, drop the node, and every rotation of the spinning laser becomes a fresh ring of points you can feed into simulations, visualizations, or interactive installations — in real time.</p>
-<p>It is built for <strong>TouchDesigner-style interactive work</strong>: a person walks past the sensor, and their outline drives a POP or Vellum solver live, with no baking step in between.</p>
-<figure class="content-center">
-    <img src="static/hero-scan.png" alt="A live scan ring in the Houdini viewport, with the sensor guide and range ring" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
-    <figcaption class="caption">A live scan ring in the Houdini viewport, with the sensor guide and range ring</figcaption>
-</figure>
+<h1 id="advanced-velocity">Advanced Velocity</h1>
+<p>Welcome! <strong>Advanced Velocity</strong> is a single Houdini SOP that authors the <code translate="no" v-pre>@v</code> velocity attribute your simulations read — fixed, directional, exploding, and angular — and blends them together on one node.</p>
+<p>Every simulation in Houdini starts with velocity. Getting it right normally means a small pile of wrangles, attribute adjusts and ramps that you rebuild on every shot. Advanced Velocity gathers that into one node, with the same set of Adjust and Mask controls on every velocity type, and a viewport display that shows you exactly what each type is contributing.</p>
+<!-- Screenshot 1 (hero) — a fractured object with the coloured velocity guides on:
+![Velocity guides on a fractured object](static/hero.png) -->
 <h2 id="what-it-does-for-you">What it does for you</h2>
 <ul>
-<li><strong>Live streaming</strong> — reads the sensor over USB and outputs one point per laser return, updated every cook.</li>
-<li><strong>Recording &amp; playback</strong> — capture the stream to disk and replay it against the timeline, so you can develop offline without the hardware connected.</li>
-<li><strong>Built-in visualization</strong> — optional on-screen guides (sensor marker, range ring, beam fan, baked static map) so you can see what the sensor sees.</li>
-<li><strong>Crop</strong> — cull everything outside a rotatable ground rectangle (with an interactive viewport handle), so only the points you care about reach your solver.</li>
-<li><strong>Attribute color</strong> — tint the scan by angle or distance through a color ramp, for a readable view or to carry color into a render.</li>
-<li><strong>Top-down camera</strong> — one click for an overhead orthographic camera, and another to frame it to your crop region.</li>
-<li><strong>One-click live simulation</strong> — a button builds a ready-to-run POP network wired to the live points, plus a control null to start, stop, and reset it.</li>
-<li><strong>Recipes</strong> — drop in pre-built downstream networks (sim + look) as a single file.</li>
-<li><strong>Self-contained</strong> — a single asset file with no Python packages to install. Talks the RPLIDAR serial protocol directly.</li>
+<li><strong>Four velocity types on one node</strong> — Basic (a fixed vector), Directional (aimed at a target), Exploding (an outward burst), and Angular (<code translate="no" v-pre>@w</code>) — each switched on with a checkbox in its own section header.</li>
+<li><strong>Identical Adjust and Mask controls on every type</strong> — scale, rotate, randomise or noise the result, and restrict it to part of the geometry with a constant, an attribute, noise, or a line / radial / bounding-box gradient. Promoted from Houdini&#x27;s own Attribute Adjust nodes, so they behave exactly as you expect.</li>
+<li><strong>A real mixer</strong> — combine the types additively with per-type gains, or blend them with normalized weights and one overall scale.</li>
+<li><strong>Interactive blast placement</strong> — for fractured RBD, drop the explosion source by dragging on the mesh in the viewport, and push it into the body with the mouse wheel. The affected pieces tint live so you can see the blast before you run anything.</li>
+<li><strong>Built for thin objects too</strong> — a Both direction mode splits walls, panels and floors off <em>both</em> faces instead of sliding the pieces sideways inside the slab.</li>
+<li><strong>Honest visualization</strong> — per-type guide lines scaled by each type&#x27;s <em>actual</em> contribution to the mix, plus one-click toggles for Houdini&#x27;s own <code translate="no" v-pre>@v</code> vectors and point trails.</li>
+<li><strong>Clean output</strong> — internal attributes are stripped before the output. You get <code translate="no" v-pre>@v</code>, plus any sub-velocity you explicitly ask to keep.</li>
 </ul>
 <h2 id="who-its-for">Who it&#x27;s for</h2>
-<p>RPLidar In is for artists and technical directors building <strong>live, interactive, sensor-driven work</strong> in Houdini — installations, performances, and experiments where real movement in a room drives a simulation on screen. If you own an RPLIDAR and want its scan inside Houdini without writing serial code, this is for you.</p>
+<p>Anyone who sets up FLIP, Pyro, Vellum, or RBD simulations in Houdini and is tired of rebuilding the same velocity rig. It&#x27;s aimed squarely at the everyday cases — a wall bursting apart, debris thrown from an impact, a fluid pushed toward a target, a body blown outward from its own centre.</p>
 <h2 id="requirements">Requirements</h2>
 <ul>
-<li><strong>Houdini 21.0 or 22.0</strong> (Indie or Apprentice — the asset ships as <code translate="no" v-pre>.hdalc</code>).</li>
-<li>A <strong>Slamtec RPLIDAR</strong> sensor. Developed and verified against the <strong>A2M12</strong>; other A2-family models should work.</li>
-<li>The sensor&#x27;s <strong>USB/UART adapter</strong> (CP210x) — enumerates as a serial COM port.</li>
-<li><strong>Windows</strong> — the tested platform.</li>
+<li><strong>Houdini 22.0</strong> or newer (Indie or Apprentice — the asset ships as <code translate="no" v-pre>.hdalc</code>).</li>
+<li>Any geometry with points. Packed fractured RBD pieces are fully supported — the node reads and writes one velocity per piece.</li>
 </ul>
 <h2 id="how-to-use-this-documentation">How to use this documentation</h2>
-<p>If you&#x27;re brand new, read these two pages in order:</p>
 <ol>
-<li><a href="getting-started/">Getting Started</a> — install the asset, connect the hardware, and see your first scan.</li>
-<li><a href="using/">Using RPLidar In</a> — modes, outputs, visualization, crop, recording, and live simulation.</li>
+<li><a href="getting-started/">Getting Started</a> — install the asset and author your first velocity.</li>
+<li><a href="using/">Using Advanced Velocity</a> — the four velocity types, the mixer, and the interactive blast placement.</li>
+<li><a href="parameters/">Parameter Reference</a> — every parameter, grouped as it appears in the interface.</li>
+<li><a href="troubleshooting/">Troubleshooting</a> — when the result isn&#x27;t what you expected.</li>
 </ol>
-<p>After that, the <a href="parameters/">Parameter Reference</a> covers every control, and <a href="troubleshooting/">Troubleshooting</a> collects the fixes for common problems.</p>
-<h2 id="quick-tour">Quick tour</h2>
-<p>The node has three <a href="using/#modes">modes</a> — <strong>Off</strong>, <strong>Live</strong>, and <strong>Playback</strong> — and two <a href="using/#outputs-and-attributes">outputs</a>:</p>
-<ul>
-<li><strong>Output 0 — Points &amp; Guides</strong> (the default display): scan points plus any visualization guides.</li>
-<li><strong>Output 1 — Points</strong> (solver-ready): scan points only, with all guides stripped.</li>
-</ul>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
-    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
-                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                    <path fill="none" d="M0 0h24v24H0z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-<p>RPLidar In is a free tool. It is not affiliated with, endorsed by, or sponsored by Slamtec. &quot;RPLIDAR&quot; and &quot;Slamtec&quot; are trademarks of their respective owners.</p>
-        </div>
-    </div>
-</div>
 <div id="retype-backlinks">
     <h2>See also</h2>
 <div class="card-compact-group">
@@ -283,7 +251,7 @@
             
                 <nav id="retype-nextprev" class="print:hidden flex mt-14">
                     <div class="w-1/2">
-                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../advanced-velocity/license/">
+                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../reallusion-importer/reference/license/">
                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                             <span>
                                 <span class="block text-xs font-normal text-base-text-muted">Previous</span>
@@ -293,7 +261,7 @@
                     </div>
             
                     <div class="w-1/2">
-                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../rplidar-in/getting-started/">
+                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../advanced-velocity/getting-started/">
                             <span>
                                 <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
                                 <span class="block mt-1">Getting Started</span>
@@ -340,6 +308,6 @@
 
     <div id="retype-overlay-target"></div>
 
-        <script data-cfasync="false">window.__DOCS__ = { "title": "RPLidar In", level: 1, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/rplidar-in/readme.md" }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Advanced Velocity", level: 1, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/advanced-velocity/readme.md" }</script>
 </body>
 </html>

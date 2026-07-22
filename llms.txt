@@ -3,11 +3,11 @@
 > Houdini digital assets and tools for artists and technical directors. Pick a product below for its documentation.
 
 - [JVtools](https://tonehammer.github.io/jvtools-docs/index.md): JVtools
-- [Reallusion Importer for Houdini](https://tonehammer.github.io/jvtools-docs/reallusion-importer/readme.md): Welcome! Reallusion Importer for Houdini turns a Character Creator 5 or iClone 8 character into a fully shaded, animatable, render-ready character in Houdini's Solaris environment — in seconds instead of hours.
-- [Advanced Velocity](https://tonehammer.github.io/jvtools-docs/advanced-velocity/readme.md): Welcome! Advanced Velocity is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, directional, exploding, and angular — and blends them together on one node.
-- [RPLidar In](https://tonehammer.github.io/jvtools-docs/rplidar-in/readme.md): Welcome! RPLidar In brings live Slamtec RPLIDAR point-cloud data straight into Houdini as SOP geometry. Plug in the sensor, drop the node, and every
+- [Reallusion Importer for Houdini v1.21](https://tonehammer.github.io/jvtools-docs/reallusion-importer/readme.md): Welcome! Reallusion Importer for Houdini turns a Character Creator 5 or iClone 8 character into a fully shaded, animatable, render-ready character in Houdini's Solaris environment — in seconds instead of hours.
+- [Advanced Velocity v1.0](https://tonehammer.github.io/jvtools-docs/advanced-velocity/readme.md): Welcome! Advanced Velocity is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, directional, exploding, and angular — and blends them together on one node.
+- [RPLidar In v1.0](https://tonehammer.github.io/jvtools-docs/rplidar-in/readme.md): Welcome! RPLidar In brings live Slamtec RPLIDAR point-cloud data straight into Houdini as SOP geometry. Plug in the sensor, drop the node, and every
 
-## Reallusion Importer for Houdini
+## Reallusion Importer for Houdini v1.21
 
 ### Getting Started
 
@@ -37,7 +37,7 @@
 - [Changelog](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/changelog.md): Fixed: textures now load for iClone "Export USD (Omniverse)" characters, whose texture folders are laid out differently from Character Creator's USD export.
 - [License](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/license.md): This is the End User License Agreement for the Reallusion Importer for Houdini. By downloading, installing, or using the asset, you agree to these terms.
 
-## Advanced Velocity
+## Advanced Velocity v1.0
 
 - [Getting Started](https://tonehammer.github.io/jvtools-docs/advanced-velocity/getting-started.md): Download JV-Advanced_Velocity-vX.Y.hdalc from your Gumroad library.
 - [Using Advanced Velocity](https://tonehammer.github.io/jvtools-docs/advanced-velocity/using.md): Each type lives in its own collapsible section with a checkbox in the header. The controls stay hidden until the type is switched on, so the interface only shows you what you're actually using.
@@ -46,7 +46,7 @@
 - [Changelog](https://tonehammer.github.io/jvtools-docs/advanced-velocity/changelog.md): The first public release.
 - [License](https://tonehammer.github.io/jvtools-docs/advanced-velocity/license.md): This is the End User License Agreement for Advanced Velocity. By downloading, installing, or using the asset, you agree to these terms.
 
-## RPLidar In
+## RPLidar In v1.0
 
 - [Getting Started](https://tonehammer.github.io/jvtools-docs/rplidar-in/getting-started.md): This page takes you from an unopened sensor to your first live scan in Houdini.
 - [Using RPLidar In](https://tonehammer.github.io/jvtools-docs/rplidar-in/using.md): This page covers everything the node does once it's installed and connected: the three modes, the two outputs and their attributes, the on-screen guides, cropping, recording, and driving a live simulation.

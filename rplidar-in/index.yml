@@ -1,4 +1,4 @@
 label: RPLidar In
-icon: broadcast
+icon: static/rplidar_logo.svg
 order: 100
 expanded: true

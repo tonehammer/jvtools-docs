@@ -1,5 +1,5 @@
 ---
-icon: book
+icon: static/rplidar_logo.svg
 order: 110
 ---
 

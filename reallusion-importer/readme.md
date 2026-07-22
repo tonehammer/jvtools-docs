@@ -1,7 +1,7 @@
 # Reallusion Importer for Houdini
 
 <div style="text-align:center; background:#0d1117; border-radius:16px; padding:2.5rem 1rem; margin:0.5rem 0 1.5rem;">
-  <img src="static/Reallusion_Importer_Logo.svg" alt="Reallusion Importer for Houdini" width="150" style="max-width:60%;">
+  <img src="static/reallusion_importer_logo.svg" alt="Reallusion Importer for Houdini" width="150" style="max-width:60%;">
 </div>
 
 Welcome! **Reallusion Importer for Houdini** turns a Character Creator 5 or iClone 8 character into a fully shaded, animatable, render-ready character in Houdini's Solaris environment — in seconds instead of hours.

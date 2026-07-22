@@ -1,5 +1,9 @@
 # Advanced Velocity
 
+<div style="text-align:center; margin:0.5rem 0 1.5rem;">
+  <img src="static/advanced_velocity_logo.png" alt="Advanced Velocity" width="180" style="max-width:55%; border-radius:16px;">
+</div>
+
 Welcome! **Advanced Velocity** is a single Houdini SOP that authors the `@v` velocity attribute your simulations read — fixed, directional, exploding, and angular — and blends them together on one node.
 
 Every simulation in Houdini starts with velocity. Getting it right normally means a small pile of wrangles, attribute adjusts and ramps that you rebuild on every shot. Advanced Velocity gathers that into one node, with the same set of Adjust and Mask controls on every velocity type, and a viewport display that shows you exactly what each type is contributing.

@@ -1,5 +1,5 @@
 ---
-icon: static/advanced_velocity_logo_arrows.svg
+icon: static/advanced_velocity_logo_arrows.png
 order: 110
 ---
 

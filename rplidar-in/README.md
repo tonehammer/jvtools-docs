@@ -3,7 +3,7 @@ icon: static/rplidar_logo.svg
 order: 110
 ---
 
-# RPLidar In
+# RPLidar In v1.0
 
 <div style="text-align:center; background:#0d1117; border-radius:16px; padding:2.5rem 1rem; margin:0.5rem 0 1.5rem;">
   <img src="static/rplidar_logo.svg" alt="RPLidar In" width="150" style="max-width:60%;">

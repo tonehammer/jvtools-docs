@@ -34,7 +34,9 @@ User-facing docs here must stay in sync with each HDA's **parameter tooltips / H
 
 - **Icons:** page/folder/nav `icon:` must be a **bare Octicon name** (`icon: rocket`, `icon: broadcast`) — NOT an emoji shortcode (`:rocket:` silently renders nothing). Full list: retype.com/components/octicons. In-body icon component is `:icon-<name>:`.
 - **Colored callouts (FREE, not Pro):** `!!!<type>` … `!!!`. Types: `primary` (blue), `info` (light-blue), `success`/`tip` (green), `warning` (yellow), `danger` (red), `question` (purple), `secondary` (gray), `base/light/dark/ghost/contrast`. Optional title after the type. Collapsible: `!!-` (collapsed) / `!!+` (expanded), e.g. `!!-danger Title`. (Needed for the Reallusion Importer section.)
-- **Cards** (landing pages): `[!card title="…" icon="…" text="…"](/path/README.md)`.
+- **Cards** (landing pages): `[!card title="…" icon="…" text="…"](/path/README.md)`. The whole card is the only clickable link (→ its `(target)`). **Do NOT put purchase/Gumroad links in cards** — markdown links inside `text=`/`footer=` render as raw, unclickable text in this Retype version (Jovan, verified 2026-07-22).
+- **Gumroad / purchase link (rule, Jovan 2026-07-22):** each product's Gumroad link goes as the **first element directly below the cover image** on its first page (README), not in the card. Format: `<p style="text-align:center; margin:0 0 1.5rem;"><a href="<gumroad-url>"><strong>Get it on Gumroad →</strong></a></p>`. URL source of truth = `versions/<product>.json` `url`. Skip it if that URL is a `PLACEHOLDER-*` (product not yet for sale).
+- **Version in title (rule, Jovan 2026-07-22):** each product's first-page **H1 ends with the current version**, e.g. `# Advanced Velocity v1.0`. Keep it in sync with `versions/<product>.json` `latest` (that manifest drives the HDAs' in-app update check — if the title and manifest disagree, flag it).
 - **Exclude from build:** the `exclude:` list in retype.yml (CLAUDE.md is already excluded — keeps the hub in-repo but off the site).
 
 ## Retype Pro backlog (license unlocks these — implement when useful)

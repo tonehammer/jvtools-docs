@@ -1,9 +1,13 @@
 ---
-icon: book
+icon: static/advanced_velocity_logo.svg
 order: 110
 ---
 
 # Advanced Velocity
+
+<div style="text-align:center; margin:0.5rem 0 1.5rem;">
+  <img src="static/advanced_velocity_logo.png" alt="Advanced Velocity" width="180" style="max-width:55%; border-radius:16px;">
+</div>
 
 Welcome! **Advanced Velocity** is a single Houdini SOP that authors the `@v` velocity attribute your simulations read — fixed, directional, exploding, and angular — and blends them together on one node.
 

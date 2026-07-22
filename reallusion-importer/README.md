@@ -3,7 +3,7 @@ icon: static/reallusion_importer_logo.svg
 order: 1000
 ---
 
-# Reallusion Importer for Houdini v1.21
+# Reallusion Importer for Houdini v1.2.1
 
 <div style="text-align:center; background:#0d1117; border-radius:16px; padding:2.5rem 1rem; margin:0.5rem 0 1.5rem;">
   <img src="static/reallusion_importer_logo.svg" alt="Reallusion Importer for Houdini" width="150" style="max-width:60%;">

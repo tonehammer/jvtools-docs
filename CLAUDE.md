@@ -4,6 +4,8 @@
 
 > **⛔ THIS REPO IS DOCUMENTATION ONLY (Jovan, 2026-07-11).** A session started here edits the Retype docs and **nothing else** — **never** run hython, edit `.hdalc`/HDA files, or do any Houdini asset surgery from this session. That work lives in each product's own code repo (`RPLidar for Houdini`, `Reallusion Importer for Houdini`), whose CLAUDE.md owns the direct-asset-edit workflow. If a docs task seems to need an asset change (e.g. "add this logo to the HDA"), it means add it to the **docs** — product logos/screenshots are plain image copies under each product folder's `static/`.
 
+> **🔒 FAMILY-INTERNAL KNOWLEDGE DOES NOT LIVE IN THIS REPO (2026-07-24).** This repo is **PUBLIC** — required by GitHub Pages and the HDAs' raw-manifest update check. The shared internal files (`JVTOOLS_HOUDINI_LESSONS.md`, `JVTOOLS_PRODUCT_STANDARDS.md`, `JVTOOLS_WORKING_RULES.md`) live in the **PRIVATE `jvtools-internal` repo** (`C:\Users\Jovan\Documents\GitHub\jvtools-internal`), which every product repo's CLAUDE.md `@`-imports. **Never add internal engineering knowledge, product-repo lore, or anything trade-secret-adjacent here** — public docs pages, `versions/*.json` manifests, and this hub file only. (The two shared files briefly lived here 2026-07-24; they were moved out and this repo's history was scrubbed.)
+
 ## What this repo is
 
 A **Retype** static documentation site. Each product (HDA) is a folder under the repo root; the root `index.md` is the landing page with product cards. Adding a new product = add a folder + a nav link, touching nothing else.

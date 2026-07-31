@@ -140,8 +140,8 @@ Every type's Adjust folder opens with the same row: **Variation** (`variation1`�
 | Injecting Now | `dyn_injecting` | Live 0/1: an event is delivering energy right now. Gate an RBD solver's Overwrite Attributes list on it — see [Driving an RBD solver](timed-events.md#driving-an-rbd-solver). |
 | Clamp Speed | `out_clamp`, `out_clamp_min`, `out_clamp_max` | Clamp the final speed into a range. |
 | Scale by Piece Size | `out_piece_scale`, `out_piece_influence` | Big chunks fly slower. Mass from a point `mass` attribute or the piece's size; Influence blends from uniform (0) to full inverse mass (1). |
-| Exports | `out_basic`, `out_dir`, `out_exp`, `out_inherited`, `out_curl` | Keep a sub-velocity on the output under its own name. Everything else is stripped. |
-| Export Rest Position Attributes | `output_rest` | Keep `startframe_rest` and every event's `<name>_rest` on the output, for reassembly or retargeting downstream. |
+| Additional Exports | `out_basic`, `out_dir`, `out_exp`, `out_inherited`, `out_curl` | Collapsed section — keep a sub-velocity on the output under its own name. Everything else is stripped. |
+| Export Rest Position Attributes | `output_rest` | In Additional Exports — keep `startframe_rest` and every event's `<name>_rest` on the output, for reassembly or retargeting downstream. |
 
 ## Visualization
 

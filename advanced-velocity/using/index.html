@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838853739965">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838854625319">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838853739965" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838854625319" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838853739965" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838854625319" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838853739965" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838854625319" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -323,7 +323,7 @@
 <li><strong>Clamp Speed</strong> clamps the final speed into a Min / Max range.</li>
 <li><strong>Scale by Piece Size</strong> makes big chunks fly slower than slivers — the single biggest realism win on fractured RBD. Mass comes from a point <code translate="no" v-pre>mass</code> attribute when present, otherwise each packed piece&#x27;s real size; <strong>Influence</strong> blends from uniform (0) through equal-energy (0.5) to full inverse mass (1). The average-sized piece keeps its speed, so the shot&#x27;s overall energy doesn&#x27;t change.</li>
 </ul>
-<p>The five <strong>Export</strong> toggles keep an individual sub-velocity on the output as its own named attribute — <code translate="no" v-pre>@basic_vel</code>, <code translate="no" v-pre>@dir_vel</code>, <code translate="no" v-pre>@exp_vel</code>, <code translate="no" v-pre>@motion_vel</code>, <code translate="no" v-pre>@curl_vel</code> — for when you want to blend them yourself downstream. Anything not exported is stripped, so the node never leaks its internals.</p>
+<p>The <strong>Additional Exports</strong> section (collapsed by default) keeps individual sub-velocities on the output as their own named attributes — <code translate="no" v-pre>@basic_vel</code>, <code translate="no" v-pre>@dir_vel</code>, <code translate="no" v-pre>@exp_vel</code>, <code translate="no" v-pre>@motion_vel</code>, <code translate="no" v-pre>@curl_vel</code> — plus the rest-position attributes, for when you want to blend or retarget downstream. Anything not exported is stripped, so the node never leaks its internals.</p>
 <hr>
 <h2 id="visualization">Visualization</h2>
 <p>The guides are <strong>guide geometry</strong>: they draw in the viewport while the node is current and never touch the output — nothing to clean up before a sim. Select a downstream node and they disappear with the selection, like Houdini&#x27;s own node guides.</p>

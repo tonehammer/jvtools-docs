@@ -129,7 +129,7 @@ Both blocks are Houdini's own controls, so the [Attribute Adjust Vector](https:/
 * **Clamp Speed** clamps the final speed into a Min / Max range.
 * **Scale by Piece Size** makes big chunks fly slower than slivers — the single biggest realism win on fractured RBD. Mass comes from a point `mass` attribute when present, otherwise each packed piece's real size; **Influence** blends from uniform (0) through equal-energy (0.5) to full inverse mass (1). The average-sized piece keeps its speed, so the shot's overall energy doesn't change.
 
-The five **Export** toggles keep an individual sub-velocity on the output as its own named attribute — `@basic_vel`, `@dir_vel`, `@exp_vel`, `@motion_vel`, `@curl_vel` — for when you want to blend them yourself downstream. Anything not exported is stripped, so the node never leaks its internals.
+The **Additional Exports** section (collapsed by default) keeps individual sub-velocities on the output as their own named attributes — `@basic_vel`, `@dir_vel`, `@exp_vel`, `@motion_vel`, `@curl_vel` — plus the rest-position attributes, for when you want to blend or retarget downstream. Anything not exported is stripped, so the node never leaks its internals.
 
 ---
 

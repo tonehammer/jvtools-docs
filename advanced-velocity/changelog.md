@@ -13,7 +13,7 @@ The first public release.
 
 * Six velocity types on one node — Basic, Directional, Exploding, Velocity from Motion, Curl Noise, and Angular (`@w`) — each in its own section with a header checkbox, its controls hidden until switched on
 * Identical **Adjust** and **Mask** controls on every type, promoted from Houdini's Attribute Adjust nodes, plus a one-click **Randomize** row with five variation strengths
-* Directional velocity with a **Direction Bias** continuum — at the target, orbiting it, away from it, or anything between (spirals) — with target sources covering another SOP, the second input, a captured rest pose, a typed position, or the geometry's own normals
+* Directional velocity with a **Direction Bias** continuum — at the target, orbiting it, away from it, or anything between (spirals) — with target sources covering another SOP, the second input, a captured rest pose, or a typed position
 * Exploding velocity from the whole object (**Centroid** or **Medial Axis**) or a **Point Source**, with interactive viewport placement, a live radius sphere, an affected-piece tint, and **Off Surface / Outward / Inward / Both** directions
 * Velocity inherited from animated input, and divergence-free curl turbulence with fractal detail and time evolution
 

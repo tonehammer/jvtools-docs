@@ -43,10 +43,6 @@ With the source placed *on* the surface, "away from the source" points through t
 
 They need a **point** `@N`. A vertex normal isn't seen — set the Normal SOP to *Point* normals. Without point normals, Off Surface pushes away from the body's centre and Both uses the thinnest bounding-box axis.
 
-## Along Normals does nothing / pushes from the centre
-
-Same thing: **Along Normals** needs point normals on the input. Without them it falls back to pushing away from the object's centre. It also emits *unit* velocity by design — scale it with the Adjust folder.
-
 ## My RBD pieces fight gravity / hang in the air
 
 The solver's **Overwrite Attributes from SOP** is re-stamping `@v` every frame, so gravity never accumulates. Gate the **Overwrite Attributes list** on the node's **Injecting Now** readout so velocity is only taken during an event's attack and hold — the exact recipe is in [Driving an RBD solver](timed-events.md#driving-an-rbd-solver). Don't gate the Overwrite from SOP toggle itself; the solver latches it at the sim's first frame.

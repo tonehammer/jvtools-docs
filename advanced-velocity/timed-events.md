@@ -73,7 +73,7 @@ It's only available when the event captured a *plain* Directional field: Adjust,
 
 ## Rest position attributes
 
-Every cook stamps `@startframe_rest` — each point's position at the scene start frame — and each event with **Create Rest Position Attribute** on records its own `<name>_rest` at its frame. The Directional type's **To Rest Pose** mode aims at any of them: blow an object apart with one event, then pull the pieces back home with a later one. The attributes are stripped from the output unless **Output Rest Attribute** keeps them.
+Every cook stamps `@startframe_rest` — each point's position at the scene start frame — and each event with **Create Rest Position Attribute** on records its own `<name>_rest` at its frame. The Directional type's **To Rest Pose** mode aims at any of them: blow an object apart with one event, then pull the pieces back home with a later one. The attributes are stripped from the output unless **Export Rest Position Attributes** (with the other exports at the bottom of the Output tab) keeps them.
 
 ## Driving an RBD solver
 

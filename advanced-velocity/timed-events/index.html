@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838847371928">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838853739965">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,12 +38,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838847371928" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838853739965" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838847371928" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838853739965" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838847371928" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.838847371928" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838853739965" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.838853739965" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -285,7 +285,7 @@
 <p>An event&#x27;s baked vectors were sampled at the input positions. Once pieces travel, a &quot;toward the target&quot; field frozen at bake time no longer points at the target. <strong>Track Motion</strong> (per event, on by default) re-aims the event&#x27;s directional velocity at the pieces&#x27; predicted positions each frame — an orbit stays tangential, a Toward keeps pointing home.</p>
 <p>It&#x27;s only available when the event captured a <em>plain</em> Directional field: Adjust, Mask, Distance Falloff, per-piece scaling or a mix of types can&#x27;t be re-evaluated, and the event then honestly replays frozen rather than guessing.</p>
 <h2 id="rest-position-attributes">Rest position attributes</h2>
-<p>Every cook stamps <code translate="no" v-pre>@startframe_rest</code> — each point&#x27;s position at the scene start frame — and each event with <strong>Create Rest Position Attribute</strong> on records its own <code translate="no" v-pre>&lt;name&gt;_rest</code> at its frame. The Directional type&#x27;s <strong>To Rest Pose</strong> mode aims at any of them: blow an object apart with one event, then pull the pieces back home with a later one. The attributes are stripped from the output unless <strong>Output Rest Attribute</strong> keeps them.</p>
+<p>Every cook stamps <code translate="no" v-pre>@startframe_rest</code> — each point&#x27;s position at the scene start frame — and each event with <strong>Create Rest Position Attribute</strong> on records its own <code translate="no" v-pre>&lt;name&gt;_rest</code> at its frame. The Directional type&#x27;s <strong>To Rest Pose</strong> mode aims at any of them: blow an object apart with one event, then pull the pieces back home with a later one. The attributes are stripped from the output unless <strong>Export Rest Position Attributes</strong> (with the other exports at the bottom of the Output tab) keeps them.</p>
 <h2 id="driving-an-rbd-solver">Driving an RBD solver</h2>
 <p>The RBD Bullet Solver reads <code translate="no" v-pre>@v</code> through <strong>Overwrite Attributes from SOP</strong> — but left on every frame, it re-stamps the velocity constantly and the pieces fight gravity. The events should <em>inject</em>, then let physics own the pieces. That&#x27;s what <strong>Injecting Now</strong> (Output tab) is for: it reads 1 while any event is delivering energy (attack + hold) and 0 the rest of the time.</p>
 <p>On the solver:</p>

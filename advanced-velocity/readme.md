@@ -12,7 +12,7 @@ Every simulation in Houdini starts with velocity. Getting it right normally mean
 
 ## What it does for you
 
-* **Six velocity types on one node** — Basic (a fixed vector), Directional (aimed at, around, or away from a target — or along the normals), Exploding (an outward burst), Velocity from Motion (derived from animated input), Curl Noise (divergence-free turbulence), and Angular (`@w`) — each switched on with a checkbox in its own section header.
+* **Six velocity types on one node** — Basic (a fixed vector), Directional (aimed at, around, or away from a target), Exploding (an outward burst), Velocity from Motion (derived from animated input), Curl Noise (divergence-free turbulence), and Angular (`@w`) — each switched on with a checkbox in its own section header.
 * **Timed Events** — snapshot the setup into events at different frames, each with its own attack / hold / release envelope, and play them back as one summed timeline. An on-screen event timeline, solo/mute, motion preview and per-event editing come with it. See [Timed Events](timed-events.md).
 * **Identical Adjust and Mask controls on every type** — scale, rotate, randomise or noise the result, and restrict it with a constant, an attribute, noise, or a line / radial / bounding-box gradient. Promoted from Houdini's own Attribute Adjust nodes, so they behave exactly as you expect. A one-click **Randomize** row adds natural variation at five strengths.
 * **A real mixer** — combine the types additively with per-type gains, or blend them with normalized weights. The velocity already on your geometry joins in as its own stream, so nodes stack and caches survive.

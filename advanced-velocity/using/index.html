@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838845975273">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838847371928">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838845975273" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838847371928" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838845975273" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838847371928" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838845975273" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838847371928" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -212,15 +212,14 @@
 <h3 id="basic">Basic</h3>
 <p>A fixed vector applied to every point. The simplest possible velocity, and the one you&#x27;ll reach for to give a whole body a shove in one direction.</p>
 <h3 id="directional">Directional</h3>
-<p>Velocity with a <em>direction</em> — at a target, around it, away from it, or along the geometry&#x27;s own normals. <strong>Direction</strong> chooses where that direction comes from:</p>
+<p>Velocity with a <em>direction</em> — at a target, around it, or away from it. <strong>Direction</strong> chooses where the target comes from:</p>
 <ul>
 <li><strong>SOP Path</strong> (the default) — aim at another SOP in the scene. <strong>Method</strong> decides how its centre is measured (centre of mass, bounding box, convex hull), and <strong>Target Group</strong> restricts the measurement to part of it — put a single point number there to aim at exactly that point.</li>
 <li><strong>Use Second Input</strong> — aim at geometry wired into the node&#x27;s second input. Press <strong>Create Point</strong> and the node builds an Add SOP holding a single point above your mesh and wires it in for you.</li>
 <li><strong>To Rest Pose</strong> — each point aims at its own captured rest position: the scene start frame, or any event&#x27;s frame. The reassembly mode — see <a href="../timed-events/#rest-position-attributes">rest attributes</a>.</li>
 <li><strong>To Position</strong> — aim at a typed world-space position. No geometry needed.</li>
-<li><strong>Along Normals</strong> — no target at all: each point pushes along its own point normal (set a Normal SOP to <em>Point</em> normals first). The inflate mode. It emits unit velocity, so scale it with Adjust.</li>
 </ul>
-<p><strong>Direction Bias</strong> is the main control for the target modes, and it&#x27;s a continuum rather than a set of modes: <strong>+1</strong> aims straight at the target, <strong>0</strong> is a pure orbit around an axle through it, <strong>−1</strong> points straight away. Anything in between spirals — a vortex that also draws inward needs no second node. The <strong>Toward / Around / Away</strong> buttons snap the bias to those three values. <strong>Orbit Axis</strong> decides the axle: <em>Toward Target</em> runs it from the object&#x27;s centre through the target (move the target to tilt the spin), or give it a fixed <em>Custom Vector</em>.</p>
+<p><strong>Direction Bias</strong> is the main control, and it&#x27;s a continuum rather than a set of modes: <strong>+1</strong> aims straight at the target, <strong>0</strong> is a pure orbit around an axle through it, <strong>−1</strong> points straight away. Anything in between spirals — a vortex that also draws inward needs no second node. The <strong>Toward / Around / Away</strong> buttons snap the bias to those three values. <strong>Orbit Axis</strong> decides the axle: <em>Toward Target</em> runs it from the object&#x27;s centre through the target (move the target to tilt the spin), or give it a fixed <em>Custom Vector</em>.</p>
 <p><strong>Normalize Direction</strong> makes every direction unit length, so distance no longer affects speed. <strong>Distance Falloff</strong> fades the velocity with distance — measured from the target, or from the axle when orbiting.</p>
 <h3 id="exploding">Exploding</h3>
 <p>An outward burst, with two very different origins.</p>

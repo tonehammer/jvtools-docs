@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838845975273">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838847371928">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838845975273" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838847371928" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838845975273" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838847371928" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838845975273" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838847371928" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -225,8 +225,6 @@
 <p>With the source placed <em>on</em> the surface, &quot;away from the source&quot; points through the body for every piece behind it — geometrically correct, and rarely what you want. Use <strong>Direction ▸ Off Surface</strong> (the default): pieces travel away from the <em>object</em>, and the source only decides which pieces are caught and how hard.</p>
 <h2 id="both--off-surface-ignore-my-normals">Both / Off Surface ignore my normals</h2>
 <p>They need a <strong>point</strong> <code translate="no" v-pre>@N</code>. A vertex normal isn&#x27;t seen — set the Normal SOP to <em>Point</em> normals. Without point normals, Off Surface pushes away from the body&#x27;s centre and Both uses the thinnest bounding-box axis.</p>
-<h2 id="along-normals-does-nothing--pushes-from-the-centre">Along Normals does nothing / pushes from the centre</h2>
-<p>Same thing: <strong>Along Normals</strong> needs point normals on the input. Without them it falls back to pushing away from the object&#x27;s centre. It also emits <em>unit</em> velocity by design — scale it with the Adjust folder.</p>
 <h2 id="my-rbd-pieces-fight-gravity--hang-in-the-air">My RBD pieces fight gravity / hang in the air</h2>
 <p>The solver&#x27;s <strong>Overwrite Attributes from SOP</strong> is re-stamping <code translate="no" v-pre>@v</code> every frame, so gravity never accumulates. Gate the <strong>Overwrite Attributes list</strong> on the node&#x27;s <strong>Injecting Now</strong> readout so velocity is only taken during an event&#x27;s attack and hold — the exact recipe is in <a href="../timed-events/#driving-an-rbd-solver">Driving an RBD solver</a>. Don&#x27;t gate the Overwrite from SOP toggle itself; the solver latches it at the sim&#x27;s first frame.</p>
 <h2 id="the-pieces-suddenly-stop-rotating-mid-flight">The pieces suddenly &quot;stop rotating&quot; mid-flight</h2>

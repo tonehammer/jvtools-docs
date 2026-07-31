@@ -60,7 +60,7 @@ Every type's Adjust folder opens with the same row: **Variation** (`variation1`â
 | Parameter | Name | Description |
 | --- | --- | --- |
 | Add Directional Vel | `add_directional_vel` | Header checkbox. |
-| Direction | `direction_source` | SOP Path, Use Second Input, To Rest Pose, To Position, or Along Normals. |
+| Direction | `direction_source` | SOP Path, Use Second Input, To Rest Pose, or To Position. |
 | Create Point | `dir_create_point` | Second Input mode â€” builds an Add SOP with one point above the mesh and wires it in. |
 | SOP Path | `dir_vel_sop_path` | The SOP whose geometry is the target. |
 | Target Group | `dir_target_group` | Which part of the target the centre is computed from. A single point number aims at exactly that point. |

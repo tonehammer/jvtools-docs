@@ -72,7 +72,6 @@ Every type's Adjust folder opens with the same row: **Variation** (`variation1`�
 | Group Type | `dir_target_grouptype` | What kind of element the Target Group names (default Points, so a bare number means a point). |
 | Method | `method` | How a single position is derived: Center of Mass, Bounding Box Center, Convex Hull Center. |
 | Rest Pose Attribute / Strength | `rest_attrib`, `rest_strength` | To Rest Pose mode — which rest pose to aim at, and how fast. |
-| Output Rest Attribute | `output_rest` | Keep the `*_rest` attributes on the output instead of stripping them. |
 | Target Position | `dir_target_pos` | To Position mode — the world position to aim at. |
 | Toward / Around / Away | `dir_aim_toward`, `dir_aim_around`, `dir_aim_away` | Snap Direction Bias to +1 / 0 / −1. |
 | Direction Bias | `dir_bias` | The continuum: +1 at the target, 0 pure orbit, −1 straight away; in between spirals. Speed blends from orbital radius to full distance. |
@@ -147,6 +146,7 @@ Every type's Adjust folder opens with the same row: **Variation** (`variation1`�
 | Clamp Speed | `out_clamp`, `out_clamp_min`, `out_clamp_max` | Clamp the final speed into a range. |
 | Scale by Piece Size | `out_piece_scale`, `out_piece_influence` | Big chunks fly slower. Mass from a point `mass` attribute or the piece's size; Influence blends from uniform (0) to full inverse mass (1). |
 | Exports | `out_basic`, `out_dir`, `out_exp`, `out_inherited`, `out_curl` | Keep a sub-velocity on the output under its own name. Everything else is stripped. |
+| Export Rest Position Attributes | `output_rest` | Keep `startframe_rest` and every event's `<name>_rest` on the output, for reassembly or retargeting downstream. |
 
 ## Visualization
 

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838213586849">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838845975273">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Parameter Reference</title>
     <meta name="title" content="Parameter Reference">
-    <meta name="description" content="Every parameter on the Advanced Velocity node, grouped as it appears in the interface. Names in code are the internal parameter names.">
+    <meta name="description" content="Every hand-authored parameter on the Advanced Velocity node, grouped as it appears in the interface. Names in code are the internal parameter names.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://tonehammer.github.io/jvtools-docs/advanced-velocity/parameters/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/advanced-velocity/parameters/">
     <meta property="og:title" content="Parameter Reference">
-    <meta property="og:description" content="Every parameter on the Advanced Velocity node, grouped as it appears in the interface. Names in code are the internal parameter names.">
+    <meta property="og:description" content="Every hand-authored parameter on the Advanced Velocity node, grouped as it appears in the interface. Names in code are the internal parameter names.">
     <meta property="og:site_name" content="JVtools">
     <meta property="og:locale" content="en_US">
 
@@ -31,18 +31,18 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/advanced-velocity/parameters/">
     <meta name="twitter:title" content="Parameter Reference">
-    <meta name="twitter:description" content="Every parameter on the Advanced Velocity node, grouped as it appears in the interface. Names in code are the internal parameter names.">
+    <meta name="twitter:description" content="Every hand-authored parameter on the Advanced Velocity node, grouped as it appears in the interface. Names in code are the internal parameter names.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://tonehammer.github.io/jvtools-docs/advanced-velocity/parameters.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838213586849" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838845975273" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838213586849" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838845975273" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838213586849" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838845975273" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -206,13 +206,13 @@
 
                 <!-- Page content  -->
 <h1 id="parameter-reference">Parameter Reference</h1>
-<p>Every parameter on the Advanced Velocity node, grouped as it appears in the interface. Names in <code translate="no" v-pre>code</code> are the internal parameter names.</p>
-<p>Each velocity type also carries an identical <strong>Adjust</strong> and <strong>Mask</strong> pair, promoted from Houdini&#x27;s Attribute Adjust nodes — see <a href="../using/#adjust-and-mask">Adjust and Mask</a>.</p>
-<h2 id="basic-velocity">Basic Velocity</h2>
+<p>Every hand-authored parameter on the Advanced Velocity node, grouped as it appears in the interface. Names in <code translate="no" v-pre>code</code> are the internal parameter names.</p>
+<p>Each velocity type also carries an identical <strong>Adjust</strong> and <strong>Mask</strong> pair, promoted from Houdini&#x27;s Attribute Adjust nodes — see <a href="../using/#adjust-and-mask">Adjust and Mask</a> and the SideFX pages for the full reference on those.</p>
+<h2 id="top-level">Top level</h2>
 <retype-table copy-text="| Parameter | Name | Description |
 | --- | --- | --- |
-| Basic Velocity | `add_basic_vel` | The section's header checkbox. Enables the type and reveals its controls. |
-| Value | `value1v` | The velocity vector applied to every point. |">
+| Group | `group` | Point group that receives the final velocity write. Points outside it keep the velocity they arrived with. |
+| Mode | `av_mode` | **Timed Events**: the output is a sequence of baked events. **Single Field**: the setup is evaluated live and written straight to the output. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -224,32 +224,29 @@
 </thead>
 <tbody>
 <tr>
-<td>Basic Velocity</td>
-<td><code translate="no" v-pre>add_basic_vel</code></td>
-<td>The section&#x27;s header checkbox. Enables the type and reveals its controls.</td>
+<td>Group</td>
+<td><code translate="no" v-pre>group</code></td>
+<td>Point group that receives the final velocity write. Points outside it keep the velocity they arrived with.</td>
 </tr>
 <tr>
-<td>Value</td>
-<td><code translate="no" v-pre>value1v</code></td>
-<td>The velocity vector applied to every point.</td>
+<td>Mode</td>
+<td><code translate="no" v-pre>av_mode</code></td>
+<td><strong>Timed Events</strong>: the output is a sequence of baked events. <strong>Single Field</strong>: the setup is evaluated live and written straight to the output.</td>
 </tr>
 </tbody>
 </table>
 </div>
 </retype-table>
-<h2 id="directional-velocity">Directional Velocity</h2>
+<h2 id="dynamic-events">Dynamic Events</h2>
+<p>Visible in Timed Events mode. See <a href="../timed-events/">Timed Events</a> for the workflow.</p>
 <retype-table copy-text="| Parameter | Name | Description |
 | --- | --- | --- |
-| Directional Velocity | `add_directional_vel` | Header checkbox. |
-| Direction | `direction_source` | Use Second Input, or SOP Path. |
-| Create Point | `dir_create_point` | Builds an Add SOP with one point above the mesh and wires it into the second input. |
-| Ptnum to Target | `pt_to_target` | Which point of the second input to aim at. |
-| SOP Path | `dir_vel_sop_path` | The SOP whose centre the velocity aims at. |
-| Method | `method` | How that SOP's centre is measured — centre of mass, bounding box, or convex hull. |
-| Normalize Direction | `dir_normalize` | Make every direction unit length, so distance no longer affects speed. |
-| Distance Falloff | `dir_falloff_enable` | Fade the velocity with distance from the target. |
-| Falloff Min / Max | `dir_falloff_min`, `dir_falloff_max` | The distance range the falloff spans. |
-| Falloff Ramp | `dir_falloff_ramp` | Shape of the fade across that range. |">
+| At Frame | `dyn_now` | Live readout of which events are contributing at the current frame, and by how much. |
+| Stale | `dyn_recall_note` | Warns when the live Setup no longer matches the event it was last based on. |
+| Record / Stop / Create Event | `record_events`, `stop_events`, `create_event` | Play the range for live marking; stop; bake the current setup into a new event at the current frame. |
+| Copy Event | `copy_event` | Duplicate an existing event at the current frame, nothing re-baked. |
+| Sort by Frame | `dyn_sort_events` | Reorder the event rows chronologically. |
+| Solo / Mute | `dyn_solo`, `dyn_mute` | Play only / ignore the listed events. Space-separated numbers and ranges (`1 3-5`); the dropdowns add to the list. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -261,76 +258,304 @@
 </thead>
 <tbody>
 <tr>
-<td>Directional Velocity</td>
+<td>At Frame</td>
+<td><code translate="no" v-pre>dyn_now</code></td>
+<td>Live readout of which events are contributing at the current frame, and by how much.</td>
+</tr>
+<tr>
+<td>Stale</td>
+<td><code translate="no" v-pre>dyn_recall_note</code></td>
+<td>Warns when the live Setup no longer matches the event it was last based on.</td>
+</tr>
+<tr>
+<td>Record / Stop / Create Event</td>
+<td><code translate="no" v-pre>record_events</code>, <code translate="no" v-pre>stop_events</code>, <code translate="no" v-pre>create_event</code></td>
+<td>Play the range for live marking; stop; bake the current setup into a new event at the current frame.</td>
+</tr>
+<tr>
+<td>Copy Event</td>
+<td><code translate="no" v-pre>copy_event</code></td>
+<td>Duplicate an existing event at the current frame, nothing re-baked.</td>
+</tr>
+<tr>
+<td>Sort by Frame</td>
+<td><code translate="no" v-pre>dyn_sort_events</code></td>
+<td>Reorder the event rows chronologically.</td>
+</tr>
+<tr>
+<td>Solo / Mute</td>
+<td><code translate="no" v-pre>dyn_solo</code>, <code translate="no" v-pre>dyn_mute</code></td>
+<td>Play only / ignore the listed events. Space-separated numbers and ranges (<code translate="no" v-pre>1 3-5</code>); the dropdowns add to the list.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="per-event">Per event</h3>
+<retype-table copy-text="| Parameter | Name | Description |
+| --- | --- | --- |
+| Name | `ev_name#` | Label for the event, shown on its tab and the timeline. |
+| Event Frame | `ev_frame#` | The peak frame — Attack ramps into it, Release ramps out of it. |
+| Captured | `ev_summary#` | What the event actually baked: types, point count, peak speed. |
+| Track Motion | `ev_track#` | Re-aim the event's directional velocity at the pieces' predicted positions each frame. Plain Directional fields only. |
+| Create Rest Position Attribute | `ev_rest_en#` | Record this event's positions into a `&lt;name&gt;_rest` attribute for To Rest Pose. |
+| Attack / Hold / Release | `ev_atk#`, `ev_hold#`, `ev_rel#` | Envelope phases in seconds, each with its own enable checkbox. All off = the event latches at full strength. |
+| Attack / Release Curve | `ev_atk_curve#`, `ev_rel_curve#` | Ramp shape: Linear, Ease, Sharp, Snap, Soft. |
+| Release Mode | `ev_rel_mode#` | **Fade to Zero** ramps out over the Release time; **Drag** decays at a rate, so thrown pieces visibly slow. |
+| Drag | `ev_drag#` | Decay per second, in Drag mode. |
+| Recall / Update | `ev_recall#`, `ev_update#` | Load the event's setup back for editing / re-bake it from the live Setup. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td><code translate="no" v-pre>ev_name#</code></td>
+<td>Label for the event, shown on its tab and the timeline.</td>
+</tr>
+<tr>
+<td>Event Frame</td>
+<td><code translate="no" v-pre>ev_frame#</code></td>
+<td>The peak frame — Attack ramps into it, Release ramps out of it.</td>
+</tr>
+<tr>
+<td>Captured</td>
+<td><code translate="no" v-pre>ev_summary#</code></td>
+<td>What the event actually baked: types, point count, peak speed.</td>
+</tr>
+<tr>
+<td>Track Motion</td>
+<td><code translate="no" v-pre>ev_track#</code></td>
+<td>Re-aim the event&#x27;s directional velocity at the pieces&#x27; predicted positions each frame. Plain Directional fields only.</td>
+</tr>
+<tr>
+<td>Create Rest Position Attribute</td>
+<td><code translate="no" v-pre>ev_rest_en#</code></td>
+<td>Record this event&#x27;s positions into a <code translate="no" v-pre>&lt;name&gt;_rest</code> attribute for To Rest Pose.</td>
+</tr>
+<tr>
+<td>Attack / Hold / Release</td>
+<td><code translate="no" v-pre>ev_atk#</code>, <code translate="no" v-pre>ev_hold#</code>, <code translate="no" v-pre>ev_rel#</code></td>
+<td>Envelope phases in seconds, each with its own enable checkbox. All off = the event latches at full strength.</td>
+</tr>
+<tr>
+<td>Attack / Release Curve</td>
+<td><code translate="no" v-pre>ev_atk_curve#</code>, <code translate="no" v-pre>ev_rel_curve#</code></td>
+<td>Ramp shape: Linear, Ease, Sharp, Snap, Soft.</td>
+</tr>
+<tr>
+<td>Release Mode</td>
+<td><code translate="no" v-pre>ev_rel_mode#</code></td>
+<td><strong>Fade to Zero</strong> ramps out over the Release time; <strong>Drag</strong> decays at a rate, so thrown pieces visibly slow.</td>
+</tr>
+<tr>
+<td>Drag</td>
+<td><code translate="no" v-pre>ev_drag#</code></td>
+<td>Decay per second, in Drag mode.</td>
+</tr>
+<tr>
+<td>Recall / Update</td>
+<td><code translate="no" v-pre>ev_recall#</code>, <code translate="no" v-pre>ev_update#</code></td>
+<td>Load the event&#x27;s setup back for editing / re-bake it from the live Setup.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h2 id="setup">Setup</h2>
+<retype-table copy-text="| Parameter | Name | Description |
+| --- | --- | --- |
+| Fold / Unfold All | `dyn_fold_setup` | Collapse or expand every velocity section at once. |
+| Clear Setup | `dyn_clear_setup` | Switch every velocity type in the live Setup off. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fold / Unfold All</td>
+<td><code translate="no" v-pre>dyn_fold_setup</code></td>
+<td>Collapse or expand every velocity section at once.</td>
+</tr>
+<tr>
+<td>Clear Setup</td>
+<td><code translate="no" v-pre>dyn_clear_setup</code></td>
+<td>Switch every velocity type in the live Setup off.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<p>Every type&#x27;s Adjust folder opens with the same row: <strong>Variation</strong> (<code translate="no" v-pre>variation1</code>–<code translate="no" v-pre>6</code>, five strengths), <strong>Randomize</strong> (<code translate="no" v-pre>randomize1</code>–<code translate="no" v-pre>6</code>, the dice), and <strong>Reset</strong> (<code translate="no" v-pre>reset_variation1</code>–<code translate="no" v-pre>6</code>).</p>
+<h3 id="basic-velocity">Basic Velocity</h3>
+<retype-table copy-text="| Parameter | Name | Description |
+| --- | --- | --- |
+| Add Basic Vel | `add_basic_vel` | Header checkbox. One fixed vector applied to every point. |
+| Value | `value1v` | The velocity vector, in units per second. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Add Basic Vel</td>
+<td><code translate="no" v-pre>add_basic_vel</code></td>
+<td>Header checkbox. One fixed vector applied to every point.</td>
+</tr>
+<tr>
+<td>Value</td>
+<td><code translate="no" v-pre>value1v</code></td>
+<td>The velocity vector, in units per second.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="directional-velocity">Directional Velocity</h3>
+<retype-table copy-text="| Parameter | Name | Description |
+| --- | --- | --- |
+| Add Directional Vel | `add_directional_vel` | Header checkbox. |
+| Direction | `direction_source` | SOP Path, Use Second Input, To Rest Pose, To Position, or Along Normals. |
+| Create Point | `dir_create_point` | Second Input mode — builds an Add SOP with one point above the mesh and wires it in. |
+| SOP Path | `dir_vel_sop_path` | The SOP whose geometry is the target. |
+| Target Group | `dir_target_group` | Which part of the target the centre is computed from. A single point number aims at exactly that point. |
+| Group Type | `dir_target_grouptype` | What kind of element the Target Group names (default Points, so a bare number means a point). |
+| Method | `method` | How a single position is derived: Center of Mass, Bounding Box Center, Convex Hull Center. |
+| Rest Pose Attribute / Strength | `rest_attrib`, `rest_strength` | To Rest Pose mode — which rest pose to aim at, and how fast. |
+| Output Rest Attribute | `output_rest` | Keep the `*_rest` attributes on the output instead of stripping them. |
+| Target Position | `dir_target_pos` | To Position mode — the world position to aim at. |
+| Toward / Around / Away | `dir_aim_toward`, `dir_aim_around`, `dir_aim_away` | Snap Direction Bias to +1 / 0 / −1. |
+| Direction Bias | `dir_bias` | The continuum: +1 at the target, 0 pure orbit, −1 straight away; in between spirals. Speed blends from orbital radius to full distance. |
+| Orbit Axis | `dir_orbit_axis_mode` | Toward Target (moving the target tilts the spin) or Custom Vector. |
+| Custom Axis | `dir_orbit_axis` | The fixed world axle direction, in Custom Vector mode. |
+| Normalize Direction | `dir_normalize` | Unit-length direction, so distance no longer affects speed. |
+| Distance Falloff | `dir_falloff_enable`, `dir_falloff_min`, `dir_falloff_max`, `dir_falloff_ramp` | Fade the velocity with distance to the target (from the axle when orbiting). |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Add Directional Vel</td>
 <td><code translate="no" v-pre>add_directional_vel</code></td>
 <td>Header checkbox.</td>
 </tr>
 <tr>
 <td>Direction</td>
 <td><code translate="no" v-pre>direction_source</code></td>
-<td>Use Second Input, or SOP Path.</td>
+<td>SOP Path, Use Second Input, To Rest Pose, To Position, or Along Normals.</td>
 </tr>
 <tr>
 <td>Create Point</td>
 <td><code translate="no" v-pre>dir_create_point</code></td>
-<td>Builds an Add SOP with one point above the mesh and wires it into the second input.</td>
-</tr>
-<tr>
-<td>Ptnum to Target</td>
-<td><code translate="no" v-pre>pt_to_target</code></td>
-<td>Which point of the second input to aim at.</td>
+<td>Second Input mode — builds an Add SOP with one point above the mesh and wires it in.</td>
 </tr>
 <tr>
 <td>SOP Path</td>
 <td><code translate="no" v-pre>dir_vel_sop_path</code></td>
-<td>The SOP whose centre the velocity aims at.</td>
+<td>The SOP whose geometry is the target.</td>
+</tr>
+<tr>
+<td>Target Group</td>
+<td><code translate="no" v-pre>dir_target_group</code></td>
+<td>Which part of the target the centre is computed from. A single point number aims at exactly that point.</td>
+</tr>
+<tr>
+<td>Group Type</td>
+<td><code translate="no" v-pre>dir_target_grouptype</code></td>
+<td>What kind of element the Target Group names (default Points, so a bare number means a point).</td>
 </tr>
 <tr>
 <td>Method</td>
 <td><code translate="no" v-pre>method</code></td>
-<td>How that SOP&#x27;s centre is measured — centre of mass, bounding box, or convex hull.</td>
+<td>How a single position is derived: Center of Mass, Bounding Box Center, Convex Hull Center.</td>
+</tr>
+<tr>
+<td>Rest Pose Attribute / Strength</td>
+<td><code translate="no" v-pre>rest_attrib</code>, <code translate="no" v-pre>rest_strength</code></td>
+<td>To Rest Pose mode — which rest pose to aim at, and how fast.</td>
+</tr>
+<tr>
+<td>Output Rest Attribute</td>
+<td><code translate="no" v-pre>output_rest</code></td>
+<td>Keep the <code translate="no" v-pre>*_rest</code> attributes on the output instead of stripping them.</td>
+</tr>
+<tr>
+<td>Target Position</td>
+<td><code translate="no" v-pre>dir_target_pos</code></td>
+<td>To Position mode — the world position to aim at.</td>
+</tr>
+<tr>
+<td>Toward / Around / Away</td>
+<td><code translate="no" v-pre>dir_aim_toward</code>, <code translate="no" v-pre>dir_aim_around</code>, <code translate="no" v-pre>dir_aim_away</code></td>
+<td>Snap Direction Bias to +1 / 0 / −1.</td>
+</tr>
+<tr>
+<td>Direction Bias</td>
+<td><code translate="no" v-pre>dir_bias</code></td>
+<td>The continuum: +1 at the target, 0 pure orbit, −1 straight away; in between spirals. Speed blends from orbital radius to full distance.</td>
+</tr>
+<tr>
+<td>Orbit Axis</td>
+<td><code translate="no" v-pre>dir_orbit_axis_mode</code></td>
+<td>Toward Target (moving the target tilts the spin) or Custom Vector.</td>
+</tr>
+<tr>
+<td>Custom Axis</td>
+<td><code translate="no" v-pre>dir_orbit_axis</code></td>
+<td>The fixed world axle direction, in Custom Vector mode.</td>
 </tr>
 <tr>
 <td>Normalize Direction</td>
 <td><code translate="no" v-pre>dir_normalize</code></td>
-<td>Make every direction unit length, so distance no longer affects speed.</td>
+<td>Unit-length direction, so distance no longer affects speed.</td>
 </tr>
 <tr>
 <td>Distance Falloff</td>
-<td><code translate="no" v-pre>dir_falloff_enable</code></td>
-<td>Fade the velocity with distance from the target.</td>
-</tr>
-<tr>
-<td>Falloff Min / Max</td>
-<td><code translate="no" v-pre>dir_falloff_min</code>, <code translate="no" v-pre>dir_falloff_max</code></td>
-<td>The distance range the falloff spans.</td>
-</tr>
-<tr>
-<td>Falloff Ramp</td>
-<td><code translate="no" v-pre>dir_falloff_ramp</code></td>
-<td>Shape of the fade across that range.</td>
+<td><code translate="no" v-pre>dir_falloff_enable</code>, <code translate="no" v-pre>dir_falloff_min</code>, <code translate="no" v-pre>dir_falloff_max</code>, <code translate="no" v-pre>dir_falloff_ramp</code></td>
+<td>Fade the velocity with distance to the target (from the axle when orbiting).</td>
 </tr>
 </tbody>
 </table>
 </div>
 </retype-table>
-<h2 id="exploding-velocity">Exploding Velocity</h2>
+<h3 id="exploding-velocity">Exploding Velocity</h3>
 <retype-table copy-text="| Parameter | Name | Description |
 | --- | --- | --- |
-| Exploding Velocity | `add_exploding_vel` | Header checkbox. |
+| Add Exploding Vel | `add_exploding_vel` | Header checkbox. |
 | Origin | `exp_origin` | Whole Object, or Point Source. |
-| Method | `exp_vel_method` | Whole Object only — Centroid or Medial Axis. |
-| Move Centroid | `t` | Whole Object only — offsets the centroid the burst radiates from. |
-| Direction | `exp_direction` | Point Source only — Outward, Inward, or Both (split thin objects). |
-| Source Position | `exp_source_pos` | Point Source only — the world-space blast origin. |
+| Method | `exp_vel_method` | Whole Object — Centroid or Medial Axis. |
+| Move Centroid | `t` | Whole Object — offsets the centre the burst radiates from. |
+| Direction | `exp_direction` | Point Source — Off Surface (default), Outward, Inward, or Both (split thin objects). |
 | Select Source Position Interactively | `exp_pick` | Enters the viewport placement state. |
+| Source Position | `exp_source_pos` | The world-space blast origin, drawn with a radius sphere. |
 | Depth Scroll Step | `exp_pick_depth_step` | How far one wheel notch pushes the source during placement. |
-| Falloff Radius | `exp_radius` | Pieces beyond this distance from the source get no velocity. Measured to each piece's pivot. |
-| Strength | `exp_strength` | Peak outward speed at the source, in units per second. |
-| Never Push Into Surface | `exp_clamp_outward` | Mirror any velocity heading back into the body. Hidden in Both mode. |
-| Falloff | `exp_falloff` | Velocity multiplier across the blast — left is the source, right is the radius. |
-| Show Affected Pieces | `exp_show_affected` | Tint the pieces this blast will move. Writes `Cd`. |
-| Affected Color | `exp_viz_ramp` | Colour across the blast, normalized to the strongest affected piece. |">
+| Falloff Radius | `exp_radius` | Blast reach, measured to each piece's real bounds. |
+| Strength | `exp_strength` | Peak speed at the source, in units per second. |
+| Never Push Into Surface | `exp_clamp_outward` | Mirror any velocity heading back into the body. Hidden in the modes that already leave it. |
+| Falloff | `exp_falloff` | Multiplier across the blast — left is the source, right is the radius edge. |
+| Show Affected Pieces / Affected Color | `exp_show_affected`, `exp_viz_ramp` | Tint the pieces the blast will move, normalized to the strongest one. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -342,7 +567,7 @@
 </thead>
 <tbody>
 <tr>
-<td>Exploding Velocity</td>
+<td>Add Exploding Vel</td>
 <td><code translate="no" v-pre>add_exploding_vel</code></td>
 <td>Header checkbox.</td>
 </tr>
@@ -354,27 +579,27 @@
 <tr>
 <td>Method</td>
 <td><code translate="no" v-pre>exp_vel_method</code></td>
-<td>Whole Object only — Centroid or Medial Axis.</td>
+<td>Whole Object — Centroid or Medial Axis.</td>
 </tr>
 <tr>
 <td>Move Centroid</td>
 <td><code translate="no" v-pre>t</code></td>
-<td>Whole Object only — offsets the centroid the burst radiates from.</td>
+<td>Whole Object — offsets the centre the burst radiates from.</td>
 </tr>
 <tr>
 <td>Direction</td>
 <td><code translate="no" v-pre>exp_direction</code></td>
-<td>Point Source only — Outward, Inward, or Both (split thin objects).</td>
-</tr>
-<tr>
-<td>Source Position</td>
-<td><code translate="no" v-pre>exp_source_pos</code></td>
-<td>Point Source only — the world-space blast origin.</td>
+<td>Point Source — Off Surface (default), Outward, Inward, or Both (split thin objects).</td>
 </tr>
 <tr>
 <td>Select Source Position Interactively</td>
 <td><code translate="no" v-pre>exp_pick</code></td>
 <td>Enters the viewport placement state.</td>
+</tr>
+<tr>
+<td>Source Position</td>
+<td><code translate="no" v-pre>exp_source_pos</code></td>
+<td>The world-space blast origin, drawn with a radius sphere.</td>
 </tr>
 <tr>
 <td>Depth Scroll Step</td>
@@ -384,42 +609,37 @@
 <tr>
 <td>Falloff Radius</td>
 <td><code translate="no" v-pre>exp_radius</code></td>
-<td>Pieces beyond this distance from the source get no velocity. Measured to each piece&#x27;s pivot.</td>
+<td>Blast reach, measured to each piece&#x27;s real bounds.</td>
 </tr>
 <tr>
 <td>Strength</td>
 <td><code translate="no" v-pre>exp_strength</code></td>
-<td>Peak outward speed at the source, in units per second.</td>
+<td>Peak speed at the source, in units per second.</td>
 </tr>
 <tr>
 <td>Never Push Into Surface</td>
 <td><code translate="no" v-pre>exp_clamp_outward</code></td>
-<td>Mirror any velocity heading back into the body. Hidden in Both mode.</td>
+<td>Mirror any velocity heading back into the body. Hidden in the modes that already leave it.</td>
 </tr>
 <tr>
 <td>Falloff</td>
 <td><code translate="no" v-pre>exp_falloff</code></td>
-<td>Velocity multiplier across the blast — left is the source, right is the radius.</td>
+<td>Multiplier across the blast — left is the source, right is the radius edge.</td>
 </tr>
 <tr>
-<td>Show Affected Pieces</td>
-<td><code translate="no" v-pre>exp_show_affected</code></td>
-<td>Tint the pieces this blast will move. Writes <code translate="no" v-pre>Cd</code>.</td>
-</tr>
-<tr>
-<td>Affected Color</td>
-<td><code translate="no" v-pre>exp_viz_ramp</code></td>
-<td>Colour across the blast, normalized to the strongest affected piece.</td>
+<td>Show Affected Pieces / Affected Color</td>
+<td><code translate="no" v-pre>exp_show_affected</code>, <code translate="no" v-pre>exp_viz_ramp</code></td>
+<td>Tint the pieces the blast will move, normalized to the strongest one.</td>
 </tr>
 </tbody>
 </table>
 </div>
 </retype-table>
-<h2 id="extra-angular-velocity">(Extra) Angular Velocity</h2>
+<h3 id="velocity-from-motion">Velocity from Motion</h3>
 <retype-table copy-text="| Parameter | Name | Description |
 | --- | --- | --- |
-| (Extra) Angular Velocity | `add_angular_vel` | Header checkbox. Creates `@w` on the output. |
-| Angular Velocity Value | `angular_vel` | The `@w` vector, in radians per second. |">
+| Add Motion Vel | `add_inherited_vel` | Header checkbox. Velocity from the input's frame-to-frame movement. |
+| Velocity Scale | `inherited_scale` | Multiplier on the derived velocity. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -431,14 +651,102 @@
 </thead>
 <tbody>
 <tr>
-<td>(Extra) Angular Velocity</td>
+<td>Add Motion Vel</td>
+<td><code translate="no" v-pre>add_inherited_vel</code></td>
+<td>Header checkbox. Velocity from the input&#x27;s frame-to-frame movement.</td>
+</tr>
+<tr>
+<td>Velocity Scale</td>
+<td><code translate="no" v-pre>inherited_scale</code></td>
+<td>Multiplier on the derived velocity.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="curl-noise-velocity">Curl Noise Velocity</h3>
+<retype-table copy-text="| Parameter | Name | Description |
+| --- | --- | --- |
+| Add Curl Vel | `add_curl_vel` | Header checkbox. A divergence-free turbulent field. |
+| Frequency / Amplitude | `curl_freq`, `curl_amp` | Vortex size and speed. |
+| Reverse Direction | `curl_reverse` | Every swirl runs the other way. |
+| Offset | `curl_offset` | Shifts the field — vary for a different swirl pattern. |
+| Evolution Speed | `curl_evolve` | How fast the field churns over time. 0 holds it static. |
+| Octaves / Roughness / Lacunarity | `curl_octaves`, `curl_rough`, `curl_lacunarity` | Fractal detail controls. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Add Curl Vel</td>
+<td><code translate="no" v-pre>add_curl_vel</code></td>
+<td>Header checkbox. A divergence-free turbulent field.</td>
+</tr>
+<tr>
+<td>Frequency / Amplitude</td>
+<td><code translate="no" v-pre>curl_freq</code>, <code translate="no" v-pre>curl_amp</code></td>
+<td>Vortex size and speed.</td>
+</tr>
+<tr>
+<td>Reverse Direction</td>
+<td><code translate="no" v-pre>curl_reverse</code></td>
+<td>Every swirl runs the other way.</td>
+</tr>
+<tr>
+<td>Offset</td>
+<td><code translate="no" v-pre>curl_offset</code></td>
+<td>Shifts the field — vary for a different swirl pattern.</td>
+</tr>
+<tr>
+<td>Evolution Speed</td>
+<td><code translate="no" v-pre>curl_evolve</code></td>
+<td>How fast the field churns over time. 0 holds it static.</td>
+</tr>
+<tr>
+<td>Octaves / Roughness / Lacunarity</td>
+<td><code translate="no" v-pre>curl_octaves</code>, <code translate="no" v-pre>curl_rough</code>, <code translate="no" v-pre>curl_lacunarity</code></td>
+<td>Fractal detail controls.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="extra-angular-velocity">(Extra) Angular Velocity</h3>
+<retype-table copy-text="| Parameter | Name | Description |
+| --- | --- | --- |
+| Add Angular Velocity (@w) | `add_angular_vel` | Header checkbox. Writes `@w`. |
+| Source | `angular_source` | Constant, or Inherited from Motion (needs a point `orient` on the input). |
+| Angular Velocity Value | `angular_vel` | The spin axis and magnitude, radians per second. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Add Angular Velocity (@w)</td>
 <td><code translate="no" v-pre>add_angular_vel</code></td>
-<td>Header checkbox. Creates <code translate="no" v-pre>@w</code> on the output.</td>
+<td>Header checkbox. Writes <code translate="no" v-pre>@w</code>.</td>
+</tr>
+<tr>
+<td>Source</td>
+<td><code translate="no" v-pre>angular_source</code></td>
+<td>Constant, or Inherited from Motion (needs a point <code translate="no" v-pre>orient</code> on the input).</td>
 </tr>
 <tr>
 <td>Angular Velocity Value</td>
 <td><code translate="no" v-pre>angular_vel</code></td>
-<td>The <code translate="no" v-pre>@w</code> vector, in radians per second.</td>
+<td>The spin axis and magnitude, radians per second.</td>
 </tr>
 </tbody>
 </table>
@@ -448,9 +756,10 @@
 <retype-table copy-text="| Parameter | Name | Description |
 | --- | --- | --- |
 | Mixer Mode | `mixer_mode` | Additive, or Weighted (Normalized). |
-| Basic / Directional / Exploding Gain | `gain_basic`, `gain_dir`, `gain_exp` | Additive only — multiplier for that type before it is summed. |
-| Basic / Directional / Exploding Weight | `weight_basic`, `weight_dir`, `weight_exp` | Weighted only — blend weight, normalized against the other enabled types. |
-| Mix Scale | `mix_scale` | Weighted only — overall multiplier applied after normalization. |">
+| Incoming Velocity | `add_input_vel`, `input_amount` | Feed the velocity already on the geometry in as another stream (on by default), and how much of it. In Timed Events it plays as a live base layer under the events. |
+| Gains | `gain_basic`, `gain_dir`, `gain_exp`, `gain_inherited`, `gain_curl` | Additive — per-type multipliers before the sum. |
+| Weights | `weight_basic`, `weight_dir`, `weight_exp`, `weight_inherited`, `weight_curl` | Weighted — blend weights, normalized against each other. |
+| Master Speed | `out_master_scale` | Overall multiplier on the final combined velocity, both modes. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -467,31 +776,40 @@
 <td>Additive, or Weighted (Normalized).</td>
 </tr>
 <tr>
-<td>Basic / Directional / Exploding Gain</td>
-<td><code translate="no" v-pre>gain_basic</code>, <code translate="no" v-pre>gain_dir</code>, <code translate="no" v-pre>gain_exp</code></td>
-<td>Additive only — multiplier for that type before it is summed.</td>
+<td>Incoming Velocity</td>
+<td><code translate="no" v-pre>add_input_vel</code>, <code translate="no" v-pre>input_amount</code></td>
+<td>Feed the velocity already on the geometry in as another stream (on by default), and how much of it. In Timed Events it plays as a live base layer under the events.</td>
 </tr>
 <tr>
-<td>Basic / Directional / Exploding Weight</td>
-<td><code translate="no" v-pre>weight_basic</code>, <code translate="no" v-pre>weight_dir</code>, <code translate="no" v-pre>weight_exp</code></td>
-<td>Weighted only — blend weight, normalized against the other enabled types.</td>
+<td>Gains</td>
+<td><code translate="no" v-pre>gain_basic</code>, <code translate="no" v-pre>gain_dir</code>, <code translate="no" v-pre>gain_exp</code>, <code translate="no" v-pre>gain_inherited</code>, <code translate="no" v-pre>gain_curl</code></td>
+<td>Additive — per-type multipliers before the sum.</td>
 </tr>
 <tr>
-<td>Mix Scale</td>
-<td><code translate="no" v-pre>mix_scale</code></td>
-<td>Weighted only — overall multiplier applied after normalization.</td>
+<td>Weights</td>
+<td><code translate="no" v-pre>weight_basic</code>, <code translate="no" v-pre>weight_dir</code>, <code translate="no" v-pre>weight_exp</code>, <code translate="no" v-pre>weight_inherited</code>, <code translate="no" v-pre>weight_curl</code></td>
+<td>Weighted — blend weights, normalized against each other.</td>
+</tr>
+<tr>
+<td>Master Speed</td>
+<td><code translate="no" v-pre>out_master_scale</code></td>
+<td>Overall multiplier on the final combined velocity, both modes.</td>
 </tr>
 </tbody>
 </table>
 </div>
 </retype-table>
-<h3 id="output">Output</h3>
+<h2 id="output">Output</h2>
 <retype-table copy-text="| Parameter | Name | Description |
 | --- | --- | --- |
-| Combine Into @v | `out_combine` | Write the mixed result to `v@v`. On by default. |
-| Export Basic | `out_basic` | Keep `@basic_vel` on the output. |
-| Export Directional | `out_dir` | Keep `@dir_vel` on the output. |
-| Export Exploding | `out_exp` | Keep `@exp_vel` on the output. |">
+| Combine Into Attribute | `out_combine` | Write the mixed result to the output attribute. On by default. |
+| Quick Setups | `out_preset` | One-click output configuration: RBD Bullet Solver (velocity) or POP / Vellum (force). |
+| Output As | `out_as` | Velocity (`@v`) — set directly, what RBD reads — or Force (`@force`) — accumulated by POP and Vellum. |
+| Velocity Attribute / Force Attribute | `out_attrib_name`, `out_force_name` | The written attribute name in each mode. |
+| Injecting Now | `dyn_injecting` | Live 0/1: an event is delivering energy right now. Gate an RBD solver's Overwrite Attributes list on it — see [Driving an RBD solver](timed-events.md#driving-an-rbd-solver). |
+| Clamp Speed | `out_clamp`, `out_clamp_min`, `out_clamp_max` | Clamp the final speed into a range. |
+| Scale by Piece Size | `out_piece_scale`, `out_piece_influence` | Big chunks fly slower. Mass from a point `mass` attribute or the piece's size; Influence blends from uniform (0) to full inverse mass (1). |
+| Exports | `out_basic`, `out_dir`, `out_exp`, `out_inherited`, `out_curl` | Keep a sub-velocity on the output under its own name. Everything else is stripped. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -503,37 +821,61 @@
 </thead>
 <tbody>
 <tr>
-<td>Combine Into @v</td>
+<td>Combine Into Attribute</td>
 <td><code translate="no" v-pre>out_combine</code></td>
-<td>Write the mixed result to <code translate="no" v-pre>v@v</code>. On by default.</td>
+<td>Write the mixed result to the output attribute. On by default.</td>
 </tr>
 <tr>
-<td>Export Basic</td>
-<td><code translate="no" v-pre>out_basic</code></td>
-<td>Keep <code translate="no" v-pre>@basic_vel</code> on the output.</td>
+<td>Quick Setups</td>
+<td><code translate="no" v-pre>out_preset</code></td>
+<td>One-click output configuration: RBD Bullet Solver (velocity) or POP / Vellum (force).</td>
 </tr>
 <tr>
-<td>Export Directional</td>
-<td><code translate="no" v-pre>out_dir</code></td>
-<td>Keep <code translate="no" v-pre>@dir_vel</code> on the output.</td>
+<td>Output As</td>
+<td><code translate="no" v-pre>out_as</code></td>
+<td>Velocity (<code translate="no" v-pre>@v</code>) — set directly, what RBD reads — or Force (<code translate="no" v-pre>@force</code>) — accumulated by POP and Vellum.</td>
 </tr>
 <tr>
-<td>Export Exploding</td>
-<td><code translate="no" v-pre>out_exp</code></td>
-<td>Keep <code translate="no" v-pre>@exp_vel</code> on the output.</td>
+<td>Velocity Attribute / Force Attribute</td>
+<td><code translate="no" v-pre>out_attrib_name</code>, <code translate="no" v-pre>out_force_name</code></td>
+<td>The written attribute name in each mode.</td>
+</tr>
+<tr>
+<td>Injecting Now</td>
+<td><code translate="no" v-pre>dyn_injecting</code></td>
+<td>Live 0/1: an event is delivering energy right now. Gate an RBD solver&#x27;s Overwrite Attributes list on it — see <a href="../timed-events/#driving-an-rbd-solver">Driving an RBD solver</a>.</td>
+</tr>
+<tr>
+<td>Clamp Speed</td>
+<td><code translate="no" v-pre>out_clamp</code>, <code translate="no" v-pre>out_clamp_min</code>, <code translate="no" v-pre>out_clamp_max</code></td>
+<td>Clamp the final speed into a range.</td>
+</tr>
+<tr>
+<td>Scale by Piece Size</td>
+<td><code translate="no" v-pre>out_piece_scale</code>, <code translate="no" v-pre>out_piece_influence</code></td>
+<td>Big chunks fly slower. Mass from a point <code translate="no" v-pre>mass</code> attribute or the piece&#x27;s size; Influence blends from uniform (0) to full inverse mass (1).</td>
+</tr>
+<tr>
+<td>Exports</td>
+<td><code translate="no" v-pre>out_basic</code>, <code translate="no" v-pre>out_dir</code>, <code translate="no" v-pre>out_exp</code>, <code translate="no" v-pre>out_inherited</code>, <code translate="no" v-pre>out_curl</code></td>
+<td>Keep a sub-velocity on the output under its own name. Everything else is stripped.</td>
 </tr>
 </tbody>
 </table>
 </div>
 </retype-table>
-<p>Anything not exported is stripped before the output.</p>
 <h2 id="visualization">Visualization</h2>
 <retype-table copy-text="| Parameter | Name | Description |
 | --- | --- | --- |
-| @v Vectors | `viz_v_attrib` | Houdini's own `@v` attribute visualizer — the yellow vectors. |
-| Point Trails | `viz_point_trails` | Houdini's viewport Point Trails display — the blue motion trails. |
-| Scale | `viz_scale` | Length multiplier for the guide lines below. |
-| Basic / Directional / Exploding / Angular Velocity | `viz_basic`, `viz_dir`, `viz_exp`, `viz_angular` | Draw guide lines for that type, scaled by its real contribution to the mix. Each has its own colour. |">
+| Show Guides | `viz_guides` | Master switch for all velocity guides. |
+| Event Timeline / Scheme | `viz_timeline`, `viz_timeline_scheme` | The on-screen frame ruler with a marker per event; Dark or Light palette. |
+| Guides | `dyn_guide_source` | Which stream Timed Events draws: Setup, Events, or Both. |
+| Preview Motion | `dyn_preview`, `dyn_preview_ghost`, `dyn_ghost_color` | Advance the baked guides to the predicted positions, with an optional wireframe ghost of the pieces. |
+| Offset | `dyn_preview_offset` | Slide the preview sideways, in multiples of the object's width. |
+| Unify Baked Guides | `viz_baked_yellow`, `viz_baked_tint` | Draw every baked-event guide in one colour instead of per-type colours. |
+| Guide Global Scale | `viz_scale` | Length multiplier for all guide trails. |
+| Guide Density | `viz_density` | Fraction of trails actually drawn, for viewport speed. |
+| Per-type rows | `viz_input`, `viz_basic`, `viz_dir`, `viz_exp`, `viz_inherited`, `viz_curl`, `viz_angular` + `_color` + `_scale` | A toggle, colour and extra scale per stream, incoming velocity included. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -545,24 +887,84 @@
 </thead>
 <tbody>
 <tr>
-<td>@v Vectors</td>
-<td><code translate="no" v-pre>viz_v_attrib</code></td>
-<td>Houdini&#x27;s own <code translate="no" v-pre>@v</code> attribute visualizer — the yellow vectors.</td>
+<td>Show Guides</td>
+<td><code translate="no" v-pre>viz_guides</code></td>
+<td>Master switch for all velocity guides.</td>
 </tr>
 <tr>
-<td>Point Trails</td>
-<td><code translate="no" v-pre>viz_point_trails</code></td>
-<td>Houdini&#x27;s viewport Point Trails display — the blue motion trails.</td>
+<td>Event Timeline / Scheme</td>
+<td><code translate="no" v-pre>viz_timeline</code>, <code translate="no" v-pre>viz_timeline_scheme</code></td>
+<td>The on-screen frame ruler with a marker per event; Dark or Light palette.</td>
 </tr>
 <tr>
-<td>Scale</td>
+<td>Guides</td>
+<td><code translate="no" v-pre>dyn_guide_source</code></td>
+<td>Which stream Timed Events draws: Setup, Events, or Both.</td>
+</tr>
+<tr>
+<td>Preview Motion</td>
+<td><code translate="no" v-pre>dyn_preview</code>, <code translate="no" v-pre>dyn_preview_ghost</code>, <code translate="no" v-pre>dyn_ghost_color</code></td>
+<td>Advance the baked guides to the predicted positions, with an optional wireframe ghost of the pieces.</td>
+</tr>
+<tr>
+<td>Offset</td>
+<td><code translate="no" v-pre>dyn_preview_offset</code></td>
+<td>Slide the preview sideways, in multiples of the object&#x27;s width.</td>
+</tr>
+<tr>
+<td>Unify Baked Guides</td>
+<td><code translate="no" v-pre>viz_baked_yellow</code>, <code translate="no" v-pre>viz_baked_tint</code></td>
+<td>Draw every baked-event guide in one colour instead of per-type colours.</td>
+</tr>
+<tr>
+<td>Guide Global Scale</td>
 <td><code translate="no" v-pre>viz_scale</code></td>
-<td>Length multiplier for the guide lines below.</td>
+<td>Length multiplier for all guide trails.</td>
 </tr>
 <tr>
-<td>Basic / Directional / Exploding / Angular Velocity</td>
-<td><code translate="no" v-pre>viz_basic</code>, <code translate="no" v-pre>viz_dir</code>, <code translate="no" v-pre>viz_exp</code>, <code translate="no" v-pre>viz_angular</code></td>
-<td>Draw guide lines for that type, scaled by its real contribution to the mix. Each has its own colour.</td>
+<td>Guide Density</td>
+<td><code translate="no" v-pre>viz_density</code></td>
+<td>Fraction of trails actually drawn, for viewport speed.</td>
+</tr>
+<tr>
+<td>Per-type rows</td>
+<td><code translate="no" v-pre>viz_input</code>, <code translate="no" v-pre>viz_basic</code>, <code translate="no" v-pre>viz_dir</code>, <code translate="no" v-pre>viz_exp</code>, <code translate="no" v-pre>viz_inherited</code>, <code translate="no" v-pre>viz_curl</code>, <code translate="no" v-pre>viz_angular</code> + <code translate="no" v-pre>_color</code> + <code translate="no" v-pre>_scale</code></td>
+<td>A toggle, colour and extra scale per stream, incoming velocity included.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h2 id="utilities">Utilities</h2>
+<retype-table copy-text="| Parameter | Name | Description |
+| --- | --- | --- |
+| Output Guides Only (No Geometry) | `out_guides_only` | Output the guide curves instead of the geometry — for rendering the guides as their own pass. |
+| Restore Viewport HUD | `util_restore_hud` | Re-enter the node's viewer state, bringing the event timeline back after an asset refresh. |
+| Links | `gumroad`, `docs`, `discord`, `youtube` | This documentation, the store page, and the community. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Output Guides Only (No Geometry)</td>
+<td><code translate="no" v-pre>out_guides_only</code></td>
+<td>Output the guide curves instead of the geometry — for rendering the guides as their own pass.</td>
+</tr>
+<tr>
+<td>Restore Viewport HUD</td>
+<td><code translate="no" v-pre>util_restore_hud</code></td>
+<td>Re-enter the node&#x27;s viewer state, bringing the event timeline back after an asset refresh.</td>
+</tr>
+<tr>
+<td>Links</td>
+<td><code translate="no" v-pre>gumroad</code>, <code translate="no" v-pre>docs</code>, <code translate="no" v-pre>discord</code>, <code translate="no" v-pre>youtube</code></td>
+<td>This documentation, the store page, and the community.</td>
 </tr>
 </tbody>
 </table>
@@ -571,7 +973,7 @@
 <h2 id="about">About</h2>
 <retype-table copy-text="| Parameter | Name | Description |
 | --- | --- | --- |
-| Current Version | `version2` | The product version installed. |">
+| Current Version | `version2` | The product version installed. The node checks for updates when you press its action buttons and tells you when a newer one is on Gumroad. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -585,7 +987,7 @@
 <tr>
 <td>Current Version</td>
 <td><code translate="no" v-pre>version2</code></td>
-<td>The product version installed.</td>
+<td>The product version installed. The node checks for updates when you press its action buttons and tells you when a newer one is on Gumroad.</td>
 </tr>
 </tbody>
 </table>
@@ -601,7 +1003,7 @@
                 <span class="card-compact-icon inline-flex shrink-0"><img width="20" height="20" src="static/advanced_velocity_logo_arrows.png"></span>
                 <span class="card-compact-title">Advanced Velocity</span>
             </div>
-            <p class="card-compact-description">Welcome! Advanced Velocity (v1.0) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, directional, exploding, and angular — and blends them together on one node.</p>
+            <p class="card-compact-description">Welcome! Advanced Velocity (v1.0) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them together on one node.</p>
         </div>
     </a>
 </div>
@@ -616,11 +1018,11 @@
             
                 <nav id="retype-nextprev" class="print:hidden flex mt-14">
                     <div class="w-1/2">
-                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../advanced-velocity/using/">
+                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../advanced-velocity/timed-events/">
                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                             <span>
                                 <span class="block text-xs font-normal text-base-text-muted">Previous</span>
-                                <span class="block mt-1">Using Advanced Velocity</span>
+                                <span class="block mt-1">Timed Events</span>
                             </span>
                         </a>
                     </div>

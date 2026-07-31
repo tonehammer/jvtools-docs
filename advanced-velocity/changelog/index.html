@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838213586849">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838845975273">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838213586849" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838845975273" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838213586849" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838845975273" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838213586849" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838845975273" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -210,28 +210,33 @@
 <p>The first public release.</p>
 <p><strong>Velocity types</strong></p>
 <ul>
-<li>Four velocity types on one node — Basic, Directional, Exploding, and Angular (<code translate="no" v-pre>@w</code>) — each in its own section with a header checkbox, and its controls hidden until switched on</li>
-<li>Identical <strong>Adjust</strong> and <strong>Mask</strong> controls on every type, promoted from Houdini&#x27;s Attribute Adjust nodes: scale, rotate, spread, randomise or noise the result, and restrict it with a constant, an attribute, noise, or a line / radial / bounding-box gradient</li>
-<li>Directional velocity aimed at either the second input or another SOP&#x27;s centre, with a <strong>Create Point</strong> button that builds and wires the target for you, a normalize option, and a distance falloff ramp</li>
-<li>Exploding velocity from the whole object — <strong>Centroid</strong> or <strong>Medial Axis</strong>, so hollow and irregular bodies burst outward sensibly</li>
+<li>Six velocity types on one node — Basic, Directional, Exploding, Velocity from Motion, Curl Noise, and Angular (<code translate="no" v-pre>@w</code>) — each in its own section with a header checkbox, its controls hidden until switched on</li>
+<li>Identical <strong>Adjust</strong> and <strong>Mask</strong> controls on every type, promoted from Houdini&#x27;s Attribute Adjust nodes, plus a one-click <strong>Randomize</strong> row with five variation strengths</li>
+<li>Directional velocity with a <strong>Direction Bias</strong> continuum — at the target, orbiting it, away from it, or anything between (spirals) — with target sources covering another SOP, the second input, a captured rest pose, a typed position, or the geometry&#x27;s own normals</li>
+<li>Exploding velocity from the whole object (<strong>Centroid</strong> or <strong>Medial Axis</strong>) or a <strong>Point Source</strong>, with interactive viewport placement, a live radius sphere, an affected-piece tint, and <strong>Off Surface / Outward / Inward / Both</strong> directions</li>
+<li>Velocity inherited from animated input, and divergence-free curl turbulence with fractal detail and time evolution</li>
 </ul>
-<p><strong>Point Source explosions</strong></p>
+<p><strong>Timed Events</strong></p>
 <ul>
-<li>A single blast origin placed inside the object, affecting only the pieces within its radius — built for dense fractured RBD</li>
-<li>Interactive viewport placement: drag on the surface to position the source, scroll to push it into the body, Shift+R to reset the depth</li>
-<li>Live tint of the affected pieces, normalized so the hot core always reads</li>
-<li><strong>Outward</strong>, <strong>Inward</strong>, and <strong>Both</strong> directions — Both splits thin objects off both faces instead of sliding pieces sideways within the slab</li>
-<li><strong>Never Push Into Surface</strong> to keep every piece travelling outward from the body</li>
+<li>Bake the setup into <strong>events</strong> at different frames and play them back as one summed timeline — create, record live, copy, sort, solo and mute</li>
+<li>Per-event <strong>Attack / Hold / Release</strong> envelopes with curve presets, latch-by-default for RBD, and a Drag release that visibly slows thrown pieces</li>
+<li>An on-screen <strong>event timeline</strong> with per-event state markers, a stale-event warning tied to the Recall / Update editing loop, and an <strong>At Frame</strong> readout</li>
+<li><strong>Motion preview</strong> — guides and a tumbling wireframe ghost advanced to where the events predict the pieces will be — with per-event <strong>Track Motion</strong> re-aiming directional fields as pieces travel</li>
+<li>Rest-position attributes per event, so a later event can pull the pieces back home</li>
+<li><strong>Injecting Now</strong> output signal for gating an RBD solver, so physics owns the pieces between impulses</li>
 </ul>
 <p><strong>Mixing and output</strong></p>
 <ul>
-<li>Additive mixing with per-type gains, or weighted mixing normalized to the enabled types with an overall Mix Scale</li>
-<li>Output section — write the combined <code translate="no" v-pre>@v</code>, and optionally keep individual sub-velocities as their own attributes. Everything else is stripped before the output</li>
+<li>Additive mixing with per-type gains, or weighted mixing normalized across the enabled streams, with one <strong>Master Speed</strong></li>
+<li><strong>Incoming Velocity</strong> as its own stream, on by default — nodes stack, caches survive, and in Timed Events it plays as a live base under the events</li>
+<li><strong>Quick Setups</strong> for RBD Bullet Solver (velocity) and POP / Vellum (accumulated force), with independent velocity / force attribute names</li>
+<li><strong>Scale by Piece Size</strong> — big chunks fly slower, from a mass attribute or each packed piece&#x27;s real size</li>
+<li>Speed clamping, per-stream exports, and an output stripped of every internal attribute</li>
 </ul>
 <p><strong>Visualization</strong></p>
 <ul>
-<li>Per-type guide lines scaled by each type&#x27;s real contribution to the mix, so the display tracks what the mixer is doing</li>
-<li>One-click toggles for Houdini&#x27;s own <code translate="no" v-pre>@v</code> attribute vectors and viewport point trails</li>
+<li>Per-type guide trails scaled by each stream&#x27;s real contribution to the mix, drawn as guide geometry that never touches the output</li>
+<li>Guide density control for heavy fractures, per-type colours and scales, and a Utilities toggle to output the guide curves themselves for rendering</li>
 </ul>
 <hr>
 <div class="flex mb-6">

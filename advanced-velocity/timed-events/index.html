@@ -11,30 +11,30 @@
     <meta name="generator" content="Retype 4.6.0">
 
     <!-- Primary Meta Tags -->
-    <title>Using Advanced Velocity</title>
-    <meta name="title" content="Using Advanced Velocity">
-    <meta name="description" content="This page covers the setup surface: the six velocity types, the mixer, the output, and the visualization. The event workflow has its own page.">
+    <title>Timed Events</title>
+    <meta name="title" content="Timed Events">
+    <meta name="description" content="One velocity field is rarely the whole story. The shot is a car lifted at frame 10, torn apart at frame 40, spun at frame 70 — three different velocity setups, at three different times, summed where they overlap.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://tonehammer.github.io/jvtools-docs/advanced-velocity/using/">
+    <link rel="canonical" href="https://tonehammer.github.io/jvtools-docs/advanced-velocity/timed-events/">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="https://tonehammer.github.io/jvtools-docs/sitemap.xml">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/advanced-velocity/using/">
-    <meta property="og:title" content="Using Advanced Velocity">
-    <meta property="og:description" content="This page covers the setup surface: the six velocity types, the mixer, the output, and the visualization. The event workflow has its own page.">
+    <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/advanced-velocity/timed-events/">
+    <meta property="og:title" content="Timed Events">
+    <meta property="og:description" content="One velocity field is rarely the whole story. The shot is a car lifted at frame 10, torn apart at frame 40, spun at frame 70 — three different velocity setups, at three different times, summed where they overlap.">
     <meta property="og:site_name" content="JVtools">
     <meta property="og:locale" content="en_US">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/advanced-velocity/using/">
-    <meta name="twitter:title" content="Using Advanced Velocity">
-    <meta name="twitter:description" content="This page covers the setup surface: the six velocity types, the mixer, the output, and the visualization. The event workflow has its own page.">
+    <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/advanced-velocity/timed-events/">
+    <meta name="twitter:title" content="Timed Events">
+    <meta name="twitter:description" content="One velocity field is rarely the whole story. The shot is a car lifted at frame 10, torn apart at frame 40, spun at frame 70 — three different velocity setups, at three different times, summed where they overlap.">
 
     <!-- Alternate Markdown -->
-    <link rel="alternate" type="text/markdown" href="https://tonehammer.github.io/jvtools-docs/advanced-velocity/using.md">
+    <link rel="alternate" type="text/markdown" href="https://tonehammer.github.io/jvtools-docs/advanced-velocity/timed-events.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
@@ -43,6 +43,7 @@
     <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838845975273" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
     <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838845975273" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.838845975273" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -195,8 +196,8 @@
                             </svg>
                         </li>
                         <li class="pr-4">
-                            <a href="../../advanced-velocity/using/" class="pr-4">
-                                Using Advanced Velocity
+                            <a href="../../advanced-velocity/timed-events/" class="pr-4">
+                                Timed Events
                             </a>
                         </li>
                     </ol>
@@ -205,136 +206,105 @@
                 <doc-page-actions></doc-page-actions>
 
                 <!-- Page content  -->
-<h1 id="using-advanced-velocity">Using Advanced Velocity</h1>
-<p>This page covers the setup surface: the six velocity types, the mixer, the output, and the visualization. The event workflow has <a href="../timed-events/">its own page</a>.</p>
-<h2 id="the-six-velocity-types">The six velocity types</h2>
-<p>Each type lives in its own collapsible section with a checkbox in the header. The controls stay hidden until the type is switched on, so the interface only shows what you&#x27;re actually using.</p>
-<h3 id="basic">Basic</h3>
-<p>A fixed vector applied to every point. The simplest possible velocity, and the one you&#x27;ll reach for to give a whole body a shove in one direction.</p>
-<h3 id="directional">Directional</h3>
-<p>Velocity with a <em>direction</em> — at a target, around it, away from it, or along the geometry&#x27;s own normals. <strong>Direction</strong> chooses where that direction comes from:</p>
-<ul>
-<li><strong>SOP Path</strong> (the default) — aim at another SOP in the scene. <strong>Method</strong> decides how its centre is measured (centre of mass, bounding box, convex hull), and <strong>Target Group</strong> restricts the measurement to part of it — put a single point number there to aim at exactly that point.</li>
-<li><strong>Use Second Input</strong> — aim at geometry wired into the node&#x27;s second input. Press <strong>Create Point</strong> and the node builds an Add SOP holding a single point above your mesh and wires it in for you.</li>
-<li><strong>To Rest Pose</strong> — each point aims at its own captured rest position: the scene start frame, or any event&#x27;s frame. The reassembly mode — see <a href="../timed-events/#rest-position-attributes">rest attributes</a>.</li>
-<li><strong>To Position</strong> — aim at a typed world-space position. No geometry needed.</li>
-<li><strong>Along Normals</strong> — no target at all: each point pushes along its own point normal (set a Normal SOP to <em>Point</em> normals first). The inflate mode. It emits unit velocity, so scale it with Adjust.</li>
-</ul>
-<p><strong>Direction Bias</strong> is the main control for the target modes, and it&#x27;s a continuum rather than a set of modes: <strong>+1</strong> aims straight at the target, <strong>0</strong> is a pure orbit around an axle through it, <strong>−1</strong> points straight away. Anything in between spirals — a vortex that also draws inward needs no second node. The <strong>Toward / Around / Away</strong> buttons snap the bias to those three values. <strong>Orbit Axis</strong> decides the axle: <em>Toward Target</em> runs it from the object&#x27;s centre through the target (move the target to tilt the spin), or give it a fixed <em>Custom Vector</em>.</p>
-<p><strong>Normalize Direction</strong> makes every direction unit length, so distance no longer affects speed. <strong>Distance Falloff</strong> fades the velocity with distance — measured from the target, or from the axle when orbiting.</p>
-<h3 id="exploding">Exploding</h3>
-<p>An outward burst, with two very different origins.</p>
-<p><strong>Whole Object</strong> radiates from the body itself:</p>
-<ul>
-<li><strong>Centroid</strong> — everything pushes away from one point, which you can offset with <strong>Move Centroid</strong>.</li>
-<li><strong>Medial Axis</strong> — the direction is measured from the <em>skeleton</em> of the body, so hollow, curved, or L-shaped objects burst outward sensibly instead of all sliding away from one average point. It&#x27;s considerably slower, since it runs a VDB shrink loop to find the skeleton.</li>
-</ul>
-<p><strong>Point Source</strong> is covered <doc-anchor-trigger to="#point-source-explosions">below</doc-anchor-trigger>.</p>
-<h3 id="velocity-from-motion">Velocity from Motion</h3>
-<p>Velocity derived from the input&#x27;s own frame-to-frame movement, the way a Trail SOP computes it. Use it to hand pre-sim momentum to an RBD or POP solve — animate a character swinging a prop, fracture the prop, and the pieces inherit the swing. Only meaningful on animated or deforming input; a static mesh yields zero.</p>
-<h3 id="curl-noise">Curl Noise</h3>
-<p>A divergence-free turbulent field — natural swirls with no sources or sinks — for debris drift and secondary motion. <strong>Frequency</strong> sets the vortex size, <strong>Amplitude</strong> the speed, <strong>Octaves / Roughness / Lacunarity</strong> add fractal detail, and <strong>Evolution Speed</strong> churns the field over time (0 holds it static). This authors an <em>initial</em> velocity: a one-time push, not a sustained in-sim force.</p>
-<h3 id="angular">Angular</h3>
-<p>An extra <code translate="no" v-pre>@w</code> spin vector, in radians per second, for solvers that read it. <strong>Source</strong> is either a <em>Constant</em> vector, or <em>Inherited from Motion</em> — computed from the input&#x27;s own rotation between frames, which needs a point <code translate="no" v-pre>orient</code> quaternion on the input. Independent of the mixer: <code translate="no" v-pre>@w</code> is simply written when the type is on.</p>
-<hr>
-<h2 id="point-source-explosions">Point Source explosions</h2>
-<p>Point Source places a single blast origin <em>inside</em> the object and only affects the pieces within its <strong>Falloff Radius</strong> — drawn as a wireframe sphere in the viewport. This is the mode built for dense fractured RBD: a wall taking an impact in one spot rather than an entire building flying apart.</p>
-<p>The falloff is measured to each packed piece&#x27;s <strong>real bounds</strong>, not just its centre, so the radius behaves the way it looks against the sphere.</p>
-<h3 id="placing-the-source-interactively">Placing the source interactively</h3>
-<p>Press <strong>Select Source Position Interactively</strong> and the viewport enters a placement state:</p>
-<retype-table copy-text="| Input | Action |
-| --- | --- |
-| **LMB drag** | Place the source on the surface, sliding it as you drag |
-| **Wheel** (while dragging) | Push the source into or out of the mesh, along the view ray |
-| **Ctrl / Shift** + wheel | Depth step ×10 / ×0.1 |
-| **Shift + R** | Reset depth — the next click lands back on the surface |
-| **Esc** | Finish |">
-<div class="table-wrapper scrollbar overflow-hidden">
-<table class="comfortable">
-<thead>
-<tr>
-<th>Input</th>
-<th>Action</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>LMB drag</strong></td>
-<td>Place the source on the surface, sliding it as you drag</td>
-</tr>
-<tr>
-<td><strong>Wheel</strong> (while dragging)</td>
-<td>Push the source into or out of the mesh, along the view ray</td>
-</tr>
-<tr>
-<td><strong>Ctrl / Shift</strong> + wheel</td>
-<td>Depth step ×10 / ×0.1</td>
-</tr>
-<tr>
-<td><strong>Shift + R</strong></td>
-<td>Reset depth — the next click lands back on the surface</td>
-</tr>
-<tr>
-<td><strong>Esc</strong></td>
-<td>Finish</td>
-</tr>
-</tbody>
-</table>
+<h1 id="timed-events">Timed Events</h1>
+<p>One velocity field is rarely the whole story. The shot is a car <em>lifted</em> at frame 10, <em>torn apart</em> at frame 40, <em>spun</em> at frame 70 — three different velocity setups, at three different times, summed where they overlap. <strong>Timed Events</strong> is that: a keyframe animator for velocity.</p>
+<p>Think of the Setup and Mixer tabs as a template. You dial in a velocity, press <strong>Create Event</strong>, and the node bakes the field it produces into an event stamped at the current frame. Then you change the setup and create the next one. At playback, every event contributes its baked field, faded in and out by its own envelope, and the output is the sum.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Why the sliders &quot;do nothing&quot;</h5>
+<p>In Timed Events mode the live Setup does not reach the output — only baked events do. If you tweak a slider and the sim doesn&#x27;t respond, the event you&#x27;re shaping hasn&#x27;t been re-baked: press <strong>Update</strong> on its row. The node tells you when this happens — see <doc-anchor-trigger to="#editing-an-event">Editing an event</doc-anchor-trigger>.</p>
+        </div>
+    </div>
 </div>
-</retype-table>
-<p>The controls are also listed on screen while the state is active.</p>
-<!-- Screenshot 2 — the interactive placement state, HUD visible, affected pieces tinted:
-![Placing the blast source in the viewport](static/point-source.png) -->
-<h3 id="seeing-what-will-move">Seeing what will move</h3>
-<p><strong>Show Affected Pieces</strong> tints the pieces the blast will move, through the <strong>Affected Color</strong> ramp — green across most of the blast, hot pink at the core. The tint is normalized against the strongest affected piece, so the core always reads clearly whatever the radius or strength.</p>
-<h3 id="direction">Direction</h3>
+<h2 id="creating-events">Creating events</h2>
 <ul>
-<li><strong>Off Surface</strong> (the default) — pieces travel away from the <em>object</em>: along their point normals when the input has them, otherwise away from the body&#x27;s centre. The source still decides which pieces are caught and how hard. This is the mode that reads as blowing a hole outwards.</li>
-<li><strong>Outward</strong> — radiating away from the source point itself, like a charge sitting at that point. With the source placed <em>on</em> the surface this drives material through the body and out the far side — geometrically correct, and usually what Off Surface is the better answer to.</li>
-<li><strong>Inward</strong> — pieces are pulled toward the source, for implosions.</li>
-<li><strong>Both</strong> — for thin objects: walls, panels, floors. Pieces are pushed off <strong>both faces</strong> instead of radiating sideways within the slab. Uses a point <code translate="no" v-pre>@N</code> when present, otherwise the thinnest bounding-box axis.</li>
+<li><strong>Create Event</strong> bakes the current setup into a new event at the playbar frame.</li>
+<li><strong>Record Events</strong> jumps to the start frame and plays the range once — press Create Event as it plays to drop events in real time, like tapping keys into a performance. <strong>Stop</strong> ends it.</li>
+<li><strong>Copy Event</strong> duplicates an existing event at the current frame — the same blast, later, with nothing re-baked.</li>
+<li><strong>Sort by Frame</strong> reorders the rows chronologically (playback doesn&#x27;t care about row order; this is for reading).</li>
 </ul>
-<p><strong>Never Push Into Surface</strong> mirrors any velocity heading back into the body. It&#x27;s an art-directable override for Outward / Inward; the modes that already leave the body (Both, Off Surface) hide it.</p>
-<hr>
-<h2 id="adjust-and-mask">Adjust and Mask</h2>
-<p>Every velocity type carries the same pair of folders, promoted from Houdini&#x27;s own Attribute Adjust nodes.</p>
-<p><strong>Adjust</strong> reshapes the velocity: scale its length, rotate its direction, spread it, or drive it from a random value or noise. Turn on <strong>Adjust Value</strong> to enable it. The Noise / Random section appears once you pick a random or noise value type, and carries the full fractal controls plus animation over time.</p>
-<p>At the top of every Adjust folder sits the <strong>Randomize</strong> row: pick a <strong>Variation</strong> level (1 Subtle to 5 Extreme) and press the dice. The node detects whether your input is discrete pieces (per-piece random) or a continuous surface (coherent noise) and presets the Adjust controls accordingly — everything it does stays visible and hand-tunable, and the undo arrow reverts it. On Curl Noise the dice re-rolls the swirl pattern instead: different swirls, same character.</p>
-<p><strong>Mask</strong> restricts the velocity to part of the geometry — through a constant, random values, noise, another attribute, or a line / radial / bounding-box gradient, remapped through a ramp. The Line and Radial guides <strong>fit themselves to your input</strong> the first time you enable them, and the <strong>Fit to Input</strong> button re-fits them any time.</p>
-<p>Both blocks are Houdini&#x27;s own controls, so the <a href="https://www.sidefx.com/docs/houdini/nodes/sop/attribadjustvector.html" class="outbound" target="_blank"><span>Attribute Adjust Vector</span><svg xmlns="http://www.w3.org/2000/svg" class="retype-outbound-trigger docs-icon ml-1" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="currentColor"><path d="M15.5 2.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V4.06l-6.22 6.22a.75.75 0 1 1-1.06-1.06L19.94 3h-3.69a.75.75 0 0 1-.75-.75Z"/><path d="M2.5 4.25c0-.966.784-1.75 1.75-1.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.25.25 0 0 0-.25.25v15.5c0 .138.112.25.25.25h15.5a.25.25 0 0 0 .25-.25v-8.5a.75.75 0 0 1 1.5 0v8.5a1.75 1.75 0 0 1-1.75 1.75H4.25a1.75 1.75 0 0 1-1.75-1.75V4.25Z"/></g></svg></a> and <a href="https://www.sidefx.com/docs/houdini/nodes/sop/attribadjustfloat.html" class="outbound" target="_blank"><span>Attribute Adjust Float</span><svg xmlns="http://www.w3.org/2000/svg" class="retype-outbound-trigger docs-icon ml-1" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="currentColor"><path d="M15.5 2.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V4.06l-6.22 6.22a.75.75 0 1 1-1.06-1.06L19.94 3h-3.69a.75.75 0 0 1-.75-.75Z"/><path d="M2.5 4.25c0-.966.784-1.75 1.75-1.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.25.25 0 0 0-.25.25v15.5c0 .138.112.25.25.25h15.5a.25.25 0 0 0 .25-.25v-8.5a.75.75 0 0 1 1.5 0v8.5a1.75 1.75 0 0 1-1.75 1.75H4.25a1.75 1.75 0 0 1-1.75-1.75V4.25Z"/></g></svg></a> help pages are the full reference for the parameters not described here.</p>
-<hr>
-<h2 id="the-velocity-mixer">The Velocity Mixer</h2>
-<p><strong>Additive</strong> multiplies each enabled type by its <strong>Gain</strong> and sums them. Gains default to 1 and go above it, so this is your straightforward &quot;more of this, less of that&quot; control.</p>
-<p><strong>Weighted (Normalized)</strong> blends the types in proportion to their <strong>Weights</strong>. The weights are normalized, so only their <em>ratio</em> matters and the result can never exceed the source magnitudes.</p>
-<p><strong>Incoming Velocity</strong> feeds the velocity already on the geometry in as another stream — on by default, which is what lets you stack Advanced Velocity nodes, or build on a cache or a previous sim. Its amount slider is a multiplier in Additive mode and a weight in Weighted mode. In Timed Events it plays as a live base layer under the events.</p>
-<p><strong>Master Speed</strong> is the single overall magnitude control, applied after the gains or weights in both modes.</p>
-<p><strong>Group</strong>, at the very top of the node, restricts the final write: points outside the group keep whatever velocity they arrived with, so several Advanced Velocity nodes can each drive their own region.</p>
-<hr>
-<h2 id="output">Output</h2>
-<p><strong>Combine Into Attribute</strong> writes the mixed result to the output attribute — the normal output, on by default.</p>
-<p><strong>Quick Setups</strong> configures the whole folder for the solver you&#x27;re feeding:</p>
+<p>Each event is a tab in the <strong>Events</strong> list, named, stamped with its frame, and carrying a <strong>Captured</strong> summary of what it actually baked — which types, how many points, the peak speed. That line is worth glancing at: an event named &quot;explosion&quot; that captured <code translate="no" v-pre>basic | 60 pts | max |v| 1</code> is telling you something.</p>
+<h2 id="the-envelope">The envelope</h2>
+<p>Every event has an Attack / Hold / Release envelope around its <strong>Event Frame</strong> — the peak moment. Each phase has an enable checkbox and a duration in seconds:</p>
 <ul>
-<li><strong>RBD Bullet Solver</strong> — velocity into <code translate="no" v-pre>@v</code>. The Bullet solver has no per-point force input.</li>
-<li><strong>POP / Vellum</strong> — force into <code translate="no" v-pre>@force</code>. Those solvers <em>accumulate</em> forces, so a fading release can never brake motion the sim already has.</li>
+<li><strong>Attack</strong> ramps the event in from zero to full, ending at the event frame. Off = it switches on instantly.</li>
+<li><strong>Hold</strong> keeps it at full strength after the peak.</li>
+<li><strong>Release</strong> fades it out afterwards, in one of two modes: <strong>Fade to Zero</strong> ramps down over the Release time; <strong>Drag</strong> decays gradually at a rate, so the pieces the event threw visibly slow down.</li>
 </ul>
-<p><strong>Output As</strong> switches between the two by hand, and <strong>Velocity Attribute</strong> / <strong>Force Attribute</strong> name the written attribute in each mode — author <code translate="no" v-pre>targetv</code> for Vellum, for example, without touching a wrangle.</p>
-<p><strong>Injecting Now</strong> is a live 0/1 readout for driving an RBD solve — see <a href="../timed-events/#driving-an-rbd-solver">Driving an RBD solver</a>.</p>
-<p><strong>Post-Process</strong> holds the final touches:</p>
+<p>Attack and Release each take a <strong>Curve</strong> — Linear, Ease, Sharp, Snap, or Soft — for the shape of the ramp.</p>
+<p>With all three phases <strong>off</strong> (the default), an event <em>latches</em>: it starts at its frame and keeps delivering at full strength. That is deliberately the default, because it&#x27;s what an RBD solver wants — a fading velocity handed to a solver that overwrites <code translate="no" v-pre>@v</code> every frame would <em>brake</em> the pieces it just threw.</p>
+<h2 id="editing-an-event">Editing an event</h2>
+<p><strong>Recall</strong> loads an event&#x27;s captured setup back into the live Setup and jumps to its frame. Edit whatever you like, then press <strong>Update</strong> to re-bake it.</p>
+<p>The node watches for the trap in that loop: if the live Setup no longer matches the event it was last based on, the <strong>Stale</strong> readout names the event and its timeline marker turns <strong>pink</strong>. Nothing is lost — press Update to capture your changes, or Create Event to make the changes a new event instead.</p>
+<p><strong>Clear Setup</strong> (the broom next to Fold / Unfold All) switches every velocity type in the live Setup off — a clean slate for authoring the next event.</p>
+<h2 id="solo-and-mute">Solo and Mute</h2>
+<p><strong>Solo</strong> plays back <em>only</em> the listed events; <strong>Mute</strong> silences the listed ones. Both take space-separated numbers and ranges (<code translate="no" v-pre>1 3-5</code>), and picking from the dropdown <em>adds</em> to the list rather than replacing it. Solo wins over Mute, and a soloed event is never cut short by the events it was soloed away from.</p>
+<h2 id="the-event-timeline">The event timeline</h2>
+<p>With <strong>Event Timeline</strong> on (Visualization tab), a frame ruler draws along the bottom of the viewport with a marker per event and a playhead. The marker colours tell you each event&#x27;s state at a glance:</p>
 <ul>
-<li><strong>Clamp Speed</strong> clamps the final speed into a Min / Max range.</li>
-<li><strong>Scale by Piece Size</strong> makes big chunks fly slower than slivers — the single biggest realism win on fractured RBD. Mass comes from a point <code translate="no" v-pre>mass</code> attribute when present, otherwise each packed piece&#x27;s real size; <strong>Influence</strong> blends from uniform (0) through equal-energy (0.5) to full inverse mass (1). The average-sized piece keeps its speed, so the shot&#x27;s overall energy doesn&#x27;t change.</li>
+<li><strong>Orange</strong> — ready: baked and waiting for its frame.</li>
+<li><strong>Green</strong> — playing: contributing right now.</li>
+<li><strong>Pink</strong> — stale: the live Setup has moved since this event was baked.</li>
 </ul>
-<p>The five <strong>Export</strong> toggles keep an individual sub-velocity on the output as its own named attribute — <code translate="no" v-pre>@basic_vel</code>, <code translate="no" v-pre>@dir_vel</code>, <code translate="no" v-pre>@exp_vel</code>, <code translate="no" v-pre>@motion_vel</code>, <code translate="no" v-pre>@curl_vel</code> — for when you want to blend them yourself downstream. Anything not exported is stripped, so the node never leaks its internals.</p>
-<hr>
-<h2 id="visualization">Visualization</h2>
-<p>The guides are <strong>guide geometry</strong>: they draw in the viewport while the node is current and never touch the output — nothing to clean up before a sim. Select a downstream node and they disappear with the selection, like Houdini&#x27;s own node guides.</p>
+<p>Each event&#x27;s label carries the same state in words, and the <strong>At Frame</strong> readout in the parameters spells out exactly which events are contributing at the current frame — including, in a gap, when the next one starts.</p>
+<p><strong>Scheme</strong> switches the timeline between Dark and Light palettes to match your viewport background.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>If the timeline disappears</h5>
+<p>The timeline is drawn by the node&#x27;s viewer state, and some actions (like refreshing asset libraries) drop the viewer out of it. <strong>Utilities ▸ Restore Viewport HUD</strong> brings it back.</p>
+        </div>
+    </div>
+</div>
+<h2 id="motion-preview">Motion preview</h2>
+<p>Baked vectors are only half the picture — you also want to see where the pieces <em>go</em>. <strong>Preview Motion</strong> (Visualization tab) advances the baked-event guides to where the events predict the pieces will be at the current frame, and the <strong>ghost</strong> draws a wireframe of the pieces there, tumbling with any baked <code translate="no" v-pre>@w</code>. <strong>Offset</strong> slides the whole prediction sideways in multiples of the object&#x27;s width, so the forecast reads beside the real geometry instead of on top of it.</p>
+<p>The live Setup guides deliberately stay on the input mesh — the thing you&#x27;re authoring reads in place, the prediction sits beside it.</p>
+<p>The prediction is a straight-line integration of the baked fields — no collisions, no drag — so treat it as a forecast, not a simulation.</p>
+<h3 id="track-motion">Track Motion</h3>
+<p>An event&#x27;s baked vectors were sampled at the input positions. Once pieces travel, a &quot;toward the target&quot; field frozen at bake time no longer points at the target. <strong>Track Motion</strong> (per event, on by default) re-aims the event&#x27;s directional velocity at the pieces&#x27; predicted positions each frame — an orbit stays tangential, a Toward keeps pointing home.</p>
+<p>It&#x27;s only available when the event captured a <em>plain</em> Directional field: Adjust, Mask, Distance Falloff, per-piece scaling or a mix of types can&#x27;t be re-evaluated, and the event then honestly replays frozen rather than guessing.</p>
+<h2 id="rest-position-attributes">Rest position attributes</h2>
+<p>Every cook stamps <code translate="no" v-pre>@startframe_rest</code> — each point&#x27;s position at the scene start frame — and each event with <strong>Create Rest Position Attribute</strong> on records its own <code translate="no" v-pre>&lt;name&gt;_rest</code> at its frame. The Directional type&#x27;s <strong>To Rest Pose</strong> mode aims at any of them: blow an object apart with one event, then pull the pieces back home with a later one. The attributes are stripped from the output unless <strong>Output Rest Attribute</strong> keeps them.</p>
+<h2 id="driving-an-rbd-solver">Driving an RBD solver</h2>
+<p>The RBD Bullet Solver reads <code translate="no" v-pre>@v</code> through <strong>Overwrite Attributes from SOP</strong> — but left on every frame, it re-stamps the velocity constantly and the pieces fight gravity. The events should <em>inject</em>, then let physics own the pieces. That&#x27;s what <strong>Injecting Now</strong> (Output tab) is for: it reads 1 while any event is delivering energy (attack + hold) and 0 the rest of the time.</p>
+<p>On the solver:</p>
+<ol>
+<li>Leave <strong>Overwrite Attributes from SOP</strong> ON. (Don&#x27;t gate the toggle itself — the solver latches it at the sim&#x27;s first frame, and gating it delivers nothing at all.)</li>
+<li>Gate the <strong>Overwrite Attributes</strong> <em>list</em> instead — an expression that returns <code translate="no" v-pre>v</code> only while Injecting Now reads 1, e.g. a Python expression on that parameter:</li>
+</ol>
+<div id="driving-an-rbd-solver-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-python"><code v-pre class="language-python">&quot;v&quot; if hou.node(&quot;/obj/geo1/advanced_velocity1&quot;).evalParm(&quot;dyn_injecting&quot;) else &quot;&quot;</code></pre>
+</doc-codeblock></div>
+<p>The solve then takes the velocity on the impulse frames and runs free in between — pieces launch, arc, and land under gravity, and the next event kicks them again. Leave <code translate="no" v-pre>w</code> out of the list unless your events author angular velocity, or the solver&#x27;s own tumble gets overwritten.</p>
+<p>For POP and Vellum none of this is needed: use <strong>Quick Setups ▸ POP / Vellum</strong> and the node writes an accumulated <code translate="no" v-pre>@force</code> instead.</p>
+<h2 id="good-to-know">Good to know</h2>
 <ul>
-<li><strong>Show Guides</strong> is the master switch.</li>
-<li>Each stream has a toggle, a colour, and its own extra <strong>Scale</strong>, on top of the <strong>Guide Global Scale</strong>. Trail lengths are scaled by each stream&#x27;s <em>real contribution to the mix</em> — turn a gain down and its guides shorten with it, so what you see tracks what the mixer is actually doing. Live setup trails draw dashed; baked event trails draw solid.</li>
-<li><strong>Guide Density</strong> draws only a fraction of the trails, for viewport speed on heavy fractures. The same pieces stay chosen frame to frame.</li>
-<li><strong>Event Timeline</strong>, <strong>Preview Motion</strong> and the ghost belong to the event workflow — see <a href="../timed-events/#the-event-timeline">the timeline and the preview</a>.</li>
+<li><strong>Incoming Velocity is a live base layer.</strong> The velocity arriving on your input plays underneath the events, every frame — it&#x27;s never baked into them, so it can&#x27;t be double-counted and an animated input stays live between events.</li>
+<li><strong>Bakes are per-point.</strong> An event&#x27;s field is stored against the input&#x27;s point count; re-fracture the object and existing events skip until you <strong>Update</strong> them.</li>
+<li><strong>A later blast kicks the pieces that were near it at bake time</strong>, wherever they&#x27;ve since travelled — the radius selection is frozen when the event is baked. Track Motion re-aims directions, not membership.</li>
+<li><strong>Baked guides can be unified to one colour</strong> (Visualization ▸ Unify Baked Guides) when the per-type colours are more information than you want.</li>
 </ul>
-<p>Need the guides as <em>renderable</em> geometry — for a breakdown or a preview render? <strong>Utilities ▸ Output Guides Only</strong> swaps the node&#x27;s output to the guide curves themselves.</p>
 <div id="retype-backlinks">
     <h2>See also</h2>
 <div class="card-compact-group">
@@ -371,6 +341,28 @@
         </div>
     </a>
 </div>
+<div class="card-compact-container">
+    <a href="/jvtools-docs/advanced-velocity/troubleshooting/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M10.97 8.265a1.45 1.45 0 0 0-.487.57.75.75 0 0 1-1.341-.67c.2-.402.513-.826.997-1.148C10.627 6.69 11.244 6.5 12 6.5c.658 0 1.369.195 1.934.619a2.45 2.45 0 0 1 1.004 2.006c0 1.033-.513 1.72-1.027 2.215-.19.183-.399.358-.579.508l-.147.123a4.329 4.329 0 0 0-.435.409v1.37a.75.75 0 1 1-1.5 0v-1.473c0-.237.067-.504.247-.736.22-.28.486-.517.718-.714l.183-.153.001-.001c.172-.143.324-.27.47-.412.368-.355.569-.676.569-1.136a.953.953 0 0 0-.404-.806C12.766 8.118 12.384 8 12 8c-.494 0-.814.121-1.03.265ZM13 17a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></svg></span>
+                <span class="card-compact-title">Troubleshooting</span>
+            </div>
+            <p class="card-compact-description">You're in Timed Events mode (the default), where the live Setup is a template — only baked events reach the output. Press Create Event to bake the setup, or Update on an existing event's row to fold your changes into it.</p>
+        </div>
+    </a>
+</div>
+<div class="card-compact-container">
+    <a href="/jvtools-docs/advanced-velocity/using/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M7.875 2.292a.114.114 0 0 0-.032.018A7.239 7.239 0 0 0 4.75 8.25a7.248 7.248 0 0 0 3.654 6.297c.57.327.982.955.941 1.682v.002l-.317 6.058a.75.75 0 1 1-1.498-.078l.317-6.062v-.004c.006-.09-.047-.215-.188-.296A8.749 8.749 0 0 1 3.25 8.25a8.738 8.738 0 0 1 3.732-7.169 1.547 1.547 0 0 1 1.709-.064c.484.292.809.835.809 1.46v4.714a.25.25 0 0 0 .119.213l2.25 1.385c.08.05.182.05.262 0l2.25-1.385a.25.25 0 0 0 .119-.213V2.478c0-.626.325-1.169.81-1.461a1.547 1.547 0 0 1 1.708.064 8.741 8.741 0 0 1 3.732 7.17 8.747 8.747 0 0 1-4.41 7.598c-.14.081-.193.206-.188.296v.004l.318 6.062a.75.75 0 1 1-1.498.078l-.317-6.058v-.002c-.041-.727.37-1.355.94-1.682A7.247 7.247 0 0 0 19.25 8.25a7.239 7.239 0 0 0-3.093-5.94.114.114 0 0 0-.032-.018l-.01-.001c-.003 0-.014 0-.031.01-.036.022-.084.079-.084.177V7.19c0 .608-.315 1.172-.833 1.49l-2.25 1.385a1.75 1.75 0 0 1-1.834 0l-2.25-1.384A1.752 1.752 0 0 1 8 7.192V2.477c0-.098-.048-.155-.084-.176a.068.068 0 0 0-.031-.011l-.01.001Z"/></svg></span>
+                <span class="card-compact-title">Using Advanced Velocity</span>
+            </div>
+            <p class="card-compact-description">This page covers the setup surface: the six velocity types, the mixer, the output, and the visualization. The event workflow has its own page.</p>
+        </div>
+    </a>
+</div>
 </div>
 </div>
 
@@ -382,20 +374,20 @@
             
                 <nav id="retype-nextprev" class="print:hidden flex mt-14">
                     <div class="w-1/2">
-                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../advanced-velocity/getting-started/">
+                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../advanced-velocity/using/">
                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                             <span>
                                 <span class="block text-xs font-normal text-base-text-muted">Previous</span>
-                                <span class="block mt-1">Getting Started</span>
+                                <span class="block mt-1">Using Advanced Velocity</span>
                             </span>
                         </a>
                     </div>
             
                     <div class="w-1/2">
-                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../advanced-velocity/timed-events/">
+                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../advanced-velocity/parameters/">
                             <span>
                                 <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
-                                <span class="block mt-1">Timed Events</span>
+                                <span class="block mt-1">Parameter Reference</span>
                             </span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                         </a>
@@ -439,6 +431,6 @@
 
     <div id="retype-overlay-target"></div>
 
-        <script data-cfasync="false">window.__DOCS__ = { "title": "Using Advanced Velocity", level: 2, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/advanced-velocity/using.md" }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Timed Events", level: 2, icon: "file", hasPrism: true, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/advanced-velocity/timed-events.md" }</script>
 </body>
 </html>

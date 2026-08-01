@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838854625319">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838893203071">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838854625319" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838893203071" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838854625319" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838893203071" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838854625319" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838893203071" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -330,7 +330,7 @@
 <ul>
 <li><strong>Show Guides</strong> is the master switch.</li>
 <li>Each stream has a toggle, a colour, and its own extra <strong>Scale</strong>, on top of the <strong>Guide Global Scale</strong>. Trail lengths are scaled by each stream&#x27;s <em>real contribution to the mix</em> — turn a gain down and its guides shorten with it, so what you see tracks what the mixer is actually doing. Live setup trails draw dashed; baked event trails draw solid.</li>
-<li><strong>Guide Density</strong> draws only a fraction of the trails, for viewport speed on heavy fractures. The same pieces stay chosen frame to frame.</li>
+<li><strong>Guide Density</strong> draws only a fraction of the trails, for viewport speed on heavy fractures. The same pieces stay chosen frame to frame. On dense inputs the trails also auto-cap at roughly 25,000 total, with Density scaling within that budget.</li>
 <li><strong>Event Timeline</strong>, <strong>Preview Motion</strong> and the ghost belong to the event workflow — see <a href="../timed-events/#the-event-timeline">the timeline and the preview</a>.</li>
 </ul>
 <p>Need the guides as <em>renderable</em> geometry — for a breakdown or a preview render? <strong>Utilities ▸ Output Guides Only</strong> swaps the node&#x27;s output to the guide curves themselves.</p>

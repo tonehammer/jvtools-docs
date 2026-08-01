@@ -33,7 +33,7 @@ Visible in Timed Events mode. See [Timed Events](timed-events.md) for the workfl
 | Captured | `ev_summary#` | What the event actually baked: types, point count, peak speed. |
 | Track Motion | `ev_track#` | Re-aim the event's directional velocity at the pieces' predicted positions each frame. Plain Directional fields only. |
 | Create Rest Position Attribute | `ev_rest_en#` | Record this event's positions into a `<name>_rest` attribute for To Rest Pose. |
-| Attack / Hold / Release | `ev_atk#`, `ev_hold#`, `ev_rel#` | Envelope phases in seconds, each with its own enable checkbox. All off = the event latches at full strength. |
+| Attack / Hold / Release | `ev_atk#`, `ev_hold#`, `ev_rel#` | Envelope phases in seconds, each with its own enable checkbox, all on by default. Switch all three off to latch the event at full strength forever. |
 | Attack / Release Curve | `ev_atk_curve#`, `ev_rel_curve#` | Ramp shape: Linear, Ease, Sharp, Snap, Soft. |
 | Release Mode | `ev_rel_mode#` | **Fade to Zero** ramps out over the Release time; **Drag** decays at a rate, so thrown pieces visibly slow. |
 | Drag | `ev_drag#` | Decay per second, in Drag mode. |
@@ -150,11 +150,11 @@ Every type's Adjust folder opens with the same row: **Variation** (`variation1`â
 | Show Guides | `viz_guides` | Master switch for all velocity guides. |
 | Event Timeline / Scheme | `viz_timeline`, `viz_timeline_scheme` | The on-screen frame ruler with a marker per event; Dark or Light palette. |
 | Guides | `dyn_guide_source` | Which stream Timed Events draws: Setup, Events, or Both. |
-| Preview Motion | `dyn_preview`, `dyn_preview_ghost`, `dyn_ghost_color` | Advance the baked guides to the predicted positions, with an optional wireframe ghost of the pieces. |
+| Preview Motion | `dyn_preview`, `dyn_preview_ghost`, `dyn_ghost_color` | Advance the baked guides to the predicted positions, with an optional wireframe ghost of the pieces. Auto-disabled above 25,000 input points; the At Frame readout says when. |
 | Offset | `dyn_preview_offset` | Slide the preview sideways, in multiples of the object's width. |
 | Unify Baked Guides | `viz_baked_yellow`, `viz_baked_tint` | Draw every baked-event guide in one colour instead of per-type colours. |
 | Guide Global Scale | `viz_scale` | Length multiplier for all guide trails. |
-| Guide Density | `viz_density` | Fraction of trails actually drawn, for viewport speed. |
+| Guide Density | `viz_density` | Fraction of trails actually drawn, for viewport speed. On dense inputs the trails also auto-cap at roughly 25,000 total; Density scales within that budget. |
 | Per-type rows | `viz_input`, `viz_basic`, `viz_dir`, `viz_exp`, `viz_inherited`, `viz_curl`, `viz_angular` + `_color` + `_scale` | A toggle, colour and extra scale per stream, incoming velocity included. |
 
 ## Utilities

@@ -22,6 +22,10 @@ Either **Combine Into Attribute** (Output tab) is off, or **Output As** is set t
 
 Guide trails are **guide geometry**: they draw while the Advanced Velocity node is the current node, like the Bend SOP's guide. Select the node again and they return. Also check the **Show Guides** master switch, and **Guide Density** — at low values most trails are deliberately not drawn.
 
+## The preview ghost doesn't appear on a heavy mesh
+
+Preview Motion auto-disables on inputs above **25,000 points** — integrating and moving that much geometry every frame is too slow to be a preview. The **At Frame** readout says so while it's the case. Author on a lighter proxy (or packed pieces, which count one point each) if you need the forecast.
+
 ## The event timeline disappeared
 
 The timeline is drawn by the node's viewer state, and refreshing asset libraries (among other things) drops the viewer out of it. Press **Utilities ▸ Restore Viewport HUD**.

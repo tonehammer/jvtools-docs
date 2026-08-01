@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838854625319">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838893203071">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,12 +38,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838854625319" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838893203071" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838854625319" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838893203071" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838854625319" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.838854625319" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838893203071" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.838893203071" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -243,7 +243,8 @@
 <li><strong>Release</strong> fades it out afterwards, in one of two modes: <strong>Fade to Zero</strong> ramps down over the Release time; <strong>Drag</strong> decays gradually at a rate, so the pieces the event threw visibly slow down.</li>
 </ul>
 <p>Attack and Release each take a <strong>Curve</strong> — Linear, Ease, Sharp, Snap, or Soft — for the shape of the ramp.</p>
-<p>With all three phases <strong>off</strong> (the default), an event <em>latches</em>: it starts at its frame and keeps delivering at full strength. That is deliberately the default, because it&#x27;s what an RBD solver wants — a fading velocity handed to a solver that overwrites <code translate="no" v-pre>@v</code> every frame would <em>brake</em> the pieces it just threw.</p>
+<p>All three phases are <strong>on</strong> by default, so a fresh event ramps in, holds, and fades back out — a timed burst, which is what events are for. If you want a velocity that stays on for the whole shot, that is what <strong>Single Field</strong> mode is; and switching all three phases <strong>off</strong> makes an event <em>latch</em> — it starts at its frame and keeps delivering at full strength forever.</p>
+<p>Latching is the right shape when an RBD solver overwrites <code translate="no" v-pre>@v</code> every frame — a fading velocity handed to that solver would <em>brake</em> the pieces it just threw. (The better recipe is to keep the fade and gate the solver on <strong>Injecting Now</strong> instead — see <doc-anchor-trigger to="#driving-an-rbd-solver">Driving an RBD solver</doc-anchor-trigger>.) Note that a latched event also keeps the node cooking on every frame after it starts, which is worth knowing on heavy inputs.</p>
 <h2 id="editing-an-event">Editing an event</h2>
 <p><strong>Recall</strong> loads an event&#x27;s captured setup back into the live Setup and jumps to its frame. Edit whatever you like, then press <strong>Update</strong> to re-bake it.</p>
 <p>The node watches for the trap in that loop: if the live Setup no longer matches the event it was last based on, the <strong>Stale</strong> readout names the event and its timeline marker turns <strong>pink</strong>. Nothing is lost — press Update to capture your changes, or Create Event to make the changes a new event instead.</p>
@@ -279,6 +280,7 @@
 </div>
 <h2 id="motion-preview">Motion preview</h2>
 <p>Baked vectors are only half the picture — you also want to see where the pieces <em>go</em>. <strong>Preview Motion</strong> (Visualization tab) advances the baked-event guides to where the events predict the pieces will be at the current frame, and the <strong>ghost</strong> draws a wireframe of the pieces there, tumbling with any baked <code translate="no" v-pre>@w</code>. <strong>Offset</strong> slides the whole prediction sideways in multiples of the object&#x27;s width, so the forecast reads beside the real geometry instead of on top of it.</p>
+<p>On inputs above <strong>25,000 points</strong> the preview auto-disables — integrating and moving that much geometry every frame is too slow to be a preview. The <strong>At Frame</strong> readout says so when it happens. Guide trails also cap themselves at roughly 25,000 on dense inputs, with <strong>Guide Density</strong> scaling within that budget.</p>
 <p>The live Setup guides deliberately stay on the input mesh — the thing you&#x27;re authoring reads in place, the prediction sits beside it.</p>
 <p>The prediction is a straight-line integration of the baked fields — no collisions, no drag — so treat it as a forecast, not a simulation.</p>
 <h3 id="track-motion">Track Motion</h3>

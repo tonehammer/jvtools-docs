@@ -15,7 +15,7 @@ The first public release.
 **Timed Events**
 
 * Bake the setup into **events** at different frames and play them back as one summed timeline — create, record live, copy, sort, solo and mute
-* Per-event **Attack / Hold / Release** envelopes with curve presets, latch-by-default for RBD, and a Drag release that visibly slows thrown pieces
+* Per-event **Attack / Hold / Release** envelopes with curve presets (on by default, switch all off to latch for RBD injection), and a Drag release that visibly slows thrown pieces
 * An on-screen **event timeline** with per-event state markers, a stale-event warning tied to the Recall / Update editing loop, and an **At Frame** readout
 * **Motion preview** — guides and a tumbling wireframe ghost advanced to where the events predict the pieces will be — with per-event **Track Motion** re-aiming directional fields as pieces travel
 * Rest-position attributes per event, so a later event can pull the pieces back home

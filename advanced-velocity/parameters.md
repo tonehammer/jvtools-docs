@@ -38,8 +38,9 @@ Visible in Timed Events mode. See [Timed Events](timed-events.md) for the workfl
 | Captured | `ev_summary#` | What the event actually baked: types, point count, peak speed. |
 | *Event Options* ▸ Track Motion | `ev_track#` | Re-aim the event's directional velocity at the pieces' predicted positions each frame. Plain Directional fields only. |
 | *Event Options* ▸ Create Rest Position Attribute | `ev_rest_en#` | Record this event's positions into a `<name>_rest` attribute for To Rest Pose. |
-| *Event Options* ▸ Mute Gravity | `ev_mute_grav#` | Switch the solver's gravity off while this event delivers energy (attack + hold). Off by default. Mutes gravity for the whole solve, not just this event's pieces. |
-| Attack / Hold / Release | `ev_atk#`, `ev_hold#`, `ev_rel#` | Envelope phases in seconds, each with its own enable checkbox, all on by default. Switch all three off to latch the event at full strength forever. |
+| *Event Options* ▸ Mute Gravity | `ev_mute_grav#` | Off / During Impulse (attack + hold) / Until Next Event. Off by default. Until Next Event keeps gravity muted across the gap to the next event without holding the impulse on, so pieces coast instead of falling; the last event falls back to During Impulse. Mutes gravity for the whole solve, not just this event's pieces. |
+| Attack / Hold / Release | `ev_atk#`, `ev_hold#`, `ev_rel#` | Envelope phases in **frames**, each with its own enable checkbox, all on by default. Switch all three off to latch the event at full strength forever. |
+| Extend to Next | `ev_extend#` | Set Hold so this event holds until the next event's Attack opens. Next is by frame, ignoring solo/mute. Refuses on the last event. |
 | Attack / Release Curve | `ev_atk_curve#`, `ev_rel_curve#` | Ramp shape: Linear, Ease, Sharp, Snap, Soft. |
 | Release Mode | `ev_rel_mode#` | **Fade to Zero** ramps out over the Release time; **Drag** decays at a rate, so thrown pieces visibly slow. |
 | Drag | `ev_drag#` | Decay per second, in Drag mode. |
@@ -140,7 +141,7 @@ Every type's Adjust folder opens with the same row: **Variation** (`variation1`�
 | Parameter | Name | Description |
 | --- | --- | --- |
 | Combine Into Attribute | `out_combine` | Write the mixed result to the output attribute. On by default. |
-| Muting Gravity | `dyn_mute_gravity` | Live 0/1 — 1 while any playing event with Mute Gravity on is delivering energy. Drive a solver's gravity force from it. Always 0 in Single Field. |
+| Muting Gravity | `dyn_mute_gravity` | Live 0/1 — 1 while any playing event is inside its Mute Gravity window. Drive a solver's gravity force from it. Always 0 in Single Field. |
 | Create Connected RBD Sim | `make_rbd_sim` | Build an RBD Bullet Solver below the node, already gated on Injecting Now and Muting Gravity. |
 | Output As | `out_as` | Velocity (`@v`) — set directly, what RBD reads — or Force (`@force`) — accumulated by POP and Vellum. |
 | Velocity Attribute / Force Attribute | `out_attrib_name`, `out_force_name` | The written attribute name in each mode. |

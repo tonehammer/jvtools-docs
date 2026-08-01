@@ -26,11 +26,15 @@ Each event is a tab in the **Events** list, named, stamped with its frame, and c
 
 ## The envelope
 
-Every event has an Attack / Hold / Release envelope around its **Event Frame** — the peak moment. Each phase has an enable checkbox and a duration in seconds:
+Every event has an Attack / Hold / Release envelope around its **Event Frame** — the peak moment. Each phase has an enable checkbox and a duration in **frames**, the same unit as the Event Frame itself:
 
-* **Attack** ramps the event in from zero to full, ending at the event frame. Off = it switches on instantly.
+* **Attack** ramps the event in from zero to full, ending at the event frame — so an Attack of 5 opens five frames *before* the event frame. Off = it switches on instantly.
 * **Hold** keeps it at full strength after the peak.
-* **Release** fades it out afterwards, in one of two modes: **Fade to Zero** ramps down over the Release time; **Drag** decays gradually at a rate, so the pieces the event threw visibly slow down.
+* **Release** fades it out afterwards, in one of two modes: **Fade to Zero** ramps down over the Release time; **Drag** decays gradually at a rate, so the pieces the event threw visibly slow down. Drag is the one timing control expressed per *second* rather than in frames — a decay rate per frame would be an unreadable fraction.
+
+So an event's window — the span it delivers full strength — runs from `Event Frame − Attack` to `Event Frame + Hold`. That window is what **Injecting Now** and **Mute Gravity** key off, and it is worth being able to read off the timeline at a glance.
+
+**Extend to Next**, on the Hold row, sets Hold so this event holds until the next one takes over: the hold ends exactly where the next event's Attack opens, so the two windows touch with no gap and without both sitting at full strength at once. The next event is the next by frame, whatever is soloed or muted. On the last event it does nothing and says so in the status bar.
 
 Attack and Release each take a **Curve** — Linear, Ease, Sharp, Snap, or Soft — for the shape of the ramp.
 
@@ -109,7 +113,15 @@ For POP and Vellum none of this is needed. Set **Output As** to Force and the no
 
 Sometimes the physics is the problem. A telekinetic lift that fights 9.8 m/s² the whole way up reads as weak, and no amount of extra velocity fixes it — you want the object to genuinely float while the event holds it.
 
-**Mute Gravity** (per event, in **Event Options**) does that. It's off by default, so gravity behaves normally everywhere until you ask otherwise. Switch it on and that event's **Muting Gravity** readout goes to 1 over the same window as Injecting Now — the attack and the hold — then back to 0, so gravity returns at the end of the peak and the pieces arc over naturally as the impulse fades.
+**Mute Gravity** (per event, in **Event Options**) does that. It has three settings:
+
+* **Off** — gravity is never touched. The default.
+* **During Impulse** — muted over the same window as Injecting Now, the attack and the hold, then back to 0. Gravity returns at the end of the peak and the pieces arc over naturally as the impulse fades.
+* **Until Next Event** — the mute carries on until the next event opens, however short this event's Hold is.
+
+That last one is what to reach for when a sequence of events leaves the pieces **falling in the gaps between beats**. It is deliberately *not* the same as extending Hold. Extending Hold keeps Injecting Now open too, so the solver re-stamps `@v` on every frame of the gap: the pieces fly on rails, with no collisions and no tumble. Extending only the gravity mute lets the impulse fade normally while the solver keeps the pieces — they coast on the momentum it already gave them, keep tumbling, still collide, and simply do not fall.
+
+The last event has no next event, so it falls back to During Impulse — at the end of a shot the pieces are usually meant to land.
 
 It's per event on purpose: the lift mutes, the blast that follows doesn't. Wire it on the solver the same way as the injection gate, but on the gravity *force* (**Forces ▸ Gravity ▸ Force**, on its Y component) rather than the **Gravity** checkbox above it:
 
@@ -129,4 +141,4 @@ Muting is not per piece. Gravity in a simulation applies to every object in it, 
 * **Bakes are per-point.** An event's field is stored against the input's point count; re-fracture the object and existing events skip until you **Update** them.
 * **A later blast kicks the pieces that were near it at bake time**, wherever they've since travelled — the radius selection is frozen when the event is baked. Track Motion re-aims directions, not membership.
 * **Baked guides can be unified to one colour** (Visualization ▸ Unify Baked Guides) when the per-type colours are more information than you want.
-* **A blank event with Mute Gravity on freezes everything solid.** With no velocity types enabled its baked field is all zeros, and it still opens the injection gate — so the solver overwrites every piece's velocity with zero while gravity is muted, and the pieces hang exactly where they were until the event's hold ends, then fall again. Useful on purpose: drop one wherever you want everything to hang suspended, and set its Hold to the length of the pause. Note the distinction — Mute Gravity on a *real* event means gravity off while the pieces keep flying; a *blank* event with it on means everything stops dead.
+* **A blank event with Mute Gravity on freezes everything solid.** With no velocity types enabled its baked field is all zeros, and it still opens the injection gate — so the solver overwrites every piece's velocity with zero while gravity is muted, and the pieces hang exactly where they were until the event's hold ends, then fall again. Useful on purpose: drop one wherever you want everything to hang suspended, and set its Hold to the length of the pause — or press **Extend to Next** to hang everything right up to the following beat. Note the distinction — Mute Gravity on a *real* event means gravity off while the pieces keep flying; a *blank* event with it on means everything stops dead.

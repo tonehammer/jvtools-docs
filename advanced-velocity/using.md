@@ -16,7 +16,7 @@ Velocity with a *direction* — at a target, around it, or away from it. **Direc
 
 * **SOP Path** (the default) — aim at another SOP in the scene. **Method** decides how its centre is measured (centre of mass, bounding box, convex hull), and **Target Group** restricts the measurement to part of it — put a single point number there to aim at exactly that point.
 * **Use Second Input** — aim at geometry wired into the node's second input. Press **Create Point** and the node builds an Add SOP holding a single point above your mesh and wires it in for you.
-* **To Rest Pose** — each point aims at its own captured rest position: the scene start frame, or any event's frame. The reassembly mode — see [rest attributes](timed-events.md#rest-position-attributes).
+* **To Rest Pose** — each point aims at its own captured rest position: the scene start frame, or any event's frame. For input that moves *before* this node; on static geometry the captured position is the current one, so the field is zero — see [rest attributes](timed-events.md#rest-position-attributes).
 * **To Position** — aim at a typed world-space position. No geometry needed.
 
 **Direction Bias** is the main control, and it's a continuum rather than a set of modes: **+1** aims straight at the target, **0** is a pure orbit around an axle through it, **−1** points straight away. Anything in between spirals — a vortex that also draws inward needs no second node. The **Toward / Around / Away** buttons snap the bias to those three values. **Orbit Axis** decides the axle: *Toward Target* runs it from the object's centre through the target (move the target to tilt the spin), or give it a fixed *Custom Vector*.

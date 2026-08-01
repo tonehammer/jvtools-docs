@@ -24,6 +24,7 @@ The first public release.
 * An on-screen **event timeline** with per-event state markers, a stale-event warning tied to the Recall / Update editing loop, and an **At Frame** readout
 * **Motion preview** — guides and a tumbling wireframe ghost advanced to where the events predict the pieces will be — with per-event **Track Motion** re-aiming directional fields as pieces travel
 * Rest-position attributes per event, so a later event can pull the pieces back home
+* **Stagger Points** per event — the points of an event arrive one at a time across its window instead of all at once, with an optional ramp to shape the distribution
 * **Injecting Now** output signal for gating an RBD solver, so physics owns the pieces between impulses
 
 **Mixing and output**
@@ -32,7 +33,6 @@ The first public release.
 * **Incoming Velocity** as its own stream, on by default — nodes stack, caches survive, and in Timed Events it plays as a live base under the events
 * Velocity output for the RBD Bullet Solver or accumulated force for POP / Vellum, with independent velocity / force attribute names
 * **Injecting Now** and per-event **Mute Gravity** signals for gating an RBD solve — gravity can stay muted **until the next event, or to the end of the shot on the last one**, so pieces coast instead of falling between beats while physics still owns them — plus **Create Connected RBD Sim** to wire a solver to both in one click
-* **Stagger Points** per event — the points of an event arrive one at a time across its window instead of all at once, with an optional ramp to shape the distribution
 * **Scale by Piece Size** — big chunks fly slower, from a mass attribute or each packed piece's real size
 * Speed clamping, per-stream exports, and an output stripped of every internal attribute
 

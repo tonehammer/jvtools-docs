@@ -36,7 +36,7 @@ Visible in Timed Events mode. See [Timed Events](timed-events.md) for the workfl
 | Name | `ev_name#` | Label for the event, shown on its tab and the timeline. |
 | Event Frame | `ev_frame#` | The peak frame — Attack ramps into it, Release ramps out of it. |
 | Captured | `ev_summary#` | What the event actually baked: types, point count, peak speed. |
-| *Event Options* ▸ Track Motion | `ev_track#` | Re-aim the event's directional velocity at the pieces' predicted positions each frame. Plain Directional fields only. |
+| *Event Options* ▸ Track Motion | `ev_track#` | Re-aim the event's directional velocity at the pieces' predicted positions each frame. On by default, and what makes **To Rest Pose** work at all. Refuses when anything per-point (Adjust, Mask, Distance Falloff, Clamp Speed, piece scaling) sits between the field and the output; Captured says so. |
 | *Event Options* ▸ Create Rest Position Attribute | `ev_rest_en#` | Record this event's positions into a `<name>_rest` attribute for To Rest Pose. |
 | *Event Options* ▸ Mute Gravity | `ev_mute_grav#` | Off / During Impulse (attack + hold) / Until Next Event / End. Off by default. The third setting keeps gravity muted across the gap to the next event without holding the impulse on, so pieces coast instead of falling; on the last event it runs until that event stops contributing — to the end of the range when Release is off, since the envelope latches there. Mutes gravity for the whole solve, not just this event's pieces. |
 | *Event Options* ▸ Stagger Points | `ev_stagger#` | Bring the points in one at a time across the event's window (Attack + Hold) instead of all at once. Off by default. Applied at playback, so it needs no re-bake. Waiting points hold in mid-air rather than falling. |

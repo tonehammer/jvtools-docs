@@ -88,10 +88,6 @@ Every cook stamps `@startframe_rest` — each point's position at the scene star
 
 ## Driving an RBD solver
 
-!!!tip Prefer a worked example?
-The [Quickstart](quickstart.md#the-telekinetic-car) builds this end to end on a real shot — a car lifted, burst, orbited and reassembled — with the exact parameter locations on the solver.
-!!!
-
 The RBD Bullet Solver reads `@v` through **Override Attributes from SOP** (under **Properties ▸ Pieces ▸ Override Attributes**) — but left on every frame, it re-stamps the velocity constantly and the pieces fight gravity. The events should *inject*, then let physics own the pieces. That's what **Injecting Now** (Output tab) is for: it reads 1 while any event is delivering energy (attack + hold) and 0 the rest of the time.
 
 On the solver:
@@ -133,4 +129,4 @@ Muting is not per piece. Gravity in a simulation applies to every object in it, 
 * **Bakes are per-point.** An event's field is stored against the input's point count; re-fracture the object and existing events skip until you **Update** them.
 * **A later blast kicks the pieces that were near it at bake time**, wherever they've since travelled — the radius selection is frozen when the event is baked. Track Motion re-aims directions, not membership.
 * **Baked guides can be unified to one colour** (Visualization ▸ Unify Baked Guides) when the per-type colours are more information than you want.
-* **A blank event with Mute Gravity on freezes everything solid.** With no velocity types enabled its baked field is all zeros, and it still opens the injection gate — so the solver overwrites every piece's velocity with zero while gravity is muted, and the pieces hang exactly where they were until the event's hold ends. Useful on purpose: see [the stasis trick](quickstart.md#the-stasis-trick).
+* **A blank event with Mute Gravity on freezes everything solid.** With no velocity types enabled its baked field is all zeros, and it still opens the injection gate — so the solver overwrites every piece's velocity with zero while gravity is muted, and the pieces hang exactly where they were until the event's hold ends, then fall again. Useful on purpose: drop one wherever you want everything to hang suspended, and set its Hold to the length of the pause. Note the distinction — Mute Gravity on a *real* event means gravity off while the pieces keep flying; a *blank* event with it on means everything stops dead.

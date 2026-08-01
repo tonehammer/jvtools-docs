@@ -53,7 +53,7 @@ They need a **point** `@N`. A vertex normal isn't seen — set the Normal SOP to
 
 ## My RBD pieces fight gravity / hang in the air
 
-The solver's **Override Attributes from SOP** is re-stamping `@v` every frame, so gravity never accumulates. Gate the **Attributes** field beneath it on the node's **Injecting Now** readout, so velocity is only taken during an event's attack and hold — the worked recipe, with the exact solver locations, is in the [Quickstart](quickstart.md#the-two-contracts). Don't gate the Override Attributes from SOP toggle itself; the solver latches it at the sim's first frame.
+The solver's **Override Attributes from SOP** is re-stamping `@v` every frame, so gravity never accumulates. Gate the **Attributes** field beneath it on the node's **Injecting Now** readout, so velocity is only taken during an event's attack and hold — the exact recipe is in [Driving an RBD solver](timed-events.md#driving-an-rbd-solver). Don't gate the Override Attributes from SOP toggle itself; the solver latches it at the sim's first frame.
 
 Both parameters live under **Properties ▸ Pieces ▸ Override Attributes**. Note there is a similarly named *Overwrite Attributes from SOP* under **Collision ▸ Collision Geometry** — that one is for collision geometry and is not what you want.
 

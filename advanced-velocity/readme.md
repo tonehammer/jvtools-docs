@@ -32,9 +32,8 @@ Anyone who sets up FLIP, Pyro, Vellum, POP, or RBD simulations in Houdini and is
 
 ## How to use this documentation
 
-1. [Getting Started](getting-started.md) — install the asset and find your way around the node.
-2. [Quickstart](quickstart.md) — a 30-second explosion, then the full telekinetic sequence: a car lifted, burst apart, orbited and pulled back into a ball, driving a real RBD solve.
-3. [Using Advanced Velocity](using.md) — the six velocity types, the mixer, the output, and the visualization.
-4. [Timed Events](timed-events.md) — the event workflow: baking, envelopes, the timeline, and driving an RBD solve.
-5. [Parameter Reference](parameters.md) — every parameter, grouped as it appears in the interface.
-6. [Troubleshooting](troubleshooting.md) — when the result isn't what you expected.
+1. [Getting Started](getting-started.md) — install the asset and author your first velocity.
+2. [Using Advanced Velocity](using.md) — the six velocity types, the mixer, the output, and the visualization.
+3. [Timed Events](timed-events.md) — the event workflow: baking, envelopes, the timeline, and driving an RBD solve.
+4. [Parameter Reference](parameters.md) — every parameter, grouped as it appears in the interface.
+5. [Troubleshooting](troubleshooting.md) — when the result isn't what you expected.

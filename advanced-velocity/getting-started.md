@@ -49,6 +49,10 @@ Below that, two tab strips:
 
 The version you have installed is shown at the very bottom of the parameter list.
 
-## Next
+## A quick explosion
 
-Head to the [Quickstart](quickstart.md). It starts with a 30-second explosion and then walks through the sequence this node was really built for — a car lifted, burst apart, swirled around and drawn back into a ball, with gravity muted until the final beat.
+1. Fracture something — a Voronoi Fracture into an Assemble with **Create Packed Geometry** on is the usual setup.
+2. Drop **Advanced Velocity** after it, set **Mode** to *Single Field*, and switch on **Exploding Velocity**.
+3. Leave **Origin** on *Whole Object*.
+
+Every piece now flies away from the object's centre. To blast from a specific spot instead, switch **Origin** to *Point Source* and read [Point Source](using.md#point-source-explosions). And when one explosion isn't enough — a lift, then a blast, then a spin — that's what [Timed Events](timed-events.md) is for.

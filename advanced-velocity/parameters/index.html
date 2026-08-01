@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838926772966">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838927869402">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838926772966" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838927869402" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838926772966" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838927869402" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838926772966" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838927869402" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -389,7 +389,7 @@
 <h2 id="setup">Setup</h2>
 <retype-table copy-text="| Parameter | Name | Description |
 | --- | --- | --- |
-| Fold / Unfold All | `dyn_fold_setup` | Collapse or expand every velocity section at once. |
+| Fold / Unfold All | `dyn_fold_setup` | Collapse or expand the *enabled* velocity sections at once. Sections whose type is switched off are left closed — their controls are hidden anyway. |
 | Clear Setup | `dyn_clear_setup` | Switch every velocity type in the live Setup off. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
@@ -404,7 +404,7 @@
 <tr>
 <td>Fold / Unfold All</td>
 <td><code translate="no" v-pre>dyn_fold_setup</code></td>
-<td>Collapse or expand every velocity section at once.</td>
+<td>Collapse or expand the <em>enabled</em> velocity sections at once. Sections whose type is switched off are left closed — their controls are hidden anyway.</td>
 </tr>
 <tr>
 <td>Clear Setup</td>
@@ -891,6 +891,7 @@
 <h2 id="visualization">Visualization</h2>
 <retype-table copy-text="| Parameter | Name | Description |
 | --- | --- | --- |
+| *(top right, icon)* Reset Visualization | `viz_reset` | Put every control on this tab back to its default. Guide Density is re-picked from the current input rather than left at 1.0. |
 | Show Guides | `viz_guides` | Master switch for all velocity guides. |
 | Guide Global Scale | `viz_scale` | Length multiplier for all guide trails. |
 | Guide Density | `viz_density` | Fraction of trails actually drawn, for viewport speed. Picked for you the first time geometry is connected to a fresh node, aiming at roughly 200 trails; after that it is yours and is never changed again. On dense inputs the trails also auto-cap at the Visualization Limit; Density scales within that budget. |
@@ -905,6 +906,11 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><em>(top right, icon)</em> Reset Visualization</td>
+<td><code translate="no" v-pre>viz_reset</code></td>
+<td>Put every control on this tab back to its default. Guide Density is re-picked from the current input rather than left at 1.0.</td>
+</tr>
 <tr>
 <td>Show Guides</td>
 <td><code translate="no" v-pre>viz_guides</code></td>

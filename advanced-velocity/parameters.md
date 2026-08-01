@@ -150,11 +150,12 @@ Every type's Adjust folder opens with the same row: **Variation** (`variation1`â
 | Show Guides | `viz_guides` | Master switch for all velocity guides. |
 | Event Timeline / Scheme | `viz_timeline`, `viz_timeline_scheme` | The on-screen frame ruler with a marker per event; Dark or Light palette. |
 | Guides | `dyn_guide_source` | Which stream Timed Events draws: Setup, Events, or Both. |
-| Preview Motion | `dyn_preview`, `dyn_preview_ghost`, `dyn_ghost_color` | Advance the baked guides to the predicted positions, with an optional wireframe ghost of the pieces. Auto-disabled above 25,000 input points; the At Frame readout says when. |
+| Preview Motion | `dyn_preview`, `dyn_preview_ghost`, `dyn_ghost_color` | Advance the baked guides to the predicted positions, with an optional wireframe ghost of the pieces. Auto-disabled above the Visualization Limit; the At Frame readout says when. |
 | Offset | `dyn_preview_offset` | Slide the preview sideways, in multiples of the object's width. |
 | Unify Baked Guides | `viz_baked_yellow`, `viz_baked_tint` | Draw every baked-event guide in one colour instead of per-type colours. |
 | Guide Global Scale | `viz_scale` | Length multiplier for all guide trails. |
-| Guide Density | `viz_density` | Fraction of trails actually drawn, for viewport speed. On dense inputs the trails also auto-cap at roughly 25,000 total; Density scales within that budget. |
+| Guide Density | `viz_density` | Fraction of trails actually drawn, for viewport speed. On dense inputs the trails also auto-cap at the Visualization Limit; Density scales within that budget. |
+| Enforce Visualization Limit | `viz_limit_enable`, `viz_limit` | Point budget (default 25,000) for the heavy-input safeties: the maximum guide trails drawn, and the input size above which Preview Motion auto-disables. Raise it or switch it off to visualize everything regardless of cost. |
 | Per-type rows | `viz_input`, `viz_basic`, `viz_dir`, `viz_exp`, `viz_inherited`, `viz_curl`, `viz_angular` + `_color` + `_scale` | A toggle, colour and extra scale per stream, incoming velocity included. |
 
 ## Utilities

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838933408490">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838934166018">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838933408490" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838934166018" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838933408490" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838934166018" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838933408490" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838934166018" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -222,7 +222,7 @@
 <li>Per-event <strong>Attack / Hold / Release</strong> envelopes in <strong>frames</strong>, with curve presets (on by default, switch all off to latch for RBD injection), a Drag release that visibly slows thrown pieces, and <strong>Extend to Next</strong> to hold an event until the following one opens</li>
 <li>An on-screen <strong>event timeline</strong> with per-event state markers, a stale-event warning tied to the Recall / Update editing loop, and an <strong>At Frame</strong> readout</li>
 <li><strong>Motion preview</strong> — guides and a tumbling wireframe ghost advanced to where the events predict the pieces will be — with per-event <strong>Track Motion</strong> re-aiming directional fields as pieces travel</li>
-<li>Rest-position attributes per event, for aiming a Directional event at captured positions on animated input</li>
+<li>Rest-position attributes per event — with <strong>Track Motion</strong>, a later event pulls every piece back to its own captured position</li>
 <li><strong>Stagger Points</strong> per event — the points of an event arrive one at a time across its window instead of all at once, with an optional ramp to shape the distribution</li>
 <li><strong>Injecting Now</strong> output signal for gating an RBD solver, so physics owns the pieces between impulses</li>
 </ul>

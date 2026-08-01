@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838897358034">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838900767932">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,12 +38,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838897358034" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838900767932" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838897358034" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838900767932" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838897358034" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.838897358034" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838900767932" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.838900767932" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -302,7 +302,33 @@
 <pre translate="no" class="language-python"><code v-pre class="language-python">&quot;v&quot; if hou.node(&quot;/obj/geo1/advanced_velocity1&quot;).evalParm(&quot;dyn_injecting&quot;) else &quot;&quot;</code></pre>
 </doc-codeblock></div>
 <p>The solve then takes the velocity on the impulse frames and runs free in between — pieces launch, arc, and land under gravity, and the next event kicks them again. Leave <code translate="no" v-pre>w</code> out of the list unless your events author angular velocity, or the solver&#x27;s own tumble gets overwritten.</p>
-<p>For POP and Vellum none of this is needed: use <strong>Quick Setups ▸ POP / Vellum</strong> and the node writes an accumulated <code translate="no" v-pre>@force</code> instead.</p>
+<p><strong>In a hurry? Press Create Connected RBD Sim</strong> (Output tab). It builds an RBD Bullet Solver below the node with a ground plane, gravity, and both gates already wired — the fastest way to see the contracts working, and a worked example to copy into your own setup.</p>
+<p>For POP and Vellum none of this is needed. Set <strong>Output As</strong> to Force and the node writes an accumulated <code translate="no" v-pre>@force</code> instead: those solvers add forces every step rather than overwriting velocity, so there is nothing to gate.</p>
+<h3 id="muting-gravity-for-an-impulse">Muting gravity for an impulse</h3>
+<p>Sometimes the physics is the problem. A telekinetic lift that fights 9.8 m/s² the whole way up reads as weak, and no amount of extra velocity fixes it — you want the object to genuinely float while the event holds it.</p>
+<p><strong>Mute Gravity</strong> (per event, in <strong>Event Options</strong>) does that. It&#x27;s off by default, so gravity behaves normally everywhere until you ask otherwise. Switch it on and that event&#x27;s <strong>Muting Gravity</strong> readout goes to 1 over the same window as Injecting Now — the attack and the hold — then back to 0, so gravity returns at the end of the peak and the pieces arc over naturally as the impulse fades.</p>
+<p>It&#x27;s per event on purpose: the lift mutes, the blast that follows doesn&#x27;t. Wire it on the solver the same way as the injection gate, but on the gravity <em>force</em> rather than a toggle:</p>
+<div id="muting-gravity-for-an-impulse-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-python"><code v-pre class="language-python">0.0 if hou.node(&quot;/obj/geo1/advanced_velocity1&quot;).evalParm(&quot;dyn_mute_gravity&quot;) else -9.81</code></pre>
+</doc-codeblock></div>
+<p>Drive the force value rather than the solver&#x27;s <strong>Gravity</strong> checkbox. Both work today, but a force magnitude is read every step by definition, whereas a toggle that decides whether the force exists is the same shape as <strong>Overwrite Attributes from SOP</strong> — which is latched at the first frame and silently ignores animation.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-warning" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
+                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Gravity belongs to the whole solve</h5>
+<p>Muting is not per piece. Gravity in a simulation applies to every object in it, so an event that mutes gravity mutes it for <em>everything</em> in that solve, not only the pieces the event moves. If you have two fractured objects in one solver and only one is being lifted, both will float.</p>
+        </div>
+    </div>
+</div>
 <h2 id="good-to-know">Good to know</h2>
 <ul>
 <li><strong>Incoming Velocity is a live base layer.</strong> The velocity arriving on your input plays underneath the events, every frame — it&#x27;s never baked into them, so it can&#x27;t be double-counted and an animated input stays live between events.</li>

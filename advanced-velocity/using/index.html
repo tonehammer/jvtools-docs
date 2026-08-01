@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838897358034">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838900767932">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838897358034" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838900767932" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838897358034" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838900767932" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838897358034" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838900767932" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -311,13 +311,14 @@
 <hr>
 <h2 id="output">Output</h2>
 <p><strong>Combine Into Attribute</strong> writes the mixed result to the output attribute — the normal output, on by default.</p>
-<p><strong>Quick Setups</strong> configures the whole folder for the solver you&#x27;re feeding:</p>
+<p><strong>Output As</strong> picks between the two ways a solver can take motion from you, and the choice depends entirely on what you&#x27;re feeding:</p>
 <ul>
-<li><strong>RBD Bullet Solver</strong> — velocity into <code translate="no" v-pre>@v</code>. The Bullet solver has no per-point force input.</li>
-<li><strong>POP / Vellum</strong> — force into <code translate="no" v-pre>@force</code>. Those solvers <em>accumulate</em> forces, so a fading release can never brake motion the sim already has.</li>
+<li><strong>Velocity (<code translate="no" v-pre>@v</code>)</strong> — for the <strong>RBD Bullet Solver</strong>, which has no per-point force input at all. Velocity is <em>set</em>, not added: whatever the solve had accumulated is replaced on the frames you write. That&#x27;s why an RBD setup needs gating (below) — left writing every frame, the pieces can never fall.</li>
+<li><strong>Force (<code translate="no" v-pre>@force</code>)</strong> — for <strong>POP</strong> and <strong>Vellum</strong>, which <em>accumulate</em> forces every step. Nothing is overwritten, so no gating is needed and a fading release simply stops pushing rather than braking motion the sim already has.</li>
 </ul>
-<p><strong>Output As</strong> switches between the two by hand, and <strong>Velocity Attribute</strong> / <strong>Force Attribute</strong> name the written attribute in each mode — author <code translate="no" v-pre>targetv</code> for Vellum, for example, without touching a wrangle.</p>
-<p><strong>Injecting Now</strong> is a live 0/1 readout for driving an RBD solve — see <a href="../timed-events/#driving-an-rbd-solver">Driving an RBD solver</a>.</p>
+<p>The short version: <strong>if it&#x27;s Bullet, write velocity and gate it; if it&#x27;s POP or Vellum, write force and forget about it.</strong></p>
+<p><strong>Velocity Attribute</strong> and <strong>Force Attribute</strong> name the written attribute in each mode — author <code translate="no" v-pre>targetv</code> for Vellum, for example, without touching a wrangle.</p>
+<p><strong>Injecting Now</strong> and <strong>Muting Gravity</strong> are live 0/1 readouts for driving an RBD solve, and <strong>Create Connected RBD Sim</strong> builds a solver already wired to both — see <a href="../timed-events/#driving-an-rbd-solver">Driving an RBD solver</a>.</p>
 <p><strong>Post-Process</strong> holds the final touches:</p>
 <ul>
 <li><strong>Clamp Speed</strong> clamps the final speed into a Min / Max range.</li>

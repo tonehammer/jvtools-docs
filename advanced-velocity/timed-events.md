@@ -88,12 +88,16 @@ Every cook stamps `@startframe_rest` — each point's position at the scene star
 
 ## Driving an RBD solver
 
-The RBD Bullet Solver reads `@v` through **Overwrite Attributes from SOP** — but left on every frame, it re-stamps the velocity constantly and the pieces fight gravity. The events should *inject*, then let physics own the pieces. That's what **Injecting Now** (Output tab) is for: it reads 1 while any event is delivering energy (attack + hold) and 0 the rest of the time.
+!!!tip Prefer a worked example?
+The [Quickstart](quickstart.md#the-telekinetic-car) builds this end to end on a real shot — a car lifted, burst, orbited and reassembled — with the exact parameter locations on the solver.
+!!!
+
+The RBD Bullet Solver reads `@v` through **Override Attributes from SOP** (under **Properties ▸ Pieces ▸ Override Attributes**) — but left on every frame, it re-stamps the velocity constantly and the pieces fight gravity. The events should *inject*, then let physics own the pieces. That's what **Injecting Now** (Output tab) is for: it reads 1 while any event is delivering energy (attack + hold) and 0 the rest of the time.
 
 On the solver:
 
-1. Leave **Overwrite Attributes from SOP** ON. (Don't gate the toggle itself — the solver latches it at the sim's first frame, and gating it delivers nothing at all.)
-2. Gate the **Overwrite Attributes** *list* instead — an expression that returns `v` only while Injecting Now reads 1, e.g. a Python expression on that parameter:
+1. Leave **Override Attributes from SOP** ON. (Don't gate the toggle itself — the solver latches it at the sim's first frame, and gating it delivers nothing at all.)
+2. Gate the **Attributes** field beneath it instead — an expression that returns `v` only while Injecting Now reads 1, e.g. a Python expression on that parameter:
 
 ```python
 "v" if hou.node("/obj/geo1/advanced_velocity1").evalParm("dyn_injecting") else ""
@@ -111,13 +115,13 @@ Sometimes the physics is the problem. A telekinetic lift that fights 9.8 m/s² t
 
 **Mute Gravity** (per event, in **Event Options**) does that. It's off by default, so gravity behaves normally everywhere until you ask otherwise. Switch it on and that event's **Muting Gravity** readout goes to 1 over the same window as Injecting Now — the attack and the hold — then back to 0, so gravity returns at the end of the peak and the pieces arc over naturally as the impulse fades.
 
-It's per event on purpose: the lift mutes, the blast that follows doesn't. Wire it on the solver the same way as the injection gate, but on the gravity *force* rather than a toggle:
+It's per event on purpose: the lift mutes, the blast that follows doesn't. Wire it on the solver the same way as the injection gate, but on the gravity *force* (**Forces ▸ Gravity ▸ Force**, on its Y component) rather than the **Gravity** checkbox above it:
 
 ```python
-0.0 if hou.node("/obj/geo1/advanced_velocity1").evalParm("dyn_mute_gravity") else -9.81
+0.0 if hou.node("/obj/geo1/advanced_velocity1").evalParm("dyn_mute_gravity") else -9.80665
 ```
 
-Drive the force value rather than the solver's **Gravity** checkbox. Both work today, but a force magnitude is read every step by definition, whereas a toggle that decides whether the force exists is the same shape as **Overwrite Attributes from SOP** — which is latched at the first frame and silently ignores animation.
+Drive the force value rather than the checkbox. Both work today, but a force magnitude is read every step by definition, whereas a toggle that decides whether the force exists is the same shape as **Override Attributes from SOP** — which is latched at the first frame and silently ignores animation.
 
 !!!warning Gravity belongs to the whole solve
 Muting is not per piece. Gravity in a simulation applies to every object in it, so an event that mutes gravity mutes it for *everything* in that solve, not only the pieces the event moves. If you have two fractured objects in one solver and only one is being lifted, both will float.
@@ -129,3 +133,4 @@ Muting is not per piece. Gravity in a simulation applies to every object in it, 
 * **Bakes are per-point.** An event's field is stored against the input's point count; re-fracture the object and existing events skip until you **Update** them.
 * **A later blast kicks the pieces that were near it at bake time**, wherever they've since travelled — the radius selection is frozen when the event is baked. Track Motion re-aims directions, not membership.
 * **Baked guides can be unified to one colour** (Visualization ▸ Unify Baked Guides) when the per-type colours are more information than you want.
+* **A blank event with Mute Gravity on freezes everything solid.** With no velocity types enabled its baked field is all zeros, and it still opens the injection gate — so the solver overwrites every piece's velocity with zero while gravity is muted, and the pieces hang exactly where they were until the event's hold ends. Useful on purpose: see [the stasis trick](quickstart.md#the-stasis-trick).

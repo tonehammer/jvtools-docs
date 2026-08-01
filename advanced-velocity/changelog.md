@@ -31,7 +31,7 @@ The first public release.
 * Additive mixing with per-type gains, or weighted mixing normalized across the enabled streams, with one **Master Speed**
 * **Incoming Velocity** as its own stream, on by default — nodes stack, caches survive, and in Timed Events it plays as a live base under the events
 * Velocity output for the RBD Bullet Solver or accumulated force for POP / Vellum, with independent velocity / force attribute names
-* **Injecting Now** and per-event **Mute Gravity** signals for gating an RBD solve — gravity can stay muted **until the next event**, so pieces coast instead of falling between beats while physics still owns them — plus **Create Connected RBD Sim** to wire a solver to both in one click
+* **Injecting Now** and per-event **Mute Gravity** signals for gating an RBD solve — gravity can stay muted **until the next event, or to the end of the shot on the last one**, so pieces coast instead of falling between beats while physics still owns them — plus **Create Connected RBD Sim** to wire a solver to both in one click
 * **Scale by Piece Size** — big chunks fly slower, from a mass attribute or each packed piece's real size
 * Speed clamping, per-stream exports, and an output stripped of every internal attribute
 

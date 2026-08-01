@@ -38,7 +38,7 @@ Visible in Timed Events mode. See [Timed Events](timed-events.md) for the workfl
 | Captured | `ev_summary#` | What the event actually baked: types, point count, peak speed. |
 | *Event Options* ▸ Track Motion | `ev_track#` | Re-aim the event's directional velocity at the pieces' predicted positions each frame. Plain Directional fields only. |
 | *Event Options* ▸ Create Rest Position Attribute | `ev_rest_en#` | Record this event's positions into a `<name>_rest` attribute for To Rest Pose. |
-| *Event Options* ▸ Mute Gravity | `ev_mute_grav#` | Off / During Impulse (attack + hold) / Until Next Event. Off by default. Until Next Event keeps gravity muted across the gap to the next event without holding the impulse on, so pieces coast instead of falling; the last event falls back to During Impulse. Mutes gravity for the whole solve, not just this event's pieces. |
+| *Event Options* ▸ Mute Gravity | `ev_mute_grav#` | Off / During Impulse (attack + hold) / Until Next Event / End. Off by default. The third setting keeps gravity muted across the gap to the next event without holding the impulse on, so pieces coast instead of falling; on the last event it runs until that event stops contributing — to the end of the range when Release is off, since the envelope latches there. Mutes gravity for the whole solve, not just this event's pieces. |
 | Attack / Hold / Release | `ev_atk#`, `ev_hold#`, `ev_rel#` | Envelope phases in **frames**, each with its own enable checkbox, all on by default. Switch all three off to latch the event at full strength forever. |
 | Extend to Next | `ev_extend#` | Set Hold so this event holds until the next event's Attack opens. Next is by frame, ignoring solo/mute. Refuses on the last event. |
 | (undo, beside Extend to Next) | `ev_extend_undo#` | Put Hold back to what the last Extend to Next replaced. That setting only, one press deep; greyed until Extend has been used. |
@@ -158,7 +158,7 @@ Every type's Adjust folder opens with the same row: **Variation** (`variation1`�
 | --- | --- | --- |
 | Show Guides | `viz_guides` | Master switch for all velocity guides. |
 | Guide Global Scale | `viz_scale` | Length multiplier for all guide trails. |
-| Guide Density | `viz_density` | Fraction of trails actually drawn, for viewport speed. On dense inputs the trails also auto-cap at the Visualization Limit; Density scales within that budget. |
+| Guide Density | `viz_density` | Fraction of trails actually drawn, for viewport speed. Picked for you the first time geometry is connected to a fresh node, aiming at roughly 200 trails; after that it is yours and is never changed again. On dense inputs the trails also auto-cap at the Visualization Limit; Density scales within that budget. |
 | Enforce Visualization Limit | `viz_limit_enable`, `viz_limit` | Point budget (default 25,000) for the heavy-input safeties: the maximum guide trails drawn, and the input size above which Preview Motion auto-disables. Raise it or switch it off to visualize everything regardless of cost. |
 
 The next two groups appear in Timed Events only.
@@ -179,7 +179,7 @@ The next two groups appear in Timed Events only.
 
 | Parameter | Name | Description |
 | --- | --- | --- |
-| Output Guides Only (No Geometry) | `out_guides_only` | Output the guide curves instead of the geometry — for rendering the guides as their own pass. |
+| Output Guides Only (No Geometry) | `out_guides_only` | Output the guide curves instead of the geometry — for rendering the guides as their own pass. In Timed Events it always emits the baked event trails at the input's rest positions: Guides Show, Preview Motion and Show Ghost Geometry are overridden, so the pass can never pick up the ghost or the pinned Setup guides. |
 | Restore Viewport HUD | `util_restore_hud` | Re-enter the node's viewer state, bringing the event timeline back after an asset refresh. |
 | Links | `gumroad`, `docs`, `discord`, `youtube` | This documentation, the store page, and the community. |
 

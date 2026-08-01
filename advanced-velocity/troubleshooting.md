@@ -27,6 +27,10 @@ Either **Combine Into Attribute** (Output tab) is off, or **Output As** is set t
 
 Guide trails are **guide geometry**: they draw while the Advanced Velocity node is the current node, like the Bend SOP's guide. Select the node again and they return. Also check the **Show Guides** master switch, and **Guide Density** — at low values most trails are deliberately not drawn.
 
+## Recording slows down as I add events on a dense mesh
+
+Expected on heavy raw-point inputs: each event you drop starts contributing immediately, and playing the events back costs per frame at that point count. Guides already pause automatically during the take. For a responsive recording session, rough the events in on a lighter proxy or on the packed stream (one point per piece), then **Update** them against the full-resolution input afterwards.
+
 ## The preview ghost doesn't appear on a heavy mesh
 
 Preview Motion auto-disables on inputs above the **Visualization Limit** (Visualization tab, default 25,000 points) — integrating and moving that much geometry every frame is too slow to be a preview. The **At Frame** readout says so while it's the case. Raise the limit, switch **Enforce Visualization Limit** off, or author on a lighter proxy (packed pieces count one point each).

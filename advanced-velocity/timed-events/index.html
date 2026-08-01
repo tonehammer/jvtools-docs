@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838914301847">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838917229397">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,12 +38,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838914301847" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838917229397" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838914301847" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838917229397" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838914301847" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.838914301847" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838917229397" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.838917229397" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -239,12 +239,14 @@
 </ul>
 <p>Each event is a tab in the <strong>Events</strong> list, named, stamped with its frame, and carrying a <strong>Captured</strong> summary of what it actually baked — which types, how many points, the peak speed. That line is worth glancing at: an event named &quot;explosion&quot; that captured <code translate="no" v-pre>basic | 60 pts | max |v| 1</code> is telling you something.</p>
 <h2 id="the-envelope">The envelope</h2>
-<p>Every event has an Attack / Hold / Release envelope around its <strong>Event Frame</strong> — the peak moment. Each phase has an enable checkbox and a duration in seconds:</p>
+<p>Every event has an Attack / Hold / Release envelope around its <strong>Event Frame</strong> — the peak moment. Each phase has an enable checkbox and a duration in <strong>frames</strong>, the same unit as the Event Frame itself:</p>
 <ul>
-<li><strong>Attack</strong> ramps the event in from zero to full, ending at the event frame. Off = it switches on instantly.</li>
+<li><strong>Attack</strong> ramps the event in from zero to full, ending at the event frame — so an Attack of 5 opens five frames <em>before</em> the event frame. Off = it switches on instantly.</li>
 <li><strong>Hold</strong> keeps it at full strength after the peak.</li>
-<li><strong>Release</strong> fades it out afterwards, in one of two modes: <strong>Fade to Zero</strong> ramps down over the Release time; <strong>Drag</strong> decays gradually at a rate, so the pieces the event threw visibly slow down.</li>
+<li><strong>Release</strong> fades it out afterwards, in one of two modes: <strong>Fade to Zero</strong> ramps down over the Release time; <strong>Drag</strong> decays gradually at a rate, so the pieces the event threw visibly slow down. Drag is the one timing control expressed per <em>second</em> rather than in frames — a decay rate per frame would be an unreadable fraction.</li>
 </ul>
+<p>So an event&#x27;s window — the span it delivers full strength — runs from <code translate="no" v-pre>Event Frame − Attack</code> to <code translate="no" v-pre>Event Frame + Hold</code>. That window is what <strong>Injecting Now</strong> and <strong>Mute Gravity</strong> key off, and it is worth being able to read off the timeline at a glance.</p>
+<p><strong>Extend to Next</strong>, on the Hold row, sets Hold so this event holds until the next one takes over: the hold ends exactly where the next event&#x27;s Attack opens, so the two windows touch with no gap and without both sitting at full strength at once. The next event is the next by frame, whatever is soloed or muted. On the last event it does nothing and says so in the status bar.</p>
 <p>Attack and Release each take a <strong>Curve</strong> — Linear, Ease, Sharp, Snap, or Soft — for the shape of the ramp.</p>
 <p>All three phases are <strong>on</strong> by default, so a fresh event ramps in, holds, and fades back out — a timed burst, which is what events are for. If you want a velocity that stays on for the whole shot, that is what <strong>Single Field</strong> mode is; and switching all three phases <strong>off</strong> makes an event <em>latch</em> — it starts at its frame and keeps delivering at full strength forever.</p>
 <p>Latching is the right shape when an RBD solver overwrites <code translate="no" v-pre>@v</code> every frame — a fading velocity handed to that solver would <em>brake</em> the pieces it just threw. (The better recipe is to keep the fade and gate the solver on <strong>Injecting Now</strong> instead — see <doc-anchor-trigger to="#driving-an-rbd-solver">Driving an RBD solver</doc-anchor-trigger>.) Note that a latched event also keeps the node cooking on every frame after it starts, which is worth knowing on heavy inputs.</p>
@@ -306,7 +308,14 @@
 <p>For POP and Vellum none of this is needed. Set <strong>Output As</strong> to Force and the node writes an accumulated <code translate="no" v-pre>@force</code> instead: those solvers add forces every step rather than overwriting velocity, so there is nothing to gate.</p>
 <h3 id="muting-gravity-for-an-impulse">Muting gravity for an impulse</h3>
 <p>Sometimes the physics is the problem. A telekinetic lift that fights 9.8 m/s² the whole way up reads as weak, and no amount of extra velocity fixes it — you want the object to genuinely float while the event holds it.</p>
-<p><strong>Mute Gravity</strong> (per event, in <strong>Event Options</strong>) does that. It&#x27;s off by default, so gravity behaves normally everywhere until you ask otherwise. Switch it on and that event&#x27;s <strong>Muting Gravity</strong> readout goes to 1 over the same window as Injecting Now — the attack and the hold — then back to 0, so gravity returns at the end of the peak and the pieces arc over naturally as the impulse fades.</p>
+<p><strong>Mute Gravity</strong> (per event, in <strong>Event Options</strong>) does that. It has three settings:</p>
+<ul>
+<li><strong>Off</strong> — gravity is never touched. The default.</li>
+<li><strong>During Impulse</strong> — muted over the same window as Injecting Now, the attack and the hold, then back to 0. Gravity returns at the end of the peak and the pieces arc over naturally as the impulse fades.</li>
+<li><strong>Until Next Event</strong> — the mute carries on until the next event opens, however short this event&#x27;s Hold is.</li>
+</ul>
+<p>That last one is what to reach for when a sequence of events leaves the pieces <strong>falling in the gaps between beats</strong>. It is deliberately <em>not</em> the same as extending Hold. Extending Hold keeps Injecting Now open too, so the solver re-stamps <code translate="no" v-pre>@v</code> on every frame of the gap: the pieces fly on rails, with no collisions and no tumble. Extending only the gravity mute lets the impulse fade normally while the solver keeps the pieces — they coast on the momentum it already gave them, keep tumbling, still collide, and simply do not fall.</p>
+<p>The last event has no next event, so it falls back to During Impulse — at the end of a shot the pieces are usually meant to land.</p>
 <p>It&#x27;s per event on purpose: the lift mutes, the blast that follows doesn&#x27;t. Wire it on the solver the same way as the injection gate, but on the gravity <em>force</em> (<strong>Forces ▸ Gravity ▸ Force</strong>, on its Y component) rather than the <strong>Gravity</strong> checkbox above it:</p>
 <div id="muting-gravity-for-an-impulse-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-python"><code v-pre class="language-python">0.0 if hou.node(&quot;/obj/geo1/advanced_velocity1&quot;).evalParm(&quot;dyn_mute_gravity&quot;) else -9.80665</code></pre>
@@ -335,7 +344,7 @@
 <li><strong>Bakes are per-point.</strong> An event&#x27;s field is stored against the input&#x27;s point count; re-fracture the object and existing events skip until you <strong>Update</strong> them.</li>
 <li><strong>A later blast kicks the pieces that were near it at bake time</strong>, wherever they&#x27;ve since travelled — the radius selection is frozen when the event is baked. Track Motion re-aims directions, not membership.</li>
 <li><strong>Baked guides can be unified to one colour</strong> (Visualization ▸ Unify Baked Guides) when the per-type colours are more information than you want.</li>
-<li><strong>A blank event with Mute Gravity on freezes everything solid.</strong> With no velocity types enabled its baked field is all zeros, and it still opens the injection gate — so the solver overwrites every piece&#x27;s velocity with zero while gravity is muted, and the pieces hang exactly where they were until the event&#x27;s hold ends, then fall again. Useful on purpose: drop one wherever you want everything to hang suspended, and set its Hold to the length of the pause. Note the distinction — Mute Gravity on a <em>real</em> event means gravity off while the pieces keep flying; a <em>blank</em> event with it on means everything stops dead.</li>
+<li><strong>A blank event with Mute Gravity on freezes everything solid.</strong> With no velocity types enabled its baked field is all zeros, and it still opens the injection gate — so the solver overwrites every piece&#x27;s velocity with zero while gravity is muted, and the pieces hang exactly where they were until the event&#x27;s hold ends, then fall again. Useful on purpose: drop one wherever you want everything to hang suspended, and set its Hold to the length of the pause — or press <strong>Extend to Next</strong> to hang everything right up to the following beat. Note the distinction — Mute Gravity on a <em>real</em> event means gravity off while the pieces keep flying; a <em>blank</em> event with it on means everything stops dead.</li>
 </ul>
 <div id="retype-backlinks">
     <h2>See also</h2>

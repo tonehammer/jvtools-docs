@@ -32,7 +32,9 @@ Every event has an Attack / Hold / Release envelope around its **Event Frame** �
 
 Attack and Release each take a **Curve** — Linear, Ease, Sharp, Snap, or Soft — for the shape of the ramp.
 
-With all three phases **off** (the default), an event *latches*: it starts at its frame and keeps delivering at full strength. That is deliberately the default, because it's what an RBD solver wants — a fading velocity handed to a solver that overwrites `@v` every frame would *brake* the pieces it just threw.
+All three phases are **on** by default, so a fresh event ramps in, holds, and fades back out — a timed burst, which is what events are for. If you want a velocity that stays on for the whole shot, that is what **Single Field** mode is; and switching all three phases **off** makes an event *latch* — it starts at its frame and keeps delivering at full strength forever.
+
+Latching is the right shape when an RBD solver overwrites `@v` every frame — a fading velocity handed to that solver would *brake* the pieces it just threw. (The better recipe is to keep the fade and gate the solver on **Injecting Now** instead — see [Driving an RBD solver](#driving-an-rbd-solver).) Note that a latched event also keeps the node cooking on every frame after it starts, which is worth knowing on heavy inputs.
 
 ## Editing an event
 
@@ -65,6 +67,8 @@ The timeline is drawn by the node's viewer state, and some actions (like refresh
 ## Motion preview
 
 Baked vectors are only half the picture — you also want to see where the pieces *go*. **Preview Motion** (Visualization tab) advances the baked-event guides to where the events predict the pieces will be at the current frame, and the **ghost** draws a wireframe of the pieces there, tumbling with any baked `@w`. **Offset** slides the whole prediction sideways in multiples of the object's width, so the forecast reads beside the real geometry instead of on top of it.
+
+On inputs above **25,000 points** the preview auto-disables — integrating and moving that much geometry every frame is too slow to be a preview. The **At Frame** readout says so when it happens. Guide trails also cap themselves at roughly 25,000 on dense inputs, with **Guide Density** scaling within that budget.
 
 The live Setup guides deliberately stay on the input mesh — the thing you're authoring reads in place, the prediction sits beside it.
 

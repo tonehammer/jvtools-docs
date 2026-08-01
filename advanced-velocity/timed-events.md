@@ -88,7 +88,15 @@ It's only available when the event captured a *plain* Directional field: Adjust,
 
 ## Rest position attributes
 
-Every cook stamps `@startframe_rest` — each point's position at the scene start frame — and each event with **Create Rest Position Attribute** on records its own `<name>_rest` at its frame. The Directional type's **To Rest Pose** mode aims at any of them: blow an object apart with one event, then pull the pieces back home with a later one. The attributes are stripped from the output unless **Export Rest Position Attributes** (with the other exports at the bottom of the Output tab) keeps them.
+Every cook stamps `@startframe_rest` — each point's position at the scene start frame — and each event with **Create Rest Position Attribute** on records its own `<name>_rest` at its frame. The Directional type's **To Rest Pose** mode aims each point at its own captured position. The attributes are stripped from the output unless **Export Rest Position Attributes** (with the other exports at the bottom of the Output tab) keeps them.
+
+!!! danger To Rest Pose cannot pull simulated pieces home
+This is the one that catches people. Advanced Velocity sits **upstream of your sim**, so its input is always the un-simulated geometry — the rest pose. On a static input, each point's captured rest position *is* its current position, so `rest − P` is exactly zero and the event bakes an empty field. `Captured` will say `max |v| 0`.
+
+To Rest Pose is for input that genuinely moves *before* Advanced Velocity — animated or deforming geometry — where the two positions differ.
+
+**To pull exploded pieces back**, use a Directional event with **To Position** (or SOP Path) aimed at where they should gather, and switch **Track Motion** on: that re-aims the field at the pieces' predicted positions each frame, which is exactly the reassembly behaviour. Track Motion deliberately refuses To Rest Pose, so it cannot rescue that mode.
+!!!
 
 ## Driving an RBD solver
 

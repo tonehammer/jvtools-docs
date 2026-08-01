@@ -123,14 +123,16 @@ Both blocks are Houdini's own controls, so the [Attribute Adjust Vector](https:/
 
 **Combine Into Attribute** writes the mixed result to the output attribute — the normal output, on by default.
 
-**Quick Setups** configures the whole folder for the solver you're feeding:
+**Output As** picks between the two ways a solver can take motion from you, and the choice depends entirely on what you're feeding:
 
-* **RBD Bullet Solver** — velocity into `@v`. The Bullet solver has no per-point force input.
-* **POP / Vellum** — force into `@force`. Those solvers *accumulate* forces, so a fading release can never brake motion the sim already has.
+* **Velocity (`@v`)** — for the **RBD Bullet Solver**, which has no per-point force input at all. Velocity is *set*, not added: whatever the solve had accumulated is replaced on the frames you write. That's why an RBD setup needs gating (below) — left writing every frame, the pieces can never fall.
+* **Force (`@force`)** — for **POP** and **Vellum**, which *accumulate* forces every step. Nothing is overwritten, so no gating is needed and a fading release simply stops pushing rather than braking motion the sim already has.
 
-**Output As** switches between the two by hand, and **Velocity Attribute** / **Force Attribute** name the written attribute in each mode — author `targetv` for Vellum, for example, without touching a wrangle.
+The short version: **if it's Bullet, write velocity and gate it; if it's POP or Vellum, write force and forget about it.**
 
-**Injecting Now** is a live 0/1 readout for driving an RBD solve — see [Driving an RBD solver](timed-events.md#driving-an-rbd-solver).
+**Velocity Attribute** and **Force Attribute** name the written attribute in each mode — author `targetv` for Vellum, for example, without touching a wrangle.
+
+**Injecting Now** and **Muting Gravity** are live 0/1 readouts for driving an RBD solve, and **Create Connected RBD Sim** builds a solver already wired to both — see [Driving an RBD solver](timed-events.md#driving-an-rbd-solver).
 
 **Post-Process** holds the final touches:
 

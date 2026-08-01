@@ -101,7 +101,27 @@ On the solver:
 
 The solve then takes the velocity on the impulse frames and runs free in between — pieces launch, arc, and land under gravity, and the next event kicks them again. Leave `w` out of the list unless your events author angular velocity, or the solver's own tumble gets overwritten.
 
-For POP and Vellum none of this is needed: use **Quick Setups ▸ POP / Vellum** and the node writes an accumulated `@force` instead.
+**In a hurry? Press Create Connected RBD Sim** (Output tab). It builds an RBD Bullet Solver below the node with a ground plane, gravity, and both gates already wired — the fastest way to see the contracts working, and a worked example to copy into your own setup.
+
+For POP and Vellum none of this is needed. Set **Output As** to Force and the node writes an accumulated `@force` instead: those solvers add forces every step rather than overwriting velocity, so there is nothing to gate.
+
+### Muting gravity for an impulse
+
+Sometimes the physics is the problem. A telekinetic lift that fights 9.8 m/s² the whole way up reads as weak, and no amount of extra velocity fixes it — you want the object to genuinely float while the event holds it.
+
+**Mute Gravity** (per event, in **Event Options**) does that. It's off by default, so gravity behaves normally everywhere until you ask otherwise. Switch it on and that event's **Muting Gravity** readout goes to 1 over the same window as Injecting Now — the attack and the hold — then back to 0, so gravity returns at the end of the peak and the pieces arc over naturally as the impulse fades.
+
+It's per event on purpose: the lift mutes, the blast that follows doesn't. Wire it on the solver the same way as the injection gate, but on the gravity *force* rather than a toggle:
+
+```python
+0.0 if hou.node("/obj/geo1/advanced_velocity1").evalParm("dyn_mute_gravity") else -9.81
+```
+
+Drive the force value rather than the solver's **Gravity** checkbox. Both work today, but a force magnitude is read every step by definition, whereas a toggle that decides whether the force exists is the same shape as **Overwrite Attributes from SOP** — which is latched at the first frame and silently ignores animation.
+
+!!!warning Gravity belongs to the whole solve
+Muting is not per piece. Gravity in a simulation applies to every object in it, so an event that mutes gravity mutes it for *everything* in that solve, not only the pieces the event moves. If you have two fractured objects in one solver and only one is being lifted, both will float.
+!!!
 
 ## Good to know
 

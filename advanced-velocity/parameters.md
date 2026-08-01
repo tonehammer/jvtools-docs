@@ -36,8 +36,9 @@ Visible in Timed Events mode. See [Timed Events](timed-events.md) for the workfl
 | Name | `ev_name#` | Label for the event, shown on its tab and the timeline. |
 | Event Frame | `ev_frame#` | The peak frame — Attack ramps into it, Release ramps out of it. |
 | Captured | `ev_summary#` | What the event actually baked: types, point count, peak speed. |
-| Track Motion | `ev_track#` | Re-aim the event's directional velocity at the pieces' predicted positions each frame. Plain Directional fields only. |
-| Create Rest Position Attribute | `ev_rest_en#` | Record this event's positions into a `<name>_rest` attribute for To Rest Pose. |
+| *Event Options* ▸ Track Motion | `ev_track#` | Re-aim the event's directional velocity at the pieces' predicted positions each frame. Plain Directional fields only. |
+| *Event Options* ▸ Create Rest Position Attribute | `ev_rest_en#` | Record this event's positions into a `<name>_rest` attribute for To Rest Pose. |
+| *Event Options* ▸ Mute Gravity | `ev_mute_grav#` | Switch the solver's gravity off while this event delivers energy (attack + hold). Off by default. Mutes gravity for the whole solve, not just this event's pieces. |
 | Attack / Hold / Release | `ev_atk#`, `ev_hold#`, `ev_rel#` | Envelope phases in seconds, each with its own enable checkbox, all on by default. Switch all three off to latch the event at full strength forever. |
 | Attack / Release Curve | `ev_atk_curve#`, `ev_rel_curve#` | Ramp shape: Linear, Ease, Sharp, Snap, Soft. |
 | Release Mode | `ev_rel_mode#` | **Fade to Zero** ramps out over the Release time; **Drag** decays at a rate, so thrown pieces visibly slow. |
@@ -139,7 +140,8 @@ Every type's Adjust folder opens with the same row: **Variation** (`variation1`�
 | Parameter | Name | Description |
 | --- | --- | --- |
 | Combine Into Attribute | `out_combine` | Write the mixed result to the output attribute. On by default. |
-| Quick Setups | `out_preset` | One-click output configuration: RBD Bullet Solver (velocity) or POP / Vellum (force). |
+| Muting Gravity | `dyn_mute_gravity` | Live 0/1 — 1 while any playing event with Mute Gravity on is delivering energy. Drive a solver's gravity force from it. Always 0 in Single Field. |
+| Create Connected RBD Sim | `make_rbd_sim` | Build an RBD Bullet Solver below the node, already gated on Injecting Now and Muting Gravity. |
 | Output As | `out_as` | Velocity (`@v`) — set directly, what RBD reads — or Force (`@force`) — accumulated by POP and Vellum. |
 | Velocity Attribute / Force Attribute | `out_attrib_name`, `out_force_name` | The written attribute name in each mode. |
 | Injecting Now | `dyn_injecting` | Live 0/1: an event is delivering energy right now. Gate an RBD solver's Overwrite Attributes list on it — see [Driving an RBD solver](timed-events.md#driving-an-rbd-solver). |

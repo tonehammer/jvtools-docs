@@ -1,12 +1,12 @@
 ---
-icon: static/advanced_velocity_logo_arrows.png
+icon: static/advanced_velocity_icon.png
 order: 110
 ---
 
 # Advanced Velocity
 
 <div style="text-align:center; margin:0.5rem 0 1.5rem;">
-  <img src="static/advanced_velocity_logo.png" alt="Advanced Velocity" width="180" style="max-width:55%; border-radius:16px;">
+  <img src="static/advanced_velocity_icon.png" alt="Advanced Velocity" width="180" style="max-width:55%; border-radius:16px;">
 </div>
 
 <p style="text-align:center; margin:0 0 1.5rem;"><a href="https://jvtonehammer.gumroad.com/l/advanced_velocity_hda"><strong>Get it on Gumroad →</strong></a></p>

@@ -147,7 +147,7 @@ The guides are **guide geometry**: they draw in the viewport while the node is c
 
 * **Show Guides** is the master switch.
 * Each stream has a toggle, a colour, and its own extra **Scale**, on top of the **Guide Global Scale**. Trail lengths are scaled by each stream's *real contribution to the mix* — turn a gain down and its guides shorten with it, so what you see tracks what the mixer is actually doing. Live setup trails draw dashed; baked event trails draw solid.
-* **Guide Density** draws only a fraction of the trails, for viewport speed on heavy fractures. The same pieces stay chosen frame to frame. On dense inputs the trails also auto-cap at roughly 25,000 total, with Density scaling within that budget.
+* **Guide Density** draws only a fraction of the trails, for viewport speed on heavy fractures. The same pieces stay chosen frame to frame. On dense inputs the trails also auto-cap at the **Visualization Limit** (default 25,000), with Density scaling within that budget — raise the limit or switch it off to draw everything.
 * **Event Timeline**, **Preview Motion** and the ghost belong to the event workflow — see [the timeline and the preview](timed-events.md#the-event-timeline).
 
 Need the guides as *renderable* geometry — for a breakdown or a preview render? **Utilities ▸ Output Guides Only** swaps the node's output to the guide curves themselves.

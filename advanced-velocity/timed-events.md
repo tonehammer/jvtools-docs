@@ -68,7 +68,7 @@ The timeline is drawn by the node's viewer state, and some actions (like refresh
 
 Baked vectors are only half the picture — you also want to see where the pieces *go*. **Preview Motion** (Visualization tab) advances the baked-event guides to where the events predict the pieces will be at the current frame, and the **ghost** draws a wireframe of the pieces there, tumbling with any baked `@w`. **Offset** slides the whole prediction sideways in multiples of the object's width, so the forecast reads beside the real geometry instead of on top of it.
 
-On inputs above **25,000 points** the preview auto-disables — integrating and moving that much geometry every frame is too slow to be a preview. The **At Frame** readout says so when it happens. Guide trails also cap themselves at roughly 25,000 on dense inputs, with **Guide Density** scaling within that budget.
+On inputs above the **Visualization Limit** (Visualization tab, default 25,000 points) the preview auto-disables — integrating and moving that much geometry every frame is too slow to be a preview. The **At Frame** readout says so when it happens. Guide trails also cap themselves at the same limit, with **Guide Density** scaling within that budget. Raise the limit or switch **Enforce Visualization Limit** off to visualize everything regardless of cost.
 
 The live Setup guides deliberately stay on the input mesh — the thing you're authoring reads in place, the prediction sits beside it.
 

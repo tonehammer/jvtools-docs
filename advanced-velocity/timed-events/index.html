@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838917229397">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838918126613">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,12 +38,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838917229397" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838918126613" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838917229397" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838918126613" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838917229397" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.838917229397" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838918126613" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.838918126613" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -246,7 +246,7 @@
 <li><strong>Release</strong> fades it out afterwards, in one of two modes: <strong>Fade to Zero</strong> ramps down over the Release time; <strong>Drag</strong> decays gradually at a rate, so the pieces the event threw visibly slow down. Drag is the one timing control expressed per <em>second</em> rather than in frames — a decay rate per frame would be an unreadable fraction.</li>
 </ul>
 <p>So an event&#x27;s window — the span it delivers full strength — runs from <code translate="no" v-pre>Event Frame − Attack</code> to <code translate="no" v-pre>Event Frame + Hold</code>. That window is what <strong>Injecting Now</strong> and <strong>Mute Gravity</strong> key off, and it is worth being able to read off the timeline at a glance.</p>
-<p><strong>Extend to Next</strong>, on the Hold row, sets Hold so this event holds until the next one takes over: the hold ends exactly where the next event&#x27;s Attack opens, so the two windows touch with no gap and without both sitting at full strength at once. The next event is the next by frame, whatever is soloed or muted. On the last event it does nothing and says so in the status bar.</p>
+<p><strong>Extend to Next</strong>, on the Hold row, sets Hold so this event holds until the next one takes over: the hold ends exactly where the next event&#x27;s Attack opens, so the two windows touch with no gap and without both sitting at full strength at once. The next event is the next by frame, whatever is soloed or muted. On the last event it does nothing and says so in the status bar. The small <strong>undo</strong> button beside it puts Hold back to what that press replaced — that one setting only, one press deep.</p>
 <p>Attack and Release each take a <strong>Curve</strong> — Linear, Ease, Sharp, Snap, or Soft — for the shape of the ramp.</p>
 <p>All three phases are <strong>on</strong> by default, so a fresh event ramps in, holds, and fades back out — a timed burst, which is what events are for. If you want a velocity that stays on for the whole shot, that is what <strong>Single Field</strong> mode is; and switching all three phases <strong>off</strong> makes an event <em>latch</em> — it starts at its frame and keeps delivering at full strength forever.</p>
 <p>Latching is the right shape when an RBD solver overwrites <code translate="no" v-pre>@v</code> every frame — a fading velocity handed to that solver would <em>brake</em> the pieces it just threw. (The better recipe is to keep the fade and gate the solver on <strong>Injecting Now</strong> instead — see <doc-anchor-trigger to="#driving-an-rbd-solver">Driving an RBD solver</doc-anchor-trigger>.) Note that a latched event also keeps the node cooking on every frame after it starts, which is worth knowing on heavy inputs.</p>

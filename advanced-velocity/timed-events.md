@@ -29,7 +29,7 @@ Every event has an Attack / Hold / Release envelope around its **Event Frame** �
 
 So an event's window — the span it delivers full strength — runs from `Event Frame − Attack` to `Event Frame + Hold`. That window is what **Injecting Now** and **Mute Gravity** key off, and it is worth being able to read off the timeline at a glance.
 
-**Extend to Next**, on the Hold row, sets Hold so this event holds until the next one takes over: the hold ends exactly where the next event's Attack opens, so the two windows touch with no gap and without both sitting at full strength at once. The next event is the next by frame, whatever is soloed or muted. On the last event it does nothing and says so in the status bar.
+**Extend to Next**, on the Hold row, sets Hold so this event holds until the next one takes over: the hold ends exactly where the next event's Attack opens, so the two windows touch with no gap and without both sitting at full strength at once. The next event is the next by frame, whatever is soloed or muted. On the last event it does nothing and says so in the status bar. The small **undo** button beside it puts Hold back to what that press replaced — that one setting only, one press deep.
 
 Attack and Release each take a **Curve** — Linear, Ease, Sharp, Snap, or Soft — for the shape of the ramp.
 

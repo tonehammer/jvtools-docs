@@ -1,6 +1,7 @@
 # Retype build output
 .retype/
 retype-output/
+retype.manifest
 
 # Retype CLI (if vendored locally)
 retype.exe

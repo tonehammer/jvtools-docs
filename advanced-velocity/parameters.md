@@ -163,7 +163,7 @@ Every type's Adjust folder opens with the same row: **Variation** (`variation1`â
 | Show Guides | `viz_guides` | Master switch for all velocity guides. |
 | Guide Global Scale | `viz_scale` | Length multiplier for all guide trails. |
 | Guide Density | `viz_density` | Fraction of trails actually drawn, for viewport speed. Picked for you the first time geometry is connected to a fresh node, aiming at roughly 200 trails; after that it is yours and is never changed again. On dense inputs the trails also auto-cap at the Visualization Limit; Density scales within that budget. |
-| Enforce Visualization Limit | `viz_limit_enable`, `viz_limit` | Point budget (default 25,000) for the heavy-input safeties: the maximum guide trails drawn, and the input size above which Preview Motion auto-disables. Raise it or switch it off to visualize everything regardless of cost. |
+| Enforce Visualization Limit | `viz_limit_enable`, `viz_limit` | Point budget (default 100,000) for the heavy-input safeties: the maximum guide trails drawn, and the input size above which Preview Motion auto-disables. Raise it or switch it off to visualize everything regardless of cost. |
 
 The next two groups appear in Timed Events only.
 

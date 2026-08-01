@@ -33,7 +33,7 @@ Expected on heavy raw-point inputs: each event you drop starts contributing imme
 
 ## The preview ghost doesn't appear on a heavy mesh
 
-Preview Motion auto-disables on inputs above the **Visualization Limit** (Visualization tab, default 25,000 points) — integrating and moving that much geometry every frame is too slow to be a preview. The **At Frame** readout says so while it's the case. Raise the limit, switch **Enforce Visualization Limit** off, or author on a lighter proxy (packed pieces count one point each).
+Preview Motion auto-disables on inputs above the **Visualization Limit** (Visualization tab, default 100,000 points) — integrating and moving that much geometry every frame is too slow to be a preview. The **At Frame** readout says so while it's the case. Raise the limit, switch **Enforce Visualization Limit** off, or author on a lighter proxy (packed pieces count one point each).
 
 ## The event timeline disappeared
 

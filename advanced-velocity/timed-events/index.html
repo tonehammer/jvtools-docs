@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838894741505">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838894994321">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,12 +38,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838894741505" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838894994321" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838894741505" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838894994321" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838894741505" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.838894741505" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838894994321" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.838894994321" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -231,6 +231,9 @@
 <ul>
 <li><strong>Create Event</strong> bakes the current setup into a new event at the playbar frame.</li>
 <li><strong>Record Events</strong> jumps to the start frame and plays the range once — press Create Event as it plays to drop events in real time, like tapping keys into a performance. <strong>Stop</strong> ends it. Guides pause for the take (they are the bulk of the per-frame cost on dense inputs) and come back the moment playback ends.</li>
+</ul>
+<p>Recording by feel wants a responsive playbar, so it is at its best on <strong>lighter inputs</strong> — packed pieces (one point per piece, realtime at any practical count) or meshes up to a few tens of thousands of points. On very dense raw-point inputs every event you drop starts contributing immediately, and playing back the events themselves costs per frame — the take will slow down as you stack them. Rough it in on a lighter proxy or the packed stream, then Update the events against the full-resolution input afterwards.</p>
+<ul>
 <li><strong>Copy Event</strong> duplicates an existing event at the current frame — the same blast, later, with nothing re-baked.</li>
 <li><strong>Sort by Frame</strong> reorders the rows chronologically (playback doesn&#x27;t care about row order; this is for reading).</li>
 </ul>

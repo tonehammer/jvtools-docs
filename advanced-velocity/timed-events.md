@@ -12,6 +12,8 @@ In Timed Events mode the live Setup does not reach the output — only baked eve
 
 * **Create Event** bakes the current setup into a new event at the playbar frame.
 * **Record Events** jumps to the start frame and plays the range once — press Create Event as it plays to drop events in real time, like tapping keys into a performance. **Stop** ends it. Guides pause for the take (they are the bulk of the per-frame cost on dense inputs) and come back the moment playback ends.
+
+Recording by feel wants a responsive playbar, so it is at its best on **lighter inputs** — packed pieces (one point per piece, realtime at any practical count) or meshes up to a few tens of thousands of points. On very dense raw-point inputs every event you drop starts contributing immediately, and playing back the events themselves costs per frame — the take will slow down as you stack them. Rough it in on a lighter proxy or the packed stream, then Update the events against the full-resolution input afterwards.
 * **Copy Event** duplicates an existing event at the current frame — the same blast, later, with nothing re-baked.
 * **Sort by Frame** reorders the rows chronologically (playback doesn't care about row order; this is for reading).
 

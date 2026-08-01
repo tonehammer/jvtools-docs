@@ -55,4 +55,4 @@ The version you have installed is shown at the very bottom of the parameter list
 2. Drop **Advanced Velocity** after it, set **Mode** to *Single Field*, and switch on **Exploding Velocity**.
 3. Leave **Origin** on *Whole Object*.
 
-Every piece now flies away from the object's centre. To blast from a specific spot instead, switch **Origin** to *Point Source* and read [Point Source](using.md#point-source-explosions). And when one explosion isn't enough — a lift, then a blast, then a spin — that's what [Timed Events](timed-events.md) is for.
+Every piece now flies away from the object's centre. To blast from a specific spot instead, switch **Origin** to [Point Source](using.md#point-source-explosions) and input the location via a custom Python state. And when one explosion isn't enough — a lift, then a blast, then a spin — that's what [Timed Events](timed-events.md) is for.

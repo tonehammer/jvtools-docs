@@ -11,7 +11,7 @@ In Timed Events mode the live Setup does not reach the output — only baked eve
 ## Creating events
 
 * **Create Event** bakes the current setup into a new event at the playbar frame.
-* **Record Events** jumps to the start frame and plays the range once — press Create Event as it plays to drop events in real time, like tapping keys into a performance. **Stop** ends it.
+* **Record Events** jumps to the start frame and plays the range once — press Create Event as it plays to drop events in real time, like tapping keys into a performance. **Stop** ends it. Guides pause for the take (they are the bulk of the per-frame cost on dense inputs) and come back the moment playback ends.
 * **Copy Event** duplicates an existing event at the current frame — the same blast, later, with nothing re-baked.
 * **Sort by Frame** reorders the rows chronologically (playback doesn't care about row order; this is for reading).
 

@@ -11,30 +11,30 @@
     <meta name="generator" content="Retype 4.6.0">
 
     <!-- Primary Meta Tags -->
-    <title>Timed Events</title>
-    <meta name="title" content="Timed Events">
-    <meta name="description" content="One velocity field is rarely the whole story. The shot is a car lifted at frame 10, torn apart at frame 40, spun at frame 70 — three different velocity setups, at three different times, summed where they overlap.">
+    <title>Quickstart</title>
+    <meta name="title" content="Quickstart">
+    <meta name="description" content="Two walkthroughs. The first is the smallest thing that does something. The second is the one this node was really built for — a telekinetic sequence where events push a rigid-body sim around and physics fills in the gaps.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://tonehammer.github.io/jvtools-docs/advanced-velocity/timed-events/">
+    <link rel="canonical" href="https://tonehammer.github.io/jvtools-docs/advanced-velocity/quickstart/">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="https://tonehammer.github.io/jvtools-docs/sitemap.xml">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/advanced-velocity/timed-events/">
-    <meta property="og:title" content="Timed Events">
-    <meta property="og:description" content="One velocity field is rarely the whole story. The shot is a car lifted at frame 10, torn apart at frame 40, spun at frame 70 — three different velocity setups, at three different times, summed where they overlap.">
+    <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/advanced-velocity/quickstart/">
+    <meta property="og:title" content="Quickstart">
+    <meta property="og:description" content="Two walkthroughs. The first is the smallest thing that does something. The second is the one this node was really built for — a telekinetic sequence where events push a rigid-body sim around and physics fills in the gaps.">
     <meta property="og:site_name" content="JVtools">
     <meta property="og:locale" content="en_US">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/advanced-velocity/timed-events/">
-    <meta name="twitter:title" content="Timed Events">
-    <meta name="twitter:description" content="One velocity field is rarely the whole story. The shot is a car lifted at frame 10, torn apart at frame 40, spun at frame 70 — three different velocity setups, at three different times, summed where they overlap.">
+    <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/advanced-velocity/quickstart/">
+    <meta name="twitter:title" content="Quickstart">
+    <meta name="twitter:description" content="Two walkthroughs. The first is the smallest thing that does something. The second is the one this node was really built for — a telekinetic sequence where events push a rigid-body sim around and physics fills in the gaps.">
 
     <!-- Alternate Markdown -->
-    <link rel="alternate" type="text/markdown" href="https://tonehammer.github.io/jvtools-docs/advanced-velocity/timed-events.md">
+    <link rel="alternate" type="text/markdown" href="https://tonehammer.github.io/jvtools-docs/advanced-velocity/quickstart.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
@@ -196,8 +196,8 @@
                             </svg>
                         </li>
                         <li class="pr-4">
-                            <a href="../../advanced-velocity/timed-events/" class="pr-4">
-                                Timed Events
+                            <a href="../../advanced-velocity/quickstart/" class="pr-4">
+                                Quickstart
                             </a>
                         </li>
                     </ol>
@@ -206,128 +206,119 @@
                 <doc-page-actions></doc-page-actions>
 
                 <!-- Page content  -->
-<h1 id="timed-events">Timed Events</h1>
-<p>One velocity field is rarely the whole story. The shot is a car <em>lifted</em> at frame 10, <em>torn apart</em> at frame 40, <em>spun</em> at frame 70 — three different velocity setups, at three different times, summed where they overlap. <strong>Timed Events</strong> is that: a keyframe animator for velocity.</p>
-<p>Think of the Setup and Mixer tabs as a template. You dial in a velocity, press <strong>Create Event</strong>, and the node bakes the field it produces into an event stamped at the current frame. Then you change the setup and create the next one. At playback, every event contributes its baked field, faded in and out by its own envelope, and the output is the sum.</p>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
-    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
-                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                    <path fill="none" d="M0 0h24v24H0z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-            <h5>Why the sliders &quot;do nothing&quot;</h5>
-<p>In Timed Events mode the live Setup does not reach the output — only baked events do. If you tweak a slider and the sim doesn&#x27;t respond, the event you&#x27;re shaping hasn&#x27;t been re-baked: press <strong>Update</strong> on its row. The node tells you when this happens — see <doc-anchor-trigger to="#editing-an-event">Editing an event</doc-anchor-trigger>.</p>
-        </div>
-    </div>
-</div>
-<h2 id="creating-events">Creating events</h2>
-<ul>
-<li><strong>Create Event</strong> bakes the current setup into a new event at the playbar frame.</li>
-<li><strong>Record Events</strong> jumps to the start frame and plays the range once — press Create Event as it plays to drop events in real time, like tapping keys into a performance. <strong>Stop</strong> ends it. Guides pause for the take (they are the bulk of the per-frame cost on dense inputs) and come back the moment playback ends.</li>
-</ul>
-<p>Recording by feel wants a responsive playbar, so it is at its best on <strong>lighter inputs</strong> — packed pieces (one point per piece, realtime at any practical count) or meshes up to a few tens of thousands of points. On very dense raw-point inputs every event you drop starts contributing immediately, and playing back the events themselves costs per frame — the take will slow down as you stack them. Rough it in on a lighter proxy or the packed stream, then Update the events against the full-resolution input afterwards.</p>
-<ul>
-<li><strong>Copy Event</strong> duplicates an existing event at the current frame — the same blast, later, with nothing re-baked.</li>
-<li><strong>Sort by Frame</strong> reorders the rows chronologically (playback doesn&#x27;t care about row order; this is for reading).</li>
-</ul>
-<p>Each event is a tab in the <strong>Events</strong> list, named, stamped with its frame, and carrying a <strong>Captured</strong> summary of what it actually baked — which types, how many points, the peak speed. That line is worth glancing at: an event named &quot;explosion&quot; that captured <code translate="no" v-pre>basic | 60 pts | max |v| 1</code> is telling you something.</p>
-<h2 id="the-envelope">The envelope</h2>
-<p>Every event has an Attack / Hold / Release envelope around its <strong>Event Frame</strong> — the peak moment. Each phase has an enable checkbox and a duration in seconds:</p>
-<ul>
-<li><strong>Attack</strong> ramps the event in from zero to full, ending at the event frame. Off = it switches on instantly.</li>
-<li><strong>Hold</strong> keeps it at full strength after the peak.</li>
-<li><strong>Release</strong> fades it out afterwards, in one of two modes: <strong>Fade to Zero</strong> ramps down over the Release time; <strong>Drag</strong> decays gradually at a rate, so the pieces the event threw visibly slow down.</li>
-</ul>
-<p>Attack and Release each take a <strong>Curve</strong> — Linear, Ease, Sharp, Snap, or Soft — for the shape of the ramp.</p>
-<p>All three phases are <strong>on</strong> by default, so a fresh event ramps in, holds, and fades back out — a timed burst, which is what events are for. If you want a velocity that stays on for the whole shot, that is what <strong>Single Field</strong> mode is; and switching all three phases <strong>off</strong> makes an event <em>latch</em> — it starts at its frame and keeps delivering at full strength forever.</p>
-<p>Latching is the right shape when an RBD solver overwrites <code translate="no" v-pre>@v</code> every frame — a fading velocity handed to that solver would <em>brake</em> the pieces it just threw. (The better recipe is to keep the fade and gate the solver on <strong>Injecting Now</strong> instead — see <doc-anchor-trigger to="#driving-an-rbd-solver">Driving an RBD solver</doc-anchor-trigger>.) Note that a latched event also keeps the node cooking on every frame after it starts, which is worth knowing on heavy inputs.</p>
-<h2 id="editing-an-event">Editing an event</h2>
-<p><strong>Recall</strong> loads an event&#x27;s captured setup back into the live Setup and jumps to its frame. Edit whatever you like, then press <strong>Update</strong> to re-bake it.</p>
-<p>The node watches for the trap in that loop: if the live Setup no longer matches the event it was last based on, the <strong>Stale</strong> readout names the event and its timeline marker turns <strong>pink</strong>. Nothing is lost — press Update to capture your changes, or Create Event to make the changes a new event instead.</p>
-<p><strong>Clear Setup</strong> (the broom next to Fold / Unfold All) switches every velocity type in the live Setup off — a clean slate for authoring the next event.</p>
-<h2 id="solo-and-mute">Solo and Mute</h2>
-<p><strong>Solo</strong> plays back <em>only</em> the listed events; <strong>Mute</strong> silences the listed ones. Both take space-separated numbers and ranges (<code translate="no" v-pre>1 3-5</code>), and picking from the dropdown <em>adds</em> to the list rather than replacing it. Solo wins over Mute, and a soloed event is never cut short by the events it was soloed away from.</p>
-<h2 id="the-event-timeline">The event timeline</h2>
-<p>With <strong>Event Timeline</strong> on (Visualization tab), a frame ruler draws along the bottom of the viewport with a marker per event and a playhead. The marker colours tell you each event&#x27;s state at a glance:</p>
-<ul>
-<li><strong>Orange</strong> — ready: baked and waiting for its frame.</li>
-<li><strong>Green</strong> — playing: contributing right now.</li>
-<li><strong>Pink</strong> — stale: the live Setup has moved since this event was baked.</li>
-</ul>
-<p>Each event&#x27;s label carries the same state in words, and the <strong>At Frame</strong> readout in the parameters spells out exactly which events are contributing at the current frame — including, in a gap, when the next one starts.</p>
-<p><strong>Scheme</strong> switches the timeline between Dark and Light palettes to match your viewport background.</p>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
-    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
-                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                    <path fill="none" d="M0 0h24v24H0z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-            <h5>If the timeline disappears</h5>
-<p>The timeline is drawn by the node&#x27;s viewer state, and some actions (like refreshing asset libraries) drop the viewer out of it. <strong>Utilities ▸ Restore Viewport HUD</strong> brings it back.</p>
-        </div>
-    </div>
-</div>
-<h2 id="motion-preview">Motion preview</h2>
-<p>Baked vectors are only half the picture — you also want to see where the pieces <em>go</em>. <strong>Preview Motion</strong> (Visualization tab) advances the baked-event guides to where the events predict the pieces will be at the current frame, and the <strong>ghost</strong> draws a wireframe of the pieces there, tumbling with any baked <code translate="no" v-pre>@w</code>. <strong>Offset</strong> slides the whole prediction sideways in multiples of the object&#x27;s width, so the forecast reads beside the real geometry instead of on top of it.</p>
-<p>On inputs above the <strong>Visualization Limit</strong> (Visualization tab, default 25,000 points) the preview auto-disables — integrating and moving that much geometry every frame is too slow to be a preview. The <strong>At Frame</strong> readout says so when it happens. Guide trails also cap themselves at the same limit, with <strong>Guide Density</strong> scaling within that budget. Raise the limit or switch <strong>Enforce Visualization Limit</strong> off to visualize everything regardless of cost.</p>
-<p>The live Setup guides deliberately stay on the input mesh — the thing you&#x27;re authoring reads in place, the prediction sits beside it.</p>
-<p>The prediction is a straight-line integration of the baked fields — no collisions, no drag — so treat it as a forecast, not a simulation.</p>
-<h3 id="track-motion">Track Motion</h3>
-<p>An event&#x27;s baked vectors were sampled at the input positions. Once pieces travel, a &quot;toward the target&quot; field frozen at bake time no longer points at the target. <strong>Track Motion</strong> (per event, on by default) re-aims the event&#x27;s directional velocity at the pieces&#x27; predicted positions each frame — an orbit stays tangential, a Toward keeps pointing home.</p>
-<p>It&#x27;s only available when the event captured a <em>plain</em> Directional field: Adjust, Mask, Distance Falloff, per-piece scaling or a mix of types can&#x27;t be re-evaluated, and the event then honestly replays frozen rather than guessing.</p>
-<h2 id="rest-position-attributes">Rest position attributes</h2>
-<p>Every cook stamps <code translate="no" v-pre>@startframe_rest</code> — each point&#x27;s position at the scene start frame — and each event with <strong>Create Rest Position Attribute</strong> on records its own <code translate="no" v-pre>&lt;name&gt;_rest</code> at its frame. The Directional type&#x27;s <strong>To Rest Pose</strong> mode aims at any of them: blow an object apart with one event, then pull the pieces back home with a later one. The attributes are stripped from the output unless <strong>Export Rest Position Attributes</strong> (with the other exports at the bottom of the Output tab) keeps them.</p>
-<h2 id="driving-an-rbd-solver">Driving an RBD solver</h2>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-tip"></div>
-    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-tip" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M7.90625 2.15625C4.50944 2.15625 2.15625 4.58563 2.15625 7.54688C2.15625 8.96138 2.76575 9.88281 3.57075 10.8589L3.87837 11.2226C4.19894 11.6021 4.554 12.0218 4.84581 12.4416C5.25406 13.0324 5.61775 13.7296 5.7385 14.5834C5.76728 14.8608 5.68746 15.1386 5.51579 15.3583C5.34413 15.5781 5.09399 15.7228 4.8179 15.7621C4.5418 15.8013 4.26124 15.7321 4.03512 15.5689C3.809 15.4056 3.65493 15.1612 3.60525 14.8867C3.54775 14.4814 3.37094 14.1004 3.07338 13.6692C2.8306 13.3302 2.57055 13.0039 2.29425 12.6917C2.1735 12.5479 2.04556 12.397 1.909 12.2317C1.00769 11.1406 0 9.72613 0 7.54688C0 3.32062 3.39681 0 7.90625 0C12.4157 0 15.8125 3.32062 15.8125 7.54688C15.8125 9.72613 14.8048 11.1406 13.9035 12.2317C13.7669 12.397 13.639 12.5479 13.5183 12.6903C13.2207 13.0424 12.9677 13.3414 12.7406 13.6692C12.4416 14.1004 12.2662 14.4814 12.2087 14.8867C12.1557 15.1584 12.0003 15.3994 11.7747 15.5598C11.5492 15.7202 11.2706 15.7879 10.9965 15.7488C10.7225 15.7096 10.474 15.5667 10.3023 15.3496C10.1306 15.1325 10.0489 14.8577 10.074 14.582C10.1948 13.7296 10.5584 13.0324 10.9667 12.4416C11.2585 12.0218 11.6136 11.6021 11.9341 11.2226C12.0419 11.0961 12.1454 10.9739 12.2403 10.8589C13.0468 9.88281 13.6562 8.96138 13.6562 7.54688C13.6562 4.58563 11.3031 2.15625 7.90625 2.15625ZM4.67188 17.25H11.1406C11.4266 17.25 11.7008 17.3636 11.903 17.5658C12.1052 17.768 12.2188 18.0422 12.2188 18.3281C12.2188 18.6141 12.1052 18.8883 11.903 19.0905C11.7008 19.2927 11.4266 19.4062 11.1406 19.4062H4.67188C4.38594 19.4062 4.11171 19.2927 3.90953 19.0905C3.70734 18.8883 3.59375 18.6141 3.59375 18.3281C3.59375 18.0422 3.70734 17.768 3.90953 17.5658C4.11171 17.3636 4.38594 17.25 4.67188 17.25ZM5.03125 21.9219C5.03125 21.6359 5.14484 21.3617 5.34703 21.1595C5.54921 20.9573 5.82344 20.8438 6.10938 20.8438H9.70312C9.98906 20.8438 10.2633 20.9573 10.4655 21.1595C10.6677 21.3617 10.7812 21.6359 10.7812 21.9219C10.7812 22.2078 10.6677 22.482 10.4655 22.6842C10.2633 22.8864 9.98906 23 9.70312 23H6.10938C5.82344 23 5.54921 22.8864 5.34703 22.6842C5.14484 22.482 5.03125 22.2078 5.03125 21.9219Z" />
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-            <h5>Prefer a worked example?</h5>
-<p>The <a href="../quickstart/#the-telekinetic-car">Quickstart</a> builds this end to end on a real shot — a car lifted, burst, orbited and reassembled — with the exact parameter locations on the solver.</p>
-        </div>
-    </div>
-</div>
-<p>The RBD Bullet Solver reads <code translate="no" v-pre>@v</code> through <strong>Override Attributes from SOP</strong> (under <strong>Properties ▸ Pieces ▸ Override Attributes</strong>) — but left on every frame, it re-stamps the velocity constantly and the pieces fight gravity. The events should <em>inject</em>, then let physics own the pieces. That&#x27;s what <strong>Injecting Now</strong> (Output tab) is for: it reads 1 while any event is delivering energy (attack + hold) and 0 the rest of the time.</p>
-<p>On the solver:</p>
+<h1 id="quickstart">Quickstart</h1>
+<p>Two walkthroughs. The first is the smallest thing that does something. The second is the one this node was really built for — a telekinetic sequence where events push a rigid-body sim around and physics fills in the gaps.</p>
+<h2 id="the-30-second-explosion">The 30-second explosion</h2>
 <ol>
-<li>Leave <strong>Override Attributes from SOP</strong> ON. (Don&#x27;t gate the toggle itself — the solver latches it at the sim&#x27;s first frame, and gating it delivers nothing at all.)</li>
-<li>Gate the <strong>Attributes</strong> field beneath it instead — an expression that returns <code translate="no" v-pre>v</code> only while Injecting Now reads 1, e.g. a Python expression on that parameter:</li>
+<li>Fracture something — a <strong>Voronoi Fracture</strong> into an <strong>Assemble</strong> with <em>Create Packed Geometry</em> on is the usual setup.</li>
+<li>Drop <strong>Advanced Velocity</strong> after it, set <strong>Mode</strong> to <em>Single Field</em>, and switch on <strong>Exploding Velocity</strong>.</li>
+<li>Leave <strong>Origin</strong> on <em>Whole Object</em>.</li>
 </ol>
-<div id="driving-an-rbd-solver-code-1" class="codeblock-wrapper"><doc-codeblock>
+<p>Every piece now flies away from the object&#x27;s centre. To blast from a specific spot instead, switch <strong>Origin</strong> to <em>Point Source</em> and read <a href="../using/#point-source-explosions">Point Source</a>.</p>
+<p>That&#x27;s one push. The rest of this page is what happens when you want four.</p>
+<hr>
+<h2 id="the-telekinetic-car">The telekinetic car</h2>
+<p>We&#x27;re going to lift a car off the road, burst it apart, let the pieces orbit, and then draw them back into a solid ball — with gravity switched off until the very last beat, so the whole sequence floats and only the ending falls.</p>
+<!-- Screenshot Q0 (hero for this page) — a frame from the sequence: the car in pieces, suspended, mid-orbit:
+![The telekinetic car mid-sequence](static/quickstart-hero.png) -->
+<p>Four events, in order:</p>
+<retype-table copy-text="| # | Frame | What it does | Mute Gravity |
+| --- | --- | --- | --- |
+| 1 | 20 | Lifts the car straight up | **on** |
+| 2 | 45 | Bursts it apart | **on** |
+| 3 | 70 | Swirls the pieces around the centre | **on** |
+| 4 | 110 | Pulls everything back into a ball | **off** |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>#</th>
+<th>Frame</th>
+<th>What it does</th>
+<th>Mute Gravity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>20</td>
+<td>Lifts the car straight up</td>
+<td><strong>on</strong></td>
+</tr>
+<tr>
+<td>2</td>
+<td>45</td>
+<td>Bursts it apart</td>
+<td><strong>on</strong></td>
+</tr>
+<tr>
+<td>3</td>
+<td>70</td>
+<td>Swirls the pieces around the centre</td>
+<td><strong>on</strong></td>
+</tr>
+<tr>
+<td>4</td>
+<td>110</td>
+<td>Pulls everything back into a ball</td>
+<td><strong>off</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="prepare-the-geometry">Prepare the geometry</h3>
+<p>Fracture the car and pack it: <strong>Voronoi Fracture</strong> ▸ <strong>Assemble</strong> with <em>Create Packed Geometry</em> on. Packed pieces are one point each, which is what keeps this fast — a million-polygon car might only be a few thousand pieces, and Advanced Velocity works per point.</p>
+<p>Drop <strong>Advanced Velocity</strong> after the Assemble and set <strong>Mode</strong> to <em>Timed Events</em>.</p>
+<h3 id="build-the-solver-first">Build the solver first</h3>
+<p>Press <strong>Create Connected RBD Sim</strong> in the <strong>Output</strong> tab.</p>
+<p>That builds an RBD Bullet Solver below the node with a ground plane and gravity on, already wired to both of the contracts described below. Build it now rather than at the end — you want to see each event land in the sim as you author it, not discover at the end that nothing was connected.</p>
+<h3 id="the-two-contracts">The two contracts</h3>
+<p>This is the part worth understanding, because it&#x27;s what makes events and physics coexist. Advanced Velocity sits <strong>upstream</strong> of the sim, so it can&#x27;t move anything itself. What it does is publish two live 0/1 signals that the solver reads.</p>
+<!-- Screenshot Q1 — the Output tab with Injecting Now reading 1 and Muting Gravity reading 0, mid-event:
+![Injecting Now and Muting Gravity in the Output tab](static/contracts-output-tab.png) -->
+<p><strong>Injecting Now</strong> (Output tab) reads 1 while any event is delivering energy — its attack and its hold — and 0 the rest of the time.</p>
+<p>The Bullet solver takes velocity by <em>overwriting</em> it, not by adding to it. Left reading every frame, it re-stamps your velocity constantly and the pieces can never accelerate under gravity — they hang, and it looks broken. Gated on Injecting Now, the solve takes the velocity on impulse frames and runs free in between.</p>
+<p>On the solver, that lives in:</p>
+<blockquote>
+<p><strong>Properties</strong> ▸ <strong>Pieces</strong> ▸ <strong>Override Attributes</strong></p>
+</blockquote>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-warning" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
+                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Two similarly named parameters</h5>
+<p>There is a second <em>Overwrite Attributes from SOP</em> under <strong>Collision ▸ Collision Geometry</strong>. That is the collision one and it is not what you want. The one you want is under <strong>Properties ▸ Pieces</strong> and is called <strong>Override Attributes from SOP</strong>.</p>
+        </div>
+    </div>
+</div>
+<p>Leave <strong>Override Attributes from SOP</strong> switched <strong>on</strong> permanently, and gate the <strong>Attributes</strong> field beneath it instead — a Python expression that returns <code translate="no" v-pre>v</code> only while Injecting Now is 1:</p>
+<div id="the-two-contracts-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-python"><code v-pre class="language-python">&quot;v&quot; if hou.node(&quot;/obj/geo1/advanced_velocity1&quot;).evalParm(&quot;dyn_injecting&quot;) else &quot;&quot;</code></pre>
 </doc-codeblock></div>
-<p>The solve then takes the velocity on the impulse frames and runs free in between — pieces launch, arc, and land under gravity, and the next event kicks them again. Leave <code translate="no" v-pre>w</code> out of the list unless your events author angular velocity, or the solver&#x27;s own tumble gets overwritten.</p>
-<p><strong>In a hurry? Press Create Connected RBD Sim</strong> (Output tab). It builds an RBD Bullet Solver below the node with a ground plane, gravity, and both gates already wired — the fastest way to see the contracts working, and a worked example to copy into your own setup.</p>
-<p>For POP and Vellum none of this is needed. Set <strong>Output As</strong> to Force and the node writes an accumulated <code translate="no" v-pre>@force</code> instead: those solvers add forces every step rather than overwriting velocity, so there is nothing to gate.</p>
-<h3 id="muting-gravity-for-an-impulse">Muting gravity for an impulse</h3>
-<p>Sometimes the physics is the problem. A telekinetic lift that fights 9.8 m/s² the whole way up reads as weak, and no amount of extra velocity fixes it — you want the object to genuinely float while the event holds it.</p>
-<p><strong>Mute Gravity</strong> (per event, in <strong>Event Options</strong>) does that. It&#x27;s off by default, so gravity behaves normally everywhere until you ask otherwise. Switch it on and that event&#x27;s <strong>Muting Gravity</strong> readout goes to 1 over the same window as Injecting Now — the attack and the hold — then back to 0, so gravity returns at the end of the peak and the pieces arc over naturally as the impulse fades.</p>
-<p>It&#x27;s per event on purpose: the lift mutes, the blast that follows doesn&#x27;t. Wire it on the solver the same way as the injection gate, but on the gravity <em>force</em> (<strong>Forces ▸ Gravity ▸ Force</strong>, on its Y component) rather than the <strong>Gravity</strong> checkbox above it:</p>
-<div id="muting-gravity-for-an-impulse-code-1" class="codeblock-wrapper"><doc-codeblock>
+<p>Don&#x27;t gate the toggle itself. The solver latches it at the simulation&#x27;s first frame, so a toggle that reads 0 on frame 1 delivers nothing at all, no matter how correctly it reads later.</p>
+<!-- Screenshot Q2 — the solver's Properties > Pieces > Override Attributes section, toggle ON and the gating expression visible in the Attributes field:
+![Override Attributes from SOP on the RBD Bullet Solver](static/solver-override-attributes.png) -->
+<p><strong>Muting Gravity</strong> (Output tab, just below Injecting Now) reads 1 while any event with <strong>Mute Gravity</strong> switched on is delivering energy — the same attack-plus-hold window.</p>
+<p>On the solver, gravity lives in:</p>
+<blockquote>
+<p><strong>Forces</strong> ▸ <strong>Gravity</strong> ▸ <strong>Force</strong></p>
+</blockquote>
+<p>Put the expression on that field&#x27;s <strong>Y</strong> component, so gravity is your normal value except while an event is muting it:</p>
+<div id="the-two-contracts-code-2" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-python"><code v-pre class="language-python">0.0 if hou.node(&quot;/obj/geo1/advanced_velocity1&quot;).evalParm(&quot;dyn_mute_gravity&quot;) else -9.80665</code></pre>
 </doc-codeblock></div>
-<p>Drive the force value rather than the checkbox. Both work today, but a force magnitude is read every step by definition, whereas a toggle that decides whether the force exists is the same shape as <strong>Override Attributes from SOP</strong> — which is latched at the first frame and silently ignores animation.</p>
+<p>Drive the <strong>Force</strong> value, not the <strong>Gravity</strong> checkbox above it. Both work today, but a force magnitude is read every step by definition, whereas a toggle deciding whether the force exists is the same shape as Override Attributes from SOP — the kind of parameter that gets latched at frame 1.</p>
+<!-- Screenshot Q3 — the solver's Forces > Gravity section with the muting expression on the Force Y field:
+![Gravity force on the RBD Bullet Solver](static/solver-gravity-force.png) -->
 <div class="flex mb-6">
     <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
     <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
@@ -341,18 +332,89 @@
         </div>
         <div class="pr-5 ml-3 w-full">
             <h5>Gravity belongs to the whole solve</h5>
-<p>Muting is not per piece. Gravity in a simulation applies to every object in it, so an event that mutes gravity mutes it for <em>everything</em> in that solve, not only the pieces the event moves. If you have two fractured objects in one solver and only one is being lifted, both will float.</p>
+<p>Muting is not per piece. An event that mutes gravity mutes it for <strong>every object in that simulation</strong>, not only the pieces the event moves. Two fractured objects in one solver and only one being lifted means both will float.</p>
         </div>
     </div>
 </div>
-<h2 id="good-to-know">Good to know</h2>
+<h3 id="event-1--the-lift-frame-20">Event 1 — the lift (frame 20)</h3>
+<p>In <strong>Setup</strong>, switch on <strong>Basic Velocity</strong> and set <strong>Value</strong> to something like <code translate="no" v-pre>0, 6, 0</code>. Go to frame 20 and press <strong>Create Event</strong>.</p>
+<!-- Screenshot Q4 — an event card with Event Options expanded, showing Track Motion, Create Rest Position Attribute and Mute Gravity:
+![Event Options with Mute Gravity](static/event-options.png) -->
+<p>Open <strong>Event Options</strong> on the event card and switch <strong>Mute Gravity</strong> on. Then shape the envelope: a slow <strong>Attack</strong> of around 0.6 s so the car peels off the ground rather than snapping upward, a <strong>Hold</strong> of about 0.5 s, and <strong>Release</strong> off so the lift latches instead of fading.</p>
+<p>Scrub through. The car should rise and then simply stay up — no fall, because gravity is muted and nothing else is pulling on it.</p>
+<h3 id="event-2--the-burst-frame-45">Event 2 — the burst (frame 45)</h3>
+<p>Switch <strong>Basic Velocity</strong> off and switch <strong>Exploding Velocity</strong> on, leaving <strong>Origin</strong> on <em>Whole Object</em>. Keep it modest — this is a burst, not a detonation. Go to frame 45 and press <strong>Create Event</strong>.</p>
+<p>Switch <strong>Mute Gravity</strong> on again. Give it a sharp <strong>Attack</strong> (0.1 s or so) and a short <strong>Hold</strong>, then a <strong>Release</strong> of about 1 s set to <strong>Drag</strong>, which decays the motion smoothly instead of cutting it. The pieces spread out and drift, still weightless.</p>
+<h3 id="event-3--the-orbit-frame-70">Event 3 — the orbit (frame 70)</h3>
+<p>Switch Exploding off and switch <strong>Directional Velocity</strong> on. Set <strong>Direction</strong> to <em>To Position</em>, leave the target at the world centre or type in the middle of the car, and pull <strong>Direction Bias</strong> to <code translate="no" v-pre>0</code> — that&#x27;s pure orbit, tangential motion with no pull inward or outward.</p>
+<p>Go to frame 70, press <strong>Create Event</strong>, and switch <strong>Mute Gravity</strong> on. Use a gentle attack and a long hold so the swirl persists.</p>
+<p>Because the pieces have moved a long way from where they were baked, leave <strong>Track Motion</strong> on (it&#x27;s the default, in Event Options). It re-aims the field at the pieces&#x27; predicted positions each frame, so the orbit keeps circling the target instead of pointing at where the pieces used to be.</p>
+<h3 id="event-4--the-reassembly-frame-110">Event 4 — the reassembly (frame 110)</h3>
+<p>This is where the rest-position machinery earns its place. On the <strong>first</strong> event, Event Options ▸ <strong>Create Rest Position Attribute</strong> was already on by default, so the car&#x27;s original pose was recorded when you made it.</p>
+<p>Set <strong>Direction</strong> to <em>To Rest Pose</em>, pick the rest attribute you want from the <strong>Rest Pose Attribute</strong> menu, and push <strong>Direction Bias</strong> back to <code translate="no" v-pre>1</code> — straight at the target. Go to frame 110 and press <strong>Create Event</strong>.</p>
+<p><strong>Leave Mute Gravity off on this one.</strong> That&#x27;s the whole ending: gravity comes back at the moment the pieces are pulled home, so the reassembled car forms and then drops under its own weight.</p>
+<p>Give this event a long attack so the pieces gather rather than snap.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-tip"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-tip" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M7.90625 2.15625C4.50944 2.15625 2.15625 4.58563 2.15625 7.54688C2.15625 8.96138 2.76575 9.88281 3.57075 10.8589L3.87837 11.2226C4.19894 11.6021 4.554 12.0218 4.84581 12.4416C5.25406 13.0324 5.61775 13.7296 5.7385 14.5834C5.76728 14.8608 5.68746 15.1386 5.51579 15.3583C5.34413 15.5781 5.09399 15.7228 4.8179 15.7621C4.5418 15.8013 4.26124 15.7321 4.03512 15.5689C3.809 15.4056 3.65493 15.1612 3.60525 14.8867C3.54775 14.4814 3.37094 14.1004 3.07338 13.6692C2.8306 13.3302 2.57055 13.0039 2.29425 12.6917C2.1735 12.5479 2.04556 12.397 1.909 12.2317C1.00769 11.1406 0 9.72613 0 7.54688C0 3.32062 3.39681 0 7.90625 0C12.4157 0 15.8125 3.32062 15.8125 7.54688C15.8125 9.72613 14.8048 11.1406 13.9035 12.2317C13.7669 12.397 13.639 12.5479 13.5183 12.6903C13.2207 13.0424 12.9677 13.3414 12.7406 13.6692C12.4416 14.1004 12.2662 14.4814 12.2087 14.8867C12.1557 15.1584 12.0003 15.3994 11.7747 15.5598C11.5492 15.7202 11.2706 15.7879 10.9965 15.7488C10.7225 15.7096 10.474 15.5667 10.3023 15.3496C10.1306 15.1325 10.0489 14.8577 10.074 14.582C10.1948 13.7296 10.5584 13.0324 10.9667 12.4416C11.2585 12.0218 11.6136 11.6021 11.9341 11.2226C12.0419 11.0961 12.1454 10.9739 12.2403 10.8589C13.0468 9.88281 13.6562 8.96138 13.6562 7.54688C13.6562 4.58563 11.3031 2.15625 7.90625 2.15625ZM4.67188 17.25H11.1406C11.4266 17.25 11.7008 17.3636 11.903 17.5658C12.1052 17.768 12.2188 18.0422 12.2188 18.3281C12.2188 18.6141 12.1052 18.8883 11.903 19.0905C11.7008 19.2927 11.4266 19.4062 11.1406 19.4062H4.67188C4.38594 19.4062 4.11171 19.2927 3.90953 19.0905C3.70734 18.8883 3.59375 18.6141 3.59375 18.3281C3.59375 18.0422 3.70734 17.768 3.90953 17.5658C4.11171 17.3636 4.38594 17.25 4.67188 17.25ZM5.03125 21.9219C5.03125 21.6359 5.14484 21.3617 5.34703 21.1595C5.54921 20.9573 5.82344 20.8438 6.10938 20.8438H9.70312C9.98906 20.8438 10.2633 20.9573 10.4655 21.1595C10.6677 21.3617 10.7812 21.6359 10.7812 21.9219C10.7812 22.2078 10.6677 22.482 10.4655 22.6842C10.2633 22.8864 9.98906 23 9.70312 23H6.10938C5.82344 23 5.54921 22.8864 5.34703 22.6842C5.14484 22.482 5.03125 22.2078 5.03125 21.9219Z" />
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>To Rest Pose decelerates as it arrives</h5>
+<p>Its speed equals the distance remaining, so pieces slow down as they close in — an asymptotic approach that never quite slams together. For a constant-speed pull, switch on <strong>Normalize Direction</strong> and set the speed with the Adjust controls instead.</p>
+        </div>
+    </div>
+</div>
+<hr>
+<h2 id="the-stasis-trick">The stasis trick</h2>
+<p>A question worth answering directly, because the behaviour is more useful than it first appears.</p>
+<p><strong>What does an event with no velocity types enabled and Mute Gravity on actually do?</strong></p>
+<p>It doesn&#x27;t just mute gravity — it freezes everything solid. Measured on a real solve, with the pieces already flying upward when a blank event&#x27;s window arrives:</p>
+<retype-table copy-text="| | motion per frame inside the window |
+| --- | --- |
+| Blank event alone | a steady -0.0094 — a slow sink |
+| Blank event **+ Mute Gravity** | **exactly 0.0000 — dead stop** |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th> </th>
+<th>motion per frame inside the window</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Blank event alone</td>
+<td>a steady -0.0094 — a slow sink</td>
+</tr>
+<tr>
+<td>Blank event <strong>+ Mute Gravity</strong></td>
+<td><strong>exactly 0.0000 — dead stop</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<p>The reason is that a blank event still opens the Injecting Now gate. Its baked field is all zeros, so the solver dutifully overwrites every piece&#x27;s velocity with zero. Add Mute Gravity and there is no gravity to pull them down either — so the pieces stop dead in mid-air and stay exactly where they were until the event&#x27;s hold ends, then resume falling.</p>
+<p>That is a genuinely useful beat for this kind of effect: <strong>drop a blank event with Mute Gravity on wherever you want everything to hang suspended.</strong> Set its Hold to the length of the pause you want.</p>
+<p>Note the distinction, because it catches people out:</p>
 <ul>
-<li><strong>Incoming Velocity is a live base layer.</strong> The velocity arriving on your input plays underneath the events, every frame — it&#x27;s never baked into them, so it can&#x27;t be double-counted and an animated input stays live between events.</li>
-<li><strong>Bakes are per-point.</strong> An event&#x27;s field is stored against the input&#x27;s point count; re-fracture the object and existing events skip until you <strong>Update</strong> them.</li>
-<li><strong>A later blast kicks the pieces that were near it at bake time</strong>, wherever they&#x27;ve since travelled — the radius selection is frozen when the event is baked. Track Motion re-aims directions, not membership.</li>
-<li><strong>Baked guides can be unified to one colour</strong> (Visualization ▸ Unify Baked Guides) when the per-type colours are more information than you want.</li>
-<li><strong>A blank event with Mute Gravity on freezes everything solid.</strong> With no velocity types enabled its baked field is all zeros, and it still opens the injection gate — so the solver overwrites every piece&#x27;s velocity with zero while gravity is muted, and the pieces hang exactly where they were until the event&#x27;s hold ends. Useful on purpose: see <a href="../quickstart/#the-stasis-trick">the stasis trick</a>.</li>
+<li>Want gravity off but the pieces to <strong>keep moving</strong>? Put <strong>Mute Gravity on the event that&#x27;s already doing the work</strong> — the lift, the burst — as in the walkthrough above.</li>
+<li>Want everything to <strong>hang motionless</strong>? Use a <strong>blank event</strong> with Mute Gravity on.</li>
 </ul>
+<h2 id="if-something-looks-wrong">If something looks wrong</h2>
+<ul>
+<li><strong>Pieces hang in the air and never fall.</strong> The Attributes list isn&#x27;t gated — it&#x27;s overwriting velocity every frame. Check the expression is on <strong>Attributes</strong>, not on the toggle.</li>
+<li><strong>The impulse never arrives.</strong> You gated <strong>Override Attributes from SOP</strong> itself. Switch it permanently on and gate the list instead.</li>
+<li><strong>Nothing changes when you tweak the Setup sliders.</strong> In Timed Events, the Setup tab is a template for the <em>next</em> event. Press <strong>Update</strong> on an existing event to re-bake it — the <strong>Stale</strong> readout tells you when an event has drifted from the live setup.</li>
+<li><strong>A later blast affects the wrong pieces.</strong> Which pieces a Point Source catches is frozen when the event is baked. Track Motion re-aims directions, not membership.</li>
+</ul>
+<p>More in <a href="../troubleshooting/">Troubleshooting</a>.</p>
 <div id="retype-backlinks">
     <h2>See also</h2>
 <div class="card-compact-group">
@@ -379,24 +441,24 @@
     </a>
 </div>
 <div class="card-compact-container">
-    <a href="/jvtools-docs/advanced-velocity/parameters/" class="group card-compact no-link">
+    <a href="/jvtools-docs/advanced-velocity/timed-events/" class="group card-compact no-link">
         <div class="card-compact-body">
             <div class="card-compact-header">
-                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M11 18.25a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1-.75-.75Zm-8-12a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 3 6.25Zm13 6a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 0 1.5h-3.5a.75.75 0 0 1-.75-.75ZM8.75 16a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75Z"/><path d="M3 18.25a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Zm0-6a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1-.75-.75ZM16.75 10a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75ZM14 6.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 0 1.5h-5.5a.75.75 0 0 1-.75-.75ZM11.25 4a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75Z"/></svg></span>
-                <span class="card-compact-title">Parameter Reference</span>
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M12.5 7.25a.75.75 0 0 0-1.5 0v5.5c0 .27.144.518.378.651l3.5 2a.75.75 0 0 0 .744-1.302L12.5 12.315V7.25Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></svg></span>
+                <span class="card-compact-title">Timed Events</span>
             </div>
-            <p class="card-compact-description">Every hand-authored parameter on the Advanced Velocity node, grouped as it appears in the interface. Names in code are the internal parameter names.</p>
+            <p class="card-compact-description">One velocity field is rarely the whole story. The shot is a car lifted at frame 10, torn apart at frame 40, spun at frame 70 — three different velocity setups, at three different times, summed where they overlap.</p>
         </div>
     </a>
 </div>
 <div class="card-compact-container">
-    <a href="/jvtools-docs/advanced-velocity/using/" class="group card-compact no-link">
+    <a href="/jvtools-docs/advanced-velocity/troubleshooting/" class="group card-compact no-link">
         <div class="card-compact-body">
             <div class="card-compact-header">
-                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M7.875 2.292a.114.114 0 0 0-.032.018A7.239 7.239 0 0 0 4.75 8.25a7.248 7.248 0 0 0 3.654 6.297c.57.327.982.955.941 1.682v.002l-.317 6.058a.75.75 0 1 1-1.498-.078l.317-6.062v-.004c.006-.09-.047-.215-.188-.296A8.749 8.749 0 0 1 3.25 8.25a8.738 8.738 0 0 1 3.732-7.169 1.547 1.547 0 0 1 1.709-.064c.484.292.809.835.809 1.46v4.714a.25.25 0 0 0 .119.213l2.25 1.385c.08.05.182.05.262 0l2.25-1.385a.25.25 0 0 0 .119-.213V2.478c0-.626.325-1.169.81-1.461a1.547 1.547 0 0 1 1.708.064 8.741 8.741 0 0 1 3.732 7.17 8.747 8.747 0 0 1-4.41 7.598c-.14.081-.193.206-.188.296v.004l.318 6.062a.75.75 0 1 1-1.498.078l-.317-6.058v-.002c-.041-.727.37-1.355.94-1.682A7.247 7.247 0 0 0 19.25 8.25a7.239 7.239 0 0 0-3.093-5.94.114.114 0 0 0-.032-.018l-.01-.001c-.003 0-.014 0-.031.01-.036.022-.084.079-.084.177V7.19c0 .608-.315 1.172-.833 1.49l-2.25 1.385a1.75 1.75 0 0 1-1.834 0l-2.25-1.384A1.752 1.752 0 0 1 8 7.192V2.477c0-.098-.048-.155-.084-.176a.068.068 0 0 0-.031-.011l-.01.001Z"/></svg></span>
-                <span class="card-compact-title">Using Advanced Velocity</span>
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M10.97 8.265a1.45 1.45 0 0 0-.487.57.75.75 0 0 1-1.341-.67c.2-.402.513-.826.997-1.148C10.627 6.69 11.244 6.5 12 6.5c.658 0 1.369.195 1.934.619a2.45 2.45 0 0 1 1.004 2.006c0 1.033-.513 1.72-1.027 2.215-.19.183-.399.358-.579.508l-.147.123a4.329 4.329 0 0 0-.435.409v1.37a.75.75 0 1 1-1.5 0v-1.473c0-.237.067-.504.247-.736.22-.28.486-.517.718-.714l.183-.153.001-.001c.172-.143.324-.27.47-.412.368-.355.569-.676.569-1.136a.953.953 0 0 0-.404-.806C12.766 8.118 12.384 8 12 8c-.494 0-.814.121-1.03.265ZM13 17a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></svg></span>
+                <span class="card-compact-title">Troubleshooting</span>
             </div>
-            <p class="card-compact-description">This page covers the setup surface: the six velocity types, the mixer, the output, and the visualization. The event workflow has its own page.</p>
+            <p class="card-compact-description">You're in Timed Events mode (the default), where the live Setup is a template — only baked events reach the output. Press Create Event to bake the setup, or Update on an existing event's row to fold your changes into it.</p>
         </div>
     </a>
 </div>
@@ -411,20 +473,20 @@
             
                 <nav id="retype-nextprev" class="print:hidden flex mt-14">
                     <div class="w-1/2">
-                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../advanced-velocity/using/">
+                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../advanced-velocity/getting-started/">
                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                             <span>
                                 <span class="block text-xs font-normal text-base-text-muted">Previous</span>
-                                <span class="block mt-1">Using Advanced Velocity</span>
+                                <span class="block mt-1">Getting Started</span>
                             </span>
                         </a>
                     </div>
             
                     <div class="w-1/2">
-                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../advanced-velocity/parameters/">
+                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../advanced-velocity/using/">
                             <span>
                                 <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
-                                <span class="block mt-1">Parameter Reference</span>
+                                <span class="block mt-1">Using Advanced Velocity</span>
                             </span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                         </a>
@@ -468,6 +530,6 @@
 
     <div id="retype-overlay-target"></div>
 
-        <script data-cfasync="false">window.__DOCS__ = { "title": "Timed Events", level: 2, icon: "file", hasPrism: true, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/advanced-velocity/timed-events.md" }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Quickstart", level: 2, icon: "file", hasPrism: true, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/advanced-velocity/quickstart.md" }</script>
 </body>
 </html>

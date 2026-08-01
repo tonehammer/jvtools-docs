@@ -40,6 +40,7 @@
 ## Advanced Velocity
 
 - [Getting Started](https://tonehammer.github.io/jvtools-docs/advanced-velocity/getting-started.md): Download JV-Advanced_Velocity-vX.Y.hdalc from your Gumroad library.
+- [Quickstart](https://tonehammer.github.io/jvtools-docs/advanced-velocity/quickstart.md): Two walkthroughs. The first is the smallest thing that does something. The second is the one this node was really built for — a telekinetic sequence where events push a rigid-body sim around and physics fills in the gaps.
 - [Using Advanced Velocity](https://tonehammer.github.io/jvtools-docs/advanced-velocity/using.md): This page covers the setup surface: the six velocity types, the mixer, the output, and the visualization. The event workflow has its own page.
 - [Timed Events](https://tonehammer.github.io/jvtools-docs/advanced-velocity/timed-events.md): One velocity field is rarely the whole story. The shot is a car lifted at frame 10, torn apart at frame 40, spun at frame 70 — three different velocity setups, at three different times, summed where they overlap.
 - [Parameter Reference](https://tonehammer.github.io/jvtools-docs/advanced-velocity/parameters.md): Every hand-authored parameter on the Advanced Velocity node, grouped as it appears in the interface. Names in code are the internal parameter names.

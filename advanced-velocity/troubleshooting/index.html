@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838900767932">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838901629360">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838900767932" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838901629360" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838900767932" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838901629360" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838900767932" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838901629360" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -230,7 +230,8 @@
 <h2 id="both--off-surface-ignore-my-normals">Both / Off Surface ignore my normals</h2>
 <p>They need a <strong>point</strong> <code translate="no" v-pre>@N</code>. A vertex normal isn&#x27;t seen — set the Normal SOP to <em>Point</em> normals. Without point normals, Off Surface pushes away from the body&#x27;s centre and Both uses the thinnest bounding-box axis.</p>
 <h2 id="my-rbd-pieces-fight-gravity--hang-in-the-air">My RBD pieces fight gravity / hang in the air</h2>
-<p>The solver&#x27;s <strong>Overwrite Attributes from SOP</strong> is re-stamping <code translate="no" v-pre>@v</code> every frame, so gravity never accumulates. Gate the <strong>Overwrite Attributes list</strong> on the node&#x27;s <strong>Injecting Now</strong> readout so velocity is only taken during an event&#x27;s attack and hold — the exact recipe is in <a href="../timed-events/#driving-an-rbd-solver">Driving an RBD solver</a>. Don&#x27;t gate the Overwrite from SOP toggle itself; the solver latches it at the sim&#x27;s first frame.</p>
+<p>The solver&#x27;s <strong>Override Attributes from SOP</strong> is re-stamping <code translate="no" v-pre>@v</code> every frame, so gravity never accumulates. Gate the <strong>Attributes</strong> field beneath it on the node&#x27;s <strong>Injecting Now</strong> readout, so velocity is only taken during an event&#x27;s attack and hold — the worked recipe, with the exact solver locations, is in the <a href="../quickstart/#the-two-contracts">Quickstart</a>. Don&#x27;t gate the Override Attributes from SOP toggle itself; the solver latches it at the sim&#x27;s first frame.</p>
+<p>Both parameters live under <strong>Properties ▸ Pieces ▸ Override Attributes</strong>. Note there is a similarly named <em>Overwrite Attributes from SOP</em> under <strong>Collision ▸ Collision Geometry</strong> — that one is for collision geometry and is not what you want.</p>
 <h2 id="the-pieces-suddenly-stop-rotating-mid-flight">The pieces suddenly &quot;stop rotating&quot; mid-flight</h2>
 <p>They almost certainly haven&#x27;t — a piece in free flight has no contacts, so no torque, so its spin rate is exactly constant, which reads as frozen next to fast translation. Watch what happens when they land: the tumble comes back. (The motion preview&#x27;s ghost is a straight-line prediction, so judge rotation from the sim, not the ghost.)</p>
 <h2 id="medial-axis-is-extremely-slow">Medial Axis is extremely slow</h2>
@@ -254,6 +255,17 @@
                 <span class="card-compact-title">Advanced Velocity</span>
             </div>
             <p class="card-compact-description">Welcome! Advanced Velocity (v1.0) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them together on one node.</p>
+        </div>
+    </a>
+</div>
+<div class="card-compact-container">
+    <a href="/jvtools-docs/advanced-velocity/quickstart/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M15.716 1.329a1.341 1.341 0 0 1 2.109 1.55L15.147 9h4.161c1.623 0 2.372 2.016 1.143 3.075L8.102 22.721a1.148 1.148 0 0 1-1.81-1.317L8.996 15H4.674c-1.619 0-2.37-2.008-1.148-3.07l12.19-10.6Zm.452 1.595L4.51 13.061a.25.25 0 0 0 .164.439h5.45a.749.749 0 0 1 .692 1.041l-2.559 6.066 11.215-9.668a.25.25 0 0 0-.164-.439H14a.75.75 0 0 1-.687-1.05Z"/></svg></span>
+                <span class="card-compact-title">Quickstart</span>
+            </div>
+            <p class="card-compact-description">Two walkthroughs. The first is the smallest thing that does something. The second is the one this node was really built for — a telekinetic sequence where events push a rigid-body sim around and physics fills in the gaps.</p>
         </div>
     </a>
 </div>

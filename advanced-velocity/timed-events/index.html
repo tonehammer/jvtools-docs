@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838918126613">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838926772966">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,12 +38,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838918126613" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838926772966" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838918126613" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838926772966" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838918126613" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.838918126613" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838926772966" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.838926772966" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -312,10 +312,33 @@
 <ul>
 <li><strong>Off</strong> — gravity is never touched. The default.</li>
 <li><strong>During Impulse</strong> — muted over the same window as Injecting Now, the attack and the hold, then back to 0. Gravity returns at the end of the peak and the pieces arc over naturally as the impulse fades.</li>
-<li><strong>Until Next Event</strong> — the mute carries on until the next event opens, however short this event&#x27;s Hold is.</li>
+<li><strong>Until Next Event / End</strong> — the mute carries on until the next event opens, however short this event&#x27;s Hold is.</li>
 </ul>
 <p>That last one is what to reach for when a sequence of events leaves the pieces <strong>falling in the gaps between beats</strong>. It is deliberately <em>not</em> the same as extending Hold. Extending Hold keeps Injecting Now open too, so the solver re-stamps <code translate="no" v-pre>@v</code> on every frame of the gap: the pieces fly on rails, with no collisions and no tumble. Extending only the gravity mute lets the impulse fade normally while the solver keeps the pieces — they coast on the momentum it already gave them, keep tumbling, still collide, and simply do not fall.</p>
-<p>The last event has no next event, so it falls back to During Impulse — at the end of a shot the pieces are usually meant to land.</p>
+<p>On the <strong>last</strong> event there is no next event, so the mute runs until that event stops contributing:</p>
+<ul>
+<li>Release <strong>off</strong> — the envelope latches at full strength, so the mute holds to the end of the frame range.</li>
+<li>Release <strong>on</strong>, Fade — the mute ends where the fade ends.</li>
+<li>Release <strong>on</strong>, Drag — the decay is asymptotic and never reaches zero, so again to the end of the range.</li>
+</ul>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-primary"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-primary" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>warning A final event with Hold and Release both off</h5>
+<p>This is the shape that catches people out. With both disabled the <em>envelope</em> latches at full strength forever — but <strong>During Impulse</strong> only covers attack plus hold, which is now just the attack, so gravity comes back the instant the event reaches full strength. If the pieces should keep coasting to the end of the shot, that event wants <strong>Until Next Event / End</strong>.</p>
+        </div>
+    </div>
+</div>
 <p>It&#x27;s per event on purpose: the lift mutes, the blast that follows doesn&#x27;t. Wire it on the solver the same way as the injection gate, but on the gravity <em>force</em> (<strong>Forces ▸ Gravity ▸ Force</strong>, on its Y component) rather than the <strong>Gravity</strong> checkbox above it:</p>
 <div id="muting-gravity-for-an-impulse-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-python"><code v-pre class="language-python">0.0 if hou.node(&quot;/obj/geo1/advanced_velocity1&quot;).evalParm(&quot;dyn_mute_gravity&quot;) else -9.80665</code></pre>

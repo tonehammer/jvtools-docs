@@ -112,11 +112,19 @@ Sometimes the physics is the problem. A telekinetic lift that fights 9.8 m/s² t
 
 * **Off** — gravity is never touched. The default.
 * **During Impulse** — muted over the same window as Injecting Now, the attack and the hold, then back to 0. Gravity returns at the end of the peak and the pieces arc over naturally as the impulse fades.
-* **Until Next Event** — the mute carries on until the next event opens, however short this event's Hold is.
+* **Until Next Event / End** — the mute carries on until the next event opens, however short this event's Hold is.
 
 That last one is what to reach for when a sequence of events leaves the pieces **falling in the gaps between beats**. It is deliberately *not* the same as extending Hold. Extending Hold keeps Injecting Now open too, so the solver re-stamps `@v` on every frame of the gap: the pieces fly on rails, with no collisions and no tumble. Extending only the gravity mute lets the impulse fade normally while the solver keeps the pieces — they coast on the momentum it already gave them, keep tumbling, still collide, and simply do not fall.
 
-The last event has no next event, so it falls back to During Impulse — at the end of a shot the pieces are usually meant to land.
+On the **last** event there is no next event, so the mute runs until that event stops contributing:
+
+* Release **off** — the envelope latches at full strength, so the mute holds to the end of the frame range.
+* Release **on**, Fade — the mute ends where the fade ends.
+* Release **on**, Drag — the decay is asymptotic and never reaches zero, so again to the end of the range.
+
+!!! warning A final event with Hold and Release both off
+This is the shape that catches people out. With both disabled the *envelope* latches at full strength forever — but **During Impulse** only covers attack plus hold, which is now just the attack, so gravity comes back the instant the event reaches full strength. If the pieces should keep coasting to the end of the shot, that event wants **Until Next Event / End**.
+!!!
 
 It's per event on purpose: the lift mutes, the blast that follows doesn't. Wire it on the solver the same way as the injection gate, but on the gravity *force* (**Forces ▸ Gravity ▸ Force**, on its Y component) rather than the **Gravity** checkbox above it:
 

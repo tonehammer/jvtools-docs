@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838918126613">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838926772966">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838918126613" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838926772966" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838918126613" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838926772966" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838918126613" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838926772966" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -329,12 +329,22 @@
 <h2 id="visualization">Visualization</h2>
 <p>The guides are <strong>guide geometry</strong>: they draw in the viewport while the node is current and never touch the output — nothing to clean up before a sim. Select a downstream node and they disappear with the selection, like Houdini&#x27;s own node guides.</p>
 <ul>
-<li><strong>Show Guides</strong> is the master switch.</li>
-<li>Each stream has a toggle, a colour, and its own extra <strong>Scale</strong>, on top of the <strong>Guide Global Scale</strong>. Trail lengths are scaled by each stream&#x27;s <em>real contribution to the mix</em> — turn a gain down and its guides shorten with it, so what you see tracks what the mixer is actually doing. Live setup trails draw dashed; baked event trails draw solid.</li>
-<li><strong>Guide Density</strong> draws only a fraction of the trails, for viewport speed on heavy fractures. The same pieces stay chosen frame to frame. On dense inputs the trails also auto-cap at the <strong>Visualization Limit</strong> (default 25,000), with Density scaling within that budget — raise the limit or switch it off to draw everything.</li>
-<li>Two further groups appear in Timed Events only. <strong>Timed Events</strong> holds <strong>Source</strong> (which stream the guides draw — Setup, Events or Both), <strong>Preview Motion</strong> with its ghost and <strong>Offset</strong>, and <strong>Unify Baked Guides</strong>. <strong>Timeline HUD</strong> holds the on-screen event ruler — see <a href="../timed-events/#the-event-timeline">the timeline and the preview</a>. The timeline is drawn by the viewer state rather than as guide geometry, which is why Show Guides and the Visualization Limit leave it alone.</li>
+<li>
+<p><strong>Show Guides</strong> is the master switch.</p>
+</li>
+<li>
+<p>Each stream has a toggle, a colour, and its own extra <strong>Scale</strong>, on top of the <strong>Guide Global Scale</strong>. Trail lengths are scaled by each stream&#x27;s <em>real contribution to the mix</em> — turn a gain down and its guides shorten with it, so what you see tracks what the mixer is actually doing. Live setup trails draw dashed; baked event trails draw solid.</p>
+</li>
+<li>
+<p><strong>Guide Density</strong> draws only a fraction of the trails, for viewport speed on heavy fractures. The same pieces stay chosen frame to frame. On dense inputs the trails also auto-cap at the <strong>Visualization Limit</strong> (default 25,000), with Density scaling within that budget — raise the limit or switch it off to draw everything.</p>
+<p>The <strong>first</strong> time you connect geometry to a fresh node, Density is set for you from the input&#x27;s point count, aiming at roughly 200 trails — enough to read the field without covering the object. A few hundred points keeps every trail; a couple of thousand lands around <code translate="no" v-pre>0.1</code>. It happens once and silently: change the value and it is yours, and re-wiring a different mesh later never overrides it.</p>
+</li>
+<li>
+<p>Two further groups appear in Timed Events only. <strong>Timed Events</strong> holds <strong>Source</strong> (which stream the guides draw — Setup, Events or Both), <strong>Preview Motion</strong> with its ghost and <strong>Offset</strong>, and <strong>Unify Baked Guides</strong>. <strong>Timeline HUD</strong> holds the on-screen event ruler — see <a href="../timed-events/#the-event-timeline">the timeline and the preview</a>. The timeline is drawn by the viewer state rather than as guide geometry, which is why Show Guides and the Visualization Limit leave it alone.</p>
+</li>
 </ul>
 <p>Need the guides as <em>renderable</em> geometry — for a breakdown or a preview render? <strong>Utilities ▸ Output Guides Only</strong> swaps the node&#x27;s output to the guide curves themselves.</p>
+<p>In Timed Events it always gives you the same thing: the baked event trails, in their per-type colours, sitting at the input&#x27;s rest positions. <strong>Source</strong>, <strong>Preview Motion</strong> and <strong>Show Ghost Geometry</strong> are overridden while it is on, so the pass can&#x27;t accidentally include the motion-preview ghost or the pinned Setup guides, and it can&#x27;t come out empty because Show Guides happened to be off. The viewport shows the same thing, so what you see is what you render.</p>
 <div id="retype-backlinks">
     <h2>See also</h2>
 <div class="card-compact-group">

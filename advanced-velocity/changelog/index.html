@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838918126613">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838926772966">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838918126613" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838926772966" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838918126613" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838926772966" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838918126613" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838926772966" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -230,7 +230,7 @@
 <li>Additive mixing with per-type gains, or weighted mixing normalized across the enabled streams, with one <strong>Master Speed</strong></li>
 <li><strong>Incoming Velocity</strong> as its own stream, on by default — nodes stack, caches survive, and in Timed Events it plays as a live base under the events</li>
 <li>Velocity output for the RBD Bullet Solver or accumulated force for POP / Vellum, with independent velocity / force attribute names</li>
-<li><strong>Injecting Now</strong> and per-event <strong>Mute Gravity</strong> signals for gating an RBD solve — gravity can stay muted <strong>until the next event</strong>, so pieces coast instead of falling between beats while physics still owns them — plus <strong>Create Connected RBD Sim</strong> to wire a solver to both in one click</li>
+<li><strong>Injecting Now</strong> and per-event <strong>Mute Gravity</strong> signals for gating an RBD solve — gravity can stay muted <strong>until the next event, or to the end of the shot on the last one</strong>, so pieces coast instead of falling between beats while physics still owns them — plus <strong>Create Connected RBD Sim</strong> to wire a solver to both in one click</li>
 <li><strong>Scale by Piece Size</strong> — big chunks fly slower, from a mass attribute or each packed piece&#x27;s real size</li>
 <li>Speed clamping, per-stream exports, and an output stripped of every internal attribute</li>
 </ul>

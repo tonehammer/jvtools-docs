@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838918126613">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838926772966">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838918126613" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838926772966" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838918126613" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838926772966" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838918126613" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838926772966" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -299,7 +299,7 @@
 | Captured | `ev_summary#` | What the event actually baked: types, point count, peak speed. |
 | *Event Options* ▸ Track Motion | `ev_track#` | Re-aim the event's directional velocity at the pieces' predicted positions each frame. Plain Directional fields only. |
 | *Event Options* ▸ Create Rest Position Attribute | `ev_rest_en#` | Record this event's positions into a `&lt;name&gt;_rest` attribute for To Rest Pose. |
-| *Event Options* ▸ Mute Gravity | `ev_mute_grav#` | Off / During Impulse (attack + hold) / Until Next Event. Off by default. Until Next Event keeps gravity muted across the gap to the next event without holding the impulse on, so pieces coast instead of falling; the last event falls back to During Impulse. Mutes gravity for the whole solve, not just this event's pieces. |
+| *Event Options* ▸ Mute Gravity | `ev_mute_grav#` | Off / During Impulse (attack + hold) / Until Next Event / End. Off by default. The third setting keeps gravity muted across the gap to the next event without holding the impulse on, so pieces coast instead of falling; on the last event it runs until that event stops contributing — to the end of the range when Release is off, since the envelope latches there. Mutes gravity for the whole solve, not just this event's pieces. |
 | Attack / Hold / Release | `ev_atk#`, `ev_hold#`, `ev_rel#` | Envelope phases in **frames**, each with its own enable checkbox, all on by default. Switch all three off to latch the event at full strength forever. |
 | Extend to Next | `ev_extend#` | Set Hold so this event holds until the next event's Attack opens. Next is by frame, ignoring solo/mute. Refuses on the last event. |
 | (undo, beside Extend to Next) | `ev_extend_undo#` | Put Hold back to what the last Extend to Next replaced. That setting only, one press deep; greyed until Extend has been used. |
@@ -345,7 +345,7 @@
 <tr>
 <td><em>Event Options</em> ▸ Mute Gravity</td>
 <td><code translate="no" v-pre>ev_mute_grav#</code></td>
-<td>Off / During Impulse (attack + hold) / Until Next Event. Off by default. Until Next Event keeps gravity muted across the gap to the next event without holding the impulse on, so pieces coast instead of falling; the last event falls back to During Impulse. Mutes gravity for the whole solve, not just this event&#x27;s pieces.</td>
+<td>Off / During Impulse (attack + hold) / Until Next Event / End. Off by default. The third setting keeps gravity muted across the gap to the next event without holding the impulse on, so pieces coast instead of falling; on the last event it runs until that event stops contributing — to the end of the range when Release is off, since the envelope latches there. Mutes gravity for the whole solve, not just this event&#x27;s pieces.</td>
 </tr>
 <tr>
 <td>Attack / Hold / Release</td>
@@ -893,7 +893,7 @@
 | --- | --- | --- |
 | Show Guides | `viz_guides` | Master switch for all velocity guides. |
 | Guide Global Scale | `viz_scale` | Length multiplier for all guide trails. |
-| Guide Density | `viz_density` | Fraction of trails actually drawn, for viewport speed. On dense inputs the trails also auto-cap at the Visualization Limit; Density scales within that budget. |
+| Guide Density | `viz_density` | Fraction of trails actually drawn, for viewport speed. Picked for you the first time geometry is connected to a fresh node, aiming at roughly 200 trails; after that it is yours and is never changed again. On dense inputs the trails also auto-cap at the Visualization Limit; Density scales within that budget. |
 | Enforce Visualization Limit | `viz_limit_enable`, `viz_limit` | Point budget (default 25,000) for the heavy-input safeties: the maximum guide trails drawn, and the input size above which Preview Motion auto-disables. Raise it or switch it off to visualize everything regardless of cost. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
@@ -918,7 +918,7 @@
 <tr>
 <td>Guide Density</td>
 <td><code translate="no" v-pre>viz_density</code></td>
-<td>Fraction of trails actually drawn, for viewport speed. On dense inputs the trails also auto-cap at the Visualization Limit; Density scales within that budget.</td>
+<td>Fraction of trails actually drawn, for viewport speed. Picked for you the first time geometry is connected to a fresh node, aiming at roughly 200 trails; after that it is yours and is never changed again. On dense inputs the trails also auto-cap at the Visualization Limit; Density scales within that budget.</td>
 </tr>
 <tr>
 <td>Enforce Visualization Limit</td>
@@ -1001,7 +1001,7 @@
 <h2 id="utilities">Utilities</h2>
 <retype-table copy-text="| Parameter | Name | Description |
 | --- | --- | --- |
-| Output Guides Only (No Geometry) | `out_guides_only` | Output the guide curves instead of the geometry — for rendering the guides as their own pass. |
+| Output Guides Only (No Geometry) | `out_guides_only` | Output the guide curves instead of the geometry — for rendering the guides as their own pass. In Timed Events it always emits the baked event trails at the input's rest positions: Guides Show, Preview Motion and Show Ghost Geometry are overridden, so the pass can never pick up the ghost or the pinned Setup guides. |
 | Restore Viewport HUD | `util_restore_hud` | Re-enter the node's viewer state, bringing the event timeline back after an asset refresh. |
 | Links | `gumroad`, `docs`, `discord`, `youtube` | This documentation, the store page, and the community. |">
 <div class="table-wrapper scrollbar overflow-hidden">
@@ -1017,7 +1017,7 @@
 <tr>
 <td>Output Guides Only (No Geometry)</td>
 <td><code translate="no" v-pre>out_guides_only</code></td>
-<td>Output the guide curves instead of the geometry — for rendering the guides as their own pass.</td>
+<td>Output the guide curves instead of the geometry — for rendering the guides as their own pass. In Timed Events it always emits the baked event trails at the input&#x27;s rest positions: Guides Show, Preview Motion and Show Ghost Geometry are overridden, so the pass can never pick up the ghost or the pinned Setup guides.</td>
 </tr>
 <tr>
 <td>Restore Viewport HUD</td>

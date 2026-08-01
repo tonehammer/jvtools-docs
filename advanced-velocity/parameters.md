@@ -51,7 +51,7 @@ Visible in Timed Events mode. See [Timed Events](timed-events.md) for the workfl
 
 | Parameter | Name | Description |
 | --- | --- | --- |
-| Fold / Unfold All | `dyn_fold_setup` | Collapse or expand every velocity section at once. |
+| Fold / Unfold All | `dyn_fold_setup` | Collapse or expand the *enabled* velocity sections at once. Sections whose type is switched off are left closed — their controls are hidden anyway. |
 | Clear Setup | `dyn_clear_setup` | Switch every velocity type in the live Setup off. |
 
 Every type's Adjust folder opens with the same row: **Variation** (`variation1`–`6`, five strengths), **Randomize** (`randomize1`–`6`, the dice), and **Reset** (`reset_variation1`–`6`).
@@ -156,6 +156,7 @@ Every type's Adjust folder opens with the same row: **Variation** (`variation1`�
 
 | Parameter | Name | Description |
 | --- | --- | --- |
+| *(top right, icon)* Reset Visualization | `viz_reset` | Put every control on this tab back to its default. Guide Density is re-picked from the current input rather than left at 1.0. |
 | Show Guides | `viz_guides` | Master switch for all velocity guides. |
 | Guide Global Scale | `viz_scale` | Length multiplier for all guide trails. |
 | Guide Density | `viz_density` | Fraction of trails actually drawn, for viewport speed. Picked for you the first time geometry is connected to a fresh node, aiming at roughly 200 trails; after that it is yours and is never changed again. On dense inputs the trails also auto-cap at the Visualization Limit; Density scales within that budget. |

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838927869402">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838929365385">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,12 +38,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838927869402" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838929365385" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838927869402" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838929365385" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838927869402" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.838927869402" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838929365385" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.838929365385" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -306,6 +306,35 @@
 <p>The solve then takes the velocity on the impulse frames and runs free in between — pieces launch, arc, and land under gravity, and the next event kicks them again. Leave <code translate="no" v-pre>w</code> out of the list unless your events author angular velocity, or the solver&#x27;s own tumble gets overwritten.</p>
 <p><strong>In a hurry? Press Create Connected RBD Sim</strong> (Output tab). It builds an RBD Bullet Solver below the node with a ground plane, gravity, and both gates already wired — the fastest way to see the contracts working, and a worked example to copy into your own setup.</p>
 <p>For POP and Vellum none of this is needed. Set <strong>Output As</strong> to Force and the node writes an accumulated <code translate="no" v-pre>@force</code> instead: those solvers add forces every step rather than overwriting velocity, so there is nothing to gate.</p>
+<h3 id="staggering-the-points">Staggering the points</h3>
+<p>By default every point in an event launches on the same frame — one slab, leaving together. <strong>Stagger Points</strong> (per event, in <strong>Event Options</strong>) brings them in one at a time instead: each point waits for its own moment, shuffled evenly across the event&#x27;s window, then takes its full share.</p>
+<p>The shuffle is <em>even</em>, not random-per-point — the points are shared out across the window rather than each rolling a die, so you get a steady cascade instead of clumps. It is also stable, so a point keeps its slot while you scrub, and the guides and the motion preview show exactly the same arrivals as the output.</p>
+<p>Two ways to use it, depending on the other envelope controls:</p>
+<ul>
+<li><strong>Attack off, Hold on</strong> — the pure cascade. The envelope is flat across the window, so each point snaps to full strength the instant its turn comes.</li>
+<li><strong>Attack on</strong> — each point <em>also</em> fades in as it joins, for a softer build.</li>
+</ul>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-primary"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-primary" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>warning Waiting points hang, they do not fall</h5>
+<p>A point that has not activated yet is still being written to, with a velocity of zero, for as long as the solver is reading from SOP — so it holds in mid-air rather than falling, though it still collides and gets jostled. Measured on a real Bullet solve: with the stagger on, the pieces&#x27; final vertical spread was <strong>10× wider</strong> than the un-staggered slab, with the waiting pieces sitting near where they started.</p>
+<p>For a telekinetic effect that hang <em>is</em> the look. If a piece should fall until it gets picked up, give it its own later event instead.</p>
+        </div>
+    </div>
+</div>
+<p><strong>Shape Distribution</strong> reveals a ramp over the activation times. Left to right is each point&#x27;s place in the shuffle, the height is when it activates — 0 at the start of the window, 1 at the end. A straight line is the even spread; bend it down to front-load the cascade, or up to hold most points back and leave stragglers. The default is straight, so switching the toggle on changes nothing until you move it.</p>
+<p>Stagger is applied at <em>playback</em>, not baked, so you can switch it on for an event that is already baked without pressing Update.</p>
 <h3 id="muting-gravity-for-an-impulse">Muting gravity for an impulse</h3>
 <p>Sometimes the physics is the problem. A telekinetic lift that fights 9.8 m/s² the whole way up reads as weak, and no amount of extra velocity fixes it — you want the object to genuinely float while the event holds it.</p>
 <p><strong>Mute Gravity</strong> (per event, in <strong>Event Options</strong>) does that. It has three settings:</p>

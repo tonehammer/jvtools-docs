@@ -104,6 +104,27 @@ The solve then takes the velocity on the impulse frames and runs free in between
 
 For POP and Vellum none of this is needed. Set **Output As** to Force and the node writes an accumulated `@force` instead: those solvers add forces every step rather than overwriting velocity, so there is nothing to gate.
 
+### Staggering the points
+
+By default every point in an event launches on the same frame — one slab, leaving together. **Stagger Points** (per event, in **Event Options**) brings them in one at a time instead: each point waits for its own moment, shuffled evenly across the event's window, then takes its full share.
+
+The shuffle is *even*, not random-per-point — the points are shared out across the window rather than each rolling a die, so you get a steady cascade instead of clumps. It is also stable, so a point keeps its slot while you scrub, and the guides and the motion preview show exactly the same arrivals as the output.
+
+Two ways to use it, depending on the other envelope controls:
+
+* **Attack off, Hold on** — the pure cascade. The envelope is flat across the window, so each point snaps to full strength the instant its turn comes.
+* **Attack on** — each point *also* fades in as it joins, for a softer build.
+
+!!! warning Waiting points hang, they do not fall
+A point that has not activated yet is still being written to, with a velocity of zero, for as long as the solver is reading from SOP — so it holds in mid-air rather than falling, though it still collides and gets jostled. Measured on a real Bullet solve: with the stagger on, the pieces' final vertical spread was **10× wider** than the un-staggered slab, with the waiting pieces sitting near where they started.
+
+For a telekinetic effect that hang *is* the look. If a piece should fall until it gets picked up, give it its own later event instead.
+!!!
+
+**Shape Distribution** reveals a ramp over the activation times. Left to right is each point's place in the shuffle, the height is when it activates — 0 at the start of the window, 1 at the end. A straight line is the even spread; bend it down to front-load the cascade, or up to hold most points back and leave stragglers. The default is straight, so switching the toggle on changes nothing until you move it.
+
+Stagger is applied at *playback*, not baked, so you can switch it on for an event that is already baked without pressing Update.
+
 ### Muting gravity for an impulse
 
 Sometimes the physics is the problem. A telekinetic lift that fights 9.8 m/s² the whole way up reads as weak, and no amount of extra velocity fixes it — you want the object to genuinely float while the event holds it.

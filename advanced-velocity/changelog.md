@@ -19,6 +19,7 @@ The first public release.
 * An on-screen **event timeline** with per-event state markers, a stale-event warning tied to the Recall / Update editing loop, and an **At Frame** readout
 * **Motion preview** — guides and a tumbling wireframe ghost advanced to where the events predict the pieces will be — with per-event **Track Motion** re-aiming directional fields as pieces travel
 * Rest-position attributes per event, so a later event can pull the pieces back home
+* **Stagger Points** per event — the points of an event arrive one at a time across its window instead of all at once, with an optional ramp to shape the distribution
 * **Injecting Now** output signal for gating an RBD solver, so physics owns the pieces between impulses
 
 **Mixing and output**

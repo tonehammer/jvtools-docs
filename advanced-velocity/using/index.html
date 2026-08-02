@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838995864583">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838999124225">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838995864583" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838999124225" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838995864583" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838999124225" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838995864583" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838999124225" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -347,7 +347,7 @@
 <p>The <strong>first</strong> time you connect geometry to a fresh node, Density gets set for you from the input&#x27;s point count, aiming at roughly 200 trails — enough to read the field without covering the whole object. A few hundred points keeps every trail; a couple of thousand lands around <code translate="no" v-pre>0.1</code>. This happens once and silently: change the value and it is yours, and re-wiring a different mesh later will never override it.</p>
 </li>
 <li>
-<p>Two further groups appear in Timed Events only. <strong>Timed Events</strong> holds <strong>Source</strong> (which stream the guides draw — Setup, Events or Both), <strong>Preview Motion</strong> with its ghost and <strong>Offset</strong>, and <strong>Unify Baked Guides</strong>. <strong>Timeline HUD</strong> holds the on-screen event ruler — see <a href="../timed-events/#the-event-timeline">the timeline and the preview</a>. The timeline itself is drawn by the viewer state rather than as guide geometry, which is why Show Guides and the Visualization Limit leave it alone.</p>
+<p>Two further groups appear in Timed Events only. <strong>Timed Events</strong> holds <strong>Source</strong> (which stream the guides draw — Setup, Events or Both), <strong>Preview Motion</strong> with its ghost and <strong>Offset</strong>, and <strong>Unify Baked Guides</strong>. Preview Motion ships <strong>off</strong> on purpose — it&#x27;s the one control here with a real cost, since the ghost draws a second full copy of your input every redraw. Flip it on to check timing, then off again; on anything heavy it&#x27;s what makes the whole scene feel sluggish. <strong>Timeline HUD</strong> holds the on-screen event ruler — see <a href="../timed-events/#the-event-timeline">the timeline and the preview</a>. The timeline itself is drawn by the viewer state rather than as guide geometry, which is why Show Guides and the Visualization Limit leave it alone.</p>
 </li>
 </ul>
 <p>Need the guides as <em>renderable</em> geometry, for a breakdown or a preview render? <strong>Utilities ▸ Output Guides Only</strong> swaps the node&#x27;s output to the guide curves themselves.</p>

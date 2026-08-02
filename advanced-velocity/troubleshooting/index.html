@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838995864583">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838999124225">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838995864583" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838999124225" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838995864583" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838999124225" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838995864583" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838999124225" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -219,6 +219,11 @@
 <p>Guide trails are <strong>guide geometry</strong>: they only draw while the Advanced Velocity node is the current node, exactly like the Bend SOP&#x27;s guide. Select the node again and they return. Also check the <strong>Show Guides</strong> master switch, and <strong>Guide Density</strong> — at low values most trails are deliberately not drawn.</p>
 <h2 id="recording-slows-down-as-i-add-events-on-a-dense-mesh">Recording slows down as I add events on a dense mesh</h2>
 <p>Expected on heavy raw-point inputs: each event you drop starts contributing immediately, and playing the events back costs per frame at that point count. Guides already pause automatically during the take. For a responsive recording session, rough the events in on a lighter proxy or on the packed stream (one point per piece), then <strong>Update</strong> them against the full-resolution input afterwards.</p>
+<h2 id="everything-feels-sluggish--scrubbing-parm-edits-adding-events">Everything feels sluggish — scrubbing, parm edits, adding events</h2>
+<p>Check <strong>Preview Motion</strong> on the Visualization tab first. It ships off, but if you switched it on it&#x27;s the usual culprit: the ghost draws a <em>second complete copy</em> of your input on every viewport redraw, so it slows down everything that causes a redraw — not just playback, but parm edits and scrubbing too.</p>
+<p>After that, the other two viewport costs are <strong>Guide Density</strong> (1.0 on a dense input is a trail per point; the node auto-picks about 0.1 on first connection, so a hand-raised value is worth a second look) and <strong>Guides Show = Both</strong>, which draws the live-setup <em>and</em> baked-event streams at once.</p>
+<p>One thing that is <em>not</em> the node: <strong>a textured mesh is expensive to draw whatever you do to it.</strong> Measured on a 111k-poly textured car against a 54k untextured fracture with roughly the same on-screen polygon count, the textured one felt markedly slower while Advanced Velocity itself cooked in 3 ms a frame. If the node is cheap and the viewport still crawls, the fix is viewport-side — flat or wireframe shading while you author, or point the display at the untextured stream and switch back at the end.</p>
+<p>Quick way to tell the two apart: <strong>click any other node.</strong> All guide geometry stops drawing, because it only appears while this node is current. If everything snaps responsive, the cost is in the visualization controls above; if it doesn&#x27;t, it&#x27;s your input geometry.</p>
 <h2 id="the-preview-ghost-doesnt-appear-on-a-heavy-mesh">The preview ghost doesn&#x27;t appear on a heavy mesh</h2>
 <p>Preview Motion auto-disables on inputs above the <strong>Visualization Limit</strong> (Visualization tab, default 100,000 points) — integrating and moving that much geometry every frame is simply too slow to be a preview. The <strong>At Frame</strong> readout says so while it&#x27;s the case. Raise the limit, switch <strong>Enforce Visualization Limit</strong> off, or author on a lighter proxy (packed pieces count one point each).</p>
 <h2 id="the-event-timeline-disappeared">The event timeline disappeared</h2>

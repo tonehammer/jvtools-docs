@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838992124231">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838995864583">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838992124231" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838995864583" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838992124231" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838995864583" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838992124231" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838995864583" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -291,7 +291,8 @@
 <!-- Screenshot 2 — the interactive placement state, HUD visible, affected pieces tinted:
 ![Placing the blast source in the viewport](static/point-source.png) -->
 <h3 id="seeing-what-will-move">Seeing what will move</h3>
-<p><strong>Show Affected Pieces</strong> tints the pieces the blast will actually move, through the <strong>Affected Color</strong> ramp — green across most of the blast, hot pink at the core. The tint is normalized against the strongest affected piece, so the core always reads clearly no matter what radius or strength you have set.</p>
+<p><strong>Show Affected Pieces</strong> highlights the pieces the blast will actually move, through the <strong>Affected Color</strong> ramp — green across most of the blast, hot pink at the core. The highlight is normalized against the strongest affected piece, so the core always reads clearly no matter what radius or strength you have set.</p>
+<p>Important detail: the highlight is <strong>drawn in the viewport, not painted onto your geometry</strong>. Nothing is written to the output, so you can leave it on and send the result straight into a solver without dragging a stray <code translate="no" v-pre>Cd</code> along with it. The flip side is that it only shows while the node&#x27;s own tool is active — click the node in the viewport, or press <strong>Restore Viewport HUD</strong> on the Utilities tab if it has gone quiet.</p>
 <h3 id="direction">Direction</h3>
 <ul>
 <li><strong>Off Surface</strong> (the default) — pieces travel away from the <em>object</em>: along their point normals if the input has them, otherwise away from the body&#x27;s centre. The source point still decides which pieces get caught and how hard. This is the mode that reads as &quot;blowing a hole outwards&quot;.</li>

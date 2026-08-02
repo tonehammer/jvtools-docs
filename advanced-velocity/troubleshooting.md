@@ -36,7 +36,7 @@ The timeline is drawn by the node's viewer state, and refreshing asset libraries
 
 ## The Point Source explosion doesn't affect anything
 
-The pieces are outside **Falloff Radius** — it's drawn as a wireframe sphere around the source, so check what actually sits inside it. The falloff is measured to each packed piece's real bounds, meaning what the sphere touches is what it catches. **Show Affected Pieces** tints exactly what will move.
+The pieces are outside **Falloff Radius** — it's drawn as a wireframe sphere around the source, so check what actually sits inside it. The falloff is measured to each packed piece's real bounds, meaning what the sphere touches is what it catches. **Show Affected Pieces** highlights exactly what will move (in the viewport only — it never writes to your geometry).
 
 ## The blast pushes pieces through the object instead of blowing them off it
 

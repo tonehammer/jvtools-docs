@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838992124231">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838995864583">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838992124231" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838995864583" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838992124231" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838995864583" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838992124231" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838995864583" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -627,7 +627,7 @@
 | Strength | `exp_strength` | Peak speed at the source, in units per second. |
 | Never Push Into Surface | `exp_clamp_outward` | Mirror any velocity heading back into the body. Hidden in the modes that already leave it. |
 | Falloff | `exp_falloff` | Multiplier across the blast — left is the source, right is the radius edge. |
-| Show Affected Pieces / Affected Color | `exp_show_affected`, `exp_viz_ramp` | Tint the pieces the blast will move, normalized to the strongest one. |">
+| Show Affected Pieces / Affected Color | `exp_show_affected`, `exp_viz_ramp` | Highlight the pieces the blast will move, normalized to the strongest one. Drawn in the viewport only — nothing is written to the output. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -701,7 +701,7 @@
 <tr>
 <td>Show Affected Pieces / Affected Color</td>
 <td><code translate="no" v-pre>exp_show_affected</code>, <code translate="no" v-pre>exp_viz_ramp</code></td>
-<td>Tint the pieces the blast will move, normalized to the strongest one.</td>
+<td>Highlight the pieces the blast will move, normalized to the strongest one. Drawn in the viewport only — nothing is written to the output.</td>
 </tr>
 </tbody>
 </table>

@@ -104,7 +104,7 @@ Every type's Adjust folder opens with the same row: **Variation** (`variation1`�
 | Strength | `exp_strength` | Peak speed at the source, in units per second. |
 | Never Push Into Surface | `exp_clamp_outward` | Mirror any velocity heading back into the body. Hidden in the modes that already leave it. |
 | Falloff | `exp_falloff` | Multiplier across the blast — left is the source, right is the radius edge. |
-| Show Affected Pieces / Affected Color | `exp_show_affected`, `exp_viz_ramp` | Tint the pieces the blast will move, normalized to the strongest one. |
+| Show Affected Pieces / Affected Color | `exp_show_affected`, `exp_viz_ramp` | Highlight the pieces the blast will move, normalized to the strongest one. Drawn in the viewport only — nothing is written to the output. |
 
 ### Velocity from Motion
 

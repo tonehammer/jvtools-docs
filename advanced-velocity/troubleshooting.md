@@ -31,6 +31,16 @@ Guide trails are **guide geometry**: they only draw while the Advanced Velocity 
 
 Expected on heavy raw-point inputs: each event you drop starts contributing immediately, and playing the events back costs per frame at that point count. Guides already pause automatically during the take. For a responsive recording session, rough the events in on a lighter proxy or on the packed stream (one point per piece), then **Update** them against the full-resolution input afterwards.
 
+## Everything feels sluggish — scrubbing, parm edits, adding events
+
+Check **Preview Motion** on the Visualization tab first. It ships off, but if you switched it on it's the usual culprit: the ghost draws a *second complete copy* of your input on every viewport redraw, so it slows down everything that causes a redraw — not just playback, but parm edits and scrubbing too.
+
+After that, the other two viewport costs are **Guide Density** (1.0 on a dense input is a trail per point; the node auto-picks about 0.1 on first connection, so a hand-raised value is worth a second look) and **Guides Show = Both**, which draws the live-setup *and* baked-event streams at once.
+
+One thing that is *not* the node: **a textured mesh is expensive to draw whatever you do to it.** Measured on a 111k-poly textured car against a 54k untextured fracture with roughly the same on-screen polygon count, the textured one felt markedly slower while Advanced Velocity itself cooked in 3 ms a frame. If the node is cheap and the viewport still crawls, the fix is viewport-side — flat or wireframe shading while you author, or point the display at the untextured stream and switch back at the end.
+
+Quick way to tell the two apart: **click any other node.** All guide geometry stops drawing, because it only appears while this node is current. If everything snaps responsive, the cost is in the visualization controls above; if it doesn't, it's your input geometry.
+
 ## The preview ghost doesn't appear on a heavy mesh
 
 Preview Motion auto-disables on inputs above the **Visualization Limit** (Visualization tab, default 100,000 points) — integrating and moving that much geometry every frame is simply too slow to be a preview. The **At Frame** readout says so while it's the case. Raise the limit, switch **Enforce Visualization Limit** off, or author on a lighter proxy (packed pieces count one point each).

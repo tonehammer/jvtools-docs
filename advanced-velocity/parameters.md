@@ -177,7 +177,7 @@ The next two groups appear in Timed Events only.
 | Parameter | Name | Description |
 | --- | --- | --- |
 | *Timed Events* ▸ Source | `dyn_guide_source` | Which stream the guides draw: Setup, Events, or Both. |
-| *Timed Events* ▸ Preview Motion | `dyn_preview`, `dyn_preview_ghost`, `dyn_ghost_color` | Advance the baked guides to the predicted positions, with an optional wireframe ghost of the pieces. Auto-disabled above the Visualization Limit; the At Frame readout says when. |
+| *Timed Events* ▸ Preview Motion | `dyn_preview`, `dyn_preview_ghost`, `dyn_ghost_color` | Advance the baked guides to the predicted positions, with an optional wireframe ghost of the pieces. **Off by default — the most expensive control here:** the ghost draws a second full copy of your input every redraw, which slows scrubbing and parm edits on heavy or textured objects. Auto-disabled above the Visualization Limit; the At Frame readout says when. |
 | *Timed Events* ▸ Offset | `dyn_preview_offset` | Slide the preview sideways, in multiples of the object's width. |
 | *Timed Events* ▸ Unify Baked Guides | `viz_baked_yellow`, `viz_baked_tint` | Draw every baked-event guide in one colour instead of per-type colours. |
 | *Timeline HUD* ▸ Event Timeline / Scheme | `viz_timeline`, `viz_timeline_scheme` | The on-screen frame ruler with a marker per event; Dark or Light palette. Drawn by the viewer state rather than as guide geometry, so Show Guides and the Visualization Limit do not affect it. |

@@ -42,6 +42,11 @@ Visible in Timed Events mode. See [Timed Events](timed-events.md) for the workfl
 | *Event Options* ▸ Stagger Points | `ev_stagger#` | Bring the points in one at a time across the event's window (Attack + Hold) instead of all at once. Off by default. Applied at playback, so it needs no re-bake. Waiting points hold in mid-air rather than falling. |
 | *Event Options* ▸ Shape Distribution | `ev_stagger_shape#` | Reveal a ramp over the activation times. |
 | *Event Options* ▸ Distribution | `ev_stagger_ramp#` | Left to right is each point's place in the shuffle, height is when it activates (0 = start of the window, 1 = end). Straight is an even spread. |
+| *Event Options* ▸ Order | `ev_stagger_order#` | Who leads the cascade: Random, Strongest First (a shockwave out of a Point Source blast), Weakest First, Along Axis, or by piece size. Modes with nothing to measure fall back to Random. |
+| *Event Options* ▸ Sweep Axis | `ev_stagger_axis#` | Direction of the Along Axis cascade — low end first. Negate to sweep the other way. |
+| *Event Options* ▸ Pulse | `ev_pulse#`, `ev_pulse_count#`, `ev_pulse_period#` | Repeat the event as a train of grips: the envelope re-runs every Period frames, Count times. Injecting Now and Mute Gravity (During Impulse) pulse with it; the last pulse plays out like the unpulsed event. |
+| *Event Options* ▸ Pattern | `ev_pulse_pattern#` | Each pulse's intensity curve: Repeat Envelope, Hit (spike then decay), Build (ramp then cut), or Wave (smooth swell). |
+| Additional Exports ▸ Export Activation Age | `out_age` | Write `@av_age`: frames since a playing event last took hold of each point, −1 if never touched. Stagger- and pulse-aware — built for shading pickup glows. Timed Events only. |
 | Attack / Hold / Release | `ev_atk#`, `ev_hold#`, `ev_rel#` | Envelope phases in **frames**, each with its own enable checkbox, all on by default. Switch all three off to latch the event at full strength forever. |
 | Extend to Next | `ev_extend#` | Set Hold so this event holds until the next event's Attack opens. Next is by frame, ignoring solo/mute. Refuses on the last event. |
 | (undo, beside Extend to Next) | `ev_extend_undo#` | Put Hold back to what the last Extend to Next replaced. That setting only, one press deep; greyed until Extend has been used. |

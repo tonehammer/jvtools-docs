@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838973677858">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838975117737">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838973677858" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838975117737" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838973677858" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838975117737" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838973677858" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838975117737" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -239,6 +239,7 @@
 <h2 id="point-source-explosions">Point Source explosions</h2>
 <p>Point Source places a single blast origin <em>inside</em> the object, and only the pieces within its <strong>Falloff Radius</strong> (drawn as a wireframe sphere in the viewport) get affected. This is the mode made for dense fractured RBD — think a wall taking an impact in one spot, rather than the entire building flying apart.</p>
 <p>Important detail: the falloff is measured to each packed piece&#x27;s <strong>real bounds</strong>, not just its centre point, so the radius behaves the way it looks against the sphere.</p>
+<p>The falloff also decides <em>which pieces move, full stop</em>: Adjust and Mask variation (the Randomize row included) shape the pieces the blast caught, but can never add motion to a piece outside the radius — the output always agrees with the affected-piece tint.</p>
 <h3 id="placing-the-source-interactively">Placing the source interactively</h3>
 <p>Press <strong>Select Source Position Interactively</strong> and the viewport enters a placement state:</p>
 <retype-table copy-text="| Input | Action |
@@ -247,7 +248,7 @@
 | **Scroll** (while dragging) | Grow or shrink the area of influence — the radius sphere follows live |
 | **Shift + scroll** (while dragging) | Push the source into or out of the mesh, along the view ray |
 | **Ctrl** + either scroll | Bigger steps |
-| **Shift + R** | Reset depth — the next click lands back on the surface |
+| **Shift + R** | Reset depth and radius — the next click lands back on the surface at the default size |
 | **Esc** | Finish |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
@@ -276,7 +277,7 @@
 </tr>
 <tr>
 <td><strong>Shift + R</strong></td>
-<td>Reset depth — the next click lands back on the surface</td>
+<td>Reset depth and radius — the next click lands back on the surface at the default size</td>
 </tr>
 <tr>
 <td><strong>Esc</strong></td>

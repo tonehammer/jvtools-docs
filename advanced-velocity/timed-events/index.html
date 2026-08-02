@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838973677858">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838975117737">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,12 +38,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838973677858" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838975117737" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838973677858" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838975117737" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838973677858" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.838973677858" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838975117737" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.838975117737" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -369,7 +369,7 @@
 <ul>
 <li><strong>Range (F)</strong> — the frames the train spans, starting at the Event Frame. Its own <strong>Extend to Next</strong> button (with the same one-press undo) stretches the range to where the next event opens.</li>
 <li><strong>Pulse Count</strong> — how many grips tile that range, evenly.</li>
-<li><strong>Pattern</strong> — each grip&#x27;s intensity curve: <strong>Hit</strong> (full strength at the grip, then a decay — repeated impacts), <strong>Build</strong> (ramps up and gets cut by the next grip; the final one holds its peak — something charging up), or <strong>Wave</strong> (a smooth swell — breathing). <strong>Curve</strong> eases Hit&#x27;s decay and Build&#x27;s ramp.</li>
+<li><strong>Pattern</strong> — each grip&#x27;s intensity curve: <strong>Hit</strong> (full strength at the grip, then a decay — repeated impacts), <strong>Build</strong> (ramps up and gets cut by the next grip; the final one holds its peak — something charging up), or <strong>Wave</strong> (a smooth swell — breathing). <strong>Curve</strong> eases Hit&#x27;s decay and Build&#x27;s ramp, and the little waveform icon at the end of the row follows the choice — click it to cycle patterns.</li>
 <li><strong>Hold (F)</strong> — the same job Attack + Hold do in Envelope timing: the frames each grip counts as <em>delivering</em> energy. <strong>Injecting Now</strong> and <strong>Mute Gravity (During Impulse)</strong> open for that span, anchored at each grip&#x27;s peak — so between grips a connected solver owns the pieces, and the object visibly sags before the next grab.</li>
 </ul>
 <p>Like Stagger, Pulse timing is applied at playback — no re-bake needed. Stagger itself is Envelope-timing only; the two never combine.</p>

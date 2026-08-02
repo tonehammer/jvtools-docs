@@ -54,6 +54,8 @@ Point Source places a single blast origin *inside* the object, and only the piec
 
 Important detail: the falloff is measured to each packed piece's **real bounds**, not just its centre point, so the radius behaves the way it looks against the sphere.
 
+The falloff also decides *which pieces move, full stop*: Adjust and Mask variation (the Randomize row included) shape the pieces the blast caught, but can never add motion to a piece outside the radius — the output always agrees with the affected-piece tint.
+
 ### Placing the source interactively
 
 Press **Select Source Position Interactively** and the viewport enters a placement state:
@@ -64,7 +66,7 @@ Press **Select Source Position Interactively** and the viewport enters a placeme
 | **Scroll** (while dragging) | Grow or shrink the area of influence — the radius sphere follows live |
 | **Shift + scroll** (while dragging) | Push the source into or out of the mesh, along the view ray |
 | **Ctrl** + either scroll | Bigger steps |
-| **Shift + R** | Reset depth — the next click lands back on the surface |
+| **Shift + R** | Reset depth and radius — the next click lands back on the surface at the default size |
 | **Esc** | Finish |
 
 The controls are also listed on screen while the state is active, so no need to memorize this table.

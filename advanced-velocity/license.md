@@ -12,7 +12,7 @@ This is the End User License Agreement for **Advanced Velocity**. By downloading
 
 Last updated: 21/07/2026
 
-This License Agreement ("Agreement") is a legal agreement between you (the "User") and [tonehammer] ("Author") for the Houdini Digital Asset known as "Advanced Velocity" and any accompanying files, documentation, and resources (collectively, the "Asset").
+This License Agreement ("Agreement") is a legal agreement between you (the "User") and tonehammer ("Author") for the Houdini Digital Asset known as "Advanced Velocity" and any accompanying files, documentation, and resources (collectively, the "Asset").
 
 By downloading, installing, or using the Asset, you agree to be bound by the terms of this Agreement. If you do not agree, do not download, install, or use the Asset.
 

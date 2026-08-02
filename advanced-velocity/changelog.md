@@ -16,10 +16,11 @@ The first public release.
 
 * Bake the setup into **events** at different frames and play them back as one summed timeline — create, record live, copy, sort, solo and mute
 * Per-event **Attack / Hold / Release** envelopes in **frames**, with curve presets (on by default, switch all off to latch for RBD injection), a Drag release that visibly slows thrown pieces, and **Extend to Next** to hold an event until the following one opens
+* **Pulse** timing as an alternative to the envelope — an event repeats across a range as a **Hit**, **Build** or **Wave**, with its own count, easing and hold width
 * An on-screen **event timeline** with per-event state markers, a stale-event warning tied to the Recall / Update editing loop, and an **At Frame** readout
 * **Motion preview** — guides and a tumbling wireframe ghost advanced to where the events predict the pieces will be — with per-event **Track Motion** re-aiming directional fields as pieces travel
 * Rest-position attributes per event — with **Track Motion**, a later event pulls every piece back to its own captured position
-* **Stagger Points** per event — the points of an event arrive one at a time across its window instead of all at once, with an optional ramp to shape the distribution
+* **Stagger Points** per event — the points of an event arrive one at a time across its window instead of all at once, with an optional ramp to shape the distribution and an **Order** that leads the cascade at random, strongest or weakest first, along an axis, or by piece size
 * **Injecting Now** output signal for gating an RBD solver, so physics owns the pieces between impulses
 
 **Mixing and output**
@@ -29,7 +30,7 @@ The first public release.
 * Velocity output for the RBD Bullet Solver or accumulated force for POP / Vellum, with independent velocity / force attribute names
 * **Injecting Now** and per-event **Mute Gravity** signals for gating an RBD solve — gravity can stay muted **until the next event, or to the end of the shot on the last one**, so pieces coast instead of falling between beats while physics still owns them — plus **Create Connected RBD Sim** to wire a solver to both in one click
 * **Scale by Piece Size** — big chunks fly slower, from a mass attribute or each packed piece's real size
-* Speed clamping, per-stream exports, and an output stripped of every internal attribute
+* Speed clamping, per-stream exports, an **Activation Age** export (`@av_age`, frames since an event took hold of each point) for driving shading pickup, and an output stripped of every internal attribute
 
 **Visualization**
 

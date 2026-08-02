@@ -81,7 +81,9 @@ The controls are also listed on screen while the state is active, so no need to 
 
 ### Seeing what will move
 
-**Show Affected Pieces** tints the pieces the blast will actually move, through the **Affected Color** ramp — green across most of the blast, hot pink at the core. The tint is normalized against the strongest affected piece, so the core always reads clearly no matter what radius or strength you have set.
+**Show Affected Pieces** highlights the pieces the blast will actually move, through the **Affected Color** ramp — green across most of the blast, hot pink at the core. The highlight is normalized against the strongest affected piece, so the core always reads clearly no matter what radius or strength you have set.
+
+Important detail: the highlight is **drawn in the viewport, not painted onto your geometry**. Nothing is written to the output, so you can leave it on and send the result straight into a solver without dragging a stray `Cd` along with it. The flip side is that it only shows while the node's own tool is active — click the node in the viewport, or press **Restore Viewport HUD** on the Utilities tab if it has gone quiet.
 
 ### Direction
 

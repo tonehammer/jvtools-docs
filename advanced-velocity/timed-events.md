@@ -90,7 +90,7 @@ Advanced Velocity sits **upstream of your sim**, so its input is always the un-s
 
 **Track Motion is what makes it work** (it is on by default). Instead of replaying that empty bake, it re-evaluates `rest - P` against the pieces' *predicted* positions every frame, so once an earlier event has thrown the pieces, the reassembly event pulls each one back to its own captured spot.
 
-Two things follow from this. A rest-pose event **alone** still does nothing — correctly, since nothing has moved yet; it needs an earlier event to displace the pieces. And Track Motion will **refuse** if anything per-point sits between the field and the output — Adjust, Mask, Distance Falloff, Clamp Speed — because the scale it needs cannot be measured from an all-zero bake. `Captured` names the reason when that happens.
+Two things follow from this. A rest-pose event **alone** still does nothing — correctly, since nothing has moved yet; it needs an earlier event to displace the pieces. And Track Motion will **refuse** if anything per-point sits between the field and the bake — Adjust, Mask, Distance Falloff — because the scale it needs cannot be measured from an all-zero bake. `Captured` names the reason when that happens.
 !!!
 
 ## Driving an RBD solver
@@ -196,6 +196,7 @@ Muting is not per piece. Gravity in a simulation applies to every object in it, 
 ## Good to know
 
 * **Incoming Velocity is a live base layer.** The velocity arriving on your input plays underneath the events, every frame — it's never baked into them, so it can't be double-counted and an animated input stays live between events.
+* **The Output tab is live too.** Clamp Speed and Scale by Piece Size apply at playback, so flipping them needs no Update. Master Speed is the exception — it's baked into each event, and changing it afterwards flags the event stale so you know to press Update.
 * **Bakes are per-point.** An event's field is stored against the input's point count; re-fracture the object and existing events skip until you **Update** them.
 * **A later blast kicks the pieces that were near it at bake time**, wherever they've since travelled — the radius selection is frozen when the event is baked. Track Motion re-aims directions, not membership.
 * **Baked guides can be unified to one colour** (Visualization ▸ Unify Baked Guides) when the per-type colours are more information than you want.

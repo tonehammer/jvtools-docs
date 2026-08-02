@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838975117737">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838989927055">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,12 +38,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838975117737" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838989927055" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838975117737" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838989927055" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838975117737" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.838975117737" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838989927055" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.838989927055" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -309,7 +309,7 @@
             <h5>warning To Rest Pose needs Track Motion, and something to have moved first</h5>
 <p>Advanced Velocity sits <strong>upstream of your sim</strong>, so its input is always the un-simulated geometry. On static input each point&#x27;s captured rest position <em>is</em> its current position, so at bake time <code translate="no" v-pre>rest - P</code> is exactly zero and the event bakes an empty field — <code translate="no" v-pre>Captured</code> will read <code translate="no" v-pre>max |v| 0</code>.</p>
 <p><strong>Track Motion is what makes it work</strong> (it is on by default). Instead of replaying that empty bake, it re-evaluates <code translate="no" v-pre>rest - P</code> against the pieces&#x27; <em>predicted</em> positions every frame, so once an earlier event has thrown the pieces, the reassembly event pulls each one back to its own captured spot.</p>
-<p>Two things follow from this. A rest-pose event <strong>alone</strong> still does nothing — correctly, since nothing has moved yet; it needs an earlier event to displace the pieces. And Track Motion will <strong>refuse</strong> if anything per-point sits between the field and the output — Adjust, Mask, Distance Falloff, Clamp Speed — because the scale it needs cannot be measured from an all-zero bake. <code translate="no" v-pre>Captured</code> names the reason when that happens.</p>
+<p>Two things follow from this. A rest-pose event <strong>alone</strong> still does nothing — correctly, since nothing has moved yet; it needs an earlier event to displace the pieces. And Track Motion will <strong>refuse</strong> if anything per-point sits between the field and the bake — Adjust, Mask, Distance Falloff — because the scale it needs cannot be measured from an all-zero bake. <code translate="no" v-pre>Captured</code> names the reason when that happens.</p>
         </div>
     </div>
 </div>
@@ -433,6 +433,7 @@
 <h2 id="good-to-know">Good to know</h2>
 <ul>
 <li><strong>Incoming Velocity is a live base layer.</strong> The velocity arriving on your input plays underneath the events, every frame — it&#x27;s never baked into them, so it can&#x27;t be double-counted and an animated input stays live between events.</li>
+<li><strong>The Output tab is live too.</strong> Clamp Speed and Scale by Piece Size apply at playback, so flipping them needs no Update. Master Speed is the exception — it&#x27;s baked into each event, and changing it afterwards flags the event stale so you know to press Update.</li>
 <li><strong>Bakes are per-point.</strong> An event&#x27;s field is stored against the input&#x27;s point count; re-fracture the object and existing events skip until you <strong>Update</strong> them.</li>
 <li><strong>A later blast kicks the pieces that were near it at bake time</strong>, wherever they&#x27;ve since travelled — the radius selection is frozen when the event is baked. Track Motion re-aims directions, not membership.</li>
 <li><strong>Baked guides can be unified to one colour</strong> (Visualization ▸ Unify Baked Guides) when the per-type colours are more information than you want.</li>

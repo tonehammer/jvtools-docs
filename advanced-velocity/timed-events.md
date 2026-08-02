@@ -155,7 +155,7 @@ Pulse timing has four controls, and no envelope:
 
 * **Range (F)** — the frames the train spans, starting at the Event Frame. Its own **Extend to Next** button (with the same one-press undo) stretches the range to where the next event opens.
 * **Pulse Count** — how many grips tile that range, evenly.
-* **Pattern** — each grip's intensity curve: **Hit** (full strength at the grip, then a decay — repeated impacts), **Build** (ramps up and gets cut by the next grip; the final one holds its peak — something charging up), or **Wave** (a smooth swell — breathing). **Curve** eases Hit's decay and Build's ramp.
+* **Pattern** — each grip's intensity curve: **Hit** (full strength at the grip, then a decay — repeated impacts), **Build** (ramps up and gets cut by the next grip; the final one holds its peak — something charging up), or **Wave** (a smooth swell — breathing). **Curve** eases Hit's decay and Build's ramp, and the little waveform icon at the end of the row follows the choice — click it to cycle patterns.
 * **Hold (F)** — the same job Attack + Hold do in Envelope timing: the frames each grip counts as *delivering* energy. **Injecting Now** and **Mute Gravity (During Impulse)** open for that span, anchored at each grip's peak — so between grips a connected solver owns the pieces, and the object visibly sags before the next grab.
 
 Like Stagger, Pulse timing is applied at playback — no re-bake needed. Stagger itself is Envelope-timing only; the two never combine.

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838971503184">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838971657024">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838971503184" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838971657024" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838971503184" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838971657024" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838971503184" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838971657024" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -232,17 +232,17 @@
         </div>
         <div class="pr-5 ml-3 w-full">
             <h5>Updating</h5>
-<p>When a new version arrives, <strong>delete the previous <code translate="no" v-pre>.hdalc</code> file</strong> before adding the new one. Two files defining the same asset will collide. Because the internal node type never changes between versions, your existing scenes pick up the new version automatically.</p>
+<p>When a new version arrives, <strong>delete the previous <code translate="no" v-pre>.hdalc</code> file</strong> before adding the new one — two files defining the same asset will collide. The internal node type never changes between versions, so your existing scenes pick up the new version automatically. Nothing to relink.</p>
         </div>
     </div>
 </div>
 <h2 id="the-two-modes">The two modes</h2>
-<p>The <strong>Mode</strong> menu at the top is the first thing to understand:</p>
+<p>The <strong>Mode</strong> menu at the top is the first thing to understand about this node:</p>
 <ul>
 <li><strong>Timed Events</strong> (the default) — the output is a sequence of baked velocity <em>events</em>, each captured from the setup at a frame and faded in and out by its own envelope. The setup you edit is a template; nothing reaches the output until you press <strong>Create Event</strong>. This is the headline feature — see <a href="../timed-events/">Timed Events</a>.</li>
 <li><strong>Single Field</strong> — the setup is evaluated live and written straight to the output. What you tweak is what you get, every frame, like an ordinary SOP.</li>
 </ul>
-<p>If you just want one velocity field with no time axis, switch to <strong>Single Field</strong> and everything below responds immediately.</p>
+<p>If all you want is one velocity field with no time axis, switch to <strong>Single Field</strong> and everything below responds immediately.</p>
 <h2 id="your-first-velocity">Your first velocity</h2>
 <ol>
 <li>Drop an <strong>Advanced Velocity</strong> node after any geometry.</li>
@@ -250,7 +250,7 @@
 <li>Open <strong>Basic Velocity</strong> in the Setup tab and tick its header checkbox.</li>
 <li>Set <strong>Value</strong> to something like <code translate="no" v-pre>0, 5, 0</code>.</li>
 </ol>
-<p>That&#x27;s it — the node now outputs <code translate="no" v-pre>@v</code>, and the viewport shows red guide trails pointing the way the points will travel. Feed it into a POP, FLIP, Vellum, or RBD solver.</p>
+<p>That&#x27;s it — the node now outputs <code translate="no" v-pre>@v</code>, and the viewport shows red guide trails pointing the way the points will travel. Feed it into a POP, FLIP, Vellum or RBD solver.</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
     <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
@@ -272,7 +272,7 @@
 <h2 id="the-shape-of-the-node">The shape of the node</h2>
 <p>Along the top: <strong>Mode</strong>, the <strong>Group</strong> the final write is restricted to, and (in Timed Events) the <strong>Dynamic Events</strong> section holding the event list.</p>
 <p>Below that, two tab strips:</p>
-<p><strong>Setup | Velocity Mixer</strong> — the six velocity types, each a collapsible section with a checkbox in its header, and the mixer that decides how the enabled types combine.</p>
+<p><strong>Setup | Velocity Mixer</strong> — the six velocity types, each a collapsible section with a checkbox in its header, and the mixer that decides how the enabled types get combined.</p>
 <p><strong>Output | Visualization | Utilities</strong> — what leaves the node and under which name, the viewport guides and event timeline, and the utility toggles plus links to these docs, Discord and YouTube.</p>
 <p>The version you have installed is shown at the very bottom of the parameter list.</p>
 <h2 id="a-quick-explosion">A quick explosion</h2>
@@ -281,7 +281,7 @@
 <li>Drop <strong>Advanced Velocity</strong> after it, set <strong>Mode</strong> to <em>Single Field</em>, and switch on <strong>Exploding Velocity</strong>.</li>
 <li>Leave <strong>Origin</strong> on <em>Whole Object</em>.</li>
 </ol>
-<p>Every piece now flies away from the object&#x27;s centre. To blast from a specific spot instead, switch <strong>Origin</strong> to <a href="../using/#point-source-explosions">Point Source</a> and input the location via a custom Python state. And when one explosion isn&#x27;t enough — a lift, then a blast, then a spin — that&#x27;s what <a href="../timed-events/">Timed Events</a> is for.</p>
+<p>Every piece now flies away from the object&#x27;s centre. Already looks pretty decent. To blast from a specific spot instead, switch <strong>Origin</strong> to <a href="../using/#point-source-explosions">Point Source</a> and place the location right in the viewport with the interactive state. And when one explosion isn&#x27;t enough — a lift, then a blast, then a spin — that&#x27;s exactly what <a href="../timed-events/">Timed Events</a> is for.</p>
 <div id="retype-backlinks">
     <h2>See also</h2>
 <div class="card-compact-group">
@@ -292,7 +292,7 @@
                 <span class="card-compact-icon inline-flex shrink-0"><img width="20" height="20" src="static/advanced_velocity_icon.png"></span>
                 <span class="card-compact-title">Advanced Velocity</span>
             </div>
-            <p class="card-compact-description">Welcome! Advanced Velocity (v1.0) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them together on one node.</p>
+            <p class="card-compact-description">Welcome! Advanced Velocity (v1.0) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node.</p>
         </div>
     </a>
 </div>

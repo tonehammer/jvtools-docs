@@ -4,7 +4,7 @@
 
 - [JVtools](https://tonehammer.github.io/jvtools-docs/index.md): JVtools
 - [Reallusion Importer for Houdini](https://tonehammer.github.io/jvtools-docs/reallusion-importer/readme.md): Welcome! Reallusion Importer for Houdini (v1.2.1) turns a Character Creator 5 or iClone 8 character into a fully shaded, animatable, render-ready character in Houdini's Solaris environment — in seconds instead of hours.
-- [Advanced Velocity](https://tonehammer.github.io/jvtools-docs/advanced-velocity/readme.md): Welcome! Advanced Velocity (v1.0) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them together on one node.
+- [Advanced Velocity](https://tonehammer.github.io/jvtools-docs/advanced-velocity/readme.md): Welcome! Advanced Velocity (v1.0) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node.
 - [RPLidar In](https://tonehammer.github.io/jvtools-docs/rplidar-in/readme.md): Welcome! RPLidar In (v1.0) brings live Slamtec RPLIDAR point-cloud data straight into Houdini as SOP geometry. Plug in the sensor, drop the node, and every
 
 ## Reallusion Importer for Houdini
@@ -40,10 +40,10 @@
 ## Advanced Velocity
 
 - [Getting Started](https://tonehammer.github.io/jvtools-docs/advanced-velocity/getting-started.md): Download JV-Advanced_Velocity-vX.Y.hdalc from your Gumroad library.
-- [Using Advanced Velocity](https://tonehammer.github.io/jvtools-docs/advanced-velocity/using.md): This page covers the setup surface: the six velocity types, the mixer, the output, and the visualization. The event workflow has its own page.
+- [Using Advanced Velocity](https://tonehammer.github.io/jvtools-docs/advanced-velocity/using.md): This page covers the setup surface: the six velocity types, the mixer, the output and the visualization. The event workflow is a big enough topic that it gets its own page.
 - [Timed Events](https://tonehammer.github.io/jvtools-docs/advanced-velocity/timed-events.md): One velocity field is rarely the whole story. The shot is a car lifted at frame 10, torn apart at frame 40, spun at frame 70 — three different velocity setups, at three different times, summed where they overlap.
-- [Parameter Reference](https://tonehammer.github.io/jvtools-docs/advanced-velocity/parameters.md): Every hand-authored parameter on the Advanced Velocity node, grouped as it appears in the interface. Names in code are the internal parameter names.
-- [Troubleshooting](https://tonehammer.github.io/jvtools-docs/advanced-velocity/troubleshooting.md): You're in Timed Events mode (the default), where the live Setup is a template — only baked events reach the output. Press Create Event to bake the setup, or Update on an existing event's row to fold your changes into it.
+- [Parameter Reference](https://tonehammer.github.io/jvtools-docs/advanced-velocity/parameters.md): Every hand-authored parameter on the Advanced Velocity node, grouped the way it appears in the interface. Names in code are the internal parameter names.
+- [Troubleshooting](https://tonehammer.github.io/jvtools-docs/advanced-velocity/troubleshooting.md): You're in Timed Events mode (the default), where the live Setup is just a template — only baked events reach the output. Press Create Event to bake the setup, or Update on an existing event's row to fold your changes into it.
 - [Changelog](https://tonehammer.github.io/jvtools-docs/advanced-velocity/changelog.md): The first public release.
 - [License](https://tonehammer.github.io/jvtools-docs/advanced-velocity/license.md): This is the End User License Agreement for Advanced Velocity. By downloading, installing, or using the asset, you agree to these terms.
 

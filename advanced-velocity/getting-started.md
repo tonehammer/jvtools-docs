@@ -12,17 +12,17 @@
 The node then appears in the SOP tab menu under **JV ▸ Advanced Velocity**.
 
 !!!warning Updating
-When a new version arrives, **delete the previous `.hdalc` file** before adding the new one. Two files defining the same asset will collide. Because the internal node type never changes between versions, your existing scenes pick up the new version automatically.
+When a new version arrives, **delete the previous `.hdalc` file** before adding the new one — two files defining the same asset will collide. The internal node type never changes between versions, so your existing scenes pick up the new version automatically. Nothing to relink.
 !!!
 
 ## The two modes
 
-The **Mode** menu at the top is the first thing to understand:
+The **Mode** menu at the top is the first thing to understand about this node:
 
 * **Timed Events** (the default) — the output is a sequence of baked velocity *events*, each captured from the setup at a frame and faded in and out by its own envelope. The setup you edit is a template; nothing reaches the output until you press **Create Event**. This is the headline feature — see [Timed Events](timed-events.md).
 * **Single Field** — the setup is evaluated live and written straight to the output. What you tweak is what you get, every frame, like an ordinary SOP.
 
-If you just want one velocity field with no time axis, switch to **Single Field** and everything below responds immediately.
+If all you want is one velocity field with no time axis, switch to **Single Field** and everything below responds immediately.
 
 ## Your first velocity
 
@@ -31,7 +31,7 @@ If you just want one velocity field with no time axis, switch to **Single Field*
 3. Open **Basic Velocity** in the Setup tab and tick its header checkbox.
 4. Set **Value** to something like `0, 5, 0`.
 
-That's it — the node now outputs `@v`, and the viewport shows red guide trails pointing the way the points will travel. Feed it into a POP, FLIP, Vellum, or RBD solver.
+That's it — the node now outputs `@v`, and the viewport shows red guide trails pointing the way the points will travel. Feed it into a POP, FLIP, Vellum or RBD solver.
 
 !!!info Velocity you already had is safe
 A fresh node **passes the incoming velocity through** — the **Incoming Velocity** stream in the mixer is on by default, so dropping this node after a cache or a previous sim layers on top of that motion instead of erasing it. Switch that toggle off when you want to author the attribute outright.
@@ -43,7 +43,7 @@ Along the top: **Mode**, the **Group** the final write is restricted to, and (in
 
 Below that, two tab strips:
 
-**Setup | Velocity Mixer** — the six velocity types, each a collapsible section with a checkbox in its header, and the mixer that decides how the enabled types combine.
+**Setup | Velocity Mixer** — the six velocity types, each a collapsible section with a checkbox in its header, and the mixer that decides how the enabled types get combined.
 
 **Output | Visualization | Utilities** — what leaves the node and under which name, the viewport guides and event timeline, and the utility toggles plus links to these docs, Discord and YouTube.
 
@@ -55,4 +55,4 @@ The version you have installed is shown at the very bottom of the parameter list
 2. Drop **Advanced Velocity** after it, set **Mode** to *Single Field*, and switch on **Exploding Velocity**.
 3. Leave **Origin** on *Whole Object*.
 
-Every piece now flies away from the object's centre. To blast from a specific spot instead, switch **Origin** to [Point Source](using.md#point-source-explosions) and input the location via a custom Python state. And when one explosion isn't enough — a lift, then a blast, then a spin — that's what [Timed Events](timed-events.md) is for.
+Every piece now flies away from the object's centre. Already looks pretty decent. To blast from a specific spot instead, switch **Origin** to [Point Source](using.md#point-source-explosions) and place the location right in the viewport with the interactive state. And when one explosion isn't enough — a lift, then a blast, then a spin — that's exactly what [Timed Events](timed-events.md) is for.

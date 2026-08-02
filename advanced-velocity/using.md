@@ -61,8 +61,9 @@ Press **Select Source Position Interactively** and the viewport enters a placeme
 | Input | Action |
 | --- | --- |
 | **LMB drag** | Place the source on the surface, sliding it as you drag |
-| **Wheel** (while dragging) | Push the source into or out of the mesh, along the view ray |
-| **Ctrl / Shift** + wheel | Depth step ×10 / ×0.1 |
+| **Scroll** (while dragging) | Grow or shrink the area of influence — the radius sphere follows live |
+| **Shift + scroll** (while dragging) | Push the source into or out of the mesh, along the view ray |
+| **Ctrl** + either scroll | Bigger steps |
 | **Shift + R** | Reset depth — the next click lands back on the surface |
 | **Esc** | Finish |
 

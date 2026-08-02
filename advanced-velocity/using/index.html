@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838971657024">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838973677858">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838971657024" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838973677858" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838971657024" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838973677858" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838971657024" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838973677858" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -244,8 +244,9 @@
 <retype-table copy-text="| Input | Action |
 | --- | --- |
 | **LMB drag** | Place the source on the surface, sliding it as you drag |
-| **Wheel** (while dragging) | Push the source into or out of the mesh, along the view ray |
-| **Ctrl / Shift** + wheel | Depth step ×10 / ×0.1 |
+| **Scroll** (while dragging) | Grow or shrink the area of influence — the radius sphere follows live |
+| **Shift + scroll** (while dragging) | Push the source into or out of the mesh, along the view ray |
+| **Ctrl** + either scroll | Bigger steps |
 | **Shift + R** | Reset depth — the next click lands back on the surface |
 | **Esc** | Finish |">
 <div class="table-wrapper scrollbar overflow-hidden">
@@ -262,12 +263,16 @@
 <td>Place the source on the surface, sliding it as you drag</td>
 </tr>
 <tr>
-<td><strong>Wheel</strong> (while dragging)</td>
+<td><strong>Scroll</strong> (while dragging)</td>
+<td>Grow or shrink the area of influence — the radius sphere follows live</td>
+</tr>
+<tr>
+<td><strong>Shift + scroll</strong> (while dragging)</td>
 <td>Push the source into or out of the mesh, along the view ray</td>
 </tr>
 <tr>
-<td><strong>Ctrl / Shift</strong> + wheel</td>
-<td>Depth step ×10 / ×0.1</td>
+<td><strong>Ctrl</strong> + either scroll</td>
+<td>Bigger steps</td>
 </tr>
 <tr>
 <td><strong>Shift + R</strong></td>

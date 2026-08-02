@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838971657024">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838973677858">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,12 +38,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838971657024" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838973677858" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838971657024" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838973677858" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838971657024" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.838971657024" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838973677858" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.838973677858" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -363,16 +363,16 @@
 </ul>
 <p>A mode with nothing to measure — uniform strength, unpacked input for the size modes, a zero axis — falls back to Random rather than doing something misleading.</p>
 <p>Stagger is applied at <em>playback</em>, not baked — so you can switch it on for an event that is already baked without pressing Update.</p>
-<h3 id="pulsing-an-event">Pulsing an event</h3>
-<p><strong>Pulse</strong> (per event, in <strong>Event Options</strong>) repeats the event as a train of grips: the envelope re-runs every <strong>Period (F)</strong> frames, <strong>Pulse Count</strong> times. Between pulses the event contributes nothing and Injecting Now closes, so a connected solver owns the pieces in the gaps — the object gets grabbed, dropped, grabbed again. The last pulse plays out exactly like the unpulsed event, so a latching event still ends latched.</p>
-<p><strong>Pattern</strong> shapes each pulse&#x27;s intensity:</p>
+<h3 id="pulse-timing">Pulse timing</h3>
+<p>The <strong>Timing</strong> dropdown above the envelope controls picks how an event delivers its energy: <strong>Envelope</strong> is the Attack / Hold / Release described above, and <strong>Pulse</strong> replaces it with a train of grips — grab, let go, grab again.</p>
+<p>Pulse timing has four controls, and no envelope:</p>
 <ul>
-<li><strong>Repeat Envelope</strong> — every pulse replays the event&#x27;s own Attack / Hold / Release.</li>
-<li><strong>Hit</strong> — full strength at the pulse start, then a decay eased by the Release Curve. Reads as repeated impacts.</li>
-<li><strong>Build</strong> — ramps up through the Attack Curve and gets cut by the next pulse; the final pulse holds its peak. Reads as something charging up.</li>
-<li><strong>Wave</strong> — a smooth swell peaking mid-period. Reads as breathing.</li>
+<li><strong>Range (F)</strong> — the frames the train spans, starting at the Event Frame. Its own <strong>Extend to Next</strong> button (with the same one-press undo) stretches the range to where the next event opens.</li>
+<li><strong>Pulse Count</strong> — how many grips tile that range, evenly.</li>
+<li><strong>Pattern</strong> — each grip&#x27;s intensity curve: <strong>Hit</strong> (full strength at the grip, then a decay — repeated impacts), <strong>Build</strong> (ramps up and gets cut by the next grip; the final one holds its peak — something charging up), or <strong>Wave</strong> (a smooth swell — breathing). <strong>Curve</strong> eases Hit&#x27;s decay and Build&#x27;s ramp.</li>
+<li><strong>Hold (F)</strong> — the same job Attack + Hold do in Envelope timing: the frames each grip counts as <em>delivering</em> energy. <strong>Injecting Now</strong> and <strong>Mute Gravity (During Impulse)</strong> open for that span, anchored at each grip&#x27;s peak — so between grips a connected solver owns the pieces, and the object visibly sags before the next grab.</li>
 </ul>
-<p>Mute Gravity&#x27;s <em>During Impulse</em> pulses with the grip, and a staggered event re-runs the same cascade on every pulse. Like Stagger, Pulse is applied at playback — no re-bake needed.</p>
+<p>Like Stagger, Pulse timing is applied at playback — no re-bake needed. Stagger itself is Envelope-timing only; the two never combine.</p>
 <h3 id="exporting-the-activation-age">Exporting the activation age</h3>
 <p><strong>Export Activation Age (@av_age)</strong> (in the Output tab&#x27;s <em>Additional Exports</em>) writes, for every point, how many frames ago a playing event last took hold of it — <code translate="no" v-pre>-1</code> for points never touched. It is stagger-aware (a cascade lights points up one at a time) and pulse-aware (every new grip resets the clock), which makes it a ready-made shading input: pieces that glow as the force grabs them and cool off as it lets go.</p>
 <h3 id="muting-gravity-for-an-impulse">Muting gravity for an impulse</h3>

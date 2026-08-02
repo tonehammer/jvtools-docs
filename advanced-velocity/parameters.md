@@ -5,9 +5,9 @@ order: 80
 
 # Parameter Reference
 
-Every hand-authored parameter on the Advanced Velocity node, grouped as it appears in the interface. Names in `code` are the internal parameter names.
+Every hand-authored parameter on the Advanced Velocity node, grouped the way it appears in the interface. Names in `code` are the internal parameter names.
 
-Each velocity type also carries an identical **Adjust** and **Mask** pair, promoted from Houdini's Attribute Adjust nodes — see [Adjust and Mask](using.md#adjust-and-mask) and the SideFX pages for the full reference on those.
+Each velocity type also carries an identical **Adjust** and **Mask** pair, promoted straight from Houdini's Attribute Adjust nodes — those are not repeated here; see [Adjust and Mask](using.md#adjust-and-mask) and the SideFX pages for the full reference on them.
 
 ## Top level
 

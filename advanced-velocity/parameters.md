@@ -44,8 +44,10 @@ Visible in Timed Events mode. See [Timed Events](timed-events.md) for the workfl
 | *Event Options* ▸ Distribution | `ev_stagger_ramp#` | Left to right is each point's place in the shuffle, height is when it activates (0 = start of the window, 1 = end). Straight is an even spread. |
 | *Event Options* ▸ Order | `ev_stagger_order#` | Who leads the cascade: Random, Strongest First (a shockwave out of a Point Source blast), Weakest First, Along Axis, or by piece size. Modes with nothing to measure fall back to Random. |
 | *Event Options* ▸ Sweep Axis | `ev_stagger_axis#` | Direction of the Along Axis cascade — low end first. Negate to sweep the other way. |
-| *Event Options* ▸ Pulse | `ev_pulse#`, `ev_pulse_count#`, `ev_pulse_period#` | Repeat the event as a train of grips: the envelope re-runs every Period frames, Count times. Injecting Now and Mute Gravity (During Impulse) pulse with it; the last pulse plays out like the unpulsed event. |
-| *Event Options* ▸ Pattern | `ev_pulse_pattern#` | Each pulse's intensity curve: Repeat Envelope, Hit (spike then decay), Build (ramp then cut), or Wave (smooth swell). |
+| Timing | `ev_timing#` | **Envelope**: one Attack / Hold / Release around the Event Frame. **Pulse**: a train of grips distributed evenly across a range. |
+| Range (F) | `ev_pulse_range#` | Pulse timing — the frames the train spans, starting at the Event Frame. Has its own Extend to Next + undo. |
+| Pulse Count / Hold (F) | `ev_pulse_count#`, `ev_pulse_hold#` | How many grips tile the range; how long each counts as delivering energy (drives Injecting Now and Mute Gravity, anchored at each grip's peak). |
+| Pattern / Curve | `ev_pulse_pattern#`, `ev_pulse_curve#` | Each grip's intensity: Hit (spike then decay), Build (ramp then cut, final grip holds), Wave (smooth swell). Curve eases Hit and Build. |
 | Additional Exports ▸ Export Activation Age | `out_age` | Write `@av_age`: frames since a playing event last took hold of each point, −1 if never touched. Stagger- and pulse-aware — built for shading pickup glows. Timed Events only. |
 | Attack / Hold / Release | `ev_atk#`, `ev_hold#`, `ev_rel#` | Envelope phases in **frames**, each with its own enable checkbox, all on by default. Switch all three off to latch the event at full strength forever. |
 | Extend to Next | `ev_extend#` | Set Hold so this event holds until the next event's Attack opens. Next is by frame, ignoring solo/mute. Refuses on the last event. |
@@ -102,7 +104,7 @@ Every type's Adjust folder opens with the same row: **Variation** (`variation1`�
 | Direction | `exp_direction` | Point Source — Off Surface (default), Outward, Inward, or Both (split thin objects). |
 | Select Source Position Interactively | `exp_pick` | Enters the viewport placement state. |
 | Source Position | `exp_source_pos` | The world-space blast origin, drawn with a radius sphere. |
-| Depth Scroll Step | `exp_pick_depth_step` | How far one wheel notch pushes the source during placement. |
+| Depth Scroll Step | `exp_pick_depth_step` | How far one Shift + scroll notch pushes the source during placement. A plain scroll scales the Radius instead. |
 | Falloff Radius | `exp_radius` | Blast reach, measured to each piece's real bounds. |
 | Strength | `exp_strength` | Peak speed at the source, in units per second. |
 | Never Push Into Surface | `exp_clamp_outward` | Mirror any velocity heading back into the body. Hidden in the modes that already leave it. |

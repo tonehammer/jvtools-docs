@@ -147,18 +147,18 @@ A mode with nothing to measure — uniform strength, unpacked input for the size
 
 Stagger is applied at *playback*, not baked — so you can switch it on for an event that is already baked without pressing Update.
 
-### Pulsing an event
+### Pulse timing
 
-**Pulse** (per event, in **Event Options**) repeats the event as a train of grips: the envelope re-runs every **Period (F)** frames, **Pulse Count** times. Between pulses the event contributes nothing and Injecting Now closes, so a connected solver owns the pieces in the gaps — the object gets grabbed, dropped, grabbed again. The last pulse plays out exactly like the unpulsed event, so a latching event still ends latched.
+The **Timing** dropdown above the envelope controls picks how an event delivers its energy: **Envelope** is the Attack / Hold / Release described above, and **Pulse** replaces it with a train of grips — grab, let go, grab again.
 
-**Pattern** shapes each pulse's intensity:
+Pulse timing has four controls, and no envelope:
 
-* **Repeat Envelope** — every pulse replays the event's own Attack / Hold / Release.
-* **Hit** — full strength at the pulse start, then a decay eased by the Release Curve. Reads as repeated impacts.
-* **Build** — ramps up through the Attack Curve and gets cut by the next pulse; the final pulse holds its peak. Reads as something charging up.
-* **Wave** — a smooth swell peaking mid-period. Reads as breathing.
+* **Range (F)** — the frames the train spans, starting at the Event Frame. Its own **Extend to Next** button (with the same one-press undo) stretches the range to where the next event opens.
+* **Pulse Count** — how many grips tile that range, evenly.
+* **Pattern** — each grip's intensity curve: **Hit** (full strength at the grip, then a decay — repeated impacts), **Build** (ramps up and gets cut by the next grip; the final one holds its peak — something charging up), or **Wave** (a smooth swell — breathing). **Curve** eases Hit's decay and Build's ramp.
+* **Hold (F)** — the same job Attack + Hold do in Envelope timing: the frames each grip counts as *delivering* energy. **Injecting Now** and **Mute Gravity (During Impulse)** open for that span, anchored at each grip's peak — so between grips a connected solver owns the pieces, and the object visibly sags before the next grab.
 
-Mute Gravity's *During Impulse* pulses with the grip, and a staggered event re-runs the same cascade on every pulse. Like Stagger, Pulse is applied at playback — no re-bake needed.
+Like Stagger, Pulse timing is applied at playback — no re-bake needed. Stagger itself is Envelope-timing only; the two never combine.
 
 ### Exporting the activation age
 

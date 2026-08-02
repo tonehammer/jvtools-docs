@@ -19,10 +19,10 @@ A fixed vector applied to every point. The simplest possible velocity — this i
 
 Velocity with a *direction* — at a target, around it, or away from it. First thing to set is **Direction**, which chooses where the target comes from:
 
-* **SOP Path** (the default) — aim at another SOP in the scene. **Method** decides how the centre of that thing is measured (centre of mass, bounding box, convex hull), and **Target Group** restricts the measurement to a part of it. Tip: put a single point number in there and you are aiming at exactly that point.
+* **To Position** (the default) — aim at a typed world-space position. No geometry needed at all.
+* **SOP Path** — aim at another SOP in the scene. **Method** decides how the centre of that thing is measured (centre of mass, bounding box, convex hull), and **Target Group** restricts the measurement to a part of it. Tip: put a single point number in there and you are aiming at exactly that point.
 * **Use Second Input** — aim at whatever geometry is wired into the second input of the node. Press **Create Point** and the node makes an Add SOP holding a single point above your mesh and wires it in for you.
 * **To Rest Pose** — every point aims at its *own* captured rest position (the scene start frame, or any event's frame). This is the reassembly mode: pair it with **Track Motion** and an earlier event that throws the pieces, and each piece gets pulled back to its own captured spot — see [rest attributes](timed-events.md#rest-position-attributes).
-* **To Position** — aim at a typed world-space position. No geometry needed at all.
 
 **Direction Bias** is the main control here, and it is a *continuum*, not a set of modes: **+1** aims straight at the target, **0** is a pure orbit around an axle through it, **−1** points straight away. Anything in between spirals — meaning a vortex that also draws things inward does not need a second node. The **Toward / Around / Away** buttons just snap the bias to those three values. **Orbit Axis** decides the axle: *Toward Target* runs it from the object's centre through the target (so you can tilt the spin just by moving the target around), or you give it a fixed *Custom Vector*.
 

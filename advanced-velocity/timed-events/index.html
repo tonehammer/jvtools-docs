@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838970786105">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838971503184">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,12 +38,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838970786105" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838971503184" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838970786105" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838971503184" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838970786105" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.838970786105" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838971503184" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.838971503184" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -354,7 +354,27 @@
     </div>
 </div>
 <p><strong>Shape Distribution</strong> reveals a ramp over the activation times. Left to right is each point&#x27;s place in the shuffle, the height is when it activates — 0 at the start of the window, 1 at the end. A straight line is the even spread; bend it down to front-load the cascade, or up to hold most points back and leave stragglers. The default is straight, so switching the toggle on changes nothing until you move it.</p>
+<p><strong>Order</strong> decides <em>who leads</em> the cascade — the spacing stays even, only the sequence changes:</p>
+<ul>
+<li><strong>Random</strong> — the seeded shuffle above.</li>
+<li><strong>Strongest First</strong> — the points the event hits hardest go first. With a Point Source blast that sweeps outward from the source like a shockwave, which is the setting this mode exists for. <strong>Weakest First</strong> is the mirror: the fringe crumbles and the core holds out longest.</li>
+<li><strong>Along Axis</strong> — a wipe along <strong>Sweep Axis</strong>, low end first. The default axis sweeps bottom to top; negate it to go the other way.</li>
+<li><strong>Small Pieces First / Large Pieces First</strong> — packed pieces ranked by size, so a body can shed its slivers before the big chunks let go.</li>
+</ul>
+<p>A mode with nothing to measure — uniform strength, unpacked input for the size modes, a zero axis — falls back to Random rather than doing something misleading.</p>
 <p>Stagger is applied at <em>playback</em>, not baked, so you can switch it on for an event that is already baked without pressing Update.</p>
+<h3 id="pulsing-an-event">Pulsing an event</h3>
+<p><strong>Pulse</strong> (per event, in <strong>Event Options</strong>) repeats the event as a train of grips: the envelope re-runs every <strong>Period (F)</strong> frames, <strong>Pulse Count</strong> times. Between pulses the event contributes nothing and Injecting Now closes, so a connected solver owns the pieces in the gaps — the object gets grabbed, dropped, grabbed again. The last pulse plays out exactly like the unpulsed event, so a latching event still ends latched.</p>
+<p><strong>Pattern</strong> shapes each pulse&#x27;s intensity:</p>
+<ul>
+<li><strong>Repeat Envelope</strong> — every pulse replays the event&#x27;s own Attack / Hold / Release.</li>
+<li><strong>Hit</strong> — full strength at the pulse start, then a decay eased by the Release Curve. Reads as repeated impacts.</li>
+<li><strong>Build</strong> — ramps up through the Attack Curve and is cut by the next pulse; the final pulse holds its peak. Reads as something charging up.</li>
+<li><strong>Wave</strong> — a smooth swell peaking mid-period. Reads as breathing.</li>
+</ul>
+<p>Mute Gravity&#x27;s <em>During Impulse</em> pulses with the grip, and a staggered event re-runs the same cascade on every pulse. Like Stagger, Pulse is applied at playback — no re-bake needed.</p>
+<h3 id="exporting-the-activation-age">Exporting the activation age</h3>
+<p><strong>Export Activation Age (@av_age)</strong> (in the Output tab&#x27;s <em>Additional Exports</em>) writes, for every point, how many frames ago a playing event last took hold of it — <code translate="no" v-pre>-1</code> for points never touched. It is stagger-aware (a cascade lights points up one at a time) and pulse-aware (every new grip resets the clock), which makes it a ready-made shading input: pieces that glow as the force grabs them and cool as it lets go.</p>
 <h3 id="muting-gravity-for-an-impulse">Muting gravity for an impulse</h3>
 <p>Sometimes the physics is the problem. A telekinetic lift that fights 9.8 m/s² the whole way up reads as weak, and no amount of extra velocity fixes it — you want the object to genuinely float while the event holds it.</p>
 <p><strong>Mute Gravity</strong> (per event, in <strong>Event Options</strong>) does that. It has three settings:</p>
@@ -476,17 +496,6 @@
         </div>
     </a>
 </div>
-<div class="card-compact-container">
-    <a href="/jvtools-docs/advanced-velocity/using-voice-test/" class="group card-compact no-link">
-        <div class="card-compact-body">
-            <div class="card-compact-header">
-                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M7.875 2.292a.114.114 0 0 0-.032.018A7.239 7.239 0 0 0 4.75 8.25a7.248 7.248 0 0 0 3.654 6.297c.57.327.982.955.941 1.682v.002l-.317 6.058a.75.75 0 1 1-1.498-.078l.317-6.062v-.004c.006-.09-.047-.215-.188-.296A8.749 8.749 0 0 1 3.25 8.25a8.738 8.738 0 0 1 3.732-7.169 1.547 1.547 0 0 1 1.709-.064c.484.292.809.835.809 1.46v4.714a.25.25 0 0 0 .119.213l2.25 1.385c.08.05.182.05.262 0l2.25-1.385a.25.25 0 0 0 .119-.213V2.478c0-.626.325-1.169.81-1.461a1.547 1.547 0 0 1 1.708.064 8.741 8.741 0 0 1 3.732 7.17 8.747 8.747 0 0 1-4.41 7.598c-.14.081-.193.206-.188.296v.004l.318 6.062a.75.75 0 1 1-1.498.078l-.317-6.058v-.002c-.041-.727.37-1.355.94-1.682A7.247 7.247 0 0 0 19.25 8.25a7.239 7.239 0 0 0-3.093-5.94.114.114 0 0 0-.032-.018l-.01-.001c-.003 0-.014 0-.031.01-.036.022-.084.079-.084.177V7.19c0 .608-.315 1.172-.833 1.49l-2.25 1.385a1.75 1.75 0 0 1-1.834 0l-2.25-1.384A1.752 1.752 0 0 1 8 7.192V2.477c0-.098-.048-.155-.084-.176a.068.068 0 0 0-.031-.011l-.01.001Z"/></svg></span>
-                <span class="card-compact-title">Using Advanced Velocity (Voice Test)</span>
-            </div>
-            <p class="card-compact-description">This page covers the setup surface: the six velocity types, the mixer, the output and the visualization. The event workflow is a big enough topic that it gets its own page.</p>
-        </div>
-    </a>
-</div>
 </div>
 </div>
 
@@ -498,11 +507,11 @@
             
                 <nav id="retype-nextprev" class="print:hidden flex mt-14">
                     <div class="w-1/2">
-                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../advanced-velocity/using-voice-test/">
+                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../advanced-velocity/using/">
                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                             <span>
                                 <span class="block text-xs font-normal text-base-text-muted">Previous</span>
-                                <span class="block mt-1">Using Advanced Velocity (Voice Test)</span>
+                                <span class="block mt-1">Using Advanced Velocity</span>
                             </span>
                         </a>
                     </div>

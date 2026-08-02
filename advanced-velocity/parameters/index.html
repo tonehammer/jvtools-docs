@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838970786105">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838971503184">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838970786105" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838971503184" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838970786105" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838971503184" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838970786105" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838971503184" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -303,6 +303,11 @@
 | *Event Options* ▸ Stagger Points | `ev_stagger#` | Bring the points in one at a time across the event's window (Attack + Hold) instead of all at once. Off by default. Applied at playback, so it needs no re-bake. Waiting points hold in mid-air rather than falling. |
 | *Event Options* ▸ Shape Distribution | `ev_stagger_shape#` | Reveal a ramp over the activation times. |
 | *Event Options* ▸ Distribution | `ev_stagger_ramp#` | Left to right is each point's place in the shuffle, height is when it activates (0 = start of the window, 1 = end). Straight is an even spread. |
+| *Event Options* ▸ Order | `ev_stagger_order#` | Who leads the cascade: Random, Strongest First (a shockwave out of a Point Source blast), Weakest First, Along Axis, or by piece size. Modes with nothing to measure fall back to Random. |
+| *Event Options* ▸ Sweep Axis | `ev_stagger_axis#` | Direction of the Along Axis cascade — low end first. Negate to sweep the other way. |
+| *Event Options* ▸ Pulse | `ev_pulse#`, `ev_pulse_count#`, `ev_pulse_period#` | Repeat the event as a train of grips: the envelope re-runs every Period frames, Count times. Injecting Now and Mute Gravity (During Impulse) pulse with it; the last pulse plays out like the unpulsed event. |
+| *Event Options* ▸ Pattern | `ev_pulse_pattern#` | Each pulse's intensity curve: Repeat Envelope, Hit (spike then decay), Build (ramp then cut), or Wave (smooth swell). |
+| Additional Exports ▸ Export Activation Age | `out_age` | Write `@av_age`: frames since a playing event last took hold of each point, −1 if never touched. Stagger- and pulse-aware — built for shading pickup glows. Timed Events only. |
 | Attack / Hold / Release | `ev_atk#`, `ev_hold#`, `ev_rel#` | Envelope phases in **frames**, each with its own enable checkbox, all on by default. Switch all three off to latch the event at full strength forever. |
 | Extend to Next | `ev_extend#` | Set Hold so this event holds until the next event's Attack opens. Next is by frame, ignoring solo/mute. Refuses on the last event. |
 | (undo, beside Extend to Next) | `ev_extend_undo#` | Put Hold back to what the last Extend to Next replaced. That setting only, one press deep; greyed until Extend has been used. |
@@ -364,6 +369,31 @@
 <td><em>Event Options</em> ▸ Distribution</td>
 <td><code translate="no" v-pre>ev_stagger_ramp#</code></td>
 <td>Left to right is each point&#x27;s place in the shuffle, height is when it activates (0 = start of the window, 1 = end). Straight is an even spread.</td>
+</tr>
+<tr>
+<td><em>Event Options</em> ▸ Order</td>
+<td><code translate="no" v-pre>ev_stagger_order#</code></td>
+<td>Who leads the cascade: Random, Strongest First (a shockwave out of a Point Source blast), Weakest First, Along Axis, or by piece size. Modes with nothing to measure fall back to Random.</td>
+</tr>
+<tr>
+<td><em>Event Options</em> ▸ Sweep Axis</td>
+<td><code translate="no" v-pre>ev_stagger_axis#</code></td>
+<td>Direction of the Along Axis cascade — low end first. Negate to sweep the other way.</td>
+</tr>
+<tr>
+<td><em>Event Options</em> ▸ Pulse</td>
+<td><code translate="no" v-pre>ev_pulse#</code>, <code translate="no" v-pre>ev_pulse_count#</code>, <code translate="no" v-pre>ev_pulse_period#</code></td>
+<td>Repeat the event as a train of grips: the envelope re-runs every Period frames, Count times. Injecting Now and Mute Gravity (During Impulse) pulse with it; the last pulse plays out like the unpulsed event.</td>
+</tr>
+<tr>
+<td><em>Event Options</em> ▸ Pattern</td>
+<td><code translate="no" v-pre>ev_pulse_pattern#</code></td>
+<td>Each pulse&#x27;s intensity curve: Repeat Envelope, Hit (spike then decay), Build (ramp then cut), or Wave (smooth swell).</td>
+</tr>
+<tr>
+<td>Additional Exports ▸ Export Activation Age</td>
+<td><code translate="no" v-pre>out_age</code></td>
+<td>Write <code translate="no" v-pre>@av_age</code>: frames since a playing event last took hold of each point, −1 if never touched. Stagger- and pulse-aware — built for shading pickup glows. Timed Events only.</td>
 </tr>
 <tr>
 <td>Attack / Hold / Release</td>

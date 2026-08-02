@@ -131,7 +131,33 @@ For a telekinetic effect that hang *is* the look. If a piece should fall until i
 
 **Shape Distribution** reveals a ramp over the activation times. Left to right is each point's place in the shuffle, the height is when it activates — 0 at the start of the window, 1 at the end. A straight line is the even spread; bend it down to front-load the cascade, or up to hold most points back and leave stragglers. The default is straight, so switching the toggle on changes nothing until you move it.
 
+**Order** decides *who leads* the cascade — the spacing stays even, only the sequence changes:
+
+* **Random** — the seeded shuffle above.
+* **Strongest First** — the points the event hits hardest go first. With a Point Source blast that sweeps outward from the source like a shockwave, which is the setting this mode exists for. **Weakest First** is the mirror: the fringe crumbles and the core holds out longest.
+* **Along Axis** — a wipe along **Sweep Axis**, low end first. The default axis sweeps bottom to top; negate it to go the other way.
+* **Small Pieces First / Large Pieces First** — packed pieces ranked by size, so a body can shed its slivers before the big chunks let go.
+
+A mode with nothing to measure — uniform strength, unpacked input for the size modes, a zero axis — falls back to Random rather than doing something misleading.
+
 Stagger is applied at *playback*, not baked, so you can switch it on for an event that is already baked without pressing Update.
+
+### Pulsing an event
+
+**Pulse** (per event, in **Event Options**) repeats the event as a train of grips: the envelope re-runs every **Period (F)** frames, **Pulse Count** times. Between pulses the event contributes nothing and Injecting Now closes, so a connected solver owns the pieces in the gaps — the object gets grabbed, dropped, grabbed again. The last pulse plays out exactly like the unpulsed event, so a latching event still ends latched.
+
+**Pattern** shapes each pulse's intensity:
+
+* **Repeat Envelope** — every pulse replays the event's own Attack / Hold / Release.
+* **Hit** — full strength at the pulse start, then a decay eased by the Release Curve. Reads as repeated impacts.
+* **Build** — ramps up through the Attack Curve and is cut by the next pulse; the final pulse holds its peak. Reads as something charging up.
+* **Wave** — a smooth swell peaking mid-period. Reads as breathing.
+
+Mute Gravity's *During Impulse* pulses with the grip, and a staggered event re-runs the same cascade on every pulse. Like Stagger, Pulse is applied at playback — no re-bake needed.
+
+### Exporting the activation age
+
+**Export Activation Age (@av_age)** (in the Output tab's *Additional Exports*) writes, for every point, how many frames ago a playing event last took hold of it — `-1` for points never touched. It is stagger-aware (a cascade lights points up one at a time) and pulse-aware (every new grip resets the clock), which makes it a ready-made shading input: pieces that glow as the force grabs them and cool as it lets go.
 
 ### Muting gravity for an impulse
 

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838989927055">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838992124231">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838989927055" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838992124231" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838989927055" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838992124231" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838989927055" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838992124231" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -509,7 +509,7 @@
 <retype-table copy-text="| Parameter | Name | Description |
 | --- | --- | --- |
 | Add Directional Vel | `add_directional_vel` | Header checkbox. |
-| Direction | `direction_source` | SOP Path, Use Second Input, To Rest Pose, or To Position. |
+| Direction | `direction_source` | To Position (the default), SOP Path, Use Second Input, or To Rest Pose. |
 | Create Point | `dir_create_point` | Second Input mode — builds an Add SOP with one point above the mesh and wires it in. |
 | SOP Path | `dir_vel_sop_path` | The SOP whose geometry is the target. |
 | Target Group | `dir_target_group` | Which part of the target the centre is computed from. A single point number aims at exactly that point. |
@@ -541,7 +541,7 @@
 <tr>
 <td>Direction</td>
 <td><code translate="no" v-pre>direction_source</code></td>
-<td>SOP Path, Use Second Input, To Rest Pose, or To Position.</td>
+<td>To Position (the default), SOP Path, Use Second Input, or To Rest Pose.</td>
 </tr>
 <tr>
 <td>Create Point</td>

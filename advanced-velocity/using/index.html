@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838989927055">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838992124231">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838989927055" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838992124231" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838989927055" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838992124231" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838989927055" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838992124231" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -214,10 +214,10 @@
 <h3 id="directional">Directional</h3>
 <p>Velocity with a <em>direction</em> — at a target, around it, or away from it. First thing to set is <strong>Direction</strong>, which chooses where the target comes from:</p>
 <ul>
-<li><strong>SOP Path</strong> (the default) — aim at another SOP in the scene. <strong>Method</strong> decides how the centre of that thing is measured (centre of mass, bounding box, convex hull), and <strong>Target Group</strong> restricts the measurement to a part of it. Tip: put a single point number in there and you are aiming at exactly that point.</li>
+<li><strong>To Position</strong> (the default) — aim at a typed world-space position. No geometry needed at all.</li>
+<li><strong>SOP Path</strong> — aim at another SOP in the scene. <strong>Method</strong> decides how the centre of that thing is measured (centre of mass, bounding box, convex hull), and <strong>Target Group</strong> restricts the measurement to a part of it. Tip: put a single point number in there and you are aiming at exactly that point.</li>
 <li><strong>Use Second Input</strong> — aim at whatever geometry is wired into the second input of the node. Press <strong>Create Point</strong> and the node makes an Add SOP holding a single point above your mesh and wires it in for you.</li>
 <li><strong>To Rest Pose</strong> — every point aims at its <em>own</em> captured rest position (the scene start frame, or any event&#x27;s frame). This is the reassembly mode: pair it with <strong>Track Motion</strong> and an earlier event that throws the pieces, and each piece gets pulled back to its own captured spot — see <a href="../timed-events/#rest-position-attributes">rest attributes</a>.</li>
-<li><strong>To Position</strong> — aim at a typed world-space position. No geometry needed at all.</li>
 </ul>
 <p><strong>Direction Bias</strong> is the main control here, and it is a <em>continuum</em>, not a set of modes: <strong>+1</strong> aims straight at the target, <strong>0</strong> is a pure orbit around an axle through it, <strong>−1</strong> points straight away. Anything in between spirals — meaning a vortex that also draws things inward does not need a second node. The <strong>Toward / Around / Away</strong> buttons just snap the bias to those three values. <strong>Orbit Axis</strong> decides the axle: <em>Toward Target</em> runs it from the object&#x27;s centre through the target (so you can tilt the spin just by moving the target around), or you give it a fixed <em>Custom Vector</em>.</p>
 <p><strong>Normalize Direction</strong> makes every direction unit length, so distance stops affecting speed. <strong>Distance Falloff</strong> fades the velocity with distance — measured from the target, or from the axle when we are orbiting.</p>

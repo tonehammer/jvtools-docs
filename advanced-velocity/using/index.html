@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839106284991">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839108983680">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -44,11 +44,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.839106284991" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.839108983680" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839106284991" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839108983680" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839106284991" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839108983680" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -373,7 +373,7 @@
 </li>
 </ul>
 <p>Need the guides as <em>renderable</em> geometry, for a breakdown or a preview render? <strong>Utilities ▸ Output Guides Only</strong> swaps the node&#x27;s output to the guide curves themselves.</p>
-<p>In Timed Events this always gives you the same thing: the baked event trails, in their per-type colours, sitting at the input&#x27;s rest positions. <strong>Source</strong>, <strong>Preview Motion</strong> and <strong>Show Ghost Geometry</strong> get overridden while it is on, so the pass can&#x27;t accidentally include the motion-preview ghost or the pinned Setup guides, and it can&#x27;t come out empty just because Show Guides happened to be off. The viewport shows the same thing, so what you see is what you render.</p>
+<p>In Timed Events this always gives you the baked event trails in their per-type colours, and it ignores <strong>Show Guides</strong> and <strong>Source</strong> — so the pass can&#x27;t come out empty and can&#x27;t accidentally pick up the pinned Setup guides. <strong>Preview Motion is respected</strong>: with it on, the trails follow the predicted motion, which is what you want comped over a moving render; with it off you get the trails anchored at the rest positions. The ghost never enters the pass either way, and the viewport shows the same thing, so what you see is what you render.</p>
 <div id="retype-backlinks">
     <h2>See also</h2>
 <div class="card-compact-group">

@@ -23,6 +23,8 @@ The first public release — version 1.0 below is the feature set it launched wi
 **Bug fixes and improvements**
 
 * Three Point Source menus (Origin, Method, Direction) could display the wrong entry — and Point Source could not actually be picked from the Origin menu. Fixed
+* **Output Guides Only now respects Preview Motion** — with the preview on, the rendered guide pass follows the predicted motion instead of sitting pinned at rest; the ghost still never enters the pass
+* **Propagate to All** arrow buttons beside each event's Mute Gravity and Release Mode — copy that setting to every other event in one click, live at playback
 * Creating an event now switches the Events list to its tab, Create Connected RBD Sim no longer steals the display flag, and a tidier panel throughout: clearer type labels, a Return Shaping group, and attribute-name fields that only show for the active Output As mode
 
 ## Version 1.0

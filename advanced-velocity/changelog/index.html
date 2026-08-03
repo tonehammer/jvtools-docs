@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839091883342">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839105274569">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Changelog</title>
     <meta name="title" content="Changelog">
-    <meta name="description" content="The first public release.">
+    <meta name="description" content="Ballistic Motion — the node grew a second output">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://tonehammer.github.io/jvtools-docs/advanced-velocity/changelog/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/advanced-velocity/changelog/">
     <meta property="og:title" content="Changelog">
-    <meta property="og:description" content="The first public release.">
+    <meta property="og:description" content="Ballistic Motion — the node grew a second output">
     <meta property="og:site_name" content="JVtools">
     <meta property="og:locale" content="en_US">
 
@@ -31,18 +31,18 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/advanced-velocity/changelog/">
     <meta name="twitter:title" content="Changelog">
-    <meta name="twitter:description" content="The first public release.">
+    <meta name="twitter:description" content="Ballistic Motion — the node grew a second output">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://tonehammer.github.io/jvtools-docs/advanced-velocity/changelog.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.839091883342" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.839105274569" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839091883342" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839105274569" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839091883342" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839105274569" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -206,6 +206,28 @@
 
                 <!-- Page content  -->
 <h1 id="changelog">Changelog</h1>
+<h2 id="version-11">Version 1.1</h2>
+<p><strong>Ballistic Motion — the node grew a second output</strong></p>
+<ul>
+<li>Output 2 delivers the pieces <em>already flying</em> — advanced along the velocity you authored, tumbling with any baked <code translate="no" v-pre>@w</code>, no solver required. Output 1 is untouched, so your sim workflow doesn&#x27;t change; the second output is for previz, motion-graphics moves, or anywhere a real solve is overkill</li>
+<li><strong>Return to Home</strong> — keyframe one slider from 0 to 1 and every piece flies back to exactly where it started, however far the motion has carried it. The landing is exact by construction: at 1 the output equals the input to the last bit</li>
+<li><strong>Return Shaping</strong> — arc the return paths, swirl them around an axis into a vortex, add whole extra turns, and stagger the arrivals (random, nearest first, or farthest first). None of it can break the landing</li>
+<li>Optional <strong>return-path guides</strong> draw each piece&#x27;s route home, sampled from the same curve the motion actually follows</li>
+</ul>
+<p><strong>Event Strength</strong></p>
+<ul>
+<li>Per-event sliders at the top of the Velocity Mixer — scale whole events against each other after the fact, live at playback, no re-baking. The type Gains balance the streams <em>inside</em> an event; Event Strength balances the <em>events</em></li>
+</ul>
+<p><strong>Visualization</strong></p>
+<ul>
+<li><strong>Ghost Style</strong> for the motion preview: Full Wireframe, Bounding Boxes (the new default — one wire box per piece, cheap at any density), or Points</li>
+<li>Preview Motion no longer switches itself off on heavy inputs — the Visualization Limit now governs the guide trails only</li>
+</ul>
+<p><strong>Bug fixes and improvements</strong></p>
+<ul>
+<li>Three Point Source menus (Origin, Method, Direction) could display the wrong entry — and Point Source could not actually be picked from the Origin menu. Fixed</li>
+<li>Creating an event now switches the Events list to its tab, Create Connected RBD Sim no longer steals the display flag, and a tidier panel throughout: clearer type labels, a Return Shaping group, and attribute-name fields that only show for the active Output As mode</li>
+</ul>
 <h2 id="version-10">Version 1.0</h2>
 <p>The first public release.</p>
 <p><strong>Velocity types</strong></p>

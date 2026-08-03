@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839091883342">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839105274569">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.839091883342" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.839105274569" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839091883342" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839105274569" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839091883342" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839105274569" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -224,8 +224,8 @@
 <p>After that, the other two viewport costs are <strong>Guide Density</strong> (1.0 on a dense input is a trail per point; the node auto-picks about 0.1 on first connection, so a hand-raised value is worth a second look) and <strong>Guides Show = Both</strong>, which draws the live-setup <em>and</em> baked-event streams at once.</p>
 <p>One thing that is <em>not</em> the node: <strong>a textured mesh is expensive to draw whatever you do to it.</strong> Measured on a 111k-poly textured car against a 54k untextured fracture with roughly the same on-screen polygon count, the textured one felt markedly slower while Advanced Velocity itself cooked in 3 ms a frame. If the node is cheap and the viewport still crawls, the fix is viewport-side — flat or wireframe shading while you author, or point the display at the untextured stream and switch back at the end.</p>
 <p>Quick way to tell the two apart: <strong>click any other node.</strong> All guide geometry stops drawing, because it only appears while this node is current. If everything snaps responsive, the cost is in the visualization controls above; if it doesn&#x27;t, it&#x27;s your input geometry.</p>
-<h2 id="the-preview-ghost-doesnt-appear-on-a-heavy-mesh">The preview ghost doesn&#x27;t appear on a heavy mesh</h2>
-<p>Preview Motion auto-disables on inputs above the <strong>Visualization Limit</strong> (Visualization tab, default 100,000 points) — integrating and moving that much geometry every frame is simply too slow to be a preview. The <strong>At Frame</strong> readout says so while it&#x27;s the case. Raise the limit, switch <strong>Enforce Visualization Limit</strong> off, or author on a lighter proxy (packed pieces count one point each).</p>
+<h2 id="the-preview-ghost-feels-slow-on-a-heavy-mesh">The preview ghost feels slow on a heavy mesh</h2>
+<p>The ghost redraws your pieces on every viewport refresh, so on dense input it has a real cost — that&#x27;s why Preview Motion ships off. First thing to reach for is <strong>Ghost Style</strong> (Visualization ▸ Timed Events): <strong>Bounding Boxes</strong>, the default, draws one wire box per piece and stays cheap at any density; <strong>Points</strong> is cheaper still. Full Wireframe is the one to save for light objects. And the preview is a check-your-timing tool, not a leave-it-on tool — flip it on, look, flip it off.</p>
 <h2 id="the-event-timeline-disappeared">The event timeline disappeared</h2>
 <p>The timeline is drawn by the node&#x27;s viewer state, and refreshing asset libraries (among other things) drops the viewer out of it. Press <strong>Utilities ▸ Restore Viewport HUD</strong> and it&#x27;s back.</p>
 <h2 id="the-point-source-explosion-doesnt-affect-anything">The Point Source explosion doesn&#x27;t affect anything</h2>
@@ -259,7 +259,7 @@
                 <span class="card-compact-icon inline-flex shrink-0"><img width="20" height="20" src="static/advanced_velocity_icon.png"></span>
                 <span class="card-compact-title">Advanced Velocity</span>
             </div>
-            <p class="card-compact-description">Welcome! Advanced Velocity (v1.0) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node.</p>
+            <p class="card-compact-description">Welcome! Advanced Velocity (v1.1) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node.</p>
         </div>
     </a>
 </div>

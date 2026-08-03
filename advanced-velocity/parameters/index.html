@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839091883342">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839105274569">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.839091883342" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.839105274569" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839091883342" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839105274569" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839091883342" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839105274569" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -237,7 +237,7 @@
 </table>
 </div>
 </retype-table>
-<h2 id="dynamic-events">Dynamic Events</h2>
+<h2 id="events">Events</h2>
 <p>Visible in Timed Events mode. See <a href="../timed-events/">Timed Events</a> for the workflow.</p>
 <retype-table copy-text="| Parameter | Name | Description |
 | --- | --- | --- |
@@ -301,7 +301,7 @@
 | *Event Options* ▸ Create Rest Position Attribute | `ev_rest_en#` | Record this event's positions into a `&lt;name&gt;_rest` attribute for To Rest Pose. |
 | *Event Options* ▸ Mute Gravity | `ev_mute_grav#` | Off / During Impulse (attack + hold) / Until Next Event / End. Off by default. The third setting keeps gravity muted across the gap to the next event without holding the impulse on, so pieces coast instead of falling; on the last event it runs until that event stops contributing — to the end of the range when Release is off, since the envelope latches there. Mutes gravity for the whole solve, not just this event's pieces. |
 | *Event Options* ▸ Stagger Points | `ev_stagger#` | Bring the points in one at a time across the event's window (Attack + Hold) instead of all at once. Off by default. Applied at playback, so it needs no re-bake. Waiting points hold in mid-air rather than falling. |
-| *Event Options* ▸ Shape Distribution | `ev_stagger_shape#` | Reveal a ramp over the activation times. |
+| *Event Options* ▸ Shape Distribution Ramp | `ev_stagger_shape#` | Reveal a ramp over the activation times. |
 | *Event Options* ▸ Distribution | `ev_stagger_ramp#` | Left to right is each point's place in the shuffle, height is when it activates (0 = start of the window, 1 = end). Straight is an even spread. |
 | *Event Options* ▸ Order | `ev_stagger_order#` | Who leads the cascade: Random, Strongest First (a shockwave out of a Point Source blast), Weakest First, Along Axis, or by piece size. Modes with nothing to measure fall back to Random. |
 | *Event Options* ▸ Sweep Axis | `ev_stagger_axis#` | Direction of the Along Axis cascade — low end first. Negate to sweep the other way. |
@@ -363,7 +363,7 @@
 <td>Bring the points in one at a time across the event&#x27;s window (Attack + Hold) instead of all at once. Off by default. Applied at playback, so it needs no re-bake. Waiting points hold in mid-air rather than falling.</td>
 </tr>
 <tr>
-<td><em>Event Options</em> ▸ Shape Distribution</td>
+<td><em>Event Options</em> ▸ Shape Distribution Ramp</td>
 <td><code translate="no" v-pre>ev_stagger_shape#</code></td>
 <td>Reveal a ramp over the activation times.</td>
 </tr>
@@ -479,7 +479,7 @@
 <h3 id="basic-velocity">Basic Velocity</h3>
 <retype-table copy-text="| Parameter | Name | Description |
 | --- | --- | --- |
-| Add Basic Vel | `add_basic_vel` | Header checkbox. One fixed vector applied to every point. |
+| Add Basic Velocity | `add_basic_vel` | Header checkbox. One fixed vector applied to every point. |
 | Value | `value1v` | The velocity vector, in units per second. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
@@ -492,7 +492,7 @@
 </thead>
 <tbody>
 <tr>
-<td>Add Basic Vel</td>
+<td>Add Basic Velocity</td>
 <td><code translate="no" v-pre>add_basic_vel</code></td>
 <td>Header checkbox. One fixed vector applied to every point.</td>
 </tr>
@@ -508,7 +508,7 @@
 <h3 id="directional-velocity">Directional Velocity</h3>
 <retype-table copy-text="| Parameter | Name | Description |
 | --- | --- | --- |
-| Add Directional Vel | `add_directional_vel` | Header checkbox. |
+| Add Directional Velocity | `add_directional_vel` | Header checkbox. |
 | Direction | `direction_source` | To Position (the default), SOP Path, Use Second Input, or To Rest Pose. |
 | Create Point | `dir_create_point` | Second Input mode — builds an Add SOP with one point above the mesh and wires it in. |
 | SOP Path | `dir_vel_sop_path` | The SOP whose geometry is the target. |
@@ -534,7 +534,7 @@
 </thead>
 <tbody>
 <tr>
-<td>Add Directional Vel</td>
+<td>Add Directional Velocity</td>
 <td><code translate="no" v-pre>add_directional_vel</code></td>
 <td>Header checkbox.</td>
 </tr>
@@ -615,12 +615,12 @@
 <h3 id="exploding-velocity">Exploding Velocity</h3>
 <retype-table copy-text="| Parameter | Name | Description |
 | --- | --- | --- |
-| Add Exploding Vel | `add_exploding_vel` | Header checkbox. |
+| Add Exploding Velocity | `add_exploding_vel` | Header checkbox. |
 | Origin | `exp_origin` | Whole Object, or Point Source. |
 | Method | `exp_vel_method` | Whole Object — Centroid or Medial Axis. |
 | Move Centroid | `t` | Whole Object — offsets the centre the burst radiates from. |
 | Direction | `exp_direction` | Point Source — Off Surface (default), Outward, Inward, or Both (split thin objects). |
-| Select Source Position Interactively | `exp_pick` | Enters the viewport placement state. |
+| Place Source | `exp_pick` | Enters the viewport placement state. |
 | Source Position | `exp_source_pos` | The world-space blast origin, drawn with a radius sphere. |
 | Depth Scroll Step | `exp_pick_depth_step` | How far one Shift + scroll notch pushes the source during placement. A plain scroll scales the Radius instead. |
 | Falloff Radius | `exp_radius` | Blast reach, measured to each piece's real bounds. |
@@ -639,7 +639,7 @@
 </thead>
 <tbody>
 <tr>
-<td>Add Exploding Vel</td>
+<td>Add Exploding Velocity</td>
 <td><code translate="no" v-pre>add_exploding_vel</code></td>
 <td>Header checkbox.</td>
 </tr>
@@ -664,7 +664,7 @@
 <td>Point Source — Off Surface (default), Outward, Inward, or Both (split thin objects).</td>
 </tr>
 <tr>
-<td>Select Source Position Interactively</td>
+<td>Place Source</td>
 <td><code translate="no" v-pre>exp_pick</code></td>
 <td>Enters the viewport placement state.</td>
 </tr>
@@ -710,7 +710,7 @@
 <h3 id="velocity-from-motion">Velocity from Motion</h3>
 <retype-table copy-text="| Parameter | Name | Description |
 | --- | --- | --- |
-| Add Motion Vel | `add_inherited_vel` | Header checkbox. Velocity from the input's frame-to-frame movement. |
+| Add Motion Velocity | `add_inherited_vel` | Header checkbox. Velocity from the input's frame-to-frame movement. |
 | Velocity Scale | `inherited_scale` | Multiplier on the derived velocity. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
@@ -723,7 +723,7 @@
 </thead>
 <tbody>
 <tr>
-<td>Add Motion Vel</td>
+<td>Add Motion Velocity</td>
 <td><code translate="no" v-pre>add_inherited_vel</code></td>
 <td>Header checkbox. Velocity from the input&#x27;s frame-to-frame movement.</td>
 </tr>
@@ -739,7 +739,7 @@
 <h3 id="curl-noise-velocity">Curl Noise Velocity</h3>
 <retype-table copy-text="| Parameter | Name | Description |
 | --- | --- | --- |
-| Add Curl Vel | `add_curl_vel` | Header checkbox. A divergence-free turbulent field. |
+| Add Curl Velocity | `add_curl_vel` | Header checkbox. A divergence-free turbulent field. |
 | Frequency / Amplitude | `curl_freq`, `curl_amp` | Vortex size and speed. |
 | Reverse Direction | `curl_reverse` | Every swirl runs the other way. |
 | Offset | `curl_offset` | Shifts the field — vary for a different swirl pattern. |
@@ -756,7 +756,7 @@
 </thead>
 <tbody>
 <tr>
-<td>Add Curl Vel</td>
+<td>Add Curl Velocity</td>
 <td><code translate="no" v-pre>add_curl_vel</code></td>
 <td>Header checkbox. A divergence-free turbulent field.</td>
 </tr>
@@ -789,7 +789,7 @@
 </table>
 </div>
 </retype-table>
-<h3 id="extra-angular-velocity">(Extra) Angular Velocity</h3>
+<h3 id="angular-velocity">Angular Velocity</h3>
 <retype-table copy-text="| Parameter | Name | Description |
 | --- | --- | --- |
 | Add Angular Velocity (@w) | `add_angular_vel` | Header checkbox. Writes `@w`. |
@@ -827,6 +827,7 @@
 <h2 id="velocity-mixer">Velocity Mixer</h2>
 <retype-table copy-text="| Parameter | Name | Description |
 | --- | --- | --- |
+| Event Strength | `evmix_amount#` | Timed Events only — one slider per event, named live after it. Scales that whole event across the whole range, applied at playback (never makes the event stale). The Gains below balance the types *inside* an event; these balance the events against each other. Does not close Injecting Now / Mute Gravity — use Mute for that. |
 | Mixer Mode | `mixer_mode` | Additive, or Weighted (Normalized). |
 | Incoming Velocity | `add_input_vel`, `input_amount` | Feed the velocity already on the geometry in as another stream (on by default), and how much of it. In Timed Events it plays as a live base layer under the events. |
 | Gains | `gain_basic`, `gain_dir`, `gain_exp`, `gain_inherited`, `gain_curl` | Additive — per-type multipliers before the sum. |
@@ -842,6 +843,11 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>Event Strength</td>
+<td><code translate="no" v-pre>evmix_amount#</code></td>
+<td>Timed Events only — one slider per event, named live after it. Scales that whole event across the whole range, applied at playback (never makes the event stale). The Gains below balance the types <em>inside</em> an event; these balance the events against each other. Does not close Injecting Now / Mute Gravity — use Mute for that.</td>
+</tr>
 <tr>
 <td>Mixer Mode</td>
 <td><code translate="no" v-pre>mixer_mode</code></td>
@@ -878,12 +884,9 @@
 | Muting Gravity | `dyn_mute_gravity` | Live 0/1 — 1 while any playing event is inside its Mute Gravity window. Drive a solver's gravity force from it. Always 0 in Single Field. |
 | Create Connected RBD Sim | `make_rbd_sim` | Build an RBD Bullet Solver below the node, already gated on Injecting Now and Muting Gravity. |
 | Output As | `out_as` | Velocity (`@v`) — set directly, what RBD reads — or Force (`@force`) — accumulated by POP and Vellum. |
-| Velocity Attribute / Force Attribute | `out_attrib_name`, `out_force_name` | The written attribute name in each mode. |
+| Velocity Attribute / Force Attribute | `out_attrib_name`, `out_force_name` | The written attribute name; only the field for the current Output As mode is shown, and both names are kept. |
 | Injecting Now | `dyn_injecting` | Live 0/1: an event is delivering energy right now. Gate an RBD solver's Overwrite Attributes list on it — see [Driving an RBD solver](timed-events.md#driving-an-rbd-solver). |
-| Clamp Speed | `out_clamp`, `out_clamp_min`, `out_clamp_max` | Clamp the final speed into a range. |
-| Scale by Piece Size | `out_piece_scale`, `out_piece_influence` | Big chunks fly slower. Mass from a point `mass` attribute or the piece's size; Influence blends from uniform (0) to full inverse mass (1). |
-| Additional Exports | `out_basic`, `out_dir`, `out_exp`, `out_inherited`, `out_curl` | Collapsed section — keep a sub-velocity on the output under its own name. In Timed Events the export carries the playing events' contribution (events baked before per-type storage need Update). Everything else is stripped. |
-| Export Rest Position Attributes | `output_rest` | In Additional Exports — keep `startframe_rest` and every event's `&lt;name&gt;_rest` on the output, for reassembly or retargeting downstream. |">
+| Clamp Speed | `out_clamp`, `out_clamp_min`, `out_clamp_max` | Clamp the final speed into a range. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -917,7 +920,7 @@
 <tr>
 <td>Velocity Attribute / Force Attribute</td>
 <td><code translate="no" v-pre>out_attrib_name</code>, <code translate="no" v-pre>out_force_name</code></td>
-<td>The written attribute name in each mode.</td>
+<td>The written attribute name; only the field for the current Output As mode is shown, and both names are kept.</td>
 </tr>
 <tr>
 <td>Injecting Now</td>
@@ -928,6 +931,86 @@
 <td>Clamp Speed</td>
 <td><code translate="no" v-pre>out_clamp</code>, <code translate="no" v-pre>out_clamp_min</code>, <code translate="no" v-pre>out_clamp_max</code></td>
 <td>Clamp the final speed into a range.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="ballistic-motion-output-2">Ballistic Motion (output 2)</h3>
+<retype-table copy-text="| Parameter | Name | Description |
+| --- | --- | --- |
+| Add Ballistic Motion | `ballistic_enable` | Header checkbox, on by default. Output 2 delivers the pieces advanced along the authored velocity — no solver. Output 1 is untouched; with the toggle off, output 2 is empty. |
+| Include Rotation | `ballistic_spin` | Fold baked `@w` into each packed piece's transform, so the pieces tumble as they fly. |
+| Display Offset | `ballistic_offset` | Slide the flying pieces sideways, in multiples of the object's width — an exploded-view shift, recorded as `jv_preview_shift`. |
+| Return to Home | `ballistic_return` | 0 = full flight, 1 = every piece back at exactly its input position. Keyframe it for a reassembly; the landing at 1 is exact by construction. |
+| *Return Shaping* ▸ Return Profile | `ballistic_return_ramp` | Ramp over the return blend, for easing the approach. |
+| *Return Shaping* ▸ Stagger / Return Order | `ballistic_return_stagger`, `ballistic_return_order` | Give each piece its own return window; Order picks who leads — Random, Nearest First, Farthest First. Everyone is home by 1. |
+| *Return Shaping* ▸ Arc / Swirl / Swirl Axis | `ballistic_arc`, `ballistic_swirl`, `ballistic_swirl_axis` | Bow each return path sideways; Swirl blends the arcs toward a shared rotation about the axis — a vortex funnelling home. |
+| *Return Shaping* ▸ Extra Turns / Seed | `ballistic_turns`, `ballistic_arc_seed` | Whole extra loops on the unwind (invisible at both ends), and the re-roll for the per-piece arc directions. |
+| *Return Shaping* ▸ Show on Preview Ghost | `ballistic_preview` | Let the motion-preview ghost follow Return to Home too. |
+| *Return Shaping* ▸ Return Paths | `viz_arc`, `viz_arc_color` | Draw each piece's route home as a guide curve — sampled from the same curve the blend walks. |
+| Scale by Piece Size | `out_piece_scale`, `out_piece_influence` | Big chunks fly slower. Mass from a point `mass` attribute or the piece's size; Influence blends from uniform (0) to full inverse mass (1). |
+| Additional Exports | `out_basic`, `out_dir`, `out_exp`, `out_inherited`, `out_curl` | Collapsed section — keep a sub-velocity on the output under its own name. In Timed Events the export carries the playing events' contribution (events baked before per-type storage need Update). Everything else is stripped. |
+| Export Rest Position Attributes | `output_rest` | In Additional Exports — keep `startframe_rest` and every event's `&lt;name&gt;_rest` on the output, for reassembly or retargeting downstream. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Add Ballistic Motion</td>
+<td><code translate="no" v-pre>ballistic_enable</code></td>
+<td>Header checkbox, on by default. Output 2 delivers the pieces advanced along the authored velocity — no solver. Output 1 is untouched; with the toggle off, output 2 is empty.</td>
+</tr>
+<tr>
+<td>Include Rotation</td>
+<td><code translate="no" v-pre>ballistic_spin</code></td>
+<td>Fold baked <code translate="no" v-pre>@w</code> into each packed piece&#x27;s transform, so the pieces tumble as they fly.</td>
+</tr>
+<tr>
+<td>Display Offset</td>
+<td><code translate="no" v-pre>ballistic_offset</code></td>
+<td>Slide the flying pieces sideways, in multiples of the object&#x27;s width — an exploded-view shift, recorded as <code translate="no" v-pre>jv_preview_shift</code>.</td>
+</tr>
+<tr>
+<td>Return to Home</td>
+<td><code translate="no" v-pre>ballistic_return</code></td>
+<td>0 = full flight, 1 = every piece back at exactly its input position. Keyframe it for a reassembly; the landing at 1 is exact by construction.</td>
+</tr>
+<tr>
+<td><em>Return Shaping</em> ▸ Return Profile</td>
+<td><code translate="no" v-pre>ballistic_return_ramp</code></td>
+<td>Ramp over the return blend, for easing the approach.</td>
+</tr>
+<tr>
+<td><em>Return Shaping</em> ▸ Stagger / Return Order</td>
+<td><code translate="no" v-pre>ballistic_return_stagger</code>, <code translate="no" v-pre>ballistic_return_order</code></td>
+<td>Give each piece its own return window; Order picks who leads — Random, Nearest First, Farthest First. Everyone is home by 1.</td>
+</tr>
+<tr>
+<td><em>Return Shaping</em> ▸ Arc / Swirl / Swirl Axis</td>
+<td><code translate="no" v-pre>ballistic_arc</code>, <code translate="no" v-pre>ballistic_swirl</code>, <code translate="no" v-pre>ballistic_swirl_axis</code></td>
+<td>Bow each return path sideways; Swirl blends the arcs toward a shared rotation about the axis — a vortex funnelling home.</td>
+</tr>
+<tr>
+<td><em>Return Shaping</em> ▸ Extra Turns / Seed</td>
+<td><code translate="no" v-pre>ballistic_turns</code>, <code translate="no" v-pre>ballistic_arc_seed</code></td>
+<td>Whole extra loops on the unwind (invisible at both ends), and the re-roll for the per-piece arc directions.</td>
+</tr>
+<tr>
+<td><em>Return Shaping</em> ▸ Show on Preview Ghost</td>
+<td><code translate="no" v-pre>ballistic_preview</code></td>
+<td>Let the motion-preview ghost follow Return to Home too.</td>
+</tr>
+<tr>
+<td><em>Return Shaping</em> ▸ Return Paths</td>
+<td><code translate="no" v-pre>viz_arc</code>, <code translate="no" v-pre>viz_arc_color</code></td>
+<td>Draw each piece&#x27;s route home as a guide curve — sampled from the same curve the blend walks.</td>
 </tr>
 <tr>
 <td>Scale by Piece Size</td>
@@ -955,7 +1038,7 @@
 | Show Guides | `viz_guides` | Master switch for all velocity guides. |
 | Guide Global Scale | `viz_scale` | Length multiplier for all guide trails. |
 | Guide Density | `viz_density` | Fraction of trails actually drawn, for viewport speed. Picked for you the first time geometry is connected to a fresh node, aiming at roughly 200 trails; after that it is yours and is never changed again. On dense inputs the trails also auto-cap at the Visualization Limit; Density scales within that budget. |
-| Enforce Visualization Limit | `viz_limit_enable`, `viz_limit` | Point budget (default 100,000) for the heavy-input safeties: the maximum guide trails drawn, and the input size above which Preview Motion auto-disables. Raise it or switch it off to visualize everything regardless of cost. |">
+| Enforce Visualization Limit | `viz_limit_enable`, `viz_limit` | Point budget (default 100,000) capping how many guide trails are drawn. Raise it or switch it off to draw everything regardless of cost. Guide trails only — Preview Motion is not affected. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -989,7 +1072,7 @@
 <tr>
 <td>Enforce Visualization Limit</td>
 <td><code translate="no" v-pre>viz_limit_enable</code>, <code translate="no" v-pre>viz_limit</code></td>
-<td>Point budget (default 100,000) for the heavy-input safeties: the maximum guide trails drawn, and the input size above which Preview Motion auto-disables. Raise it or switch it off to visualize everything regardless of cost.</td>
+<td>Point budget (default 100,000) capping how many guide trails are drawn. Raise it or switch it off to draw everything regardless of cost. Guide trails only — Preview Motion is not affected.</td>
 </tr>
 </tbody>
 </table>
@@ -999,7 +1082,8 @@
 <retype-table copy-text="| Parameter | Name | Description |
 | --- | --- | --- |
 | *Timed Events* ▸ Source | `dyn_guide_source` | Which stream the guides draw: Setup, Events, or Both. |
-| *Timed Events* ▸ Preview Motion | `dyn_preview`, `dyn_preview_ghost`, `dyn_ghost_color` | Advance the baked guides to the predicted positions, with an optional wireframe ghost of the pieces. **Off by default — the most expensive control here:** the ghost draws a second full copy of your input every redraw, which slows scrubbing and parm edits on heavy or textured objects. Auto-disabled above the Visualization Limit; the At Frame readout says when. |
+| *Timed Events* ▸ Preview Motion | `dyn_preview`, `dyn_preview_ghost`, `dyn_ghost_color` | Advance the baked guides to the predicted positions, with an optional ghost of the pieces. **Off by default — the most expensive control here:** the ghost redraws your pieces on every refresh, which slows scrubbing and parm edits on heavy or textured objects. |
+| *Timed Events* ▸ Ghost Style | `dyn_ghost_style` | How the ghost draws: Full Wireframe, Bounding Boxes (default — one wire box per piece, cheap at any density), or Points. |
 | *Timed Events* ▸ Offset | `dyn_preview_offset` | Slide the preview sideways, in multiples of the object's width. |
 | *Timed Events* ▸ Unify Baked Guides | `viz_baked_yellow`, `viz_baked_tint` | Draw every baked-event guide in one colour instead of per-type colours. |
 | *Timeline HUD* ▸ Event Timeline / Scheme | `viz_timeline`, `viz_timeline_scheme` | The on-screen frame ruler with a marker per event; Dark or Light palette. Drawn by the viewer state rather than as guide geometry, so Show Guides and the Visualization Limit do not affect it. |">
@@ -1021,7 +1105,12 @@
 <tr>
 <td><em>Timed Events</em> ▸ Preview Motion</td>
 <td><code translate="no" v-pre>dyn_preview</code>, <code translate="no" v-pre>dyn_preview_ghost</code>, <code translate="no" v-pre>dyn_ghost_color</code></td>
-<td>Advance the baked guides to the predicted positions, with an optional wireframe ghost of the pieces. <strong>Off by default — the most expensive control here:</strong> the ghost draws a second full copy of your input every redraw, which slows scrubbing and parm edits on heavy or textured objects. Auto-disabled above the Visualization Limit; the At Frame readout says when.</td>
+<td>Advance the baked guides to the predicted positions, with an optional ghost of the pieces. <strong>Off by default — the most expensive control here:</strong> the ghost redraws your pieces on every refresh, which slows scrubbing and parm edits on heavy or textured objects.</td>
+</tr>
+<tr>
+<td><em>Timed Events</em> ▸ Ghost Style</td>
+<td><code translate="no" v-pre>dyn_ghost_style</code></td>
+<td>How the ghost draws: Full Wireframe, Bounding Boxes (default — one wire box per piece, cheap at any density), or Points.</td>
 </tr>
 <tr>
 <td><em>Timed Events</em> ▸ Offset</td>
@@ -1132,7 +1221,7 @@
                 <span class="card-compact-icon inline-flex shrink-0"><img width="20" height="20" src="static/advanced_velocity_icon.png"></span>
                 <span class="card-compact-title">Advanced Velocity</span>
             </div>
-            <p class="card-compact-description">Welcome! Advanced Velocity (v1.0) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node.</p>
+            <p class="card-compact-description">Welcome! Advanced Velocity (v1.1) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node.</p>
         </div>
     </a>
 </div>

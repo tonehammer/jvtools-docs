@@ -36,9 +36,9 @@ One thing that is *not* the node: **a textured mesh is expensive to draw whateve
 
 Quick way to tell the two apart: **click any other node.** All guide geometry stops drawing, because it only appears while this node is current. If everything snaps responsive, the cost is in the visualization controls above; if it doesn't, it's your input geometry.
 
-## The preview ghost doesn't appear on a heavy mesh
+## The preview ghost feels slow on a heavy mesh
 
-Preview Motion auto-disables on inputs above the **Visualization Limit** (Visualization tab, default 100,000 points) — integrating and moving that much geometry every frame is simply too slow to be a preview. The **At Frame** readout says so while it's the case. Raise the limit, switch **Enforce Visualization Limit** off, or author on a lighter proxy (packed pieces count one point each).
+The ghost redraws your pieces on every viewport refresh, so on dense input it has a real cost — that's why Preview Motion ships off. First thing to reach for is **Ghost Style** (Visualization ▸ Timed Events): **Bounding Boxes**, the default, draws one wire box per piece and stays cheap at any density; **Points** is cheaper still. Full Wireframe is the one to save for light objects. And the preview is a check-your-timing tool, not a leave-it-on tool — flip it on, look, flip it off.
 
 ## The event timeline disappeared
 

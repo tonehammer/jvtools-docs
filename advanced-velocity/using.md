@@ -58,7 +58,7 @@ The falloff also decides *which pieces move, full stop*: Adjust and Mask variati
 
 ### Placing the source interactively
 
-Press **Select Source Position Interactively** and the viewport enters a placement state:
+Press **Place Source** and the viewport enters a placement state:
 
 | Input | Action |
 | --- | --- |
@@ -114,6 +114,8 @@ Both blocks are Houdini's own controls, so for the parameters not described here
 
 **Master Speed** is the single overall magnitude control, applied after the gains/weights in both modes.
 
+In Timed Events the tab gains a second block above all of this: **Event Strength**, one slider per event. This is the *other* axis of mixing — the Gains and Weights balance the velocity types baked *into* an event, Event Strength balances whole events against each other. It applies live at playback, so dragging a slider never makes an event stale and never needs an Update; drop one to 0.2 and that whole beat plays at a fifth of its punch. One deliberate exception: a strength of 0 does not close the event's Injecting Now / Mute Gravity windows — those key off the event's timing, not its amount — so use **Mute** when you want an event genuinely out of the solve.
+
 **Group**, at the very top of the node, restricts the final write: points outside the group keep whatever velocity they arrived with. This is how several Advanced Velocity nodes can each drive their own region.
 
 ---
@@ -133,6 +135,24 @@ The short version: **if it's Bullet, write velocity and gate it; if it's POP or 
 
 **Injecting Now** and **Muting Gravity** are live 0/1 readouts for driving an RBD solve, and **Create Connected RBD Sim** builds a solver already wired to both — see [Driving an RBD solver](timed-events.md#driving-an-rbd-solver).
 
+### Ballistic Motion — the second output
+
+The node has a second output, and it delivers the pieces **already flying**: advanced along the velocity you authored, frame by frame, tumbling with any baked `@w` if **Include Rotation** is on. No solver anywhere. Output 1 is completely untouched by this — your sim still gets the pieces at rest with `@v` on them — so wire output 2 when a real solve is overkill: previz, motion-graphics moves, a quick look test before committing to Bullet.
+
+It's a straight-line integration — no collisions, no gravity — the same maths as the motion-preview ghost, applied to the real geometry. **Display Offset** slides the result sideways in multiples of the object's width, for reading it next to the original.
+
+**Return to Home** is the part that makes it a tool rather than a toy. Keyframe it from 0 to 1 and every piece flies back to *exactly* where it started — and that landing is exact by construction: at 1, output 2 equals the input bit for bit, no matter how far the motion carried the pieces or what shaping you piled on. Telekinesis reassembly in one slider.
+
+**Return Shaping** (collapsed under the slider) art-directs the way home without ever being able to break the landing:
+
+* **Return Profile** — a ramp over the blend, for easing the approach.
+* **Stagger** gives each piece its own return window, with **Return Order** deciding who leads: Random, Nearest First, or Farthest First. Everyone is still home by 1.
+* **Arc** bows each piece's path sideways instead of a dead-straight line; **Swirl** blends those arcs toward a shared rotation around the **Swirl Axis** — crank it and the return becomes a vortex funnelling home.
+* **Extra Turns** adds whole loops to the unwind. A full turn is invisible at both ends, so it only shows mid-flight.
+* **Seed** re-rolls the per-piece arc directions.
+
+The **Return Paths** toggle at the bottom draws each piece's route home as a guide curve — sampled from the very same curve the blend walks, so what you see is what plays.
+
 **Post-Process** holds the final touches:
 
 * **Clamp Speed** clamps the final speed into a Min / Max range.
@@ -151,7 +171,7 @@ The guides are **guide geometry**: they draw in the viewport while the node is c
 * **Guide Density** draws only a fraction of the trails, for viewport speed on heavy fractures. The same pieces stay chosen frame to frame, so the selection doesn't flicker. On dense inputs the trails also auto-cap at the **Visualization Limit** (default 100,000), with Density scaling within that budget — raise the limit or switch it off if you really want to draw everything.
 
     The **first** time you connect geometry to a fresh node, Density gets set for you from the input's point count, aiming at roughly 200 trails — enough to read the field without covering the whole object. A few hundred points keeps every trail; a couple of thousand lands around `0.1`. This happens once and silently: change the value and it is yours, and re-wiring a different mesh later will never override it.
-* Two further groups appear in Timed Events only. **Timed Events** holds **Source** (which stream the guides draw — Setup, Events or Both), **Preview Motion** with its ghost and **Offset**, and **Unify Baked Guides**. Preview Motion ships **off** on purpose — it's the one control here with a real cost, since the ghost draws a second full copy of your input every redraw. Flip it on to check timing, then off again; on anything heavy it's what makes the whole scene feel sluggish. **Timeline HUD** holds the on-screen event ruler — see [the timeline and the preview](timed-events.md#the-event-timeline). The timeline itself is drawn by the viewer state rather than as guide geometry, which is why Show Guides and the Visualization Limit leave it alone.
+* Two further groups appear in Timed Events only. **Timed Events** holds **Source** (which stream the guides draw — Setup, Events or Both), **Preview Motion** with its ghost, **Ghost Style** and **Offset**, and **Unify Baked Guides**. Preview Motion ships **off** on purpose — it's the one control here with a real cost, since the ghost redraws your pieces every refresh. **Ghost Style** is what keeps that affordable: **Bounding Boxes** (the default) draws one wire box per piece and stays cheap at any density, **Points** is cheaper still, and **Full Wireframe** is the pretty one for light objects. Flip the preview on to check timing, then off again; on anything heavy it's what makes the whole scene feel sluggish. **Timeline HUD** holds the on-screen event ruler — see [the timeline and the preview](timed-events.md#the-event-timeline). The timeline itself is drawn by the viewer state rather than as guide geometry, which is why Show Guides and the Visualization Limit leave it alone.
 
 Need the guides as *renderable* geometry, for a breakdown or a preview render? **Utilities ▸ Output Guides Only** swaps the node's output to the guide curves themselves.
 

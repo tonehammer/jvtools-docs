@@ -49,6 +49,12 @@ The node watches for the trap in that loop: if the live Setup no longer matches 
 
 **Solo** plays back *only* the listed events; **Mute** silences the listed ones. Both take space-separated numbers and ranges (`1 3-5`), and picking from the dropdown *adds* to the list rather than replacing it. Solo wins over Mute, and a soloed event is never cut short by the events it was soloed away from.
 
+## Event Strength
+
+Once a few events are baked, balancing them against each other used to mean Recall → tweak → Update for every one. **Event Strength** (top of the Velocity Mixer tab, one slider per event, named live after the event) does it directly: each slider scales that whole event, across the whole frame range, applied at playback — so it responds instantly and never makes an event stale. The split to keep in your head: the type **Gains** balance the streams *inside* the event you're about to bake, Event Strength balances the *baked events* against each other.
+
+A strength of 0 quiets an event's velocity but deliberately does **not** close its Injecting Now / Mute Gravity windows — those follow the event's timing, not its amount. Want an event genuinely out of the solve? That's **Mute**.
+
 ## The event timeline
 
 With **Event Timeline** on (Visualization tab), a frame ruler draws along the bottom of the viewport with a marker per event and a playhead. The marker colours tell you each event's state at a glance:
@@ -71,7 +77,7 @@ Baked vectors are only half the picture — you also want to see where the piece
 
 Careful with this one: it ships **off**, and that is deliberate. It's the most expensive control in the whole node — the prediction is integrated every frame, and the ghost draws a *second complete copy* of your input on every viewport redraw. On a light test object you'll never notice. On something heavy — a dense mesh, or anything textured — it's the difference between scrubbing freely and everything feeling like treacle, and because it slows down *redraws* it makes parm edits and playbar scrubbing feel sluggish too, not just playback. The workflow that actually works: switch it on to check your timing, then switch it straight back off and keep authoring.
 
-On inputs above the **Visualization Limit** (Visualization tab, default 100,000 points) the preview auto-disables — integrating and moving that much geometry every frame is simply too slow to be a preview. The **At Frame** readout says so when it happens. Guide trails also cap themselves at the same limit, with **Guide Density** scaling within that budget. Raise the limit or switch **Enforce Visualization Limit** off to visualize everything regardless of cost.
+**Ghost Style** is what keeps the ghost affordable on real geometry: **Bounding Boxes** (the default) draws one tumbling wire box per piece — cheap at any density and the motion still reads perfectly — **Points** is cheaper still, and **Full Wireframe** is the pretty one for lighter objects. The preview never switches itself off, whatever the input size; the **Visualization Limit** caps the guide *trails* only, with **Guide Density** scaling within that budget.
 
 The live Setup guides deliberately stay on the input mesh — the thing you're authoring reads in place, the prediction sits beside it.
 

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839091883342">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839105274569">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -44,11 +44,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.839091883342" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.839105274569" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839091883342" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839105274569" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839091883342" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839105274569" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -247,7 +247,7 @@
 <p>Important detail: the falloff is measured to each packed piece&#x27;s <strong>real bounds</strong>, not just its centre point, so the radius behaves the way it looks against the sphere.</p>
 <p>The falloff also decides <em>which pieces move, full stop</em>: Adjust and Mask variation (the Randomize row included) shape the pieces the blast caught, but can never add motion to a piece outside the radius — the output always agrees with the affected-piece tint.</p>
 <h3 id="placing-the-source-interactively">Placing the source interactively</h3>
-<p>Press <strong>Select Source Position Interactively</strong> and the viewport enters a placement state:</p>
+<p>Press <strong>Place Source</strong> and the viewport enters a placement state:</p>
 <retype-table copy-text="| Input | Action |
 | --- | --- |
 | **LMB drag** | Place the source on the surface, sliding it as you drag |
@@ -322,6 +322,7 @@
 <p><strong>Weighted (Normalized)</strong> blends the types in proportion to their <strong>Weights</strong>. The weights are normalized, so only the <em>ratio</em> between them matters, and the result can never exceed the source magnitudes.</p>
 <p><strong>Incoming Velocity</strong> takes the velocity already sitting on the geometry and feeds it in as just another stream. It is on by default, and it is what lets you stack multiple Advanced Velocity nodes, or build on top of a cache or a previous sim. Its amount slider is a multiplier in Additive mode and a weight in Weighted mode. In Timed Events it plays as a live base layer under the events.</p>
 <p><strong>Master Speed</strong> is the single overall magnitude control, applied after the gains/weights in both modes.</p>
+<p>In Timed Events the tab gains a second block above all of this: <strong>Event Strength</strong>, one slider per event. This is the <em>other</em> axis of mixing — the Gains and Weights balance the velocity types baked <em>into</em> an event, Event Strength balances whole events against each other. It applies live at playback, so dragging a slider never makes an event stale and never needs an Update; drop one to 0.2 and that whole beat plays at a fifth of its punch. One deliberate exception: a strength of 0 does not close the event&#x27;s Injecting Now / Mute Gravity windows — those key off the event&#x27;s timing, not its amount — so use <strong>Mute</strong> when you want an event genuinely out of the solve.</p>
 <p><strong>Group</strong>, at the very top of the node, restricts the final write: points outside the group keep whatever velocity they arrived with. This is how several Advanced Velocity nodes can each drive their own region.</p>
 <hr>
 <h2 id="output">Output</h2>
@@ -334,6 +335,19 @@
 <p>The short version: <strong>if it&#x27;s Bullet, write velocity and gate it; if it&#x27;s POP or Vellum, write force and forget about it.</strong></p>
 <p><strong>Velocity Attribute</strong> and <strong>Force Attribute</strong> let you name the written attribute in each mode — so you can author <code translate="no" v-pre>targetv</code> for Vellum, for example, without touching a wrangle.</p>
 <p><strong>Injecting Now</strong> and <strong>Muting Gravity</strong> are live 0/1 readouts for driving an RBD solve, and <strong>Create Connected RBD Sim</strong> builds a solver already wired to both — see <a href="../timed-events/#driving-an-rbd-solver">Driving an RBD solver</a>.</p>
+<h3 id="ballistic-motion--the-second-output">Ballistic Motion — the second output</h3>
+<p>The node has a second output, and it delivers the pieces <strong>already flying</strong>: advanced along the velocity you authored, frame by frame, tumbling with any baked <code translate="no" v-pre>@w</code> if <strong>Include Rotation</strong> is on. No solver anywhere. Output 1 is completely untouched by this — your sim still gets the pieces at rest with <code translate="no" v-pre>@v</code> on them — so wire output 2 when a real solve is overkill: previz, motion-graphics moves, a quick look test before committing to Bullet.</p>
+<p>It&#x27;s a straight-line integration — no collisions, no gravity — the same maths as the motion-preview ghost, applied to the real geometry. <strong>Display Offset</strong> slides the result sideways in multiples of the object&#x27;s width, for reading it next to the original.</p>
+<p><strong>Return to Home</strong> is the part that makes it a tool rather than a toy. Keyframe it from 0 to 1 and every piece flies back to <em>exactly</em> where it started — and that landing is exact by construction: at 1, output 2 equals the input bit for bit, no matter how far the motion carried the pieces or what shaping you piled on. Telekinesis reassembly in one slider.</p>
+<p><strong>Return Shaping</strong> (collapsed under the slider) art-directs the way home without ever being able to break the landing:</p>
+<ul>
+<li><strong>Return Profile</strong> — a ramp over the blend, for easing the approach.</li>
+<li><strong>Stagger</strong> gives each piece its own return window, with <strong>Return Order</strong> deciding who leads: Random, Nearest First, or Farthest First. Everyone is still home by 1.</li>
+<li><strong>Arc</strong> bows each piece&#x27;s path sideways instead of a dead-straight line; <strong>Swirl</strong> blends those arcs toward a shared rotation around the <strong>Swirl Axis</strong> — crank it and the return becomes a vortex funnelling home.</li>
+<li><strong>Extra Turns</strong> adds whole loops to the unwind. A full turn is invisible at both ends, so it only shows mid-flight.</li>
+<li><strong>Seed</strong> re-rolls the per-piece arc directions.</li>
+</ul>
+<p>The <strong>Return Paths</strong> toggle at the bottom draws each piece&#x27;s route home as a guide curve — sampled from the very same curve the blend walks, so what you see is what plays.</p>
 <p><strong>Post-Process</strong> holds the final touches:</p>
 <ul>
 <li><strong>Clamp Speed</strong> clamps the final speed into a Min / Max range.</li>
@@ -355,7 +369,7 @@
 <p>The <strong>first</strong> time you connect geometry to a fresh node, Density gets set for you from the input&#x27;s point count, aiming at roughly 200 trails — enough to read the field without covering the whole object. A few hundred points keeps every trail; a couple of thousand lands around <code translate="no" v-pre>0.1</code>. This happens once and silently: change the value and it is yours, and re-wiring a different mesh later will never override it.</p>
 </li>
 <li>
-<p>Two further groups appear in Timed Events only. <strong>Timed Events</strong> holds <strong>Source</strong> (which stream the guides draw — Setup, Events or Both), <strong>Preview Motion</strong> with its ghost and <strong>Offset</strong>, and <strong>Unify Baked Guides</strong>. Preview Motion ships <strong>off</strong> on purpose — it&#x27;s the one control here with a real cost, since the ghost draws a second full copy of your input every redraw. Flip it on to check timing, then off again; on anything heavy it&#x27;s what makes the whole scene feel sluggish. <strong>Timeline HUD</strong> holds the on-screen event ruler — see <a href="../timed-events/#the-event-timeline">the timeline and the preview</a>. The timeline itself is drawn by the viewer state rather than as guide geometry, which is why Show Guides and the Visualization Limit leave it alone.</p>
+<p>Two further groups appear in Timed Events only. <strong>Timed Events</strong> holds <strong>Source</strong> (which stream the guides draw — Setup, Events or Both), <strong>Preview Motion</strong> with its ghost, <strong>Ghost Style</strong> and <strong>Offset</strong>, and <strong>Unify Baked Guides</strong>. Preview Motion ships <strong>off</strong> on purpose — it&#x27;s the one control here with a real cost, since the ghost redraws your pieces every refresh. <strong>Ghost Style</strong> is what keeps that affordable: <strong>Bounding Boxes</strong> (the default) draws one wire box per piece and stays cheap at any density, <strong>Points</strong> is cheaper still, and <strong>Full Wireframe</strong> is the pretty one for light objects. Flip the preview on to check timing, then off again; on anything heavy it&#x27;s what makes the whole scene feel sluggish. <strong>Timeline HUD</strong> holds the on-screen event ruler — see <a href="../timed-events/#the-event-timeline">the timeline and the preview</a>. The timeline itself is drawn by the viewer state rather than as guide geometry, which is why Show Guides and the Visualization Limit leave it alone.</p>
 </li>
 </ul>
 <p>Need the guides as <em>renderable</em> geometry, for a breakdown or a preview render? <strong>Utilities ▸ Output Guides Only</strong> swaps the node&#x27;s output to the guide curves themselves.</p>
@@ -370,7 +384,7 @@
                 <span class="card-compact-icon inline-flex shrink-0"><img width="20" height="20" src="static/advanced_velocity_icon.png"></span>
                 <span class="card-compact-title">Advanced Velocity</span>
             </div>
-            <p class="card-compact-description">Welcome! Advanced Velocity (v1.0) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node.</p>
+            <p class="card-compact-description">Welcome! Advanced Velocity (v1.1) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node.</p>
         </div>
     </a>
 </div>

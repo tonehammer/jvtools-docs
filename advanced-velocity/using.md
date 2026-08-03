@@ -71,6 +71,8 @@ Press **Select Source Position Interactively** and the viewport enters a placeme
 
 The controls are also listed on screen while the state is active, so no need to memorize this table.
 
+![Placing the blast source in the viewport](static/point-source.png)
+
 ### Seeing what will move
 
 **Show Affected Pieces** highlights the pieces the blast will actually move, through the **Affected Color** ramp — green across most of the blast, hot pink at the core. The highlight is normalized against the strongest affected piece, so the core always reads clearly no matter what radius or strength you have set.

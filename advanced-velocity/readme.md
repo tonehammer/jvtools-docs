@@ -10,6 +10,8 @@ Welcome! **Advanced Velocity** (v1.0) is a single Houdini SOP that authors the `
 
 Every simulation in Houdini starts with velocity, and getting it right normally means a small pile of wrangles, attribute adjusts and ramps that you end up rebuilding on every shot. Advanced Velocity gathers all of that into one node, with the same set of Adjust and Mask controls on every velocity type, and viewport guides that show you exactly what each type is contributing.
 
+![Velocity guides on a fractured object](static/hero.png)
+
 ## What it does for you
 
 * **Six velocity types on one node** — Basic (a fixed vector), Directional (aimed at, around, or away from a target), Exploding (an outward burst), Velocity from Motion (derived from animated input), Curl Noise (divergence-free turbulence), and Angular (`@w`) — each one switched on with a checkbox in its own section header.

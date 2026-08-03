@@ -76,8 +76,7 @@ Press **Select Source Position Interactively** and the viewport enters a placeme
 
 The controls are also listed on screen while the state is active, so no need to memorize this table.
 
-<!-- Screenshot 2 — the interactive placement state, HUD visible, affected pieces tinted:
-![Placing the blast source in the viewport](static/point-source.png) -->
+![Placing the blast source in the viewport](static/point-source.png)
 
 ### Seeing what will move
 

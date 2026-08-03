@@ -15,8 +15,7 @@ Welcome! **Advanced Velocity** (v1.0) is a single Houdini SOP that authors the `
 
 Every simulation in Houdini starts with velocity, and getting it right normally means a small pile of wrangles, attribute adjusts and ramps that you end up rebuilding on every shot. Advanced Velocity gathers all of that into one node, with the same set of Adjust and Mask controls on every velocity type, and viewport guides that show you exactly what each type is contributing.
 
-<!-- Screenshot 1 (hero) — a fractured object with the coloured velocity guides on:
-![Velocity guides on a fractured object](static/hero.png) -->
+![Velocity guides on a fractured object](static/hero.png)
 
 ## What it does for you
 

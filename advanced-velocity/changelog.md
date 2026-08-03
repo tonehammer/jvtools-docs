@@ -7,6 +7,8 @@ order: 60
 
 ## Version 1.1
 
+The first public release — version 1.0 below is the feature set it launched with, finished just before the store went live.
+
 **Ballistic Motion — the node grew a second output**
 
 * Output 2 delivers the pieces *already flying* — advanced along the velocity you authored, tumbling with any baked `@w`, no solver required. Output 1 is untouched, so your sim workflow doesn't change; the second output is for previz, motion-graphics moves, or anywhere a real solve is overkill
@@ -30,7 +32,7 @@ order: 60
 
 ## Version 1.0
 
-The first public release.
+The launch feature set.
 
 **Velocity types**
 

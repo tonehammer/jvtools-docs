@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839108983680">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839110034951">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -44,11 +44,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.839108983680" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.839110034951" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839108983680" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839110034951" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839108983680" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839110034951" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -363,6 +363,9 @@
 </li>
 <li>
 <p>Each stream has a toggle, a colour, and its own extra <strong>Scale</strong>, on top of the <strong>Guide Global Scale</strong>. The trail lengths are scaled by each stream&#x27;s <em>real contribution to the mix</em> — turn a gain down and its guides shorten with it, so what you are seeing always tracks what the mixer is actually doing. Live setup trails draw dashed; baked event trails draw solid.</p>
+</li>
+<li>
+<p><strong>Normalize Guide Length</strong> blends every trail toward one uniform length, with the joined 0–1 slider deciding how much. This is the one you reach for when a few fast points leave everything else unreadably short — at full normalization every guide draws at exactly Guide Global Scale length, so colour and direction carry the information instead of magnitude. Directions never change, and it&#x27;s purely a display control — the output velocities are untouched.</p>
 </li>
 <li>
 <p><strong>Guide Density</strong> draws only a fraction of the trails, for viewport speed on heavy fractures. The same pieces stay chosen frame to frame, so the selection doesn&#x27;t flicker. On dense inputs the trails also auto-cap at the <strong>Visualization Limit</strong> (default 100,000), with Density scaling within that budget — raise the limit or switch it off if you really want to draw everything.</p>

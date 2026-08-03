@@ -29,6 +29,14 @@ The first public release.
 * Static map bake — capture a short slice of the live stream into a fixed reference map
 * Attribute color — tint the scan points by angle or distance through a color ramp, for a viewport-only view or baked into `Cd` for downstream use
 
+**Blob tracking**
+
+* Cluster the scan into blobs and track them across frames, each with a stable `id` and a velocity (`v`) — Single mode for one primary blob, Multi for many at once
+* Background subtraction — bake the empty scene, then track only what intrudes on it, so clustering locks onto the moving hand or person instead of the furniture
+* Clustering, smoothing, and association controls (cluster gap, blob size, position/velocity smoothing, max speed, hold time)
+* Solver Output switch — the solver-ready output carries either the full scan cloud or just the tracked blob points
+* On-screen blob markers with velocity lines
+
 **Crop & camera**
 
 * Cull scan points outside a rotatable ground rectangle, so only the region you care about reaches your solver

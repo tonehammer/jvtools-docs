@@ -21,6 +21,7 @@ It is built for **TouchDesigner-style interactive work**: a person walks past th
 * **Recording & playback** — capture the stream to disk and replay it against the timeline, so you can develop offline without the hardware connected.
 * **Built-in visualization** — optional on-screen guides (sensor marker, range ring, beam fan, baked static map) so you can see what the sensor sees.
 * **Crop** — cull everything outside a rotatable ground rectangle (with an interactive viewport handle), so only the points you care about reach your solver.
+* **Blob tracking** — cluster the scan into blobs and follow them frame to frame, each with a stable id and a velocity, so a solver can react to *the hand* instead of to a cloud of anonymous points. Bake the empty room and it tracks only what intrudes on it.
 * **Attribute color** — tint the scan by angle or distance through a color ramp, for a readable view or to carry color into a render.
 * **Top-down camera** — one click for an overhead orthographic camera, and another to frame it to your crop region.
 * **One-click live simulation** — a button builds a ready-to-run POP network wired to the live points, plus a control null to start, stop, and reset it.

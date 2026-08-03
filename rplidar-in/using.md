@@ -63,6 +63,8 @@ RPLidar In has **two outputs** and no inputs.
 
 Output 0 is the default display, so you see the sensor guide and range ring while you work. When you connect the node into a simulation, pull from **Output 1** — it removes the `rplidar_viz` guide geometry for you, so nothing display-only leaks into your solver.
 
+> One thing to know up front: **Output 1 is switchable.** With [Blob tracking](#blob-tracking) on, the **Solver Output** menu decides whether it carries the whole scan cloud or just the handful of tracked blob points. Same wire, very different payload — so if a solver suddenly sees three points instead of three hundred, that menu is the first place to look.
+
 > If you feed a solver from Output 0 by mistake, the guide points get simulated too. Either switch to Output 1, turn off the Visualize guides, or delete the `rplidar_viz` group downstream.
 
 ### The point cloud
@@ -207,6 +209,107 @@ A typical flow: **Create Orthographic Camera** to get the overhead view, set up 
 
 ---
 
+## Blob tracking
+
+A raw scan is a few hundred loose points that vanish and reappear every rotation. That's fine for a point cloud, but it's the wrong shape for most interactive work. What you usually want to ask is *"where is the hand, and how fast is it moving?"* — and a cloud of anonymous points can't answer that.
+
+**Blob tracking** answers it. It clusters the scan into blobs, follows each one across frames, and gives it a **stable id** and a **velocity**. That's the difference between a wall of points and something you can attach a force to.
+
+Turn on **Enable Tracking** in the Tracking tab. Everything below it works on the scan *after* [Crop](#crop) — so crop first, then track. Less to cluster, less to go wrong.
+
+| Parameter | What it does |
+| --- | --- |
+| **Enable Tracking** | Master switch. Off, nothing changes about the outputs at all. |
+| **Blob Mode** | **Single** emits one primary blob — the largest, held with hysteresis so it doesn't flicker between two similar candidates. **Multi** emits every blob it finds, each with its own stable id. |
+| **Solver Output** | What the solver-ready output (Output 1) carries: **All Points** (the whole scan cloud, unchanged) or **Blobs** (only the tracked blob points). |
+| **Max Blobs** | Multi only — a cap, largest first. |
+
+Single is for "one hand, one object, one person" installations. Multi is for many-things-at-once — each blob keeps its id as long as the tracker can follow it, so you can drive per-object behaviour without your effect reshuffling every frame.
+
+### Background subtraction
+
+Read this one before you tune anything else. Here's the finding that matters most, measured against a real recording of a hand moving near the sensor: **raw clustering of a real room gives you 7–11 blobs per scan, and the largest one is almost never the hand.** It's a chair leg, a wall corner, a box. Single mode locks onto furniture and stays there, and no amount of fiddling with Cluster Gap fixes it, because nothing is broken — the furniture genuinely *is* the biggest thing in the room.
+
+The fix is to tell the node what the empty room looks like, then track only what intrudes on it.
+
+| Parameter | What it does |
+| --- | --- |
+| **Subtract Background** | Track only returns that are *closer* than the baked empty scene. Falls back to the full scan when nothing is baked yet, so it can't silently blank your tracking. |
+| **Foreground Margin (m)** | How much closer than the background a return must be to count. Raise it to reject noise hugging a wall; lower it to catch objects that sit right against the background. |
+| **Bake Background** | Capture the current static scene as that reference. **Requires Mode = Live.** |
+
+The workflow, in order:
+
+1. Go **Live**, and get everyone and everything out of the interaction area.
+2. Press **Bake Background**.
+3. Turn on **Subtract Background**, then walk back in.
+
+On the test recording that took it from **12 blobs per frame down to 1**, and Single mode went from hopping 4.5 m across static clutter to tracing a clean 1.28 m hand path. Same clustering settings, same data — the only difference is that it stopped seeing the furniture.
+
+Careful with this one: bake with the area **empty**. Bake while you're standing in it and you've just taught the node that you are part of the wall — after which you become invisible to it, which is a confusing way to spend twenty minutes. Re-bake whenever you move the sensor or rearrange the room.
+
+**Bake Background shares its storage with the Visualize tab's Bake Current Map** — one snapshot of the static scene serves both, so a bake on either button replaces the other. That's deliberate, not a collision: turn on **Show Static Map** and you can *see* the background you just baked.
+
+### Clustering
+
+These decide what counts as one blob.
+
+| Parameter | What it does |
+| --- | --- |
+| **Cluster Gap (m)** | How far apart two neighbouring returns can be and still belong to the same blob. Raise it to merge, lower it to split. |
+| **Min Points** | Blobs with fewer returns than this are discarded — the noise floor. |
+| **Blob Size min/max (m)** | Keep only blobs whose physical width falls in this range. |
+
+**Blob Size is the one that does the most work.** A hand is roughly 0.05–0.15 m across; a wall reads far wider. Setting a sane maximum throws out room geometry on the way in and saves you tuning everything else. Start there before you touch Cluster Gap.
+
+Cluster Gap **grows automatically with distance**. Returns get sparser the further out they are, so a fixed gap that behaves at one meter shreds a single object into five at eight meters. The parameter is the gap up close; the node scales it out for you.
+
+### Smoothing and association
+
+These decide how a blob behaves once it *is* a blob — and they're where the difference between "twitchy" and "usable" lives.
+
+| Parameter | What it does |
+| --- | --- |
+| **Position Smooth** | Smooths blob position over time. 0 = raw and snappy, 1 = heavily damped. |
+| **Velocity Smooth** | Smooths the `v` attribute. Raise it if velocity looks noisy driving a solver. |
+| **Max Speed (m/s)** | Both an association gate and a clamp: a blob can't move faster than this between frames and still be considered the same track. |
+| **Hold Time (s)** | Keep a lost track alive this long, coasting to a stop, before dropping it. |
+
+A centroid computed from a handful of noisy returns jitters even when the hand is perfectly still, so some position smoothing is nearly always right — but it buys steadiness with lag, and past about 0.7 an installation starts feeling like it's responding underwater.
+
+**Max Speed is the anti-teleport control.** Lower it and a track refuses to make implausible jumps, so it won't leap onto a different object that happened to appear nearby; raise it for genuinely fast motion. Too low and a fast hand gets abandoned mid-swipe and comes back as a new id.
+
+**Hold Time** is what bridges brief dropouts — a hand turning edge-on to the sensor, a rotation that catches nothing. Without it every flicker ends a track and starts a fresh id, and anything you keyed to that id resets. A quarter of a second covers most dropouts without leaving ghosts hanging around.
+
+### What tracking outputs
+
+Tracked blobs come out as **one point per blob** in the point group **`rplidar_track`**, carrying:
+
+| Attribute | Type | Meaning |
+| --- | --- | --- |
+| `id` | int | Stable track id. Survives as long as the tracker can follow the blob. |
+| `v` | vector | Velocity in **units per second** (at your Units per Meter scale). |
+| `age` | float | Seconds since the track was born. |
+| `size` | float | Physical width of the blob, in meters. |
+| `angle` / `dist` | float | Same meaning as on the scan points — degrees, and millimeters. |
+
+Set **Solver Output** to **Blobs** and Output 1 carries exactly these points and nothing else — which is what you want feeding a POP force or a Vellum collider: a handful of points with velocity, instead of a few hundred anonymous ones.
+
+`v` is a real velocity attribute, so POP nodes that read `v` pick it up with no conversion. That, plus the stable `id`, is the whole point of tracking: your effect can follow *this* blob rather than reacting to whatever happens to be nearby.
+
+### Markers
+
+| Parameter | What it does |
+| --- | --- |
+| **Show Markers** | Draw a diamond plus a velocity line at each tracked blob. On by default. |
+| **Marker Color** | Color of those markers (point `Cd`). |
+
+The velocity line is the useful half — it shows you both direction and magnitude, so you can see at a glance whether smoothing is too aggressive or Max Speed is clipping. Markers are guide geometry: they ride on Output 0 and are stripped from Output 1, so they never reach your solver.
+
+> Tuning tip: turn markers on, put the node's display flag up, and just move around in front of the sensor. If the diamond follows you, you're done. If it sits on a chair, you skipped the background bake.
+
+---
+
 ## Recording and playback
 
 Recording captures the live stream to disk so you can replay it later — develop offline, iterate on a solver against a repeatable take, or archive an installation.
@@ -244,6 +347,8 @@ Use **Loop Playback** to cycle a short take continuously while you tune a downst
 ## Live simulation
 
 RPLidar In's point cloud is ordinary SOP geometry, so it can feed any solver — POPs, Vellum, or your own network. Two buttons set up a working example and its controls in one click.
+
+> Feeding the raw cloud is the straightforward route, and for emission or collision it's often all you need. But if your effect should follow *a person* rather than react to a wall of points, set up [Blob tracking](#blob-tracking) first and set **Solver Output** to **Blobs** — the same output then delivers a handful of points carrying `id` and `v`, which is a far better thing to attach a force to.
 
 ### Create Generic POP Network
 

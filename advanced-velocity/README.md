@@ -11,7 +11,7 @@ order: 110
 
 <p style="text-align:center; margin:0 0 1.5rem;"><a href="https://jvtonehammer.gumroad.com/l/advanced_velocity_hda"><strong>Get it on Gumroad →</strong></a></p>
 
-Welcome! **Advanced Velocity** (v1.0) is a single Houdini SOP that authors the `@v` velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node. And because one velocity is rarely the whole story, it can also play a whole *sequence* of velocity events over time: a car lifted at frame 10, torn apart at frame 40, spun at frame 70, all from one node.
+Welcome! **Advanced Velocity** (v1.1) is a single Houdini SOP that authors the `@v` velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node. And because one velocity is rarely the whole story, it can also play a whole *sequence* of velocity events over time: a car lifted at frame 10, torn apart at frame 40, spun at frame 70, all from one node.
 
 Every simulation in Houdini starts with velocity, and getting it right normally means a small pile of wrangles, attribute adjusts and ramps that you end up rebuilding on every shot. Advanced Velocity gathers all of that into one node, with the same set of Adjust and Mask controls on every velocity type, and viewport guides that show you exactly what each type is contributing.
 
@@ -26,6 +26,8 @@ Every simulation in Houdini starts with velocity, and getting it right normally 
 * **Interactive blast placement** — for fractured RBD, drop the explosion source by dragging on the mesh in the viewport, scroll to grow the blast radius or push the source into the body, and watch the affected pieces tint live inside the radius sphere.
 * **Solver-aware output** — write velocity for an RBD Bullet Solver or accumulated force for POP and Vellum, with **Injecting Now** and **Mute Gravity** signals that let events punch a solve and then hand it straight back to physics. **Create Connected RBD Sim** builds a solver already wired to both.
 * **Scale by Piece Size** — big chunks fly slower than slivers, from a mass attribute or each packed piece's real size.
+* **Ballistic Motion, a second output** — the pieces already flying along the velocity you authored, no solver needed, with **Return to Home**: one slider that flies every piece back to exactly where it started, with arcs, swirls, staggered arrivals and extra turns on the way. Previz, motion-graphics moves, telekinesis reassembly.
+* **Event Strength** — balance whole baked events against each other with one slider each, live at playback, no re-baking.
 * **Honest, clean visualization** — per-type guide trails scaled by each stream's *actual* contribution to the mix, drawn as guide geometry that never touches your output. The output carries `@v` (or `@force`) and nothing else, unless you explicitly export a sub-velocity.
 
 ## Who it's for

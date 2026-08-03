@@ -5,6 +5,29 @@ order: 60
 
 # Changelog
 
+## Version 1.1
+
+**Ballistic Motion — the node grew a second output**
+
+* Output 2 delivers the pieces *already flying* — advanced along the velocity you authored, tumbling with any baked `@w`, no solver required. Output 1 is untouched, so your sim workflow doesn't change; the second output is for previz, motion-graphics moves, or anywhere a real solve is overkill
+* **Return to Home** — keyframe one slider from 0 to 1 and every piece flies back to exactly where it started, however far the motion has carried it. The landing is exact by construction: at 1 the output equals the input to the last bit
+* **Return Shaping** — arc the return paths, swirl them around an axis into a vortex, add whole extra turns, and stagger the arrivals (random, nearest first, or farthest first). None of it can break the landing
+* Optional **return-path guides** draw each piece's route home, sampled from the same curve the motion actually follows
+
+**Event Strength**
+
+* Per-event sliders at the top of the Velocity Mixer — scale whole events against each other after the fact, live at playback, no re-baking. The type Gains balance the streams *inside* an event; Event Strength balances the *events*
+
+**Visualization**
+
+* **Ghost Style** for the motion preview: Full Wireframe, Bounding Boxes (the new default — one wire box per piece, cheap at any density), or Points
+* Preview Motion no longer switches itself off on heavy inputs — the Visualization Limit now governs the guide trails only
+
+**Bug fixes and improvements**
+
+* Three Point Source menus (Origin, Method, Direction) could display the wrong entry — and Point Source could not actually be picked from the Origin menu. Fixed
+* Creating an event now switches the Events list to its tab, Create Connected RBD Sim no longer steals the display flag, and a tidier panel throughout: clearer type labels, a Return Shaping group, and attribute-name fields that only show for the active Output As mode
+
 ## Version 1.0
 
 The first public release.

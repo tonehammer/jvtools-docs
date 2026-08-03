@@ -185,6 +185,7 @@ Every type's Adjust folder opens with the same row: **Variation** (`variation1`�
 | *(top right, icon)* Reset Visualization | `viz_reset` | Put every control on this tab back to its default. Guide Density is re-picked from the current input rather than left at 1.0. |
 | Show Guides | `viz_guides` | Master switch for all velocity guides. |
 | Guide Global Scale | `viz_scale` | Length multiplier for all guide trails. |
+| Normalize Guide Length | `viz_normalize`, `viz_normalize_amt` | Blends every trail toward one uniform length — the joined 0-1 slider controls how much. At 1, every guide draws at exactly Guide Global Scale length; directions never change, and the output is untouched. |
 | Guide Density | `viz_density` | Fraction of trails actually drawn, for viewport speed. Picked for you the first time geometry is connected to a fresh node, aiming at roughly 200 trails; after that it is yours and is never changed again. On dense inputs the trails also auto-cap at the Visualization Limit; Density scales within that budget. |
 | Enforce Visualization Limit | `viz_limit_enable`, `viz_limit` | Point budget (default 100,000) capping how many guide trails are drawn. Raise it or switch it off to draw everything regardless of cost. Guide trails only — Preview Motion is not affected. |
 

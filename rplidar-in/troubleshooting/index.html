@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839060940449">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839091370159">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.839060940449" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.839091370159" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839060940449" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839091370159" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839060940449" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839091370159" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -230,6 +230,20 @@
 <p>The motor runs independently of Houdini once started. Stop it by unplugging the <strong>5V</strong> lead (safe — it&#x27;s just motor power), or reconnect and set <strong>Mode → Off</strong>.</p>
 <h2 id="guides-ended-up-in-my-simulation">Guides ended up in my simulation</h2>
 <p>You fed the solver from <strong>Output 0</strong> (Points &amp; Guides). Switch to <strong>Output 1</strong> (Points), which strips the <code translate="no" v-pre>rplidar_viz</code> guide geometry. Alternatively turn off the Visualize guides or delete the <code translate="no" v-pre>rplidar_viz</code> group downstream. See <a href="../using/#outputs-and-attributes">Outputs and Attributes</a>.</p>
+<h2 id="tracking-locks-onto-furniture-instead-of-the-hand">Tracking locks onto furniture instead of the hand</h2>
+<p>Almost always the missing background bake. A real room clusters into 7–11 blobs per scan, and the largest of them is usually a chair or a wall corner — Single mode is picking the biggest thing present, which is working exactly as designed and is not what you wanted.</p>
+<p>Go <strong>Live</strong>, clear the interaction area completely, press <strong>Bake Background</strong>, then turn on <strong>Subtract Background</strong>. If it still wanders, tighten <strong>Blob Size min/max</strong> (a hand is roughly 0.05–0.15 m) — that throws out room geometry before clustering ever has to choose. See <a href="../using/#background-subtraction">Background subtraction</a>.</p>
+<h2 id="tracking-sees-nothing-at-all-after-a-background-bake">Tracking sees nothing at all after a background bake</h2>
+<p>You most likely baked while standing in the interaction area, so you were recorded as part of the static scene. Step out and bake again. Re-bake whenever the sensor moves or the room is rearranged.</p>
+<p>If it&#x27;s an object hugging a wall that disappears, lower the <strong>Foreground Margin</strong> — a return has to be at least that much closer than the background to count as foreground.</p>
+<h2 id="blob-ids-keep-changing--a-track-keeps-restarting">Blob ids keep changing / a track keeps restarting</h2>
+<ul>
+<li><strong>Raise Hold Time.</strong> Brief dropouts (a hand turning edge-on) end the track and the next appearance gets a fresh id.</li>
+<li><strong>Raise Max Speed</strong> if the motion is genuinely fast — a blob that moves further between frames than the gate allows can&#x27;t be matched to its own track.</li>
+<li><strong>Raise Min Points</strong> if the blob is breaking apart into specks at the edge of its range.</li>
+</ul>
+<h2 id="my-solver-suddenly-sees-only-a-few-points">My solver suddenly sees only a few points</h2>
+<p>Check <strong>Solver Output</strong> in the Tracking tab. Set to <strong>Blobs</strong>, Output 1 carries only the tracked blob points — a handful, by design. Set it back to <strong>All Points</strong> for the full scan cloud.</p>
 <h2 id="playback-shows-nothing">Playback shows nothing</h2>
 <ul>
 <li>Confirm <strong>Mode = Playback</strong> and a valid file is picked in <strong>Recording File</strong> (or leave it blank for the newest).</li>

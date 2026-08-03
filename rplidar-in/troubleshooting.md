@@ -29,6 +29,28 @@ The motor runs independently of Houdini once started. Stop it by unplugging the 
 
 You fed the solver from **Output 0** (Points & Guides). Switch to **Output 1** (Points), which strips the `rplidar_viz` guide geometry. Alternatively turn off the Visualize guides or delete the `rplidar_viz` group downstream. See [Outputs and Attributes](using.md#outputs-and-attributes).
 
+## Tracking locks onto furniture instead of the hand
+
+Almost always the missing background bake. A real room clusters into 7–11 blobs per scan, and the largest of them is usually a chair or a wall corner — Single mode is picking the biggest thing present, which is working exactly as designed and is not what you wanted.
+
+Go **Live**, clear the interaction area completely, press **Bake Background**, then turn on **Subtract Background**. If it still wanders, tighten **Blob Size min/max** (a hand is roughly 0.05–0.15 m) — that throws out room geometry before clustering ever has to choose. See [Background subtraction](using.md#background-subtraction).
+
+## Tracking sees nothing at all after a background bake
+
+You most likely baked while standing in the interaction area, so you were recorded as part of the static scene. Step out and bake again. Re-bake whenever the sensor moves or the room is rearranged.
+
+If it's an object hugging a wall that disappears, lower the **Foreground Margin** — a return has to be at least that much closer than the background to count as foreground.
+
+## Blob ids keep changing / a track keeps restarting
+
+* **Raise Hold Time.** Brief dropouts (a hand turning edge-on) end the track and the next appearance gets a fresh id.
+* **Raise Max Speed** if the motion is genuinely fast — a blob that moves further between frames than the gate allows can't be matched to its own track.
+* **Raise Min Points** if the blob is breaking apart into specks at the edge of its range.
+
+## My solver suddenly sees only a few points
+
+Check **Solver Output** in the Tracking tab. Set to **Blobs**, Output 1 carries only the tracked blob points — a handful, by design. Set it back to **All Points** for the full scan cloud.
+
 ## Playback shows nothing
 
 * Confirm **Mode = Playback** and a valid file is picked in **Recording File** (or leave it blank for the newest).

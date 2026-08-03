@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839060940449">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839091370159">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.839060940449" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.839091370159" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839060940449" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839091370159" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839060940449" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839091370159" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -383,6 +383,120 @@
 </table>
 </div>
 </retype-table>
+<h2 id="tracking">Tracking</h2>
+<p>Cluster the scan into blobs and follow them across frames. See <a href="../using/#blob-tracking">Blob tracking</a>.</p>
+<retype-table copy-text="| Parameter | Name | Description |
+| --- | --- | --- |
+| Enable Tracking | `trackenable` | Master switch. Clusters the (cropped) scan into blobs, tracks them, and adds `id` + `v`. Off leaves the outputs unchanged. |
+| Blob Mode | `trackmode` | Single (one primary blob, largest, held with hysteresis) or Multi (every blob, each with a stable id). |
+| Solver Output | `solverout` | What Output 1 carries: All Points (the full scan cloud) or Blobs (only the tracked blob points). |
+| Max Blobs | `trackmax` | Multi only — cap on how many blobs are emitted, largest first. |
+| Cluster Gap (m) | `clustergap` | Max distance between neighbouring returns for them to count as one blob. Grows automatically with range. Raise to merge, lower to split. |
+| Min Points | `minpoints` | Discard blobs with fewer returns than this — the noise floor. |
+| Blob Size min/max (m) | `blobsize` | Keep only blobs whose physical width is in this range. A hand is roughly 0.05–0.15 m. |
+| Subtract Background | `bgsubtract` | Track only what intrudes on the baked empty scene, so clustering ignores static clutter. Falls back to all points when nothing is baked. |
+| Foreground Margin (m) | `bgmargin` | How much closer than the baked background a return must be to count as foreground. |
+| Bake Background | `bgbake` | Capture the current static scene as that reference. **Live only** — bake with the interaction area empty. Shares its store with the Visualize map bake. |
+| Position Smooth | `possmooth` | Smooths blob position over time. 0 = raw/snappy, 1 = heavily damped. |
+| Velocity Smooth | `velsmooth` | Smooths the `v` attribute. 0 = raw, 1 = heavy. |
+| Max Speed (m/s) | `maxspeed` | Association gate and velocity clamp — a blob can't move faster than this between frames and still be the same track. |
+| Hold Time (s) | `holdtime` | Keep a lost track alive this long (coasting to a stop) before dropping it. Bridges brief dropouts. |
+| Show Markers | `trackviz` | Draw a diamond + velocity line at each tracked blob. Guide geometry — stripped from Output 1. |
+| Marker Color | `blobcolor` | Color of the blob markers (point `Cd`). |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Enable Tracking</td>
+<td><code translate="no" v-pre>trackenable</code></td>
+<td>Master switch. Clusters the (cropped) scan into blobs, tracks them, and adds <code translate="no" v-pre>id</code> + <code translate="no" v-pre>v</code>. Off leaves the outputs unchanged.</td>
+</tr>
+<tr>
+<td>Blob Mode</td>
+<td><code translate="no" v-pre>trackmode</code></td>
+<td>Single (one primary blob, largest, held with hysteresis) or Multi (every blob, each with a stable id).</td>
+</tr>
+<tr>
+<td>Solver Output</td>
+<td><code translate="no" v-pre>solverout</code></td>
+<td>What Output 1 carries: All Points (the full scan cloud) or Blobs (only the tracked blob points).</td>
+</tr>
+<tr>
+<td>Max Blobs</td>
+<td><code translate="no" v-pre>trackmax</code></td>
+<td>Multi only — cap on how many blobs are emitted, largest first.</td>
+</tr>
+<tr>
+<td>Cluster Gap (m)</td>
+<td><code translate="no" v-pre>clustergap</code></td>
+<td>Max distance between neighbouring returns for them to count as one blob. Grows automatically with range. Raise to merge, lower to split.</td>
+</tr>
+<tr>
+<td>Min Points</td>
+<td><code translate="no" v-pre>minpoints</code></td>
+<td>Discard blobs with fewer returns than this — the noise floor.</td>
+</tr>
+<tr>
+<td>Blob Size min/max (m)</td>
+<td><code translate="no" v-pre>blobsize</code></td>
+<td>Keep only blobs whose physical width is in this range. A hand is roughly 0.05–0.15 m.</td>
+</tr>
+<tr>
+<td>Subtract Background</td>
+<td><code translate="no" v-pre>bgsubtract</code></td>
+<td>Track only what intrudes on the baked empty scene, so clustering ignores static clutter. Falls back to all points when nothing is baked.</td>
+</tr>
+<tr>
+<td>Foreground Margin (m)</td>
+<td><code translate="no" v-pre>bgmargin</code></td>
+<td>How much closer than the baked background a return must be to count as foreground.</td>
+</tr>
+<tr>
+<td>Bake Background</td>
+<td><code translate="no" v-pre>bgbake</code></td>
+<td>Capture the current static scene as that reference. <strong>Live only</strong> — bake with the interaction area empty. Shares its store with the Visualize map bake.</td>
+</tr>
+<tr>
+<td>Position Smooth</td>
+<td><code translate="no" v-pre>possmooth</code></td>
+<td>Smooths blob position over time. 0 = raw/snappy, 1 = heavily damped.</td>
+</tr>
+<tr>
+<td>Velocity Smooth</td>
+<td><code translate="no" v-pre>velsmooth</code></td>
+<td>Smooths the <code translate="no" v-pre>v</code> attribute. 0 = raw, 1 = heavy.</td>
+</tr>
+<tr>
+<td>Max Speed (m/s)</td>
+<td><code translate="no" v-pre>maxspeed</code></td>
+<td>Association gate and velocity clamp — a blob can&#x27;t move faster than this between frames and still be the same track.</td>
+</tr>
+<tr>
+<td>Hold Time (s)</td>
+<td><code translate="no" v-pre>holdtime</code></td>
+<td>Keep a lost track alive this long (coasting to a stop) before dropping it. Bridges brief dropouts.</td>
+</tr>
+<tr>
+<td>Show Markers</td>
+<td><code translate="no" v-pre>trackviz</code></td>
+<td>Draw a diamond + velocity line at each tracked blob. Guide geometry — stripped from Output 1.</td>
+</tr>
+<tr>
+<td>Marker Color</td>
+<td><code translate="no" v-pre>blobcolor</code></td>
+<td>Color of the blob markers (point <code translate="no" v-pre>Cd</code>).</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
 <h2 id="recording">Recording</h2>
 <retype-table copy-text="| Parameter | Name | Description |
 | --- | --- | --- |
@@ -550,6 +664,47 @@
 </div>
 </retype-table>
 <p>See <a href="../using/#visualization">Visualization</a> and <a href="../using/#attribute-color">Attribute color</a>.</p>
+<h2 id="utilities">Utilities</h2>
+<retype-table copy-text="| Parameter | Name | Description |
+| --- | --- | --- |
+| Links | `gumroad` | Open the RPLidar In store page in your browser. |
+| (Documentation) | `docs` | Open this documentation. |
+| (Discord) | `discord` | Open the JVtools Discord. |
+| (YouTube) | `youtube` | Open the JVtools YouTube channel. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Links</td>
+<td><code translate="no" v-pre>gumroad</code></td>
+<td>Open the RPLidar In store page in your browser.</td>
+</tr>
+<tr>
+<td>(Documentation)</td>
+<td><code translate="no" v-pre>docs</code></td>
+<td>Open this documentation.</td>
+</tr>
+<tr>
+<td>(Discord)</td>
+<td><code translate="no" v-pre>discord</code></td>
+<td>Open the JVtools Discord.</td>
+</tr>
+<tr>
+<td>(YouTube)</td>
+<td><code translate="no" v-pre>youtube</code></td>
+<td>Open the JVtools YouTube channel.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
 <hr>
 <blockquote>
 <p>Tooltips in Houdini (hover any parameter) are the authoritative, always-current descriptions. If this page and a tooltip ever disagree, trust the tooltip.</p>

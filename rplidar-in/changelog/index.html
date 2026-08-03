@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839060940449">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839091370159">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.839060940449" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.839091370159" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839060940449" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839091370159" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839060940449" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839091370159" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -227,6 +227,14 @@
 <li>Connect Points (beam fan) — draw a ray from the sensor to each scan point</li>
 <li>Static map bake — capture a short slice of the live stream into a fixed reference map</li>
 <li>Attribute color — tint the scan points by angle or distance through a color ramp, for a viewport-only view or baked into <code translate="no" v-pre>Cd</code> for downstream use</li>
+</ul>
+<p><strong>Blob tracking</strong></p>
+<ul>
+<li>Cluster the scan into blobs and track them across frames, each with a stable <code translate="no" v-pre>id</code> and a velocity (<code translate="no" v-pre>v</code>) — Single mode for one primary blob, Multi for many at once</li>
+<li>Background subtraction — bake the empty scene, then track only what intrudes on it, so clustering locks onto the moving hand or person instead of the furniture</li>
+<li>Clustering, smoothing, and association controls (cluster gap, blob size, position/velocity smoothing, max speed, hold time)</li>
+<li>Solver Output switch — the solver-ready output carries either the full scan cloud or just the tracked blob points</li>
+<li>On-screen blob markers with velocity lines</li>
 </ul>
 <p><strong>Crop &amp; camera</strong></p>
 <ul>

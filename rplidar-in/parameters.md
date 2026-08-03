@@ -40,6 +40,29 @@ Every parameter on the RPLidar In node, grouped as it appears in the interface. 
 | Create Orthographic Camera | `makecam` | Create (or retarget) a top-down orthographic camera looking down at the sensor, up = +X. One per node. See [Camera](using.md#camera). |
 | Camera to Crop | `camtocrop` | Move and zoom that camera to frame the current Crop rectangle. |
 
+## Tracking
+
+Cluster the scan into blobs and follow them across frames. See [Blob tracking](using.md#blob-tracking).
+
+| Parameter | Name | Description |
+| --- | --- | --- |
+| Enable Tracking | `trackenable` | Master switch. Clusters the (cropped) scan into blobs, tracks them, and adds `id` + `v`. Off leaves the outputs unchanged. |
+| Blob Mode | `trackmode` | Single (one primary blob, largest, held with hysteresis) or Multi (every blob, each with a stable id). |
+| Solver Output | `solverout` | What Output 1 carries: All Points (the full scan cloud) or Blobs (only the tracked blob points). |
+| Max Blobs | `trackmax` | Multi only — cap on how many blobs are emitted, largest first. |
+| Cluster Gap (m) | `clustergap` | Max distance between neighbouring returns for them to count as one blob. Grows automatically with range. Raise to merge, lower to split. |
+| Min Points | `minpoints` | Discard blobs with fewer returns than this — the noise floor. |
+| Blob Size min/max (m) | `blobsize` | Keep only blobs whose physical width is in this range. A hand is roughly 0.05–0.15 m. |
+| Subtract Background | `bgsubtract` | Track only what intrudes on the baked empty scene, so clustering ignores static clutter. Falls back to all points when nothing is baked. |
+| Foreground Margin (m) | `bgmargin` | How much closer than the baked background a return must be to count as foreground. |
+| Bake Background | `bgbake` | Capture the current static scene as that reference. **Live only** — bake with the interaction area empty. Shares its store with the Visualize map bake. |
+| Position Smooth | `possmooth` | Smooths blob position over time. 0 = raw/snappy, 1 = heavily damped. |
+| Velocity Smooth | `velsmooth` | Smooths the `v` attribute. 0 = raw, 1 = heavy. |
+| Max Speed (m/s) | `maxspeed` | Association gate and velocity clamp — a blob can't move faster than this between frames and still be the same track. |
+| Hold Time (s) | `holdtime` | Keep a lost track alive this long (coasting to a stop) before dropping it. Bridges brief dropouts. |
+| Show Markers | `trackviz` | Draw a diamond + velocity line at each tracked blob. Guide geometry — stripped from Output 1. |
+| Marker Color | `blobcolor` | Color of the blob markers (point `Cd`). |
+
 ## Recording
 
 | Parameter | Name | Description |
@@ -73,6 +96,15 @@ Every parameter on the RPLidar In node, grouped as it appears in the interface. 
 | Map Color | `mapcolor` | Color of the baked map marks. |
 
 See [Visualization](using.md#visualization) and [Attribute color](using.md#attribute-color).
+
+## Utilities
+
+| Parameter | Name | Description |
+| --- | --- | --- |
+| Links | `gumroad` | Open the RPLidar In store page in your browser. |
+| (Documentation) | `docs` | Open this documentation. |
+| (Discord) | `discord` | Open the JVtools Discord. |
+| (YouTube) | `youtube` | Open the JVtools YouTube channel. |
 
 ---
 

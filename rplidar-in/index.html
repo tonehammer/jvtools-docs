@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839060940449">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839091370159">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../resources/css/retype.css?v=4.6.0.839060940449" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=4.6.0.839091370159" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=4.6.0.839060940449" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=4.6.0.839091370159" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=4.6.0.839060940449" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=4.6.0.839091370159" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -213,6 +213,7 @@
 <li><strong>Recording &amp; playback</strong> — capture the stream to disk and replay it against the timeline, so you can develop offline without the hardware connected.</li>
 <li><strong>Built-in visualization</strong> — optional on-screen guides (sensor marker, range ring, beam fan, baked static map) so you can see what the sensor sees.</li>
 <li><strong>Crop</strong> — cull everything outside a rotatable ground rectangle (with an interactive viewport handle), so only the points you care about reach your solver.</li>
+<li><strong>Blob tracking</strong> — cluster the scan into blobs and follow them frame to frame, each with a stable id and a velocity, so a solver can react to <em>the hand</em> instead of to a cloud of anonymous points. Bake the empty room and it tracks only what intrudes on it.</li>
 <li><strong>Attribute color</strong> — tint the scan by angle or distance through a color ramp, for a readable view or to carry color into a render.</li>
 <li><strong>Top-down camera</strong> — one click for an overhead orthographic camera, and another to frame it to your crop region.</li>
 <li><strong>One-click live simulation</strong> — a button builds a ready-to-run POP network wired to the live points, plus a control null to start, stop, and reset it.</li>

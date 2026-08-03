@@ -38,7 +38,7 @@ Visible in Timed Events mode. See [Timed Events](timed-events.md) for the workfl
 | Captured | `ev_summary#` | What the event actually baked: types, point count, peak speed. |
 | *Event Options* ▸ Track Motion | `ev_track#` | Re-aim the event's directional velocity at the pieces' predicted positions each frame. On by default, and what makes **To Rest Pose** work at all. Refuses when anything per-point (Adjust, Mask, Distance Falloff) sits between the field and the bake; Captured says so. |
 | *Event Options* ▸ Create Rest Position Attribute | `ev_rest_en#` | Record this event's positions into a `<name>_rest` attribute for To Rest Pose. |
-| *Event Options* ▸ Mute Gravity | `ev_mute_grav#` | Off / During Impulse (attack + hold) / Until Next Event / End. Off by default. The third setting keeps gravity muted across the gap to the next event without holding the impulse on, so pieces coast instead of falling; on the last event it runs until that event stops contributing — to the end of the range when Release is off, since the envelope latches there. Mutes gravity for the whole solve, not just this event's pieces. |
+| *Event Options* ▸ Mute Gravity | `ev_mute_grav#` | Off / During Impulse (attack + hold) / Until Next Event / End. Off by default. The arrow button beside it propagates this event's setting to every other event. The third setting keeps gravity muted across the gap to the next event without holding the impulse on, so pieces coast instead of falling; on the last event it runs until that event stops contributing — to the end of the range when Release is off, since the envelope latches there. Mutes gravity for the whole solve, not just this event's pieces. |
 | *Event Options* ▸ Stagger Points | `ev_stagger#` | Bring the points in one at a time across the event's window (Attack + Hold) instead of all at once. Off by default. Applied at playback, so it needs no re-bake. Waiting points hold in mid-air rather than falling. |
 | *Event Options* ▸ Shape Distribution Ramp | `ev_stagger_shape#` | Reveal a ramp over the activation times. |
 | *Event Options* ▸ Distribution | `ev_stagger_ramp#` | Left to right is each point's place in the shuffle, height is when it activates (0 = start of the window, 1 = end). Straight is an even spread. |
@@ -53,7 +53,7 @@ Visible in Timed Events mode. See [Timed Events](timed-events.md) for the workfl
 | Extend to Next | `ev_extend#` | Set Hold so this event holds until the next event's Attack opens. Next is by frame, ignoring solo/mute. Refuses on the last event. |
 | (undo, beside Extend to Next) | `ev_extend_undo#` | Put Hold back to what the last Extend to Next replaced. That setting only, one press deep; greyed until Extend has been used. |
 | Attack / Release Curve | `ev_atk_curve#`, `ev_rel_curve#` | Ramp shape: Linear, Ease, Sharp, Snap, Soft. |
-| Release Mode | `ev_rel_mode#` | **Fade to Zero** ramps out over the Release time; **Drag** decays at a rate, so thrown pieces visibly slow. |
+| Release Mode | `ev_rel_mode#` | **Fade to Zero** ramps out over the Release time; **Drag** decays at a rate, so thrown pieces visibly slow. The arrow button beside it propagates this event's mode to every other event. |
 | Drag | `ev_drag#` | Decay per second, in Drag mode. |
 | Recall / Update | `ev_recall#`, `ev_update#` | Load the event's setup back for editing / re-bake it from the live Setup. |
 
@@ -207,7 +207,7 @@ The next two groups appear in Timed Events only.
 
 | Parameter | Name | Description |
 | --- | --- | --- |
-| Output Guides Only (No Geometry) | `out_guides_only` | Output the guide curves instead of the geometry — for rendering the guides as their own pass. In Timed Events it always emits the baked event trails at the input's rest positions: Guides Show, Preview Motion and Show Ghost Geometry are overridden, so the pass can never pick up the ghost or the pinned Setup guides. |
+| Output Guides Only (No Geometry) | `out_guides_only` | Output the guide curves instead of the geometry — for rendering the guides as their own pass. In Timed Events it always emits the baked event trails, ignoring Show Guides and Source (so the pass can't be empty), and **respects Preview Motion** — on, the trails follow the predicted motion; off, they sit at rest. The ghost never enters the pass. |
 | Restore Viewport HUD | `util_restore_hud` | Re-enter the node's viewer state, bringing the event timeline back after an asset refresh. |
 | Links | `gumroad`, `docs`, `discord`, `youtube` | This documentation, the store page, and the community. |
 

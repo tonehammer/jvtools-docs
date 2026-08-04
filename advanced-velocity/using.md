@@ -153,6 +153,16 @@ It's a straight-line integration — no collisions, no gravity — the same math
 
 The **Return Paths** toggle at the bottom draws each piece's route home as a guide curve — sampled from the very same curve the blend walks, so what you see is what plays.
 
+### Ballistic Return — reassembling a real simulation
+
+Everything above returns the pieces home from a *prediction*. Sooner or later you'll want the same move on a shot that actually simulated — the pieces tumbled, hit the ground, settled, and *then* fly back together. That can't happen on this node: by the time the solve exists, it's downstream. So it gets a node of its own.
+
+Press **Create Ballistic Return** at the bottom of the Ballistic Motion folder. You get a second node — it ships inside the same file, and it's in the JV tab menu too — wired for you: input 1 takes the simulated pieces (it finds the RBD solver under your node), input 2 takes the rest pose, which is just this node's first output.
+
+Then keyframe **Return to Home** from 0 to 1. Same slider, same Return Shaping controls, same guarantee: at 1 every piece is exactly home, whatever the sim left behind. Nothing is snapshotted, so you can re-sim upstream all day and this node never goes stale.
+
+Important detail: **Rest Attribute**. Leave it empty and "home" means the second input's positions — right for the usual static mesh. But if your input is *animated*, those positions have moved on by the time the return happens, and you'd be aiming at a moving target. Turn on **Export Rest Position Attributes** on the Advanced Velocity node, then name `startframe_rest` here — or any event's captured pose — and the pieces return to that frozen pose instead. The dropdown lists whatever's actually arriving on the input.
+
 **Post-Process** holds the final touches:
 
 * **Clamp Speed** clamps the final speed into a Min / Max range.

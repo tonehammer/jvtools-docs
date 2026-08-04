@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839148543925">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839156789677">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -44,11 +44,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.839148543925" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.839156789677" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839148543925" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839156789677" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839148543925" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839156789677" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -348,6 +348,11 @@
 <li><strong>Seed</strong> re-rolls the per-piece arc directions.</li>
 </ul>
 <p>The <strong>Return Paths</strong> toggle at the bottom draws each piece&#x27;s route home as a guide curve — sampled from the very same curve the blend walks, so what you see is what plays.</p>
+<h3 id="ballistic-return--reassembling-a-real-simulation">Ballistic Return — reassembling a real simulation</h3>
+<p>Everything above returns the pieces home from a <em>prediction</em>. Sooner or later you&#x27;ll want the same move on a shot that actually simulated — the pieces tumbled, hit the ground, settled, and <em>then</em> fly back together. That can&#x27;t happen on this node: by the time the solve exists, it&#x27;s downstream. So it gets a node of its own.</p>
+<p>Press <strong>Create Ballistic Return</strong> at the bottom of the Ballistic Motion folder. You get a second node — it ships inside the same file, and it&#x27;s in the JV tab menu too — wired for you: input 1 takes the simulated pieces (it finds the RBD solver under your node), input 2 takes the rest pose, which is just this node&#x27;s first output.</p>
+<p>Then keyframe <strong>Return to Home</strong> from 0 to 1. Same slider, same Return Shaping controls, same guarantee: at 1 every piece is exactly home, whatever the sim left behind. Nothing is snapshotted, so you can re-sim upstream all day and this node never goes stale.</p>
+<p>Important detail: <strong>Rest Attribute</strong>. Leave it empty and &quot;home&quot; means the second input&#x27;s positions — right for the usual static mesh. But if your input is <em>animated</em>, those positions have moved on by the time the return happens, and you&#x27;d be aiming at a moving target. Turn on <strong>Export Rest Position Attributes</strong> on the Advanced Velocity node, then name <code translate="no" v-pre>startframe_rest</code> here — or any event&#x27;s captured pose — and the pieces return to that frozen pose instead. The dropdown lists whatever&#x27;s actually arriving on the input.</p>
 <p><strong>Post-Process</strong> holds the final touches:</p>
 <ul>
 <li><strong>Clamp Speed</strong> clamps the final speed into a Min / Max range.</li>

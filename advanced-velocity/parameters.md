@@ -174,9 +174,44 @@ Every type's Adjust folder opens with the same row: **Variation** (`variation1`�
 | *Return Shaping* ▸ Extra Turns / Seed | `ballistic_turns`, `ballistic_arc_seed` | Whole extra loops on the unwind (invisible at both ends), and the re-roll for the per-piece arc directions. |
 | *Return Shaping* ▸ Show on Preview Ghost | `ballistic_preview` | Let the motion-preview ghost follow Return to Home too. |
 | *Return Shaping* ▸ Return Paths | `viz_arc`, `viz_arc_color` | Draw each piece's route home as a guide curve — sampled from the same curve the blend walks. |
+| Create Ballistic Return | `make_ballistic_return` | Builds a [Ballistic Return](#ballistic-return-the-sidecar-node) node below this one — the same return, applied to a real simulation instead of the prediction. |
 | Scale by Piece Size | `out_piece_scale`, `out_piece_influence` | Big chunks fly slower. Mass from a point `mass` attribute or the piece's size; Influence blends from uniform (0) to full inverse mass (1). |
 | Additional Exports | `out_basic`, `out_dir`, `out_exp`, `out_inherited`, `out_curl` | Collapsed section — keep a sub-velocity on the output under its own name. In Timed Events the export carries the playing events' contribution (events baked before per-type storage need Update). Everything else is stripped. |
 | Export Rest Position Attributes | `output_rest` | In Additional Exports — keep `startframe_rest` and every event's `<name>_rest` on the output, for reassembly or retargeting downstream. |
+
+### Ballistic Return (the sidecar node)
+
+Ballistic Motion returns the pieces home from a *prediction*. Often what you
+actually want is to reassemble a **finished simulation** — and that has to
+happen downstream of the solver, on a node of its own. That node is **Ballistic
+Return**, and it ships in the same file: press **Create Ballistic Return**, or
+grab it from the JV tab menu.
+
+It wires itself up: input 1 takes the simulated pieces (the RBD solver below
+your Advanced Velocity node, if there is one), input 2 takes the rest pose
+(Advanced Velocity's own first output — the geometry before anything moved it).
+Then keyframe **Return to Home** from 0 to 1 and the pieces fly back together.
+
+Why the landing is always exact: the blend's endpoint is *absolute*. At Return 1
+the result **is** the rest pose, whatever the simulation was doing underneath —
+there is nothing to fight, because the target is not relative to the motion it
+replaces. Nothing is snapshotted either, so re-simulating upstream can never
+leave this node stale. Pieces are matched by point number, which a Bullet solve
+preserves.
+
+| Parameter | Name | Description |
+| --- | --- | --- |
+| Return to Home | `ballistic_return` | 0 leaves the sim alone, 1 puts every piece back at exactly its rest position and orientation. Keyframe this. |
+| Rest Attribute | `ballistic_rest_attrib` | Which pose to return to. Empty uses the second input's positions — the usual case. Name a vector point attribute on the first input instead (that is what **Export Rest Position Attributes** writes) and the pieces return to *that* captured pose. |
+| Include Rotation | `ballistic_spin` | Also unwind each packed piece's orientation. Reads the rest transforms from the second input, so keep it wired; only does anything on packed geometry. |
+| *Return Shaping* | *(same names as above)* | Return Profile, Stagger, Return Order, Arc, Swirl, Swirl Axis, Extra Turns, Seed and Return Paths — identical to the Ballistic Motion folder. |
+
+Careful with this one: if your input mesh is **animated**, the second input's
+positions have moved on by the time the return happens, so "home" is a moving
+target. That is what Rest Attribute is for — turn on **Export Rest Position
+Attributes** upstream and return to `startframe_rest` (or any event's captured
+pose) instead. On a static mesh you can ignore all of this and leave the field
+empty.
 
 ## Visualization
 

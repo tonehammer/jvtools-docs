@@ -15,6 +15,7 @@ The first public release — version 1.0 below is the feature set it launched wi
 * **Return to Home** — keyframe one slider from 0 to 1 and every piece flies back to exactly where it started, however far the motion has carried it. The landing is exact by construction: at 1 the output equals the input to the last bit
 * **Return Shaping** — arc the return paths, swirl them around an axis into a vortex, add whole extra turns, and stagger the arrivals (random, nearest first, or farthest first). None of it can break the landing
 * Optional **return-path guides** draw each piece's route home, sampled from the same curve the motion actually follows
+* **Ballistic Return** — a second node, shipped in the same file, that applies the whole return to a *finished simulation* instead of to the prediction. **Create Ballistic Return** builds it below your solver and wires it up; it can also return to a captured rest pose by name, for animated inputs
 
 **Event Strength**
 

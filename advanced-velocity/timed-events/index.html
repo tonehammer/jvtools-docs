@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839157653904">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839284024814">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,12 +38,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.839157653904" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.839284024814" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839157653904" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839284024814" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839157653904" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.839157653904" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839284024814" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.839284024814" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -289,7 +289,7 @@
 <h2 id="motion-preview">Motion preview</h2>
 <p>Baked vectors are only half the picture — you also want to see where the pieces <em>go</em>. <strong>Preview Motion</strong> (Visualization tab) advances the baked-event guides to where the events predict the pieces will be at the current frame, and the <strong>ghost</strong> draws a wireframe of the pieces there, tumbling with any baked <code translate="no" v-pre>@w</code>. <strong>Offset</strong> slides the whole prediction sideways in multiples of the object&#x27;s width, so the forecast reads beside the real geometry instead of on top of it.</p>
 <p>Careful with this one: it ships <strong>off</strong>, and that is deliberate. It&#x27;s the most expensive control in the whole node — the prediction is integrated every frame, and the ghost draws a <em>second complete copy</em> of your input on every viewport redraw. On a light test object you&#x27;ll never notice. On something heavy — a dense mesh, or anything textured — it&#x27;s the difference between scrubbing freely and everything feeling like treacle, and because it slows down <em>redraws</em> it makes parm edits and playbar scrubbing feel sluggish too, not just playback. The workflow that actually works: switch it on to check your timing, then switch it straight back off and keep authoring.</p>
-<p><strong>Ghost Style</strong> is what keeps the ghost affordable on real geometry: <strong>Bounding Boxes</strong> (the default) draws one tumbling wire box per piece — cheap at any density and the motion still reads perfectly — <strong>Points</strong> is cheaper still, and <strong>Full Wireframe</strong> is the pretty one for lighter objects. The preview never switches itself off, whatever the input size; the <strong>Visualization Limit</strong> caps the guide <em>trails</em> only, with <strong>Guide Density</strong> scaling within that budget.</p>
+<p><strong>Ghost Style</strong> is what keeps the ghost affordable on real geometry. It ships on <strong>Full Wireframe</strong>, which looks best and costs most; on anything heavy drop it to <strong>Bounding Boxes</strong>, which draws one tumbling wire box per piece — cheap at any density, and the motion still reads perfectly — or <strong>Points</strong>, cheaper still. The preview never switches itself off, whatever the input size; the <strong>Visualization Limit</strong> caps the guide <em>trails</em> only, with <strong>Guide Density</strong> scaling within that budget.</p>
 <p>The live Setup guides deliberately stay on the input mesh — the thing you&#x27;re authoring reads in place, the prediction sits beside it.</p>
 <p>One thing to keep straight: the prediction is a straight-line integration of the baked fields — no collisions, no drag — so treat it as a forecast, not a simulation.</p>
 <h3 id="track-motion">Track Motion</h3>
@@ -438,7 +438,7 @@
 <ul>
 <li><strong>Incoming Velocity is a live base layer.</strong> The velocity arriving on your input plays underneath the events, every frame — it&#x27;s never baked into them, so it can&#x27;t be double-counted and an animated input stays live between events.</li>
 <li><strong>The Output tab is live too.</strong> Clamp Speed and Scale by Piece Size apply at playback, so flipping them needs no Update. Master Speed is the exception — it&#x27;s baked into each event, and changing it afterwards flags the event stale so you know to press Update.</li>
-<li><strong>Bakes are per-point.</strong> An event&#x27;s field is stored against the input&#x27;s point count; re-fracture the object and existing events skip until you <strong>Update</strong> them.</li>
+<li><strong>Bakes are per-point.</strong> An event&#x27;s field is stored against the input&#x27;s point count, so re-fracturing the object leaves existing events unusable and the node writes zero for them. The Events tab warns you when this has happened; <strong>Utilities ▸ Re-bake All Events</strong> repairs the lot, replaying each event against its own stored snapshot so your timings survive. (That is not the same as Update, which re-bakes from the <em>live</em> Setup.)</li>
 <li><strong>A later blast kicks the pieces that were near it at bake time</strong>, wherever they&#x27;ve since travelled — the radius selection is frozen when the event is baked. Track Motion re-aims directions, not membership.</li>
 <li><strong>Baked guides can be unified to one colour</strong> (Visualization ▸ Unify Baked Guides) when the per-type colours are more information than you want.</li>
 <li><strong>A blank event with Mute Gravity on freezes everything solid.</strong> With no velocity types enabled its baked field is all zeros, and it still opens the injection gate — so the solver overwrites every piece&#x27;s velocity with zero while gravity is muted, and the pieces hang exactly where they were until the event&#x27;s hold ends, then fall again. Useful on purpose: drop one wherever you want everything to hang suspended, and set its Hold to the length of the pause — or press <strong>Extend to Next</strong> to hang everything right up to the following beat. Keep the distinction straight, though — Mute Gravity on a <em>real</em> event means gravity off while the pieces keep flying; a <em>blank</em> event with it on means everything stops dead.</li>
@@ -486,7 +486,7 @@
                 <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M10.97 8.265a1.45 1.45 0 0 0-.487.57.75.75 0 0 1-1.341-.67c.2-.402.513-.826.997-1.148C10.627 6.69 11.244 6.5 12 6.5c.658 0 1.369.195 1.934.619a2.45 2.45 0 0 1 1.004 2.006c0 1.033-.513 1.72-1.027 2.215-.19.183-.399.358-.579.508l-.147.123a4.329 4.329 0 0 0-.435.409v1.37a.75.75 0 1 1-1.5 0v-1.473c0-.237.067-.504.247-.736.22-.28.486-.517.718-.714l.183-.153.001-.001c.172-.143.324-.27.47-.412.368-.355.569-.676.569-1.136a.953.953 0 0 0-.404-.806C12.766 8.118 12.384 8 12 8c-.494 0-.814.121-1.03.265ZM13 17a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></svg></span>
                 <span class="card-compact-title">Troubleshooting</span>
             </div>
-            <p class="card-compact-description">You're in Timed Events mode (the default), where the live Setup is just a template — only baked events reach the output. Press Create Event to bake the setup, or Update on an existing event's row to fold your changes into it.</p>
+            <p class="card-compact-description">You're in Timed Events mode, the default, where the live Setup is only a template — just baked events reach the output. Press Create Event to bake the setup, or Update on an existing event's row to fold your changes into it.</p>
         </div>
     </a>
 </div>

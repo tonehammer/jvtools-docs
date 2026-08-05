@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839157653904">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839284024814">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -44,11 +44,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.839157653904" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.839284024814" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839157653904" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839284024814" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839157653904" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839284024814" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -374,10 +374,10 @@
 </li>
 <li>
 <p><strong>Guide Density</strong> draws only a fraction of the trails, for viewport speed on heavy fractures. The same pieces stay chosen frame to frame, so the selection doesn&#x27;t flicker. On dense inputs the trails also auto-cap at the <strong>Visualization Limit</strong> (default 100,000), with Density scaling within that budget — raise the limit or switch it off if you really want to draw everything.</p>
-<p>The <strong>first</strong> time you connect geometry to a fresh node, Density gets set for you from the input&#x27;s point count, aiming at roughly 200 trails — enough to read the field without covering the whole object. A few hundred points keeps every trail; a couple of thousand lands around <code translate="no" v-pre>0.1</code>. This happens once and silently: change the value and it is yours, and re-wiring a different mesh later will never override it.</p>
+<p>The <strong>first</strong> time you connect geometry to a fresh node, Density gets set for you from the input&#x27;s point count, aiming at roughly 500 trails — enough to read the field without covering the whole object. A few hundred points keeps every trail; a couple of thousand lands around <code translate="no" v-pre>0.25</code>. This happens once and silently: change the value and it is yours, and re-wiring a different mesh later will never override it.</p>
 </li>
 <li>
-<p>Two further groups appear in Timed Events only. <strong>Timed Events</strong> holds <strong>Source</strong> (which stream the guides draw — Setup, Events or Both), <strong>Preview Motion</strong> with its ghost, <strong>Ghost Style</strong> and <strong>Offset</strong>, and <strong>Unify Baked Guides</strong>. Preview Motion ships <strong>off</strong> on purpose — it&#x27;s the one control here with a real cost, since the ghost redraws your pieces every refresh. <strong>Ghost Style</strong> is what keeps that affordable: <strong>Bounding Boxes</strong> (the default) draws one wire box per piece and stays cheap at any density, <strong>Points</strong> is cheaper still, and <strong>Full Wireframe</strong> is the pretty one for light objects. Flip the preview on to check timing, then off again; on anything heavy it&#x27;s what makes the whole scene feel sluggish. <strong>Timeline HUD</strong> holds the on-screen event ruler — see <a href="../timed-events/#the-event-timeline">the timeline and the preview</a>. The timeline itself is drawn by the viewer state rather than as guide geometry, which is why Show Guides and the Visualization Limit leave it alone.</p>
+<p>Two further groups appear in Timed Events only. <strong>Timed Events</strong> holds <strong>Source</strong> (which stream the guides draw — Setup, Events or Both), <strong>Preview Motion</strong> with its ghost, <strong>Ghost Style</strong> and <strong>Offset</strong>, and <strong>Unify Baked Guides</strong>. Preview Motion ships <strong>off</strong> on purpose — it&#x27;s the one control here with a real cost, since the ghost redraws your pieces every refresh. <strong>Ghost Style</strong> is what keeps that affordable: it ships on <strong>Full Wireframe</strong>, the best-looking and most expensive option, so on heavy input drop it to <strong>Bounding Boxes</strong> (one wire box per piece, cheap at any density) or <strong>Points</strong>, cheaper still. Flip the preview on to check timing, then off again; on anything heavy it&#x27;s what makes the whole scene feel sluggish. <strong>Timeline HUD</strong> holds the on-screen event ruler — see <a href="../timed-events/#the-event-timeline">the timeline and the preview</a>. The timeline itself is drawn by the viewer state rather than as guide geometry, which is why Show Guides and the Visualization Limit leave it alone.</p>
 </li>
 </ul>
 <p>Need the guides as <em>renderable</em> geometry, for a breakdown or a preview render? <strong>Utilities ▸ Output Guides Only</strong> swaps the node&#x27;s output to the guide curves themselves.</p>

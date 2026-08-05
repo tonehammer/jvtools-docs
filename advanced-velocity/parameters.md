@@ -24,6 +24,7 @@ Visible in Timed Events mode. See [Timed Events](timed-events.md) for the workfl
 | --- | --- | --- |
 | At Frame | `dyn_now` | Live readout of which events are contributing at the current frame, and by how much. |
 | Stale | `dyn_recall_note` | Warns when the live Setup no longer matches the event it was last based on. |
+| *(warning)* Unplayable events | `stale_bake_label` | Appears when the input's point count no longer matches what an event baked against, so those events write zero. Fix with **Utilities ▸ Re-bake All Events**. |
 | Record / Stop / Create Event | `record_events`, `stop_events`, `create_event` | Play the range for live marking; stop; bake the current setup into a new event at the current frame. |
 | Copy Event | `copy_event` | Duplicate an existing event at the current frame, nothing re-baked. |
 | Sort by Frame | `dyn_sort_events` | Reorder the event rows chronologically. |
@@ -221,7 +222,8 @@ empty.
 | Show Guides | `viz_guides` | Master switch for all velocity guides. |
 | Guide Global Scale | `viz_scale` | Length multiplier for all guide trails. |
 | Normalize Guide Length | `viz_normalize`, `viz_normalize_amt` | Blends every trail toward one uniform length — the joined 0-1 slider controls how much. At 1, every guide draws at exactly Guide Global Scale length; directions never change, and the output is untouched. |
-| Guide Density | `viz_density` | Fraction of trails actually drawn, for viewport speed. Picked for you the first time geometry is connected to a fresh node, aiming at roughly 200 trails; after that it is yours and is never changed again. On dense inputs the trails also auto-cap at the Visualization Limit; Density scales within that budget. |
+| Guide Density | `viz_density` | Fraction of trails actually drawn, for viewport speed. Picked for you the first time geometry is connected to a fresh node, aiming at roughly 500 trails; after that it is yours and is never changed again. On dense inputs the trails also auto-cap at the Visualization Limit; Density scales within that budget. |
+| Arc Density | `viz_arc_density` | Fraction of the Return to Home arc paths drawn, independent of Guide Density. The Visualization Limit still applies on top. |
 | Enforce Visualization Limit | `viz_limit_enable`, `viz_limit` | Point budget (default 100,000) capping how many guide trails are drawn. Raise it or switch it off to draw everything regardless of cost. Guide trails only — Preview Motion is not affected. |
 
 The next two groups appear in Timed Events only.
@@ -230,7 +232,7 @@ The next two groups appear in Timed Events only.
 | --- | --- | --- |
 | *Timed Events* ▸ Source | `dyn_guide_source` | Which stream the guides draw: Setup, Events, or Both. |
 | *Timed Events* ▸ Preview Motion | `dyn_preview`, `dyn_preview_ghost`, `dyn_ghost_color` | Advance the baked guides to the predicted positions, with an optional ghost of the pieces. **Off by default — the most expensive control here:** the ghost redraws your pieces on every refresh, which slows scrubbing and parm edits on heavy or textured objects. |
-| *Timed Events* ▸ Ghost Style | `dyn_ghost_style` | How the ghost draws: Full Wireframe, Bounding Boxes (default — one wire box per piece, cheap at any density), or Points. |
+| *Timed Events* ▸ Ghost Style | `dyn_ghost_style` | How the ghost draws: Full Wireframe (default), Bounding Boxes (one wire box per piece, cheap at any density), or Points. Drop to Bounding Boxes or Points on heavy input. |
 | *Timed Events* ▸ Offset | `dyn_preview_offset` | Slide the preview sideways, in multiples of the object's width. |
 | *Timed Events* ▸ Unify Baked Guides | `viz_baked_yellow`, `viz_baked_tint` | Draw every baked-event guide in one colour instead of per-type colours. |
 | *Timeline HUD* ▸ Event Timeline / Scheme | `viz_timeline`, `viz_timeline_scheme` | The on-screen frame ruler with a marker per event; Dark or Light palette. Drawn by the viewer state rather than as guide geometry, so Show Guides and the Visualization Limit do not affect it. |
@@ -245,6 +247,7 @@ The next two groups appear in Timed Events only.
 | --- | --- | --- |
 | Output Guides Only (No Geometry) | `out_guides_only` | Output the guide curves instead of the geometry — for rendering the guides as their own pass. In Timed Events it always emits the baked event trails, ignoring Show Guides and Source (so the pass can't be empty), and **respects Preview Motion** — on, the trails follow the predicted motion; off, they sit at rest. The ghost never enters the pass. |
 | Restore Viewport HUD | `util_restore_hud` | Re-enter the node's viewer state, bringing the event timeline back after an asset refresh. |
+| Re-bake All Events | `rebake_events` | Repair every event after the input's point count changed (a re-fracture, deleted geometry, a different scatter). Each event is replayed against **its own** stored snapshot at **its own** frame, so timings and settings survive — unlike pressing Update on each row, which re-bakes from the live Setup. |
 | Links | `gumroad`, `docs`, `discord`, `youtube` | This documentation, the store page, and the community. |
 
 ## About

@@ -47,6 +47,33 @@ User-facing docs here must stay in sync with each HDA's **parameter tooltips / H
 - **Version on first page (rule, Jovan 2026-07-22):** show the current version **inline at the first mention of the product name** in the opening body paragraph, e.g. `Welcome! **Advanced Velocity** (v1.0) is a single Houdini SOP…`. **NOT in the H1** — the H1 also drives the sidebar label, so a version there clutters the nav. **Source of truth = the product's changelog page** — the top-most `## Version X.Y.Z` heading (e.g. `reference/changelog.md` for Reallusion, `changelog.md` elsewhere). The `versions/<product>.json` `latest` field is a *separate* thing (it feeds the HDAs' in-app update check, not the docs) and can lag — if it disagrees with the changelog, trust the changelog and flag the manifest.
 - **Exclude from build:** the `exclude:` list in retype.yml (CLAUDE.md is already excluded — keeps the hub in-repo but off the site).
 
+## 🔧 VERIFYING VISUALLY — build it and LOOK, never reason from the CSS (2026-08-06)
+
+**Standing rule for any change with a visual result** (a card, a cover image, an icon, a layout tweak, a callout): render the built page and look at it before saying it is done. This is cheap — under a minute end to end — and it is the step that catches the whole class of "correct in the abstract, wrong on screen".
+
+Why it is a rule and not a nicety: swapping the Advanced Velocity card image looked like a one-line edit, and three candidate images in a row *reasoned* fine and *rendered* wrong (a square crop lost 12% top and bottom; the 16:9 with a title lockup grazed it against the panel border). Reading the CSS told me the box existed; only the render told me what it did to the picture.
+
+**The loop:**
+1. `retype build .` from the repo root (~3s, 36 pages). Works locally with no license key despite `poweredByRetype: false` being Pro-only.
+2. Serve it — `retype start` for live reload, or the **jvtools-docs-editor** (`C:\Users\Jovan\Documents\GitHub\jvtools-docs-editor\server.py`, port **8123**, base path **`/jvtools-docs/`**, rebuilds on save). ⚠ Serving `.retype/` directly at `/` 404s every asset — internal links are absolute under `/jvtools-docs/`.
+3. Screenshot it headless with Edge, then **Read the PNG**:
+   ```
+   msedge --headless=new --disable-gpu --hide-scrollbars \
+     --force-device-scale-factor=1 --window-size=1400,1300 \
+     --virtual-time-budget=6000 \
+     --screenshot="C:/full/win/path/out.png" "http://localhost:8123/jvtools-docs/"
+   ```
+   🔴 **The path must be a WINDOWS path** — a git-bash `/c/...` path silently renders Edge's "File not found" page and still reports "bytes written". `pwd -W` gives the right form. **Always open the PNG; never trust the exit message.**
+4. **Check more than one viewport width.** Card and image boxes reflow at Retype's breakpoints, and a crop that survives at 1750 can clip at 1400. Two desktop widths plus one mobile (`--window-size=430,900 --force-device-scale-factor=2`) covers it.
+5. For measuring rather than eyeballing (box sizes, `object-fit`, natural vs rendered dimensions), query the live DOM with the browser tools instead of guessing — that is how the geometry below was established.
+
+### Card image geometry (measured, so nobody re-derives it)
+- The card's image panel is **`object-fit: cover`** — it always crops, never letterboxes.
+- **Desktop:** `md:w-5/12` of the card width, with the **height set by the description text**, not the image. Measured 240x283 (4-line blurb) and 300x230 (3-line) — so roughly **1.0–1.3:1, and it moves with blurb length and viewport width**.
+- **Mobile:** the panel stacks on top at `pb-9/16` — **exactly 16:9**.
+- 🔧 **Therefore: supply 16:9, and keep everything that matters inside the middle ~73% horizontally.** That is the narrowest window `cover` leaves on desktop. Corner-anchored logos and title lockups are the first casualties; a picture that is *composed* to the centre survives every breakpoint.
+- Photographic cards ship as **JPG ~1600x900, q88 (~240 KB)**; a PNG of the same image is ~2.3 MB for no visible gain. Flat-art cards stay PNG.
+
 ## Retype Pro backlog (license unlocks these — implement when useful)
 
 Already active: breadcrumbs, right-side Table of Contents, footer removed (`poweredByRetype: false`).

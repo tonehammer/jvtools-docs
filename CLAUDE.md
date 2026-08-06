@@ -67,12 +67,23 @@ Why it is a rule and not a nicety: swapping the Advanced Velocity card image loo
 4. **Check more than one viewport width.** Card and image boxes reflow at Retype's breakpoints, and a crop that survives at 1750 can clip at 1400. Two desktop widths plus one mobile (`--window-size=430,900 --force-device-scale-factor=2`) covers it.
 5. For measuring rather than eyeballing (box sizes, `object-fit`, natural vs rendered dimensions), query the live DOM with the browser tools instead of guessing — that is how the geometry below was established.
 
-### Card image geometry (measured, so nobody re-derives it)
+### Card image geometry (measured on the live DOM, so nobody re-derives it)
 - The card's image panel is **`object-fit: cover`** — it always crops, never letterboxes.
-- **Desktop:** `md:w-5/12` of the card width, with the **height set by the description text**, not the image. Measured 240x283 (4-line blurb) and 300x230 (3-line) — so roughly **1.0–1.3:1, and it moves with blurb length and viewport width**.
+- The panel is `md:w-5/12` of the card width with its **height set by the description text**, not the image. So its aspect moves with BOTH the viewport width and the blurb length.
+- 🔴 **IT CROPS IN TWO DIFFERENT DIRECTIONS, AND ONE MEASUREMENT ONLY EVER SHOWS YOU ONE OF THEM.** Measured on the RPLidar card, 2026-08-06:
+
+  | viewport | panel | aspect | what is cropped |
+  |---|---|---|---|
+  | 1280 | 240x228 | 1.06:1 | full height, only the **middle 59% of the WIDTH** |
+  | 1920 | 398x172 | 2.32:1 | full width, only the **middle 77% of the HEIGHT** |
+
+  The blurb rewraps to fewer lines as the viewport widens, the panel gets shorter, and the crop flips axis. **The usable area is the INTERSECTION of the two**, not either one.
 - **Mobile:** the panel stacks on top at `pb-9/16` — **exactly 16:9**.
-- 🔧 **Therefore: supply 16:9, and keep everything that matters inside the middle ~73% horizontally.** That is the narrowest window `cover` leaves on desktop. Corner-anchored logos and title lockups are the first casualties; a picture that is *composed* to the centre survives every breakpoint.
-- Photographic cards ship as **JPG ~1600x900, q88 (~240 KB)**; a PNG of the same image is ~2.3 MB for no visible gain. Flat-art cards stay PNG.
+- 🔧 **Therefore: supply 16:9, and keep everything that matters inside the middle 59% horizontally AND the middle 77% vertically.** On a 1600x900 that is x 328–1272, y 105–795. Corner-anchored logos and title lockups are the first casualties; a picture *composed* to the centre survives every breakpoint.
+  ⚠ An earlier note here said "middle ~73%" with no vertical limit. That came from a single measurement at one viewport and was wrong in both respects — **measure at a narrow AND a wide viewport before trusting a safe area.**
+- 🔧 **When a composition has to give somewhere, favour the WIDE case** (Jovan, 2026-08-06): these are Houdini users on desktop monitors, so the 1920-ish regime is the one most people see.
+- The cover generator's `card` preset encodes both insets (`0.205` / `0.115`) and `--guides` draws the box on all four sides.
+- Photographic cards ship as **JPG ~1600x900, q88 (~240 KB)**; a PNG of the same image is ~2.3 MB for no visible gain. **Flat vector art stays PNG** — JPG rings on hard edges and comes out larger anyway (RPLidar's card: 104 KB PNG).
 
 ## Retype features in use (added 2026-08-06 — read before adding more)
 

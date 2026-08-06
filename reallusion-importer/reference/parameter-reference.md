@@ -5,7 +5,7 @@ Every control on the Reallusion Importer, grouped by where you find it. There ar
 * **The Reallusion Importer node** (in SOPs) — import, build, animation, and utility controls.
 * **The Lookdev Controller** (a red node in LOPs, created by **Build Character** and reached with **Go to LOPs**) — every look control for skin, eyes, hair, wrinkles, and displacement.
 
-Each section links to the fuller walkthrough in [Using the Asset](../using/).
+Each section links to the fuller walkthrough in [Using the Asset](../using/lookdev-controller.md).
 
 !!!info
 Hovering any parameter in Houdini shows its tooltip, which is the authoritative, always-current description. If this page and a tooltip ever disagree, trust the tooltip.

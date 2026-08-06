@@ -15,6 +15,8 @@ Each type lives in its own collapsible section with a checkbox in the header. Th
 
 A fixed vector applied to every point. The simplest possible velocity — this is the one you reach for when you just want to give the whole body a shove in one direction.
 
+![Basic velocity — every guide trail pointing the same way](static/basic-velocity.webp)
+
 ### Directional
 
 Velocity with a *direction* — at a target, around it, or away from it. First thing to set is **Direction**, which chooses where the target comes from:
@@ -28,6 +30,8 @@ Velocity with a *direction* — at a target, around it, or away from it. First t
 
 **Normalize Direction** makes every direction unit length, so distance stops affecting speed. **Distance Falloff** fades the velocity with distance — measured from the target, or from the axle when we are orbiting.
 
+![Directional velocity — the trails converging on a single target point](static/directional-velocity.webp)
+
 ### Exploding
 
 An outward burst, with two very different origins.
@@ -37,19 +41,27 @@ An outward burst, with two very different origins.
 * **Centroid** — everything pushes away from a single point, which you can offset with **Move Centroid**.
 * **Medial Axis** — the direction is measured from the *skeleton* of the body instead. Why? Because hollow, curved or L-shaped objects don't really have a meaningful centre — with a centroid everything just slides away from one averaged point, whereas from the skeleton they burst outward sensibly. It is considerably slower, though, as it runs a VDB shrink loop to actually find that skeleton.
 
+![Exploding velocity — an outward burst radiating from the body's centre](static/exploding-velocity.webp)
+
 **Point Source** is a big enough topic that it gets [its own section below](#point-source-explosions).
 
 ### Velocity from Motion
 
 Velocity derived from the movement the input already has, frame-to-frame — exactly the way a Trail SOP computes it. The use case is handing pre-sim momentum to an RBD or POP solve: animate a character swinging a prop, fracture the prop, and the pieces inherit the swing. Only meaningful on animated/deforming input, naturally — a static mesh gives you zero.
 
+![Velocity from Motion — trails streaming behind a moving object](static/motion-velocity.webp)
+
 ### Curl Noise
 
 A divergence-free turbulent field (meaning: natural swirls with no sources or sinks) for debris drift and secondary motion. **Frequency** is the size of the vortices, **Amplitude** is the speed, **Octaves / Roughness / Lacunarity** add the fractal detail, and **Evolution Speed** churns the field over time (0 = frozen field). One thing to understand: this authors an *initial* velocity — a one-time push, not a force that keeps acting inside the sim.
 
+![Curl Noise velocity — turbulent swirls across a fractured object](static/curl-noise-velocity.webp)
+
 ### Angular
 
 An extra `@w` spin vector, in radians per second, for the solvers that read it. **Source** is either a *Constant* vector, or *Inherited from Motion*, which computes it from the input's own rotation between frames (this one needs a point `orient` quaternion on the input to work). This type is independent of the mixer — `@w` is simply written whenever the type is on.
+
+![Angular velocity — per-piece spin guides](static/angular-velocity.webp)
 
 ---
 
@@ -146,6 +158,8 @@ The node has a second output, and it delivers the pieces **already flying**: adv
 
 It's a straight-line integration — no collisions, no gravity — the same maths as the motion-preview ghost, applied to the real geometry. **Display Offset** slides the result sideways in multiples of the object's width, for reading it next to the original.
 
+![The Ballistic Motion folder on the Output tab](static/ballistic-motion-parms.png)
+
 **Return to Home** is the part that makes it a tool rather than a toy. Keyframe it from 0 to 1 and every piece flies back to *exactly* where it started — and that landing is exact by construction: at 1, output 2 equals the input bit for bit, no matter how far the motion carried the pieces or what shaping you piled on. Telekinesis reassembly in one slider.
 
 **Return Shaping** (collapsed under the slider) art-directs the way home without ever being able to break the landing:
@@ -163,6 +177,8 @@ The **Return Paths** toggle at the bottom draws each piece's route home as a gui
 Everything above returns the pieces home from a *prediction*. Sooner or later you'll want the same move on a shot that actually simulated — the pieces tumbled, hit the ground, settled, and *then* fly back together. That can't happen on this node: by the time the solve exists, it's downstream. So it gets a node of its own.
 
 Press **Create Ballistic Return** at the bottom of the Ballistic Motion folder. You get a second node — it ships inside the same file, and it's in the JV tab menu too — wired for you: input 1 takes the simulated pieces (it finds the RBD solver under your node), input 2 takes the rest pose, which is just this node's first output.
+
+![The Ballistic Return node](static/ballistic-return-node.png)
 
 Then keyframe **Return to Home** from 0 to 1. Same slider, same Return Shaping controls, same guarantee: at 1 every piece is exactly home, whatever the sim left behind. Nothing is snapshotted, so you can re-sim upstream all day and this node never goes stale.
 

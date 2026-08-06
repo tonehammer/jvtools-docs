@@ -15,6 +15,8 @@ In Timed Events mode the live Setup does not reach the output — only baked eve
 
 ## Creating events
 
+![The At Frame readout and the event buttons — Record, Stop, Create Event, Copy Event, Update](static/record-buttons.png)
+
 * **Create Event** bakes the current setup into a new event at the playbar frame.
 * **Record Events** plays from wherever the playbar sits to the range end (at the very end it wraps back to the start) — press Create Event as it plays to mark events in real time, like tapping keys into a performance. It also brings the timeline HUD up if the viewer had wandered out of the node's state. **Stop** ends it. Here's the detail that keeps a take playable: while recording, Create Event only *marks* the moment — you'll see hollow discs appear on the timeline — and the real events (bake and all) are created together the instant the take ends. Nothing about the node changes mid-take, so playback stays interactive and anything downstream (an RBD solve included) keeps its cache instead of resimulating on every press. The marks survive even a crash — press Record again and you'll be offered them back. Guides also pause for the take and come back the moment playback ends.
 
@@ -63,6 +65,8 @@ A strength of 0 quiets an event's velocity but deliberately does **not** close i
 ## The event timeline
 
 With **Event Timeline** on (Visualization tab), a frame ruler draws along the bottom of the viewport with a marker per event and a playhead. The marker colours tell you each event's state at a glance:
+
+![The on-screen event timeline, with orange ready markers and one green playing marker](static/event-timeline-hud.png)
 
 * **Orange** — ready: baked and waiting for its frame.
 * **Green** — playing: contributing right now.

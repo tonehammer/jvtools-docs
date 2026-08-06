@@ -10,6 +10,8 @@ image: /rplidar-in/static/social.png
   <img src="static/rplidar_logo.svg" alt="RPLidar In" width="150" style="max-width:60%;">
 </div>
 
+<p style="text-align:center; margin:0 0 1.5rem;"><a href="https://jvtonehammer.gumroad.com/l/rplidarin_hda"><strong>Get it on Gumroad →</strong></a></p>
+
 Welcome! **{{ rp.name }}** (v{{ rp.version }}) brings live [Slamtec RPLIDAR](https://www.slamtec.com/) point-cloud data straight into Houdini as SOP geometry. Plug in the sensor, drop the node, and every rotation of the spinning laser becomes a fresh ring of points you can feed into simulations, visualizations, or interactive installations — in real time.
 
 It is built for **TouchDesigner-style interactive work**: a person walks past the sensor, and their outline drives a POP or Vellum solver live, with no baking step in between.

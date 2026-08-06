@@ -23,8 +23,7 @@ This asset is a black-boxed, limited-commercial Digital Asset (`.hdalc`). It wor
 
 Installing the tool is just a matter of putting one file where Houdini can find it.
 
-### Step 1 — Locate your Houdini `otls` folder
-
+>>> 1. Locate your Houdini `otls` folder
 Houdini automatically loads Digital Assets from an `otls` folder in your user preferences directory. On Windows, that's typically:
 
 ```
@@ -32,17 +31,14 @@ C:\Users\<YourName>\Documents\houdini21.0\otls\
 ```
 
 If the `otls` folder doesn't exist yet, create it.
-
-### Step 2 — Copy the asset file
-
+>>>
+>>> 2. Copy the asset file
 Copy the downloaded `.hdalc` file (for example, `JV-Reallusion_Importer-v1.2.hdalc`) into that `otls` folder.
-
-### Step 3 — Restart Houdini
-
+>>>
+>>> 3. Restart Houdini
 If Houdini was already running, restart it so it picks up the new asset. That's it — the tool is now installed.
-
-### Step 4 — Verify the install
-
+>>>
+>>> 4. Verify the install
 To confirm it loaded:
 
 1. Create a Geometry object (or dive into an existing one).
@@ -52,6 +48,7 @@ To confirm it loaded:
 ![](../static/rl_tabmenu.png)
 
 If it appears, you're ready to go. Head to the [Quick Start](quick-start.md).
+>>>
 
 ## Alternative: load without installing
 

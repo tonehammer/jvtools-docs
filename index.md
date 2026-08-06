@@ -2,6 +2,7 @@
 label: Products
 icon: home
 order: 10000
+image: /static/social.jpg
 ---
 
 # JVtools

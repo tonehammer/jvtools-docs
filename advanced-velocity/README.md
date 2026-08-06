@@ -1,6 +1,7 @@
 ---
 icon: static/advanced_velocity_icon.png
 order: 110
+image: /advanced-velocity/static/social.jpg
 ---
 
 # Advanced Velocity
@@ -11,11 +12,19 @@ order: 110
 
 <p style="text-align:center; margin:0 0 1.5rem;"><a href="https://jvtonehammer.gumroad.com/l/advanced_velocity_hda"><strong>Get it on Gumroad →</strong></a></p>
 
-Welcome! **Advanced Velocity** (v1.1) is a single Houdini SOP that authors the `@v` velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node. And because one velocity is rarely the whole story, it can also play a whole *sequence* of velocity events over time: a car lifted at frame 10, torn apart at frame 40, spun at frame 70, all from one node.
+Welcome! **{{ av.name }}** (v{{ av.version }}) is a single Houdini SOP that authors the `@v` velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node. And because one velocity is rarely the whole story, it can also play a whole *sequence* of velocity events over time: a car lifted at frame 10, torn apart at frame 40, spun at frame 70, all from one node.
 
 Every simulation in Houdini starts with velocity, and getting it right normally means a small pile of wrangles, attribute adjusts and ramps that you end up rebuilding on every shot. Advanced Velocity gathers all of that into one node, with the same set of Adjust and Mask controls on every velocity type, and viewport guides that show you exactly what each type is contributing.
 
 ![Velocity guides on a fractured object](static/hero.png)
+
+<!-- TRAILER PLACEHOLDER — uncomment and swap in the real video id once the
+     trailer is up. Retype's embed component; aspect keeps it 16:9 and it needs
+     the /embed/ form of the URL, not the watch?v= one.
+
+[!embed aspect="16:9" text="Advanced Velocity in 90 seconds"](https://www.youtube.com/embed/VIDEO_ID_HERE)
+-->
+
 
 ## What it does for you
 

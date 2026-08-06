@@ -32,6 +32,40 @@ links:
     link: /rplidar-in/
     icon: broadcast
 
+# Git-backed freshness stamp at the foot of every page. Needs full git history
+# at build time - the deploy workflow already checks out with fetch-depth: 0,
+# without which Retype silently skips the values rather than erroring.
+lastUpdated:
+  date:
+    enabled: true
+    source: committer
+
+# Single source of truth for the product versions shown in the docs prose.
+# Reference as {{ av.version }} etc. so a release bumps ONE line here instead
+# of each product page separately.
+# 🔴 These are the DOCS versions (the changelog is their source of truth).
+# versions/<slug>.json is a SEPARATE signal feeding the HDAs' in-app update
+# check, and it deliberately lags on patch releases - do not sync them blindly.
+data:
+  av:
+    name: Advanced Velocity
+    version: "1.1"
+  rl:
+    name: Reallusion Importer for Houdini
+    version: "1.2.1"
+  rp:
+    name: RPLidar In
+    version: "1.0"
+
+# Analytics. Uncomment ONE and fill in the id - see the setup notes in
+# CLAUDE.md. Plausible is the privacy-preserving option and needs no cookie
+# banner; Google Analytics is free and needs one in the EU.
+# integrations:
+#   googleAnalytics:
+#     id: G-XXXXXXXXXX
+#   plausible:
+#     domain: tonehammer.github.io
+
 # Pro: remove the "Made with Retype" footer (requires the RETYPE_KEY secret
 # to be present at build time, else the build fails on this Pro-only option).
 poweredByRetype: false

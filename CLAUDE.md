@@ -74,10 +74,54 @@ Why it is a rule and not a nicety: swapping the Advanced Velocity card image loo
 - 🔧 **Therefore: supply 16:9, and keep everything that matters inside the middle ~73% horizontally.** That is the narrowest window `cover` leaves on desktop. Corner-anchored logos and title lockups are the first casualties; a picture that is *composed* to the centre survives every breakpoint.
 - Photographic cards ship as **JPG ~1600x900, q88 (~240 KB)**; a PNG of the same image is ~2.3 MB for no visible gain. Flat-art cards stay PNG.
 
+## Retype features in use (added 2026-08-06 — read before adding more)
+
+🔴 **A LOCAL BUILD RUNS WITHOUT PRO.** `RETYPE_KEY` is a CI secret and is not
+in the shell environment, so `retype build` locally **silently skips every Pro
+feature** — the only sign is one warning about the "Powered by Retype" logo.
+A Pro feature therefore cannot be verified locally at all: it renders nothing,
+which is indistinguishable from a broken config. **Verify Pro features on the
+deployed site**, and do not conclude the YAML is wrong from a local build.
+
+- **`data` + templating** — product versions live in ONE place (`retype.yml`
+  `data:`) and pages say `{{ av.version }}`. A release bumps one line.
+  ⚠ **Templating does NOT reach inside code spans or code blocks** (Retype
+  emits them `v-pre`). Good news for code samples, which are safe by
+  construction; bad news for anything like a filename in backticks — that
+  still has to be written out or kept generic (`vX.Y`).
+  🔑 The `data:` versions are the DOCS versions (changelog is their source of
+  truth). `versions/<slug>.json` is a separate signal for the HDAs' update
+  check and deliberately lags on patches — do not sync them blindly.
+- **Steps** (`>>> Title` … `>>>`) — used for the install instructions on
+  Advanced Velocity and Reallusion Importer.
+  🔴 **Consecutive `>>>` blocks do NOT auto-increment in Retype 4.6.0** — each
+  becomes its own group and every step renders as "1", whatever the docs say
+  about stacking. **Number them explicitly: `>>> 1. Title`, `>>> 2. Title`.**
+  Only a screenshot catches this; the build is clean and the HTML looks
+  plausible until you read the `step-number` attributes.
+- **Social preview images** — Retype emits full Open Graph + Twitter tags. The
+  per-page frontmatter **`image:`** sets `og:image` (verified); with no
+  `image:` it falls back to the first image in the body, and the ROOT page had
+  none at all, so sharing the docs link showed a blank card.
+  🔴 **Retype hardcodes `og:image:width`/`height` to 1200x630 regardless of the
+  real file**, so a social image of any other size ships wrong dimensions to
+  every platform reading those tags. **Make them exactly 1200x630** — the
+  cover generator (`Advanced Velocity/business-and-marketing/covers/`) has a
+  `social` preset for this.
+- **`lastUpdated`** — git-backed date footer, **Pro**. Needs full history at
+  build time; the deploy workflow already checks out with `fetch-depth: 0`.
+- **Embed** — `[!embed aspect="16:9"](url)`, needs the `/embed/` form of a
+  YouTube URL, not `watch?v=`. Currently a commented-out placeholder on the
+  Advanced Velocity landing page awaiting the trailer.
+- **Analytics** — an `integrations:` block sits commented in `retype.yml`.
+  Uncomment one and fill in the id. Plausible needs no cookie banner; Google
+  Analytics is free but does in the EU.
+
 ## Retype Pro backlog (license unlocks these — implement when useful)
 
-Already active: breadcrumbs, right-side Table of Contents, footer removed (`poweredByRetype: false`).
-- **Quick wins:** Last-Updated label (git timestamps per page); Next/Previous nav buttons; Branding base color (one accent color for the whole site).
+Already active: breadcrumbs, right-side Table of Contents, footer removed
+(`poweredByRetype: false`), `lastUpdated` date.
+- **Quick wins:** Next/Previous nav buttons; Branding base color (one accent color for the whole site).
 - **As the family grows:** Stack navigation mode (stacked per-product sidebar); Nav badges/tags ("New"/"Beta"); Hub link (if a jvtools.com portal ever exists).
 - **CI hardening:** Strict build mode — fail the build on broken links instead of shipping them. Turn on soon.
 - **If needed:** Private/Protected pages (password-gate unreleased-product docs).

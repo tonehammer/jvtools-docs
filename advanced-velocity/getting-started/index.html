@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839344199044">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839346011422">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Getting Started</title>
     <meta name="title" content="Getting Started">
-    <meta name="description" content="Download JV-Advanced_Velocity-vX.Y.hdalc from your Gumroad library.">
+    <meta name="description" content="Grab JV-Advanced_Velocity-vX.Y.hdalc from your Gumroad library.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://tonehammer.github.io/jvtools-docs/advanced-velocity/getting-started/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/advanced-velocity/getting-started/">
     <meta property="og:title" content="Getting Started">
-    <meta property="og:description" content="Download JV-Advanced_Velocity-vX.Y.hdalc from your Gumroad library.">
+    <meta property="og:description" content="Grab JV-Advanced_Velocity-vX.Y.hdalc from your Gumroad library.">
     <meta property="og:site_name" content="JVtools">
     <meta property="og:locale" content="en_US">
 
@@ -31,18 +31,18 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/advanced-velocity/getting-started/">
     <meta name="twitter:title" content="Getting Started">
-    <meta name="twitter:description" content="Download JV-Advanced_Velocity-vX.Y.hdalc from your Gumroad library.">
+    <meta name="twitter:description" content="Grab JV-Advanced_Velocity-vX.Y.hdalc from your Gumroad library.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://tonehammer.github.io/jvtools-docs/advanced-velocity/getting-started.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.839344199044" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.839346011422" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839344199044" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839346011422" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839344199044" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839346011422" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -207,17 +207,29 @@
                 <!-- Page content  -->
 <h1 id="getting-started">Getting Started</h1>
 <h2 id="install-the-asset">Install the asset</h2>
-<ol>
-<li>Download <code translate="no" v-pre>JV-Advanced_Velocity-vX.Y.hdalc</code> from your Gumroad library.</li>
-<li>Drop it into your Houdini <code translate="no" v-pre>otls</code> folder:
+<doc-steps>
+   <doc-step id="download-the-asset" step-number="1">
+      <template #title>Download the asset</template>
+<p>Grab <code translate="no" v-pre>JV-Advanced_Velocity-vX.Y.hdalc</code> from your Gumroad library.</p>
+   </doc-step>
+</doc-steps>
+<doc-steps>
+   <doc-step id="drop-it-into-your-houdini-otls-folder" step-number="2">
+      <template #title>Drop it into your Houdini <code translate="no" v-pre>otls</code> folder</template>
 <ul>
 <li><strong>Windows</strong> — <code translate="no" v-pre>C:\Users\&lt;you&gt;\Documents\houdini22.0\otls\</code></li>
 <li><strong>macOS</strong> — <code translate="no" v-pre>~/Library/Preferences/houdini/22.0/otls/</code></li>
 <li><strong>Linux</strong> — <code translate="no" v-pre>~/houdini22.0/otls/</code></li>
 </ul>
-</li>
-<li>Restart Houdini, or use <strong>Assets ▸ Install Digital Asset Library</strong>.</li>
-</ol>
+<p>If the folder doesn&#x27;t exist yet, create it.</p>
+   </doc-step>
+</doc-steps>
+<doc-steps>
+   <doc-step id="restart-houdini" step-number="3">
+      <template #title>Restart Houdini</template>
+<p>Or use <strong>Assets ▸ Install Digital Asset Library</strong> to pick it up without restarting.</p>
+   </doc-step>
+</doc-steps>
 <p>The node then appears in the SOP tab menu under <strong>JV ▸ Advanced Velocity</strong>.</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
@@ -299,7 +311,13 @@
 </div>
 </div>
 
+                <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-06T17:36:44" title="2026-08-06" data-absolute-label="Last updated on 2026-08-06" data-absolute-label-html="Last updated on 2026-08-06" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-08-06
+                    </time>
+                </div>
+
                 <!-- Required only on API pages -->
                 <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
             </div>

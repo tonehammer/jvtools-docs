@@ -2,12 +2,19 @@
 
 ## Install the asset
 
-1. Download `JV-Advanced_Velocity-vX.Y.hdalc` from your Gumroad library.
-2. Drop it into your Houdini `otls` folder:
-   * **Windows** — `C:\Users\<you>\Documents\houdini22.0\otls\`
-   * **macOS** — `~/Library/Preferences/houdini/22.0/otls/`
-   * **Linux** — `~/houdini22.0/otls/`
-3. Restart Houdini, or use **Assets ▸ Install Digital Asset Library**.
+>>> 1. Download the asset
+Grab `JV-Advanced_Velocity-vX.Y.hdalc` from your Gumroad library.
+>>>
+>>> 2. Drop it into your Houdini `otls` folder
+* **Windows** — `C:\Users\<you>\Documents\houdini22.0\otls\`
+* **macOS** — `~/Library/Preferences/houdini/22.0/otls/`
+* **Linux** — `~/houdini22.0/otls/`
+
+If the folder doesn't exist yet, create it.
+>>>
+>>> 3. Restart Houdini
+Or use **Assets ▸ Install Digital Asset Library** to pick it up without restarting.
+>>>
 
 The node then appears in the SOP tab menu under **JV ▸ Advanced Velocity**.
 

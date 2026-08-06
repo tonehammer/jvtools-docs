@@ -11,7 +11,10 @@ This page covers everything the node does once it's installed and connected: the
 
 The **Mode** parameter is the master switch for the node. It has three settings.
 
+<!-- SCREENSHOT PENDING - drop the file in and delete these two
+     comment markers to publish it:
 ![The Mode parameter — Off, Live, Playback](static/mode-menu.png)
+-->
 
 ### Off
 
@@ -38,7 +41,10 @@ Live only. Controls how fast the sensor samples:
 
 Express roughly doubles the point density. Changing Scan Mode while Live restarts the stream (about two seconds).
 
+<!-- SCREENSHOT PENDING - drop the file in and delete these two
+     comment markers to publish it:
 ![Standard vs Express point density on the same scene](static/scan-mode-comparison.png)
+-->
 
 ### Playback
 
@@ -59,7 +65,10 @@ RPLidar In has **two outputs** and no inputs.
 | **0** | Points & Guides | Scan points **plus** any enabled visualization guides | Display / setup — this is the default when you display the node |
 | **1** | Points | Scan points **only**, all guides stripped | Feeding solvers and downstream networks |
 
+<!-- SCREENSHOT PENDING - drop the file in and delete these two
+     comment markers to publish it:
 ![The node's two outputs — Points & Guides, and Points](static/outputs.png)
+-->
 
 Output 0 is the default display, so you see the sensor guide and range ring while you work. When you connect the node into a simulation, pull from **Output 1** — it removes the `rplidar_viz` guide geometry for you, so nothing display-only leaks into your solver.
 
@@ -106,7 +115,10 @@ The **Visualize** controls draw optional on-screen guides so you can see the sen
 | **Range (m)** | Radius of the range circle in real meters. The A2M12's maximum range is 16 m. |
 | **Sensor Size (m)** | Diameter of the origin sphere marking the sensor, in real meters. |
 
+<!-- SCREENSHOT PENDING - drop the file in and delete these two
+     comment markers to publish it:
 ![The sensor guide — origin marker and range ring around the scan points](static/sensor-guide.png)
+-->
 
 ### Connect Points (beam fan)
 
@@ -117,7 +129,10 @@ The **Visualize** controls draw optional on-screen guides so you can see the sen
 
 The rays use copies of the scan points, so your real scan points keep their own attributes untouched.
 
+<!-- SCREENSHOT PENDING - drop the file in and delete these two
+     comment markers to publish it:
 ![The beam fan — rays drawn from the sensor to each scan point](static/beam-fan.png)
+-->
 
 ### Static map (bake)
 
@@ -129,7 +144,10 @@ Baking captures a short slice of the live stream into a fixed map — useful for
 | **Show Static Map** | Overlay the baked map. Part of the `rplidar_viz` group. |
 | **Map Color** | Color of the baked map marks (point `Cd`). |
 
+<!-- SCREENSHOT PENDING - drop the file in and delete these two
+     comment markers to publish it:
 ![A baked static map showing the room's walls behind the live points](static/static-map.png)
+-->
 
 ---
 
@@ -149,7 +167,10 @@ The **Attribute color** controls (in the Visualize folder, under **Store as Cd**
 
 Turn on **Angle**, **Distance**, or both. With both on, distance wins (it's applied last). The guides keep their own colors — only the real scan points are tinted.
 
+<!-- SCREENSHOT PENDING - drop the file in and delete these two
+     comment markers to publish it:
 ![Scan points colored by distance — orange near the sensor fading to teal at range](static/attribute-color.png)
+-->
 
 > **Store as Cd is the on/off for feeding color downstream.** Leave it off and the color is a viewport aid that never reaches your solver; turn it on when you want the `Cd` in a render or a color-driven effect.
 
@@ -169,7 +190,10 @@ The **Crop** controls cull scan points that fall outside a rectangle on the grou
 
 The Center, Size, and Rotation controls are disabled until **Enable Crop** is on.
 
+<!-- SCREENSHOT PENDING - drop the file in and delete these two
+     comment markers to publish it:
 ![The red crop rectangle guide over a walkway, culling points outside it](static/crop-rectangle.png)
+-->
 
 ### Editing the crop in the viewport
 
@@ -205,7 +229,10 @@ A typical flow: **Create Orthographic Camera** to get the overhead view, set up 
 
 > The camera is created at the object (`/obj`) level, not inside the SOP network — look for it there (its path is printed to the console when created). Because it's orthographic, "zoom" is the framing width, not a focal length.
 
+<!-- SCREENSHOT PENDING - drop the file in and delete these two
+     comment markers to publish it:
 ![The top-down orthographic view of a live scan, framed to the crop region](static/camera-topdown.png)
+-->
 
 ---
 
@@ -354,7 +381,10 @@ RPLidar In's point cloud is ordinary SOP geometry, so it can feed any solver —
 
 Press **Create Generic POP Network** and the node builds a ready-to-run POP network below itself, wired to the **solver-ready output** (Output 1, guides stripped), with presets tuned for live work. It also creates (or reuses) a small green **control null** and registers the new sim on it.
 
+<!-- SCREENSHOT PENDING - drop the file in and delete these two
+     comment markers to publish it:
 ![The generated POP network wired to Output 1, with the green control null](static/pop-network.png)
+-->
 
 ### The control null
 
@@ -391,7 +421,11 @@ A **live** sim can't be cached deterministically — its input (the room) change
 
 ### Recipes
 
-**Recipes** are pre-built downstream networks (a sim plus a look) shipped as a single `.py` file, so you can drop a finished effect behind the sensor. Enable **Use Recipe**, point **Recipe File** at the `.py`, and press **Generate Recipe** — it builds the network next to the node and registers its sims on the control null, ready to **Start**.
+A **recipe** is a whole downstream network — a sim plus a look — packed into a single `.py` file, so a finished effect can be dropped in behind the sensor in one press. Enable **Use Recipe**, point **Recipe File** at the `.py`, and press **Generate Recipe**: it builds the network next to the node, inside its own subnet, and registers its sims on the control null, ready to **Start**.
+
+!!!warning No recipes ship with 1.0
+The machinery is here and it works, but there is nothing in the box to load yet — recipe packs are planned as a separate release. For now this is a way to load **your own** recipe file, or one someone shares with you. See [Building your own](#building-your-own) below.
+!!!
 
 > Recipe files are executed Python. Only load recipe files from sources you trust.
 

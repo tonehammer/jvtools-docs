@@ -14,7 +14,10 @@ Welcome! **{{ rp.name }}** (v{{ rp.version }}) brings live [Slamtec RPLIDAR](htt
 
 It is built for **TouchDesigner-style interactive work**: a person walks past the sensor, and their outline drives a POP or Vellum solver live, with no baking step in between.
 
+<!-- SCREENSHOT PENDING - drop the file in and delete these two
+     comment markers to publish it:
 ![A live scan ring in the Houdini viewport, with the sensor guide and range ring](static/hero-scan.png)
+-->
 
 ## What it does for you
 
@@ -26,7 +29,7 @@ It is built for **TouchDesigner-style interactive work**: a person walks past th
 * **Attribute color** — tint the scan by angle or distance through a color ramp, for a readable view or to carry color into a render.
 * **Top-down camera** — one click for an overhead orthographic camera, and another to frame it to your crop region.
 * **One-click live simulation** — a button builds a ready-to-run POP network wired to the live points, plus a control null to start, stop, and reset it.
-* **Recipes** — drop in pre-built downstream networks (sim + look) as a single file.
+* **Recipes** — load a whole downstream network (sim + look) from a single `.py` file. The loader is built in; recipe packs are planned separately, so for now it loads your own.
 * **Self-contained** — a single asset file with no Python packages to install. Talks the RPLIDAR serial protocol directly.
 
 ## Who it's for
@@ -54,7 +57,7 @@ After that, the [Parameter Reference](parameters.md) covers every control, and [
 The node has three [modes](using.md#modes) — **Off**, **Live**, and **Playback** — and two [outputs](using.md#outputs-and-attributes):
 
 * **Output 0 — Points & Guides** (the default display): scan points plus any visualization guides.
-* **Output 1 — Points** (solver-ready): scan points only, with all guides stripped.
+* **Output 1 — Points** (solver-ready): scan points only, with all guides stripped. With [blob tracking](using.md#blob-tracking) on, this output can carry the tracked blobs instead of the full cloud.
 
 !!!info
 RPLidar In is a free tool. It is not affiliated with, endorsed by, or sponsored by Slamtec. "RPLIDAR" and "Slamtec" are trademarks of their respective owners.

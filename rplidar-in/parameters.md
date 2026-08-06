@@ -15,7 +15,7 @@ Every parameter on the RPLidar In node, grouped as it appears in the interface. 
 | Create Control Null | `createnull` | Creates the master runtime-control null for this sensor (one per node) — Start / Stop / Reset buttons plus a Solvers list. See [Live Simulation](using.md#live-simulation). |
 | Create Generic POP Network | `createpop` | Builds a ready-to-run POP network wired to the solver-ready output, and registers it on the control null. See [Live Simulation](using.md#live-simulation). |
 | Use Recipe | `use_recipe` | Enables the recipe controls below. See [Recipes](using.md#recipes). |
-| Recipe File | `recipefile` | A JVtools recipe `.py` file — a pre-made downstream network (sim + look). |
+| Recipe File | `recipefile` | A recipe `.py` file — a whole downstream network (sim + look). None ship with 1.0; point this at your own. |
 | Generate Recipe | `recipegen` | Builds the picked recipe file next to the node and registers its sims on the control null. |
 
 ## Sensor

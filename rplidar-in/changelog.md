@@ -41,7 +41,7 @@ The first public release.
 **Live simulation**
 
 * One-click **Create Generic POP Network** button that builds a ready-to-run POP network wired to the solver-ready output, plus a control null to start, stop, and reset the live sim
-* Recipes — load pre-built downstream networks (sim + look) from a single file
+* Recipes — a loader for whole downstream networks (sim + look) packed as a single `.py` file; no recipes ship with 1.0, so for now it loads your own
 * Two outputs — Points & Guides (display) and Points (solver-ready, guides stripped)
 
 **Test Sensor**

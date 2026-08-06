@@ -1,7 +1,7 @@
 ---
 icon: static/rplidar_logo.svg
 order: 110
-image: /rplidar-in/static/social.jpg
+image: /rplidar-in/static/social.png
 ---
 
 # RPLidar In

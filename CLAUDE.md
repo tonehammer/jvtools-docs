@@ -67,7 +67,10 @@ Why it is a rule and not a nicety: swapping the Advanced Velocity card image loo
 4. **Check more than one viewport width.** Card and image boxes reflow at Retype's breakpoints, and a crop that survives at 1750 can clip at 1400. Two desktop widths plus one mobile (`--window-size=430,900 --force-device-scale-factor=2`) covers it.
 5. For measuring rather than eyeballing (box sizes, `object-fit`, natural vs rendered dimensions), query the live DOM with the browser tools instead of guessing — that is how the geometry below was established.
 
-📌 **The family-wide file for this work is `jvtools-internal/JVTOOLS_MARKETING_IMAGERY.md`** — it is NOT auto-imported, so read it before any cover/card/social job. It separates **documentation** covers (below: a browser crops them, so they have measured safe areas) from **Gumroad** covers (a fixed frame, no safe area, owned by the product repos' cover sessions). The card geometry here is the docs-specific detail; the shared technique and the store side live there.
+📌 **The family-wide file for this work is `jvtools-internal/JVTOOLS_MARKETING_IMAGERY.md`**, imported just below (Jovan, 2026-08-06: the graphics work happens in THIS session, so it auto-loads here and nowhere else).
+⚠ **Verify it actually loaded — `/context` should list it under Memory files.** A project-scope `@`-import whose path resolves OUTSIDE the working directory is an *external import*: gated behind a one-time approval dialog, and **silently dead forever if that is declined or never appears** — the exact failure that killed the shared-file imports in all four product repos. It resolves fine when the session's cwd is the GitHub root (jvtools-internal sits inside it); starting a session *in* jvtools-docs is the case that can trip the gate. If it is missing, just read the file by hand.
+
+@C:/Users/Jovan/Documents/GitHub/jvtools-internal/JVTOOLS_MARKETING_IMAGERY.md It separates **documentation** covers (below: a browser crops them, so they have measured safe areas) from **Gumroad** covers (a fixed frame, no safe area, owned by the product repos' cover sessions). The card geometry here is the docs-specific detail; the shared technique and the store side live there.
 
 ### Card image geometry (measured on the live DOM, so nobody re-derives it)
 - The card's image panel is **`object-fit: cover`** — it always crops, never letterboxes.

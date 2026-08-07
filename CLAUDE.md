@@ -30,7 +30,7 @@ User-facing docs here must stay in sync with each HDA's **parameter tooltips / H
 | Product | Docs folder | Code repo on disk | Ground truth |
 | --- | --- | --- | --- |
 | RPLidar In | `rplidar-in/` | `C:\Users\Jovan\Documents\GitHub\RPLidar for Houdini` | `houdini/rplidar_sop.py` → `setup_hda_parms()` (parm names + `setHelp` tooltips) |
-| Reallusion Importer for Houdini | `reallusion-importer/` | `C:\Users\Jovan\Documents\GitHub\Reallusion Importer for Houdini` | The HDA's per-parm **Help fields** (typed in Edit Parameter Interface) + `houdini/reallusion_importer_help.txt`. ⚠ Docs are **dual-hosted**: this Retype section AND a still-**live GitBook** in the product repo's `docs/` (existing customers point there). Keep **both** in sync until the GitBook→Retype migration completes "down the line". |
+| Reallusion Importer for Houdini | `reallusion-importer/` | `C:\Users\Jovan\Documents\GitHub\Reallusion Importer for Houdini` | The HDA's per-parm **Help fields** (typed in Edit Parameter Interface) + `houdini/reallusion_importer_help.txt`. (GitBook retired 2026-08-07 — this Retype section is the only docs surface.) |
 
 ## Authoring reference
 

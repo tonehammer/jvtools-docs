@@ -95,7 +95,7 @@ It's only available when the event captured a *plain* Directional field: Adjust,
 
 Every cook stamps `@startframe_rest` — each point's position at the scene start frame — and each event with **Create Rest Position Attribute** on records its own `<name>_rest` at its frame. The Directional type's **To Rest Pose** mode aims each point at its own captured position. The attributes are stripped from the output unless **Export Rest Position Attributes** (with the other exports at the bottom of the Output tab) keeps them.
 
-!!! warning To Rest Pose needs Track Motion, and something to have moved first
+!!!warning To Rest Pose needs Track Motion, and something to have moved first
 Advanced Velocity sits **upstream of your sim**, so its input is always the un-simulated geometry. On static input each point's captured rest position *is* its current position, so at bake time `rest - P` is exactly zero and the event bakes an empty field — `Captured` reads `max |v| 0`.
 
 **Track Motion is what makes it work** (on by default). Instead of replaying that empty bake, it re-evaluates `rest - P` against the pieces' *predicted* positions every frame, so once an earlier event has thrown the pieces, the reassembly event pulls each one back to its own captured spot.
@@ -133,7 +133,7 @@ Two ways to use it, depending on the other envelope controls:
 * **Attack off, Hold on** — the pure cascade. The envelope is flat across the window, so each point snaps to full strength the instant its turn comes.
 * **Attack on** — each point *also* fades in as it joins, for a softer build.
 
-!!! warning Waiting points hang, they do not fall
+!!!warning Waiting points hang, they do not fall
 A point that hasn't activated yet is still being written to, with a velocity of zero, for as long as the solver is reading from SOP — so it holds in mid-air rather than falling, though it still collides and gets jostled.
 
 For a telekinetic effect that hang *is* the look. If a piece should fall until it gets picked up, give it its own later event instead.
@@ -219,7 +219,7 @@ On the **last** event there's no next event, so the mute runs until it stops con
 * Release **on**, Fade — the mute ends where the fade ends.
 * Release **on**, Drag — the decay is asymptotic and never reaches zero, so again to the end of the range.
 
-!!! warning A final event with Hold and Release both off
+!!!warning A final event with Hold and Release both off
 This is the shape that catches people out. With both disabled the *envelope* latches at full strength forever — but **During Impulse** only covers attack plus hold, which is now just the attack, so gravity comes back the instant the event reaches full strength. If the pieces should keep coasting to the end of the shot, that event wants **Until Next Event / End**.
 !!!
 

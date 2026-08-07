@@ -5,7 +5,7 @@ order: 90
 
 # Quick Start
 
-This page gets you from a fresh Houdini scene to a shaded, rendered character in about five steps. We'll keep it simple here — every control is explained in depth later in the [Using the Asset](../using/lookdev-controller.md) section.
+This page gets you from a fresh Houdini scene to a shaded, rendered character in about five steps. Every control is explained in depth later, in [Using the Asset](../using/lookdev-controller.md).
 
 !!!success Before you begin
 Make sure your character is exported from Character Creator correctly. The export settings genuinely matter — see [Preparing Your Character](preparing-your-character.md) first if you haven't already.
@@ -32,7 +32,7 @@ For animated characters, the best-quality path is an **FBX** import (for the exp
 >>> 3. Build the character
 Click the **Build Character** button.
 
-The tool will now import the character, build all of its materials, set up displacement and wrinkles where the character supports them, and create a look controller. On a heavy or HD character this can take anywhere from a few seconds to a couple of minutes — the progress bar at the bottom of the Houdini window shows what it's doing.
+The tool imports the character, builds all of its materials, sets up displacement and wrinkles where the character supports them, and creates a look controller. On a heavy or HD character this can take anywhere from a few seconds to a couple of minutes — the progress bar at the bottom of the Houdini window shows what it's doing.
 
 ![](../static/elysse-buildchar-button.png)
 

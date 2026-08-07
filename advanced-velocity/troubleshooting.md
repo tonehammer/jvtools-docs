@@ -7,7 +7,7 @@ order: 70
 
 ## I tweak the Setup sliders and nothing changes
 
-You're in **Timed Events** mode, the default, where the live Setup is only a template — just *baked events* reach the output. Press **Create Event** to bake the setup, or **Update** on an existing event's row to fold your changes into it. The node does tell you: the **Stale** readout and a pink timeline marker appear whenever an event no longer matches the setup it came from.
+You're in **Timed Events** mode, the default, where the live Setup is only a template — only *baked events* reach the output. Press **Create Event** to bake the setup, or **Update** on an existing event's row to fold your changes into it. The **Stale** readout and a pink timeline marker appear whenever an event no longer matches the setup it came from.
 
 If you'd rather the setup were evaluated live every frame, set **Mode** to *Single Field*.
 
@@ -29,7 +29,7 @@ Work down this list — it's almost always one of them:
 
 An event's bake is stored **per point**, so anything that changes the point count — re-fracturing, deleting geometry, a different scatter — leaves the old bakes unusable and the node silently writes zero. You'll see a warning on the **Events** tab when this has happened.
 
-Press **Utilities ▸ Re-bake All Events**. It replays each event against its own stored snapshot at its own frame, so your timings and settings survive. Note this is *not* the same as pressing Update on every row: Update re-bakes from the **live** Setup, which will overwrite each event with whatever is currently on screen.
+Press **Utilities ▸ Re-bake All Events**. It replays each event against its own stored snapshot at its own frame, so your timings and settings survive. This is *not* the same as pressing Update on every row: Update re-bakes from the **live** Setup, which overwrites each event with whatever is currently on screen.
 
 ## The guides vanished
 
@@ -41,11 +41,11 @@ The timeline is drawn by the node's viewer state, and refreshing asset libraries
 
 ## Everything feels sluggish — scrubbing, parm edits, adding events
 
-**Preview Motion** (Visualization tab) first. It ships off, but if you switched it on it's the usual culprit: the ghost draws a *second complete copy* of your input on every viewport redraw, so it slows down anything that causes a redraw, not just playback. If you want to keep it on, drop **Ghost Style** from *Full Wireframe* — the default, and the expensive one — to **Bounding Boxes** (one wire box per piece, cheap at any density) or **Points**. And treat the preview as a check-your-timing tool: flip it on, look, flip it off.
+Check **Preview Motion** (Visualization tab) first. It ships off, but if you switched it on it's the usual culprit: the ghost draws a *second complete copy* of your input on every viewport redraw, slowing down anything that causes one, not just playback. To keep it on, drop **Ghost Style** from *Full Wireframe* (default, and the expensive one) to **Bounding Boxes** (one wire box per piece, cheap at any density) or **Points**. Treat it as a check-your-timing tool: flip on, look, flip off.
 
 After that, the other two costs are **Guide Density** (1.0 on a dense input is a trail per point; the node auto-picks a sensible value on first connection, so a hand-raised one is worth a second look) and **Guides Show = Both**, which draws the live-setup *and* baked-event streams at once.
 
-One thing that is *not* the node: **a textured mesh is expensive to draw whatever you do to it.** Measured on a 111k-poly textured car against a 54k untextured fracture at roughly the same on-screen polygon count, the textured one felt markedly slower while Advanced Velocity itself cooked in 3 ms a frame.
+One thing that isn't the node: a heavily textured mesh is expensive to draw whatever you do to it.
 
 Quick way to tell them apart: **click any other node.** All guide geometry stops drawing, because it only appears while this node is current. If everything snaps responsive, the cost is in the visualization controls above. If it doesn't, it's your input geometry.
 
@@ -57,7 +57,7 @@ If pieces are driven *through* the object: with the source placed on the surface
 
 If pieces don't move at all: they're outside **Falloff Radius**, drawn as a wireframe sphere around the source. The falloff is measured to each packed piece's real bounds, so what the sphere touches is what it catches. **Show Affected Pieces** highlights exactly what will move, in the viewport only.
 
-Careful with one thing here: *Off Surface* and *Both* need a **point** `@N`. A vertex normal is invisible to them, and the Normal SOP defaults to vertex — set it to *Point*. Without point normals, Off Surface falls back to pushing away from the body's centre.
+One thing to check: *Off Surface* and *Both* need a **point** `@N`. A vertex normal is invisible to them, and the Normal SOP defaults to vertex — set it to *Point*. Without point normals, Off Surface falls back to pushing away from the body's centre.
 
 ## My RBD pieces fight gravity, or hang in the air
 

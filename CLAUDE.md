@@ -51,6 +51,8 @@ User-facing docs here must stay in sync with each HDA's **parameter tooltips / H
 
 **Standing rule for any change with a visual result** (a card, a cover image, an icon, a layout tweak, a callout): render the built page and look at it before saying it is done. This is cheap — under a minute end to end — and it is the step that catches the whole class of "correct in the abstract, wrong on screen".
 
+⚠ **Scope (Jovan, 2026-08-07): "visual result" means pixels and layout, not prose.** A text-only rewrite of an existing page needs a `retype build` (catches broken links/syntax), not a screenshot. Screenshot when a change touches nav/section structure, images or image paths, icons, cards, callout/Steps syntax, or anything Retype lays out — those break silently; paragraphs don't.
+
 Why it is a rule and not a nicety: swapping the Advanced Velocity card image looked like a one-line edit, and three candidate images in a row *reasoned* fine and *rendered* wrong (a square crop lost 12% top and bottom; the 16:9 with a title lockup grazed it against the panel border). Reading the CSS told me the box existed; only the render told me what it did to the picture.
 
 **The loop:**

@@ -7,7 +7,7 @@ order: 80
 
 Every hand-authored parameter on the Advanced Velocity node, grouped the way it appears in the interface. Names in `code` are the internal parameter names.
 
-Each velocity type also carries an identical **Adjust** and **Mask** pair, promoted straight from Houdini's Attribute Adjust nodes — those are not repeated here; see [Adjust and Mask](using.md#adjust-and-mask) and the SideFX pages for the full reference on them.
+Each velocity type also carries an identical **Adjust** and **Mask** pair, promoted from Houdini's Attribute Adjust nodes — not repeated here; see [Adjust and Mask](using.md#adjust-and-mask) and the SideFX pages for the full reference.
 
 ## Top level
 
@@ -182,23 +182,11 @@ Every type's Adjust folder opens with the same row: **Variation** (`variation1`�
 
 ### Ballistic Return (the sidecar node)
 
-Ballistic Motion returns the pieces home from a *prediction*. Often what you
-actually want is to reassemble a **finished simulation** — and that has to
-happen downstream of the solver, on a node of its own. That node is **Ballistic
-Return**, and it ships in the same file: press **Create Ballistic Return**, or
-grab it from the JV tab menu.
+Ballistic Motion returns the pieces home from a *prediction*. Often what you actually want is to reassemble a **finished simulation** — that has to happen downstream of the solver, on a node of its own. That node is **Ballistic Return**, and it ships in the same file: press **Create Ballistic Return**, or grab it from the JV tab menu.
 
-It wires itself up: input 1 takes the simulated pieces (the RBD solver below
-your Advanced Velocity node, if there is one), input 2 takes the rest pose
-(Advanced Velocity's own first output — the geometry before anything moved it).
-Then keyframe **Return to Home** from 0 to 1 and the pieces fly back together.
+It wires itself up: input 1 takes the simulated pieces (the RBD solver below your Advanced Velocity node, if there is one), input 2 takes the rest pose (Advanced Velocity's own first output — the geometry before anything moved it). Keyframe **Return to Home** from 0 to 1 and the pieces fly back together.
 
-Why the landing is always exact: the blend's endpoint is *absolute*. At Return 1
-the result **is** the rest pose, whatever the simulation was doing underneath —
-there is nothing to fight, because the target is not relative to the motion it
-replaces. Nothing is snapshotted either, so re-simulating upstream can never
-leave this node stale. Pieces are matched by point number, which a Bullet solve
-preserves.
+The landing is always exact because the blend's endpoint is *absolute*: at Return 1 the result **is** the rest pose, whatever the simulation was doing underneath, since the target isn't relative to the motion it replaces. Nothing is snapshotted either, so re-simulating upstream can never leave this node stale. Pieces are matched by point number, which a Bullet solve preserves.
 
 | Parameter | Name | Description |
 | --- | --- | --- |
@@ -207,12 +195,7 @@ preserves.
 | Include Rotation | `ballistic_spin` | Also unwind each packed piece's orientation. Reads the rest transforms from the second input, so keep it wired; only does anything on packed geometry. |
 | *Return Shaping* | *(same names as above)* | Return Profile, Stagger, Return Order, Arc, Swirl, Swirl Axis, Extra Turns, Seed and Return Paths — identical to the Ballistic Motion folder. |
 
-Careful with this one: if your input mesh is **animated**, the second input's
-positions have moved on by the time the return happens, so "home" is a moving
-target. That is what Rest Attribute is for — turn on **Export Rest Position
-Attributes** upstream and return to `startframe_rest` (or any event's captured
-pose) instead. On a static mesh you can ignore all of this and leave the field
-empty.
+If your input mesh is **animated**, the second input's positions have moved on by the time the return happens, so "home" is a moving target. That's what Rest Attribute is for — turn on **Export Rest Position Attributes** upstream and return to `startframe_rest` (or any event's captured pose) instead. On a static mesh, leave the field empty.
 
 ## Visualization
 

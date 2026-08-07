@@ -5,7 +5,7 @@ order: 110
 
 # Parameter Reference
 
-Every control on the Reallusion Importer, grouped by where you find it. There are two panels:
+Every control on the Reallusion Importer, grouped by where you find it. Two panels:
 
 * **The Reallusion Importer node** (in SOPs) — import, build, animation, and utility controls.
 * **The Lookdev Controller** (a red node in LOPs, created by **Build Character** and reached with **Go to LOPs**) — every look control for skin, eyes, hair, wrinkles, and displacement.

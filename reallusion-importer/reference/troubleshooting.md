@@ -17,9 +17,9 @@ Common issues and their fixes. Most import problems trace back to either an expo
 
 ## Accessories are plain white, or no displacement appears
 
-**Cause:** your export is missing its material `.json` file. Character Creator stores displacement, subsurface, wrinkle weights, and the colors of custom accessories (horns, props, GoZ clothing) in a `my_character.json` beside the FBX — not in the FBX itself. If it's absent, the tool has no displacement data (so no displacement nodes are built) and no color for untextured accessories (so they render white). The rest of the character can still look fine, which makes this easy to miss.
+**Cause:** your export is missing its material `.json` file. Character Creator stores displacement, subsurface, wrinkle weights, and the colors of custom accessories (horns, props, GoZ clothing) in a `my_character.json` beside the FBX — not in the FBX itself. Without it, the tool has no displacement data (so no displacement nodes are built) and no color for untextured accessories (so they render white). The rest of the character can still look fine, which makes this easy to miss.
 
-**Fix:** make sure a `my_character.json` sits next to your FBX. It's created by Character Creator's **Export JSON for Auto Material Setup** option, which is on by default — if you don't have one, that option was off, so re-export with it enabled. Keep the `.json` with the FBX when moving files. See [Preparing Your Character](../getting-started/preparing-your-character.md). (Note: this is unrelated to the Embed Textures setting — leave that off.)
+**Fix:** make sure a `my_character.json` sits next to your FBX. It's created by Character Creator's **Export JSON for Auto Material Setup** option, which is on by default — if you don't have one, that option was off, so re-export with it enabled. Keep the `.json` with the FBX when moving files. See [Preparing Your Character](../getting-started/preparing-your-character.md). (Unrelated to the Embed Textures setting — leave that off.)
 
 ## Wrinkles don't animate
 
@@ -75,7 +75,7 @@ You can confirm wrinkles are working by clicking **Go to Max Wrinkle Frame** in 
 
 **Cause:** in rare cases Character Creator double-, triple-, or quadruple-exports the blendshape targets for a particular element. The duplicated targets fight each other once the face animates, and that element tears apart. It most often hits parts of facial hair.
 
-**Fix:** use the **Fix Broken Blendshape** folder on the Reallusion Importer node. Put the offending element into **Broken Elements** as an `@name` group (the `@name` attribute of that mesh), then turn on **Fix Broken Blendshape**. That element is now excluded from the character's blendshape deform and instead point-deformed by the nearest face/body geometry, so it follows the animation cleanly. If you see deforming artifacts on the fixed element, adjust the **Radius**. Leave this off unless you actually have a broken element — with no element specified, the toggle would bypass the whole mesh.
+**Fix:** use the **Fix Broken Blendshape** folder on the Reallusion Importer node. Put the offending element into **Broken Elements** as an `@name` group (the `@name` attribute of that mesh), then turn on **Fix Broken Blendshape**. That element is now excluded from the character's blendshape deform and instead point-deformed by the nearest face/body geometry, so it follows the animation cleanly. Adjust the **Radius** if you see deforming artifacts. Leave this off unless you actually have a broken element — with no element specified, the toggle would bypass the whole mesh.
 
 ## Can I use this in a commercial studio pipeline?
 

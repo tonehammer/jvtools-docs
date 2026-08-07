@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839411007006">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839412427533">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.839411007006" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.839412427533" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839411007006" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839412427533" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839411007006" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839412427533" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -207,7 +207,7 @@
                 <!-- Page content  -->
 <h1 id="parameter-reference">Parameter Reference</h1>
 <p>Every hand-authored parameter on the Advanced Velocity node, grouped the way it appears in the interface. Names in <code translate="no" v-pre>code</code> are the internal parameter names.</p>
-<p>Each velocity type also carries an identical <strong>Adjust</strong> and <strong>Mask</strong> pair, promoted straight from Houdini&#x27;s Attribute Adjust nodes — those are not repeated here; see <a href="../using/#adjust-and-mask">Adjust and Mask</a> and the SideFX pages for the full reference on them.</p>
+<p>Each velocity type also carries an identical <strong>Adjust</strong> and <strong>Mask</strong> pair, promoted from Houdini&#x27;s Attribute Adjust nodes — not repeated here; see <a href="../using/#adjust-and-mask">Adjust and Mask</a> and the SideFX pages for the full reference.</p>
 <h2 id="top-level">Top level</h2>
 <retype-table copy-text="| Parameter | Name | Description |
 | --- | --- | --- |
@@ -1044,21 +1044,9 @@
 </div>
 </retype-table>
 <h3 id="ballistic-return-the-sidecar-node">Ballistic Return (the sidecar node)</h3>
-<p>Ballistic Motion returns the pieces home from a <em>prediction</em>. Often what you
-actually want is to reassemble a <strong>finished simulation</strong> — and that has to
-happen downstream of the solver, on a node of its own. That node is <strong>Ballistic
-Return</strong>, and it ships in the same file: press <strong>Create Ballistic Return</strong>, or
-grab it from the JV tab menu.</p>
-<p>It wires itself up: input 1 takes the simulated pieces (the RBD solver below
-your Advanced Velocity node, if there is one), input 2 takes the rest pose
-(Advanced Velocity&#x27;s own first output — the geometry before anything moved it).
-Then keyframe <strong>Return to Home</strong> from 0 to 1 and the pieces fly back together.</p>
-<p>Why the landing is always exact: the blend&#x27;s endpoint is <em>absolute</em>. At Return 1
-the result <strong>is</strong> the rest pose, whatever the simulation was doing underneath —
-there is nothing to fight, because the target is not relative to the motion it
-replaces. Nothing is snapshotted either, so re-simulating upstream can never
-leave this node stale. Pieces are matched by point number, which a Bullet solve
-preserves.</p>
+<p>Ballistic Motion returns the pieces home from a <em>prediction</em>. Often what you actually want is to reassemble a <strong>finished simulation</strong> — that has to happen downstream of the solver, on a node of its own. That node is <strong>Ballistic Return</strong>, and it ships in the same file: press <strong>Create Ballistic Return</strong>, or grab it from the JV tab menu.</p>
+<p>It wires itself up: input 1 takes the simulated pieces (the RBD solver below your Advanced Velocity node, if there is one), input 2 takes the rest pose (Advanced Velocity&#x27;s own first output — the geometry before anything moved it). Keyframe <strong>Return to Home</strong> from 0 to 1 and the pieces fly back together.</p>
+<p>The landing is always exact because the blend&#x27;s endpoint is <em>absolute</em>: at Return 1 the result <strong>is</strong> the rest pose, whatever the simulation was doing underneath, since the target isn&#x27;t relative to the motion it replaces. Nothing is snapshotted either, so re-simulating upstream can never leave this node stale. Pieces are matched by point number, which a Bullet solve preserves.</p>
 <retype-table copy-text="| Parameter | Name | Description |
 | --- | --- | --- |
 | Return to Home | `ballistic_return` | 0 leaves the sim alone, 1 puts every piece back at exactly its rest position and orientation. Keyframe this. |
@@ -1099,12 +1087,7 @@ preserves.</p>
 </table>
 </div>
 </retype-table>
-<p>Careful with this one: if your input mesh is <strong>animated</strong>, the second input&#x27;s
-positions have moved on by the time the return happens, so &quot;home&quot; is a moving
-target. That is what Rest Attribute is for — turn on <strong>Export Rest Position
-Attributes</strong> upstream and return to <code translate="no" v-pre>startframe_rest</code> (or any event&#x27;s captured
-pose) instead. On a static mesh you can ignore all of this and leave the field
-empty.</p>
+<p>If your input mesh is <strong>animated</strong>, the second input&#x27;s positions have moved on by the time the return happens, so &quot;home&quot; is a moving target. That&#x27;s what Rest Attribute is for — turn on <strong>Export Rest Position Attributes</strong> upstream and return to <code translate="no" v-pre>startframe_rest</code> (or any event&#x27;s captured pose) instead. On a static mesh, leave the field empty.</p>
 <h2 id="visualization">Visualization</h2>
 <retype-table copy-text="| Parameter | Name | Description |
 | --- | --- | --- |
@@ -1322,8 +1305,8 @@ empty.</p>
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-06T00:26:30" title="2026-08-06" data-absolute-label="Last updated on 2026-08-06" data-absolute-label-html="Last updated on 2026-08-06" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-08-06
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-07T12:06:44" title="2026-08-07" data-absolute-label="Last updated on 2026-08-07" data-absolute-label-html="Last updated on 2026-08-07" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-08-07
                     </time>
                 </div>
 

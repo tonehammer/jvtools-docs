@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839411007006">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839412427533">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Troubleshooting</title>
     <meta name="title" content="Troubleshooting">
-    <meta name="description" content="You're in Timed Events mode, the default, where the live Setup is only a template — just baked events reach the output. Press Create Event to bake the setup, or Update on an existing event's row to fold your changes into it.">
+    <meta name="description" content="You're in Timed Events mode, the default, where the live Setup is only a template — only baked events reach the output. Press Create Event to bake the setup, or Update on an existing event's row to fold your changes into it.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://tonehammer.github.io/jvtools-docs/advanced-velocity/troubleshooting/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/advanced-velocity/troubleshooting/">
     <meta property="og:title" content="Troubleshooting">
-    <meta property="og:description" content="You're in Timed Events mode, the default, where the live Setup is only a template — just baked events reach the output. Press Create Event to bake the setup, or Update on an existing event's row to fold your changes into it.">
+    <meta property="og:description" content="You're in Timed Events mode, the default, where the live Setup is only a template — only baked events reach the output. Press Create Event to bake the setup, or Update on an existing event's row to fold your changes into it.">
     <meta property="og:site_name" content="JVtools">
     <meta property="og:locale" content="en_US">
 
@@ -31,18 +31,18 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/advanced-velocity/troubleshooting/">
     <meta name="twitter:title" content="Troubleshooting">
-    <meta name="twitter:description" content="You're in Timed Events mode, the default, where the live Setup is only a template — just baked events reach the output. Press Create Event to bake the setup, or Update on an existing event's row to fold your changes into it.">
+    <meta name="twitter:description" content="You're in Timed Events mode, the default, where the live Setup is only a template — only baked events reach the output. Press Create Event to bake the setup, or Update on an existing event's row to fold your changes into it.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://tonehammer.github.io/jvtools-docs/advanced-velocity/troubleshooting.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.839411007006" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.839412427533" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839411007006" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839412427533" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839411007006" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839412427533" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -207,7 +207,7 @@
                 <!-- Page content  -->
 <h1 id="troubleshooting">Troubleshooting</h1>
 <h2 id="i-tweak-the-setup-sliders-and-nothing-changes">I tweak the Setup sliders and nothing changes</h2>
-<p>You&#x27;re in <strong>Timed Events</strong> mode, the default, where the live Setup is only a template — just <em>baked events</em> reach the output. Press <strong>Create Event</strong> to bake the setup, or <strong>Update</strong> on an existing event&#x27;s row to fold your changes into it. The node does tell you: the <strong>Stale</strong> readout and a pink timeline marker appear whenever an event no longer matches the setup it came from.</p>
+<p>You&#x27;re in <strong>Timed Events</strong> mode, the default, where the live Setup is only a template — only <em>baked events</em> reach the output. Press <strong>Create Event</strong> to bake the setup, or <strong>Update</strong> on an existing event&#x27;s row to fold your changes into it. The <strong>Stale</strong> readout and a pink timeline marker appear whenever an event no longer matches the setup it came from.</p>
 <p>If you&#x27;d rather the setup were evaluated live every frame, set <strong>Mode</strong> to <em>Single Field</em>.</p>
 <h2 id="the-node-outputs-nothing">The node outputs nothing</h2>
 <p>Work down this list — it&#x27;s almost always one of them:</p>
@@ -222,21 +222,21 @@
 <p><strong>Incoming Velocity</strong> in the mixer controls this, and it&#x27;s <strong>on</strong> by default — upstream <code translate="no" v-pre>@v</code> passes through and the node layers on top. Switch it off to author the attribute outright.</p>
 <h2 id="my-events-went-quiet-after-i-changed-the-input-geometry">My events went quiet after I changed the input geometry</h2>
 <p>An event&#x27;s bake is stored <strong>per point</strong>, so anything that changes the point count — re-fracturing, deleting geometry, a different scatter — leaves the old bakes unusable and the node silently writes zero. You&#x27;ll see a warning on the <strong>Events</strong> tab when this has happened.</p>
-<p>Press <strong>Utilities ▸ Re-bake All Events</strong>. It replays each event against its own stored snapshot at its own frame, so your timings and settings survive. Note this is <em>not</em> the same as pressing Update on every row: Update re-bakes from the <strong>live</strong> Setup, which will overwrite each event with whatever is currently on screen.</p>
+<p>Press <strong>Utilities ▸ Re-bake All Events</strong>. It replays each event against its own stored snapshot at its own frame, so your timings and settings survive. This is <em>not</em> the same as pressing Update on every row: Update re-bakes from the <strong>live</strong> Setup, which overwrites each event with whatever is currently on screen.</p>
 <h2 id="the-guides-vanished">The guides vanished</h2>
 <p>Guide trails are <strong>guide geometry</strong> — they only draw while the Advanced Velocity node is the current node, exactly like the Bend SOP&#x27;s guide. Select the node again and they&#x27;re back. Also check the <strong>Show Guides</strong> master switch and <strong>Guide Density</strong>, which deliberately drops most trails at low values.</p>
 <h2 id="the-event-timeline-disappeared">The event timeline disappeared</h2>
 <p>The timeline is drawn by the node&#x27;s viewer state, and refreshing asset libraries (among other things) drops the viewer out of it. <strong>Utilities ▸ Restore Viewport HUD</strong> brings it back.</p>
 <h2 id="everything-feels-sluggish--scrubbing-parm-edits-adding-events">Everything feels sluggish — scrubbing, parm edits, adding events</h2>
-<p><strong>Preview Motion</strong> (Visualization tab) first. It ships off, but if you switched it on it&#x27;s the usual culprit: the ghost draws a <em>second complete copy</em> of your input on every viewport redraw, so it slows down anything that causes a redraw, not just playback. If you want to keep it on, drop <strong>Ghost Style</strong> from <em>Full Wireframe</em> — the default, and the expensive one — to <strong>Bounding Boxes</strong> (one wire box per piece, cheap at any density) or <strong>Points</strong>. And treat the preview as a check-your-timing tool: flip it on, look, flip it off.</p>
+<p>Check <strong>Preview Motion</strong> (Visualization tab) first. It ships off, but if you switched it on it&#x27;s the usual culprit: the ghost draws a <em>second complete copy</em> of your input on every viewport redraw, slowing down anything that causes one, not just playback. To keep it on, drop <strong>Ghost Style</strong> from <em>Full Wireframe</em> (default, and the expensive one) to <strong>Bounding Boxes</strong> (one wire box per piece, cheap at any density) or <strong>Points</strong>. Treat it as a check-your-timing tool: flip on, look, flip off.</p>
 <p>After that, the other two costs are <strong>Guide Density</strong> (1.0 on a dense input is a trail per point; the node auto-picks a sensible value on first connection, so a hand-raised one is worth a second look) and <strong>Guides Show = Both</strong>, which draws the live-setup <em>and</em> baked-event streams at once.</p>
-<p>One thing that is <em>not</em> the node: <strong>a textured mesh is expensive to draw whatever you do to it.</strong> Measured on a 111k-poly textured car against a 54k untextured fracture at roughly the same on-screen polygon count, the textured one felt markedly slower while Advanced Velocity itself cooked in 3 ms a frame.</p>
+<p>One thing that isn&#x27;t the node: a heavily textured mesh is expensive to draw whatever you do to it.</p>
 <p>Quick way to tell them apart: <strong>click any other node.</strong> All guide geometry stops drawing, because it only appears while this node is current. If everything snaps responsive, the cost is in the visualization controls above. If it doesn&#x27;t, it&#x27;s your input geometry.</p>
 <h2 id="the-explosion-pushes-pieces-the-wrong-way-or-misses-them-entirely">The explosion pushes pieces the wrong way, or misses them entirely</h2>
 <p>Two different causes, and it&#x27;s worth knowing which you have.</p>
 <p>If pieces are driven <em>through</em> the object: with the source placed on the surface, &quot;away from the source&quot; points through the body for every piece behind it. Geometrically correct, rarely what you wanted. Use <strong>Direction ▸ Off Surface</strong> (the default) — pieces travel away from the <em>object</em>, and the source only decides which get caught and how hard.</p>
 <p>If pieces don&#x27;t move at all: they&#x27;re outside <strong>Falloff Radius</strong>, drawn as a wireframe sphere around the source. The falloff is measured to each packed piece&#x27;s real bounds, so what the sphere touches is what it catches. <strong>Show Affected Pieces</strong> highlights exactly what will move, in the viewport only.</p>
-<p>Careful with one thing here: <em>Off Surface</em> and <em>Both</em> need a <strong>point</strong> <code translate="no" v-pre>@N</code>. A vertex normal is invisible to them, and the Normal SOP defaults to vertex — set it to <em>Point</em>. Without point normals, Off Surface falls back to pushing away from the body&#x27;s centre.</p>
+<p>One thing to check: <em>Off Surface</em> and <em>Both</em> need a <strong>point</strong> <code translate="no" v-pre>@N</code>. A vertex normal is invisible to them, and the Normal SOP defaults to vertex — set it to <em>Point</em>. Without point normals, Off Surface falls back to pushing away from the body&#x27;s centre.</p>
 <h2 id="my-rbd-pieces-fight-gravity-or-hang-in-the-air">My RBD pieces fight gravity, or hang in the air</h2>
 <p>The solver&#x27;s <strong>Override Attributes from SOP</strong> is re-stamping <code translate="no" v-pre>@v</code> every frame, so gravity never accumulates. Gate the <strong>Attributes</strong> field beneath it on the node&#x27;s <strong>Injecting Now</strong> readout, so velocity is only taken during an event&#x27;s attack and hold — the recipe is in <a href="../timed-events/#driving-an-rbd-solver">Driving an RBD solver</a>.</p>
 <p>Don&#x27;t gate the <em>Override Attributes from SOP</em> toggle itself: the solver latches it at the sim&#x27;s first frame, so your gating does nothing.</p>
@@ -264,8 +264,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-06T00:26:30" title="2026-08-06" data-absolute-label="Last updated on 2026-08-06" data-absolute-label-html="Last updated on 2026-08-06" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-08-06
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-07T12:06:44" title="2026-08-07" data-absolute-label="Last updated on 2026-08-07" data-absolute-label-html="Last updated on 2026-08-07" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-08-07
                     </time>
                 </div>
 

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839411007006">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839412427533">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.839411007006" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.839412427533" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839411007006" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839412427533" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839411007006" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839412427533" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -229,9 +229,9 @@
 <h2 id="houdini-crashed-and-the-motor-is-still-spinning">Houdini crashed and the motor is still spinning</h2>
 <p>The motor runs independently of Houdini once started. Stop it by unplugging the <strong>5V</strong> lead (safe — it&#x27;s just motor power), or reconnect and set <strong>Mode → Off</strong>.</p>
 <h2 id="guides-ended-up-in-my-simulation">Guides ended up in my simulation</h2>
-<p>You fed the solver from <strong>Output 0</strong> (Points &amp; Guides). Switch to <strong>Output 1</strong> (Points), which strips the <code translate="no" v-pre>rplidar_viz</code> guide geometry. Alternatively turn off the Visualize guides or delete the <code translate="no" v-pre>rplidar_viz</code> group downstream. See <a href="../using/#outputs-and-attributes">Outputs and Attributes</a>.</p>
+<p>You fed the solver from <strong>Output 0</strong> (Points &amp; Guides). Switch to <strong>Output 1</strong> (Points), which strips the <code translate="no" v-pre>rplidar_viz</code> guide geometry. Or turn off the Visualize guides, or delete the <code translate="no" v-pre>rplidar_viz</code> group downstream. See <a href="../using/#outputs-and-attributes">Outputs and Attributes</a>.</p>
 <h2 id="tracking-locks-onto-furniture-instead-of-the-hand">Tracking locks onto furniture instead of the hand</h2>
-<p>Almost always the missing background bake. A real room clusters into 7–11 blobs per scan, and the largest of them is usually a chair or a wall corner — Single mode is picking the biggest thing present, which is working exactly as designed and is not what you wanted.</p>
+<p>Almost always the missing background bake. A real room clusters into 7–11 blobs per scan, and the largest is usually a chair or a wall corner — Single mode is picking the biggest thing present, which is working as designed and isn&#x27;t what you wanted.</p>
 <p>Go <strong>Live</strong>, clear the interaction area completely, press <strong>Bake Background</strong>, then turn on <strong>Subtract Background</strong>. If it still wanders, tighten <strong>Blob Size min/max</strong> (a hand is roughly 0.05–0.15 m) — that throws out room geometry before clustering ever has to choose. See <a href="../using/#background-subtraction">Background subtraction</a>.</p>
 <h2 id="tracking-sees-nothing-at-all-after-a-background-bake">Tracking sees nothing at all after a background bake</h2>
 <p>You most likely baked while standing in the interaction area, so you were recorded as part of the static scene. Step out and bake again. Re-bake whenever the sensor moves or the room is rearranged.</p>
@@ -284,8 +284,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-03T18:55:48" title="2026-08-03" data-absolute-label="Last updated on 2026-08-03" data-absolute-label-html="Last updated on 2026-08-03" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-08-03
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-07T12:06:44" title="2026-08-07" data-absolute-label="Last updated on 2026-08-07" data-absolute-label-html="Last updated on 2026-08-07" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-08-07
                     </time>
                 </div>
 

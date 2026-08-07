@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839411007006">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839412427533">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Using RPLidar In</title>
     <meta name="title" content="Using RPLidar In">
-    <meta name="description" content="This page covers everything the node does once it's installed and connected: the three modes, the two outputs and their attributes, the on-screen guides, cropping, recording, and driving a live simulation.">
+    <meta name="description" content="This page walks through the three modes, the two outputs, the on-screen guides, cropping, recording, and driving a live simulation. For a flat list of every control, see the Parameter Reference.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://tonehammer.github.io/jvtools-docs/rplidar-in/using/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/rplidar-in/using/">
     <meta property="og:title" content="Using RPLidar In">
-    <meta property="og:description" content="This page covers everything the node does once it's installed and connected: the three modes, the two outputs and their attributes, the on-screen guides, cropping, recording, and driving a live simulation.">
+    <meta property="og:description" content="This page walks through the three modes, the two outputs, the on-screen guides, cropping, recording, and driving a live simulation. For a flat list of every control, see the Parameter Reference.">
     <meta property="og:site_name" content="JVtools">
     <meta property="og:locale" content="en_US">
 
@@ -31,18 +31,18 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/rplidar-in/using/">
     <meta name="twitter:title" content="Using RPLidar In">
-    <meta name="twitter:description" content="This page covers everything the node does once it's installed and connected: the three modes, the two outputs and their attributes, the on-screen guides, cropping, recording, and driving a live simulation.">
+    <meta name="twitter:description" content="This page walks through the three modes, the two outputs, the on-screen guides, cropping, recording, and driving a live simulation. For a flat list of every control, see the Parameter Reference.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://tonehammer.github.io/jvtools-docs/rplidar-in/using.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.839411007006" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.839412427533" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839411007006" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839412427533" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839411007006" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839412427533" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -206,27 +206,23 @@
 
                 <!-- Page content  -->
 <h1 id="using-rplidar-in">Using RPLidar In</h1>
-<p>This page covers everything the node does once it&#x27;s installed and connected: the three modes, the two outputs and their attributes, the on-screen guides, cropping, recording, and driving a live simulation. For a flat list of every control, see the <a href="../parameters/">Parameter Reference</a>.</p>
+<p>This page walks through the three modes, the two outputs, the on-screen guides, cropping, recording, and driving a live simulation. For a flat list of every control, see the <a href="../parameters/">Parameter Reference</a>.</p>
 <h2 id="modes">Modes</h2>
-<p>The <strong>Mode</strong> parameter is the master switch for the node. It has three settings.</p>
-<!-- SCREENSHOT PENDING - drop the file in and delete these two
-     comment markers to publish it:
-![The Mode parameter — Off, Live, Playback](static/mode-menu.png)
--->
+<p><strong>Mode</strong> is the master switch on the node. Three settings.</p>
 <h3 id="off">Off</h3>
-<p>Motor stopped, empty output. Use this whenever you aren&#x27;t actively reading the sensor — it releases the serial port so other programs (or other Houdini sessions) can use it, and it stops the motor spinning.</p>
+<p>Motor stopped, no output. Use this when you&#x27;re not actively reading the sensor -- it frees up the serial port for other programs and stops the motor spinning.</p>
 <blockquote>
-<p>Any visualization guides you&#x27;ve enabled still draw in Off mode, so you can lay out your scene against the range ring without the sensor running.</p>
+<p>Guides you&#x27;ve enabled still draw in Off mode, so you can lay out your scene against the range ring without the sensor running.</p>
 </blockquote>
 <h3 id="live">Live</h3>
-<p>Streams the sensor in real time. On the first cook the motor spins up over about two seconds, then every cook outputs the most recent full rotation as points.</p>
+<p>Streams the sensor in real time. The motor spins up on the first cook (about two seconds), then every cook outputs the latest full rotation as points.</p>
 <ul>
 <li>Choose the density with <strong>Scan Mode</strong> (below).</li>
-<li>The stream runs on a background thread, so no rotations are dropped between cooks — including while recording.</li>
-<li><strong>Test Sensor</strong> prints live stream statistics while streaming (samples/second, valid points per rotation).</li>
+<li>Rotations aren&#x27;t dropped between cooks, even while recording.</li>
+<li><strong>Test Sensor</strong> prints live stream stats while streaming (samples/second, valid points per rotation).</li>
 </ul>
 <h4 id="scan-mode">Scan Mode</h4>
-<p>Live only. Controls how fast the sensor samples:</p>
+<p>Live only. How fast the sensor samples:</p>
 <retype-table copy-text="| Setting | Rate | Points per rotation (typical) |
 | --- | --- | --- |
 | **Standard** | ~4,000 samples/s | ~110 valid |
@@ -256,21 +252,17 @@
 </div>
 </retype-table>
 <p>Express roughly doubles the point density. Changing Scan Mode while Live restarts the stream (about two seconds).</p>
-<!-- SCREENSHOT PENDING - drop the file in and delete these two
-     comment markers to publish it:
-![Standard vs Express point density on the same scene](static/scan-mode-comparison.png)
--->
 <h3 id="playback">Playback</h3>
-<p>Plays a recorded <code translate="no" v-pre>.jsonl</code> file against the playbar clock, so the scan is time-dependent and scrubs and renders like any other animated geometry. This lets you develop and iterate with the sensor disconnected. See <doc-anchor-trigger to="#recording-and-playback">Recording &amp; Playback</doc-anchor-trigger>.</p>
+<p>Plays a recorded <code translate="no" v-pre>.jsonl</code> file against the playbar clock, so the scan scrubs and renders like any other animated geometry. Good for developing with the sensor disconnected. See <doc-anchor-trigger to="#recording-and-playback">Recording &amp; Playback</doc-anchor-trigger>.</p>
 <h3 id="a-note-on-invalid-returns">A note on invalid returns</h3>
-<p>The sensor reports a sample for every laser pulse, but many pulses hit nothing in range (empty space, or a surface that doesn&#x27;t reflect). Those come back as <strong>invalid</strong> and are filtered out — on a desk, more than half of every rotation can be invalid. This is normal, not a fault. The point counts above are <em>valid</em> points only.</p>
+<p>Not every laser pulse hits something -- empty space or a non-reflective surface comes back <strong>invalid</strong> and gets filtered out. On a desk, more than half of every rotation can be invalid. That&#x27;s normal, not a fault. The point counts above are valid points only.</p>
 <hr>
 <h2 id="outputs-and-attributes">Outputs and attributes</h2>
 <p>RPLidar In has <strong>two outputs</strong> and no inputs.</p>
 <retype-table copy-text="| Output | Name | Contents | Use for |
 | --- | --- | --- | --- |
-| **0** | Points &amp; Guides | Scan points **plus** any enabled visualization guides | Display / setup — this is the default when you display the node |
-| **1** | Points | Scan points **only**, all guides stripped | Feeding solvers and downstream networks |">
+| **0** | Points &amp; Guides | Scan points **plus** any enabled visualization guides | Display / setup -- the default when you display the node |
+| **1** | Points | Scan points **only**, guides stripped | Feeding solvers and downstream networks |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -286,41 +278,37 @@
 <td><strong>0</strong></td>
 <td>Points &amp; Guides</td>
 <td>Scan points <strong>plus</strong> any enabled visualization guides</td>
-<td>Display / setup — this is the default when you display the node</td>
+<td>Display / setup -- the default when you display the node</td>
 </tr>
 <tr>
 <td><strong>1</strong></td>
 <td>Points</td>
-<td>Scan points <strong>only</strong>, all guides stripped</td>
+<td>Scan points <strong>only</strong>, guides stripped</td>
 <td>Feeding solvers and downstream networks</td>
 </tr>
 </tbody>
 </table>
 </div>
 </retype-table>
-<!-- SCREENSHOT PENDING - drop the file in and delete these two
-     comment markers to publish it:
-![The node's two outputs — Points & Guides, and Points](static/outputs.png)
--->
-<p>Output 0 is the default display, so you see the sensor guide and range ring while you work. When you connect the node into a simulation, pull from <strong>Output 1</strong> — it removes the <code translate="no" v-pre>rplidar_viz</code> guide geometry for you, so nothing display-only leaks into your solver.</p>
+<p>Output 0 is the default display, so you see the sensor guide and range ring while you work. When you connect the node into a simulation, pull from <strong>Output 1</strong> -- it strips the <code translate="no" v-pre>rplidar_viz</code> guide geometry for you.</p>
 <blockquote>
-<p>One thing to know up front: <strong>Output 1 is switchable.</strong> With <doc-anchor-trigger to="#blob-tracking">Blob tracking</doc-anchor-trigger> on, the <strong>Solver Output</strong> menu decides whether it carries the whole scan cloud or just the handful of tracked blob points. Same wire, very different payload — so if a solver suddenly sees three points instead of three hundred, that menu is the first place to look.</p>
+<p><strong>Output 1 is switchable.</strong> With <doc-anchor-trigger to="#blob-tracking">Blob tracking</doc-anchor-trigger> on, the <strong>Solver Output</strong> menu decides whether it carries the whole scan cloud or just the tracked blob points. If a solver suddenly sees three points instead of three hundred, check that menu first.</p>
 </blockquote>
 <blockquote>
-<p>If you feed a solver from Output 0 by mistake, the guide points get simulated too. Either switch to Output 1, turn off the Visualize guides, or delete the <code translate="no" v-pre>rplidar_viz</code> group downstream.</p>
+<p>If you feed a solver from Output 0 by mistake, the guide points get simulated too. Switch to Output 1, turn off the Visualize guides, or delete the <code translate="no" v-pre>rplidar_viz</code> group downstream.</p>
 </blockquote>
 <h3 id="the-point-cloud">The point cloud</h3>
-<p>Each valid laser return becomes one point. Invalid returns (empty space, no reflection) are filtered out — see <doc-anchor-trigger to="#a-note-on-invalid-returns">above</doc-anchor-trigger>.</p>
-<p><strong>Position.</strong> Point positions are in world units at your <strong>Units per Meter</strong> scale (default: meters). The layout:</p>
+<p>Each valid laser return becomes one point. Invalid returns are filtered out.</p>
+<p><strong>Position.</strong> Point positions are in world units at your <strong>Units per Meter</strong> scale (default: meters).</p>
 <ul>
-<li>Angle <strong>0°</strong> points toward <strong>−Z</strong>.</li>
+<li>Angle <strong>0 deg</strong> points toward <strong>-Z</strong>.</li>
 <li>Angles increase <strong>clockwise</strong> seen from <strong>+Y</strong> (looking down at the sensor).</li>
 <li>The sensor sits at the origin.</li>
 </ul>
 <p><strong>Per-point attributes:</strong></p>
 <retype-table copy-text="| Attribute | Type | Meaning |
 | --- | --- | --- |
-| `quality` | int | Return quality, 0–15. In Express mode valid samples report 15. |
+| `quality` | int | Return quality, 0-15. In Express mode valid samples report 15. |
 | `angle` | float | Measured angle in degrees. |
 | `dist` | float | Measured distance in **millimeters** (raw sensor units, before scaling). |">
 <div class="table-wrapper scrollbar overflow-hidden">
@@ -336,7 +324,7 @@
 <tr>
 <td><code translate="no" v-pre>quality</code></td>
 <td>int</td>
-<td>Return quality, 0–15. In Express mode valid samples report 15.</td>
+<td>Return quality, 0-15. In Express mode valid samples report 15.</td>
 </tr>
 <tr>
 <td><code translate="no" v-pre>angle</code></td>
@@ -356,17 +344,17 @@
 <p>When visualization is on, the guides are added in the point/primitive group <strong><code translate="no" v-pre>rplidar_viz</code></strong>, coloured via the point <code translate="no" v-pre>Cd</code> attribute. This group only appears on Output 0. See <doc-anchor-trigger to="#visualization">Visualization</doc-anchor-trigger>.</p>
 <hr>
 <h2 id="visualization">Visualization</h2>
-<p>The <strong>Visualize</strong> controls draw optional on-screen guides so you can see the sensor, its range, and its beams. All guides are extra geometry tagged with the point/primitive group <strong><code translate="no" v-pre>rplidar_viz</code></strong>.</p>
+<p>The <strong>Visualize</strong> controls draw optional on-screen guides so you can see the sensor, its range, and its beams. All guides sit in the group <strong><code translate="no" v-pre>rplidar_viz</code></strong>.</p>
 <blockquote>
-<p><strong>Guides are display-only geometry.</strong> They travel on <strong>Output 0 (Points &amp; Guides)</strong>. Feed a solver from <strong>Output 1 (Points)</strong>, which strips them automatically — or turn the guides off / delete the <code translate="no" v-pre>rplidar_viz</code> group.</p>
+<p><strong>Guides are display-only.</strong> They travel on Output 0. Feed a solver from Output 1, which strips them automatically -- or turn the guides off / delete the <code translate="no" v-pre>rplidar_viz</code> group.</p>
 </blockquote>
 <h3 id="sensor-guide">Sensor guide</h3>
 <retype-table copy-text="| Parameter | What it does |
 | --- | --- |
-| **Show Sensor Guide** | Draws a marker sphere at the origin (the sensor) plus a circle at the maximum range. On by default. |
-| **Guide Color** | Color of the guide geometry (point `Cd`). |
-| **Range (m)** | Radius of the range circle in real meters. The A2M12's maximum range is 16 m. |
-| **Sensor Size (m)** | Diameter of the origin sphere marking the sensor, in real meters. |">
+| **Show Sensor Guide** | Draws a marker sphere at the origin (the sensor) plus a circle at max range. On by default. |
+| **Guide Color** | Color of the guide geometry. |
+| **Range (m)** | Radius of the range circle in real meters. The A2M12's max range is 16 m. |
+| **Sensor Size (m)** | Diameter of the origin sphere, in real meters. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -378,33 +366,29 @@
 <tbody>
 <tr>
 <td><strong>Show Sensor Guide</strong></td>
-<td>Draws a marker sphere at the origin (the sensor) plus a circle at the maximum range. On by default.</td>
+<td>Draws a marker sphere at the origin (the sensor) plus a circle at max range. On by default.</td>
 </tr>
 <tr>
 <td><strong>Guide Color</strong></td>
-<td>Color of the guide geometry (point <code translate="no" v-pre>Cd</code>).</td>
+<td>Color of the guide geometry.</td>
 </tr>
 <tr>
 <td><strong>Range (m)</strong></td>
-<td>Radius of the range circle in real meters. The A2M12&#x27;s maximum range is 16 m.</td>
+<td>Radius of the range circle in real meters. The A2M12&#x27;s max range is 16 m.</td>
 </tr>
 <tr>
 <td><strong>Sensor Size (m)</strong></td>
-<td>Diameter of the origin sphere marking the sensor, in real meters.</td>
+<td>Diameter of the origin sphere, in real meters.</td>
 </tr>
 </tbody>
 </table>
 </div>
 </retype-table>
-<!-- SCREENSHOT PENDING - drop the file in and delete these two
-     comment markers to publish it:
-![The sensor guide — origin marker and range ring around the scan points](static/sensor-guide.png)
--->
 <h3 id="connect-points-beam-fan">Connect Points (beam fan)</h3>
 <retype-table copy-text="| Parameter | What it does |
 | --- | --- |
-| **Connect Points** | Draws a line from the sensor at the origin to each scan point — the beam fan spreading out as the laser sweeps. Off by default. Independent of the sensor guide. |
-| **Ray Color** | Color of the connecting rays (point `Cd`). |">
+| **Connect Points** | Draws a line from the sensor to each scan point -- the beam fan. Off by default. Independent of the sensor guide. |
+| **Ray Color** | Color of the connecting rays. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -416,28 +400,24 @@
 <tbody>
 <tr>
 <td><strong>Connect Points</strong></td>
-<td>Draws a line from the sensor at the origin to each scan point — the beam fan spreading out as the laser sweeps. Off by default. Independent of the sensor guide.</td>
+<td>Draws a line from the sensor to each scan point -- the beam fan. Off by default. Independent of the sensor guide.</td>
 </tr>
 <tr>
 <td><strong>Ray Color</strong></td>
-<td>Color of the connecting rays (point <code translate="no" v-pre>Cd</code>).</td>
+<td>Color of the connecting rays.</td>
 </tr>
 </tbody>
 </table>
 </div>
 </retype-table>
 <p>The rays use copies of the scan points, so your real scan points keep their own attributes untouched.</p>
-<!-- SCREENSHOT PENDING - drop the file in and delete these two
-     comment markers to publish it:
-![The beam fan — rays drawn from the sensor to each scan point](static/beam-fan.png)
--->
 <h3 id="static-map-bake">Static map (bake)</h3>
-<p>Baking captures a short slice of the live stream into a fixed map — useful for seeing where the room&#x27;s walls are while the live points keep moving.</p>
+<p>Baking captures a short slice of the live stream into a fixed map -- useful for seeing where the room&#x27;s walls are while the live points keep moving.</p>
 <retype-table copy-text="| Parameter | What it does |
 | --- | --- |
-| **Bake Current Map** | Captures ~1.5 s of the live stream into a static map: short vertical marks where the beams are currently blocked. **Requires Mode = Live.** Re-baking overwrites the previous map. |
-| **Show Static Map** | Overlay the baked map. Part of the `rplidar_viz` group. |
-| **Map Color** | Color of the baked map marks (point `Cd`). |">
+| **Bake Current Map** | Captures ~1.5 s of the live stream into a static map. **Requires Mode = Live.** Re-baking overwrites the previous map. |
+| **Show Static Map** | Overlay the baked map. Part of `rplidar_viz`. |
+| **Map Color** | Color of the baked map marks. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -449,36 +429,32 @@
 <tbody>
 <tr>
 <td><strong>Bake Current Map</strong></td>
-<td>Captures ~1.5 s of the live stream into a static map: short vertical marks where the beams are currently blocked. <strong>Requires Mode = Live.</strong> Re-baking overwrites the previous map.</td>
+<td>Captures ~1.5 s of the live stream into a static map. <strong>Requires Mode = Live.</strong> Re-baking overwrites the previous map.</td>
 </tr>
 <tr>
 <td><strong>Show Static Map</strong></td>
-<td>Overlay the baked map. Part of the <code translate="no" v-pre>rplidar_viz</code> group.</td>
+<td>Overlay the baked map. Part of <code translate="no" v-pre>rplidar_viz</code>.</td>
 </tr>
 <tr>
 <td><strong>Map Color</strong></td>
-<td>Color of the baked map marks (point <code translate="no" v-pre>Cd</code>).</td>
+<td>Color of the baked map marks.</td>
 </tr>
 </tbody>
 </table>
 </div>
 </retype-table>
-<!-- SCREENSHOT PENDING - drop the file in and delete these two
-     comment markers to publish it:
-![A baked static map showing the room's walls behind the live points](static/static-map.png)
--->
 <hr>
 <h2 id="attribute-color">Attribute color</h2>
-<p>The <strong>Attribute color</strong> controls (in the Visualize folder, under <strong>Store as Cd</strong>) tint the scan points by their measured <strong>angle</strong> or <strong>distance</strong>, through a range remap and a color ramp. Use it to read the scan at a glance — near vs. far, or which direction each return came from — or to carry color downstream into a render.</p>
+<p>The <strong>Attribute color</strong> controls (in Visualize, under <strong>Store as Cd</strong>) tint the scan points by their measured <strong>angle</strong> or <strong>distance</strong>, through a range remap and a color ramp. Handy for reading the scan at a glance, or for carrying color downstream into a render.</p>
 <retype-table copy-text="| Parameter | What it does |
 | --- | --- |
-| **Store as Cd** | Master switch for where the color goes. **Off:** the color is shown for visualization only (on the Points &amp; Guides output); the solver-ready output stays uncolored. **On:** the color is baked into the `Cd` attribute and travels downstream (below the node) on the clean output too. |
-| **Angle** | Color the points by their `angle` attribute (which direction the return came from). |
+| **Store as Cd** | Master switch for where the color goes. **Off:** color is visualization only, the solver-ready output stays uncolored. **On:** color is baked into `Cd` and travels downstream on the clean output too. |
+| **Angle** | Color the points by `angle` (which direction the return came from). |
 | **Angle Range** | The angle range (degrees) mapped across the Angle ramp. Values outside are clamped. |
-| **Angle Ramp** | The color ramp for angle. Default: an even yellow → blue → green → red around the circle. |
-| **Distance** | Color the points by their `dist` attribute (how far the return is). |
+| **Angle Ramp** | Color ramp for angle. Default: yellow -&gt; blue -&gt; green -&gt; red around the circle. |
+| **Distance** | Color the points by `dist` (how far the return is). |
 | **Distance Range** | The distance range (millimeters) mapped across the Distance ramp. |
-| **Distance Ramp** | The color ramp for distance. Default: orange near → teal far. |">
+| **Distance Ramp** | Color ramp for distance. Default: orange near -&gt; teal far. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -490,11 +466,11 @@
 <tbody>
 <tr>
 <td><strong>Store as Cd</strong></td>
-<td>Master switch for where the color goes. <strong>Off:</strong> the color is shown for visualization only (on the Points &amp; Guides output); the solver-ready output stays uncolored. <strong>On:</strong> the color is baked into the <code translate="no" v-pre>Cd</code> attribute and travels downstream (below the node) on the clean output too.</td>
+<td>Master switch for where the color goes. <strong>Off:</strong> color is visualization only, the solver-ready output stays uncolored. <strong>On:</strong> color is baked into <code translate="no" v-pre>Cd</code> and travels downstream on the clean output too.</td>
 </tr>
 <tr>
 <td><strong>Angle</strong></td>
-<td>Color the points by their <code translate="no" v-pre>angle</code> attribute (which direction the return came from).</td>
+<td>Color the points by <code translate="no" v-pre>angle</code> (which direction the return came from).</td>
 </tr>
 <tr>
 <td><strong>Angle Range</strong></td>
@@ -502,11 +478,11 @@
 </tr>
 <tr>
 <td><strong>Angle Ramp</strong></td>
-<td>The color ramp for angle. Default: an even yellow → blue → green → red around the circle.</td>
+<td>Color ramp for angle. Default: yellow -&gt; blue -&gt; green -&gt; red around the circle.</td>
 </tr>
 <tr>
 <td><strong>Distance</strong></td>
-<td>Color the points by their <code translate="no" v-pre>dist</code> attribute (how far the return is).</td>
+<td>Color the points by <code translate="no" v-pre>dist</code> (how far the return is).</td>
 </tr>
 <tr>
 <td><strong>Distance Range</strong></td>
@@ -514,29 +490,25 @@
 </tr>
 <tr>
 <td><strong>Distance Ramp</strong></td>
-<td>The color ramp for distance. Default: orange near → teal far.</td>
+<td>Color ramp for distance. Default: orange near -&gt; teal far.</td>
 </tr>
 </tbody>
 </table>
 </div>
 </retype-table>
-<p>Turn on <strong>Angle</strong>, <strong>Distance</strong>, or both. With both on, distance wins (it&#x27;s applied last). The guides keep their own colors — only the real scan points are tinted.</p>
-<!-- SCREENSHOT PENDING - drop the file in and delete these two
-     comment markers to publish it:
-![Scan points colored by distance — orange near the sensor fading to teal at range](static/attribute-color.png)
--->
+<p>Turn on Angle, Distance, or both -- with both on, distance wins (applied last). Guides keep their own colors; only the real scan points are tinted.</p>
 <blockquote>
-<p><strong>Store as Cd is the on/off for feeding color downstream.</strong> Leave it off and the color is a viewport aid that never reaches your solver; turn it on when you want the <code translate="no" v-pre>Cd</code> in a render or a color-driven effect.</p>
+<p><strong>Store as Cd is the on/off for feeding color downstream.</strong> Leave it off and the color is just a viewport aid; turn it on when you want the <code translate="no" v-pre>Cd</code> in a render or a color-driven effect.</p>
 </blockquote>
 <hr>
 <h2 id="crop">Crop</h2>
-<p>The <strong>Crop</strong> controls cull scan points that fall outside a rectangle on the ground, so only points inside the rectangle reach downstream nodes. This is useful when the sensor sits in the corner of a room and you only care about a stage, a doorway, or a walkway — everything outside the box is discarded before it hits your solver.</p>
+<p>The <strong>Crop</strong> controls cull scan points outside a rectangle on the ground, so only points inside it reach downstream nodes. Useful when the sensor sits in the corner of a room and you only care about a stage, doorway, or walkway.</p>
 <retype-table copy-text="| Parameter | What it does |
 | --- | --- |
 | **Enable Crop** | Turn culling on. Points outside the rectangle are removed. A red guide shows the rectangle while this is on. |
 | **Center** | Center of the rectangle on the ground (X, Z), relative to the sensor at the origin. |
-| **Size** | Rectangle extent along X and Z. Default `26 × 26` (the sensor's full 16 m range spans `32 × 32`). |
-| **Rotation** | Rotation of the rectangle about the sensor's vertical axis — align it to walls that aren't square to 0°. |
+| **Size** | Rectangle extent along X and Z. Default `26 x 26` (the sensor's full 16 m range spans `32 x 32`). |
+| **Rotation** | Rotation of the rectangle about the sensor's vertical axis -- align it to walls that aren't square to 0 deg. |
 | **Edit Crop in Viewport** | Enter the interactive crop handle (see below). |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
@@ -557,11 +529,11 @@
 </tr>
 <tr>
 <td><strong>Size</strong></td>
-<td>Rectangle extent along X and Z. Default <code translate="no" v-pre>26 × 26</code> (the sensor&#x27;s full 16 m range spans <code translate="no" v-pre>32 × 32</code>).</td>
+<td>Rectangle extent along X and Z. Default <code translate="no" v-pre>26 x 26</code> (the sensor&#x27;s full 16 m range spans <code translate="no" v-pre>32 x 32</code>).</td>
 </tr>
 <tr>
 <td><strong>Rotation</strong></td>
-<td>Rotation of the rectangle about the sensor&#x27;s vertical axis — align it to walls that aren&#x27;t square to 0°.</td>
+<td>Rotation of the rectangle about the sensor&#x27;s vertical axis -- align it to walls that aren&#x27;t square to 0 deg.</td>
 </tr>
 <tr>
 <td><strong>Edit Crop in Viewport</strong></td>
@@ -571,34 +543,30 @@
 </table>
 </div>
 </retype-table>
-<p>The Center, Size, and Rotation controls are disabled until <strong>Enable Crop</strong> is on.</p>
-<!-- SCREENSHOT PENDING - drop the file in and delete these two
-     comment markers to publish it:
-![The red crop rectangle guide over a walkway, culling points outside it](static/crop-rectangle.png)
--->
+<p>Center, Size, and Rotation stay disabled until Enable Crop is on.</p>
 <h3 id="editing-the-crop-in-the-viewport">Editing the crop in the viewport</h3>
-<p>You don&#x27;t have to type numbers. Select the RPLidar In node in a Scene View (or press <strong>Edit Crop in Viewport</strong>) and a <strong>box handle</strong> appears over the crop rectangle, like a grid SOP:</p>
+<p>You don&#x27;t have to type numbers. Select the RPLidar In node in a Scene View (or press <strong>Edit Crop in Viewport</strong>) and a box handle appears over the crop rectangle, like a grid SOP:</p>
 <ul>
 <li><strong>Drag a side</strong> to resize that edge.</li>
 <li><strong>Drag the body</strong> to move the rectangle.</li>
 <li><strong>Drag the ring</strong> to rotate it.</li>
 </ul>
-<p>Everything writes straight back to the Center, Size, and Rotation parameters.</p>
+<p>Everything writes straight back to Center, Size, and Rotation.</p>
 <p><strong>Typical setup:</strong></p>
 <ol>
 <li>Sensor in a room corner, scanning a walkway.</li>
 <li>Enable Crop and watch the red guide.</li>
-<li>Drag the box <strong>sides</strong> over the walkway (or type into <strong>Center</strong> / <strong>Size</strong>).</li>
-<li>If the walkway runs at an angle to the sensor, <strong>rotate</strong> the box to line it up.</li>
+<li>Drag the box sides over the walkway (or type into Center / Size).</li>
+<li>If the walkway runs at an angle to the sensor, rotate the box to line it up.</li>
 </ol>
-<p>Now only points on the walkway survive, and stray returns from the rest of the room never reach your simulation.</p>
+<p>Now only points on the walkway survive.</p>
 <hr>
 <h2 id="camera">Camera</h2>
-<p>The <strong>Camera</strong> controls set up a top-down orthographic camera for the classic overhead installation look — the scan laid out flat, seen from directly above.</p>
+<p>The <strong>Camera</strong> controls set up a top-down orthographic camera for the classic overhead installation look.</p>
 <retype-table copy-text="| Parameter | What it does |
 | --- | --- |
-| **Create Orthographic Camera** | Creates (or retargets) an orthographic camera at the object level, looking straight down at the sensor from above, framing the full sensor range. Its **up** direction is **+X**. One camera per node — pressing again retargets the same camera. |
-| **Camera to Crop** | Moves and zooms that camera to frame the current **Crop** rectangle — centered on the crop, zoomed to its larger side, and rotated to match the crop's rotation. Create the camera first. |">
+| **Create Orthographic Camera** | Creates (or retargets) an orthographic camera at the object level, looking straight down at the sensor, framing its full range. Up direction is +X. One camera per node -- pressing again retargets the same camera. |
+| **Camera to Crop** | Moves and zooms that camera to frame the current Crop rectangle. Create the camera first. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -610,35 +578,31 @@
 <tbody>
 <tr>
 <td><strong>Create Orthographic Camera</strong></td>
-<td>Creates (or retargets) an orthographic camera at the object level, looking straight down at the sensor from above, framing the full sensor range. Its <strong>up</strong> direction is <strong>+X</strong>. One camera per node — pressing again retargets the same camera.</td>
+<td>Creates (or retargets) an orthographic camera at the object level, looking straight down at the sensor, framing its full range. Up direction is +X. One camera per node -- pressing again retargets the same camera.</td>
 </tr>
 <tr>
 <td><strong>Camera to Crop</strong></td>
-<td>Moves and zooms that camera to frame the current <strong>Crop</strong> rectangle — centered on the crop, zoomed to its larger side, and rotated to match the crop&#x27;s rotation. Create the camera first.</td>
+<td>Moves and zooms that camera to frame the current Crop rectangle. Create the camera first.</td>
 </tr>
 </tbody>
 </table>
 </div>
 </retype-table>
-<p>A typical flow: <strong>Create Orthographic Camera</strong> to get the overhead view, set up your <strong>Crop</strong> over the area of interest, then <strong>Camera to Crop</strong> to zoom the camera onto exactly that region.</p>
+<p>Typical flow: Create Orthographic Camera for the overhead view, set up your Crop, then Camera to Crop to zoom onto that region.</p>
 <blockquote>
-<p>The camera is created at the object (<code translate="no" v-pre>/obj</code>) level, not inside the SOP network — look for it there (its path is printed to the console when created). Because it&#x27;s orthographic, &quot;zoom&quot; is the framing width, not a focal length.</p>
+<p>The camera lives at the object (<code translate="no" v-pre>/obj</code>) level, not inside the SOP network -- its path is printed to the console when created.</p>
 </blockquote>
-<!-- SCREENSHOT PENDING - drop the file in and delete these two
-     comment markers to publish it:
-![The top-down orthographic view of a live scan, framed to the crop region](static/camera-topdown.png)
--->
 <hr>
 <h2 id="blob-tracking">Blob tracking</h2>
-<p>A raw scan is a few hundred loose points that vanish and reappear every rotation. That&#x27;s fine for a point cloud, but it&#x27;s the wrong shape for most interactive work. What you usually want to ask is <em>&quot;where is the hand, and how fast is it moving?&quot;</em> — and a cloud of anonymous points can&#x27;t answer that.</p>
-<p><strong>Blob tracking</strong> answers it. It clusters the scan into blobs, follows each one across frames, and gives it a <strong>stable id</strong> and a <strong>velocity</strong>. That&#x27;s the difference between a wall of points and something you can attach a force to.</p>
-<p>Turn on <strong>Enable Tracking</strong> in the Tracking tab. Everything below it works on the scan <em>after</em> <doc-anchor-trigger to="#crop">Crop</doc-anchor-trigger> — so crop first, then track. Less to cluster, less to go wrong.</p>
+<p>A raw scan is a few hundred loose points that vanish and reappear every rotation -- fine for a point cloud, wrong shape for most interactive work. What you usually want to know is &quot;where is the hand, and how fast is it moving,&quot; and a cloud of anonymous points can&#x27;t answer that.</p>
+<p><strong>Blob tracking</strong> answers it. It clusters the scan into blobs, follows each one across frames, and gives it a stable <strong>id</strong> and a <strong>velocity</strong>.</p>
+<p>Turn on <strong>Enable Tracking</strong> in the Tracking tab. Everything below works on the scan <em>after</em> <doc-anchor-trigger to="#crop">Crop</doc-anchor-trigger> -- crop first, then track.</p>
 <retype-table copy-text="| Parameter | What it does |
 | --- | --- |
-| **Enable Tracking** | Master switch. Off, nothing changes about the outputs at all. |
-| **Blob Mode** | **Single** emits one primary blob — the largest, held with hysteresis so it doesn't flicker between two similar candidates. **Multi** emits every blob it finds, each with its own stable id. |
-| **Solver Output** | What the solver-ready output (Output 1) carries: **All Points** (the whole scan cloud, unchanged) or **Blobs** (only the tracked blob points). |
-| **Max Blobs** | Multi only — a cap, largest first. |">
+| **Enable Tracking** | Master switch. Off, nothing changes about the outputs. |
+| **Blob Mode** | **Single** emits one primary blob -- the largest, held with hysteresis so it doesn't flicker. **Multi** emits every blob found, each with its own stable id. |
+| **Solver Output** | What Output 1 carries: **All Points** (whole scan cloud) or **Blobs** (only tracked blob points). |
+| **Max Blobs** | Multi only -- a cap, largest first. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -650,33 +614,33 @@
 <tbody>
 <tr>
 <td><strong>Enable Tracking</strong></td>
-<td>Master switch. Off, nothing changes about the outputs at all.</td>
+<td>Master switch. Off, nothing changes about the outputs.</td>
 </tr>
 <tr>
 <td><strong>Blob Mode</strong></td>
-<td><strong>Single</strong> emits one primary blob — the largest, held with hysteresis so it doesn&#x27;t flicker between two similar candidates. <strong>Multi</strong> emits every blob it finds, each with its own stable id.</td>
+<td><strong>Single</strong> emits one primary blob -- the largest, held with hysteresis so it doesn&#x27;t flicker. <strong>Multi</strong> emits every blob found, each with its own stable id.</td>
 </tr>
 <tr>
 <td><strong>Solver Output</strong></td>
-<td>What the solver-ready output (Output 1) carries: <strong>All Points</strong> (the whole scan cloud, unchanged) or <strong>Blobs</strong> (only the tracked blob points).</td>
+<td>What Output 1 carries: <strong>All Points</strong> (whole scan cloud) or <strong>Blobs</strong> (only tracked blob points).</td>
 </tr>
 <tr>
 <td><strong>Max Blobs</strong></td>
-<td>Multi only — a cap, largest first.</td>
+<td>Multi only -- a cap, largest first.</td>
 </tr>
 </tbody>
 </table>
 </div>
 </retype-table>
-<p>Single is for &quot;one hand, one object, one person&quot; installations. Multi is for many-things-at-once — each blob keeps its id as long as the tracker can follow it, so you can drive per-object behaviour without your effect reshuffling every frame.</p>
+<p>Single is for &quot;one hand, one object, one person&quot; installations. Multi is for many things at once -- each blob keeps its id as long as the tracker can follow it.</p>
 <h3 id="background-subtraction">Background subtraction</h3>
-<p>Read this one before you tune anything else. Here&#x27;s the finding that matters most, measured against a real recording of a hand moving near the sensor: <strong>raw clustering of a real room gives you 7–11 blobs per scan, and the largest one is almost never the hand.</strong> It&#x27;s a chair leg, a wall corner, a box. Single mode locks onto furniture and stays there, and no amount of fiddling with Cluster Gap fixes it, because nothing is broken — the furniture genuinely <em>is</em> the biggest thing in the room.</p>
-<p>The fix is to tell the node what the empty room looks like, then track only what intrudes on it.</p>
+<p>Read this before tuning anything else. Raw clustering of a real room usually finds several blobs, and the largest one is almost never the hand -- it&#x27;s a chair leg, a wall corner, a box. Single mode locks onto furniture and stays there. Nothing is broken; the furniture genuinely is the biggest thing in the room.</p>
+<p>The fix: tell the node what the empty room looks like, then track only what intrudes on it.</p>
 <retype-table copy-text="| Parameter | What it does |
 | --- | --- |
-| **Subtract Background** | Track only returns that are *closer* than the baked empty scene. Falls back to the full scan when nothing is baked yet, so it can't silently blank your tracking. |
-| **Foreground Margin (m)** | How much closer than the background a return must be to count. Raise it to reject noise hugging a wall; lower it to catch objects that sit right against the background. |
-| **Bake Background** | Capture the current static scene as that reference. **Requires Mode = Live.** |">
+| **Subtract Background** | Track only returns closer than the baked empty scene. Falls back to the full scan when nothing is baked yet, so it can't silently blank your tracking. |
+| **Foreground Margin (m)** | How much closer than the background a return must be to count. Raise to reject noise hugging a wall; lower to catch objects sitting right against the background. |
+| **Bake Background** | Capture the current static scene as the reference. **Requires Mode = Live.** |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -688,35 +652,35 @@
 <tbody>
 <tr>
 <td><strong>Subtract Background</strong></td>
-<td>Track only returns that are <em>closer</em> than the baked empty scene. Falls back to the full scan when nothing is baked yet, so it can&#x27;t silently blank your tracking.</td>
+<td>Track only returns closer than the baked empty scene. Falls back to the full scan when nothing is baked yet, so it can&#x27;t silently blank your tracking.</td>
 </tr>
 <tr>
 <td><strong>Foreground Margin (m)</strong></td>
-<td>How much closer than the background a return must be to count. Raise it to reject noise hugging a wall; lower it to catch objects that sit right against the background.</td>
+<td>How much closer than the background a return must be to count. Raise to reject noise hugging a wall; lower to catch objects sitting right against the background.</td>
 </tr>
 <tr>
 <td><strong>Bake Background</strong></td>
-<td>Capture the current static scene as that reference. <strong>Requires Mode = Live.</strong></td>
+<td>Capture the current static scene as the reference. <strong>Requires Mode = Live.</strong></td>
 </tr>
 </tbody>
 </table>
 </div>
 </retype-table>
-<p>The workflow, in order:</p>
+<p>Workflow:</p>
 <ol>
-<li>Go <strong>Live</strong>, and get everyone and everything out of the interaction area.</li>
-<li>Press <strong>Bake Background</strong>.</li>
-<li>Turn on <strong>Subtract Background</strong>, then walk back in.</li>
+<li>Go Live, and clear the interaction area.</li>
+<li>Press Bake Background.</li>
+<li>Turn on Subtract Background, then walk back in.</li>
 </ol>
-<p>On the test recording that took it from <strong>12 blobs per frame down to 1</strong>, and Single mode went from hopping 4.5 m across static clutter to tracing a clean 1.28 m hand path. Same clustering settings, same data — the only difference is that it stopped seeing the furniture.</p>
-<p>Careful with this one: bake with the area <strong>empty</strong>. Bake while you&#x27;re standing in it and you&#x27;ve just taught the node that you are part of the wall — after which you become invisible to it, which is a confusing way to spend twenty minutes. Re-bake whenever you move the sensor or rearrange the room.</p>
-<p><strong>Bake Background shares its storage with the Visualize tab&#x27;s Bake Current Map</strong> — one snapshot of the static scene serves both, so a bake on either button replaces the other. That&#x27;s deliberate, not a collision: turn on <strong>Show Static Map</strong> and you can <em>see</em> the background you just baked.</p>
+<p>With a background bake, tracking locks onto you instead of the furniture -- clean tracking on a room that used to confuse it.</p>
+<p>Careful with this one: bake with the area <strong>empty</strong>. Bake while you&#x27;re standing in it and you&#x27;ve taught the node that you&#x27;re part of the wall -- after which you become invisible to it. Re-bake whenever you move the sensor or rearrange the room.</p>
+<p><strong>Bake Background shares its storage with the Visualize tab&#x27;s Bake Current Map</strong> -- one snapshot serves both, so baking on either button replaces the other. Turn on Show Static Map to see the background you just baked.</p>
 <h3 id="clustering">Clustering</h3>
 <p>These decide what counts as one blob.</p>
 <retype-table copy-text="| Parameter | What it does |
 | --- | --- |
-| **Cluster Gap (m)** | How far apart two neighbouring returns can be and still belong to the same blob. Raise it to merge, lower it to split. |
-| **Min Points** | Blobs with fewer returns than this are discarded — the noise floor. |
+| **Cluster Gap (m)** | How far apart two neighbouring returns can be and still belong to the same blob. Raise to merge, lower to split. |
+| **Min Points** | Blobs with fewer returns than this are discarded -- the noise floor. |
 | **Blob Size min/max (m)** | Keep only blobs whose physical width falls in this range. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
@@ -729,11 +693,11 @@
 <tbody>
 <tr>
 <td><strong>Cluster Gap (m)</strong></td>
-<td>How far apart two neighbouring returns can be and still belong to the same blob. Raise it to merge, lower it to split.</td>
+<td>How far apart two neighbouring returns can be and still belong to the same blob. Raise to merge, lower to split.</td>
 </tr>
 <tr>
 <td><strong>Min Points</strong></td>
-<td>Blobs with fewer returns than this are discarded — the noise floor.</td>
+<td>Blobs with fewer returns than this are discarded -- the noise floor.</td>
 </tr>
 <tr>
 <td><strong>Blob Size min/max (m)</strong></td>
@@ -743,10 +707,10 @@
 </table>
 </div>
 </retype-table>
-<p><strong>Blob Size is the one that does the most work.</strong> A hand is roughly 0.05–0.15 m across; a wall reads far wider. Setting a sane maximum throws out room geometry on the way in and saves you tuning everything else. Start there before you touch Cluster Gap.</p>
-<p>Cluster Gap <strong>grows automatically with distance</strong>. Returns get sparser the further out they are, so a fixed gap that behaves at one meter shreds a single object into five at eight meters. The parameter is the gap up close; the node scales it out for you.</p>
+<p><strong>Blob Size does the most work.</strong> A hand is roughly 0.05-0.15 m across; a wall reads far wider. Set a sane maximum first -- it throws out room geometry and saves you tuning everything else.</p>
+<p>Cluster Gap <strong>grows automatically with distance</strong>. Returns get sparser further out, so a fixed gap that works at one meter would shred a single object into five at eight meters -- the node scales it out for you.</p>
 <h3 id="smoothing-and-association">Smoothing and association</h3>
-<p>These decide how a blob behaves once it <em>is</em> a blob — and they&#x27;re where the difference between &quot;twitchy&quot; and &quot;usable&quot; lives.</p>
+<p>These decide how a blob behaves once it <em>is</em> a blob -- where the difference between &quot;twitchy&quot; and &quot;usable&quot; lives.</p>
 <retype-table copy-text="| Parameter | What it does |
 | --- | --- |
 | **Position Smooth** | Smooths blob position over time. 0 = raw and snappy, 1 = heavily damped. |
@@ -782,18 +746,18 @@
 </table>
 </div>
 </retype-table>
-<p>A centroid computed from a handful of noisy returns jitters even when the hand is perfectly still, so some position smoothing is nearly always right — but it buys steadiness with lag, and past about 0.7 an installation starts feeling like it&#x27;s responding underwater.</p>
-<p><strong>Max Speed is the anti-teleport control.</strong> Lower it and a track refuses to make implausible jumps, so it won&#x27;t leap onto a different object that happened to appear nearby; raise it for genuinely fast motion. Too low and a fast hand gets abandoned mid-swipe and comes back as a new id.</p>
-<p><strong>Hold Time</strong> is what bridges brief dropouts — a hand turning edge-on to the sensor, a rotation that catches nothing. Without it every flicker ends a track and starts a fresh id, and anything you keyed to that id resets. A quarter of a second covers most dropouts without leaving ghosts hanging around.</p>
+<p>Some position smoothing is nearly always right, since a centroid from a handful of noisy returns jitters even when the hand is still -- but it buys steadiness with lag, and past about 0.7 things start feeling like they&#x27;re responding underwater.</p>
+<p><strong>Max Speed is the anti-teleport control.</strong> Lower it and a track refuses implausible jumps; raise it for genuinely fast motion. Too low and a fast hand gets abandoned mid-swipe and comes back as a new id.</p>
+<p><strong>Hold Time</strong> bridges brief dropouts -- a hand turning edge-on, a rotation that catches nothing. Without it, every flicker starts a fresh id and resets anything keyed to it. A quarter of a second covers most dropouts without leaving ghosts hanging around.</p>
 <h3 id="what-tracking-outputs">What tracking outputs</h3>
-<p>Tracked blobs come out as <strong>one point per blob</strong> in the point group <strong><code translate="no" v-pre>rplidar_track</code></strong>, carrying:</p>
+<p>Tracked blobs come out as one point per blob in the group <strong><code translate="no" v-pre>rplidar_track</code></strong>, carrying:</p>
 <retype-table copy-text="| Attribute | Type | Meaning |
 | --- | --- | --- |
 | `id` | int | Stable track id. Survives as long as the tracker can follow the blob. |
-| `v` | vector | Velocity in **units per second** (at your Units per Meter scale). |
+| `v` | vector | Velocity in units per second (at your Units per Meter scale). |
 | `age` | float | Seconds since the track was born. |
 | `size` | float | Physical width of the blob, in meters. |
-| `angle` / `dist` | float | Same meaning as on the scan points — degrees, and millimeters. |">
+| `angle` / `dist` | float | Same meaning as on the scan points -- degrees, and millimeters. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -812,7 +776,7 @@
 <tr>
 <td><code translate="no" v-pre>v</code></td>
 <td>vector</td>
-<td>Velocity in <strong>units per second</strong> (at your Units per Meter scale).</td>
+<td>Velocity in units per second (at your Units per Meter scale).</td>
 </tr>
 <tr>
 <td><code translate="no" v-pre>age</code></td>
@@ -827,19 +791,19 @@
 <tr>
 <td><code translate="no" v-pre>angle</code> / <code translate="no" v-pre>dist</code></td>
 <td>float</td>
-<td>Same meaning as on the scan points — degrees, and millimeters.</td>
+<td>Same meaning as on the scan points -- degrees, and millimeters.</td>
 </tr>
 </tbody>
 </table>
 </div>
 </retype-table>
-<p>Set <strong>Solver Output</strong> to <strong>Blobs</strong> and Output 1 carries exactly these points and nothing else — which is what you want feeding a POP force or a Vellum collider: a handful of points with velocity, instead of a few hundred anonymous ones.</p>
-<p><code translate="no" v-pre>v</code> is a real velocity attribute, so POP nodes that read <code translate="no" v-pre>v</code> pick it up with no conversion. That, plus the stable <code translate="no" v-pre>id</code>, is the whole point of tracking: your effect can follow <em>this</em> blob rather than reacting to whatever happens to be nearby.</p>
+<p>Set Solver Output to Blobs and Output 1 carries exactly these points -- a handful with velocity, instead of a few hundred anonymous ones, which is what you want feeding a POP force or a Vellum collider.</p>
+<p><code translate="no" v-pre>v</code> is a real velocity attribute, so POP nodes that read <code translate="no" v-pre>v</code> pick it up with no conversion. That, plus the stable <code translate="no" v-pre>id</code>, is the whole point of tracking: your effect can follow <em>this</em> blob rather than reacting to whatever&#x27;s nearby.</p>
 <h3 id="markers">Markers</h3>
 <retype-table copy-text="| Parameter | What it does |
 | --- | --- |
 | **Show Markers** | Draw a diamond plus a velocity line at each tracked blob. On by default. |
-| **Marker Color** | Color of those markers (point `Cd`). |">
+| **Marker Color** | Color of those markers. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -855,28 +819,28 @@
 </tr>
 <tr>
 <td><strong>Marker Color</strong></td>
-<td>Color of those markers (point <code translate="no" v-pre>Cd</code>).</td>
+<td>Color of those markers.</td>
 </tr>
 </tbody>
 </table>
 </div>
 </retype-table>
-<p>The velocity line is the useful half — it shows you both direction and magnitude, so you can see at a glance whether smoothing is too aggressive or Max Speed is clipping. Markers are guide geometry: they ride on Output 0 and are stripped from Output 1, so they never reach your solver.</p>
+<p>The velocity line is the useful half -- direction and magnitude at a glance, so you can see whether smoothing is too aggressive or Max Speed is clipping. Markers are guide geometry: they ride on Output 0 and are stripped from Output 1.</p>
 <blockquote>
-<p>Tuning tip: turn markers on, put the node&#x27;s display flag up, and just move around in front of the sensor. If the diamond follows you, you&#x27;re done. If it sits on a chair, you skipped the background bake.</p>
+<p>Tuning tip: turn markers on, put the node&#x27;s display flag up, and move around in front of the sensor. If the diamond follows you, you&#x27;re done. If it sits on a chair, you skipped the background bake.</p>
 </blockquote>
 <hr>
 <h2 id="recording-and-playback">Recording and playback</h2>
-<p>Recording captures the live stream to disk so you can replay it later — develop offline, iterate on a solver against a repeatable take, or archive an installation.</p>
+<p>Recording captures the live stream to disk so you can replay it later -- develop offline, iterate on a solver against a repeatable take, or archive an installation.</p>
 <p>Each recording is a <code translate="no" v-pre>.jsonl</code> file: one JSON line per rotation, holding the timestamp and the rotation&#x27;s samples.</p>
 <retype-table copy-text="| Parameter | What it does |
 | --- | --- |
 | **Recording Directory** | Where recordings are saved and listed from. Defaults to `$HIP/rplidar-recordings`. |
-| **Recording File** | The file used for Playback. The dropdown lists the directory. Leave it **blank to use the newest file**. |
-| **Loop Playback** | Loop the recording. When off, the last scan is held after the file ends. |
-| **Start Recording** | Begin writing the live stream to a new timestamped file. *Live mode only.* |
-| **Stop Recording** | Finish the recording and auto-select it in **Recording File**. |
-| **Delete Recording** | Delete the file currently picked in **Recording File** (asks for confirmation). |">
+| **Recording File** | The file used for Playback. The dropdown lists the directory. Leave blank to use the newest file. |
+| **Loop Playback** | Loop the recording. When off, the last scan holds after the file ends. |
+| **Start Recording** | Begin writing the live stream to a new timestamped file. Live mode only. |
+| **Stop Recording** | Finish the recording and auto-select it in Recording File. |
+| **Delete Recording** | Delete the file currently picked in Recording File (asks for confirmation). |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -892,23 +856,23 @@
 </tr>
 <tr>
 <td><strong>Recording File</strong></td>
-<td>The file used for Playback. The dropdown lists the directory. Leave it <strong>blank to use the newest file</strong>.</td>
+<td>The file used for Playback. The dropdown lists the directory. Leave blank to use the newest file.</td>
 </tr>
 <tr>
 <td><strong>Loop Playback</strong></td>
-<td>Loop the recording. When off, the last scan is held after the file ends.</td>
+<td>Loop the recording. When off, the last scan holds after the file ends.</td>
 </tr>
 <tr>
 <td><strong>Start Recording</strong></td>
-<td>Begin writing the live stream to a new timestamped file. <em>Live mode only.</em></td>
+<td>Begin writing the live stream to a new timestamped file. Live mode only.</td>
 </tr>
 <tr>
 <td><strong>Stop Recording</strong></td>
-<td>Finish the recording and auto-select it in <strong>Recording File</strong>.</td>
+<td>Finish the recording and auto-select it in Recording File.</td>
 </tr>
 <tr>
 <td><strong>Delete Recording</strong></td>
-<td>Delete the file currently picked in <strong>Recording File</strong> (asks for confirmation).</td>
+<td>Delete the file currently picked in Recording File (asks for confirmation).</td>
 </tr>
 </tbody>
 </table>
@@ -916,38 +880,34 @@
 </retype-table>
 <p><strong>Recording a take:</strong></p>
 <ol>
-<li>Set <strong>Mode → Live</strong> and confirm points are streaming.</li>
-<li>Press <strong>Start Recording</strong>. A new timestamped <code translate="no" v-pre>.jsonl</code> file is created in the Recording Directory.</li>
+<li>Set Mode -&gt; Live and confirm points are streaming.</li>
+<li>Press Start Recording. A new timestamped <code translate="no" v-pre>.jsonl</code> file is created.</li>
 <li>Perform your take (walk through the scene, move objects, etc.).</li>
-<li>Press <strong>Stop Recording</strong>. The finished file is selected in <strong>Recording File</strong> automatically.</li>
+<li>Press Stop Recording. The finished file is auto-selected.</li>
 </ol>
-<p>Recording happens on the sensor&#x27;s background reader thread, so no rotations are missed between Houdini cooks.</p>
+<p>No rotations are missed between Houdini cooks while recording.</p>
 <p><strong>Playing it back:</strong></p>
 <ol>
-<li>Set <strong>Mode → Playback</strong>.</li>
-<li>Pick a file in <strong>Recording File</strong> (or leave blank for the newest).</li>
-<li>Scrub the timeline or press Play — the scan is driven by the playbar clock.</li>
+<li>Set Mode -&gt; Playback.</li>
+<li>Pick a file in Recording File (or leave blank for the newest).</li>
+<li>Scrub the timeline or press Play -- the scan follows the playbar clock.</li>
 </ol>
-<p>Use <strong>Loop Playback</strong> to cycle a short take continuously while you tune a downstream network.</p>
+<p>Use Loop Playback to cycle a short take continuously while you tune a downstream network.</p>
 <hr>
 <h2 id="live-simulation">Live simulation</h2>
-<p>RPLidar In&#x27;s point cloud is ordinary SOP geometry, so it can feed any solver — POPs, Vellum, or your own network. Two buttons set up a working example and its controls in one click.</p>
+<p>RPLidar In&#x27;s point cloud is ordinary SOP geometry, so it can feed any solver -- POPs, Vellum, or your own network. Two buttons set up a working example in one click.</p>
 <blockquote>
-<p>Feeding the raw cloud is the straightforward route, and for emission or collision it&#x27;s often all you need. But if your effect should follow <em>a person</em> rather than react to a wall of points, set up <doc-anchor-trigger to="#blob-tracking">Blob tracking</doc-anchor-trigger> first and set <strong>Solver Output</strong> to <strong>Blobs</strong> — the same output then delivers a handful of points carrying <code translate="no" v-pre>id</code> and <code translate="no" v-pre>v</code>, which is a far better thing to attach a force to.</p>
+<p>Feeding the raw cloud is the straightforward route, and often all you need for emission or collision. But if your effect should follow <em>a person</em> rather than react to a wall of points, set up <doc-anchor-trigger to="#blob-tracking">Blob tracking</doc-anchor-trigger> first and set Solver Output to Blobs -- a far better thing to attach a force to.</p>
 </blockquote>
 <h3 id="create-generic-pop-network">Create Generic POP Network</h3>
-<p>Press <strong>Create Generic POP Network</strong> and the node builds a ready-to-run POP network below itself, wired to the <strong>solver-ready output</strong> (Output 1, guides stripped), with presets tuned for live work. It also creates (or reuses) a small green <strong>control null</strong> and registers the new sim on it.</p>
-<!-- SCREENSHOT PENDING - drop the file in and delete these two
-     comment markers to publish it:
-![The generated POP network wired to Output 1, with the green control null](static/pop-network.png)
--->
+<p>Press <strong>Create Generic POP Network</strong> and the node builds a ready-to-run POP network below itself, wired to the solver-ready output (Output 1), with presets tuned for live work. It also creates (or reuses) a small green control null and registers the new sim on it.</p>
 <h3 id="the-control-null">The control null</h3>
-<p>The green control null is the master runtime control for this sensor — <strong>one per RPLidar In node</strong>. (<strong>Create Control Null</strong> makes it on its own; Create Generic POP Network makes it for you.) It carries a <strong>Solvers</strong> list — every DOP network it drives — and three buttons:</p>
+<p>The green control null is the master runtime control for this sensor -- one per RPLidar In node. (Create Control Null makes it on its own; Create Generic POP Network makes it for you.) It carries a Solvers list -- every DOP network it drives -- and three buttons:</p>
 <retype-table copy-text="| Button | What it does |
 | --- | --- |
-| **Start** | Sets RPLidar In to **Live** and plays the timeline in **real time**, running every listed sim against the live sensor. |
-| **Stop** | Stops playback and sets RPLidar In back to **Off** (which stops the sensor motor). |
-| **Reset** | Re-seeds every listed sim (clears the current particles) and rewinds, **without** stopping the motor. |">
+| **Start** | Sets RPLidar In to Live and plays the timeline in real time, running every listed sim against the live sensor. |
+| **Stop** | Stops playback and sets RPLidar In back to Off (which stops the motor). |
+| **Reset** | Re-seeds every listed sim (clears the current particles) and rewinds, without stopping the motor. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -959,43 +919,43 @@
 <tbody>
 <tr>
 <td><strong>Start</strong></td>
-<td>Sets RPLidar In to <strong>Live</strong> and plays the timeline in <strong>real time</strong>, running every listed sim against the live sensor.</td>
+<td>Sets RPLidar In to Live and plays the timeline in real time, running every listed sim against the live sensor.</td>
 </tr>
 <tr>
 <td><strong>Stop</strong></td>
-<td>Stops playback and sets RPLidar In back to <strong>Off</strong> (which stops the sensor motor).</td>
+<td>Stops playback and sets RPLidar In back to Off (which stops the motor).</td>
 </tr>
 <tr>
 <td><strong>Reset</strong></td>
-<td>Re-seeds every listed sim (clears the current particles) and rewinds, <strong>without</strong> stopping the motor.</td>
+<td>Re-seeds every listed sim (clears the current particles) and rewinds, without stopping the motor.</td>
 </tr>
 </tbody>
 </table>
 </div>
 </retype-table>
-<h3 id="how-it-actually-runs--no-live-nodes">How it actually runs — no Live Nodes</h3>
-<p>The live simulation is driven by <strong>plain real-time timeline playback</strong>, not by continuous cook / &quot;Live Nodes.&quot; Pressing <strong>Start</strong> simply plays the timeline: each frame advances the sim <em>and</em> re-reads the sensor for a fresh rotation. That&#x27;s all it needs.</p>
+<h3 id="how-it-actually-runs">How it actually runs</h3>
+<p>The live simulation is driven by plain real-time timeline playback, not continuous cook. Pressing Start plays the timeline: each frame advances the sim and re-reads the sensor for a fresh rotation.</p>
 <blockquote>
-<p><strong>What to watch:</strong> the &quot;it&#x27;s running&quot; indicator is the <strong>playbar frame counter climbing</strong> in real time — there is no live-simulation tick. If the frames are advancing and points are simulating, it&#x27;s working.</p>
+<p>What to watch: the &quot;it&#x27;s running&quot; indicator is the playbar frame counter climbing in real time. If frames are advancing and points are simulating, it&#x27;s working.</p>
 </blockquote>
-<p>Because a live installation never &quot;finishes,&quot; <strong>Start</strong> sets a very long frame range (start … start + 1,000,000) so playback can run for hours. Keep that in mind — it overwrites your scene&#x27;s frame range (see <doc-anchor-trigger to="#caching-a-take">Caching a take</doc-anchor-trigger> for when that matters).</p>
+<p>Because a live installation never &quot;finishes,&quot; Start sets a very long frame range (start ... start + 1,000,000) so playback can run for hours. That overwrites your scene&#x27;s frame range -- see <doc-anchor-trigger to="#caching-a-take">Caching a take</doc-anchor-trigger> for when that matters.</p>
 <h3 id="two-ways-to-run-the-sim">Two ways to run the sim</h3>
 <ul>
-<li><strong>Real time (Live):</strong> press <strong>Start</strong> on the control null. The solver advances against the live sensor as the timeline plays. Best for interactive installations. Not deterministic — the input is whatever the room is doing right now.</li>
+<li><strong>Real time (Live):</strong> press Start on the control null. The solver advances against the live sensor as the timeline plays. Best for interactive installations -- not deterministic, since the input is whatever the room is doing right now.</li>
 <li><strong>Over a frame range (Playback):</strong> Mode = Playback against a recording. The sim steps frame by frame from a repeatable input, so you can scrub, cache, and render a deterministic result.</li>
 </ul>
 <h3 id="caching-a-take">Caching a take</h3>
-<p>A <strong>live</strong> sim can&#x27;t be cached deterministically — its input (the room) changes every real-world moment, so there&#x27;s no &quot;re-simulate frame 500 and get the same thing.&quot; To bake a repeatable result, go through the recording path:</p>
+<p>A live sim can&#x27;t be cached deterministically -- the room changes every real-world moment, so there&#x27;s no &quot;re-simulate frame 500 and get the same thing.&quot; To bake a repeatable result, go through the recording path:</p>
 <ol>
-<li><strong>Capture the input.</strong> In Live, <strong>Start Recording</strong>, perform your take, <strong>Stop Recording</strong> (see <doc-anchor-trigger to="#recording-and-playback">Recording &amp; Playback</doc-anchor-trigger>). The <code translate="no" v-pre>.jsonl</code> is frame-locked and repeatable.</li>
-<li><strong>Switch to Playback</strong> and pick the recording. Now every frame produces the same scan, so the sim downstream is fully deterministic.</li>
-<li><strong>Cache over a finite range.</strong> Set your frame range to the recording&#x27;s length — <strong>not</strong> the huge range that pressing Start leaves behind. Drop a <strong>File Cache SOP</strong> after the sim (or DOP I/O inside the network), set the range, and <strong>Save to Disk</strong>. Then flip it to <strong>Load from Disk</strong> to scrub and render the baked result.</li>
+<li><strong>Capture the input.</strong> In Live, Start Recording, perform your take, Stop Recording (see <doc-anchor-trigger to="#recording-and-playback">Recording &amp; Playback</doc-anchor-trigger>). The <code translate="no" v-pre>.jsonl</code> is frame-locked and repeatable.</li>
+<li><strong>Switch to Playback</strong> and pick the recording. Every frame now produces the same scan, so the sim downstream is fully deterministic.</li>
+<li><strong>Cache over a finite range.</strong> Set your frame range to the recording&#x27;s length -- not the huge range Start leaves behind. Drop a File Cache SOP after the sim, set the range, and Save to Disk. Then flip it to Load from Disk to scrub and render the baked result.</li>
 </ol>
 <blockquote>
-<p>Don&#x27;t cache against the 1,000,000-frame range that <strong>Start</strong> sets. Set a finite range first (or just don&#x27;t press Start — for caching you drive the sim with the File Cache / the timeline yourself).</p>
+<p>Don&#x27;t cache against the 1,000,000-frame range that Start sets. Set a finite range first, or just don&#x27;t press Start -- drive the sim with the File Cache / the timeline yourself.</p>
 </blockquote>
 <h3 id="recipes">Recipes</h3>
-<p>A <strong>recipe</strong> is a whole downstream network — a sim plus a look — packed into a single <code translate="no" v-pre>.py</code> file, so a finished effect can be dropped in behind the sensor in one press. Enable <strong>Use Recipe</strong>, point <strong>Recipe File</strong> at the <code translate="no" v-pre>.py</code>, and press <strong>Generate Recipe</strong>: it builds the network next to the node, inside its own subnet, and registers its sims on the control null, ready to <strong>Start</strong>.</p>
+<p>A <strong>recipe</strong> is a whole downstream network -- a sim plus a look -- packed into a single <code translate="no" v-pre>.py</code> file, so a finished effect can be dropped in behind the sensor in one press. Enable Use Recipe, point Recipe File at the <code translate="no" v-pre>.py</code>, and press Generate Recipe: it builds the network next to the node, inside its own subnet, and registers its sims on the control null.</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
     <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
@@ -1009,7 +969,7 @@
         </div>
         <div class="pr-5 ml-3 w-full">
             <h5>No recipes ship with 1.0</h5>
-<p>The machinery is here and it works, but there is nothing in the box to load yet — recipe packs are planned as a separate release. For now this is a way to load <strong>your own</strong> recipe file, or one someone shares with you. See <doc-anchor-trigger to="#building-your-own">Building your own</doc-anchor-trigger> below.</p>
+<p>The machinery works, but there&#x27;s nothing in the box to load yet -- recipe packs are planned as a separate release. For now this is a way to load your own recipe file, or one someone shares with you. See <doc-anchor-trigger to="#building-your-own">Building your own</doc-anchor-trigger> below.</p>
         </div>
     </div>
 </div>
@@ -1017,7 +977,7 @@
 <p>Recipe files are executed Python. Only load recipe files from sources you trust.</p>
 </blockquote>
 <h3 id="building-your-own">Building your own</h3>
-<p>There&#x27;s nothing special about the generated network — you can wire the node&#x27;s <strong>Output 1</strong> into any solver&#x27;s source. Output 1 is the clean point cloud with all visualization guides removed, so it&#x27;s safe to feed directly. See <doc-anchor-trigger to="#outputs-and-attributes">Outputs and attributes</doc-anchor-trigger> for the per-point attributes you can read (<code translate="no" v-pre>quality</code>, <code translate="no" v-pre>angle</code>, <code translate="no" v-pre>dist</code>).</p>
+<p>There&#x27;s nothing special about the generated network -- you can wire the node&#x27;s Output 1 into any solver&#x27;s source. It&#x27;s the clean point cloud with all visualization guides removed, so it&#x27;s safe to feed directly. See <doc-anchor-trigger to="#outputs-and-attributes">Outputs and attributes</doc-anchor-trigger> for the per-point attributes you can read (<code translate="no" v-pre>quality</code>, <code translate="no" v-pre>angle</code>, <code translate="no" v-pre>dist</code>).</p>
 <div id="retype-backlinks">
     <h2>See also</h2>
 <div class="card-compact-group">
@@ -1044,17 +1004,6 @@
     </a>
 </div>
 <div class="card-compact-container">
-    <a href="/jvtools-docs/test-rewrite/" class="group card-compact no-link">
-        <div class="card-compact-body">
-            <div class="card-compact-header">
-                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M8 8.807V3.5h-.563a.75.75 0 0 1 0-1.5h9.125a.75.75 0 0 1 0 1.5H16v5.307l5.125 9.301c.964 1.75-.302 3.892-2.299 3.892H5.174c-1.998 0-3.263-2.142-2.3-3.892ZM4.189 18.832a1.123 1.123 0 0 0 .985 1.668h13.652a1.123 1.123 0 0 0 .985-1.668L17.7 15H6.3ZM14.5 3.5h-5V9a.75.75 0 0 1-.093.362L7.127 13.5h9.746l-2.28-4.138A.75.75 0 0 1 14.5 9Z"/></svg></span>
-                <span class="card-compact-title">Rewrite Test</span>
-            </div>
-            <p class="card-compact-description">A style experiment: one long page from each product, rewritten in plainer, more direct language — less technical detail, shorter sentences, same facts and warnings.</p>
-        </div>
-    </a>
-</div>
-<div class="card-compact-container">
     <a href="/jvtools-docs/rplidar-in/" class="group card-compact no-link">
         <div class="card-compact-body">
             <div class="card-compact-header">
@@ -1076,24 +1025,13 @@
         </div>
     </a>
 </div>
-<div class="card-compact-container">
-    <a href="/jvtools-docs/test-rewrite/rplidar-using/" class="group card-compact no-link">
-        <div class="card-compact-body">
-            <div class="card-compact-header">
-                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M20.485 2.515a.75.75 0 0 0-1.06 1.06A10.465 10.465 0 0 1 22.5 11c0 2.9-1.174 5.523-3.075 7.424a.75.75 0 0 0 1.06 1.061A11.965 11.965 0 0 0 24 11c0-3.314-1.344-6.315-3.515-8.485Zm-15.91 1.06a.75.75 0 0 0-1.06-1.06A11.965 11.965 0 0 0 0 11c0 3.313 1.344 6.314 3.515 8.485a.75.75 0 0 0 1.06-1.06A10.465 10.465 0 0 1 1.5 11c0-2.9 1.174-5.524 3.075-7.425ZM8.11 7.11a.75.75 0 0 0-1.06-1.06A6.98 6.98 0 0 0 5 11a6.98 6.98 0 0 0 2.05 4.95.75.75 0 0 0 1.06-1.061 5.48 5.48 0 0 1-1.61-3.89 5.48 5.48 0 0 1 1.61-3.888Zm8.84-1.06a.75.75 0 1 0-1.06 1.06A5.48 5.48 0 0 1 17.5 11a5.48 5.48 0 0 1-1.61 3.889.75.75 0 1 0 1.06 1.06A6.98 6.98 0 0 0 19 11a6.98 6.98 0 0 0-2.05-4.949ZM14 11a2 2 0 0 1-1.25 1.855v8.395a.75.75 0 0 1-1.5 0v-8.395A2 2 0 1 1 14 11Z"/></svg></span>
-                <span class="card-compact-title">Using RPLidar In</span>
-            </div>
-            <p class="card-compact-description">This is a test rewrite of the original page.</p>
-        </div>
-    </a>
-</div>
 </div>
 </div>
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-06T18:02:45" title="2026-08-06" data-absolute-label="Last updated on 2026-08-06" data-absolute-label-html="Last updated on 2026-08-06" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-08-06
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-07T12:06:44" title="2026-08-07" data-absolute-label="Last updated on 2026-08-07" data-absolute-label-html="Last updated on 2026-08-07" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-08-07
                     </time>
                 </div>
 

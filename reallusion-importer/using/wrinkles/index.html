@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839411007006">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839412427533">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -44,11 +44,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.6.0.839411007006" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.839412427533" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.839411007006" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.839412427533" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.839411007006" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.839412427533" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -234,7 +234,7 @@
         </div>
         <div class="pr-5 ml-3 w-full">
             <h5>FBX import only</h5>
-<p>The wrinkle system needs data that Character Creator writes only to its <strong>FBX</strong> export, so wrinkles are available in <strong>FBX import mode only</strong>. In USD mode these controls are disabled with an &quot;(FBX import only)&quot; note. If your character&#x27;s performance relies on expression wrinkles, import it as FBX — see <a href="../../getting-started/import-modes/">USD vs FBX</a>.</p>
+<p>The wrinkle system needs data Character Creator writes only to its <strong>FBX</strong> export, so wrinkles are available in <strong>FBX import mode only</strong>. In USD mode these controls are disabled with an &quot;(FBX import only)&quot; note. If your character&#x27;s performance relies on expression wrinkles, import it as FBX — see <a href="../../getting-started/import-modes/">USD vs FBX</a>.</p>
         </div>
     </div>
 </div>
@@ -243,7 +243,7 @@
     <figcaption class="caption">Eyebrow Strength at 1 vs 2.5</figcaption>
 </figure>
 <h2 id="how-it-works-the-short-version">How it works (the short version)</h2>
-<p>You don&#x27;t need to configure anything for this to work — it&#x27;s automatic if your character was exported correctly. As the face animates, the tool reads the expression values and blends in the appropriate wrinkle maps (for surface relief, color, and roughness) in the correct facial regions. A surprised brow-raise creates forehead lines; a squint creases the area around the eyes; and so on.</p>
+<p>You don&#x27;t need to configure anything for this to work — it&#x27;s automatic if your character was exported correctly. As the face animates, the tool reads the expression values and blends in the appropriate wrinkle maps (surface relief, color, roughness) in the correct facial regions. A surprised brow-raise creates forehead lines; a squint creases the area around the eyes; and so on.</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
     <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
@@ -270,25 +270,25 @@
 <p>The master intensity for all wrinkles.</p>
 <ul>
 <li><strong>0</strong> disables wrinkles entirely.</li>
-<li><strong>1</strong> is the default, tuned to read naturally in Karma (Character Creator&#x27;s authored wrinkles are scaled to a sensible level so they don&#x27;t over-read).</li>
+<li><strong>1</strong> is the default, tuned to read naturally in Karma (Character Creator&#x27;s authored wrinkles are scaled down so they don&#x27;t over-read).</li>
 <li><strong>Above 1</strong> over-drives the wrinkles — useful for hero close-ups or stylized looks where you want the creases to really read.</li>
 </ul>
 <h3 id="normal--diffuse--roughness-strength">Normal / Diffuse / Roughness Strength</h3>
-<p>These three are per-channel trims layered on top of the master Wrinkle Strength. They let you tune <em>how</em> the wrinkles express themselves:</p>
+<p>Three per-channel trims layered on top of the master Wrinkle Strength, for tuning <em>how</em> the wrinkles express themselves:</p>
 <ul>
 <li><strong>Normal Strength</strong> — the physical relief/depth of the wrinkle (how much it catches light).</li>
 <li><strong>Diffuse Strength</strong> — the darkening in the crease (how much shadow/color the wrinkle adds).</li>
 <li><strong>Roughness Strength</strong> — the change in surface sheen along the wrinkle.</li>
 </ul>
-<p>In most cases you can leave these at 1 and just use the master Wrinkle Strength. Reach for them when you want, say, deep-looking creases without the extra darkening, or color change without the relief.</p>
+<p>Usually you can leave these at 1 and just use the master Wrinkle Strength. Reach for them when you want, say, deep-looking creases without the extra darkening, or color change without the relief.</p>
 <h2 id="go-to-max-wrinkle-frame">Go to Max Wrinkle Frame</h2>
-<p>Judging wrinkles is hard when your character is sitting on a neutral frame — there&#x27;s nothing to see. The <strong>Go to Max Wrinkle Frame</strong> button solves this.</p>
+<p>Judging wrinkles is hard on a neutral frame — there&#x27;s nothing to see. The <strong>Go to Max Wrinkle Frame</strong> button solves this.</p>
 <figure class="content-center">
     <img src="../../static/max-wrinkle-frame-button.png" alt="" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="633" height="166" />
     <figcaption class="caption"></figcaption>
 </figure>
-<p>Click it, and the tool scans through your character&#x27;s animation, finds the frame where the facial expression is most extreme (the most wrinkle activity), and jumps the timeline there. Now you can see the wrinkles at their strongest and dial in the strength controls against a meaningful pose.</p>
-<p>This is especially handy right after import — click it, and you&#x27;ll immediately see whether wrinkles are working and how strong they look.</p>
+<p>Click it and the tool scans your character&#x27;s animation, finds the frame with the most extreme facial expression (the most wrinkle activity), and jumps the timeline there. Now you can see the wrinkles at their strongest and dial in the strength controls against a meaningful pose.</p>
+<p>Especially handy right after import — click it and you&#x27;ll immediately see whether wrinkles are working and how strong they look.</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
     <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
@@ -316,7 +316,7 @@
                 <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M11 18.25a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1-.75-.75Zm-8-12a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 3 6.25Zm13 6a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 0 1.5h-3.5a.75.75 0 0 1-.75-.75ZM8.75 16a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75Z"/><path d="M3 18.25a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Zm0-6a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1-.75-.75ZM16.75 10a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75ZM14 6.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 0 1.5h-5.5a.75.75 0 0 1-.75-.75ZM11.25 4a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75Z"/></svg></span>
                 <span class="card-compact-title">Parameter Reference</span>
             </div>
-            <p class="card-compact-description">Every control on the Reallusion Importer, grouped by where you find it. There are two panels:</p>
+            <p class="card-compact-description">Every control on the Reallusion Importer, grouped by where you find it. Two panels:</p>
         </div>
     </a>
 </div>
@@ -347,8 +347,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-07-10T22:19:45" title="2026-07-10" data-absolute-label="Last updated on 2026-07-10" data-absolute-label-html="Last updated on 2026-07-10" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-07-10
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-07T12:06:44" title="2026-08-07" data-absolute-label="Last updated on 2026-08-07" data-absolute-label-html="Last updated on 2026-08-07" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-08-07
                     </time>
                 </div>
 

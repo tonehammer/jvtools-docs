@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839411007006">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839412427533">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -44,11 +44,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.6.0.839411007006" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.839412427533" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.839411007006" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.839412427533" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.839411007006" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.839412427533" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -226,12 +226,12 @@
     <figcaption class="caption"></figcaption>
 </figure>
 <h2 id="finding-it">Finding it</h2>
-<p>Click the <strong>Go to LOPs</strong> button on the Reallusion Importer node to jump straight to the controller. It&#x27;s the red, circular node — hard to miss. If you have several characters in your scene, each one gets its own controller, named after that character.</p>
+<p>Click <strong>Go to LOPs</strong> on the Reallusion Importer node to jump straight to the controller. It&#x27;s the red, circular node — hard to miss. Several characters in your scene means several controllers, each named after its character.</p>
 <h2 id="how-it-works">How it works</h2>
-<p>Think of the controller as your character&#x27;s &quot;look dashboard.&quot; The materials don&#x27;t store their own settings — instead they read from this controller. That means:</p>
+<p>Think of the controller as your character&#x27;s &quot;look dashboard.&quot; The materials don&#x27;t store their own settings — they read from this controller instead. That means:</p>
 <ul>
-<li><strong>Changes are live.</strong> Drag a slider and the Karma render updates (with a couple of exceptions noted below).</li>
-<li><strong>Your settings survive rebuilds.</strong> If you rebuild the character (for example after changing an export), your dialed-in look values are preserved — the controller isn&#x27;t wiped.</li>
+<li><strong>Changes are live.</strong> Drag a slider and the Karma render updates (a couple of exceptions below).</li>
+<li><strong>Your settings survive rebuilds.</strong> Rebuild the character (say, after changing an export) and your dialed-in look values are preserved — the controller isn&#x27;t wiped.</li>
 <li><strong>Everything is in one place.</strong> No hunting through dozens of shader nodes.</li>
 </ul>
 <div class="flex mb-6">
@@ -248,7 +248,7 @@
         </div>
         <div class="pr-5 ml-3 w-full">
             <h5>A few controls need a render restart</h5>
-<p>Most controls update live. A small number — the eye light controls and SSS Quality — are Karma <em>render properties</em>, which Karma only reads when a render starts. If one of these doesn&#x27;t seem to update, restart your Karma render. Each such control says so in its tooltip, and we note it on the relevant pages.</p>
+<p>Most controls update live. A small number — the eye light controls and SSS Quality — are Karma <em>render properties</em>, which Karma only reads when a render starts. If one doesn&#x27;t seem to update, restart your Karma render. Each such control says so in its tooltip, and it&#x27;s noted on the relevant pages here.</p>
         </div>
     </div>
 </div>
@@ -266,32 +266,32 @@
 <li><a href="../hair/"><strong>Hair</strong></a> — re-dyeing, highlights, and realistic sheen; contains the Brows sub-folder.</li>
 </ul>
 <h2 id="clothing--accessories">Clothing &amp; accessories</h2>
-<p>You&#x27;ll notice there&#x27;s no folder for clothing or accessories — that&#x27;s intentional. The tool shades clothing, shoes, props, horns, GoZ garments, and other accessories <strong>automatically</strong> as physically-based dielectric MaterialX materials, using the textures (and, for untextured custom accessories, the colors stored in the character&#x27;s <code translate="no" v-pre>.json</code>). They come in looking correct with no controls to dial, which is why they don&#x27;t appear on the controller.</p>
+<p>There&#x27;s no folder here for clothing or accessories — deliberately. The tool shades clothing, shoes, props, horns, GoZ garments, and other accessories <strong>automatically</strong> as physically-based dielectric MaterialX materials, using the textures (and, for untextured custom accessories, the colors stored in the character&#x27;s <code translate="no" v-pre>.json</code>). They come in looking correct with no controls to dial, which is why they don&#x27;t appear on the controller.</p>
 <p>The one related control lives in the <strong>Skin</strong> folder: <strong>Respect Metallic Maps</strong>. Character Creator sometimes writes junk metallic maps onto fabric and inner-mouth materials; the tool ignores them by default so those surfaces read correctly. Turn it on only for a character with genuinely metallic clothing or accessories. See <a href="../skin/">Skin</a>.</p>
 <h2 id="the-quality-folder">The Quality folder</h2>
-<p>The Quality folder is worth understanding first, because it controls the speed-vs-fidelity trade-off for your whole look-dev session.</p>
+<p>Worth understanding first — it controls the speed-vs-fidelity trade-off for your whole look-dev session.</p>
 <h3 id="quality-preview--production">Quality (Preview / Production)</h3>
-<p>This is a master preset with two settings:</p>
+<p>A master preset with two settings:</p>
 <ul>
-<li><strong>Preview</strong> — turns off subsurface scattering and uses cheap, fast eyes. Use this while you&#x27;re framing shots and dialing in poses; it&#x27;s much faster to render.</li>
+<li><strong>Preview</strong> — turns off subsurface scattering and uses cheap, fast eyes. Use this while framing shots and dialing in poses; much faster to render.</li>
 <li><strong>Production</strong> — restores full subsurface scattering and high-quality refractive eyes. Switch to this for your final renders.</li>
 </ul>
 <p>Switching this preset flips the two toggles below it automatically.</p>
 <h3 id="remove-sss">Remove SSS</h3>
-<p>Disables subsurface scattering on skin and teeth. Subsurface scattering is what gives skin its soft, translucent, lifelike quality — but it&#x27;s also the single most expensive part of the render. Turning it off is the biggest single speed-up available, which is why Preview mode uses it.</p>
+<p>Disables subsurface scattering on skin and teeth. Subsurface scattering gives skin its soft, translucent, lifelike quality — but it&#x27;s also the single most expensive part of the render. Turning it off is the biggest single speed-up available, which is why Preview mode uses it.</p>
 <h3 id="hero-eyes">Hero Eyes</h3>
 <p>Switches the eyes between two quality levels:</p>
 <ul>
 <li><strong>On</strong> — refractive, ray-traced corneas for close-up realism. Use for hero shots where the eyes are prominent.</li>
-<li><strong>Off</strong> — a cheaper cutout cornea, faster and perfectly fine for distant or background characters.</li>
+<li><strong>Off</strong> — a cheaper cutout cornea, faster and fine for distant or background characters.</li>
 </ul>
 <h3 id="light-setup">Light Setup</h3>
 <p>Switches the auto-generated light rig between two pre-tuned looks:</p>
 <ul>
 <li><strong>Cinematic</strong> — a warm key light with moody, richly shadowed fill. Good for portrait and dramatic hero shots.</li>
-<li><strong>Neutral</strong> — flat, even, neutral-white lighting. Good for look-dev where you want to see the materials clearly without a strong mood.</li>
+<li><strong>Neutral</strong> — flat, even, neutral-white lighting. Good for look-dev, where you want to see the materials clearly without a strong mood.</li>
 </ul>
-<p>Changing this re-tints the rig immediately. It only affects the three-point rig the tool built — your own lights are untouched. If you haven&#x27;t used <strong>Create Render Setup</strong> this control has no effect.</p>
+<p>Changing this re-tints the rig immediately. It only affects the three-point rig the tool built — your own lights are untouched, and it has no effect if you haven&#x27;t used <strong>Create Render Setup</strong>.</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-success"></div>
     <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
@@ -305,19 +305,19 @@
         </div>
         <div class="pr-5 ml-3 w-full">
             <h5>Workflow tip</h5>
-<p>Stay in <strong>Preview</strong> while you set up your shot and animation, then switch to <strong>Production</strong> only for your final, high-quality renders. You&#x27;ll spend far less time waiting for the viewport to refresh.</p>
+<p>Stay in <strong>Preview</strong> while you set up your shot and animation, then switch to <strong>Production</strong> only for final, high-quality renders. You&#x27;ll spend far less time waiting for the viewport to refresh.</p>
         </div>
     </div>
 </div>
 <h2 id="top-buttons">Top buttons</h2>
-<p>At the top of the controller, sharing one row, are two buttons:</p>
+<p>At the top of the controller, sharing one row:</p>
 <ul>
 <li><strong>Go to SOPs</strong> — jumps back to the Reallusion Importer node (useful when you&#x27;re deep in the LOP network).</li>
-<li><strong>Reset to Defaults</strong> — returns every control on the controller to its original default value, restoring the out-of-the-box look. It asks for confirmation first, because it discards all your dialed-in settings and can&#x27;t be undone from here. Reset only changes the controller&#x27;s values — it doesn&#x27;t rebuild the character or retint the light rig.</li>
+<li><strong>Reset to Defaults</strong> — returns every control to its original default value, restoring the out-of-the-box look. It asks for confirmation first, since it discards all your dialed-in settings and can&#x27;t be undone from here. Reset only changes the controller&#x27;s values — it doesn&#x27;t rebuild the character or retint the light rig.</li>
 </ul>
-<p>There&#x27;s one more helper button elsewhere:</p>
+<p>One more helper button, elsewhere:</p>
 <ul>
-<li>Inside the Wrinkles folder, <strong>Go to Max Wrinkle Frame</strong> — automatically scrubs the timeline to the frame where the character&#x27;s facial expression is most extreme, so you can judge wrinkles at their strongest. See <a href="../wrinkles/">Wrinkles</a>.</li>
+<li>Inside the Wrinkles folder, <strong>Go to Max Wrinkle Frame</strong> — scrubs the timeline to the frame where the character&#x27;s facial expression is most extreme, so you can judge wrinkles at their strongest. See <a href="../wrinkles/">Wrinkles</a>.</li>
 </ul>
 <div id="retype-backlinks">
     <h2>See also</h2>
@@ -329,7 +329,7 @@
                 <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M11 18.25a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1-.75-.75Zm-8-12a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 3 6.25Zm13 6a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 0 1.5h-3.5a.75.75 0 0 1-.75-.75ZM8.75 16a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75Z"/><path d="M3 18.25a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Zm0-6a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1-.75-.75ZM16.75 10a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75ZM14 6.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 0 1.5h-5.5a.75.75 0 0 1-.75-.75ZM11.25 4a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75Z"/></svg></span>
                 <span class="card-compact-title">Parameter Reference</span>
             </div>
-            <p class="card-compact-description">Every control on the Reallusion Importer, grouped by where you find it. There are two panels:</p>
+            <p class="card-compact-description">Every control on the Reallusion Importer, grouped by where you find it. Two panels:</p>
         </div>
     </a>
 </div>
@@ -340,7 +340,7 @@
                 <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M12 2.5a9.5 9.5 0 1 0 9.5 9.5c0-1.406-.305-2.74-.852-3.939a.75.75 0 0 1 1.364-.622C22.648 8.829 23 10.374 23 12c0 6.075-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1c1.626 0 3.17.353 4.561.988a.75.75 0 1 1-.622 1.364A9.463 9.463 0 0 0 12 2.5Zm9.03.47a.75.75 0 0 1 0 1.06l-6.445 6.446a3 3 0 1 1-1.06-1.06L19.97 2.97a.75.75 0 0 1 1.06 0ZM12 10.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z"/></svg></span>
                 <span class="card-compact-title">Performance & Caching</span>
             </div>
-            <p class="card-compact-description">Character Creator characters are detailed, and detailed characters use memory. This page explains where the cost comes from and how to keep your sessions fast and lean.</p>
+            <p class="card-compact-description">Character Creator characters are detailed, and detailed characters use memory. Here's where the cost comes from and how to keep your sessions fast and lean.</p>
         </div>
     </a>
 </div>
@@ -351,7 +351,7 @@
                 <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M15.716 1.329a1.341 1.341 0 0 1 2.109 1.55L15.147 9h4.161c1.623 0 2.372 2.016 1.143 3.075L8.102 22.721a1.148 1.148 0 0 1-1.81-1.317L8.996 15H4.674c-1.619 0-2.37-2.008-1.148-3.07l12.19-10.6Zm.452 1.595L4.51 13.061a.25.25 0 0 0 .164.439h5.45a.749.749 0 0 1 .692 1.041l-2.559 6.066 11.215-9.668a.25.25 0 0 0-.164-.439H14a.75.75 0 0 1-.687-1.05Z"/></svg></span>
                 <span class="card-compact-title">Quick Start</span>
             </div>
-            <p class="card-compact-description">This page gets you from a fresh Houdini scene to a shaded, rendered character in about five steps. We'll keep it simple here — every control is explained in depth later in the Using the Asset section.</p>
+            <p class="card-compact-description">This page gets you from a fresh Houdini scene to a shaded, rendered character in about five steps. Every control is explained in depth later, in Using the Asset.</p>
         </div>
     </a>
 </div>
@@ -362,7 +362,7 @@
                 <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M21.333 5.333c.734 0 1.334.6 1.334 1.334v12c0 .733-.6 1.333-1.334 1.333H2.667c-.734 0-1.334-.6-1.334-1.333v-12c0-.734.6-1.334 1.334-1.334C2.667 4.6 3.267 4 4 4h5.333c.734 0 1.334.6 1.334 1.333h10.666Zm-6 12A4.655 4.655 0 0 0 20 12.667 4.655 4.655 0 0 0 15.333 8a4.655 4.655 0 0 0-4.666 4.667 4.655 4.655 0 0 0 4.666 4.666Zm3.334-4.666A3.343 3.343 0 0 1 15.333 16 3.352 3.352 0 0 1 12 12.667a3.352 3.352 0 0 1 3.333-3.334 3.352 3.352 0 0 1 3.334 3.334ZM9.333 8V6.667H4V8h5.333Z"/></svg></span>
                 <span class="card-compact-title">Rendering</span>
             </div>
-            <p class="card-compact-description">The tool builds your character's materials specifically for Karma XPU, Houdini's GPU-accelerated production renderer. This page covers how to get your character on screen and the optional one-click render setup.</p>
+            <p class="card-compact-description">The tool builds your character's materials specifically for Karma XPU, Houdini's GPU-accelerated production renderer. This page covers getting your character on screen, plus the optional one-click render setup.</p>
         </div>
     </a>
 </div>
@@ -371,8 +371,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-07-09T10:59:51" title="2026-07-09" data-absolute-label="Last updated on 2026-07-09" data-absolute-label-html="Last updated on 2026-07-09" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-07-09
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-07T12:06:44" title="2026-08-07" data-absolute-label="Last updated on 2026-08-07" data-absolute-label-html="Last updated on 2026-08-07" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-08-07
                     </time>
                 </div>
 

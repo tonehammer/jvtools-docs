@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839411007006">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839412427533">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Preparing Your Character in Character Creator</title>
     <meta name="title" content="Preparing Your Character in Character Creator">
-    <meta name="description" content="This is the most important setup page in the documentation. Getting your Character Creator export settings right is the difference between a character that imports perfectly and one that's missing textures, wrinkles, or hair detail.">
+    <meta name="description" content="Getting your export settings right the first time saves you a lot of frustration — a wrong setting is usually the reason a character comes in missing textures, wrinkles, or hair detail.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://tonehammer.github.io/jvtools-docs/reallusion-importer/getting-started/preparing-your-character/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/reallusion-importer/getting-started/preparing-your-character/">
     <meta property="og:title" content="Preparing Your Character in Character Creator">
-    <meta property="og:description" content="This is the most important setup page in the documentation. Getting your Character Creator export settings right is the difference between a character that imports perfectly and one that's missing textures, wrinkles, or hair detail.">
+    <meta property="og:description" content="Getting your export settings right the first time saves you a lot of frustration — a wrong setting is usually the reason a character comes in missing textures, wrinkles, or hair detail.">
     <meta property="og:image" content="https://tonehammer.github.io/jvtools-docs/reallusion-importer/static/cc-export-usd-settings.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -35,7 +35,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/reallusion-importer/getting-started/preparing-your-character/">
     <meta name="twitter:title" content="Preparing Your Character in Character Creator">
-    <meta name="twitter:description" content="This is the most important setup page in the documentation. Getting your Character Creator export settings right is the difference between a character that imports perfectly and one that's missing textures, wrinkles, or hair detail.">
+    <meta name="twitter:description" content="Getting your export settings right the first time saves you a lot of frustration — a wrong setting is usually the reason a character comes in missing textures, wrinkles, or hair detail.">
     <meta name="twitter:image" content="https://tonehammer.github.io/jvtools-docs/reallusion-importer/static/cc-export-usd-settings.png">
     <meta name="twitter:image:alt" content="Preparing Your Character in Character Creator">
 
@@ -44,11 +44,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.6.0.839411007006" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.839412427533" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.839411007006" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.839412427533" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.839411007006" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.839412427533" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -220,10 +220,9 @@
 
                 <!-- Page content  -->
 <h1 id="preparing-your-character-in-character-creator">Preparing Your Character in Character Creator</h1>
-<p>This is the most important setup page in the documentation. Getting your Character Creator export settings right is the difference between a character that imports perfectly and one that&#x27;s missing textures, wrinkles, or hair detail. Read this carefully — it&#x27;ll save you a lot of frustration.</p>
-<p>The good news: once you know the correct settings, exporting is quick and you can reuse the same settings every time.</p>
+<p>Getting your export settings right the first time saves you a lot of frustration — a wrong setting is usually the reason a character comes in missing textures, wrinkles, or hair detail. It only takes a minute once you know what to set, and you can reuse the same settings every time.</p>
 <h2 id="which-export--at-a-glance">Which export — at a glance</h2>
-<p>The tool imports <strong>FBX</strong> or <strong>USD</strong>, from either <strong>Character Creator</strong> or <strong>iClone</strong>, chosen with the <strong>Import</strong> dropdown at the top of the node. Here&#x27;s the quick version:</p>
+<p>The tool imports <strong>FBX</strong> or <strong>USD</strong>, from either <strong>Character Creator</strong> or <strong>iClone</strong>, chosen with the <strong>Import</strong> dropdown at the top of the node.</p>
 <retype-table copy-text="| Source &amp; format | Status | When to use it |
 |---|---|---|
 | **Character Creator — USD** | ✅ Fully supported | The **fastest, lightest** import, with the best eye &amp; skin values. No expression wrinkles / limited hair re-dye. The default. |
@@ -277,62 +276,28 @@
         </div>
         <div class="pr-5 ml-3 w-full">
             <h5>Recommended for the best look</h5>
-<p>Import the character as <strong>FBX</strong> — it keeps the expression wrinkles and full hair re-dye that make a Character Creator face come alive — and drive its motion with <strong>lightweight USD motion clips</strong> from the animation database. You keep the FBX-only look while the animation stays featherweight; export the character <strong>Mesh only</strong> if all its motion will come from clips. See <a href="../import-modes/">USD vs FBX</a> for the full trade-off.</p>
+<p>Import the character as <strong>FBX</strong> — it keeps the expression wrinkles and full hair re-dye that make a Character Creator face come alive — and drive its motion with <strong>lightweight USD motion clips</strong> from the animation database. Export the character <strong>Mesh only</strong> if all its motion will come from clips. See <a href="../import-modes/">USD vs FBX</a> for the full trade-off.</p>
         </div>
     </div>
 </div>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
-    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
-                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                    <path fill="none" d="M0 0h24v24H0z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-            <h5>Using iClone?</h5>
-<p>The <strong>character</strong> export settings match Character Creator&#x27;s (just a different menu); iClone-authored <strong>animation</strong> needs one extra step to reach Houdini — see <doc-anchor-trigger to="#exporting-from-iclone">Exporting from iClone</doc-anchor-trigger> below.</p>
-        </div>
-    </div>
-</div>
-<p>Both exports are quick once you know the settings. Follow the section for your export below — Character Creator <strong><doc-anchor-trigger to="#exporting-as-usd-recommended">USD</doc-anchor-trigger></strong> or <strong><doc-anchor-trigger to="#exporting-as-fbx">FBX</doc-anchor-trigger></strong>, then <strong><doc-anchor-trigger to="#exporting-from-iclone">iClone</doc-anchor-trigger></strong> if that&#x27;s your source.</p>
+<p>Using iClone? The <strong>character</strong> export settings match Character Creator&#x27;s, just from a different menu. iClone-authored <strong>animation</strong> needs one extra step — see <doc-anchor-trigger to="#exporting-from-iclone">Exporting from iClone</doc-anchor-trigger> below.</p>
+<p>Follow the section for your export: Character Creator <strong><doc-anchor-trigger to="#exporting-as-usd-recommended">USD</doc-anchor-trigger></strong> or <strong><doc-anchor-trigger to="#exporting-as-fbx">FBX</doc-anchor-trigger></strong>, then <strong><doc-anchor-trigger to="#exporting-from-iclone">iClone</doc-anchor-trigger></strong> if that&#x27;s your source.</p>
 <h2 id="exporting-as-usd-recommended">Exporting as USD (recommended)</h2>
 <p>In Character Creator, go to <strong>File ▸ Export ▸ Export USD (Omniverse)</strong>. In the Export USD panel:</p>
 <ul>
 <li><strong>Export → Character</strong> — <em>not</em> <strong>All</strong>. &quot;All&quot; drags scene lights, cameras, and a shadow-catcher into the file. The tool copes with either, but <strong>Character</strong> keeps the file clean.</li>
 <li><strong>Include Motion → ON</strong>, set to your <strong>Current Animation</strong>, to bring the animation in. Turn it off for a static character.</li>
-<li><strong>Motion FPS</strong> — match your Houdini scene&#x27;s FPS (<strong>24</strong> if you haven&#x27;t changed Houdini&#x27;s default; see the note under the FBX section about matching frame rate).</li>
-<li>Everything else (Render Mode, <strong>Unit: Centimeter</strong>, Post Effects: None) can stay at its default.</li>
+<li><strong>Motion FPS</strong> — match your Houdini scene&#x27;s FPS (<strong>24</strong> if you haven&#x27;t changed Houdini&#x27;s default).</li>
+<li>Everything else (Render Mode, <strong>Unit: Centimeter</strong>, Post Effects: None) can stay default.</li>
 </ul>
 <figure class="content-center">
     <img src="../../static/cc-export-usd-settings.png" alt="Character Creator's Export USD (Omniverse) panel" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="366" height="889" />
     <figcaption class="caption">Character Creator's Export USD (Omniverse) panel</figcaption>
 </figure>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
-    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
-                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                    <path fill="none" d="M0 0h24v24H0z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-            <h5>Delete Hidden Faces is fine</h5>
-<p>Character Creator&#x27;s <strong>Delete Hidden Faces</strong> option (on by default) trims faces hidden under clothing. The tool fully handles this — leave it at its default.</p>
-        </div>
-    </div>
-</div>
-<p>After export you&#x27;ll have a <code translate="no" v-pre>.usd</code> file with a <strong><code translate="no" v-pre>Materials</code></strong> folder beside it (holding <code translate="no" v-pre>Materials/Textures/&lt;Material&gt;/…</code>), and — when motion was included — a <strong><code translate="no" v-pre>Motions</code></strong> folder with the animation as its own small <code translate="no" v-pre>.usd</code> clip. <strong>Keep the <code translate="no" v-pre>.usd</code> and its folders together</strong> — the tool resolves textures relative to the <code translate="no" v-pre>.usd</code>. The <code translate="no" v-pre>Motions</code> clip is also exactly what <strong>Add Animation</strong> takes as a lightweight <a href="../../using/animation/#add-animation">animation-database clip</a>, so USD exports double as a cheap way to bank motion clips. There is <strong>no <code translate="no" v-pre>.json</code> sidecar</strong> in USD mode: Character Creator writes the material data (subsurface, displacement, eye/skin shader values, accessory colors) directly into the USD instead. That&#x27;s everything for USD — you can skip ahead to the <a href="../quick-start/">Quick Start</a>.</p>
+<p>Character Creator&#x27;s <strong>Delete Hidden Faces</strong> option (on by default, trims faces hidden under clothing) is fine to leave at its default — the tool fully handles it.</p>
+<p>After export you&#x27;ll have a <code translate="no" v-pre>.usd</code> file with a <strong><code translate="no" v-pre>Materials</code></strong> folder beside it, and — when motion was included — a <strong><code translate="no" v-pre>Motions</code></strong> folder holding the animation as its own small <code translate="no" v-pre>.usd</code> clip. <strong>Keep the <code translate="no" v-pre>.usd</code> and its folders together</strong>; the tool resolves textures relative to the <code translate="no" v-pre>.usd</code>. That <code translate="no" v-pre>Motions</code> clip is also exactly what <strong>Add Animation</strong> takes as a lightweight <a href="../../using/animation/#add-animation">animation-database clip</a>, so a USD export doubles as a cheap way to bank motion clips. There&#x27;s <strong>no <code translate="no" v-pre>.json</code> sidecar</strong> in USD mode — Character Creator writes the material data (subsurface, displacement, eye/skin shader values, accessory colors) directly into the USD instead. That&#x27;s it for USD — skip ahead to the <a href="../quick-start/">Quick Start</a>.</p>
 <h2 id="exporting-as-fbx">Exporting as FBX</h2>
-<p>In Character Creator, with your character ready, go to <strong>File ▸ Export ▸ Clothed Character ▸ FBX</strong>. You&#x27;ll see the Export FBX panel. Here&#x27;s how to set it, top to bottom.</p>
+<p>In Character Creator, with your character ready, go to <strong>File ▸ Export ▸ Clothed Character ▸ FBX</strong>. Here&#x27;s how to set the Export FBX panel, top to bottom.</p>
 <figure class="content-center">
     <img src="../../static/cc5-export-settings.png" alt="" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="818" height="880" />
     <figcaption class="caption"></figcaption>
@@ -340,39 +305,19 @@
 <h3 id="target-tool-preset--maya">Target Tool Preset — Maya</h3>
 <p>Set the preset to <strong>Maya</strong>. This exports a clean, standard FBX with the bone and material structure the tool expects, and writes the textures into a folder alongside the FBX.</p>
 <h3 id="fbx-options--mesh-and-motion">FBX Options — Mesh and Motion</h3>
-<p>Choose <strong>Mesh and Motion</strong> to bring the character in with its animation. If you only need the static character, <strong>Mesh</strong> alone works; if you&#x27;re adding the motion separately, <strong>Motion</strong> alone works too. For most users, <strong>Mesh and Motion</strong> is the right choice.</p>
+<p>Choose <strong>Mesh and Motion</strong> to bring the character in with its animation. <strong>Mesh</strong> alone works if you only need the static character; <strong>Motion</strong> alone works if you&#x27;re adding the motion separately. For most users, <strong>Mesh and Motion</strong> is right.</p>
 <h3 id="subdivision-level--subd-1">Subdivision Level — SubD 1</h3>
-<p>Set the subdivision level to <strong>SubD 1</strong>. This gives you smooth, render-quality geometry. <strong>SubD 2</strong> is overkill — it quadruples the geometry for detail you won&#x27;t see, and just costs you memory and import time. <strong>SubD 0</strong> is too coarse for close-ups. <strong>SubD 1 is the sweet spot.</strong></p>
+<p>Set the subdivision level to <strong>SubD 1</strong>. It gives you smooth, render-quality geometry without the cost — <strong>SubD 2</strong> quadruples the geometry for detail you won&#x27;t see, and <strong>SubD 0</strong> is too coarse for close-ups.</p>
 <h3 id="texture-settings--embed-textures-off">Texture Settings — Embed Textures OFF</h3>
-<p>Leave <strong>Embed Textures</strong> unchecked (off). The tool reads textures from the folders Character Creator writes next to the FBX — the <code translate="no" v-pre>.fbm</code> folder and/or a loose <code translate="no" v-pre>textures</code> folder — so you don&#x27;t need them embedded. Leaving it off also keeps the FBX smaller and, importantly, keeps the export <strong>re-importable back into Character Creator</strong> (embedding breaks that).</p>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
-    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
-                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                    <path fill="none" d="M0 0h24v24H0z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-<p>Embedding textures has <strong>no effect</strong> on the material data the tool depends on for displacement, subsurface, wrinkles, and accessory colors — that comes from a separate <code translate="no" v-pre>.json</code> file (see <doc-anchor-trigger to="#keeping-files-together">Keeping files together</doc-anchor-trigger>), not from the embedded images. So there&#x27;s no reason to turn Embed on.</p>
-        </div>
-    </div>
-</div>
+<p>Leave <strong>Embed Textures</strong> unchecked. The tool reads textures from the folders Character Creator writes next to the FBX (the <code translate="no" v-pre>.fbm</code> folder and/or a loose <code translate="no" v-pre>textures</code> folder), so nothing needs to be embedded — and leaving it off keeps the FBX smaller and re-importable back into Character Creator (embedding breaks that).</p>
 <p>Leave the other texture options (Max Texture Size, Convert Image Format, Multiple SubD Normals) at their defaults.</p>
 <h3 id="frame-rate--match-your-houdini-scene">Frame Rate — match your Houdini scene</h3>
-<p>Set the <strong>Frame Rate</strong> to match your Houdini scene&#x27;s FPS. The Maya preset defaults this to 30, but <strong>Houdini&#x27;s default scene is 24 fps</strong> — so if you haven&#x27;t changed your Houdini scene, set this to <strong>24</strong>. If your scene runs at a different rate, match that. Getting this right keeps the animation playing at the correct speed after import.</p>
+<p>Set the <strong>Frame Rate</strong> to match your Houdini scene&#x27;s FPS. The Maya preset defaults this to 30, but <strong>Houdini&#x27;s default scene is 24 fps</strong> — so set this to <strong>24</strong> unless your scene runs at something else. Getting this right keeps the animation playing at the correct speed after import.</p>
 <h3 id="motion-options">Motion options</h3>
-<p>Under Include Motion, choose what to export — <strong>Current Animation ▸ All</strong> brings in the whole clip. Use Range if you only want part of it.</p>
+<p>Under Include Motion, <strong>Current Animation ▸ All</strong> brings in the whole clip. Use Range if you only want part of it.</p>
 <h2 id="other-settings--leave-at-defaults">Other settings — leave at defaults</h2>
-<p>Everything else in the Export FBX panel can stay at its defaults. In particular, the defaults already bake skin and hair color into the diffuse maps the tool reads — <strong>Bake diffuse maps from skin color</strong> and <strong>Bake diffuse and specular from Digital Human Hair Shader</strong> are on by default, so leave them on. (The tool&#x27;s hair re-dye system still lets you recolor afterward — see <a href="../../using/hair/">Hair</a>.)</p>
-<p>The one default worth double-checking:</p>
-<ul>
-<li><strong>Bake Wrinkles for Still Frame</strong> must stay <strong>OFF</strong> (its default). Turning it on freezes the expression wrinkles into a single pose so they can&#x27;t animate.</li>
-</ul>
+<p>Everything else in the Export FBX panel can stay at its defaults. In particular, the defaults already bake skin and hair color into the diffuse maps the tool reads — <strong>Bake diffuse maps from skin color</strong> and <strong>Bake diffuse and specular from Digital Human Hair Shader</strong> are on by default, so leave them on (the hair re-dye system still lets you recolor afterward — see <a href="../../using/hair/">Hair</a>).</p>
+<p>One default is worth double-checking: <strong>Bake Wrinkles for Still Frame</strong> must stay <strong>OFF</strong> (its default).</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-danger"></div>
     <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
@@ -385,21 +330,21 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p>If your wrinkles don&#x27;t animate after import, the usual cause is <strong>Bake Wrinkles for Still Frame</strong> being switched on. Make sure wrinkles are exported as live maps, not baked to a frozen pose.</p>
+<p>If your wrinkles don&#x27;t animate after import, the usual cause is <strong>Bake Wrinkles for Still Frame</strong> being switched on — it freezes the expression wrinkles into a single pose so they can&#x27;t animate. Make sure wrinkles export as live maps, not baked to a frozen pose.</p>
         </div>
     </div>
 </div>
 <h2 id="advanced-export-settings-the-gear-icon">Advanced export settings (the gear icon)</h2>
-<p>The <strong>⚙ gear icon</strong> at the top of the Export FBX dialog opens an advanced panel. You normally don&#x27;t need to touch it — its defaults are correct — but two of those defaults matter to this tool, so it&#x27;s worth a glance to confirm they&#x27;re still set:</p>
+<p>The <strong>⚙ gear icon</strong> at the top of the Export FBX dialog opens an advanced panel. You normally don&#x27;t need to touch it, but two of its defaults matter here, so it&#x27;s worth a glance:</p>
 <ul>
-<li><strong>Export JSON for Auto Material Setup</strong> (General section) — must stay <strong>on</strong> (the default). This writes the <code translate="no" v-pre>my_character.json</code> the tool relies on for displacement, subsurface, wrinkles, and accessory colors. If an export ever comes out without a <code translate="no" v-pre>.json</code>, this is the switch to check.</li>
-<li><strong>Normal — OpenGL (Y+)</strong> (Normal section) — must stay <strong>OpenGL (Y+)</strong> (the Maya-preset default), <em>not</em> DirectX (Y−). Houdini and Karma expect OpenGL-convention normal maps; the DirectX option flips the green channel, which inverts the skin&#x27;s fine surface detail (pores and wrinkles read inward instead of outward).</li>
+<li><strong>Export JSON for Auto Material Setup</strong> (General section) — must stay <strong>on</strong> (the default). This writes the <code translate="no" v-pre>my_character.json</code> the tool relies on for displacement, subsurface, wrinkles, and accessory colors. If an export ever comes out without a <code translate="no" v-pre>.json</code>, check this switch.</li>
+<li><strong>Normal — OpenGL (Y+)</strong> (Normal section) — must stay <strong>OpenGL (Y+)</strong>, <em>not</em> DirectX (Y−). Houdini and Karma expect OpenGL-convention normal maps; DirectX flips the green channel and inverts fine surface detail like pores and wrinkles.</li>
 </ul>
-<p>Everything else in this panel can stay at its defaults.</p>
+<p>Everything else in this panel can stay default.</p>
 <h2 id="exporting-from-iclone">Exporting from iClone</h2>
-<p>iClone is the other half of the Reallusion pipeline — it&#x27;s where you author and mocap <strong>animation</strong>. There are two things you might export from iClone: the <strong>character</strong> itself, and an <strong>animation</strong> you&#x27;ve built on it.</p>
+<p>iClone is where you author and mocap <strong>animation</strong>. There are two things you might export from it: the <strong>character</strong> itself, and an <strong>animation</strong> you&#x27;ve built on it.</p>
 <h3 id="the-character">The character</h3>
-<p>You can export a character from iClone the same way you would from Character Creator — the export panels are the same, just reached from iClone&#x27;s menus:</p>
+<p>You can export a character from iClone the same way as from Character Creator — same panels, reached from iClone&#x27;s menus:</p>
 <ul>
 <li><strong>FBX</strong> (<strong>File ▸ Export ▸ Export Clothed Character</strong>) — the reliable choice, identical to the <doc-anchor-trigger to="#exporting-as-fbx">FBX section</doc-anchor-trigger> above.</li>
 <li><strong>USD</strong> via the NVIDIA Omniverse plugin (<strong>File ▸ Export ▸ Export USD (Omniverse)</strong>) — see the warning below.</li>
@@ -421,18 +366,18 @@
         </div>
         <div class="pr-5 ml-3 w-full">
             <h5>iClone&#x27;s direct USD export is experimental</h5>
-<p>iClone&#x27;s &quot;Export USD (Omniverse)&quot; is structured differently from Character Creator&#x27;s USD export, and this importer targets Character Creator&#x27;s. <strong>Standard characters generally import correctly</strong> (with textures, as of version 1.2.1), but <strong>stylized characters — especially ones with heavy custom hair or spring-bone rigs — can import badly deformed.</strong> For the most reliable result with an iClone character, export it as <strong>FBX</strong>, or send it to <strong>Character Creator</strong> and export from there — Character Creator&#x27;s own USD export is the fully-supported USD path.</p>
+<p>iClone&#x27;s &quot;Export USD (Omniverse)&quot; is structured differently from Character Creator&#x27;s USD export, and this importer targets Character Creator&#x27;s. <strong>Standard characters generally import correctly</strong> (with textures, as of version 1.2.1), but <strong>stylized characters — especially with heavy custom hair or spring-bone rigs — can import badly deformed.</strong> For the most reliable result, export as <strong>FBX</strong>, or send the character to <strong>Character Creator</strong> and export from there.</p>
         </div>
     </div>
 </div>
 <h3 id="getting-iclone-animation-into-houdini">Getting iClone animation into Houdini</h3>
-<p>If you&#x27;ve authored a performance in iClone that you want as a <strong>motion clip</strong> for the animation database, you have two routes. <strong>Option B (the Character Creator round-trip) is the reliable one</strong> — Option A depends on iClone&#x27;s experimental USD export above.</p>
+<p>To bring an iClone performance in as a <strong>motion clip</strong> for the animation database, you have two routes. <strong>Option B (the Character Creator round-trip) is the reliable one</strong> — Option A depends on iClone&#x27;s experimental USD export above.</p>
 <h4 id="option-b--fbx-round-trip-through-character-creator-recommended">Option B — FBX round-trip through Character Creator (recommended)</h4>
 <p>Export your animation from iClone as <strong>FBX</strong>, then bring it onto the character in Character Creator, which re-exports it in a format this tool fully supports:</p>
 <ol>
 <li>In <strong>Character Creator</strong>, go <strong>Import ▸ Import External Motion</strong> and choose the FBX you exported from iClone.</li>
 <li>Wait while <strong>&quot;Fetching Characterization Profile&quot;</strong> finishes loading.</li>
-<li>In the <strong>Motion Import Settings</strong> dialog that follows, you can leave the defaults. Click <strong>Convert All</strong>.</li>
+<li>In the <strong>Motion Import Settings</strong> dialog that follows, leave the defaults and click <strong>Convert All</strong>.</li>
 <li>Re-export the character from Character Creator — as <strong>USD</strong> (recommended) or FBX — with that motion, using the export sections above.</li>
 </ol>
 <figure class="content-center">
@@ -451,12 +396,12 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p>Option B fits the <doc-anchor-trigger to="#preparing-your-character-in-character-creator">best-quality workflow</doc-anchor-trigger> neatly: keep your character as an FBX import for the expression wrinkles, and bring the iClone motion in as a light <strong>USD</strong> clip re-exported from Character Creator.</p>
+<p>Option B fits the best-quality workflow neatly: keep your character as an FBX import for the expression wrinkles, and bring the iClone motion in as a light <strong>USD</strong> clip re-exported from Character Creator.</p>
         </div>
     </div>
 </div>
 <h4 id="option-a--usd-via-the-nvidia-omniverse-plugin-experimental">Option A — USD, via the NVIDIA Omniverse plugin (experimental)</h4>
-<p>If you&#x27;d rather export USD straight from iClone, install Reallusion&#x27;s <a href="https://www.reallusion.com/iclone/nvidia-omniverse/" class="outbound" target="_blank"><span><strong>iClone Omniverse plugin</strong></span><svg xmlns="http://www.w3.org/2000/svg" class="retype-outbound-trigger docs-icon ml-1" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="currentColor"><path d="M15.5 2.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V4.06l-6.22 6.22a.75.75 0 1 1-1.06-1.06L19.94 3h-3.69a.75.75 0 0 1-.75-.75Z"/><path d="M2.5 4.25c0-.966.784-1.75 1.75-1.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.25.25 0 0 0-.25.25v15.5c0 .138.112.25.25.25h15.5a.25.25 0 0 0 .25-.25v-8.5a.75.75 0 0 1 1.5 0v8.5a1.75 1.75 0 0 1-1.75 1.75H4.25a1.75 1.75 0 0 1-1.75-1.75V4.25Z"/></g></svg></a>, following the <a href="https://manual.reallusion.com/Omniverse-Plug-in/Content/ENU/iC-8.3/01-Installation/Installation-Guide-for-Using-NVIDIA-Omnniverse.htm" class="outbound" target="_blank"><span>official installation guide</span><svg xmlns="http://www.w3.org/2000/svg" class="retype-outbound-trigger docs-icon ml-1" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="currentColor"><path d="M15.5 2.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V4.06l-6.22 6.22a.75.75 0 1 1-1.06-1.06L19.94 3h-3.69a.75.75 0 0 1-.75-.75Z"/><path d="M2.5 4.25c0-.966.784-1.75 1.75-1.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.25.25 0 0 0-.25.25v15.5c0 .138.112.25.25.25h15.5a.25.25 0 0 0 .25-.25v-8.5a.75.75 0 0 1 1.5 0v8.5a1.75 1.75 0 0 1-1.75 1.75H4.25a1.75 1.75 0 0 1-1.75-1.75V4.25Z"/></g></svg></a>. It adds USD export to iClone directly, so you can export USD (character and motion) much as you would from Character Creator.</p>
+<p>To export USD straight from iClone, install Reallusion&#x27;s <a href="https://www.reallusion.com/iclone/nvidia-omniverse/" class="outbound" target="_blank"><span><strong>iClone Omniverse plugin</strong></span><svg xmlns="http://www.w3.org/2000/svg" class="retype-outbound-trigger docs-icon ml-1" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="currentColor"><path d="M15.5 2.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V4.06l-6.22 6.22a.75.75 0 1 1-1.06-1.06L19.94 3h-3.69a.75.75 0 0 1-.75-.75Z"/><path d="M2.5 4.25c0-.966.784-1.75 1.75-1.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.25.25 0 0 0-.25.25v15.5c0 .138.112.25.25.25h15.5a.25.25 0 0 0 .25-.25v-8.5a.75.75 0 0 1 1.5 0v8.5a1.75 1.75 0 0 1-1.75 1.75H4.25a1.75 1.75 0 0 1-1.75-1.75V4.25Z"/></g></svg></a>, following the <a href="https://manual.reallusion.com/Omniverse-Plug-in/Content/ENU/iC-8.3/01-Installation/Installation-Guide-for-Using-NVIDIA-Omnniverse.htm" class="outbound" target="_blank"><span>official installation guide</span><svg xmlns="http://www.w3.org/2000/svg" class="retype-outbound-trigger docs-icon ml-1" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="currentColor"><path d="M15.5 2.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V4.06l-6.22 6.22a.75.75 0 1 1-1.06-1.06L19.94 3h-3.69a.75.75 0 0 1-.75-.75Z"/><path d="M2.5 4.25c0-.966.784-1.75 1.75-1.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.25.25 0 0 0-.25.25v15.5c0 .138.112.25.25.25h15.5a.25.25 0 0 0 .25-.25v-8.5a.75.75 0 0 1 1.5 0v8.5a1.75 1.75 0 0 1-1.75 1.75H4.25a1.75 1.75 0 0 1-1.75-1.75V4.25Z"/></g></svg></a>. It adds USD export to iClone directly, so you can export character and motion much as you would from Character Creator.</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
     <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
@@ -470,29 +415,13 @@
         </div>
         <div class="pr-5 ml-3 w-full">
             <h5>Large install, and experimental</h5>
-<p>The Omniverse plugin takes roughly <strong>10–20 minutes to install</strong> and about <strong>10 GB of disk space</strong>. And as noted above, iClone&#x27;s USD export is <strong>experimental</strong> with this tool — standard characters usually work, but stylized ones may not. If in doubt, prefer <strong>Option B</strong>.</p>
+<p>The Omniverse plugin takes roughly <strong>10–20 minutes to install</strong> and about <strong>10 GB of disk space</strong> — and as noted above, iClone&#x27;s USD export is <strong>experimental</strong> with this tool. If in doubt, prefer <strong>Option B</strong>.</p>
         </div>
     </div>
 </div>
 <h2 id="animation">Animation</h2>
-<p>If you want the character&#x27;s motion to come in with it, export with the animation baked in. The tool reads the embedded FBX animation automatically, and you can add more clips later — see <a href="../../using/animation/">Animation</a>.</p>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
-    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
-                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                    <path fill="none" d="M0 0h24v24H0z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-<p><strong>Validate with a static pose first.</strong> If you&#x27;re exporting a long animation (hundreds of frames), it&#x27;s worth doing a quick static-pose export first to confirm the character imports and shades correctly, before committing to baking a long, heavy animation.</p>
-        </div>
-    </div>
-</div>
+<p>To bring the character&#x27;s motion in with it, export with the animation baked in — the tool reads the embedded FBX animation automatically, and you can add more clips later. See <a href="../../using/animation/">Animation</a>.</p>
+<p>If you&#x27;re exporting a long animation (hundreds of frames), it&#x27;s worth doing a quick static-pose export first to confirm the character imports and shades correctly before committing to a long, heavy bake.</p>
 <h2 id="keeping-files-together">Keeping files together</h2>
 <p>After export you&#x27;ll have:</p>
 <div id="keeping-files-together-code-1" class="codeblock-wrapper"><doc-codeblock>
@@ -507,24 +436,8 @@ textures/
         Hair_Transparency/
         ...</code></pre>
 </doc-codeblock></div>
-<p><strong>Keep all of these together.</strong> If you move the FBX, move its <code translate="no" v-pre>.json</code>, <code translate="no" v-pre>.fbm</code>, and <code translate="no" v-pre>textures</code> folder with it. The tool resolves everything relative to the FBX, so as long as they travel together, it&#x27;ll find them.</p>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
-    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
-                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                    <path fill="none" d="M0 0h24v24H0z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-<p><strong>Keep the filename simple.</strong> Letters, numbers, and underscores are the safe set (e.g. <code translate="no" v-pre>aaron_talking.fbx</code>). The tool handles other characters, but plain names keep paths tidy in Houdini and across your wider pipeline.</p>
-        </div>
-    </div>
-</div>
+<p><strong>Keep all of these together.</strong> If you move the FBX, move its <code translate="no" v-pre>.json</code>, <code translate="no" v-pre>.fbm</code>, and <code translate="no" v-pre>textures</code> folder with it — the tool resolves everything relative to the FBX.</p>
+<p>Keep filenames to letters, numbers, and underscores (e.g. <code translate="no" v-pre>aaron_talking.fbx</code>) — the tool handles other characters, but plain names keep paths tidy across your pipeline.</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
     <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
@@ -539,34 +452,23 @@ textures/
         <div class="pr-5 ml-3 w-full">
             <h5>The <code translate="no" v-pre>.json</code> file is essential — don&#x27;t lose it</h5>
 <p>Character Creator writes a <code translate="no" v-pre>my_character.json</code> next to the FBX containing material data the FBX itself can&#x27;t store: <strong>displacement, subsurface scattering, expression-wrinkle weights, and the colors of custom accessories</strong> (horns, props, GoZ clothing). If this file is missing, those features silently won&#x27;t import — displacement won&#x27;t appear and untextured accessories render plain white, even though the rest of the character looks fine.</p>
-<p>It&#x27;s produced by the <strong>Export JSON for Auto Material Setup</strong> option, found in the Export FBX dialog&#x27;s <strong>⚙ gear menu → General</strong> section, which is <strong>on by default</strong>. If your export didn&#x27;t produce a <code translate="no" v-pre>.json</code>, confirm that option is checked and re-export. See <doc-anchor-trigger to="#advanced-export-settings-the-gear-icon">Advanced export settings</doc-anchor-trigger> above.</p>
+<p>It&#x27;s produced by <strong>Export JSON for Auto Material Setup</strong>, in the Export FBX dialog&#x27;s <strong>⚙ gear menu → General</strong> section, on by default. If your export didn&#x27;t produce a <code translate="no" v-pre>.json</code>, confirm that option is checked and re-export.</p>
         </div>
     </div>
 </div>
 <h2 id="a-note-on-character-versions">A note on character versions</h2>
-<p>The tool is designed for Character Creator 5 / iClone 8, and should work with all <strong>CC3+</strong> base meshes. It works best with characters built on Character Creator&#x27;s standard base meshes. Some advanced features depend on what your specific character provides:</p>
+<p>The tool is designed for Character Creator 5 / iClone 8, and should work with all <strong>CC3+</strong> base meshes — best with characters built on Character Creator&#x27;s standard base meshes. Some advanced features depend on what your character provides:</p>
 <ul>
-<li><strong>Wrinkles</strong> require the character to have the expression-wrinkle maps (most CC heads do).</li>
-<li><strong>Hair re-dye</strong> requires the hair to carry Character Creator&#x27;s hair maps (root, ID, flow). Hair styles that bake everything into a flat diffuse will still import and look correct, but won&#x27;t be re-dyeable.</li>
+<li><strong>Wrinkles</strong> require expression-wrinkle maps (most CC heads have them).</li>
+<li><strong>Hair re-dye</strong> requires Character Creator&#x27;s hair maps (root, ID, flow). Hair baked into a flat diffuse will still import and look correct, just won&#x27;t be re-dyeable.</li>
 <li><strong>Displacement</strong> requires exported displacement maps.</li>
 </ul>
-<p>The tool detects what each character has and enables those features automatically — you don&#x27;t need to configure anything. If a feature&#x27;s controls don&#x27;t seem to do anything, the most likely reason is that your particular character doesn&#x27;t carry the maps that feature needs.</p>
+<p>The tool detects what each character has and enables those features automatically — nothing to configure. If a feature&#x27;s controls don&#x27;t seem to do anything, your character probably doesn&#x27;t carry the maps that feature needs.</p>
 <h2 id="ready">Ready?</h2>
 <p>With your character exported correctly, head to the <a href="../quick-start/">Quick Start</a> to import it.</p>
 <div id="retype-backlinks">
     <h2>See also</h2>
 <div class="card-compact-group">
-<div class="card-compact-container">
-    <a href="/jvtools-docs/test-rewrite/reallusion-preparing-your-character/" class="group card-compact no-link">
-        <div class="card-compact-body">
-            <div class="card-compact-header">
-                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M3.5 3.75a.25.25 0 0 1 .25-.25h13.5a.25.25 0 0 1 .25.25v10a.75.75 0 0 0 1.5 0v-10A1.75 1.75 0 0 0 17.25 2H3.75A1.75 1.75 0 0 0 2 3.75v16.5c0 .966.784 1.75 1.75 1.75h7a.75.75 0 0 0 0-1.5h-7a.25.25 0 0 1-.25-.25V3.75Z"/><path d="M6.25 7a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5Zm-.75 4.75a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Zm16.28 4.53a.75.75 0 1 0-1.06-1.06l-4.97 4.97-1.97-1.97a.75.75 0 1 0-1.06 1.06l2.5 2.5a.75.75 0 0 0 1.06 0l5.5-5.5Z"/></svg></span>
-                <span class="card-compact-title">Preparing Your Character in Character Creator</span>
-            </div>
-            <p class="card-compact-description">This is a test rewrite of the original page.</p>
-        </div>
-    </a>
-</div>
 <div class="card-compact-container">
     <a href="/jvtools-docs/reallusion-importer/getting-started/quick-start/" class="group card-compact no-link">
         <div class="card-compact-body">
@@ -574,7 +476,7 @@ textures/
                 <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M15.716 1.329a1.341 1.341 0 0 1 2.109 1.55L15.147 9h4.161c1.623 0 2.372 2.016 1.143 3.075L8.102 22.721a1.148 1.148 0 0 1-1.81-1.317L8.996 15H4.674c-1.619 0-2.37-2.008-1.148-3.07l12.19-10.6Zm.452 1.595L4.51 13.061a.25.25 0 0 0 .164.439h5.45a.749.749 0 0 1 .692 1.041l-2.559 6.066 11.215-9.668a.25.25 0 0 0-.164-.439H14a.75.75 0 0 1-.687-1.05Z"/></svg></span>
                 <span class="card-compact-title">Quick Start</span>
             </div>
-            <p class="card-compact-description">This page gets you from a fresh Houdini scene to a shaded, rendered character in about five steps. We'll keep it simple here — every control is explained in depth later in the Using the Asset section.</p>
+            <p class="card-compact-description">This page gets you from a fresh Houdini scene to a shaded, rendered character in about five steps. Every control is explained in depth later, in Using the Asset.</p>
         </div>
     </a>
 </div>
@@ -585,7 +487,7 @@ textures/
                 <span class="card-compact-icon inline-flex shrink-0"><img width="20" height="20" src="static/reallusion_importer_logo.svg"></span>
                 <span class="card-compact-title">Reallusion Importer for Houdini</span>
             </div>
-            <p class="card-compact-description">Welcome! Reallusion Importer for Houdini (v1.2.1) turns a Character Creator 5 or iClone 8 character into a fully shaded, animatable, render-ready character in Houdini's Solaris environment — in seconds instead of hours.</p>
+            <p class="card-compact-description">Reallusion Importer for Houdini (v1.2.1) turns a Character Creator 5 or iClone 8 character into a fully shaded, animatable, render-ready character in Houdini's Solaris environment — in seconds instead of hours.</p>
         </div>
     </a>
 </div>
@@ -597,17 +499,6 @@ textures/
                 <span class="card-compact-title">Requirements & Installation</span>
             </div>
             <p class="card-compact-description">Before you start, make sure you have:</p>
-        </div>
-    </a>
-</div>
-<div class="card-compact-container">
-    <a href="/jvtools-docs/test-rewrite/" class="group card-compact no-link">
-        <div class="card-compact-body">
-            <div class="card-compact-header">
-                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M8 8.807V3.5h-.563a.75.75 0 0 1 0-1.5h9.125a.75.75 0 0 1 0 1.5H16v5.307l5.125 9.301c.964 1.75-.302 3.892-2.299 3.892H5.174c-1.998 0-3.263-2.142-2.3-3.892ZM4.189 18.832a1.123 1.123 0 0 0 .985 1.668h13.652a1.123 1.123 0 0 0 .985-1.668L17.7 15H6.3ZM14.5 3.5h-5V9a.75.75 0 0 1-.093.362L7.127 13.5h9.746l-2.28-4.138A.75.75 0 0 1 14.5 9Z"/></svg></span>
-                <span class="card-compact-title">Rewrite Test</span>
-            </div>
-            <p class="card-compact-description">A style experiment: one long page from each product, rewritten in plainer, more direct language — less technical detail, shorter sentences, same facts and warnings.</p>
         </div>
     </a>
 </div>
@@ -649,8 +540,8 @@ textures/
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-07-15T03:22:18" title="2026-07-15" data-absolute-label="Last updated on 2026-07-15" data-absolute-label-html="Last updated on 2026-07-15" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-07-15
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-07T12:06:44" title="2026-08-07" data-absolute-label="Last updated on 2026-08-07" data-absolute-label-html="Last updated on 2026-08-07" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-08-07
                     </time>
                 </div>
 

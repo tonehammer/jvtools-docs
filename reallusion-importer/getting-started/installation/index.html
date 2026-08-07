@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839411007006">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839412427533">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -44,11 +44,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.6.0.839411007006" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.839412427533" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.839411007006" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.839412427533" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.839411007006" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.839412427533" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -223,10 +223,10 @@
 <h2 id="requirements">Requirements</h2>
 <p>Before you start, make sure you have:</p>
 <ul>
-<li><strong>Houdini 21.0 or newer.</strong> The tool uses features introduced in Houdini 21 and is not compatible with earlier versions.</li>
-<li><strong>Houdini Indie, Core, or FX.</strong> The tool ships as a limited-commercial (Indie) Houdini Digital Asset. See the note about license compatibility below.</li>
+<li><strong>Houdini 21.0 or newer.</strong> The tool uses features introduced in Houdini 21 and isn&#x27;t compatible with earlier versions.</li>
+<li><strong>Houdini Indie, Core, or FX.</strong> The tool ships as a limited-commercial (Indie) Houdini Digital Asset. See the license note below.</li>
 <li><strong>Windows.</strong> The tool was developed and tested on Windows. It may work on macOS or Linux, but those platforms are untested — use them at your own risk.</li>
-<li><strong>A Character Creator / iClone character</strong>, exported as FBX. The tool is designed for <strong>Character Creator 5 / iClone 8</strong>, and should work with all <strong>CC3+</strong> base meshes. See <a href="../preparing-your-character/">Preparing Your Character</a>.</li>
+<li><strong>A Character Creator / iClone character</strong>, exported as FBX. Designed for <strong>Character Creator 5 / iClone 8</strong>, and should work with all <strong>CC3+</strong> base meshes. See <a href="../preparing-your-character/">Preparing Your Character</a>.</li>
 <li><strong>Karma</strong> for rendering (included with Houdini). The materials are tuned for <strong>Karma XPU</strong> and also render in <strong>Karma CPU</strong>.</li>
 </ul>
 <div class="flex mb-6">
@@ -308,7 +308,7 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p>Because the tool stores all your look settings on a controller node <em>inside your scene</em> (not inside the asset), updating the asset will not lose your dialed-in looks on existing characters.</p>
+<p>Because the tool stores all your look settings on a controller node <em>inside your scene</em> (not inside the asset), updating the asset won&#x27;t lose your dialed-in looks on existing characters.</p>
         </div>
     </div>
 </div>
@@ -322,7 +322,7 @@
                 <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M13 17.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-.25-8.25a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0v-4.5Z"/><path d="M9.836 3.244c.963-1.665 3.365-1.665 4.328 0l8.967 15.504c.963 1.667-.24 3.752-2.165 3.752H3.034c-1.926 0-3.128-2.085-2.165-3.752Zm3.03.751a1.002 1.002 0 0 0-1.732 0L2.168 19.499A1.002 1.002 0 0 0 3.034 21h17.932a1.002 1.002 0 0 0 .866-1.5L12.866 3.994Z"/></svg></span>
                 <span class="card-compact-title">Limitations & Expectations</span>
             </div>
-            <p class="card-compact-description">This page is here to set honest expectations before and after you buy. The tool does a lot, but Character Creator's FBX export — and Houdini itself — impose some hard limits that no importer can work around.</p>
+            <p class="card-compact-description">This page sets honest expectations before and after you buy. Character Creator's FBX export — and Houdini itself — impose some hard limits no importer can work around.</p>
         </div>
     </a>
 </div>
@@ -333,7 +333,7 @@
                 <span class="card-compact-icon inline-flex shrink-0"><img width="20" height="20" src="static/reallusion_importer_logo.svg"></span>
                 <span class="card-compact-title">Reallusion Importer for Houdini</span>
             </div>
-            <p class="card-compact-description">Welcome! Reallusion Importer for Houdini (v1.2.1) turns a Character Creator 5 or iClone 8 character into a fully shaded, animatable, render-ready character in Houdini's Solaris environment — in seconds instead of hours.</p>
+            <p class="card-compact-description">Reallusion Importer for Houdini (v1.2.1) turns a Character Creator 5 or iClone 8 character into a fully shaded, animatable, render-ready character in Houdini's Solaris environment — in seconds instead of hours.</p>
         </div>
     </a>
 </div>
@@ -353,8 +353,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-06T17:36:44" title="2026-08-06" data-absolute-label="Last updated on 2026-08-06" data-absolute-label-html="Last updated on 2026-08-06" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-08-06
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-07T12:06:44" title="2026-08-07" data-absolute-label="Last updated on 2026-08-07" data-absolute-label-html="Last updated on 2026-08-07" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-08-07
                     </time>
                 </div>
 

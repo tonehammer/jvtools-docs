@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839411007006">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839412427533">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -44,11 +44,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../resources/css/retype.css?v=4.6.0.839411007006" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=4.6.0.839412427533" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=4.6.0.839411007006" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=4.6.0.839412427533" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=4.6.0.839411007006" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=4.6.0.839412427533" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -209,7 +209,7 @@
 </div>
 <p style="text-align:center; margin:0 0 1.5rem;"><a href="https://jvtonehammer.gumroad.com/l/advanced_velocity_hda"><strong>Get it on Gumroad →</strong></a></p>
 <p>Welcome! <strong>Advanced Velocity</strong> (v1.1) is a single Houdini SOP that authors the <code translate="no" v-pre>@v</code> velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node. And because one velocity is rarely the whole story, it can also play a whole <em>sequence</em> of velocity events over time: a car lifted at frame 10, torn apart at frame 40, spun at frame 70, all from one node.</p>
-<p>Every simulation in Houdini starts with velocity, and getting it right normally means a small pile of wrangles, attribute adjusts and ramps that you end up rebuilding on every shot. Advanced Velocity gathers all of that into one node, with the same set of Adjust and Mask controls on every velocity type, and viewport guides that show you exactly what each type is contributing.</p>
+<p>Every simulation in Houdini starts with velocity, and getting it right normally means a small pile of wrangles, attribute adjusts and ramps you end up rebuilding on every shot. Advanced Velocity gathers all of that into one node, with the same set of Adjust and Mask controls on every velocity type, and viewport guides that show you exactly what each type is contributing.</p>
 <figure class="content-center">
     <img src="static/hero.png" alt="Velocity guides on a fractured object" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="1170" height="910" />
     <figcaption class="caption">Velocity guides on a fractured object</figcaption>
@@ -222,19 +222,19 @@
 -->
 <h2 id="what-it-does-for-you">What it does for you</h2>
 <ul>
-<li><strong>Six velocity types on one node</strong> — Basic (a fixed vector), Directional (aimed at, around, or away from a target), Exploding (an outward burst), Velocity from Motion (derived from animated input), Curl Noise (divergence-free turbulence), and Angular (<code translate="no" v-pre>@w</code>) — each one switched on with a checkbox in its own section header.</li>
+<li><strong>Six velocity types on one node</strong> — Basic (a fixed vector), Directional (aimed at, around, or away from a target), Exploding (an outward burst), Velocity from Motion (derived from animated input), Curl Noise (divergence-free turbulence), and Angular (<code translate="no" v-pre>@w</code>) — each switched on with a checkbox in its own section header.</li>
 <li><strong>Timed Events</strong> — snapshot the setup into events at different frames, each with its own attack / hold / release envelope, and play them back as one summed timeline. You get an on-screen event timeline, solo/mute, motion preview and per-event editing with it. See <a href="timed-events/">Timed Events</a>.</li>
-<li><strong>Identical Adjust and Mask controls on every type</strong> — scale, rotate, randomise or noise the result, and restrict it with a constant, an attribute, noise, or a line / radial / bounding-box gradient. These are promoted from Houdini&#x27;s own Attribute Adjust nodes, so they behave exactly the way you already expect. A one-click <strong>Randomize</strong> row adds natural variation at five strengths.</li>
+<li><strong>Identical Adjust and Mask controls on every type</strong> — scale, rotate, randomise or noise the result, and restrict it with a constant, an attribute, noise, or a line / radial / bounding-box gradient. These are promoted from Houdini&#x27;s own Attribute Adjust nodes, so they behave exactly the way you&#x27;d expect. A one-click <strong>Randomize</strong> row adds natural variation at five strengths.</li>
 <li><strong>A real mixer</strong> — combine the types additively with per-type gains, or blend them with normalized weights. The velocity already on your geometry joins in as its own stream, which is what lets nodes stack and caches survive.</li>
 <li><strong>Interactive blast placement</strong> — for fractured RBD, drop the explosion source by dragging on the mesh in the viewport, scroll to grow the blast radius or push the source into the body, and watch the affected pieces tint live inside the radius sphere.</li>
-<li><strong>Solver-aware output</strong> — write velocity for an RBD Bullet Solver or accumulated force for POP and Vellum, with <strong>Injecting Now</strong> and <strong>Mute Gravity</strong> signals that let events punch a solve and then hand it straight back to physics. <strong>Create Connected RBD Sim</strong> builds a solver already wired to both.</li>
+<li><strong>Solver-aware output</strong> — write velocity for an RBD Bullet Solver or accumulated force for POP and Vellum, with <strong>Injecting Now</strong> and <strong>Mute Gravity</strong> signals that let events punch a solve and hand it straight back to physics. <strong>Create Connected RBD Sim</strong> builds a solver already wired to both.</li>
 <li><strong>Scale by Piece Size</strong> — big chunks fly slower than slivers, from a mass attribute or each packed piece&#x27;s real size.</li>
 <li><strong>Ballistic Motion, a second output</strong> — the pieces already flying along the velocity you authored, no solver needed, with <strong>Return to Home</strong>: one slider that flies every piece back to exactly where it started, with arcs, swirls, staggered arrivals and extra turns on the way. Previz, motion-graphics moves, telekinesis reassembly.</li>
 <li><strong>Event Strength</strong> — balance whole baked events against each other with one slider each, live at playback, no re-baking.</li>
 <li><strong>Honest, clean visualization</strong> — per-type guide trails scaled by each stream&#x27;s <em>actual</em> contribution to the mix, drawn as guide geometry that never touches your output. The output carries <code translate="no" v-pre>@v</code> (or <code translate="no" v-pre>@force</code>) and nothing else, unless you explicitly export a sub-velocity.</li>
 </ul>
 <h2 id="who-its-for">Who it&#x27;s for</h2>
-<p>Anyone who sets up FLIP, Pyro, Vellum, POP or RBD simulations in Houdini and is tired of rebuilding the same velocity rig over and over. It is aimed squarely at the everyday cases — a wall bursting apart, debris thrown from an impact, a body blown outward in stages, a fluid pushed toward a target, pre-sim momentum handed from animation to a solve.</p>
+<p>Anyone who sets up FLIP, Pyro, Vellum, POP or RBD simulations in Houdini and is tired of rebuilding the same velocity rig over and over. It&#x27;s aimed squarely at the everyday cases — a wall bursting apart, debris thrown from an impact, a body blown outward in stages, a fluid pushed toward a target, pre-sim momentum handed from animation to a solve.</p>
 <h2 id="requirements">Requirements</h2>
 <ul>
 <li><strong>Houdini 22.0</strong> or newer (Indie or Apprentice — the asset ships as <code translate="no" v-pre>.hdalc</code>).</li>
@@ -267,8 +267,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-06T17:36:44" title="2026-08-06" data-absolute-label="Last updated on 2026-08-06" data-absolute-label-html="Last updated on 2026-08-06" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-08-06
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-07T12:06:44" title="2026-08-07" data-absolute-label="Last updated on 2026-08-07" data-absolute-label-html="Last updated on 2026-08-07" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-08-07
                     </time>
                 </div>
 

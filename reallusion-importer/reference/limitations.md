@@ -1,17 +1,17 @@
 # Limitations & Expectations
 
-This page is here to set honest expectations before and after you buy. The tool does a lot, but Character Creator's FBX export — and Houdini itself — impose some hard limits that no importer can work around. Reading this will save you frustration and help you judge whether the tool fits your pipeline.
+This page sets honest expectations before and after you buy. Character Creator's FBX export — and Houdini itself — impose some hard limits no importer can work around. Reading this will save you frustration and help you judge whether the tool fits your pipeline.
 
-Most of these fall into three buckets: **what Character Creator doesn't export**, **what varies from character to character**, and **how Houdini behaves**. A couple have fixes planned (see the roadmap notes).
+Most of these fall into three buckets: **what Character Creator doesn't export**, **what varies from character to character**, and **how Houdini behaves**.
 
 ## Memory
 
 !!!success USD mode (the default): 16 GB minimum, 32 GB recommended
-In **USD import mode** — the default since Version 1.2 — the tool keeps the facial blendshapes sparse from import all the way through deformation. A standard character runs at roughly **4–5 GB** in a live session; even the heaviest HD characters we test with stay around **6–8 GB**. **16 GB of RAM works for standard characters; 32 GB is recommended** for HD characters, long animations, and rendering headroom.
+In **USD import mode** — the default since Version 1.2 — the tool keeps the facial blendshapes sparse from import all the way through deformation. A standard character runs at roughly **4–5 GB** in a live session; even the heaviest HD characters stay around **6–8 GB**. **16 GB of RAM works for standard characters; 32 GB is recommended** for HD characters, long animations, and rendering headroom.
 !!!
 
 !!!warning FBX import mode is the exception — it stays heavy
-The FBX format stores every facial blendshape as a full mesh copy and Houdini must expand them all on import. A fully-featured HD character can use **20–40 GB of RAM via FBX**, and each added FBX animation clip adds several gigabytes more. If you plan to work in FBX mode with HD characters (for FBX-only features like expression wrinkles or the full hair re-dye), plan for **48 GB minimum, 64 GB recommended**. This is how Houdini handles FBX character data, not a flaw in the tool — the geometry-caching and memory-reclaim utilities help manage it, but only USD mode avoids it.
+FBX stores every facial blendshape as a full mesh copy, and Houdini must expand them all on import. A fully-featured HD character can use **20–40 GB of RAM via FBX**, and each added FBX animation clip adds several gigabytes more. If you work in FBX mode with HD characters (for FBX-only features like expression wrinkles or full hair re-dye), plan for **48 GB minimum, 64 GB recommended**. This is how Houdini handles FBX character data, not a flaw in the tool — only USD mode avoids it.
 !!!
 
 Two things scale memory in **both** modes: playing or scrubbing a **long frame range** fills Houdini's playback cache (bounded by the *Cache Memory* preference — see [Performance & Caching](performance.md)), and **FBX animation clips** in the database cost RAM in proportion to their length (USD clips don't — prefer them). Keep frame ranges to what you actually need.
@@ -20,28 +20,28 @@ Two things scale memory in **both** modes: playing or scrubbing a **long frame r
 
 This is the most important section to understand, because the eyes are where Character Creator's export is least complete.
 
-Character Creator's premium "Digital Human" / HD eye has a rich shader with many controls — iris color, iris and pupil scale, limbal ring, iris depth/parallax, sclera shading, cornea wetness, and more. **Almost none of that is baked into the exported FBX or its texture data.** The export carries a neutral base iris texture and standard PBR maps; the rest of the eye's look lives only inside Character Creator and does not travel with the file.
+Character Creator's premium "Digital Human" / HD eye has a rich shader — iris color, iris and pupil scale, limbal ring, iris depth/parallax, sclera shading, cornea wetness, and more. **Almost none of that is baked into the exported FBX or its texture data.** The export carries a neutral base iris texture and standard PBR maps; the rest of the eye's look lives only inside Character Creator.
 
 !!!warning
 **Don't rely on heavy eye customization in Character Creator carrying over.** If you carefully dial in iris color, depth, and shading in CC, the exported character will _not_ look the same in Houdini — that detail isn't in the file. Treat the CC eye look as a reference, not something that transfers.
 !!!
 
-**What the tool reproduces** (faked convincingly on the imported eye): iris color tint, iris scale, the limbal ring, eyelid contact shadow, and overall eye glossiness/wetness. These give you strong art-directable control over the eye look — see [Eyes](../using/eyes.md).
+**What the tool reproduces** (faked convincingly on the imported eye): iris color tint, iris scale, the limbal ring, eyelid contact shadow, and overall eye glossiness/wetness. See [Eyes](../using/eyes.md).
 
-**What the tool cannot reproduce** (the source data isn't exported): true iris depth and parallax (the deep "looking into the eye" effect), pupil resizing, and Character Creator's layered cornea/wetness shading. These can only be approximated, never matched, because the information needed to build them faithfully never leaves Character Creator.
+**What the tool cannot reproduce** (the source data isn't exported): true iris depth and parallax, pupil resizing, and Character Creator's layered cornea/wetness shading. These can only be approximated, because the information needed to build them faithfully never leaves Character Creator.
 
-The practical takeaway: **set your eye look in Houdini using the tool's eye controls, not by trying to match a CC render.**
+**Set your eye look in Houdini using the tool's eye controls, not by trying to match a CC render.**
 
 ## Character-dependent features
 
-Several features depend on what your specific character and its export actually contain. The tool detects what's present and enables those features automatically — so if a control seems to do nothing, the most likely reason is that your character doesn't carry the data that feature needs. This is normal and expected.
+Several features depend on what your specific character and its export actually contain. The tool detects what's present and enables those features automatically — if a control seems to do nothing, your character most likely doesn't carry the data that feature needs. This is normal and expected.
 
 * **Hair re-dye** needs the character's hair to carry Character Creator's hair maps (root, ID, flow). Most styled scalp hair does; some hairstyles, caps, and simpler hair bake everything into a flat texture and can't be re-dyed (they still import and look correct). See [Hair](../using/hair.md).
 * **Tear-line wetness** needs the character to export a tear-line mesh. Some characters have one, some don't — it varies by base mesh and export. The tool's overall **Eye Glossiness** control works on every character regardless, so you always have a wet-eye lever. See [Eyes](../using/eyes.md).
 * **Wrinkles** need the character's expression-wrinkle maps (most CC heads have them).
 * **Displacement** needs exported displacement maps.
 
-None of these are bugs — they reflect what each character's export provides. When in doubt, a feature that "doesn't do anything" usually means the underlying maps aren't in that particular character.
+None of these are bugs — they reflect what each character's export provides.
 
 ## UDIM (multi-tile) textures
 
@@ -69,4 +69,4 @@ The tool was developed and tested on **Windows**, with **Houdini 21+**. macOS an
 
 ## In short
 
-The tool is built to get you from a Character Creator export to a beautiful, art-directable Houdini character fast. Where Character Creator's export is complete, it reproduces the look faithfully. Where the export is partial (most notably the eyes), it gives you strong controls to rebuild the look in Houdini — which is the right workflow anyway. The honest line: **use the tool's controls to author your look in Houdini, rather than expecting a 1:1 copy of the Character Creator viewport.**
+The tool is built to get you from a Character Creator export to a beautiful, art-directable Houdini character fast. Where Character Creator's export is complete, it reproduces the look faithfully. Where the export is partial (most notably the eyes), it gives you strong controls to rebuild the look in Houdini — which is the right workflow anyway. **Use the tool's controls to author your look in Houdini, rather than expecting a 1:1 copy of the Character Creator viewport.**

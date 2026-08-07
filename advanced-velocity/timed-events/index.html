@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839411007006">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839412427533">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -44,12 +44,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.839411007006" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.839412427533" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839411007006" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839412427533" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839411007006" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.839411007006" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839412427533" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.839412427533" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -229,7 +229,7 @@
         </div>
         <div class="pr-5 ml-3 w-full">
             <h5>Why the sliders &quot;do nothing&quot;</h5>
-<p>In Timed Events mode the live Setup does not reach the output — only baked events do. So if you tweak a slider and the sim doesn&#x27;t respond, the event you&#x27;re shaping simply hasn&#x27;t been re-baked yet: press <strong>Update</strong> on its row. The node tells you when this happens — see <doc-anchor-trigger to="#editing-an-event">Editing an event</doc-anchor-trigger>.</p>
+<p>In Timed Events mode the live Setup does not reach the output — only baked events do. If you tweak a slider and the sim doesn&#x27;t respond, the event you&#x27;re shaping simply hasn&#x27;t been re-baked yet: press <strong>Update</strong> on its row. See <doc-anchor-trigger to="#editing-an-event">Editing an event</doc-anchor-trigger>.</p>
         </div>
     </div>
 </div>
@@ -239,27 +239,33 @@
     <figcaption class="caption">The At Frame readout and the event buttons — Record, Stop, Create Event, Copy Event, Update</figcaption>
 </figure>
 <ul>
-<li><strong>Create Event</strong> bakes the current setup into a new event at the playbar frame.</li>
-<li><strong>Record Events</strong> plays from wherever the playbar sits to the range end (at the very end it wraps back to the start) — press Create Event as it plays to mark events in real time, like tapping keys into a performance. It also brings the timeline HUD up if the viewer had wandered out of the node&#x27;s state. <strong>Stop</strong> ends it. Here&#x27;s the detail that keeps a take playable: while recording, Create Event only <em>marks</em> the moment — you&#x27;ll see hollow discs appear on the timeline — and the real events (bake and all) are created together the instant the take ends. Nothing about the node changes mid-take, so playback stays interactive and anything downstream (an RBD solve included) keeps its cache instead of resimulating on every press. The marks survive even a crash — press Record again and you&#x27;ll be offered them back. Guides also pause for the take and come back the moment playback ends.</li>
-</ul>
-<p>Recording by feel wants a responsive playbar, so it is at its best on <strong>lighter inputs</strong> — packed pieces (one point per piece, realtime at any practical count) or meshes up to a few tens of thousands of points. On very dense raw-point inputs every event you drop starts contributing immediately, and playing back the events themselves costs per frame — so the take will slow down as you stack them. The workflow that works: rough it in on a lighter proxy or the packed stream, then Update the events against the full-resolution input afterwards.</p>
-<ul>
-<li><strong>Copy Event</strong> duplicates an existing event at the current frame — the same blast, later, with nothing re-baked.</li>
-<li><strong>Sort by Frame</strong> reorders the rows chronologically (playback doesn&#x27;t care about row order; this is purely for reading).</li>
+<li>
+<p><strong>Create Event</strong> bakes the current setup into a new event at the playbar frame.</p>
+</li>
+<li>
+<p><strong>Record Events</strong> plays from wherever the playbar sits to the range end (wrapping back to the start at the very end) — press Create Event as it plays to mark events in real time, like tapping keys into a performance. It also brings the timeline HUD up if the viewer had wandered out of the node&#x27;s state. <strong>Stop</strong> ends it. While recording, Create Event only <em>marks</em> the moment (hollow discs appear on the timeline) — the real events, bake and all, are created together the instant the take ends, so playback stays interactive and anything downstream (an RBD solve included) keeps its cache instead of resimulating on every press. The marks survive a crash — press Record again and you&#x27;ll be offered them back. Guides pause for the take and come back when playback ends.</p>
+<p>Recording by feel wants a responsive playbar, so it&#x27;s at its best on <strong>lighter inputs</strong> — packed pieces or meshes up to a few tens of thousands of points. On very dense raw-point inputs the take slows down as events stack up; rough it in on a lighter proxy, then Update the events against the full-resolution input afterwards.</p>
+</li>
+<li>
+<p><strong>Copy Event</strong> duplicates an existing event at the current frame — the same blast, later, with nothing re-baked.</p>
+</li>
+<li>
+<p><strong>Sort by Frame</strong> reorders the rows chronologically (playback doesn&#x27;t care about row order; this is purely for reading).</p>
+</li>
 </ul>
 <p>Each event is a tab in the <strong>Events</strong> list, named, stamped with its frame, and carrying a <strong>Captured</strong> summary of what it actually baked — which types, how many points, the peak speed. That line is worth glancing at every time: an event named &quot;explosion&quot; that captured <code translate="no" v-pre>basic | 60 pts | max |v| 1</code> is telling you something.</p>
 <h2 id="the-envelope">The envelope</h2>
 <p>Every event has an Attack / Hold / Release envelope around its <strong>Event Frame</strong> — the peak moment. Each phase has an enable checkbox and a duration in <strong>frames</strong>, the same unit as the Event Frame itself:</p>
 <ul>
-<li><strong>Attack</strong> ramps the event in from zero to full, ending at the event frame — meaning an Attack of 5 opens five frames <em>before</em> the event frame. Off = it switches on instantly.</li>
+<li><strong>Attack</strong> ramps the event in from zero to full, ending at the event frame — an Attack of 5 opens five frames <em>before</em> the event frame. Off = it switches on instantly.</li>
 <li><strong>Hold</strong> keeps it at full strength after the peak.</li>
 <li><strong>Release</strong> fades it out afterwards, in one of two modes: <strong>Fade to Zero</strong> ramps down over the Release time; <strong>Drag</strong> decays gradually at a rate, so the pieces the event threw visibly slow down. Drag is the one timing control expressed per <em>second</em> rather than in frames — a decay rate per frame would be an unreadable fraction.</li>
 </ul>
-<p>So an event&#x27;s window — the span where it delivers full strength — runs from <code translate="no" v-pre>Event Frame − Attack</code> to <code translate="no" v-pre>Event Frame + Hold</code>. That window is what <strong>Injecting Now</strong> and <strong>Mute Gravity</strong> key off, and it is worth being able to read it off the timeline at a glance.</p>
-<p><strong>Extend to Next</strong>, on the Hold row, sets Hold so this event holds until the next one takes over: the hold ends exactly where the next event&#x27;s Attack opens, so the two windows touch with no gap and without both sitting at full strength at once. &quot;Next&quot; means next by frame, whatever is soloed or muted. On the last event it does nothing and says so in the status bar. The small <strong>undo</strong> button beside it puts Hold back to what that press replaced — that one setting only, one press deep.</p>
-<p>Attack and Release each take a <strong>Curve</strong> — Linear, Ease, Sharp, Snap, or Soft — for the shape of the ramp.</p>
-<p>All three phases are <strong>on</strong> by default, so a fresh event ramps in, holds, and fades back out — a timed burst, which is what events are for. If you want a velocity that stays on for the whole shot, that is literally what <strong>Single Field</strong> mode is; and switching all three phases <strong>off</strong> makes an event <em>latch</em> — it starts at its frame and keeps delivering at full strength forever.</p>
-<p>Latching is the right shape when an RBD solver overwrites <code translate="no" v-pre>@v</code> every frame — a fading velocity handed to that solver would <em>brake</em> the pieces it just threw. (The better recipe is to keep the fade and gate the solver on <strong>Injecting Now</strong> instead — see <doc-anchor-trigger to="#driving-an-rbd-solver">Driving an RBD solver</doc-anchor-trigger>.) One cost to be aware of: a latched event keeps the node cooking on every frame after it starts, which adds up on heavy inputs.</p>
+<p>So an event&#x27;s window — the span where it delivers full strength — runs from <code translate="no" v-pre>Event Frame − Attack</code> to <code translate="no" v-pre>Event Frame + Hold</code>. That window is what <strong>Injecting Now</strong> and <strong>Mute Gravity</strong> key off, and it&#x27;s worth being able to read it off the timeline at a glance.</p>
+<p><strong>Extend to Next</strong>, on the Hold row, sets Hold so this event holds until the next one takes over: the two windows touch with no gap and without both sitting at full strength at once. &quot;Next&quot; means next by frame, whatever is soloed or muted; it does nothing on the last event. The small <strong>undo</strong> button beside it puts Hold back to what that press replaced — one setting, one press deep.</p>
+<p>Attack and Release each take a <strong>Curve</strong> — Linear, Ease, Sharp, Snap, or Soft.</p>
+<p>All three phases are <strong>on</strong> by default, so a fresh event ramps in, holds, and fades back out. Switching all three <strong>off</strong> makes an event <em>latch</em> — it starts at its frame and keeps delivering at full strength forever. For a velocity that stays on for the whole shot, use <strong>Single Field</strong> mode instead.</p>
+<p>Latching is the right shape when an RBD solver overwrites <code translate="no" v-pre>@v</code> every frame — a fading velocity handed to that solver would <em>brake</em> the pieces it just threw. (Better still: keep the fade and gate the solver on <strong>Injecting Now</strong> — see <doc-anchor-trigger to="#driving-an-rbd-solver">Driving an RBD solver</doc-anchor-trigger>.) One cost: a latched event keeps the node cooking every frame after it starts, which adds up on heavy inputs.</p>
 <h2 id="editing-an-event">Editing an event</h2>
 <p><strong>Recall</strong> loads an event&#x27;s captured setup back into the live Setup and jumps to its frame. Edit whatever you like, then press <strong>Update</strong> to re-bake it.</p>
 <p>The node watches for the trap in that loop: if the live Setup no longer matches the event it was last based on, the <strong>Stale</strong> readout names the event and its timeline marker turns <strong>pink</strong>. Nothing is lost — press Update to capture your changes, or Create Event to make the changes a new event instead.</p>
@@ -267,7 +273,7 @@
 <h2 id="solo-and-mute">Solo and Mute</h2>
 <p><strong>Solo</strong> plays back <em>only</em> the listed events; <strong>Mute</strong> silences the listed ones. Both take space-separated numbers and ranges (<code translate="no" v-pre>1 3-5</code>), and picking from the dropdown <em>adds</em> to the list rather than replacing it. Solo wins over Mute, and a soloed event is never cut short by the events it was soloed away from.</p>
 <h2 id="event-strength">Event Strength</h2>
-<p>Once a few events are baked, balancing them against each other used to mean Recall → tweak → Update for every one. <strong>Event Strength</strong> (top of the Velocity Mixer tab, one slider per event, named live after the event) does it directly: each slider scales that whole event, across the whole frame range, applied at playback — so it responds instantly and never makes an event stale. The split to keep in your head: the type <strong>Gains</strong> balance the streams <em>inside</em> the event you&#x27;re about to bake, Event Strength balances the <em>baked events</em> against each other.</p>
+<p>Once a few events are baked, balancing them against each other used to mean Recall → tweak → Update for every one. <strong>Event Strength</strong> (top of the Velocity Mixer tab, one slider per event, named live after the event) does it directly: each slider scales that whole event, across the whole frame range, applied at playback — so it responds instantly and never makes an event stale. The type <strong>Gains</strong> balance the streams <em>inside</em> the event you&#x27;re about to bake; Event Strength balances the <em>baked events</em> against each other.</p>
 <p>A strength of 0 quiets an event&#x27;s velocity but deliberately does <strong>not</strong> close its Injecting Now / Mute Gravity windows — those follow the event&#x27;s timing, not its amount. Want an event genuinely out of the solve? That&#x27;s <strong>Mute</strong>.</p>
 <h2 id="the-event-timeline">The event timeline</h2>
 <p>With <strong>Event Timeline</strong> on (Visualization tab), a frame ruler draws along the bottom of the viewport with a marker per event and a playhead. The marker colours tell you each event&#x27;s state at a glance:</p>
@@ -302,10 +308,9 @@
 </div>
 <h2 id="motion-preview">Motion preview</h2>
 <p>Baked vectors are only half the picture — you also want to see where the pieces <em>go</em>. <strong>Preview Motion</strong> (Visualization tab) advances the baked-event guides to where the events predict the pieces will be at the current frame, and the <strong>ghost</strong> draws a wireframe of the pieces there, tumbling with any baked <code translate="no" v-pre>@w</code>. <strong>Offset</strong> slides the whole prediction sideways in multiples of the object&#x27;s width, so the forecast reads beside the real geometry instead of on top of it.</p>
-<p>Careful with this one: it ships <strong>off</strong>, and that is deliberate. It&#x27;s the most expensive control in the whole node — the prediction is integrated every frame, and the ghost draws a <em>second complete copy</em> of your input on every viewport redraw. On a light test object you&#x27;ll never notice. On something heavy — a dense mesh, or anything textured — it&#x27;s the difference between scrubbing freely and everything feeling like treacle, and because it slows down <em>redraws</em> it makes parm edits and playbar scrubbing feel sluggish too, not just playback. The workflow that actually works: switch it on to check your timing, then switch it straight back off and keep authoring.</p>
-<p><strong>Ghost Style</strong> is what keeps the ghost affordable on real geometry. It ships on <strong>Full Wireframe</strong>, which looks best and costs most; on anything heavy drop it to <strong>Bounding Boxes</strong>, which draws one tumbling wire box per piece — cheap at any density, and the motion still reads perfectly — or <strong>Points</strong>, cheaper still. The preview never switches itself off, whatever the input size; the <strong>Visualization Limit</strong> caps the guide <em>trails</em> only, with <strong>Guide Density</strong> scaling within that budget.</p>
-<p>The live Setup guides deliberately stay on the input mesh — the thing you&#x27;re authoring reads in place, the prediction sits beside it.</p>
-<p>One thing to keep straight: the prediction is a straight-line integration of the baked fields — no collisions, no drag — so treat it as a forecast, not a simulation.</p>
+<p>It ships <strong>off</strong>, and that&#x27;s deliberate — it&#x27;s the most expensive control in the node, since the ghost draws a <em>second complete copy</em> of your input on every viewport redraw. On something heavy that slows down more than just playback: parm edits and playbar scrubbing get sluggish too, since it&#x27;s redraws that cost. Switch it on to check your timing, then switch it back off.</p>
+<p><strong>Ghost Style</strong> is what keeps the ghost affordable. It ships on <strong>Full Wireframe</strong>, best-looking and most expensive; on heavy input drop it to <strong>Bounding Boxes</strong> (one tumbling wire box per piece, cheap at any density) or <strong>Points</strong>, cheaper still. The preview never switches itself off, whatever the input size — the <strong>Visualization Limit</strong> caps the guide <em>trails</em> only, with <strong>Guide Density</strong> scaling within that budget.</p>
+<p>The live Setup guides stay on the input mesh; the prediction sits beside it. And it&#x27;s a straight-line integration of the baked fields — no collisions, no drag — a forecast, not a simulation.</p>
 <h3 id="track-motion">Track Motion</h3>
 <p>An event&#x27;s baked vectors were sampled at the input positions. Once the pieces travel, a &quot;toward the target&quot; field frozen at bake time no longer points at the target. <strong>Track Motion</strong> (per event, on by default) re-aims the event&#x27;s directional velocity at the pieces&#x27; predicted positions each frame — an orbit stays tangential, a Toward keeps pointing home.</p>
 <p>It&#x27;s only available when the event captured a <em>plain</em> Directional field: Adjust, Mask, Distance Falloff, per-piece scaling or a mix of types can&#x27;t be re-evaluated, and in those cases the event honestly replays frozen rather than guessing.</p>
@@ -325,14 +330,14 @@
         </div>
         <div class="pr-5 ml-3 w-full">
             <h5>warning To Rest Pose needs Track Motion, and something to have moved first</h5>
-<p>Advanced Velocity sits <strong>upstream of your sim</strong>, so its input is always the un-simulated geometry. On static input each point&#x27;s captured rest position <em>is</em> its current position, so at bake time <code translate="no" v-pre>rest - P</code> is exactly zero and the event bakes an empty field — <code translate="no" v-pre>Captured</code> will read <code translate="no" v-pre>max |v| 0</code>.</p>
-<p><strong>Track Motion is what makes it work</strong> (it is on by default). Instead of replaying that empty bake, it re-evaluates <code translate="no" v-pre>rest - P</code> against the pieces&#x27; <em>predicted</em> positions every frame, so once an earlier event has thrown the pieces, the reassembly event pulls each one back to its own captured spot.</p>
-<p>Two things follow from this. A rest-pose event <strong>alone</strong> still does nothing — correctly, since nothing has moved yet; it needs an earlier event to displace the pieces. And Track Motion will <strong>refuse</strong> if anything per-point sits between the field and the bake — Adjust, Mask, Distance Falloff — because the scale it needs cannot be measured from an all-zero bake. <code translate="no" v-pre>Captured</code> names the reason when that happens.</p>
+<p>Advanced Velocity sits <strong>upstream of your sim</strong>, so its input is always the un-simulated geometry. On static input each point&#x27;s captured rest position <em>is</em> its current position, so at bake time <code translate="no" v-pre>rest - P</code> is exactly zero and the event bakes an empty field — <code translate="no" v-pre>Captured</code> reads <code translate="no" v-pre>max |v| 0</code>.</p>
+<p><strong>Track Motion is what makes it work</strong> (on by default). Instead of replaying that empty bake, it re-evaluates <code translate="no" v-pre>rest - P</code> against the pieces&#x27; <em>predicted</em> positions every frame, so once an earlier event has thrown the pieces, the reassembly event pulls each one back to its own captured spot.</p>
+<p>Two things follow: a rest-pose event <strong>alone</strong> still does nothing, correctly, since nothing&#x27;s moved yet — it needs an earlier event to displace the pieces. And Track Motion <strong>refuses</strong> if anything per-point sits between the field and the bake — Adjust, Mask, Distance Falloff — because the scale it needs can&#x27;t be measured from an all-zero bake. <code translate="no" v-pre>Captured</code> names the reason when that happens.</p>
         </div>
     </div>
 </div>
 <h2 id="driving-an-rbd-solver">Driving an RBD solver</h2>
-<p>The RBD Bullet Solver reads <code translate="no" v-pre>@v</code> through <strong>Override Attributes from SOP</strong> (under <strong>Properties ▸ Pieces ▸ Override Attributes</strong>) — but left on every frame, it re-stamps the velocity constantly and the pieces fight gravity. What you actually want is for the events to <em>inject</em>, then let physics own the pieces. That&#x27;s what <strong>Injecting Now</strong> (Output tab) is for: it reads 1 while any event is delivering energy (attack + hold) and 0 the rest of the time.</p>
+<p>The RBD Bullet Solver reads <code translate="no" v-pre>@v</code> through <strong>Override Attributes from SOP</strong> (under <strong>Properties ▸ Pieces ▸ Override Attributes</strong>) — but left on every frame, it re-stamps the velocity constantly and the pieces fight gravity. What you want is for the events to <em>inject</em>, then let physics own the pieces. That&#x27;s <strong>Injecting Now</strong> (Output tab): it reads 1 while any event is delivering energy (attack + hold), 0 otherwise.</p>
 <p>On the solver:</p>
 <ol>
 <li>Leave <strong>Override Attributes from SOP</strong> ON. (Don&#x27;t gate the toggle itself — the solver latches it at the sim&#x27;s first frame, and gating it delivers nothing at all.)</li>
@@ -342,11 +347,11 @@
 <pre translate="no" class="language-python"><code v-pre class="language-python">&quot;v&quot; if hou.node(&quot;/obj/geo1/advanced_velocity1&quot;).evalParm(&quot;dyn_injecting&quot;) else &quot;&quot;</code></pre>
 </doc-codeblock></div>
 <p>The solve then takes the velocity on the impulse frames and runs free in between — pieces launch, arc, and land under gravity, and the next event kicks them again. Leave <code translate="no" v-pre>w</code> out of the list unless your events author angular velocity, or the solver&#x27;s own tumble gets overwritten.</p>
-<p><strong>In a hurry? Press Create Connected RBD Sim</strong> (Output tab). It builds an RBD Bullet Solver below the node with a ground plane, gravity, and both gates already wired — the fastest way to see the contracts working, and a worked example to copy into your own setup.</p>
-<p>For POP and Vellum none of this is needed. Set <strong>Output As</strong> to Force and the node writes an accumulated <code translate="no" v-pre>@force</code> instead: those solvers add forces every step rather than overwriting velocity, so there is nothing to gate.</p>
+<p><strong>In a hurry? Press Create Connected RBD Sim</strong> (Output tab). It builds an RBD Bullet Solver below the node with a ground plane, gravity, and both gates already wired.</p>
+<p>For POP and Vellum none of this is needed. Set <strong>Output As</strong> to Force and the node writes an accumulated <code translate="no" v-pre>@force</code> instead — those solvers accumulate forces every step rather than overwriting velocity, so there&#x27;s nothing to gate.</p>
 <h3 id="staggering-the-points">Staggering the points</h3>
-<p>By default every point in an event launches on the same frame — one slab, leaving together. <strong>Stagger Points</strong> (per event, in <strong>Event Options</strong>) brings them in one at a time instead: each point waits for its own moment, shuffled evenly across the event&#x27;s window, then takes its full share.</p>
-<p>The shuffle is <em>even</em>, not random-per-point — the points are shared out across the window rather than each rolling a die, so you get a steady cascade instead of clumps. It is also stable, meaning a point keeps its slot while you scrub, and the guides and the motion preview show exactly the same arrivals as the output.</p>
+<p>By default every point in an event launches on the same frame — one slab, leaving together. <strong>Stagger Points</strong> (per event, in <strong>Event Options</strong>) brings them in one at a time instead: each waits for its own moment, shuffled evenly across the event&#x27;s window, then takes its full share.</p>
+<p>The shuffle is <em>even</em>, not random-per-point — points are shared out across the window rather than each rolling a die, so you get a steady cascade instead of clumps. It&#x27;s also stable: a point keeps its slot while you scrub, and the guides and motion preview show the same arrivals as the output.</p>
 <p>Two ways to use it, depending on the other envelope controls:</p>
 <ul>
 <li><strong>Attack off, Hold on</strong> — the pure cascade. The envelope is flat across the window, so each point snaps to full strength the instant its turn comes.</li>
@@ -366,7 +371,7 @@
         </div>
         <div class="pr-5 ml-3 w-full">
             <h5>warning Waiting points hang, they do not fall</h5>
-<p>A point that has not activated yet is still being written to, with a velocity of zero, for as long as the solver is reading from SOP — so it holds in mid-air rather than falling, though it still collides and gets jostled. Measured on a real Bullet solve: with the stagger on, the pieces&#x27; final vertical spread was <strong>10× wider</strong> than the un-staggered slab, with the waiting pieces sitting near where they started.</p>
+<p>A point that hasn&#x27;t activated yet is still being written to, with a velocity of zero, for as long as the solver is reading from SOP — so it holds in mid-air rather than falling, though it still collides and gets jostled.</p>
 <p>For a telekinetic effect that hang <em>is</em> the look. If a piece should fall until it gets picked up, give it its own later event instead.</p>
         </div>
     </div>
@@ -380,31 +385,31 @@
 <li><strong>Small Pieces First / Large Pieces First</strong> — packed pieces ranked by size, so a body can shed its slivers before the big chunks let go.</li>
 </ul>
 <p>A mode with nothing to measure — uniform strength, unpacked input for the size modes, a zero axis — falls back to Random rather than doing something misleading.</p>
-<p>Stagger is applied at <em>playback</em>, not baked — so you can switch it on for an event that is already baked without pressing Update.</p>
+<p>Stagger is applied at <em>playback</em>, not baked — so you can switch it on for an event that&#x27;s already baked without pressing Update.</p>
 <h3 id="pulse-timing">Pulse timing</h3>
 <p>The <strong>Timing</strong> dropdown above the envelope controls picks how an event delivers its energy: <strong>Envelope</strong> is the Attack / Hold / Release described above, and <strong>Pulse</strong> replaces it with a train of grips — grab, let go, grab again.</p>
 <p>Pulse timing has four controls, and no envelope:</p>
 <ul>
-<li><strong>Range (F)</strong> — the frames the train spans, starting at the Event Frame. Its own <strong>Extend to Next</strong> button (with the same one-press undo) stretches the range to where the next event opens.</li>
+<li><strong>Range (F)</strong> — the frames the train spans, starting at the Event Frame. Its own <strong>Extend to Next</strong> button (same one-press undo) stretches the range to where the next event opens.</li>
 <li><strong>Pulse Count</strong> — how many grips tile that range, evenly.</li>
-<li><strong>Pattern</strong> — each grip&#x27;s intensity curve: <strong>Hit</strong> (full strength at the grip, then a decay — repeated impacts), <strong>Build</strong> (ramps up and gets cut by the next grip; the final one holds its peak — something charging up), or <strong>Wave</strong> (a smooth swell — breathing). <strong>Curve</strong> eases Hit&#x27;s decay and Build&#x27;s ramp, and the little waveform icon at the end of the row follows the choice — click it to cycle patterns.</li>
-<li><strong>Hold (F)</strong> — the same job Attack + Hold do in Envelope timing: the frames each grip counts as <em>delivering</em> energy. <strong>Injecting Now</strong> and <strong>Mute Gravity (During Impulse)</strong> open for that span, anchored at each grip&#x27;s peak — so between grips a connected solver owns the pieces, and the object visibly sags before the next grab.</li>
+<li><strong>Pattern</strong> — each grip&#x27;s intensity curve: <strong>Hit</strong> (full strength then a decay — repeated impacts), <strong>Build</strong> (ramps up and gets cut by the next grip; the final one holds its peak — charging up), or <strong>Wave</strong> (a smooth swell — breathing). <strong>Curve</strong> eases Hit&#x27;s decay and Build&#x27;s ramp; the waveform icon at the end of the row follows the choice and cycles patterns on click.</li>
+<li><strong>Hold (F)</strong> — the same job Attack + Hold do in Envelope timing: the frames each grip counts as <em>delivering</em> energy. <strong>Injecting Now</strong> and <strong>Mute Gravity (During Impulse)</strong> open for that span, anchored at each grip&#x27;s peak — between grips a connected solver owns the pieces, and the object visibly sags before the next grab.</li>
 </ul>
 <p>Like Stagger, Pulse timing is applied at playback — no re-bake needed. Stagger itself is Envelope-timing only; the two never combine.</p>
 <h3 id="exporting-the-activation-age">Exporting the activation age</h3>
-<p><strong>Export Activation Age (@av_age)</strong> (in the Output tab&#x27;s <em>Additional Exports</em>) writes, for every point, how many frames ago a playing event last took hold of it — <code translate="no" v-pre>-1</code> for points never touched. It is stagger-aware (a cascade lights points up one at a time) and pulse-aware (every new grip resets the clock), which makes it a ready-made shading input: pieces that glow as the force grabs them and cool off as it lets go.</p>
+<p><strong>Export Activation Age (@av_age)</strong> (in the Output tab&#x27;s <em>Additional Exports</em>) writes, for every point, how many frames ago a playing event last took hold of it — <code translate="no" v-pre>-1</code> for points never touched. It&#x27;s stagger-aware (a cascade lights points up one at a time) and pulse-aware (every new grip resets the clock), which makes it a ready-made shading input: pieces that glow as the force grabs them and cool off as it lets go.</p>
 <h3 id="muting-gravity-for-an-impulse">Muting gravity for an impulse</h3>
-<p>Sometimes the physics itself is the problem. A telekinetic lift that fights 9.8 m/s² the whole way up reads as weak, and no amount of extra velocity fixes it — what you want is for the object to genuinely float while the event holds it.</p>
-<p><strong>Mute Gravity</strong> (per event, in <strong>Event Options</strong>) does exactly that. It has three settings:</p>
+<p>Sometimes the physics is the problem. A telekinetic lift that fights 9.8 m/s² the whole way up reads as weak, and no amount of extra velocity fixes it — what you want is for the object to genuinely float while the event holds it.</p>
+<p><strong>Mute Gravity</strong> (per event, in <strong>Event Options</strong>) does that. Three settings:</p>
 <ul>
 <li><strong>Off</strong> — gravity is never touched. The default.</li>
 <li><strong>During Impulse</strong> — muted over the same window as Injecting Now, the attack and the hold, then back to 0. Gravity returns at the end of the peak and the pieces arc over naturally as the impulse fades.</li>
 <li><strong>Until Next Event / End</strong> — the mute carries on until the next event opens, however short this event&#x27;s Hold is.</li>
 </ul>
-<p>That last one is what to reach for when a sequence of events leaves the pieces <strong>falling in the gaps between beats</strong>. It is deliberately <em>not</em> the same thing as extending Hold. Extending Hold keeps Injecting Now open too, so the solver re-stamps <code translate="no" v-pre>@v</code> on every frame of the gap: the pieces fly on rails, with no collisions and no tumble. Extending only the gravity mute lets the impulse fade normally while the solver keeps the pieces — they coast on the momentum it already gave them, keep tumbling, still collide, and simply do not fall.</p>
-<p>On the <strong>last</strong> event there is no next event, so the mute runs until that event stops contributing:</p>
+<p>That last one is what to reach for when a sequence of events leaves the pieces <strong>falling in the gaps between beats</strong>. It&#x27;s deliberately <em>not</em> the same as extending Hold: extending Hold keeps Injecting Now open too, so the solver re-stamps <code translate="no" v-pre>@v</code> every frame of the gap and the pieces fly on rails, with no collisions and no tumble. Extending only the gravity mute lets the impulse fade normally while the solver keeps the pieces — they coast on the momentum already given, keep tumbling, still collide, and simply don&#x27;t fall.</p>
+<p>On the <strong>last</strong> event there&#x27;s no next event, so the mute runs until it stops contributing:</p>
 <ul>
-<li>Release <strong>off</strong> — the envelope latches at full strength, so the mute holds to the end of the frame range.</li>
+<li>Release <strong>off</strong> — the envelope latches at full strength, so the mute holds to the end of the range.</li>
 <li>Release <strong>on</strong>, Fade — the mute ends where the fade ends.</li>
 <li>Release <strong>on</strong>, Drag — the decay is asymptotic and never reaches zero, so again to the end of the range.</li>
 </ul>
@@ -450,12 +455,12 @@
 </div>
 <h2 id="good-to-know">Good to know</h2>
 <ul>
-<li><strong>Incoming Velocity is a live base layer.</strong> The velocity arriving on your input plays underneath the events, every frame — it&#x27;s never baked into them, so it can&#x27;t be double-counted and an animated input stays live between events.</li>
-<li><strong>The Output tab is live too.</strong> Clamp Speed and Scale by Piece Size apply at playback, so flipping them needs no Update. Master Speed is the exception — it&#x27;s baked into each event, and changing it afterwards flags the event stale so you know to press Update.</li>
-<li><strong>Bakes are per-point.</strong> An event&#x27;s field is stored against the input&#x27;s point count, so re-fracturing the object leaves existing events unusable and the node writes zero for them. The Events tab warns you when this has happened; <strong>Utilities ▸ Re-bake All Events</strong> repairs the lot, replaying each event against its own stored snapshot so your timings survive. (That is not the same as Update, which re-bakes from the <em>live</em> Setup.)</li>
-<li><strong>A later blast kicks the pieces that were near it at bake time</strong>, wherever they&#x27;ve since travelled — the radius selection is frozen when the event is baked. Track Motion re-aims directions, not membership.</li>
+<li><strong>Incoming Velocity is a live base layer.</strong> It plays underneath the events every frame — never baked into them, so it can&#x27;t be double-counted, and an animated input stays live between events.</li>
+<li><strong>The Output tab is live too.</strong> Clamp Speed and Scale by Piece Size apply at playback, no Update needed. Master Speed is the exception — it&#x27;s baked into each event, and changing it afterwards flags the event stale.</li>
+<li><strong>Bakes are per-point.</strong> An event&#x27;s field is stored against the input&#x27;s point count, so re-fracturing the object leaves existing events unusable and the node writes zero for them. The Events tab warns you; <strong>Utilities ▸ Re-bake All Events</strong> repairs the lot, replaying each event against its own stored snapshot so timings survive — unlike Update, which re-bakes from the <em>live</em> Setup.</li>
+<li><strong>A later blast kicks the pieces that were near it at bake time</strong>, wherever they&#x27;ve since travelled — the radius selection is frozen at bake. Track Motion re-aims directions, not membership.</li>
 <li><strong>Baked guides can be unified to one colour</strong> (Visualization ▸ Unify Baked Guides) when the per-type colours are more information than you want.</li>
-<li><strong>A blank event with Mute Gravity on freezes everything solid.</strong> With no velocity types enabled its baked field is all zeros, and it still opens the injection gate — so the solver overwrites every piece&#x27;s velocity with zero while gravity is muted, and the pieces hang exactly where they were until the event&#x27;s hold ends, then fall again. Useful on purpose: drop one wherever you want everything to hang suspended, and set its Hold to the length of the pause — or press <strong>Extend to Next</strong> to hang everything right up to the following beat. Keep the distinction straight, though — Mute Gravity on a <em>real</em> event means gravity off while the pieces keep flying; a <em>blank</em> event with it on means everything stops dead.</li>
+<li><strong>A blank event with Mute Gravity on freezes everything solid.</strong> With no velocity types enabled its baked field is all zeros, yet it still opens the injection gate — so the solver zeroes every piece&#x27;s velocity while gravity is muted, and the pieces hang until the event&#x27;s hold ends, then fall again. Useful on purpose: drop one wherever you want everything suspended, and set its Hold to the pause length (or <strong>Extend to Next</strong> to hang right up to the following beat). Mute Gravity on a <em>real</em> event means gravity off while the pieces keep flying; on a <em>blank</em> event it means everything stops dead.</li>
 </ul>
 <div id="retype-backlinks">
     <h2>See also</h2>
@@ -500,7 +505,7 @@
                 <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M10.97 8.265a1.45 1.45 0 0 0-.487.57.75.75 0 0 1-1.341-.67c.2-.402.513-.826.997-1.148C10.627 6.69 11.244 6.5 12 6.5c.658 0 1.369.195 1.934.619a2.45 2.45 0 0 1 1.004 2.006c0 1.033-.513 1.72-1.027 2.215-.19.183-.399.358-.579.508l-.147.123a4.329 4.329 0 0 0-.435.409v1.37a.75.75 0 1 1-1.5 0v-1.473c0-.237.067-.504.247-.736.22-.28.486-.517.718-.714l.183-.153.001-.001c.172-.143.324-.27.47-.412.368-.355.569-.676.569-1.136a.953.953 0 0 0-.404-.806C12.766 8.118 12.384 8 12 8c-.494 0-.814.121-1.03.265ZM13 17a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></svg></span>
                 <span class="card-compact-title">Troubleshooting</span>
             </div>
-            <p class="card-compact-description">You're in Timed Events mode, the default, where the live Setup is only a template — just baked events reach the output. Press Create Event to bake the setup, or Update on an existing event's row to fold your changes into it.</p>
+            <p class="card-compact-description">You're in Timed Events mode, the default, where the live Setup is only a template — only baked events reach the output. Press Create Event to bake the setup, or Update on an existing event's row to fold your changes into it.</p>
         </div>
     </a>
 </div>
@@ -511,18 +516,7 @@
                 <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M7.875 2.292a.114.114 0 0 0-.032.018A7.239 7.239 0 0 0 4.75 8.25a7.248 7.248 0 0 0 3.654 6.297c.57.327.982.955.941 1.682v.002l-.317 6.058a.75.75 0 1 1-1.498-.078l.317-6.062v-.004c.006-.09-.047-.215-.188-.296A8.749 8.749 0 0 1 3.25 8.25a8.738 8.738 0 0 1 3.732-7.169 1.547 1.547 0 0 1 1.709-.064c.484.292.809.835.809 1.46v4.714a.25.25 0 0 0 .119.213l2.25 1.385c.08.05.182.05.262 0l2.25-1.385a.25.25 0 0 0 .119-.213V2.478c0-.626.325-1.169.81-1.461a1.547 1.547 0 0 1 1.708.064 8.741 8.741 0 0 1 3.732 7.17 8.747 8.747 0 0 1-4.41 7.598c-.14.081-.193.206-.188.296v.004l.318 6.062a.75.75 0 1 1-1.498.078l-.317-6.058v-.002c-.041-.727.37-1.355.94-1.682A7.247 7.247 0 0 0 19.25 8.25a7.239 7.239 0 0 0-3.093-5.94.114.114 0 0 0-.032-.018l-.01-.001c-.003 0-.014 0-.031.01-.036.022-.084.079-.084.177V7.19c0 .608-.315 1.172-.833 1.49l-2.25 1.385a1.75 1.75 0 0 1-1.834 0l-2.25-1.384A1.752 1.752 0 0 1 8 7.192V2.477c0-.098-.048-.155-.084-.176a.068.068 0 0 0-.031-.011l-.01.001Z"/></svg></span>
                 <span class="card-compact-title">Using Advanced Velocity</span>
             </div>
-            <p class="card-compact-description">This page covers the setup surface: the six velocity types, the mixer, the output and the visualization. The event workflow is a big enough topic that it gets its own page.</p>
-        </div>
-    </a>
-</div>
-<div class="card-compact-container">
-    <a href="/jvtools-docs/test-rewrite/advanced-velocity-using/" class="group card-compact no-link">
-        <div class="card-compact-body">
-            <div class="card-compact-header">
-                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M7.875 2.292a.114.114 0 0 0-.032.018A7.239 7.239 0 0 0 4.75 8.25a7.248 7.248 0 0 0 3.654 6.297c.57.327.982.955.941 1.682v.002l-.317 6.058a.75.75 0 1 1-1.498-.078l.317-6.062v-.004c.006-.09-.047-.215-.188-.296A8.749 8.749 0 0 1 3.25 8.25a8.738 8.738 0 0 1 3.732-7.169 1.547 1.547 0 0 1 1.709-.064c.484.292.809.835.809 1.46v4.714a.25.25 0 0 0 .119.213l2.25 1.385c.08.05.182.05.262 0l2.25-1.385a.25.25 0 0 0 .119-.213V2.478c0-.626.325-1.169.81-1.461a1.547 1.547 0 0 1 1.708.064 8.741 8.741 0 0 1 3.732 7.17 8.747 8.747 0 0 1-4.41 7.598c-.14.081-.193.206-.188.296v.004l.318 6.062a.75.75 0 1 1-1.498.078l-.317-6.058v-.002c-.041-.727.37-1.355.94-1.682A7.247 7.247 0 0 0 19.25 8.25a7.239 7.239 0 0 0-3.093-5.94.114.114 0 0 0-.032-.018l-.01-.001c-.003 0-.014 0-.031.01-.036.022-.084.079-.084.177V7.19c0 .608-.315 1.172-.833 1.49l-2.25 1.385a1.75 1.75 0 0 1-1.834 0l-2.25-1.384A1.752 1.752 0 0 1 8 7.192V2.477c0-.098-.048-.155-.084-.176a.068.068 0 0 0-.031-.011l-.01.001Z"/></svg></span>
-                <span class="card-compact-title">Using Advanced Velocity</span>
-            </div>
-            <p class="card-compact-description">This is a test rewrite of the original page.</p>
+            <p class="card-compact-description">This page covers the setup surface: the six velocity types, the mixer, the output and the visualization. The event workflow gets its own page.</p>
         </div>
     </a>
 </div>
@@ -531,7 +525,7 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-07T00:25:22" title="2026-08-07" data-absolute-label="Last updated on 2026-08-07" data-absolute-label-html="Last updated on 2026-08-07" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-07T12:06:44" title="2026-08-07" data-absolute-label="Last updated on 2026-08-07" data-absolute-label-html="Last updated on 2026-08-07" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
                         Last updated on 2026-08-07
                     </time>
                 </div>

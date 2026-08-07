@@ -3,10 +3,9 @@
 > Houdini digital assets and tools for artists and technical directors. Pick a product below for its documentation.
 
 - [JVtools](https://tonehammer.github.io/jvtools-docs/index.md): JVtools
-- [Reallusion Importer for Houdini](https://tonehammer.github.io/jvtools-docs/reallusion-importer/readme.md): Welcome! Reallusion Importer for Houdini (v1.2.1) turns a Character Creator 5 or iClone 8 character into a fully shaded, animatable, render-ready character in Houdini's Solaris environment — in seconds instead of hours.
+- [Reallusion Importer for Houdini](https://tonehammer.github.io/jvtools-docs/reallusion-importer/readme.md): Reallusion Importer for Houdini (v1.2.1) turns a Character Creator 5 or iClone 8 character into a fully shaded, animatable, render-ready character in Houdini's Solaris environment — in seconds instead of hours.
 - [Advanced Velocity](https://tonehammer.github.io/jvtools-docs/advanced-velocity/readme.md): Welcome! Advanced Velocity (v1.1) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node.
 - [RPLidar In](https://tonehammer.github.io/jvtools-docs/rplidar-in/readme.md): Welcome! RPLidar In (v1.0) brings live Slamtec RPLIDAR point-cloud data straight into Houdini as SOP geometry. Plug in the sensor, drop the node, and every
-- [Rewrite Test](https://tonehammer.github.io/jvtools-docs/test-rewrite/readme.md): A style experiment: one long page from each product, rewritten in plainer, more direct language — less technical detail, shorter sentences, same facts and warnings.
 
 ## Reallusion Importer for Houdini
 
@@ -14,26 +13,26 @@
 
 - [Requirements & Installation](https://tonehammer.github.io/jvtools-docs/reallusion-importer/getting-started/installation.md): Before you start, make sure you have:
 - [USD vs FBX](https://tonehammer.github.io/jvtools-docs/reallusion-importer/getting-started/import-modes.md): Version 1.2 added a second way to import your character. At the very top of the node is an Import dropdown with two choices — USD (the default) and FBX.
-- [Quick Start](https://tonehammer.github.io/jvtools-docs/reallusion-importer/getting-started/quick-start.md): This page gets you from a fresh Houdini scene to a shaded, rendered character in about five steps. We'll keep it simple here — every control is explained in depth later in the Using the Asset section.
-- [Preparing Your Character in Character Creator](https://tonehammer.github.io/jvtools-docs/reallusion-importer/getting-started/preparing-your-character.md): This is the most important setup page in the documentation. Getting your Character Creator export settings right is the difference between a character that imports perfectly and one that's missing textures, wrinkles, or hair detail.
+- [Quick Start](https://tonehammer.github.io/jvtools-docs/reallusion-importer/getting-started/quick-start.md): This page gets you from a fresh Houdini scene to a shaded, rendered character in about five steps. Every control is explained in depth later, in Using the Asset.
+- [Preparing Your Character in Character Creator](https://tonehammer.github.io/jvtools-docs/reallusion-importer/getting-started/preparing-your-character.md): Getting your export settings right the first time saves you a lot of frustration — a wrong setting is usually the reason a character comes in missing textures, wrinkles, or hair detail.
 
 ### Using the Asset
 
 - [The Lookdev Controller](https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/lookdev-controller.md): When you click Build Character, the tool creates a bright red controller node in the LOP network (Solaris). This node is the heart of the whole
-- [Skin](https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/skin.md): The Skin folder on the lookdev controller fine-tunes how your character's skin reads. The tool already builds physically-based skin with subsurface scattering, normal detail, and proper roughness — these controls let you push it toward your taste or your shot's lighting.
+- [Skin](https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/skin.md): The Skin folder on the lookdev controller fine-tunes how your character's skin reads. The tool already builds physically-based skin with subsurface scattering, normal detail, and proper roughness — these controls push it toward your taste or your shot's lighting.
 - [Skin Fix](https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/skin-fix.md): Character Creator outfits don't always sit perfectly on every body, so you'll sometimes see a sleeve, collar, or boot poking through the skin. Skin Fix
 - [Wrinkles](https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/wrinkles.md): One of the tool's standout features is its animated expression-wrinkle system. Character Creator faces have a sophisticated wrinkle system — as a character frowns, squints, or opens their mouth, fine wrinkles appear in the right places.
-- [Displacement](https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/displacement.md): Displacement adds real, fine surface relief to your character — skin pores, deep wrinkles, fabric weave — by physically pushing the geometry around at render time, based on displacement maps.
-- [Eyes](https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/eyes.md): The Eyes folder gives you deep control over your character's eyes — recreating much of Character Creator's HD eye look, plus stylized glow effects. The controls are organized into tabs: Iris, Limbus, Sclera, Eye Shadow, and Wetness, with the Glow controls below.
-- [Hair](https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/hair.md): The Hair folder is one of the tool's most powerful features: a complete hair re-dye system. You can recolor any compatible character's hair — change it from brown to silver, add ombré fades, paint in highlight streaks — all without going back to Character Creator.
-- [Animation](https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/animation.md): The tool can play the motion baked into your imported character, and it can also manage a small library of additional animation clips — added from FBX files or USD motion clips — letting you switch between different motions on the same character.
-- [Rendering](https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/rendering.md): The tool builds your character's materials specifically for Karma XPU, Houdini's GPU-accelerated production renderer. This page covers how to get your character on screen and the optional one-click render setup.
+- [Displacement](https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/displacement.md): Displacement adds real, fine surface relief to your character — skin pores, deep wrinkles, fabric weave — by physically pushing geometry around at render time, based on displacement maps.
+- [Eyes](https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/eyes.md): The Eyes folder gives you deep control over your character's eyes — recreating much of Character Creator's HD eye look, plus stylized glow effects. It's organized into tabs: Iris, Limbus, Sclera, Eye Shadow, and Wetness, with the Glow controls below.
+- [Hair](https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/hair.md): The Hair folder is one of the tool's most powerful features: a complete hair re-dye system. Recolor any compatible character's hair — brown to silver, ombré fades, painted-in highlight streaks — without going back to Character Creator.
+- [Animation](https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/animation.md): The tool plays the motion baked into your imported character, and it can also manage a small library of extra animation clips — added from FBX files or USD motion clips — so you can switch between motions on the same character.
+- [Rendering](https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/rendering.md): The tool builds your character's materials specifically for Karma XPU, Houdini's GPU-accelerated production renderer. This page covers getting your character on screen, plus the optional one-click render setup.
 
 ### Reference
 
-- [Parameter Reference](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/parameter-reference.md): Every control on the Reallusion Importer, grouped by where you find it. There are two panels:
-- [Limitations & Expectations](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/limitations.md): This page is here to set honest expectations before and after you buy. The tool does a lot, but Character Creator's FBX export — and Houdini itself — impose some hard limits that no importer can work around.
-- [Performance & Caching](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/performance.md): Character Creator characters are detailed, and detailed characters use memory. This page explains where the cost comes from and how to keep your sessions fast and lean.
+- [Parameter Reference](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/parameter-reference.md): Every control on the Reallusion Importer, grouped by where you find it. Two panels:
+- [Limitations & Expectations](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/limitations.md): This page sets honest expectations before and after you buy. Character Creator's FBX export — and Houdini itself — impose some hard limits no importer can work around.
+- [Performance & Caching](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/performance.md): Character Creator characters are detailed, and detailed characters use memory. Here's where the cost comes from and how to keep your sessions fast and lean.
 - [Troubleshooting & FAQ](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/troubleshooting.md): Common issues and their fixes. Most import problems trace back to either an export setting or a moved file.
 - [Changelog](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/changelog.md): Fixed: textures now load for iClone "Export USD (Omniverse)" characters, whose texture folders are laid out differently from Character Creator's USD export.
 - [License](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/license.md): This is the End User License Agreement for the Reallusion Importer for Houdini. By downloading, installing, or using the asset, you agree to these terms.
@@ -41,24 +40,18 @@
 ## Advanced Velocity
 
 - [Getting Started](https://tonehammer.github.io/jvtools-docs/advanced-velocity/getting-started.md): Grab JV-Advanced_Velocity-vX.Y.hdalc from your Gumroad library.
-- [Using Advanced Velocity](https://tonehammer.github.io/jvtools-docs/advanced-velocity/using.md): This page covers the setup surface: the six velocity types, the mixer, the output and the visualization. The event workflow is a big enough topic that it gets its own page.
+- [Using Advanced Velocity](https://tonehammer.github.io/jvtools-docs/advanced-velocity/using.md): This page covers the setup surface: the six velocity types, the mixer, the output and the visualization. The event workflow gets its own page.
 - [Timed Events](https://tonehammer.github.io/jvtools-docs/advanced-velocity/timed-events.md): One velocity field is rarely the whole story. The shot is a car lifted at frame 10, torn apart at frame 40, spun at frame 70 — three different velocity setups, at three different times, summed where they overlap.
 - [Parameter Reference](https://tonehammer.github.io/jvtools-docs/advanced-velocity/parameters.md): Every hand-authored parameter on the Advanced Velocity node, grouped the way it appears in the interface. Names in code are the internal parameter names.
-- [Troubleshooting](https://tonehammer.github.io/jvtools-docs/advanced-velocity/troubleshooting.md): You're in Timed Events mode, the default, where the live Setup is only a template — just baked events reach the output. Press Create Event to bake the setup, or Update on an existing event's row to fold your changes into it.
+- [Troubleshooting](https://tonehammer.github.io/jvtools-docs/advanced-velocity/troubleshooting.md): You're in Timed Events mode, the default, where the live Setup is only a template — only baked events reach the output. Press Create Event to bake the setup, or Update on an existing event's row to fold your changes into it.
 - [Changelog](https://tonehammer.github.io/jvtools-docs/advanced-velocity/changelog.md): The first public release — version 1.0 below is the feature set it launched with, finished just before the store went live.
 - [License](https://tonehammer.github.io/jvtools-docs/advanced-velocity/license.md): This is the End User License Agreement for Advanced Velocity. By downloading, installing, or using the asset, you agree to these terms.
 
 ## RPLidar In
 
 - [Getting Started](https://tonehammer.github.io/jvtools-docs/rplidar-in/getting-started.md): This page takes you from an unopened sensor to your first live scan in Houdini.
-- [Using RPLidar In](https://tonehammer.github.io/jvtools-docs/rplidar-in/using.md): This page covers everything the node does once it's installed and connected: the three modes, the two outputs and their attributes, the on-screen guides, cropping, recording, and driving a live simulation.
+- [Using RPLidar In](https://tonehammer.github.io/jvtools-docs/rplidar-in/using.md): This page walks through the three modes, the two outputs, the on-screen guides, cropping, recording, and driving a live simulation. For a flat list of every control, see the Parameter Reference.
 - [Parameter Reference](https://tonehammer.github.io/jvtools-docs/rplidar-in/parameters.md): Every parameter on the RPLidar In node, grouped as it appears in the interface. Names in code are the internal parameter names.
 - [Troubleshooting](https://tonehammer.github.io/jvtools-docs/rplidar-in/troubleshooting.md): Press Test Sensor. It prints the sensor's identity, health, and available scan modes. No response means Houdini can't talk to the sensor.
 - [Changelog](https://tonehammer.github.io/jvtools-docs/rplidar-in/changelog.md): The first public release.
 - [License](https://tonehammer.github.io/jvtools-docs/rplidar-in/license.md): This is the End User License Agreement for RPLidar In. By downloading, installing, or using the asset, you agree to these terms.
-
-## Rewrite Test
-
-- [Using RPLidar In](https://tonehammer.github.io/jvtools-docs/test-rewrite/rplidar-using.md): This is a test rewrite of the original page.
-- [Using Advanced Velocity](https://tonehammer.github.io/jvtools-docs/test-rewrite/advanced-velocity-using.md): This is a test rewrite of the original page.
-- [Preparing Your Character in Character Creator](https://tonehammer.github.io/jvtools-docs/test-rewrite/reallusion-preparing-your-character.md): This is a test rewrite of the original page.

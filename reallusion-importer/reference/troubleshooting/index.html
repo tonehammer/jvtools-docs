@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839411007006">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839412427533">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.6.0.839411007006" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.839412427533" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.839411007006" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.839412427533" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.839411007006" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.839412427533" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -220,8 +220,8 @@
 <p><strong>Fix:</strong> make sure the <code translate="no" v-pre>textures</code> folder (and the <code translate="no" v-pre>.fbm</code> folder) sit right next to the FBX, exactly as Character Creator exported them. If you moved the FBX, move its texture folders with it. The tool resolves textures relative to the FBX file.</p>
 <p><strong>If you transferred the export between machines through Google Drive (or another cloud download):</strong> check that you got <em>all</em> of it. Google Drive splits large folder downloads into <strong>multiple zip parts</strong> — extracting only one part leaves the folder structure looking perfectly intact while half the texture files are silently missing, and the character builds white. Extract every part into the same folder, then rebuild. The tool prints a console warning naming any materials it couldn&#x27;t find a diffuse texture for — if you see it, count your zip parts.</p>
 <h2 id="accessories-are-plain-white-or-no-displacement-appears">Accessories are plain white, or no displacement appears</h2>
-<p><strong>Cause:</strong> your export is missing its material <code translate="no" v-pre>.json</code> file. Character Creator stores displacement, subsurface, wrinkle weights, and the colors of custom accessories (horns, props, GoZ clothing) in a <code translate="no" v-pre>my_character.json</code> beside the FBX — not in the FBX itself. If it&#x27;s absent, the tool has no displacement data (so no displacement nodes are built) and no color for untextured accessories (so they render white). The rest of the character can still look fine, which makes this easy to miss.</p>
-<p><strong>Fix:</strong> make sure a <code translate="no" v-pre>my_character.json</code> sits next to your FBX. It&#x27;s created by Character Creator&#x27;s <strong>Export JSON for Auto Material Setup</strong> option, which is on by default — if you don&#x27;t have one, that option was off, so re-export with it enabled. Keep the <code translate="no" v-pre>.json</code> with the FBX when moving files. See <a href="../../getting-started/preparing-your-character/">Preparing Your Character</a>. (Note: this is unrelated to the Embed Textures setting — leave that off.)</p>
+<p><strong>Cause:</strong> your export is missing its material <code translate="no" v-pre>.json</code> file. Character Creator stores displacement, subsurface, wrinkle weights, and the colors of custom accessories (horns, props, GoZ clothing) in a <code translate="no" v-pre>my_character.json</code> beside the FBX — not in the FBX itself. Without it, the tool has no displacement data (so no displacement nodes are built) and no color for untextured accessories (so they render white). The rest of the character can still look fine, which makes this easy to miss.</p>
+<p><strong>Fix:</strong> make sure a <code translate="no" v-pre>my_character.json</code> sits next to your FBX. It&#x27;s created by Character Creator&#x27;s <strong>Export JSON for Auto Material Setup</strong> option, which is on by default — if you don&#x27;t have one, that option was off, so re-export with it enabled. Keep the <code translate="no" v-pre>.json</code> with the FBX when moving files. See <a href="../../getting-started/preparing-your-character/">Preparing Your Character</a>. (Unrelated to the Embed Textures setting — leave that off.)</p>
 <h2 id="wrinkles-dont-animate">Wrinkles don&#x27;t animate</h2>
 <p><strong>Cause:</strong> almost always the <strong>Bake Wrinkles for Still Frame</strong> export setting was left on.</p>
 <p><strong>Fix:</strong> re-export from Character Creator with <strong>Bake Wrinkles for Still Frame turned OFF</strong>. See <a href="../../getting-started/preparing-your-character/">Preparing Your Character</a>. With it on, the wrinkles are frozen into one pose and can&#x27;t react to animation.</p>
@@ -249,7 +249,7 @@
 <p><strong>Fix:</strong> use <strong>Skin Fix</strong> (the <strong>Skin-Fix</strong> folder → <strong>Create Skin-Fix Setup</strong>). Double-click into the gold subnetwork and brush the green <strong>Sculpt</strong> / <strong>Soft Edit</strong> nodes to push the body in (or the garment out), then turn on <strong>Use Skin-Fix Mesh</strong>. Move points only — don&#x27;t add, delete, or change the mesh&#x27;s point count, and only touch the green nodes. See <a href="../../using/skin-fix/">Skin Fix</a>.</p>
 <h2 id="a-small-element-usually-facial-hair-breaks-up-or-mangles-during-animation">A small element (usually facial hair) breaks up or mangles during animation</h2>
 <p><strong>Cause:</strong> in rare cases Character Creator double-, triple-, or quadruple-exports the blendshape targets for a particular element. The duplicated targets fight each other once the face animates, and that element tears apart. It most often hits parts of facial hair.</p>
-<p><strong>Fix:</strong> use the <strong>Fix Broken Blendshape</strong> folder on the Reallusion Importer node. Put the offending element into <strong>Broken Elements</strong> as an <code translate="no" v-pre>@name</code> group (the <code translate="no" v-pre>@name</code> attribute of that mesh), then turn on <strong>Fix Broken Blendshape</strong>. That element is now excluded from the character&#x27;s blendshape deform and instead point-deformed by the nearest face/body geometry, so it follows the animation cleanly. If you see deforming artifacts on the fixed element, adjust the <strong>Radius</strong>. Leave this off unless you actually have a broken element — with no element specified, the toggle would bypass the whole mesh.</p>
+<p><strong>Fix:</strong> use the <strong>Fix Broken Blendshape</strong> folder on the Reallusion Importer node. Put the offending element into <strong>Broken Elements</strong> as an <code translate="no" v-pre>@name</code> group (the <code translate="no" v-pre>@name</code> attribute of that mesh), then turn on <strong>Fix Broken Blendshape</strong>. That element is now excluded from the character&#x27;s blendshape deform and instead point-deformed by the nearest face/body geometry, so it follows the animation cleanly. Adjust the <strong>Radius</strong> if you see deforming artifacts. Leave this off unless you actually have a broken element — with no element specified, the toggle would bypass the whole mesh.</p>
 <h2 id="can-i-use-this-in-a-commercial-studio-pipeline">Can I use this in a commercial studio pipeline?</h2>
 <p>The tool is a limited-commercial (Indie) asset. Loading it into a commercial Houdini session switches that session to limited-commercial mode, per SideFX&#x27;s rules. If that&#x27;s a problem for your pipeline, this tool may not fit it. You are responsible for your own SideFX license compliance. See <a href="../../getting-started/installation/">Requirements &amp; Installation</a>.</p>
 <h2 id="my-eyes-dont-look-like-they-did-in-character-creator">My eyes don&#x27;t look like they did in Character Creator</h2>
@@ -268,7 +268,7 @@
                 <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M15.716 1.329a1.341 1.341 0 0 1 2.109 1.55L15.147 9h4.161c1.623 0 2.372 2.016 1.143 3.075L8.102 22.721a1.148 1.148 0 0 1-1.81-1.317L8.996 15H4.674c-1.619 0-2.37-2.008-1.148-3.07l12.19-10.6Zm.452 1.595L4.51 13.061a.25.25 0 0 0 .164.439h5.45a.749.749 0 0 1 .692 1.041l-2.559 6.066 11.215-9.668a.25.25 0 0 0-.164-.439H14a.75.75 0 0 1-.687-1.05Z"/></svg></span>
                 <span class="card-compact-title">Quick Start</span>
             </div>
-            <p class="card-compact-description">This page gets you from a fresh Houdini scene to a shaded, rendered character in about five steps. We'll keep it simple here — every control is explained in depth later in the Using the Asset section.</p>
+            <p class="card-compact-description">This page gets you from a fresh Houdini scene to a shaded, rendered character in about five steps. Every control is explained in depth later, in Using the Asset.</p>
         </div>
     </a>
 </div>
@@ -277,8 +277,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-07-09T11:35:52" title="2026-07-09" data-absolute-label="Last updated on 2026-07-09" data-absolute-label-html="Last updated on 2026-07-09" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-07-09
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-07T12:06:44" title="2026-08-07" data-absolute-label="Last updated on 2026-08-07" data-absolute-label-html="Last updated on 2026-08-07" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-08-07
                     </time>
                 </div>
 

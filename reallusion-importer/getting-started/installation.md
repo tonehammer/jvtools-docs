@@ -4,10 +4,10 @@
 
 Before you start, make sure you have:
 
-* **Houdini 21.0 or newer.** The tool uses features introduced in Houdini 21 and is not compatible with earlier versions.
-* **Houdini Indie, Core, or FX.** The tool ships as a limited-commercial (Indie) Houdini Digital Asset. See the note about license compatibility below.
+* **Houdini 21.0 or newer.** The tool uses features introduced in Houdini 21 and isn't compatible with earlier versions.
+* **Houdini Indie, Core, or FX.** The tool ships as a limited-commercial (Indie) Houdini Digital Asset. See the license note below.
 * **Windows.** The tool was developed and tested on Windows. It may work on macOS or Linux, but those platforms are untested — use them at your own risk.
-* **A Character Creator / iClone character**, exported as FBX. The tool is designed for **Character Creator 5 / iClone 8**, and should work with all **CC3+** base meshes. See [Preparing Your Character](preparing-your-character.md).
+* **A Character Creator / iClone character**, exported as FBX. Designed for **Character Creator 5 / iClone 8**, and should work with all **CC3+** base meshes. See [Preparing Your Character](preparing-your-character.md).
 * **Karma** for rendering (included with Houdini). The materials are tuned for **Karma XPU** and also render in **Karma CPU**.
 
 !!!warning About the Indie license format
@@ -59,5 +59,5 @@ The node will be available until you close Houdini. To make it permanent, use th
 When a new version is released, copy the new `.hdalc` into your `otls` folder, **delete the previous version's file** (the filename carries the version, e.g. `JV-Reallusion_Importer-v1.2.hdalc`), and restart Houdini. Your existing scenes will pick up the new version automatically — no scene changes needed.
 
 !!!info
-Because the tool stores all your look settings on a controller node _inside your scene_ (not inside the asset), updating the asset will not lose your dialed-in looks on existing characters.
+Because the tool stores all your look settings on a controller node _inside your scene_ (not inside the asset), updating the asset won't lose your dialed-in looks on existing characters.
 !!!

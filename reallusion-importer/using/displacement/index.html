@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839411007006">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839412427533">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Displacement</title>
     <meta name="title" content="Displacement">
-    <meta name="description" content="Displacement adds real, fine surface relief to your character — skin pores, deep wrinkles, fabric weave — by physically pushing the geometry around at render time, based on displacement maps.">
+    <meta name="description" content="Displacement adds real, fine surface relief to your character — skin pores, deep wrinkles, fabric weave — by physically pushing geometry around at render time, based on displacement maps.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/displacement/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/displacement/">
     <meta property="og:title" content="Displacement">
-    <meta property="og:description" content="Displacement adds real, fine surface relief to your character — skin pores, deep wrinkles, fabric weave — by physically pushing the geometry around at render time, based on displacement maps.">
+    <meta property="og:description" content="Displacement adds real, fine surface relief to your character — skin pores, deep wrinkles, fabric weave — by physically pushing geometry around at render time, based on displacement maps.">
     <meta property="og:image" content="https://tonehammer.github.io/jvtools-docs/reallusion-importer/static/true_displacement.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -35,7 +35,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/displacement/">
     <meta name="twitter:title" content="Displacement">
-    <meta name="twitter:description" content="Displacement adds real, fine surface relief to your character — skin pores, deep wrinkles, fabric weave — by physically pushing the geometry around at render time, based on displacement maps.">
+    <meta name="twitter:description" content="Displacement adds real, fine surface relief to your character — skin pores, deep wrinkles, fabric weave — by physically pushing geometry around at render time, based on displacement maps.">
     <meta name="twitter:image" content="https://tonehammer.github.io/jvtools-docs/reallusion-importer/static/true_displacement.png">
     <meta name="twitter:image:alt" content="Displacement">
 
@@ -44,11 +44,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.6.0.839411007006" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.839412427533" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.839411007006" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.839412427533" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.839411007006" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.839412427533" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -220,8 +220,8 @@
 
                 <!-- Page content  -->
 <h1 id="displacement">Displacement</h1>
-<p>Displacement adds real, fine surface relief to your character — skin pores, deep wrinkles, fabric weave — by physically pushing the geometry around at render time, based on displacement maps. It&#x27;s more expensive than a normal map, but it produces genuine silhouette detail that catches light realistically.</p>
-<p>This only applies to characters exported <strong>with displacement maps</strong> (Character Creator 5 exports these for many assets). If your character has none, these controls simply have nothing to act on.</p>
+<p>Displacement adds real, fine surface relief to your character — skin pores, deep wrinkles, fabric weave — by physically pushing geometry around at render time, based on displacement maps. It&#x27;s more expensive than a normal map, but it produces genuine silhouette detail that catches light realistically.</p>
+<p>This only applies to characters exported <strong>with displacement maps</strong> (Character Creator 5 exports these for many assets). No maps, no effect — these controls just have nothing to act on.</p>
 <figure class="content-center">
     <img src="../../static/true_displacement.png" alt="True Displacement in Karma, cranked up" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="799" height="313" />
     <figcaption class="caption">True Displacement in Karma, cranked up</figcaption>
@@ -233,11 +233,11 @@
     <figcaption class="caption"></figcaption>
 </figure>
 <h3 id="mode">Mode</h3>
-<p>Chooses how displacement maps are used:</p>
+<p>How displacement maps are used:</p>
 <ul>
-<li><strong>Disable Displacement Shader</strong> <em>(default)</em> — displacement maps are ignored. Fastest, and a fine default for most work.</li>
-<li><strong>Bump</strong> — uses the displacement map as a bump map. This fakes the lighting detail cheaply without actually moving geometry. A good middle ground.</li>
-<li><strong>True Displacement</strong> — actually subdivides and displaces the geometry for real silhouette-level detail. The most realistic and the most expensive; it requires the mesh to be subdivided at render time.</li>
+<li><strong>Disable Displacement Shader</strong> <em>(default)</em> — maps are ignored. Fastest, and a fine default for most work.</li>
+<li><strong>Bump</strong> — uses the map as a bump map, faking the lighting detail cheaply without moving geometry. A good middle ground.</li>
+<li><strong>True Displacement</strong> — actually subdivides and displaces the geometry for real silhouette-level detail. The most realistic and most expensive option; it requires the mesh to be subdivided at render time.</li>
 </ul>
 <div class="flex mb-6">
     <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
@@ -252,12 +252,12 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p>Start with <strong>Disable</strong> or <strong>Bump</strong> while you work, and switch to <strong>True Displacement</strong> only for final hero renders where the extra detail matters and the longer render time is acceptable.</p>
+<p>Start with <strong>Disable</strong> or <strong>Bump</strong> while you work, and switch to <strong>True Displacement</strong> only for final hero renders where the extra detail matters and the longer render time is worth it.</p>
         </div>
     </div>
 </div>
 <h3 id="displacement-strength">Displacement Strength</h3>
-<p>Scales how far the displacement pushes the surface. Displacement maps are sensitive, so the useful values are small — around <strong>0.002</strong> is typical. If your surface looks like it&#x27;s exploding or developing cracks, your strength is too high; bring it down.</p>
+<p>Scales how far the displacement pushes the surface. Displacement maps are sensitive, so the useful values are small — around <strong>0.002</strong> is typical. If the surface looks like it&#x27;s exploding or cracking, the strength is too high; bring it down.</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
     <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
@@ -270,7 +270,7 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p>True Displacement requires the mesh to be treated as a subdivision surface and diced finely by Karma, which the tool sets up for you automatically when you choose that mode. Be aware this increases both render time and memory use.</p>
+<p>True Displacement requires the mesh to be treated as a subdivision surface and diced finely by Karma — the tool sets this up automatically when you choose that mode. It costs both render time and memory.</p>
         </div>
     </div>
 </div>
@@ -284,7 +284,7 @@
                 <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M11 18.25a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1-.75-.75Zm-8-12a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 3 6.25Zm13 6a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 0 1.5h-3.5a.75.75 0 0 1-.75-.75ZM8.75 16a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75Z"/><path d="M3 18.25a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Zm0-6a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1-.75-.75ZM16.75 10a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75ZM14 6.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 0 1.5h-5.5a.75.75 0 0 1-.75-.75ZM11.25 4a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75Z"/></svg></span>
                 <span class="card-compact-title">Parameter Reference</span>
             </div>
-            <p class="card-compact-description">Every control on the Reallusion Importer, grouped by where you find it. There are two panels:</p>
+            <p class="card-compact-description">Every control on the Reallusion Importer, grouped by where you find it. Two panels:</p>
         </div>
     </a>
 </div>
@@ -315,8 +315,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-07-09T10:59:51" title="2026-07-09" data-absolute-label="Last updated on 2026-07-09" data-absolute-label-html="Last updated on 2026-07-09" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-07-09
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-07T12:06:44" title="2026-08-07" data-absolute-label="Last updated on 2026-08-07" data-absolute-label-html="Last updated on 2026-08-07" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-08-07
                     </time>
                 </div>
 

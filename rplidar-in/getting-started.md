@@ -32,7 +32,7 @@ When a new version arrives, **delete the previous `.hdalc` file** before adding 
 
 ### The sensor
 
-RPLidar In was developed against the **Slamtec RPLIDAR A2M12** — a 360°, 16 m range, spinning laser scanner. Other A2-family units should behave the same. The sensor stays completely silent until Houdini commands the motor to spin, so **no lights or sound when you first plug it in is normal**.
+RPLidar In was developed against the **Slamtec RPLIDAR A2M12** — a 360°, 16 m range, spinning laser scanner. Other A2-family units should behave the same. The sensor stays silent until Houdini commands the motor to spin, so **no lights or sound when you first plug it in is normal**.
 
 ### The two cables
 
@@ -43,7 +43,7 @@ RPLIDAR units use two separate leads — **both must be connected** for a scan:
 | **USB / data** | Data + adapter power, through the USB/UART adapter | Your computer |
 | **5V / motor** | Motor power only | Any USB port or USB charger |
 
-The motor lead can go to a plain charger — it does not need to be the same machine.
+The motor lead can go to a plain charger — it doesn't need to be the same machine.
 
 ### The USB/UART adapter
 

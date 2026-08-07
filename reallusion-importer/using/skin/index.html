@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839411007006">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839412427533">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Skin</title>
     <meta name="title" content="Skin">
-    <meta name="description" content="The Skin folder on the lookdev controller fine-tunes how your character's skin reads. The tool already builds physically-based skin with subsurface scattering, normal detail, and proper roughness — these controls let you push it toward your taste or your shot's lighting.">
+    <meta name="description" content="The Skin folder on the lookdev controller fine-tunes how your character's skin reads. The tool already builds physically-based skin with subsurface scattering, normal detail, and proper roughness — these controls push it toward your taste or your shot's lighting.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/skin/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/skin/">
     <meta property="og:title" content="Skin">
-    <meta property="og:description" content="The Skin folder on the lookdev controller fine-tunes how your character's skin reads. The tool already builds physically-based skin with subsurface scattering, normal detail, and proper roughness — these controls let you push it toward your taste or your shot's lighting.">
+    <meta property="og:description" content="The Skin folder on the lookdev controller fine-tunes how your character's skin reads. The tool already builds physically-based skin with subsurface scattering, normal detail, and proper roughness — these controls push it toward your taste or your shot's lighting.">
     <meta property="og:image" content="https://tonehammer.github.io/jvtools-docs/reallusion-importer/static/skin-folder.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -35,7 +35,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/skin/">
     <meta name="twitter:title" content="Skin">
-    <meta name="twitter:description" content="The Skin folder on the lookdev controller fine-tunes how your character's skin reads. The tool already builds physically-based skin with subsurface scattering, normal detail, and proper roughness — these controls let you push it toward your taste or your shot's lighting.">
+    <meta name="twitter:description" content="The Skin folder on the lookdev controller fine-tunes how your character's skin reads. The tool already builds physically-based skin with subsurface scattering, normal detail, and proper roughness — these controls push it toward your taste or your shot's lighting.">
     <meta name="twitter:image" content="https://tonehammer.github.io/jvtools-docs/reallusion-importer/static/skin-folder.png">
     <meta name="twitter:image:alt" content="Skin">
 
@@ -44,11 +44,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.6.0.839411007006" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.839412427533" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.839411007006" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.839412427533" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.839411007006" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.839412427533" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -220,21 +220,21 @@
 
                 <!-- Page content  -->
 <h1 id="skin">Skin</h1>
-<p>The Skin folder on the lookdev controller fine-tunes how your character&#x27;s skin reads. The tool already builds physically-based skin with subsurface scattering, normal detail, and proper roughness — these controls let you push it toward your taste or your shot&#x27;s lighting.</p>
+<p>The Skin folder on the lookdev controller fine-tunes how your character&#x27;s skin reads. The tool already builds physically-based skin with subsurface scattering, normal detail, and proper roughness — these controls push it toward your taste or your shot&#x27;s lighting.</p>
 <figure class="content-center">
     <img src="../../static/skin-folder.png" alt="" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="636" height="227" />
     <figcaption class="caption"></figcaption>
 </figure>
 <h2 id="skin-normal-strength">Skin Normal Strength</h2>
 <p>Controls the intensity of the skin&#x27;s normal map — the pore-level surface detail and fine wrinkles baked into the texture. <strong>Defaults to 1</strong> (as authored). Lower values smooth the skin out; higher values exaggerate the surface detail.</p>
-<p>Use this if a character&#x27;s skin looks too smooth (raise it) or too noisy/harsh under your lighting (lower it).</p>
+<p>Raise it if a character&#x27;s skin looks too smooth, lower it if it looks noisy or harsh under your lighting.</p>
 <h2 id="skin-roughness">Skin Roughness</h2>
 <p>A multiplier on the skin&#x27;s roughness.</p>
 <ul>
 <li><strong>Below 1</strong> makes skin glossier and more reflective — often more lifelike, since real skin has a subtle sheen, especially on the forehead, nose, and cheekbones.</li>
 <li><strong>Above 1</strong> makes skin more matte and dry.</li>
 </ul>
-<p>Small adjustments go a long way here. Try values like 0.9 or 1.1 before reaching for extremes.</p>
+<p>Small adjustments go a long way. Try 0.9 or 1.1 before reaching for extremes.</p>
 <h2 id="diffuse-contrast">Diffuse Contrast</h2>
 <p>Adjusts the contrast of the skin color texture around mid-grey.</p>
 <ul>
@@ -258,44 +258,43 @@
     </div>
 </div>
 <h2 id="skin-re-tint-sub-folder">Skin Re-tint sub-folder</h2>
-<p>A quick way to shift the <strong>overall skin tone</strong> — warmer or cooler, more tan, paler — without going back to Character Creator. It tints the skin <strong>diffuse</strong> toward a color (the subsurface color is left alone), live, across all skin materials (head, body, arms, legs, and nails).</p>
+<p>A quick way to shift the <strong>overall skin tone</strong> — warmer or cooler, more tan, paler — without going back to Character Creator. It tints the skin <strong>diffuse</strong> toward a color (the subsurface color is left alone), live, across all skin materials: head, body, arms, legs, and nails.</p>
 <ul>
 <li><strong>Skin Re-tint Color</strong> — the color the skin is tinted toward. The skin diffuse is multiplied by this. <strong>White (the default) does nothing.</strong></li>
-<li><strong>Skin Re-tint Amount</strong> — how strongly the tint is applied. <strong>0 (the default)</strong> leaves the skin untouched; <strong>1</strong> fully multiplies the skin by the re-tint color. The slider caps at 3 but accepts higher typed values — above 1 overdrives the tint for a stronger push.</li>
-<li><strong>Skip Nails</strong> — exclude the fingernail/toenail material from the re-tint, so the nails keep their original color while the rest of the skin is tinted. Off by default.</li>
+<li><strong>Skin Re-tint Amount</strong> — how strongly the tint is applied. <strong>0 (default)</strong> leaves the skin untouched; <strong>1</strong> fully multiplies the skin by the re-tint color. The slider caps at 3 but accepts higher typed values — above 1 overdrives the tint for a stronger push.</li>
+<li><strong>Skip Nails</strong> — exclude the fingernail/toenail material from the re-tint, so the nails keep their original color while the rest tints. Off by default.</li>
 </ul>
 <h2 id="respect-metallic-maps">Respect Metallic Maps</h2>
 <p>Off by default. Character Creator sometimes exports metallic maps on teeth and inner-mouth materials that aren&#x27;t meant to be truly metallic, which can make those areas look wrong. The tool ignores them by default for a correct look.</p>
-<p>Turn this <strong>on</strong> only if you have a stylized character with genuinely metallic inner-mouth materials (rare).</p>
+<p>Turn this <strong>on</strong> only for a stylized character with genuinely metallic inner-mouth materials (rare).</p>
 <h2 id="teeth-sub-folder">Teeth sub-folder</h2>
 <p>Character Creator exports teeth close to white and quite glossy, which can blow out under Karma&#x27;s lighting. This sub-folder (below Skin Re-tint, above Subsurface) tames the teeth and tongue without re-exporting.</p>
 <ul>
 <li><strong>Teeth Brightness</strong> — overall brightness of the teeth/tongue diffuse. <strong>1 is as exported;</strong> pull it below 1 for more natural, slightly darker teeth. Affects the diffuse only.</li>
-<li><strong>Teeth Roughness</strong> — a multiplier on teeth/tongue roughness. Teeth are wet, so a sharp specular highlight can clip to white; <strong>raise above 1</strong> to spread and soften that highlight (the main fix for glary, blown-out teeth), below 1 for a wetter, glossier look. 1 is as authored.</li>
+<li><strong>Teeth Roughness</strong> — a multiplier on teeth/tongue roughness. Teeth are wet, so a sharp specular highlight can clip to white; <strong>raise above 1</strong> to spread and soften that highlight — the main fix for glary, blown-out teeth — or lower for a wetter, glossier look. 1 is as authored.</li>
 <li><strong>Teeth Specular</strong> — strength of the wet specular reflection. <strong>1 is full;</strong> lower it to reduce the glossy catchlight that can read as blown-out white on close-ups.</li>
 <li><strong>Teeth SSS Amount</strong> — subsurface scattering on teeth and tongue only, separate from the skin&#x27;s SSS Amount. The warm scatter lifts the teeth&#x27;s midtones and adds to the over-bright look; <strong>lower it to make teeth read more solid/opaque.</strong> 1 is the default. Disabled when Remove SSS is on.</li>
 </ul>
 <h2 id="subsurface-sub-folder">Subsurface sub-folder</h2>
-<p>The subsurface controls (<strong>SSS Color</strong>, <strong>SSS Amount</strong>, <strong>SSS Radius</strong>, and <strong>SSS Quality</strong>) live together in a <strong>Subsurface</strong> sub-folder inside Skin. All of them are disabled when <strong>Remove SSS</strong> is on (including the Preview preset).</p>
+<p>The subsurface controls — <strong>SSS Color</strong>, <strong>SSS Amount</strong>, <strong>SSS Radius</strong>, and <strong>SSS Quality</strong> — live together in a <strong>Subsurface</strong> sub-folder inside Skin. All are disabled when <strong>Remove SSS</strong> is on (including the Preview preset).</p>
 <h2 id="sss-color">SSS Color</h2>
-<p>The color light picks up as it scatters through the skin — the warm, fleshy glow you see where light passes through thin areas (ears, nostrils, the edge of the nose). <strong>Defaults to a warm skin tone (255, 200, 170).</strong> Push it cooler (bluer/greener) or warmer (more orange/red) to shift the character of the scatter. It applies to both skin and teeth. Most characters look right on the default; reach for it only if the scatter reads too warm or too pink under your lighting.</p>
+<p>The color light picks up as it scatters through the skin — the warm, fleshy glow you see where light passes through thin areas (ears, nostrils, the edge of the nose). <strong>Defaults to a warm skin tone (255, 200, 170).</strong> Push it cooler (bluer/greener) or warmer (more orange/red) to shift the character of the scatter. Applies to both skin and teeth. Most characters look right on the default; reach for it only if the scatter reads too warm or too pink under your lighting.</p>
 <h2 id="sss-amount">SSS Amount</h2>
-<p>How much subsurface scattering the skin (and teeth) receive. Subsurface scattering is what gives skin its soft, lifelike translucency — but at full strength it can wash out fine surface detail. This control lets you balance the two:</p>
+<p>How much subsurface scattering the skin (and teeth) receive. Subsurface scattering gives skin its soft, lifelike translucency, but at full strength it can wash out fine surface detail.</p>
 <ul>
-<li><strong>1</strong> is full lifelike scatter (softest, most translucent).</li>
-<li><strong>Lower values</strong> reduce the scatter to recover fine surface detail, at the cost of a slightly waxier look.</li>
-<li><strong>0</strong> is effectively no scatter.</li>
+<li><strong>1</strong> <em>(default)</em> — full lifelike scatter, softest and most translucent.</li>
+<li><strong>Lower values</strong> — recover fine surface detail, at the cost of a slightly waxier look.</li>
+<li><strong>0</strong> — effectively no scatter.</li>
 </ul>
-<p>The default (1) is full lifelike scatter; lower it toward 0 to recover fine surface detail at the cost of a slightly waxier look.</p>
 <h2 id="sss-radius">SSS Radius</h2>
-<p>How deep light scatters through the skin. This is the detail-recovery companion to SSS Amount:</p>
+<p>How deep light scatters through the skin. The detail-recovery companion to SSS Amount:</p>
 <ul>
-<li><strong>Higher</strong> = softer, more translucent, but washes out fine detail.</li>
-<li><strong>Lower</strong> = keeps more surface detail but looks firmer.</li>
+<li><strong>Higher</strong> — softer, more translucent, but washes out fine detail.</li>
+<li><strong>Lower</strong> — keeps more surface detail but looks firmer.</li>
 </ul>
 <p>Use it together with SSS Amount to dial in the balance between lifelike scatter and skin detail. Default 0.75.</p>
 <h2 id="sss-quality">SSS Quality</h2>
-<p>Controls the subsurface scattering ray limit on skin and teeth. Higher values give cleaner, less noisy subsurface — at the cost of render time. The default (3) is a good balance; raise it for final hero renders if you see noise in the soft, light-penetrating areas (ears, nostrils, lips).</p>
+<p>Controls the subsurface scattering ray limit on skin and teeth. Higher values give cleaner, less noisy subsurface at the cost of render time. The default (3) is a good balance; raise it for final hero renders if you see noise in the soft, light-penetrating areas — ears, nostrils, lips.</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
     <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
@@ -310,7 +309,7 @@
         </div>
         <div class="pr-5 ml-3 w-full">
             <h5>SSS Quality needs a render restart</h5>
-<p>This is a Karma render property, which Karma reads only when a render begins. If you change it, restart your Karma render to see the effect.</p>
+<p>This is a Karma render property, which Karma reads only when a render begins. Restart your Karma render to see a change take effect.</p>
         </div>
     </div>
 </div>
@@ -324,7 +323,7 @@
                 <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M11 18.25a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1-.75-.75Zm-8-12a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 3 6.25Zm13 6a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 0 1.5h-3.5a.75.75 0 0 1-.75-.75ZM8.75 16a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75Z"/><path d="M3 18.25a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Zm0-6a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1-.75-.75ZM16.75 10a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75ZM14 6.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 0 1.5h-5.5a.75.75 0 0 1-.75-.75ZM11.25 4a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75Z"/></svg></span>
                 <span class="card-compact-title">Parameter Reference</span>
             </div>
-            <p class="card-compact-description">Every control on the Reallusion Importer, grouped by where you find it. There are two panels:</p>
+            <p class="card-compact-description">Every control on the Reallusion Importer, grouped by where you find it. Two panels:</p>
         </div>
     </a>
 </div>
@@ -344,8 +343,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-07-09T10:59:51" title="2026-07-09" data-absolute-label="Last updated on 2026-07-09" data-absolute-label-html="Last updated on 2026-07-09" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-07-09
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-07T12:06:44" title="2026-08-07" data-absolute-label="Last updated on 2026-08-07" data-absolute-label-html="Last updated on 2026-08-07" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-08-07
                     </time>
                 </div>
 

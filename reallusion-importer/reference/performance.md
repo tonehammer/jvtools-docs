@@ -1,10 +1,10 @@
 # Performance & Caching
 
-Character Creator characters are detailed, and detailed characters use memory. This page explains where the cost comes from and how to keep your sessions fast and lean.
+Character Creator characters are detailed, and detailed characters use memory. Here's where the cost comes from and how to keep your sessions fast and lean.
 
 ## The fastest fix: import as USD
 
-Version 1.2's **USD import mode** sidesteps almost all of this cost, and it's the default. Character Creator's USD export keeps the facial blendshapes sparse, and the tool now keeps them sparse **all the way through deformation** — so a heavy HD character imports in **about a second** and runs at a few gigabytes while animating, where the same character costs 20–40 GB via FBX (in our tests, the heaviest HD character went from ~26 GB to under 3 GB). If performance or memory is a concern, exporting and importing as **USD is the single biggest thing you can do**. See [USD vs FBX](../getting-started/import-modes.md).
+Version 1.2's **USD import mode** sidesteps almost all of this cost, and it's the default. Character Creator's USD export keeps the facial blendshapes sparse, and the tool keeps them sparse **all the way through deformation** — so a heavy HD character imports in **about a second** and runs at a few gigabytes while animating, where the same character costs 20–40 GB via FBX (in our tests, the heaviest HD character went from ~26 GB to under 3 GB). If performance or memory is a concern, exporting and importing as **USD is the single biggest thing you can do**. See [USD vs FBX](../getting-started/import-modes.md).
 
 The one trade-off: because the sparse path recomputes the facial deformation each frame instead of holding gigabytes of pre-expanded data, scrubbing a very heavy HD character is somewhat slower per frame. On standard characters you won't notice.
 
@@ -34,7 +34,7 @@ Switch all of these to full quality only when you're ready for final renders.
 
 ### FBX animation clips are heavy
 
-FBX animation is the single biggest driver of memory use in the tool — bigger than the character itself. Each FBX clip you add to the database uses a significant amount of memory, and the cost scales with the clip's **length**: Houdini holds the expanded character for every frame in the range. A few hundred frames is comfortable; multi-thousand-frame clips can balloon RAM fast. Keep your clip frame-ranges to what you actually need, add only the clips you'll use, and use **Remove Animation** to free clips you're done with. **USD motion clips sidestep this** — they *store* lightly and load instantly regardless of length, so prefer them when available. (Note this is about how the clip is *stored*; *playing* a long range still fills the playback cache in either mode — see the next section.) (See [Animation](../using/animation.md).)
+FBX animation is the single biggest driver of memory use in the tool — bigger than the character itself. Each FBX clip you add to the database uses a significant amount of memory, and the cost scales with the clip's **length**: Houdini holds the expanded character for every frame in the range. A few hundred frames is comfortable; multi-thousand-frame clips can balloon RAM fast. Keep your clip frame-ranges to what you actually need, add only the clips you'll use, and use **Remove Animation** to free clips you're done with. **USD motion clips sidestep this** — they *store* lightly and load instantly regardless of length, so prefer them when available. (This is about how the clip is *stored*; *playing* a long range still fills the playback cache in either mode — see the next section.) See [Animation](../using/animation.md).
 
 ### Long animations and playback memory
 

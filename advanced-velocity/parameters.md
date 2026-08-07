@@ -50,6 +50,7 @@ Visible in Timed Events mode. See [Timed Events](timed-events.md) for the workfl
 | Pulse Count / Hold (F) | `ev_pulse_count#`, `ev_pulse_hold#` | How many grips tile the range; how long each counts as delivering energy (drives Injecting Now and Mute Gravity, anchored at each grip's peak). |
 | Pattern / Curve | `ev_pulse_pattern#`, `ev_pulse_curve#` | Each grip's intensity: Hit (spike then decay), Build (ramp then cut, final grip holds), Wave (smooth swell). Curve eases Hit and Build. |
 | Additional Exports ▸ Export Activation Age | `out_age` | Write `@av_age`: frames since a playing event last took hold of each point, −1 if never touched. Stagger- and pulse-aware — built for shading pickup glows. Timed Events only. |
+| Additional Exports ▸ Export Trigger | `out_trigger` | Write `@trigger`: the magnitude the playing events are delivering this frame, with direction stripped away — for one event with no incoming base layer this is exactly `length(@v)`. Follows Scale by Piece Size and Clamp Speed, and includes Event Strength but not Incoming Velocity. Events sum without cancellation, so two blasts pushing opposite ways read as a strong trigger even where `@v` cancels to zero. Timed Events only. |
 | Attack / Hold / Release | `ev_atk#`, `ev_hold#`, `ev_rel#` | Envelope phases in **frames**, each with its own enable checkbox, all on by default. Switch all three off to latch the event at full strength forever. |
 | Extend to Next | `ev_extend#` | Set Hold so this event holds until the next event's Attack opens. Next is by frame, ignoring solo/mute. Refuses on the last event. |
 | (undo, beside Extend to Next) | `ev_extend_undo#` | Put Hold back to what the last Extend to Next replaced. That setting only, one press deep; greyed until Extend has been used. |
@@ -231,6 +232,8 @@ The next two groups appear in Timed Events only.
 | Output Guides Only (No Geometry) | `out_guides_only` | Output the guide curves instead of the geometry — for rendering the guides as their own pass. In Timed Events it always emits the baked event trails, ignoring Show Guides and Source (so the pass can't be empty), and **respects Preview Motion** — on, the trails follow the predicted motion; off, they sit at rest. The ghost never enters the pass. |
 | Restore Viewport HUD | `util_restore_hud` | Re-enter the node's viewer state, bringing the event timeline back after an asset refresh. |
 | Re-bake All Events | `rebake_events` | Repair every event after the input's point count changed (a re-fracture, deleted geometry, a different scatter). Each event is replayed against **its own** stored snapshot at **its own** frame, so timings and settings survive — unlike pressing Update on each row, which re-bakes from the live Setup. |
+| Copy Events | `copy_events` | Copy this node's entire event set — baked fields included — to a disk clipboard that survives a Houdini restart. |
+| Paste Events | `paste_events` | Replace the target node's events with the clipboard's, byte for byte. Asks for confirmation if the destination already has events. Pasted bakes belong to the setup that made them, so pasting onto a different input point count leaves them stale — fix with Re-bake All Events. |
 | Links | `gumroad`, `docs`, `discord`, `youtube` | This documentation, the store page, and the community. |
 
 ## About

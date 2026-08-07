@@ -121,7 +121,7 @@ On the solver:
 "v" if hou.node("/obj/geo1/advanced_velocity1").evalParm("dyn_injecting") else ""
 ```
 
-The solve then takes the velocity on the impulse frames and runs free in between — pieces launch, arc, and land under gravity, and the next event kicks them again. Leave `w` out of the list unless your events author angular velocity, or the solver's own tumble gets overwritten.
+The solve then takes the velocity on the impulse frames and runs free in between — pieces launch, arc, and land under gravity, and the next event kicks them again. Leave `w` out of the list unless your events author angular velocity, or the solver's own tumble gets overwritten. If the baked direction is wrong because the pieces have already moved, see [Exporting the trigger](#exporting-the-trigger) — it lets you supply the direction from the live simulation instead of the bake.
 
 **In a hurry? Press Create Connected RBD Sim** (Output tab). It builds an RBD Bullet Solver below the node with a ground plane, gravity, and both gates already wired.
 
@@ -173,6 +173,38 @@ Like Stagger, Pulse timing is applied at playback — no re-bake needed. Stagger
 ### Exporting the activation age
 
 **Export Activation Age (@av_age)** (in the Output tab's *Additional Exports*) writes, for every point, how many frames ago a playing event last took hold of it — `-1` for points never touched. It's stagger-aware (a cascade lights points up one at a time) and pulse-aware (every new grip resets the clock), which makes it a ready-made shading input: pieces that glow as the force grabs them and cool off as it lets go.
+
+### Exporting the trigger
+
+Every bake happens against the input's **rest positions** — the geometry as it arrives at the node, before anything simulates it. The direction is only correct there. An Exploding event aimed outward from world centre, baked while a ball sits well above the origin, bakes mostly +Y — up, because up is what "outward from centre" means *at that position*. Once the pieces have fallen and are lying on the floor, what you actually want is radial in XZ, and the baked vectors keep punting them upward. Track Motion doesn't save this: it only re-aims the Directional type, off the node's own straight-line prediction, which knows nothing about gravity, collisions, or the ground.
+
+**Export Trigger (@trigger)** (Additional Exports) is the way out — let the node own the timing and magnitude, and compute the direction yourself, downstream, from where the pieces actually are.
+
+It writes a per-point float: the magnitude the playing events are delivering this frame, with no direction. For a single event with no incoming base layer it's exactly `length(@v)`, so multiplying your own direction by it preserves the energy the tool would have used — a direction substitution, not a gain. It follows Scale by Piece Size and Clamp Speed for the same reason, and Event Strength folds in; Incoming Velocity does not, since the trigger is events only.
+
+Events sum **without cancellation**. Two events pushing opposite ways cancel to zero in `@v` but still read as a strong trigger — deliberately, since the question it answers is "how much is being injected", not "what's the net vector". It comes from the event's own baked field, so an event with no velocity types enabled gives zero, and it isn't a 0-1 envelope — a Strength of 5 peaks near 5, not 1.
+
+**Worked example — reaiming a pulse at a body already on the ground.** A fractured ball falls under gravity in an RBD Bullet Solver, lands, and should jerk outward from world centre a few times while it lies there.
+
+1. Give the event Pulse timing with a Pulse Count of 4. Any velocity type does for the magnitude — the direction it bakes doesn't matter, since it's about to be replaced.
+2. Turn on **Export Trigger (@trigger)**.
+3. Put `trigger` in the solver's **Attributes** field under Override Attributes from SOP, so the value reaches the sim each frame. This *replaces* the Injecting Now gate described in [Driving an RBD solver](#driving-an-rbd-solver) — don't list `v` as well. The wrangle is authoring the velocity now, and anything in that field is re-stamped from the SOP every frame, which would overwrite it.
+4. Add a POP Wrangle to the solver's forces:
+
+```c
+float amp = f@trigger;
+if (amp > 0) {
+    vector radial = @P * {1, 0, 1};
+    if (length(radial) > 1e-4)
+        v@v += normalize(radial) * amp;
+}
+```
+
+`@P` is the *live simulated* position — that's the whole point — and multiplying by `{1, 0, 1}` flattens it into XZ so the kick runs sideways along the floor instead of back up.
+
+!!!warning Add to `v@v`, not `v@force`
+On Bullet RBD, writing `v@force` here is effectively a no-op: the solver divides it by the piece's mass and the step, and at any sane trigger magnitude the pieces don't visibly move. Add to `v@v` instead. That is also what makes the trigger's headline property useful — it *is* the speed the node would have written, so `v@v += direction * amp` gives you the same push in your own direction. (**Output As ▸ Force** and `@force` remain the right choice for POP and Vellum, which accumulate forces every step.)
+!!!
 
 ### Muting gravity for an impulse
 

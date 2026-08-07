@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839369434793">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839409873874">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -24,7 +24,7 @@
     <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/advanced-velocity/using/">
     <meta property="og:title" content="Using Advanced Velocity">
     <meta property="og:description" content="This page covers the setup surface: the six velocity types, the mixer, the output and the visualization. The event workflow is a big enough topic that it gets its own page.">
-    <meta property="og:image" content="https://tonehammer.github.io/jvtools-docs/advanced-velocity/static/point-source.png">
+    <meta property="og:image" content="https://tonehammer.github.io/jvtools-docs/advanced-velocity/static/basic-velocity.webp">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Using Advanced Velocity">
@@ -36,7 +36,7 @@
     <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/advanced-velocity/using/">
     <meta name="twitter:title" content="Using Advanced Velocity">
     <meta name="twitter:description" content="This page covers the setup surface: the six velocity types, the mixer, the output and the visualization. The event workflow is a big enough topic that it gets its own page.">
-    <meta name="twitter:image" content="https://tonehammer.github.io/jvtools-docs/advanced-velocity/static/point-source.png">
+    <meta name="twitter:image" content="https://tonehammer.github.io/jvtools-docs/advanced-velocity/static/basic-velocity.webp">
     <meta name="twitter:image:alt" content="Using Advanced Velocity">
 
     <!-- Alternate Markdown -->
@@ -44,11 +44,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.839369434793" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.839409873874" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839369434793" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839409873874" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839369434793" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839409873874" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -217,6 +217,10 @@
 <p>Each type lives in its own collapsible section with a checkbox in the header. The controls stay hidden until you actually turn the type on, so you are only ever looking at the things you&#x27;re using.</p>
 <h3 id="basic">Basic</h3>
 <p>A fixed vector applied to every point. The simplest possible velocity — this is the one you reach for when you just want to give the whole body a shove in one direction.</p>
+<figure class="content-center">
+    <img src="../static/basic-velocity.webp" alt="Basic velocity — every guide trail pointing the same way" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption">Basic velocity — every guide trail pointing the same way</figcaption>
+</figure>
 <h3 id="directional">Directional</h3>
 <p>Velocity with a <em>direction</em> — at a target, around it, or away from it. First thing to set is <strong>Direction</strong>, which chooses where the target comes from:</p>
 <ul>
@@ -227,6 +231,10 @@
 </ul>
 <p><strong>Direction Bias</strong> is the main control here, and it is a <em>continuum</em>, not a set of modes: <strong>+1</strong> aims straight at the target, <strong>0</strong> is a pure orbit around an axle through it, <strong>−1</strong> points straight away. Anything in between spirals — meaning a vortex that also draws things inward does not need a second node. The <strong>Toward / Around / Away</strong> buttons just snap the bias to those three values. <strong>Orbit Axis</strong> decides the axle: <em>Toward Target</em> runs it from the object&#x27;s centre through the target (so you can tilt the spin just by moving the target around), or you give it a fixed <em>Custom Vector</em>.</p>
 <p><strong>Normalize Direction</strong> makes every direction unit length, so distance stops affecting speed. <strong>Distance Falloff</strong> fades the velocity with distance — measured from the target, or from the axle when we are orbiting.</p>
+<figure class="content-center">
+    <img src="../static/directional-velocity.webp" alt="Directional velocity — the trails converging on a single target point" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption">Directional velocity — the trails converging on a single target point</figcaption>
+</figure>
 <h3 id="exploding">Exploding</h3>
 <p>An outward burst, with two very different origins.</p>
 <p><strong>Whole Object</strong> radiates from the body itself:</p>
@@ -234,13 +242,29 @@
 <li><strong>Centroid</strong> — everything pushes away from a single point, which you can offset with <strong>Move Centroid</strong>.</li>
 <li><strong>Medial Axis</strong> — the direction is measured from the <em>skeleton</em> of the body instead. Why? Because hollow, curved or L-shaped objects don&#x27;t really have a meaningful centre — with a centroid everything just slides away from one averaged point, whereas from the skeleton they burst outward sensibly. It is considerably slower, though, as it runs a VDB shrink loop to actually find that skeleton.</li>
 </ul>
+<figure class="content-center">
+    <img src="../static/exploding-velocity.webp" alt="Exploding velocity — an outward burst radiating from the body's centre" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption">Exploding velocity — an outward burst radiating from the body's centre</figcaption>
+</figure>
 <p><strong>Point Source</strong> is a big enough topic that it gets <doc-anchor-trigger to="#point-source-explosions">its own section below</doc-anchor-trigger>.</p>
 <h3 id="velocity-from-motion">Velocity from Motion</h3>
 <p>Velocity derived from the movement the input already has, frame-to-frame — exactly the way a Trail SOP computes it. The use case is handing pre-sim momentum to an RBD or POP solve: animate a character swinging a prop, fracture the prop, and the pieces inherit the swing. Only meaningful on animated/deforming input, naturally — a static mesh gives you zero.</p>
+<figure class="content-center">
+    <img src="../static/motion-velocity.webp" alt="Velocity from Motion — trails streaming behind a moving object" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption">Velocity from Motion — trails streaming behind a moving object</figcaption>
+</figure>
 <h3 id="curl-noise">Curl Noise</h3>
 <p>A divergence-free turbulent field (meaning: natural swirls with no sources or sinks) for debris drift and secondary motion. <strong>Frequency</strong> is the size of the vortices, <strong>Amplitude</strong> is the speed, <strong>Octaves / Roughness / Lacunarity</strong> add the fractal detail, and <strong>Evolution Speed</strong> churns the field over time (0 = frozen field). One thing to understand: this authors an <em>initial</em> velocity — a one-time push, not a force that keeps acting inside the sim.</p>
+<figure class="content-center">
+    <img src="../static/curl-noise-velocity.webp" alt="Curl Noise velocity — turbulent swirls across a fractured object" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption">Curl Noise velocity — turbulent swirls across a fractured object</figcaption>
+</figure>
 <h3 id="angular">Angular</h3>
 <p>An extra <code translate="no" v-pre>@w</code> spin vector, in radians per second, for the solvers that read it. <strong>Source</strong> is either a <em>Constant</em> vector, or <em>Inherited from Motion</em>, which computes it from the input&#x27;s own rotation between frames (this one needs a point <code translate="no" v-pre>orient</code> quaternion on the input to work). This type is independent of the mixer — <code translate="no" v-pre>@w</code> is simply written whenever the type is on.</p>
+<figure class="content-center">
+    <img src="../static/angular-velocity.webp" alt="Angular velocity — per-piece spin guides" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption">Angular velocity — per-piece spin guides</figcaption>
+</figure>
 <hr>
 <h2 id="point-source-explosions">Point Source explosions</h2>
 <p>Point Source places a single blast origin <em>inside</em> the object, and only the pieces within its <strong>Falloff Radius</strong> (drawn as a wireframe sphere in the viewport) get affected. This is the mode made for dense fractured RBD — think a wall taking an impact in one spot, rather than the entire building flying apart.</p>
@@ -338,6 +362,10 @@
 <h3 id="ballistic-motion--the-second-output">Ballistic Motion — the second output</h3>
 <p>The node has a second output, and it delivers the pieces <strong>already flying</strong>: advanced along the velocity you authored, frame by frame, tumbling with any baked <code translate="no" v-pre>@w</code> if <strong>Include Rotation</strong> is on. No solver anywhere. Output 1 is completely untouched by this — your sim still gets the pieces at rest with <code translate="no" v-pre>@v</code> on them — so wire output 2 when a real solve is overkill: previz, motion-graphics moves, a quick look test before committing to Bullet.</p>
 <p>It&#x27;s a straight-line integration — no collisions, no gravity — the same maths as the motion-preview ghost, applied to the real geometry. <strong>Display Offset</strong> slides the result sideways in multiples of the object&#x27;s width, for reading it next to the original.</p>
+<figure class="content-center">
+    <img src="../static/ballistic-motion-parms.png" alt="The Ballistic Motion folder on the Output tab" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="575" height="173" />
+    <figcaption class="caption">The Ballistic Motion folder on the Output tab</figcaption>
+</figure>
 <p><strong>Return to Home</strong> is the part that makes it a tool rather than a toy. Keyframe it from 0 to 1 and every piece flies back to <em>exactly</em> where it started — and that landing is exact by construction: at 1, output 2 equals the input bit for bit, no matter how far the motion carried the pieces or what shaping you piled on. Telekinesis reassembly in one slider.</p>
 <p><strong>Return Shaping</strong> (collapsed under the slider) art-directs the way home without ever being able to break the landing:</p>
 <ul>
@@ -351,6 +379,10 @@
 <h3 id="ballistic-return--reassembling-a-real-simulation">Ballistic Return — reassembling a real simulation</h3>
 <p>Everything above returns the pieces home from a <em>prediction</em>. Sooner or later you&#x27;ll want the same move on a shot that actually simulated — the pieces tumbled, hit the ground, settled, and <em>then</em> fly back together. That can&#x27;t happen on this node: by the time the solve exists, it&#x27;s downstream. So it gets a node of its own.</p>
 <p>Press <strong>Create Ballistic Return</strong> at the bottom of the Ballistic Motion folder. You get a second node — it ships inside the same file, and it&#x27;s in the JV tab menu too — wired for you: input 1 takes the simulated pieces (it finds the RBD solver under your node), input 2 takes the rest pose, which is just this node&#x27;s first output.</p>
+<figure class="content-center">
+    <img src="../static/ballistic-return-node.png" alt="The Ballistic Return node" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="562" height="160" />
+    <figcaption class="caption">The Ballistic Return node</figcaption>
+</figure>
 <p>Then keyframe <strong>Return to Home</strong> from 0 to 1. Same slider, same Return Shaping controls, same guarantee: at 1 every piece is exactly home, whatever the sim left behind. Nothing is snapshotted, so you can re-sim upstream all day and this node never goes stale.</p>
 <p>Important detail: <strong>Rest Attribute</strong>. Leave it empty and &quot;home&quot; means the second input&#x27;s positions — right for the usual static mesh. But if your input is <em>animated</em>, those positions have moved on by the time the return happens, and you&#x27;d be aiming at a moving target. Turn on <strong>Export Rest Position Attributes</strong> on the Advanced Velocity node, then name <code translate="no" v-pre>startframe_rest</code> here — or any event&#x27;s captured pose — and the pieces return to that frozen pose instead. The dropdown lists whatever&#x27;s actually arriving on the input.</p>
 <p><strong>Post-Process</strong> holds the final touches:</p>
@@ -423,8 +455,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-06T00:26:30" title="2026-08-06" data-absolute-label="Last updated on 2026-08-06" data-absolute-label-html="Last updated on 2026-08-06" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-08-06
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-07T00:25:22" title="2026-08-07" data-absolute-label="Last updated on 2026-08-07" data-absolute-label-html="Last updated on 2026-08-07" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-08-07
                     </time>
                 </div>
 

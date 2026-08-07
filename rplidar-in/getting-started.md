@@ -2,15 +2,33 @@
 
 This page takes you from an unopened sensor to your first live scan in Houdini.
 
-## 1. Install the asset
+## Install the asset
 
-Copy the `RPLidar_In.hdalc` file into your Houdini `otls` directory, or use **File → Import → Houdini Digital Asset** and point it at the file. It installs the SOP node type **RPLidar In**.
+>>> 1. Download the asset
+Grab `JV-RPLidar_In-vX.Y.hdalc` from your Gumroad library.
+>>>
+>>> 2. Drop it into your Houdini `otls` folder
+* **Windows** — `C:\Users\<you>\Documents\houdini22.0\otls\`
+* **macOS** — `~/Library/Preferences/houdini/22.0/otls/`
+* **Linux** — `~/houdini22.0/otls/`
+
+If the folder doesn't exist yet, create it. On Houdini 21 the folder is `houdini21.0` instead.
+>>>
+>>> 3. Restart Houdini
+Or use **Assets ▸ Install Digital Asset Library** to pick it up without restarting.
+>>>
+
+The node then appears in the SOP tab menu under **JV ▸ RPLidar In**.
 
 !!!warning Indie / Apprentice only
 The asset is saved as `.hdalc`, which loads in Houdini **Indie** and **Apprentice** but **not** in commercial (FX/Core) licenses.
 !!!
 
-## 2. Connect the hardware
+!!!warning Updating
+When a new version arrives, **delete the previous `.hdalc` file** before adding the new one — two files defining the same asset will collide. The internal node type never changes between versions, so your existing scenes pick up the new version automatically. Nothing to relink.
+!!!
+
+## Connect the hardware
 
 ### The sensor
 
@@ -29,17 +47,23 @@ The motor lead can go to a plain charger — it does not need to be the same mac
 
 ### The USB/UART adapter
 
-The sensor connects through a **Silicon Labs CP210x** USB-to-serial adapter, which enumerates as a COM port on Windows (the driver ships with Windows 11, so it installs automatically). The adapter has a **baud-rate switch** — it **must be set to 256000** for the A2 family. At the wrong setting the device is completely silent.
+The sensor connects through a **Silicon Labs CP210x** USB-to-serial adapter, which enumerates as a COM port on Windows (the driver ships with Windows 11, so it installs automatically). Once connected, Windows gives the adapter a COM port (e.g. `COM3`).
 
-Once connected, Windows gives the adapter a COM port (e.g. `COM3`).
+!!!danger The baud-rate switch must be at 256000
+The adapter has a **baud-rate switch**, and the A2 family needs it set to **256000**. At the wrong setting the device is completely silent — no error, no points, nothing to diagnose. Check this first if your first scan comes up empty.
+!!!
 
-## 3. See your first scan
+## See your first scan
 
-1. Drop down an **RPLidar In** SOP (inside a Geometry object).
-2. Set **Mode** to **Live**.
-3. Cook the node (display it in the viewport).
-
-The motor spins up over about two seconds, then a ring of points appears — one point per laser return. Empty space in front of the sensor produces gaps; walls and objects produce dense arcs.
+>>> 1. Drop the node
+Create an **RPLidar In** SOP inside a Geometry object.
+>>>
+>>> 2. Go Live
+Set **Mode** to **Live**.
+>>>
+>>> 3. Cook it
+Display the node in the viewport. The motor spins up over about two seconds, then a ring of points appears — one point per laser return. Empty space in front of the sensor produces gaps; walls and objects produce dense arcs.
+>>>
 
 !!!info Lots of gaps is normal
 On an open desk, most laser returns hit nothing in range and come back **invalid** — filtered out before they reach you. More than half of every rotation can be empty. Point the sensor at a wall to see a dense arc. See [Modes → invalid returns](using.md#a-note-on-invalid-returns).
@@ -47,7 +71,7 @@ On an open desk, most laser returns hit nothing in range and come back **invalid
 
 If nothing appears, press **Test Sensor** to print the sensor's identity, health, and available scan modes to the console, then check [Troubleshooting](troubleshooting.md).
 
-## 4. Set your working scale
+## Set your working scale
 
 Sensor distances are real-world meters. The **Units per Meter** parameter maps them to Houdini units:
 
@@ -55,7 +79,7 @@ Sensor distances are real-world meters. The **Units per Meter** parameter maps t
 * `100` — work in centimeters.
 * `0.5` — shrink the world to half size.
 
-## 5. Finding the port
+## Finding the port
 
 Leave the node's **Port** parameter blank and it auto-detects the CP210x adapter. If auto-detect picks the wrong device (e.g. you have several serial adapters), set the port explicitly — for example `COM3` on Windows.
 

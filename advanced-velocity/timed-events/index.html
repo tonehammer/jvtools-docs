@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839369434793">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839409873874">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -24,6 +24,10 @@
     <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/advanced-velocity/timed-events/">
     <meta property="og:title" content="Timed Events">
     <meta property="og:description" content="One velocity field is rarely the whole story. The shot is a car lifted at frame 10, torn apart at frame 40, spun at frame 70 — three different velocity setups, at three different times, summed where they overlap.">
+    <meta property="og:image" content="https://tonehammer.github.io/jvtools-docs/advanced-velocity/static/record-buttons.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Timed Events">
     <meta property="og:site_name" content="JVtools">
     <meta property="og:locale" content="en_US">
 
@@ -32,18 +36,20 @@
     <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/advanced-velocity/timed-events/">
     <meta name="twitter:title" content="Timed Events">
     <meta name="twitter:description" content="One velocity field is rarely the whole story. The shot is a car lifted at frame 10, torn apart at frame 40, spun at frame 70 — three different velocity setups, at three different times, summed where they overlap.">
+    <meta name="twitter:image" content="https://tonehammer.github.io/jvtools-docs/advanced-velocity/static/record-buttons.png">
+    <meta name="twitter:image:alt" content="Timed Events">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://tonehammer.github.io/jvtools-docs/advanced-velocity/timed-events.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.839369434793" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.839409873874" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839369434793" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839409873874" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839369434793" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.839369434793" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839409873874" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.839409873874" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -228,6 +234,10 @@
     </div>
 </div>
 <h2 id="creating-events">Creating events</h2>
+<figure class="content-center">
+    <img src="../static/record-buttons.png" alt="The At Frame readout and the event buttons — Record, Stop, Create Event, Copy Event, Update" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="697" height="60" />
+    <figcaption class="caption">The At Frame readout and the event buttons — Record, Stop, Create Event, Copy Event, Update</figcaption>
+</figure>
 <ul>
 <li><strong>Create Event</strong> bakes the current setup into a new event at the playbar frame.</li>
 <li><strong>Record Events</strong> plays from wherever the playbar sits to the range end (at the very end it wraps back to the start) — press Create Event as it plays to mark events in real time, like tapping keys into a performance. It also brings the timeline HUD up if the viewer had wandered out of the node&#x27;s state. <strong>Stop</strong> ends it. Here&#x27;s the detail that keeps a take playable: while recording, Create Event only <em>marks</em> the moment — you&#x27;ll see hollow discs appear on the timeline — and the real events (bake and all) are created together the instant the take ends. Nothing about the node changes mid-take, so playback stays interactive and anything downstream (an RBD solve included) keeps its cache instead of resimulating on every press. The marks survive even a crash — press Record again and you&#x27;ll be offered them back. Guides also pause for the take and come back the moment playback ends.</li>
@@ -261,6 +271,10 @@
 <p>A strength of 0 quiets an event&#x27;s velocity but deliberately does <strong>not</strong> close its Injecting Now / Mute Gravity windows — those follow the event&#x27;s timing, not its amount. Want an event genuinely out of the solve? That&#x27;s <strong>Mute</strong>.</p>
 <h2 id="the-event-timeline">The event timeline</h2>
 <p>With <strong>Event Timeline</strong> on (Visualization tab), a frame ruler draws along the bottom of the viewport with a marker per event and a playhead. The marker colours tell you each event&#x27;s state at a glance:</p>
+<figure class="content-center">
+    <img src="../static/event-timeline-hud.png" alt="The on-screen event timeline, with orange ready markers and one green playing marker" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="1140" height="86" />
+    <figcaption class="caption">The on-screen event timeline, with orange ready markers and one green playing marker</figcaption>
+</figure>
 <ul>
 <li><strong>Orange</strong> — ready: baked and waiting for its frame.</li>
 <li><strong>Green</strong> — playing: contributing right now.</li>
@@ -506,8 +520,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-06T00:26:30" title="2026-08-06" data-absolute-label="Last updated on 2026-08-06" data-absolute-label-html="Last updated on 2026-08-06" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-08-06
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-07T00:25:22" title="2026-08-07" data-absolute-label="Last updated on 2026-08-07" data-absolute-label-html="Last updated on 2026-08-07" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-08-07
                     </time>
                 </div>
 

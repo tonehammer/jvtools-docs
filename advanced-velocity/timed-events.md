@@ -13,10 +13,13 @@ In Timed Events mode the live Setup does not reach the output — only baked eve
 ![The At Frame readout and the event buttons — Record, Stop, Create Event, Copy Event, Update](static/record-buttons.png)
 
 * **Create Event** bakes the current setup into a new event at the playbar frame.
+
 * **Record Events** plays from wherever the playbar sits to the range end (wrapping back to the start at the very end) — press Create Event as it plays to mark events in real time, like tapping keys into a performance. It also brings the timeline HUD up if the viewer had wandered out of the node's state. **Stop** ends it. While recording, Create Event only *marks* the moment (hollow discs appear on the timeline) — the real events, bake and all, are created together the instant the take ends, so playback stays interactive and anything downstream (an RBD solve included) keeps its cache instead of resimulating on every press. The marks survive a crash — press Record again and you'll be offered them back. Guides pause for the take and come back when playback ends.
 
   Recording by feel wants a responsive playbar, so it's at its best on **lighter inputs** — packed pieces or meshes up to a few tens of thousands of points. On very dense raw-point inputs the take slows down as events stack up; rough it in on a lighter proxy, then Update the events against the full-resolution input afterwards.
+
 * **Copy Event** duplicates an existing event at the current frame — the same blast, later, with nothing re-baked.
+
 * **Sort by Frame** reorders the rows chronologically (playback doesn't care about row order; this is purely for reading).
 
 Each event is a tab in the **Events** list, named, stamped with its frame, and carrying a **Captured** summary of what it actually baked — which types, how many points, the peak speed. That line is worth glancing at every time: an event named "explosion" that captured `basic | 60 pts | max |v| 1` is telling you something.
@@ -190,8 +193,7 @@ Events sum **without cancellation**. Two events pushing opposite ways cancel to 
 float amp = f@trigger;
 if (amp > 0) {
     vector radial = @P * {1, 0, 1};
-    if (length(radial) > 1e-4)
-        v@v += normalize(radial) * amp;
+    v@v += normalize(radial) * amp;
 }
 ```
 

@@ -76,4 +76,4 @@ The Houdini node type never changes between product versions, so scenes update i
 
 ## Still stuck?
 
-Find me on the [JVtools Discord](https://discord.gg/AG2w83WSM).
+Find me on the [JVtools Discord](https://discord.gg/eQN3cBK2U).

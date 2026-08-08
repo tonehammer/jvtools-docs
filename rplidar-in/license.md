@@ -67,4 +67,4 @@ This Agreement constitutes the entire agreement between you and the Author regar
 
 ---
 
-For questions about this Agreement, find me on the official [JVtools Discord](https://discord.gg/AG2w83WSM).
+For questions about this Agreement, find me on the official [JVtools Discord](https://discord.gg/eQN3cBK2U).

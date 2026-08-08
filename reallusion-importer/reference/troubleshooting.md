@@ -91,4 +91,4 @@ Many features are character-dependent — they only work if your character's exp
 
 ## Still stuck?
 
-If something isn't covered here, reach out through the official [JVtools Discord](https://discord.gg/eQN3cBK2U).
+If something isn't covered here, reach out through the official [JVtools Discord](https://discord.gg/NFjtWg2RWS).

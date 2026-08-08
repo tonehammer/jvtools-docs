@@ -18,13 +18,7 @@ Every simulation in Houdini starts with velocity, and getting it right normally 
 
 ![Velocity guides on a fractured object](static/hero.png)
 
-<!-- TRAILER PLACEHOLDER — uncomment and swap in the real video id once the
-     trailer is up. Retype's embed component; aspect keeps it 16:9 and it needs
-     the /embed/ form of the URL, not the watch?v= one.
-
-[!embed aspect="16:9" text="Advanced Velocity in 90 seconds"](https://www.youtube.com/embed/VIDEO_ID_HERE)
--->
-
+![](static/pasted-20260808115616.png)
 
 ## What it does for you
 

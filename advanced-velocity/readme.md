@@ -12,6 +12,8 @@ Every simulation in Houdini starts with velocity, and getting it right normally 
 
 ![Velocity guides on a fractured object](static/hero.png)
 
+![](static/pasted-20260808115616.png)
+
 ## What it does for you
 
 * **Six velocity types on one node** — Basic (a fixed vector), Directional (aimed at, around, or away from a target), Exploding (an outward burst), Velocity from Motion (derived from animated input), Curl Noise (divergence-free turbulence), and Angular (`@w`) — each switched on with a checkbox in its own section header.

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839496986493">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839503965516">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.839496986493" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.839503965516" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839496986493" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839503965516" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839496986493" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839503965516" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -241,6 +241,10 @@
 <p>The solver&#x27;s <strong>Override Attributes from SOP</strong> is re-stamping <code translate="no" v-pre>@v</code> every frame, so gravity never accumulates. Gate the <strong>Attributes</strong> field beneath it on the node&#x27;s <strong>Injecting Now</strong> readout, so velocity is only taken during an event&#x27;s attack and hold — the recipe is in <a href="../timed-events/#driving-an-rbd-solver">Driving an RBD solver</a>.</p>
 <p>Don&#x27;t gate the <em>Override Attributes from SOP</em> toggle itself: the solver latches it at the sim&#x27;s first frame, so your gating does nothing.</p>
 <p>Both live under <strong>Properties ▸ Pieces ▸ Override Attributes</strong>. Beware the similarly named <em>Overwrite Attributes from SOP</em> under <strong>Collision ▸ Collision Geometry</strong> — that one is for collision geometry and is not what you want.</p>
+<h2 id="my-trigger-wrangle-does-nothing">My trigger wrangle does nothing</h2>
+<p><code translate="no" v-pre>trigger</code> is almost certainly missing from the solver&#x27;s <strong>Overwrite Attributes</strong> field (<strong>Properties ▸ Pieces ▸ Override Attributes ▸ Attributes</strong>). This is the single most common reason a trigger setup goes completely silent, and it&#x27;s worth understanding why it&#x27;s silent rather than just patching it: the solver copies every SOP attribute once, when it builds the objects at the sim&#x27;s first frame, so <code translate="no" v-pre>@trigger</code> genuinely exists inside the sim. It&#x27;s simply never refreshed after that — frozen at whatever it read on frame one, which is almost always 0. So <code translate="no" v-pre>f@trigger</code> reads a flat 0 on every substep of every frame, <code translate="no" v-pre>if (amp &gt; 0)</code> never fires, and the wrangle does nothing at all. No error on the wrangle, no error on the solver, nothing in the node&#x27;s own warnings — it just quietly never fires.</p>
+<p>To confirm it: find a frame where the node&#x27;s own <code translate="no" v-pre>@trigger</code> is clearly nonzero, then check the same attribute inside the sim at that frame. If it reads a flat 0 there while the node says otherwise, that&#x27;s the diagnosis, and adding <code translate="no" v-pre>trigger</code> to the Attributes field is the fix — see <a href="../timed-events/#exporting-the-trigger">Exporting the trigger</a> for the full setup, including why <code translate="no" v-pre>v</code> has to come <strong>out</strong> of that same field once <code translate="no" v-pre>trigger</code> goes in.</p>
+<p>Same trap, mirror image: if pieces never launch at all when you&#x27;re driving the solve with the node&#x27;s velocity directly, check that <code translate="no" v-pre>v</code> is listed there instead, gated on <strong>Injecting Now</strong> — see <a href="../timed-events/#driving-an-rbd-solver">Driving an RBD solver</a>.</p>
 <h2 id="my-scenes-nodes-didnt-pick-up-the-new-version">My scene&#x27;s nodes didn&#x27;t pick up the new version</h2>
 <p>The Houdini node type never changes between product versions, so scenes update in place. If you&#x27;re still seeing the old behaviour you most likely have <strong>two</strong> <code translate="no" v-pre>.hdalc</code> files defining the asset — delete the older one and restart Houdini.</p>
 <h2 id="still-stuck">Still stuck?</h2>
@@ -264,8 +268,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-07T12:06:44" title="2026-08-07" data-absolute-label="Last updated on 2026-08-07" data-absolute-label-html="Last updated on 2026-08-07" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-08-07
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-08T13:32:17" title="2026-08-08" data-absolute-label="Last updated on 2026-08-08" data-absolute-label-html="Last updated on 2026-08-08" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-08-08
                     </time>
                 </div>
 

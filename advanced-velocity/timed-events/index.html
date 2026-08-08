@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839496986493">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839503965516">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -44,12 +44,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.839496986493" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.839503965516" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839496986493" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839503965516" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839496986493" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.839496986493" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839503965516" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.839503965516" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -265,7 +265,7 @@
 <p><strong>Extend to Next</strong>, on the Hold row, sets Hold so this event holds until the next one takes over: the two windows touch with no gap and without both sitting at full strength at once. &quot;Next&quot; means next by frame, whatever is soloed or muted; it does nothing on the last event. The small <strong>undo</strong> button beside it puts Hold back to what that press replaced — one setting, one press deep.</p>
 <p>Attack and Release each take a <strong>Curve</strong> — Linear, Ease, Sharp, Snap, or Soft.</p>
 <p>All three phases are <strong>on</strong> by default, so a fresh event ramps in, holds, and fades back out. Switching all three <strong>off</strong> makes an event <em>latch</em> — it starts at its frame and keeps delivering at full strength forever. For a velocity that stays on for the whole shot, use <strong>Single Field</strong> mode instead.</p>
-<p>Latching is the right shape when an RBD solver overwrites <code translate="no" v-pre>@v</code> every frame — a fading velocity handed to that solver would <em>brake</em> the pieces it just threw. (Better still: keep the fade and gate the solver on <strong>Injecting Now</strong> — see <doc-anchor-trigger to="#driving-an-rbd-solver">Driving an RBD solver</doc-anchor-trigger>.) One cost: a latched event keeps the node cooking every frame after it starts, which adds up on heavy inputs.</p>
+<p>Latching is the right shape when an RBD solver overwrites <code translate="no" v-pre>@v</code> every frame (which it only does when <code translate="no" v-pre>v</code> is actually listed in its Overwrite Attributes field — see below) — a fading velocity handed to that solver would <em>brake</em> the pieces it just threw. (Better still: keep the fade and gate the solver on <strong>Injecting Now</strong> — see <doc-anchor-trigger to="#driving-an-rbd-solver">Driving an RBD solver</doc-anchor-trigger>.) One cost: a latched event keeps the node cooking every frame after it starts, which adds up on heavy inputs.</p>
 <h2 id="editing-an-event">Editing an event</h2>
 <p><strong>Recall</strong> loads an event&#x27;s captured setup back into the live Setup and jumps to its frame. Edit whatever you like, then press <strong>Update</strong> to re-bake it.</p>
 <p>The node watches for the trap in that loop: if the live Setup no longer matches the event it was last based on, the <strong>Stale</strong> readout names the event and its timeline marker turns <strong>pink</strong>. Nothing is lost — press Update to capture your changes, or Create Event to make the changes a new event instead.</p>
@@ -346,6 +346,29 @@
 <pre translate="no" class="language-python"><code v-pre class="language-python">&quot;v&quot; if hou.node(&quot;/obj/geo1/advanced_velocity1&quot;).evalParm(&quot;dyn_injecting&quot;) else &quot;&quot;</code></pre>
 </doc-codeblock></div>
 <p>The solve then takes the velocity on the impulse frames and runs free in between — pieces launch, arc, and land under gravity, and the next event kicks them again. Leave <code translate="no" v-pre>w</code> out of the list unless your events author angular velocity, or the solver&#x27;s own tumble gets overwritten. If the baked direction is wrong because the pieces have already moved, see <doc-anchor-trigger to="#exporting-the-trigger">Exporting the trigger</doc-anchor-trigger> — it lets you supply the direction from the live simulation instead of the bake.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-warning" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
+                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Whatever drives the solve has to be named in that Attributes field</h5>
+<p>This is the one step that catches everyone, so it&#x27;s worth stating plainly. There are two workflows, and they need <strong>different</strong> entries in <strong>Properties ▸ Pieces ▸ Override Attributes ▸ Attributes</strong>:</p>
+<ul>
+<li>Driving the solve with the node&#x27;s velocity directly (this section) — list <strong><code translate="no" v-pre>v</code></strong>, gated on Injecting Now.</li>
+<li>Driving it with <doc-anchor-trigger to="#exporting-the-trigger">Export Trigger</doc-anchor-trigger> and your own wrangle — list <strong><code translate="no" v-pre>trigger</code></strong>, and <strong>remove <code translate="no" v-pre>v</code></strong>.</li>
+</ul>
+<p>Never both. <code translate="no" v-pre>v</code> in that field is re-stamped from the SOP every frame, so it overwrites whatever your wrangle just wrote.</p>
+<p>Why this fails so quietly: an attribute <em>missing</em> from the list still exists in the sim, because the solver copies every SOP attribute once when it builds the objects at the first frame. It&#x27;s simply frozen at that first-frame value from then on. So a forgotten <code translate="no" v-pre>trigger</code> is usually frozen at <strong>0</strong> — <code translate="no" v-pre>f@trigger</code> reads zero on every substep of every frame, <code translate="no" v-pre>if (amp &gt; 0)</code> never fires, and your wrangle does nothing at all. No error on the wrangle, no error on the solver, no warning anywhere. If a trigger setup looks completely inert, check this field before you check anything else.</p>
+        </div>
+    </div>
+</div>
 <p><strong>In a hurry? Press Create Connected RBD Sim</strong> (Output tab). It builds an RBD Bullet Solver below the node with a ground plane, gravity, and both gates already wired.</p>
 <p>For POP and Vellum none of this is needed. Set <strong>Output As</strong> to Force and the node writes an accumulated <code translate="no" v-pre>@force</code> instead — those solvers accumulate forces every step rather than overwriting velocity, so there&#x27;s nothing to gate.</p>
 <h3 id="staggering-the-points">Staggering the points</h3>
@@ -403,10 +426,19 @@
 <p>Events sum <strong>without cancellation</strong>. Two events pushing opposite ways cancel to zero in <code translate="no" v-pre>@v</code> but still read as a strong trigger — deliberately, since the question it answers is &quot;how much is being injected&quot;, not &quot;what&#x27;s the net vector&quot;. It comes from the event&#x27;s own baked field, so an event with no velocity types enabled gives zero, and it isn&#x27;t a 0-1 envelope — a Strength of 5 peaks near 5, not 1.</p>
 <p><strong>Worked example — reaiming a pulse at a body already on the ground.</strong> A fractured ball falls under gravity in an RBD Bullet Solver, lands, and should jerk outward from world centre a few times while it lies there.</p>
 <ol>
-<li>Give the event Pulse timing with a Pulse Count of 4. Any velocity type does for the magnitude — the direction it bakes doesn&#x27;t matter, since it&#x27;s about to be replaced.</li>
-<li>Turn on <strong>Export Trigger (@trigger)</strong>.</li>
-<li>Put <code translate="no" v-pre>trigger</code> in the solver&#x27;s <strong>Attributes</strong> field under Override Attributes from SOP, so the value reaches the sim each frame. This <em>replaces</em> the Injecting Now gate described in <doc-anchor-trigger to="#driving-an-rbd-solver">Driving an RBD solver</doc-anchor-trigger> — don&#x27;t list <code translate="no" v-pre>v</code> as well. The wrangle is authoring the velocity now, and anything in that field is re-stamped from the SOP every frame, which would overwrite it.</li>
-<li>Add a POP Wrangle to the solver&#x27;s forces:</li>
+<li>
+<p>Give the event Pulse timing with a Pulse Count of 4. Any velocity type does for the magnitude — the direction it bakes doesn&#x27;t matter, since it&#x27;s about to be replaced.</p>
+</li>
+<li>
+<p>Turn on <strong>Export Trigger (@trigger)</strong>.</p>
+</li>
+<li>
+<p>Put <code translate="no" v-pre>trigger</code> in the solver&#x27;s <strong>Attributes</strong> field under Override Attributes from SOP (<strong>Properties ▸ Pieces ▸ Override Attributes</strong>), so the value reaches the sim each frame. Not gated, not conditional — a plain, always-on <code translate="no" v-pre>trigger</code>, since the envelope shape is already in the value. This <em>replaces</em> the Injecting Now gate described in <doc-anchor-trigger to="#driving-an-rbd-solver">Driving an RBD solver</doc-anchor-trigger>, so <strong>delete <code translate="no" v-pre>v</code> from that field</strong>: anything listed there is re-stamped from the SOP every frame and would overwrite what the wrangle writes. So a field reading <code translate="no" v-pre>active animated deforming __pin __guide_*</code> becomes <code translate="no" v-pre>active animated deforming __pin __guide_* trigger</code>.</p>
+<p>Skip this step and the whole setup is silently inert — see the warning in <doc-anchor-trigger to="#driving-an-rbd-solver">Driving an RBD solver</doc-anchor-trigger> for why it produces no error.</p>
+</li>
+<li>
+<p>Add a POP Wrangle to the solver&#x27;s forces:</p>
+</li>
 </ol>
 <div id="exporting-the-trigger-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-c"><code v-pre class="language-c">float amp = f@trigger;
@@ -433,6 +465,7 @@ if (amp &gt; 0) {
         </div>
     </div>
 </div>
+<p>One thing worth knowing about <code translate="no" v-pre>+=</code> specifically: a POP Wrangle in the solver&#x27;s forces runs once per <strong>substep</strong>, not once per frame — Substeps defaults to 10 on a fresh solver — so that line fires several times for every frame the event is active. <code translate="no" v-pre>@trigger</code> is an envelope, not a single-frame spike, so it stays nonzero for the whole attack-and-hold window, and <code translate="no" v-pre>+=</code> integrates it across every substep of every one of those frames rather than delivering one clean kick. Expect the result to come out considerably stronger than the raw trigger number suggests. If you want a single discrete impulse rather than a build-up, scale <code translate="no" v-pre>amp</code> down, or divide it by the substep count.</p>
 <h3 id="muting-gravity-for-an-impulse">Muting gravity for an impulse</h3>
 <p>Sometimes the physics is the problem. A telekinetic lift that fights 9.8 m/s² the whole way up reads as weak, and no amount of extra velocity fixes it — what you want is for the object to genuinely float while the event holds it.</p>
 <p><strong>Mute Gravity</strong> (per event, in <strong>Event Options</strong>) does that. Three settings:</p>
@@ -559,7 +592,7 @@ if (amp &gt; 0) {
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-08T11:36:11" title="2026-08-08" data-absolute-label="Last updated on 2026-08-08" data-absolute-label-html="Last updated on 2026-08-08" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-08T13:32:17" title="2026-08-08" data-absolute-label="Last updated on 2026-08-08" data-absolute-label-html="Last updated on 2026-08-08" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
                         Last updated on 2026-08-08
                     </time>
                 </div>

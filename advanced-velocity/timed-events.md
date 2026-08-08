@@ -40,7 +40,7 @@ Attack and Release each take a **Curve** — Linear, Ease, Sharp, Snap, or Soft.
 
 All three phases are **on** by default, so a fresh event ramps in, holds, and fades back out. Switching all three **off** makes an event *latch* — it starts at its frame and keeps delivering at full strength forever. For a velocity that stays on for the whole shot, use **Single Field** mode instead.
 
-Latching is the right shape when an RBD solver overwrites `@v` every frame — a fading velocity handed to that solver would *brake* the pieces it just threw. (Better still: keep the fade and gate the solver on **Injecting Now** — see [Driving an RBD solver](#driving-an-rbd-solver).) One cost: a latched event keeps the node cooking every frame after it starts, which adds up on heavy inputs.
+Latching is the right shape when an RBD solver overwrites `@v` every frame (which it only does when `v` is actually listed in its Overwrite Attributes field — see below) — a fading velocity handed to that solver would *brake* the pieces it just threw. (Better still: keep the fade and gate the solver on **Injecting Now** — see [Driving an RBD solver](#driving-an-rbd-solver).) One cost: a latched event keeps the node cooking every frame after it starts, which adds up on heavy inputs.
 
 ## Editing an event
 
@@ -121,6 +121,17 @@ On the solver:
 
 The solve then takes the velocity on the impulse frames and runs free in between — pieces launch, arc, and land under gravity, and the next event kicks them again. Leave `w` out of the list unless your events author angular velocity, or the solver's own tumble gets overwritten. If the baked direction is wrong because the pieces have already moved, see [Exporting the trigger](#exporting-the-trigger) — it lets you supply the direction from the live simulation instead of the bake.
 
+!!!warning Whatever drives the solve has to be named in that Attributes field
+This is the one step that catches everyone, so it's worth stating plainly. There are two workflows, and they need **different** entries in **Properties ▸ Pieces ▸ Override Attributes ▸ Attributes**:
+
+* Driving the solve with the node's velocity directly (this section) — list **`v`**, gated on Injecting Now.
+* Driving it with [Export Trigger](#exporting-the-trigger) and your own wrangle — list **`trigger`**, and **remove `v`**.
+
+Never both. `v` in that field is re-stamped from the SOP every frame, so it overwrites whatever your wrangle just wrote.
+
+Why this fails so quietly: an attribute *missing* from the list still exists in the sim, because the solver copies every SOP attribute once when it builds the objects at the first frame. It's simply frozen at that first-frame value from then on. So a forgotten `trigger` is usually frozen at **0** — `f@trigger` reads zero on every substep of every frame, `if (amp > 0)` never fires, and your wrangle does nothing at all. No error on the wrangle, no error on the solver, no warning anywhere. If a trigger setup looks completely inert, check this field before you check anything else.
+!!!
+
 **In a hurry? Press Create Connected RBD Sim** (Output tab). It builds an RBD Bullet Solver below the node with a ground plane, gravity, and both gates already wired.
 
 For POP and Vellum none of this is needed. Set **Output As** to Force and the node writes an accumulated `@force` instead — those solvers accumulate forces every step rather than overwriting velocity, so there's nothing to gate.
@@ -186,7 +197,9 @@ Events sum **without cancellation**. Two events pushing opposite ways cancel to 
 
 1. Give the event Pulse timing with a Pulse Count of 4. Any velocity type does for the magnitude — the direction it bakes doesn't matter, since it's about to be replaced.
 2. Turn on **Export Trigger (@trigger)**.
-3. Put `trigger` in the solver's **Attributes** field under Override Attributes from SOP, so the value reaches the sim each frame. This *replaces* the Injecting Now gate described in [Driving an RBD solver](#driving-an-rbd-solver) — don't list `v` as well. The wrangle is authoring the velocity now, and anything in that field is re-stamped from the SOP every frame, which would overwrite it.
+3. Put `trigger` in the solver's **Attributes** field under Override Attributes from SOP (**Properties ▸ Pieces ▸ Override Attributes**), so the value reaches the sim each frame. Not gated, not conditional — a plain, always-on `trigger`, since the envelope shape is already in the value. This *replaces* the Injecting Now gate described in [Driving an RBD solver](#driving-an-rbd-solver), so **delete `v` from that field**: anything listed there is re-stamped from the SOP every frame and would overwrite what the wrangle writes. So a field reading `active animated deforming __pin __guide_*` becomes `active animated deforming __pin __guide_* trigger`.
+
+    Skip this step and the whole setup is silently inert — see the warning in [Driving an RBD solver](#driving-an-rbd-solver) for why it produces no error.
 4. Add a POP Wrangle to the solver's forces:
 
 ```c
@@ -202,6 +215,8 @@ if (amp > 0) {
 !!!warning Add to `v@v`, not `v@force`
 On Bullet RBD, writing `v@force` here is effectively a no-op: the solver divides it by the piece's mass and the step, and at any sane trigger magnitude the pieces don't visibly move. Add to `v@v` instead. That is also what makes the trigger's headline property useful — it *is* the speed the node would have written, so `v@v += direction * amp` gives you the same push in your own direction. (**Output As ▸ Force** and `@force` remain the right choice for POP and Vellum, which accumulate forces every step.)
 !!!
+
+One thing worth knowing about `+=` specifically: a POP Wrangle in the solver's forces runs once per **substep**, not once per frame — Substeps defaults to 10 on a fresh solver — so that line fires several times for every frame the event is active. `@trigger` is an envelope, not a single-frame spike, so it stays nonzero for the whole attack-and-hold window, and `+=` integrates it across every substep of every one of those frames rather than delivering one clean kick. Expect the result to come out considerably stronger than the raw trigger number suggests. If you want a single discrete impulse rather than a build-up, scale `amp` down, or divide it by the substep count.
 
 ### Muting gravity for an impulse
 

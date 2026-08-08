@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839496986493">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839503965516">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.839496986493" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.839503965516" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839496986493" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839503965516" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839496986493" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839503965516" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -316,7 +316,7 @@
 | Pulse Count / Hold (F) | `ev_pulse_count#`, `ev_pulse_hold#` | How many grips tile the range; how long each counts as delivering energy (drives Injecting Now and Mute Gravity, anchored at each grip's peak). |
 | Pattern / Curve | `ev_pulse_pattern#`, `ev_pulse_curve#` | Each grip's intensity: Hit (spike then decay), Build (ramp then cut, final grip holds), Wave (smooth swell). Curve eases Hit and Build. |
 | Additional Exports ▸ Export Activation Age | `out_age` | Write `@av_age`: frames since a playing event last took hold of each point, −1 if never touched. Stagger- and pulse-aware — built for shading pickup glows. Timed Events only. |
-| Additional Exports ▸ Export Trigger | `out_trigger` | Write `@trigger`: the magnitude the playing events are delivering this frame, with direction stripped away — for one event with no incoming base layer this is exactly `length(@v)`. Follows Scale by Piece Size and Clamp Speed, and includes Event Strength but not Incoming Velocity. Events sum without cancellation, so two blasts pushing opposite ways read as a strong trigger even where `@v` cancels to zero. Timed Events only. |
+| Additional Exports ▸ Export Trigger | `out_trigger` | Write `@trigger`: the magnitude the playing events are delivering this frame, with direction stripped away — for one event with no incoming base layer this is exactly `length(@v)`. Follows Scale by Piece Size and Clamp Speed, and includes Event Strength but not Incoming Velocity. Events sum without cancellation, so two blasts pushing opposite ways read as a strong trigger even where `@v` cancels to zero. **To use it in an RBD Bullet Solver you must list `trigger` in the solver's Overwrite Attributes field and remove `v` from it** — otherwise the value never reaches the sim and your wrangle silently reads 0. See [Exporting the trigger](timed-events.md#exporting-the-trigger). Timed Events only. |
 | Attack / Hold / Release | `ev_atk#`, `ev_hold#`, `ev_rel#` | Envelope phases in **frames**, each with its own enable checkbox, all on by default. Switch all three off to latch the event at full strength forever. |
 | Extend to Next | `ev_extend#` | Set Hold so this event holds until the next event's Attack opens. Next is by frame, ignoring solo/mute. Refuses on the last event. |
 | (undo, beside Extend to Next) | `ev_extend_undo#` | Put Hold back to what the last Extend to Next replaced. That setting only, one press deep; greyed until Extend has been used. |
@@ -417,7 +417,7 @@
 <tr>
 <td>Additional Exports ▸ Export Trigger</td>
 <td><code translate="no" v-pre>out_trigger</code></td>
-<td>Write <code translate="no" v-pre>@trigger</code>: the magnitude the playing events are delivering this frame, with direction stripped away — for one event with no incoming base layer this is exactly <code translate="no" v-pre>length(@v)</code>. Follows Scale by Piece Size and Clamp Speed, and includes Event Strength but not Incoming Velocity. Events sum without cancellation, so two blasts pushing opposite ways read as a strong trigger even where <code translate="no" v-pre>@v</code> cancels to zero. Timed Events only.</td>
+<td>Write <code translate="no" v-pre>@trigger</code>: the magnitude the playing events are delivering this frame, with direction stripped away — for one event with no incoming base layer this is exactly <code translate="no" v-pre>length(@v)</code>. Follows Scale by Piece Size and Clamp Speed, and includes Event Strength but not Incoming Velocity. Events sum without cancellation, so two blasts pushing opposite ways read as a strong trigger even where <code translate="no" v-pre>@v</code> cancels to zero. <strong>To use it in an RBD Bullet Solver you must list <code translate="no" v-pre>trigger</code> in the solver&#x27;s Overwrite Attributes field and remove <code translate="no" v-pre>v</code> from it</strong> — otherwise the value never reaches the sim and your wrangle silently reads 0. See <a href="../timed-events/#exporting-the-trigger">Exporting the trigger</a>. Timed Events only.</td>
 </tr>
 <tr>
 <td>Attack / Hold / Release</td>
@@ -897,7 +897,7 @@
 | Create Connected RBD Sim | `make_rbd_sim` | Build an RBD Bullet Solver below the node, already gated on Injecting Now and Muting Gravity. |
 | Output As | `out_as` | Velocity (`@v`) — set directly, what RBD reads — or Force (`@force`) — accumulated by POP and Vellum. |
 | Velocity Attribute / Force Attribute | `out_attrib_name`, `out_force_name` | The written attribute name; only the field for the current Output As mode is shown, and both names are kept. |
-| Injecting Now | `dyn_injecting` | Live 0/1: an event is delivering energy right now. Gate an RBD solver's Overwrite Attributes list on it — see [Driving an RBD solver](timed-events.md#driving-an-rbd-solver). |
+| Injecting Now | `dyn_injecting` | Live 0/1: an event is delivering energy right now. Gate an RBD solver's Overwrite Attributes list on it — see [Driving an RBD solver](timed-events.md#driving-an-rbd-solver). This is the `v` workflow specifically; driving the solve from Export Trigger instead means listing `trigger` in that same field and not `v`, never both. |
 | Clamp Speed | `out_clamp`, `out_clamp_min`, `out_clamp_max` | Clamp the final speed into a range. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
@@ -937,7 +937,7 @@
 <tr>
 <td>Injecting Now</td>
 <td><code translate="no" v-pre>dyn_injecting</code></td>
-<td>Live 0/1: an event is delivering energy right now. Gate an RBD solver&#x27;s Overwrite Attributes list on it — see <a href="../timed-events/#driving-an-rbd-solver">Driving an RBD solver</a>.</td>
+<td>Live 0/1: an event is delivering energy right now. Gate an RBD solver&#x27;s Overwrite Attributes list on it — see <a href="../timed-events/#driving-an-rbd-solver">Driving an RBD solver</a>. This is the <code translate="no" v-pre>v</code> workflow specifically; driving the solve from Export Trigger instead means listing <code translate="no" v-pre>trigger</code> in that same field and not <code translate="no" v-pre>v</code>, never both.</td>
 </tr>
 <tr>
 <td>Clamp Speed</td>
@@ -1323,8 +1323,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-07T20:25:42" title="2026-08-07" data-absolute-label="Last updated on 2026-08-07" data-absolute-label-html="Last updated on 2026-08-07" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-08-07
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-08T13:32:17" title="2026-08-08" data-absolute-label="Last updated on 2026-08-08" data-absolute-label-html="Last updated on 2026-08-08" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-08-08
                     </time>
                 </div>
 

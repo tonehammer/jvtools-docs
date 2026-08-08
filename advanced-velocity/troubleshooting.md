@@ -67,6 +67,14 @@ Don't gate the *Override Attributes from SOP* toggle itself: the solver latches 
 
 Both live under **Properties ▸ Pieces ▸ Override Attributes**. Beware the similarly named *Overwrite Attributes from SOP* under **Collision ▸ Collision Geometry** — that one is for collision geometry and is not what you want.
 
+## My trigger wrangle does nothing
+
+`trigger` is almost certainly missing from the solver's **Overwrite Attributes** field (**Properties ▸ Pieces ▸ Override Attributes ▸ Attributes**). This is the single most common reason a trigger setup goes completely silent, and it's worth understanding why it's silent rather than just patching it: the solver copies every SOP attribute once, when it builds the objects at the sim's first frame, so `@trigger` genuinely exists inside the sim. It's simply never refreshed after that — frozen at whatever it read on frame one, which is almost always 0. So `f@trigger` reads a flat 0 on every substep of every frame, `if (amp > 0)` never fires, and the wrangle does nothing at all. No error on the wrangle, no error on the solver, nothing in the node's own warnings — it just quietly never fires.
+
+To confirm it: find a frame where the node's own `@trigger` is clearly nonzero, then check the same attribute inside the sim at that frame. If it reads a flat 0 there while the node says otherwise, that's the diagnosis, and adding `trigger` to the Attributes field is the fix — see [Exporting the trigger](timed-events.md#exporting-the-trigger) for the full setup, including why `v` has to come **out** of that same field once `trigger` goes in.
+
+Same trap, mirror image: if pieces never launch at all when you're driving the solve with the node's velocity directly, check that `v` is listed there instead, gated on **Injecting Now** — see [Driving an RBD solver](timed-events.md#driving-an-rbd-solver).
+
 ## My scene's nodes didn't pick up the new version
 
 The Houdini node type never changes between product versions, so scenes update in place. If you're still seeing the old behaviour you most likely have **two** `.hdalc` files defining the asset — delete the older one and restart Houdini.

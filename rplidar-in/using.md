@@ -141,6 +141,14 @@ Turn on Angle, Distance, or both -- with both on, distance wins (applied last). 
 
 ---
 
+## Pre-Rotate
+
+A sensor almost never ends up bolted down at a tidy angle. **Pre-Rotate**, right under Mode, spins the entire scan about the sensor by however many degrees you need, so the room in Houdini lines up with the room you're standing in -- point it at the wall you consider "front" and stop doing trigonometry in your head.
+
+It is applied before everything else, which is the important part: Crop, blob tracking, the guides and both outputs all see the rotated scan. So you set this once at install time and then work in a frame that makes sense, instead of tilting every downstream thing to match a crooked sensor. It turns the same way as Crop's **Rotation**, so the two agree.
+
+A baked static map (and the background model tracking subtracts) rotates with it too -- change Pre-Rotate after a bake and the bake stays valid, no re-bake needed.
+
 ## Crop
 
 The **Crop** controls cull scan points outside a rectangle on the ground, so only points inside it reach downstream nodes. Useful when the sensor sits in the corner of a room and you only care about a stage, doorway, or walkway.

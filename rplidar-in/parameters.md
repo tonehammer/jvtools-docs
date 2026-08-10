@@ -12,6 +12,7 @@ Every parameter on the RPLidar In node, grouped as it appears in the interface. 
 | Parameter | Name | Description |
 | --- | --- | --- |
 | Mode | `mode` | Off / Live / Playback. The master switch. See [Modes](using.md#modes). |
+| Pre-Rotate | `prerotate` | Spins the whole scan about the sensor, in degrees, so a physically-angled sensor lines up with your scene. Applied first, so Crop, tracking and the guides all follow. Turns the same way as Crop **Rotation**. |
 | Create Control Null | `createnull` | Creates the master runtime-control null for this sensor (one per node) — Start / Stop / Reset buttons plus a Solvers list. See [Live Simulation](using.md#live-simulation). |
 | Create Generic POP Network | `createpop` | Builds a ready-to-run POP network wired to the solver-ready output, and registers it on the control null. See [Live Simulation](using.md#live-simulation). |
 | Use Recipe | `use_recipe` | Enables the recipe controls below. See [Recipes](using.md#recipes). |

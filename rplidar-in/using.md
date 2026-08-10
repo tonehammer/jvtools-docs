@@ -177,6 +177,25 @@ Everything writes straight back to Center, Size, and Rotation.
 
 Now only points on the walkway survive.
 
+### Feeding a Copernicus network
+
+If you're driving a COP network — the usual interactive-installation setup — turn on **Fit to COP Space**. It remaps the whole output so your crop rectangle *becomes* the canvas.
+
+Here's why you want it. A default Copernicus canvas is a fixed world rectangle: it spans **−1 to +1 in X**, with the other axis covering ±(resy/resx), and it ignores your geometry's bounding box entirely. The sensor, meanwhile, thinks in metres — a 16 m range is ±16. So without help you're about 16x too big for the canvas and off to one side.
+
+Fit to COP Space fixes both at once: it centres the crop on the canvas centre, undoes the crop's rotation so the rectangle sits square, and scales it uniformly so the crop's **X** extent lands exactly on −1 to +1.
+
+Two things worth knowing:
+
+- **X is the anchored axis.** So put the crop's *long* side along X for a landscape canvas. To fill a 1920x1080 canvas exactly, set **Size Z = Size X x 1080/1920** — e.g. a 6 x 3.375 crop lands precisely on ±1 by ±0.5625.
+- **Set your `rasterizesetup` to Z-Up.** That maps the ground plane straight onto the canvas, so the scan needs no rotation and no transform node at all. (Its default, Y-Up, expects the XY plane — which is why you'd otherwise need an `rx 90` somewhere.) World +Z then maps *down* the image; flip it downstream if you'd rather have it the other way.
+
+Scaling is uniform, so nothing is distorted, and everything moves together — which means the red crop guide becomes the canvas border. That's the easiest way to see whether your crop matches your canvas aspect.
+
+Tracking is unaffected: clustering, blob sizes and speeds are all still measured in metres upstream of the fit, so those parameters keep their real-world units.
+
+> Off by default, so turning it on is always your choice — it moves every point, and existing scenes must not have it switched on under them by an update.
+
 ---
 
 ## Camera

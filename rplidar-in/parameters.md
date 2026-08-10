@@ -33,7 +33,9 @@ Every parameter on the RPLidar In node, grouped as it appears in the interface. 
 | Size | `cropsize` | Rectangle extent along X and Z. Default 26 × 26 (the sensor's 16 m range spans 32 × 32). |
 | Rotation | `croprot` | Rotation of the rectangle about the sensor's vertical axis. |
 | Edit Crop in Viewport | `editcrop` | Enter the interactive crop handle — drag the sides to resize, body to move, ring to rotate. See [Crop](using.md#crop). |
-| Fit to COP Space | `copfit` | Remap the output so the crop rectangle fills a default Copernicus canvas: −1 to +1 across X, centred on the sensor, rotation undone. Off by default. See [Feeding a Copernicus network](using.md#feeding-a-copernicus-network). |
+| Fit to COP Space | `copfit` | Remap the output onto a default Copernicus canvas: the crop becomes −1 to +1 across X, centred on the sensor, rotation undone, and the ground plane stood up into XY. Off by default. See [Feeding a Copernicus network](using.md#feeding-a-copernicus-network). |
+| COP Network | `copnetpath` | The Copernicus network this sensor feeds. Used only by Snap Crop to COP — it is not a cook dependency. |
+| Snap Crop to COP | `snapcrop` | Set the crop's Size Z from the COP canvas's aspect, so the crop and the canvas are the same shape. Size X is left alone. |
 
 ## Camera
 

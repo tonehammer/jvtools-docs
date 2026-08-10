@@ -179,18 +179,27 @@ Now only points on the walkway survive.
 
 ### Feeding a Copernicus network
 
-If you're driving a COP network — the usual interactive-installation setup — turn on **Fit to COP Space**. It remaps the whole output so your crop rectangle *becomes* the canvas.
+If you're driving a COP network — the usual interactive-installation setup — turn on **Fit to COP Space**. It remaps the whole output so your crop rectangle *becomes* the canvas, and a completely untouched copnet just works. Nothing to set on the COP side.
 
-Here's why you want it. A default Copernicus canvas is a fixed world rectangle: it spans **−1 to +1 in X**, with the other axis covering ±(resy/resx), and it ignores your geometry's bounding box entirely. The sensor, meanwhile, thinks in metres — a 16 m range is ±16. So without help you're about 16x too big for the canvas and off to one side.
+Here's why you need it. A default Copernicus canvas is a fixed world rectangle: it spans **−1 to +1 in X**, with the other axis covering ±(resy/resx), and it ignores your geometry's bounding box entirely. It also looks at the **XY plane** — whereas a lidar scan lies flat on the ground, in XZ. The sensor meanwhile thinks in metres, so a 16 m range is ±16. Wrong plane, wrong scale, wrong place.
 
-Fit to COP Space fixes both at once: it centres the crop on the canvas centre, undoes the crop's rotation so the rectangle sits square, and scales it uniformly so the crop's **X** extent lands exactly on −1 to +1.
+Fit to COP Space handles all three: it centres the crop on the canvas centre, undoes the crop's rotation so the rectangle sits square, scales it uniformly so the crop's **X** extent lands exactly on −1 to +1, and stands the ground plane up into XY.
 
-Two things worth knowing:
+Scaling is uniform, so nothing is distorted, and everything moves together — which means the red crop guide becomes the canvas border. That's the easiest way to see whether your crop matches your canvas.
 
-- **X is the anchored axis.** So put the crop's *long* side along X for a landscape canvas. To fill a 1920x1080 canvas exactly, set **Size Z = Size X x 1080/1920** — e.g. a 6 x 3.375 crop lands precisely on ±1 by ±0.5625.
-- **Set your `rasterizesetup` to Z-Up.** That maps the ground plane straight onto the canvas, so the scan needs no rotation and no transform node at all. (Its default, Y-Up, expects the XY plane — which is why you'd otherwise need an `rx 90` somewhere.) World +Z then maps *down* the image; flip it downstream if you'd rather have it the other way.
+#### Matching the shape
 
-Scaling is uniform, so nothing is distorted, and everything moves together — which means the red crop guide becomes the canvas border. That's the easiest way to see whether your crop matches your canvas aspect.
+Set **COP Network** to your copnet and press **Snap Crop to COP**. It reads the canvas resolution and sets **Size Z** so the crop is the same shape as the canvas — fill the frame exactly, no letterboxing.
+
+Size X is deliberately left alone: it's the real-world width of your interaction area, and only you know that. The canvas is always −1 to +1 across X centred on the sensor, so aspect is genuinely the only thing there is to snap.
+
+> **X is the anchored axis**, so put the crop's *long* side along X for a landscape canvas. If your interaction strip runs the other way, a snap will shrink Size Z rather than turning the crop — swap the two sizes, or set **Rotation** to 90. The button prints a note in the console when it spots this.
+
+A worked example: a 1920x1080 canvas with Size X = 6 gives Size Z = 6 x 1080/1920 = **3.375**, and that crop lands precisely on ±1 by ±0.5625.
+
+#### Orientation
+
+Ground **+X** maps to image right; ground **+Z** maps image **down**, matching Houdini's own Z-Up convention. If you want it the other way, flip it downstream — or in the output window if you're using the COP Out tool.
 
 Tracking is unaffected: clustering, blob sizes and speeds are all still measured in metres upstream of the fit, so those parameters keep their real-world units.
 

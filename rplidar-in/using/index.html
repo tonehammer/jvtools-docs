@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839509373133">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.839703463059">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.839509373133" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.839703463059" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839509373133" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.839703463059" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839509373133" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.839703463059" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -501,6 +501,10 @@
 <p><strong>Store as Cd is the on/off for feeding color downstream.</strong> Leave it off and the color is just a viewport aid; turn it on when you want the <code translate="no" v-pre>Cd</code> in a render or a color-driven effect.</p>
 </blockquote>
 <hr>
+<h2 id="pre-rotate">Pre-Rotate</h2>
+<p>A sensor almost never ends up bolted down at a tidy angle. <strong>Pre-Rotate</strong>, right under Mode, spins the entire scan about the sensor by however many degrees you need, so the room in Houdini lines up with the room you&#x27;re standing in -- point it at the wall you consider &quot;front&quot; and stop doing trigonometry in your head.</p>
+<p>It is applied before everything else, which is the important part: Crop, blob tracking, the guides and both outputs all see the rotated scan. So you set this once at install time and then work in a frame that makes sense, instead of tilting every downstream thing to match a crooked sensor. It turns the same way as Crop&#x27;s <strong>Rotation</strong>, so the two agree.</p>
+<p>A baked static map (and the background model tracking subtracts) rotates with it too -- change Pre-Rotate after a bake and the bake stays valid, no re-bake needed.</p>
 <h2 id="crop">Crop</h2>
 <p>The <strong>Crop</strong> controls cull scan points outside a rectangle on the ground, so only points inside it reach downstream nodes. Useful when the sensor sits in the corner of a room and you only care about a stage, doorway, or walkway.</p>
 <retype-table copy-text="| Parameter | What it does |
@@ -1030,8 +1034,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-07T12:06:44" title="2026-08-07" data-absolute-label="Last updated on 2026-08-07" data-absolute-label-html="Last updated on 2026-08-07" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-08-07
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-10T20:57:19" title="2026-08-10" data-absolute-label="Last updated on 2026-08-10" data-absolute-label-html="Last updated on 2026-08-10" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-08-10
                     </time>
                 </div>
 

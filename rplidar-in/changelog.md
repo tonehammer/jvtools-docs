@@ -32,8 +32,9 @@ The first public release.
 * Solver Output switch — the solver-ready output carries either the full scan cloud or just the tracked blob points
 * On-screen blob markers with velocity lines
 
-**Crop & camera**
+**Placement, crop & camera**
 
+* Pre-Rotate — spin the whole scan about the sensor so a physically-angled sensor lines up with your scene; applied before everything else, so crop, tracking, and the guides all follow
 * Cull scan points outside a rotatable ground rectangle, so only the region you care about reaches your solver
 * Interactive viewport handle — resize, move, and rotate the crop box directly in the Scene View
 * One-click top-down orthographic camera, plus a Camera-to-Crop button that frames it to your crop region

@@ -67,4 +67,4 @@ This Agreement constitutes the entire agreement between you and the Author regar
 
 ---
 
-For questions about this Agreement, find me on the official [JVtools Discord](https://discord.gg/NFjtWg2RWS).
+For questions about this Agreement, find me on the JVtools Discord — the invite link is in the **Utilities** folder on the HDA node.

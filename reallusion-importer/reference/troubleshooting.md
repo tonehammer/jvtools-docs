@@ -91,4 +91,4 @@ Many features are character-dependent — they only work if your character's exp
 
 ## Still stuck?
 
-If something isn't covered here, reach out through the official [JVtools Discord](https://discord.gg/NFjtWg2RWS).
+If something isn't covered here, reach out on the JVtools Discord — the invite link is in the **Utilities** folder on the HDA node.

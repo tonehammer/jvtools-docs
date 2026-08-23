@@ -81,4 +81,4 @@ The Houdini node type never changes between product versions, so scenes update i
 
 ## Still stuck?
 
-Find me on the [JVtools Discord](https://discord.gg/NFjtWg2RWS).
+Find me on the JVtools Discord — the invite link is in the **Utilities** folder on the HDA node.

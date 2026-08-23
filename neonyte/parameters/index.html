@@ -11,30 +11,30 @@
     <meta name="generator" content="Retype 4.6.0">
 
     <!-- Primary Meta Tags -->
-    <title>Troubleshooting</title>
-    <meta name="title" content="Troubleshooting">
-    <meta name="description" content="Press Test Sensor. It prints the sensor's identity, health, and available scan modes. No response means Houdini can't talk to the sensor.">
+    <title>Parameters</title>
+    <meta name="title" content="Parameters">
+    <meta name="description" content="Neonyte's control surface is still being built and rearranged. This page describes the controls by function and by tab, not as a frozen list of internal names — some of these are still moving between tabs and some labels will change before release.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://tonehammer.github.io/jvtools-docs/rplidar-in/troubleshooting/">
+    <link rel="canonical" href="https://tonehammer.github.io/jvtools-docs/neonyte/parameters/">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="https://tonehammer.github.io/jvtools-docs/sitemap.xml">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/rplidar-in/troubleshooting/">
-    <meta property="og:title" content="Troubleshooting">
-    <meta property="og:description" content="Press Test Sensor. It prints the sensor's identity, health, and available scan modes. No response means Houdini can't talk to the sensor.">
+    <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/neonyte/parameters/">
+    <meta property="og:title" content="Parameters">
+    <meta property="og:description" content="Neonyte's control surface is still being built and rearranged. This page describes the controls by function and by tab, not as a frozen list of internal names — some of these are still moving between tabs and some labels will change before release.">
     <meta property="og:site_name" content="JVtools">
     <meta property="og:locale" content="en_US">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/rplidar-in/troubleshooting/">
-    <meta name="twitter:title" content="Troubleshooting">
-    <meta name="twitter:description" content="Press Test Sensor. It prints the sensor's identity, health, and available scan modes. No response means Houdini can't talk to the sensor.">
+    <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/neonyte/parameters/">
+    <meta name="twitter:title" content="Parameters">
+    <meta name="twitter:description" content="Neonyte's control surface is still being built and rearranged. This page describes the controls by function and by tab, not as a frozen list of internal names — some of these are still moving between tabs and some labels will change before release.">
 
     <!-- Alternate Markdown -->
-    <link rel="alternate" type="text/markdown" href="https://tonehammer.github.io/jvtools-docs/rplidar-in/troubleshooting.md">
+    <link rel="alternate" type="text/markdown" href="https://tonehammer.github.io/jvtools-docs/neonyte/parameters.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
@@ -176,116 +176,181 @@
             <div class="relative retype-markdown" id="retype-content">
                 <!-- Rendered if sidebar right is enabled -->
                 <div id="retype-sidebar-right-toggle"></div>
-                <nav id="retype-breadcrumb" class="breadcrumb" aria-label="Breadcrumb">
-                    <ol role="list">
-                        <li class="pr-4">
-                            <a href="../../" class="pr-4">
-                                Products
-                            </a>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/>
-                            </svg>
-                        </li>
-                        <li class="pr-4">
-                            <a href="../../rplidar-in/" class="pr-4">
-                                RP​Lidar In
-                            </a>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/>
-                            </svg>
-                        </li>
-                        <li class="pr-4">
-                            <a href="../../rplidar-in/troubleshooting/" class="pr-4">
-                                Troubleshooting
-                            </a>
-                        </li>
-                    </ol>
-                </nav>
-
                 <doc-page-actions></doc-page-actions>
 
                 <!-- Page content  -->
-<h1 id="troubleshooting">Troubleshooting</h1>
-<h2 id="no-points-appear-in-live-mode">No points appear in Live mode</h2>
-<ul>
-<li><strong>Press Test Sensor.</strong> It prints the sensor&#x27;s identity, health, and available scan modes. No response means Houdini can&#x27;t talk to the sensor.</li>
-<li><strong>Check the port.</strong> Leave <strong>Port</strong> blank for auto-detect, or set it explicitly (e.g. <code translate="no" v-pre>COM3</code>).</li>
-<li><strong>Check the motor lead.</strong> The 5V cable must be plugged in — the motor won&#x27;t spin on data power alone.</li>
-<li><strong>Give it a moment.</strong> The motor takes about two seconds to spin up on the first cook.</li>
-<li><strong>Lots of gaps is normal.</strong> On an open desk, most returns are invalid (nothing in range). Point the sensor at a wall to see a dense arc.</li>
-</ul>
-<h2 id="the-sensor-wont-connect-at-all">The sensor won&#x27;t connect at all</h2>
-<ul>
-<li><strong>No Windows chime and nothing new in Device Manager</strong> → cable or port problem, not a driver problem. Try a different USB port and <strong>swap the data cable</strong> — a faulty data cable stops the device enumerating entirely.</li>
-<li><strong>Enumerates but silent</strong> → check the adapter&#x27;s baud switch is set to <strong>256000</strong>.</li>
-</ul>
-<h2 id="port-is-in-use--permission-errors">&quot;Port is in use&quot; / permission errors</h2>
-<p>A serial port can only be opened by one program. Close anything else that might hold it:</p>
-<ul>
-<li>Another Houdini session in Live mode → set its <strong>Mode → Off</strong>.</li>
-<li>A separate tester/serial app → close it.</li>
-<li>A crashed process → the motor may keep spinning; unplug the 5V lead or restart to release the port.</li>
-</ul>
-<h2 id="houdini-crashed-and-the-motor-is-still-spinning">Houdini crashed and the motor is still spinning</h2>
-<p>The motor runs independently of Houdini once started. Stop it by unplugging the <strong>5V</strong> lead (safe — it&#x27;s just motor power), or reconnect and set <strong>Mode → Off</strong>.</p>
-<h2 id="guides-ended-up-in-my-simulation">Guides ended up in my simulation</h2>
-<p>You fed the solver from <strong>Output 0</strong> (Points &amp; Guides). Switch to <strong>Output 1</strong> (Points), which strips the <code translate="no" v-pre>rplidar_viz</code> guide geometry. Or turn off the Visualize guides, or delete the <code translate="no" v-pre>rplidar_viz</code> group downstream. See <a href="../using/#outputs-and-attributes">Outputs and Attributes</a>.</p>
-<h2 id="tracking-locks-onto-furniture-instead-of-the-hand">Tracking locks onto furniture instead of the hand</h2>
-<p>Almost always the missing background bake. A real room clusters into 7–11 blobs per scan, and the largest is usually a chair or a wall corner — Single mode is picking the biggest thing present, which is working as designed and isn&#x27;t what you wanted.</p>
-<p>Go <strong>Live</strong>, clear the interaction area completely, press <strong>Bake Background</strong>, then turn on <strong>Subtract Background</strong>. If it still wanders, tighten <strong>Blob Size min/max</strong> (a hand is roughly 0.05–0.15 m) — that throws out room geometry before clustering ever has to choose. See <a href="../using/#background-subtraction">Background subtraction</a>.</p>
-<h2 id="tracking-sees-nothing-at-all-after-a-background-bake">Tracking sees nothing at all after a background bake</h2>
-<p>You most likely baked while standing in the interaction area, so you were recorded as part of the static scene. Step out and bake again. Re-bake whenever the sensor moves or the room is rearranged.</p>
-<p>If it&#x27;s an object hugging a wall that disappears, lower the <strong>Foreground Margin</strong> — a return has to be at least that much closer than the background to count as foreground.</p>
-<h2 id="blob-ids-keep-changing--a-track-keeps-restarting">Blob ids keep changing / a track keeps restarting</h2>
-<ul>
-<li><strong>Raise Hold Time.</strong> Brief dropouts (a hand turning edge-on) end the track and the next appearance gets a fresh id.</li>
-<li><strong>Raise Max Speed</strong> if the motion is genuinely fast — a blob that moves further between frames than the gate allows can&#x27;t be matched to its own track.</li>
-<li><strong>Raise Min Points</strong> if the blob is breaking apart into specks at the edge of its range.</li>
-</ul>
-<h2 id="my-solver-suddenly-sees-only-a-few-points">My solver suddenly sees only a few points</h2>
-<p>Check <strong>Solver Output</strong> in the Tracking tab. Set to <strong>Blobs</strong>, Output 1 carries only the tracked blob points — a handful, by design. Set it back to <strong>All Points</strong> for the full scan cloud.</p>
-<h2 id="playback-shows-nothing">Playback shows nothing</h2>
-<ul>
-<li>Confirm <strong>Mode = Playback</strong> and a valid file is picked in <strong>Recording File</strong> (or leave it blank for the newest).</li>
-<li>Confirm the <strong>Recording Directory</strong> points at where your <code translate="no" v-pre>.jsonl</code> files actually live.</li>
-<li>Make sure the timeline is playing or you&#x27;ve scrubbed — Playback is driven by the playbar clock.</li>
-</ul>
-<h2 id="the-asset-wont-load">The asset won&#x27;t load</h2>
-<p>RPLidar In ships as <code translate="no" v-pre>.hdalc</code>, which loads only in <strong>Houdini Indie and Apprentice</strong>, not commercial (FX/Core) licenses.</p>
-<h2 id="changing-scan-mode-or-baud-pauses-the-stream">Changing Scan Mode or Baud pauses the stream</h2>
-<p>Expected. Changing either restarts the sensor stream, which takes about two seconds.</p>
-<div id="retype-backlinks">
-    <h2>See also</h2>
-<div class="card-compact-group">
-<div class="card-compact-container">
-    <a href="/jvtools-docs/rplidar-in/getting-started/" class="group card-compact no-link">
-        <div class="card-compact-body">
-            <div class="card-compact-header">
-                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M20.322.75h1.176a1.75 1.75 0 0 1 1.75 1.749v1.177a10.75 10.75 0 0 1-2.925 7.374l-1.228 1.304a23.699 23.699 0 0 1-1.596 1.542v5.038c0 .615-.323 1.184-.85 1.5l-4.514 2.709a.75.75 0 0 1-1.12-.488l-.963-4.572a1.305 1.305 0 0 1-.14-.129L8.04 15.96l-1.994-1.873a1.305 1.305 0 0 1-.129-.14l-4.571-.963a.75.75 0 0 1-.49-1.12l2.71-4.514c.316-.527.885-.85 1.5-.85h5.037a23.668 23.668 0 0 1 1.542-1.594l1.304-1.23A10.753 10.753 0 0 1 20.321.75Zm-6.344 4.018v-.001l-1.304 1.23a22.275 22.275 0 0 0-3.255 3.851l-2.193 3.29 1.859 1.744a.545.545 0 0 1 .034.034l1.743 1.858 3.288-2.192a22.263 22.263 0 0 0 3.854-3.257l1.228-1.303a9.251 9.251 0 0 0 2.517-6.346V2.5a.25.25 0 0 0-.25-.25h-1.177a9.252 9.252 0 0 0-6.344 2.518ZM6.5 21c-1.209 1.209-3.901 1.445-4.743 1.49a.236.236 0 0 1-.18-.067.236.236 0 0 1-.067-.18c.045-.842.281-3.534 1.49-4.743.9-.9 2.6-.9 3.5 0 .9.9.9 2.6 0 3.5Zm-.592-8.588L8.17 9.017c.23-.346.47-.685.717-1.017H5.066a.25.25 0 0 0-.214.121l-2.167 3.612ZM16 15.112c-.333.248-.672.487-1.018.718l-3.393 2.262.678 3.223 3.612-2.167a.25.25 0 0 0 .121-.214ZM17.5 8a1.5 1.5 0 1 1-3.001-.001A1.5 1.5 0 0 1 17.5 8Z"/></svg></span>
-                <span class="card-compact-title">Getting Started</span>
-            </div>
-            <p class="card-compact-description">This page takes you from an unopened sensor to your first live scan in Houdini.</p>
+<h1 id="parameters">Parameters</h1>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-danger"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-danger" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M21.71 6.15L15.85.29c-.19-.18-.44-.29-.71-.29H6.86c-.27 0-.52.11-.71.29L.29 6.15c-.18.19-.29.44-.29.71v8.28c0 .27.11.52.29.71l5.86 5.86c.19.18.44.29.71.29h8.28c.27 0 .52-.11.71-.29l5.86-5.86a.99.99 0 00.29-.71V6.86c0-.27-.11-.52-.29-.71zM20 14.73L14.73 20H7.27L2 14.73V7.27L7.27 2h7.45L20 7.27v7.46z"></path>
+                    <path d="M11 12c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .55.45 1 1 1zM11.01 14c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                </g></g>
+            </svg>
         </div>
-    </a>
-</div>
-<div class="card-compact-container">
-    <a href="/jvtools-docs/rplidar-in/" class="group card-compact no-link">
-        <div class="card-compact-body">
-            <div class="card-compact-header">
-                <span class="card-compact-icon inline-flex shrink-0"><img width="20" height="20" src="static/rplidar_logo.svg"></span>
-                <span class="card-compact-title">RPLidar In</span>
-            </div>
-            <p class="card-compact-description">Welcome! RPLidar In (v1.0) brings live Slamtec RPLIDAR point-cloud data straight into Houdini as SOP geometry. Plug in the sensor, drop the node, and every</p>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Provisional — v0.9</h5>
+<p>Neonyte&#x27;s control surface is still being built and rearranged. This page describes the controls <strong>by function and by tab</strong>, not as a frozen list of internal names — some of these are still moving between tabs and some labels will change before release. The node&#x27;s own <strong>tooltips are the source of truth</strong>; this reference syncs from them once the surface settles.</p>
         </div>
-    </a>
+    </div>
 </div>
+<p>The controls are organised into a tab strip. The everyday ones live in <strong>Setup</strong>; deeper tuning is in <strong>Advanced</strong>; per-box control is in <strong>Signs</strong>; and the store/docs links plus a few globals are in <strong>Utilities</strong>.</p>
+<h2 id="setup">Setup</h2>
+<p>The controls you reach for on every sign wall.</p>
+<retype-table copy-text="| Control | What it does |
+| --- | --- |
+| **Give me the Sign** | The master button. Regenerates every sign from a fresh draw (it advances the Seed). This is where Adjustment Notes are translated and applied. |
+| **Seed** | The number the whole result derives from. Set it by hand to return to a result you liked; the button changes it for you. Determinism is a feature — same seed, same signs. |
+| **Adjustment Notes** | A plain-language steer applied on the next press (&quot;fewer icons, no yellow, only 1950s-style names&quot;). Understood clauses are applied; unrecognised ones are reported rather than silently dropped. |
+| **Theme** | A preset that re-weights types, palettes, fonts and templates (Classic Americana / Vegas Strip / Cyberpunk / Noir / Modern Minimal), or None. |
+| **Real-World Scale** | Sizes the physical elements (tube gauges, hardware, standoffs) to your scene's units, so a 50 mm tube reads as 50 mm. |
+| **Hardware** | Turns the procedural metalwork (backing, sub-frame, standoffs) on or off. On by default; ships as its own `hardware` primitive group. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Give me the Sign</strong></td>
+<td>The master button. Regenerates every sign from a fresh draw (it advances the Seed). This is where Adjustment Notes are translated and applied.</td>
+</tr>
+<tr>
+<td><strong>Seed</strong></td>
+<td>The number the whole result derives from. Set it by hand to return to a result you liked; the button changes it for you. Determinism is a feature — same seed, same signs.</td>
+</tr>
+<tr>
+<td><strong>Adjustment Notes</strong></td>
+<td>A plain-language steer applied on the next press (&quot;fewer icons, no yellow, only 1950s-style names&quot;). Understood clauses are applied; unrecognised ones are reported rather than silently dropped.</td>
+</tr>
+<tr>
+<td><strong>Theme</strong></td>
+<td>A preset that re-weights types, palettes, fonts and templates (Classic Americana / Vegas Strip / Cyberpunk / Noir / Modern Minimal), or None.</td>
+</tr>
+<tr>
+<td><strong>Real-World Scale</strong></td>
+<td>Sizes the physical elements (tube gauges, hardware, standoffs) to your scene&#x27;s units, so a 50 mm tube reads as 50 mm.</td>
+</tr>
+<tr>
+<td><strong>Hardware</strong></td>
+<td>Turns the procedural metalwork (backing, sub-frame, standoffs) on or off. On by default; ships as its own <code translate="no" v-pre>hardware</code> primitive group.</td>
+</tr>
+</tbody>
+</table>
 </div>
+</retype-table>
+<h2 id="advanced">Advanced</h2>
+<p>Global tuning below the everyday controls — content and typography weighting, decoration behaviour, and the finer knobs behind the defaults. This tab is still being organised for v0.9; lean on the tooltips here more than anywhere else.</p>
+<h2 id="signs--per-box-control">Signs — per-box control</h2>
+<p>A tabbed panel with <strong>one entry per input box</strong> (shown as tabs so a large street doesn&#x27;t stretch the parameter pane). Each entry lets you touch a single sign without disturbing the others.</p>
+<retype-table copy-text="| Per-box control | What it does |
+| --- | --- |
+| **Box** | Which input piece this entry drives (the tab is named from the box's own `name` attribute where it has one). |
+| **Variation** | Re-rolls just this sign — a new draw for this box only, leaving every other sign untouched. |
+| **Title** / **Subtitle** | Hand-edit the words. A text override changes what the sign says without reshuffling its layout, colours or seed. |
+| **Translation** | A read-only gloss of a non-Latin name, where one applies. |
+| **Notes** | Per-sign Adjustment Notes, applied to this box only. |
+| **Advanced** | Per-sign overrides: pin the type, colours, layout family, ornaments, font, script, icon amount, brightness, tube gauge or dashing. A per-sign override beats this sign's notes. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Per-box control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Box</strong></td>
+<td>Which input piece this entry drives (the tab is named from the box&#x27;s own <code translate="no" v-pre>name</code> attribute where it has one).</td>
+</tr>
+<tr>
+<td><strong>Variation</strong></td>
+<td>Re-rolls just this sign — a new draw for this box only, leaving every other sign untouched.</td>
+</tr>
+<tr>
+<td><strong>Title</strong> / <strong>Subtitle</strong></td>
+<td>Hand-edit the words. A text override changes what the sign says without reshuffling its layout, colours or seed.</td>
+</tr>
+<tr>
+<td><strong>Translation</strong></td>
+<td>A read-only gloss of a non-Latin name, where one applies.</td>
+</tr>
+<tr>
+<td><strong>Notes</strong></td>
+<td>Per-sign Adjustment Notes, applied to this box only.</td>
+</tr>
+<tr>
+<td><strong>Advanced</strong></td>
+<td>Per-sign overrides: pin the type, colours, layout family, ornaments, font, script, icon amount, brightness, tube gauge or dashing. A per-sign override beats this sign&#x27;s notes.</td>
+</tr>
+</tbody>
+</table>
 </div>
+</retype-table>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>How the panel stays in sync</h5>
+<p>Pressing the master button keeps your per-box edits: entries are rebuilt only when the set of boxes actually changes, and hand-edited titles survive a re-press. Editing a title is a text-only override — it never reshuffles the sign.</p>
+        </div>
+    </div>
+</div>
+<h2 id="utilities">Utilities</h2>
+<p>Globals that aren&#x27;t part of the everyday flow, plus the links and version readout.</p>
+<retype-table copy-text="| Control | What it does |
+| --- | --- |
+| **Front Group** | The name of the primitive group marking each box's front face. Default `front`. Only matters for hand-authored box input — the interactive placement tool names this group itself. |
+| **Links** | Buttons to the store page, this documentation, the community Discord, and the YouTube channel. |
+| **Current Version** / update notice | Shows the installed version and flags when a newer one is available on the store. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Front Group</strong></td>
+<td>The name of the primitive group marking each box&#x27;s front face. Default <code translate="no" v-pre>front</code>. Only matters for hand-authored box input — the interactive placement tool names this group itself.</td>
+</tr>
+<tr>
+<td><strong>Links</strong></td>
+<td>Buttons to the store page, this documentation, the community Discord, and the YouTube channel.</td>
+</tr>
+<tr>
+<td><strong>Current Version</strong> / update notice</td>
+<td>Shows the installed version and flags when a newer one is available on the store.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h2 id="the-viewer-state--place-sign-in-viewport">The viewer state — Place Sign in Viewport</h2>
+<p>Not a parameter, but a tool on the node: an interactive way to drop and aim a single sign on a surface, roll it, and nudge it. It has its own on-screen controls and menu (right-click), and <strong>Shift+X</strong> resets a placement. See <a href="../getting-started/#place-a-sign-by-hand">Getting Started</a>.</p>
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-07T12:06:44" title="2026-08-07" data-absolute-label="Last updated on 2026-08-07" data-absolute-label-html="Last updated on 2026-08-07" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-08-07
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-23T13:36:25" title="2026-08-23" data-absolute-label="Last updated on 2026-08-23" data-absolute-label-html="Last updated on 2026-08-23" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-08-23
                     </time>
                 </div>
 
@@ -294,27 +359,6 @@
             </div>
             <footer id="retype-content-footer" class="clear-both">
             
-                <nav id="retype-nextprev" class="print:hidden flex mt-14">
-                    <div class="w-1/2">
-                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../rplidar-in/parameters/">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
-                            <span>
-                                <span class="block text-xs font-normal text-base-text-muted">Previous</span>
-                                <span class="block mt-1">Parameter Reference</span>
-                            </span>
-                        </a>
-                    </div>
-            
-                    <div class="w-1/2">
-                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../rplidar-in/changelog/">
-                            <span>
-                                <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
-                                <span class="block mt-1">Changelog</span>
-                            </span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
-                        </a>
-                    </div>
-                </nav>
             </footer>
         </main>
 
@@ -353,6 +397,6 @@
 
     <div id="retype-overlay-target"></div>
 
-        <script data-cfasync="false">window.__DOCS__ = { "title": "Troubleshooting", level: 2, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/rplidar-in/troubleshooting.md" }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Parameters", level: 2, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/neonyte/parameters.md" }</script>
 </body>
 </html>

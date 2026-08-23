@@ -11,30 +11,30 @@
     <meta name="generator" content="Retype 4.6.0">
 
     <!-- Primary Meta Tags -->
-    <title>Troubleshooting</title>
-    <meta name="title" content="Troubleshooting">
-    <meta name="description" content="Press Test Sensor. It prints the sensor's identity, health, and available scan modes. No response means Houdini can't talk to the sensor.">
+    <title>Getting Started</title>
+    <meta name="title" content="Getting Started">
+    <meta name="description" content="Neonyte is a SOP — it lives inside a Geometry object and works on geometry you feed it. That geometry is a set of placeholder boxes: one box per sign, positioned, sized and oriented where you want a sign on your building, with its front face marked.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://tonehammer.github.io/jvtools-docs/rplidar-in/troubleshooting/">
+    <link rel="canonical" href="https://tonehammer.github.io/jvtools-docs/neonyte/getting-started/">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="https://tonehammer.github.io/jvtools-docs/sitemap.xml">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/rplidar-in/troubleshooting/">
-    <meta property="og:title" content="Troubleshooting">
-    <meta property="og:description" content="Press Test Sensor. It prints the sensor's identity, health, and available scan modes. No response means Houdini can't talk to the sensor.">
+    <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/neonyte/getting-started/">
+    <meta property="og:title" content="Getting Started">
+    <meta property="og:description" content="Neonyte is a SOP — it lives inside a Geometry object and works on geometry you feed it. That geometry is a set of placeholder boxes: one box per sign, positioned, sized and oriented where you want a sign on your building, with its front face marked.">
     <meta property="og:site_name" content="JVtools">
     <meta property="og:locale" content="en_US">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/rplidar-in/troubleshooting/">
-    <meta name="twitter:title" content="Troubleshooting">
-    <meta name="twitter:description" content="Press Test Sensor. It prints the sensor's identity, health, and available scan modes. No response means Houdini can't talk to the sensor.">
+    <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/neonyte/getting-started/">
+    <meta name="twitter:title" content="Getting Started">
+    <meta name="twitter:description" content="Neonyte is a SOP — it lives inside a Geometry object and works on geometry you feed it. That geometry is a set of placeholder boxes: one box per sign, positioned, sized and oriented where you want a sign on your building, with its front face marked.">
 
     <!-- Alternate Markdown -->
-    <link rel="alternate" type="text/markdown" href="https://tonehammer.github.io/jvtools-docs/rplidar-in/troubleshooting.md">
+    <link rel="alternate" type="text/markdown" href="https://tonehammer.github.io/jvtools-docs/neonyte/getting-started.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
@@ -176,116 +176,107 @@
             <div class="relative retype-markdown" id="retype-content">
                 <!-- Rendered if sidebar right is enabled -->
                 <div id="retype-sidebar-right-toggle"></div>
-                <nav id="retype-breadcrumb" class="breadcrumb" aria-label="Breadcrumb">
-                    <ol role="list">
-                        <li class="pr-4">
-                            <a href="../../" class="pr-4">
-                                Products
-                            </a>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/>
-                            </svg>
-                        </li>
-                        <li class="pr-4">
-                            <a href="../../rplidar-in/" class="pr-4">
-                                RP​Lidar In
-                            </a>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/>
-                            </svg>
-                        </li>
-                        <li class="pr-4">
-                            <a href="../../rplidar-in/troubleshooting/" class="pr-4">
-                                Troubleshooting
-                            </a>
-                        </li>
-                    </ol>
-                </nav>
-
                 <doc-page-actions></doc-page-actions>
 
                 <!-- Page content  -->
-<h1 id="troubleshooting">Troubleshooting</h1>
-<h2 id="no-points-appear-in-live-mode">No points appear in Live mode</h2>
+<h1 id="getting-started">Getting Started</h1>
+<p>Neonyte is a <strong>SOP</strong> — it lives inside a Geometry object and works on geometry you feed it. That geometry is a set of <strong>placeholder boxes</strong>: one box per sign, positioned, sized and oriented where you want a sign on your building, with its <strong>front face</strong> marked.</p>
+<h2 id="the-input-contract">The input contract</h2>
+<p>Each piece of the input is treated as one sign:</p>
 <ul>
-<li><strong>Press Test Sensor.</strong> It prints the sensor&#x27;s identity, health, and available scan modes. No response means Houdini can&#x27;t talk to the sensor.</li>
-<li><strong>Check the port.</strong> Leave <strong>Port</strong> blank for auto-detect, or set it explicitly (e.g. <code translate="no" v-pre>COM3</code>).</li>
-<li><strong>Check the motor lead.</strong> The 5V cable must be plugged in — the motor won&#x27;t spin on data power alone.</li>
-<li><strong>Give it a moment.</strong> The motor takes about two seconds to spin up on the first cook.</li>
-<li><strong>Lots of gaps is normal.</strong> On an open desk, most returns are invalid (nothing in range). Point the sensor at a wall to see a dense arc.</li>
+<li><strong>One box = one sign.</strong> Neonyte connectivity-splits the input, so any set of separate boxes works — a hand-placed row, boxes scattered on a facade, whatever your layout tool produces.</li>
+<li><strong>Mark the front face.</strong> Each box needs a primitive <strong>group</strong> naming the face the sign should point out of. By default this group is called <strong><code translate="no" v-pre>front</code></strong>; you can change the name in <strong>Utilities → Front Group</strong>. The front face fixes both the sign&#x27;s facing direction and its up direction.</li>
+<li><strong>Size and aspect matter.</strong> The box&#x27;s proportions influence which layout templates are eligible — a tall narrow box tends to get vertical lettering, a wide box a banner layout.</li>
+<li><strong>Unmarked pieces are skipped.</strong> A piece with no front group is silently ignored and passes through untouched, so you can mix boxes and other geometry.</li>
 </ul>
-<h2 id="the-sensor-wont-connect-at-all">The sensor won&#x27;t connect at all</h2>
-<ul>
-<li><strong>No Windows chime and nothing new in Device Manager</strong> → cable or port problem, not a driver problem. Try a different USB port and <strong>swap the data cable</strong> — a faulty data cable stops the device enumerating entirely.</li>
-<li><strong>Enumerates but silent</strong> → check the adapter&#x27;s baud switch is set to <strong>256000</strong>.</li>
-</ul>
-<h2 id="port-is-in-use--permission-errors">&quot;Port is in use&quot; / permission errors</h2>
-<p>A serial port can only be opened by one program. Close anything else that might hold it:</p>
-<ul>
-<li>Another Houdini session in Live mode → set its <strong>Mode → Off</strong>.</li>
-<li>A separate tester/serial app → close it.</li>
-<li>A crashed process → the motor may keep spinning; unplug the 5V lead or restart to release the port.</li>
-</ul>
-<h2 id="houdini-crashed-and-the-motor-is-still-spinning">Houdini crashed and the motor is still spinning</h2>
-<p>The motor runs independently of Houdini once started. Stop it by unplugging the <strong>5V</strong> lead (safe — it&#x27;s just motor power), or reconnect and set <strong>Mode → Off</strong>.</p>
-<h2 id="guides-ended-up-in-my-simulation">Guides ended up in my simulation</h2>
-<p>You fed the solver from <strong>Output 0</strong> (Points &amp; Guides). Switch to <strong>Output 1</strong> (Points), which strips the <code translate="no" v-pre>rplidar_viz</code> guide geometry. Or turn off the Visualize guides, or delete the <code translate="no" v-pre>rplidar_viz</code> group downstream. See <a href="../using/#outputs-and-attributes">Outputs and Attributes</a>.</p>
-<h2 id="tracking-locks-onto-furniture-instead-of-the-hand">Tracking locks onto furniture instead of the hand</h2>
-<p>Almost always the missing background bake. A real room clusters into 7–11 blobs per scan, and the largest is usually a chair or a wall corner — Single mode is picking the biggest thing present, which is working as designed and isn&#x27;t what you wanted.</p>
-<p>Go <strong>Live</strong>, clear the interaction area completely, press <strong>Bake Background</strong>, then turn on <strong>Subtract Background</strong>. If it still wanders, tighten <strong>Blob Size min/max</strong> (a hand is roughly 0.05–0.15 m) — that throws out room geometry before clustering ever has to choose. See <a href="../using/#background-subtraction">Background subtraction</a>.</p>
-<h2 id="tracking-sees-nothing-at-all-after-a-background-bake">Tracking sees nothing at all after a background bake</h2>
-<p>You most likely baked while standing in the interaction area, so you were recorded as part of the static scene. Step out and bake again. Re-bake whenever the sensor moves or the room is rearranged.</p>
-<p>If it&#x27;s an object hugging a wall that disappears, lower the <strong>Foreground Margin</strong> — a return has to be at least that much closer than the background to count as foreground.</p>
-<h2 id="blob-ids-keep-changing--a-track-keeps-restarting">Blob ids keep changing / a track keeps restarting</h2>
-<ul>
-<li><strong>Raise Hold Time.</strong> Brief dropouts (a hand turning edge-on) end the track and the next appearance gets a fresh id.</li>
-<li><strong>Raise Max Speed</strong> if the motion is genuinely fast — a blob that moves further between frames than the gate allows can&#x27;t be matched to its own track.</li>
-<li><strong>Raise Min Points</strong> if the blob is breaking apart into specks at the edge of its range.</li>
-</ul>
-<h2 id="my-solver-suddenly-sees-only-a-few-points">My solver suddenly sees only a few points</h2>
-<p>Check <strong>Solver Output</strong> in the Tracking tab. Set to <strong>Blobs</strong>, Output 1 carries only the tracked blob points — a handful, by design. Set it back to <strong>All Points</strong> for the full scan cloud.</p>
-<h2 id="playback-shows-nothing">Playback shows nothing</h2>
-<ul>
-<li>Confirm <strong>Mode = Playback</strong> and a valid file is picked in <strong>Recording File</strong> (or leave it blank for the newest).</li>
-<li>Confirm the <strong>Recording Directory</strong> points at where your <code translate="no" v-pre>.jsonl</code> files actually live.</li>
-<li>Make sure the timeline is playing or you&#x27;ve scrubbed — Playback is driven by the playbar clock.</li>
-</ul>
-<h2 id="the-asset-wont-load">The asset won&#x27;t load</h2>
-<p>RPLidar In ships as <code translate="no" v-pre>.hdalc</code>, which loads only in <strong>Houdini Indie and Apprentice</strong>, not commercial (FX/Core) licenses.</p>
-<h2 id="changing-scan-mode-or-baud-pauses-the-stream">Changing Scan Mode or Baud pauses the stream</h2>
-<p>Expected. Changing either restarts the sensor stream, which takes about two seconds.</p>
-<div id="retype-backlinks">
-    <h2>See also</h2>
-<div class="card-compact-group">
-<div class="card-compact-container">
-    <a href="/jvtools-docs/rplidar-in/getting-started/" class="group card-compact no-link">
-        <div class="card-compact-body">
-            <div class="card-compact-header">
-                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M20.322.75h1.176a1.75 1.75 0 0 1 1.75 1.749v1.177a10.75 10.75 0 0 1-2.925 7.374l-1.228 1.304a23.699 23.699 0 0 1-1.596 1.542v5.038c0 .615-.323 1.184-.85 1.5l-4.514 2.709a.75.75 0 0 1-1.12-.488l-.963-4.572a1.305 1.305 0 0 1-.14-.129L8.04 15.96l-1.994-1.873a1.305 1.305 0 0 1-.129-.14l-4.571-.963a.75.75 0 0 1-.49-1.12l2.71-4.514c.316-.527.885-.85 1.5-.85h5.037a23.668 23.668 0 0 1 1.542-1.594l1.304-1.23A10.753 10.753 0 0 1 20.321.75Zm-6.344 4.018v-.001l-1.304 1.23a22.275 22.275 0 0 0-3.255 3.851l-2.193 3.29 1.859 1.744a.545.545 0 0 1 .034.034l1.743 1.858 3.288-2.192a22.263 22.263 0 0 0 3.854-3.257l1.228-1.303a9.251 9.251 0 0 0 2.517-6.346V2.5a.25.25 0 0 0-.25-.25h-1.177a9.252 9.252 0 0 0-6.344 2.518ZM6.5 21c-1.209 1.209-3.901 1.445-4.743 1.49a.236.236 0 0 1-.18-.067.236.236 0 0 1-.067-.18c.045-.842.281-3.534 1.49-4.743.9-.9 2.6-.9 3.5 0 .9.9.9 2.6 0 3.5Zm-.592-8.588L8.17 9.017c.23-.346.47-.685.717-1.017H5.066a.25.25 0 0 0-.214.121l-2.167 3.612ZM16 15.112c-.333.248-.672.487-1.018.718l-3.393 2.262.678 3.223 3.612-2.167a.25.25 0 0 0 .121-.214ZM17.5 8a1.5 1.5 0 1 1-3.001-.001A1.5 1.5 0 0 1 17.5 8Z"/></svg></span>
-                <span class="card-compact-title">Getting Started</span>
-            </div>
-            <p class="card-compact-description">This page takes you from an unopened sensor to your first live scan in Houdini.</p>
+<p>The placeholder box itself is <strong>deleted</strong> once its sign is built — the output is signs (plus optional hardware), not your boxes.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
         </div>
-    </a>
-</div>
-<div class="card-compact-container">
-    <a href="/jvtools-docs/rplidar-in/" class="group card-compact no-link">
-        <div class="card-compact-body">
-            <div class="card-compact-header">
-                <span class="card-compact-icon inline-flex shrink-0"><img width="20" height="20" src="static/rplidar_logo.svg"></span>
-                <span class="card-compact-title">RPLidar In</span>
-            </div>
-            <p class="card-compact-description">Welcome! RPLidar In (v1.0) brings live Slamtec RPLIDAR point-cloud data straight into Houdini as SOP geometry. Plug in the sensor, drop the node, and every</p>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Why boxes?</h5>
+<p>In v1 the box is a deliberately simple, unambiguous way to say &quot;put a sign here, this big, facing this way.&quot; Smarter input analysis (auto-detecting faces, per-piece bounding boxes, shrinkwrap) is a later design question — for now, boxes with a front group are the contract.</p>
         </div>
-    </a>
+    </div>
 </div>
-</div>
+<!-- SCREENSHOT PENDING - drop the file in and delete these two
+     comment markers to publish it:
+![A row of placeholder boxes with their front faces grouped](static/input-boxes.png)
+-->
+<h2 id="your-first-street">Your first street</h2>
+<doc-steps>
+   <doc-step id="make-some-boxes" step-number="1">
+      <template #title>Make some boxes</template>
+<p>Create a few boxes inside a Geometry object. Give each one a primitive group named <strong><code translate="no" v-pre>front</code></strong> on the face that should face the street. (A quick way: a Group SOP by normal, or by bounding region on the front face.)</p>
+   </doc-step>
+</doc-steps>
+<doc-steps>
+   <doc-step id="drop-the-node" step-number="2">
+      <template #title>Drop the node</template>
+<p>Append a <strong>Neonyte</strong> SOP after your boxes.</p>
+   </doc-step>
+</doc-steps>
+<doc-steps>
+   <doc-step id="press-the-button" step-number="3">
+      <template #title>Press the button</template>
+<p>Press <strong>Give me the Sign</strong>. Every fronted box is replaced by a generated neon sign — name, icon, colours, layout and hardware.</p>
+   </doc-step>
+</doc-steps>
+<doc-steps>
+   <doc-step id="roll-again" step-number="4">
+      <template #title>Roll again</template>
+<p>Press it again for a completely different set of signs. The <strong>Seed</strong> value is what changes; set it by hand to return to a result you liked.</p>
+   </doc-step>
+</doc-steps>
+<!-- SCREENSHOT PENDING - drop the file in and delete these two
+     comment markers to publish it:
+![A grid of boxes turned into varied neon signs](static/first-street.png)
+-->
+<h2 id="see-the-glow">See the glow</h2>
+<p>The viewport shows each sign in its neon colour, but the <strong>emission</strong> — the HDR glow that makes neon read as neon — is a Karma material. To see it lit:</p>
+<ul>
+<li>Import the Neonyte SOP into a <strong>Solaris (LOP)</strong> stage with <strong>SOP Import</strong>, and make sure it <strong>creates material bindings</strong> (the bind option is off by default, so nothing shades until you turn it on).</li>
+<li>Add a light (even a dim dome) and render with <strong>Karma</strong>. The signs emit; the rest of the scene reads them as light sources.</li>
+</ul>
+<!-- SCREENSHOT PENDING - drop the file in and delete these two
+     comment markers to publish it:
+![The same street rendered lit in Karma](static/karma-lit.png)
+-->
+<h2 id="set-your-scale">Set your scale</h2>
+<p>Neonyte&#x27;s hardware, tube gauges and standoffs are sized in real-world units. If your scene isn&#x27;t in metres, use <strong>Real-World Scale</strong> so a 50 mm tube reads as 50 mm rather than filling the whole sign.</p>
+<h2 id="place-a-sign-by-hand">Place a sign by hand</h2>
+<p>Beyond feeding boxes, you can drop and aim a single sign interactively with the <strong>Place Sign in Viewport</strong> tool (a viewer state on the node). It lets you position a sign on a surface, roll it, and nudge it — handy for one-off hero placements or fixing a box that landed awkwardly. The on-screen tool shows its own controls; a right-click opens its menu, and <strong>Shift+X</strong> resets a placement.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-warning" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
+                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Pre-release note</h5>
+<p>The exact button labels, the Front Group location, and the viewer-state hotkeys are still settling for v0.9 — if something here doesn&#x27;t match your build, trust the node&#x27;s own tooltips (they are the source of truth these docs sync from).</p>
+        </div>
+    </div>
 </div>
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-07T12:06:44" title="2026-08-07" data-absolute-label="Last updated on 2026-08-07" data-absolute-label-html="Last updated on 2026-08-07" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-08-07
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-23T13:36:25" title="2026-08-23" data-absolute-label="Last updated on 2026-08-23" data-absolute-label-html="Last updated on 2026-08-23" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-08-23
                     </time>
                 </div>
 
@@ -294,27 +285,6 @@
             </div>
             <footer id="retype-content-footer" class="clear-both">
             
-                <nav id="retype-nextprev" class="print:hidden flex mt-14">
-                    <div class="w-1/2">
-                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../rplidar-in/parameters/">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
-                            <span>
-                                <span class="block text-xs font-normal text-base-text-muted">Previous</span>
-                                <span class="block mt-1">Parameter Reference</span>
-                            </span>
-                        </a>
-                    </div>
-            
-                    <div class="w-1/2">
-                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../rplidar-in/changelog/">
-                            <span>
-                                <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
-                                <span class="block mt-1">Changelog</span>
-                            </span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
-                        </a>
-                    </div>
-                </nav>
             </footer>
         </main>
 
@@ -353,6 +323,6 @@
 
     <div id="retype-overlay-target"></div>
 
-        <script data-cfasync="false">window.__DOCS__ = { "title": "Troubleshooting", level: 2, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/rplidar-in/troubleshooting.md" }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Getting Started", level: 2, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/neonyte/getting-started.md" }</script>
 </body>
 </html>

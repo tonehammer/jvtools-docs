@@ -5,6 +5,11 @@ order: 70
 
 # Changelog
 
+## Version 1.2.2
+
+* **Fixed:** on **FBX** import, characters whose pieces share a texture — clothing or armor sharing one atlas, or a shared eye map — no longer come in flat white. Character Creator writes such a map once and cross-references it from the other materials; the importer now reads the FBX's own material-to-texture links to find it, the way other DCC apps do. (USD import was never affected.)
+* Bug fixes and improvements.
+
 ## Version 1.2.1
 
 * **Fixed:** textures now load for iClone "Export USD (Omniverse)" characters, whose texture folders are laid out differently from Character Creator's USD export.

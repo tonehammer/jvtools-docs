@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.840974195260">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.840998472326">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.840974195260" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.840998472326" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.840974195260" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.840998472326" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.840974195260" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.840998472326" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -210,48 +210,50 @@
 <p>The first public release.</p>
 <p><strong>Streaming</strong></p>
 <ul>
-<li>Live streaming of Slamtec RPLIDAR sensor data into Houdini as SOP geometry — one point per laser return, updated every cook</li>
-<li>Standard (<sub>4k samples/s) and Express (</sub>8k samples/s) scan modes</li>
-<li>Background reader thread so no rotations are dropped between cooks, including while recording</li>
-<li>Self-contained single asset file — talks the RPLIDAR serial protocol directly, with no Python packages to install</li>
-<li>Auto-detection of the CP210x USB/UART adapter (with a manual <strong>Port</strong> override), and a <strong>Units per Meter</strong> control for working in meters, centimeters, or any scale</li>
+<li>Live streaming of Slamtec RPLIDAR data into Houdini as SOP geometry.</li>
+<li>Standard and Express scan modes.</li>
+<li>Background reader thread, so no rotations are dropped between cooks.</li>
+<li>Self-contained single asset file, with no Python packages to install.</li>
+<li>Auto-detection of the CP210x USB adapter, with a manual Port override.</li>
+<li>Units per Meter control.</li>
 </ul>
 <p><strong>Recording &amp; playback</strong></p>
 <ul>
-<li>Record the live stream to disk as <code translate="no" v-pre>.jsonl</code> and replay it against the playbar clock — develop and iterate with the sensor disconnected</li>
-<li>Recording folder management: directory, file picker (blank = newest), loop, and delete</li>
+<li>Record the live stream to disk and replay it against the playbar.</li>
+<li>Recording folder management — directory, file picker, loop and delete.</li>
 </ul>
 <p><strong>Visualization</strong></p>
 <ul>
-<li>Sensor marker and range-ring guides, with adjustable color, range, and sensor size</li>
-<li>Connect Points (beam fan) — draw a ray from the sensor to each scan point</li>
-<li>Static map bake — capture a short slice of the live stream into a fixed reference map</li>
-<li>Attribute color — tint the scan points by angle or distance through a color ramp, for a viewport-only view or baked into <code translate="no" v-pre>Cd</code> for downstream use</li>
+<li>Sensor marker and range-ring guides.</li>
+<li>Connect Points — draw a ray from the sensor to each scan point.</li>
+<li>Static map bake.</li>
+<li>Attribute colour — tint the scan points by angle or distance through a ramp.</li>
 </ul>
 <p><strong>Blob tracking</strong></p>
 <ul>
-<li>Cluster the scan into blobs and track them across frames, each with a stable <code translate="no" v-pre>id</code> and a velocity (<code translate="no" v-pre>v</code>) — Single mode for one primary blob, Multi for many at once</li>
-<li>Background subtraction — bake the empty scene, then track only what intrudes on it, so clustering locks onto the moving hand or person instead of the furniture</li>
-<li>Clustering, smoothing, and association controls (cluster gap, blob size, position/velocity smoothing, max speed, hold time)</li>
-<li>Solver Output switch — the solver-ready output carries either the full scan cloud or just the tracked blob points</li>
-<li>On-screen blob markers with velocity lines</li>
+<li>Cluster the scan into blobs and track them across frames, each with a stable id and a velocity.</li>
+<li>Single and Multi tracking modes.</li>
+<li>Background subtraction.</li>
+<li>Clustering, smoothing and association controls.</li>
+<li>Solver Output switch — the full scan cloud or just the tracked blob points.</li>
+<li>On-screen blob markers with velocity lines.</li>
 </ul>
 <p><strong>Placement, crop &amp; camera</strong></p>
 <ul>
-<li>Pre-Rotate — spin the whole scan about the sensor so a physically-angled sensor lines up with your scene; applied before everything else, so crop, tracking, and the guides all follow</li>
-<li>Cull scan points outside a rotatable ground rectangle, so only the region you care about reaches your solver</li>
-<li>Interactive viewport handle — resize, move, and rotate the crop box directly in the Scene View</li>
-<li>One-click top-down orthographic camera, plus a Camera-to-Crop button that frames it to your crop region</li>
+<li>Pre-Rotate, applied before everything else.</li>
+<li>Cull scan points outside a rotatable ground rectangle.</li>
+<li>Interactive viewport handle for the crop box.</li>
+<li>One-click top-down orthographic camera, plus Camera to Crop.</li>
 </ul>
 <p><strong>Live simulation</strong></p>
 <ul>
-<li>One-click <strong>Create Generic POP Network</strong> button that builds a ready-to-run POP network wired to the solver-ready output, plus a control null to start, stop, and reset the live sim</li>
-<li>Recipes — a loader for whole downstream networks (sim + look) packed as a single <code translate="no" v-pre>.py</code> file; no recipes ship with 1.0, so for now it loads your own</li>
-<li>Two outputs — Points &amp; Guides (display) and Points (solver-ready, guides stripped)</li>
+<li>Create Generic POP Network — one button builds a POP network wired to the solver-ready output.</li>
+<li>Recipes — a loader for whole downstream networks packed as a single file.</li>
+<li>Two outputs — Points &amp; Guides, and Points.</li>
 </ul>
 <p><strong>Test Sensor</strong></p>
 <ul>
-<li>Prints the sensor&#x27;s identity, health, and available scan modes to the console — and live stream statistics while streaming</li>
+<li>Prints the sensor&#x27;s identity, health and scan modes to the console, plus live stream statistics.</li>
 </ul>
 <hr>
 <div class="flex mb-6">
@@ -274,8 +276,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-10T20:57:19" title="2026-08-10" data-absolute-label="Last updated on 2026-08-10" data-absolute-label-html="Last updated on 2026-08-10" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-08-10
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-25T20:40:34" title="2026-08-25" data-absolute-label="Last updated on 2026-08-25" data-absolute-label-html="Last updated on 2026-08-25" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-08-25
                     </time>
                 </div>
 

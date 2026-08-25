@@ -6,48 +6,50 @@ The first public release.
 
 **Streaming**
 
-* Live streaming of Slamtec RPLIDAR sensor data into Houdini as SOP geometry — one point per laser return, updated every cook
-* Standard (~4k samples/s) and Express (~8k samples/s) scan modes
-* Background reader thread so no rotations are dropped between cooks, including while recording
-* Self-contained single asset file — talks the RPLIDAR serial protocol directly, with no Python packages to install
-* Auto-detection of the CP210x USB/UART adapter (with a manual **Port** override), and a **Units per Meter** control for working in meters, centimeters, or any scale
+* Live streaming of Slamtec RPLIDAR data into Houdini as SOP geometry.
+* Standard and Express scan modes.
+* Background reader thread, so no rotations are dropped between cooks.
+* Self-contained single asset file, with no Python packages to install.
+* Auto-detection of the CP210x USB adapter, with a manual Port override.
+* Units per Meter control.
 
 **Recording & playback**
 
-* Record the live stream to disk as `.jsonl` and replay it against the playbar clock — develop and iterate with the sensor disconnected
-* Recording folder management: directory, file picker (blank = newest), loop, and delete
+* Record the live stream to disk and replay it against the playbar.
+* Recording folder management — directory, file picker, loop and delete.
 
 **Visualization**
 
-* Sensor marker and range-ring guides, with adjustable color, range, and sensor size
-* Connect Points (beam fan) — draw a ray from the sensor to each scan point
-* Static map bake — capture a short slice of the live stream into a fixed reference map
-* Attribute color — tint the scan points by angle or distance through a color ramp, for a viewport-only view or baked into `Cd` for downstream use
+* Sensor marker and range-ring guides.
+* Connect Points — draw a ray from the sensor to each scan point.
+* Static map bake.
+* Attribute colour — tint the scan points by angle or distance through a ramp.
 
 **Blob tracking**
 
-* Cluster the scan into blobs and track them across frames, each with a stable `id` and a velocity (`v`) — Single mode for one primary blob, Multi for many at once
-* Background subtraction — bake the empty scene, then track only what intrudes on it, so clustering locks onto the moving hand or person instead of the furniture
-* Clustering, smoothing, and association controls (cluster gap, blob size, position/velocity smoothing, max speed, hold time)
-* Solver Output switch — the solver-ready output carries either the full scan cloud or just the tracked blob points
-* On-screen blob markers with velocity lines
+* Cluster the scan into blobs and track them across frames, each with a stable id and a velocity.
+* Single and Multi tracking modes.
+* Background subtraction.
+* Clustering, smoothing and association controls.
+* Solver Output switch — the full scan cloud or just the tracked blob points.
+* On-screen blob markers with velocity lines.
 
 **Placement, crop & camera**
 
-* Pre-Rotate — spin the whole scan about the sensor so a physically-angled sensor lines up with your scene; applied before everything else, so crop, tracking, and the guides all follow
-* Cull scan points outside a rotatable ground rectangle, so only the region you care about reaches your solver
-* Interactive viewport handle — resize, move, and rotate the crop box directly in the Scene View
-* One-click top-down orthographic camera, plus a Camera-to-Crop button that frames it to your crop region
+* Pre-Rotate, applied before everything else.
+* Cull scan points outside a rotatable ground rectangle.
+* Interactive viewport handle for the crop box.
+* One-click top-down orthographic camera, plus Camera to Crop.
 
 **Live simulation**
 
-* One-click **Create Generic POP Network** button that builds a ready-to-run POP network wired to the solver-ready output, plus a control null to start, stop, and reset the live sim
-* Recipes — a loader for whole downstream networks (sim + look) packed as a single `.py` file; no recipes ship with 1.0, so for now it loads your own
-* Two outputs — Points & Guides (display) and Points (solver-ready, guides stripped)
+* Create Generic POP Network — one button builds a POP network wired to the solver-ready output.
+* Recipes — a loader for whole downstream networks packed as a single file.
+* Two outputs — Points & Guides, and Points.
 
 **Test Sensor**
 
-* Prints the sensor's identity, health, and available scan modes to the console — and live stream statistics while streaming
+* Prints the sensor's identity, health and scan modes to the console, plus live stream statistics.
 
 ---
 

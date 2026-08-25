@@ -34,7 +34,7 @@
 - [Limitations & Expectations](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/limitations.md): This page sets honest expectations before and after you buy. Character Creator's FBX export — and Houdini itself — impose some hard limits no importer can work around.
 - [Performance & Caching](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/performance.md): Character Creator characters are detailed, and detailed characters use memory. Here's where the cost comes from and how to keep your sessions fast and lean.
 - [Troubleshooting & FAQ](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/troubleshooting.md): Common issues and their fixes. Most import problems trace back to either an export setting or a moved file.
-- [Changelog](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/changelog.md): New: Eye "Lightness (Bleach)". A new control at the top of the Eyes folder — the eyeball counterpart to the hair bleach. It brightens the final eye colour, after the iris tint, limbal ring and sclera shading, so a very dark iris or a dull sclera can be lifted rather than only re-tinted.
+- [Changelog](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/changelog.md): New: Eye "Lightness (Bleach)" — brightens the final eye colour.
 - [License](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/license.md): This is the End User License Agreement for the Reallusion Importer for Houdini. By downloading, installing, or using the asset, you agree to these terms.
 
 ## Advanced Velocity
@@ -44,7 +44,7 @@
 - [Timed Events](https://tonehammer.github.io/jvtools-docs/advanced-velocity/timed-events.md): One velocity field is rarely the whole story. The shot is a car lifted at frame 10, torn apart at frame 40, spun at frame 70 — three different velocity setups, at three different times, summed where they overlap.
 - [Parameter Reference](https://tonehammer.github.io/jvtools-docs/advanced-velocity/parameters.md): Every hand-authored parameter on the Advanced Velocity node, grouped the way it appears in the interface. Names in code are the internal parameter names.
 - [Troubleshooting](https://tonehammer.github.io/jvtools-docs/advanced-velocity/troubleshooting.md): You're in Timed Events mode, the default, where the live Setup is only a template — only baked events reach the output. Press Create Event to bake the setup, or Update on an existing event's row to fold your changes into it.
-- [Changelog](https://tonehammer.github.io/jvtools-docs/advanced-velocity/changelog.md): The first public release — version 1.0 below is the feature set it launched with, finished just before the store went live.
+- [Changelog](https://tonehammer.github.io/jvtools-docs/advanced-velocity/changelog.md): The first public release — version 1.0 below is the feature set it launched with.
 - [License](https://tonehammer.github.io/jvtools-docs/advanced-velocity/license.md): This is the End User License Agreement for Advanced Velocity. By downloading, installing, or using the asset, you agree to these terms.
 
 ## RPLidar In

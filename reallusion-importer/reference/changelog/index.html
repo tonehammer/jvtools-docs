@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.840974195260">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.840998472326">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Changelog</title>
     <meta name="title" content="Changelog">
-    <meta name="description" content="New: Eye \"Lightness (Bleach)\". A new control at the top of the Eyes folder — the eyeball counterpart to the hair bleach. It brightens the final eye colour, after the iris tint, limbal ring and sclera shading, so a very dark iris or a dull sclera can be lifted rather than only re-tinted.">
+    <meta name="description" content="New: Eye \"Lightness (Bleach)\" — brightens the final eye colour.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/changelog/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/changelog/">
     <meta property="og:title" content="Changelog">
-    <meta property="og:description" content="New: Eye \"Lightness (Bleach)\". A new control at the top of the Eyes folder — the eyeball counterpart to the hair bleach. It brightens the final eye colour, after the iris tint, limbal ring and sclera shading, so a very dark iris or a dull sclera can be lifted rather than only re-tinted.">
+    <meta property="og:description" content="New: Eye \"Lightness (Bleach)\" — brightens the final eye colour.">
     <meta property="og:site_name" content="JVtools">
     <meta property="og:locale" content="en_US">
 
@@ -31,18 +31,18 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/changelog/">
     <meta name="twitter:title" content="Changelog">
-    <meta name="twitter:description" content="New: Eye \"Lightness (Bleach)\". A new control at the top of the Eyes folder — the eyeball counterpart to the hair bleach. It brightens the final eye colour, after the iris tint, limbal ring and sclera shading, so a very dark iris or a dull sclera can be lifted rather than only re-tinted.">
+    <meta name="twitter:description" content="New: Eye \"Lightness (Bleach)\" — brightens the final eye colour.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/changelog.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.6.0.840974195260" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.840998472326" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.840974195260" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.840998472326" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.840974195260" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.840998472326" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -216,109 +216,109 @@
 <h1 id="changelog">Changelog</h1>
 <h2 id="version-123">Version 1.2.3</h2>
 <ul>
-<li><strong>New: Eye &quot;Lightness (Bleach)&quot;.</strong> A new control at the top of the <strong>Eyes</strong> folder — the eyeball counterpart to the hair bleach. It brightens the <em>final</em> eye colour, after the iris tint, limbal ring and sclera shading, so a very dark iris or a dull sclera can be lifted rather than only re-tinted. Left at its default it changes nothing, and it works in <strong>both FBX and USD</strong> modes. Glow and emission are unaffected.</li>
-<li><strong>Create Skin-Fix Setup</strong> now switches on the Skin-Fix mesh for you. Previously it built the setup but left the toggle off, so nothing appeared to happen.</li>
-<li><strong>Skin-Fix now tells you what it&#x27;s doing.</strong> Its first cook can take a while on a heavy character, and it used to look like Houdini had frozen — the console now reports each stage and how long it took.</li>
-<li><strong>Fixed:</strong> on <strong>FBX</strong> import, characters whose pieces share a texture no longer come in flat white. (Carried over from 1.2.2, which this release supersedes.)</li>
+<li><strong>New: Eye &quot;Lightness (Bleach)&quot;</strong> — brightens the final eye colour.</li>
+<li><strong>Create Skin-Fix Setup</strong> now switches the Skin-Fix mesh on for you.</li>
+<li>Skin-Fix now reports its progress in the console during its first cook.</li>
+<li><strong>Fixed:</strong> on FBX import, characters whose pieces share a texture no longer come in flat white.</li>
 </ul>
 <h2 id="version-122">Version 1.2.2</h2>
 <ul>
-<li><strong>Fixed:</strong> on <strong>FBX</strong> import, characters whose pieces share a texture — clothing or armor sharing one atlas, or a shared eye map — no longer come in flat white. Character Creator writes such a map once and cross-references it from the other materials; the importer now reads the FBX&#x27;s own material-to-texture links to find it, the way other DCC apps do. (USD import was never affected.)</li>
+<li><strong>Fixed:</strong> on FBX import, characters whose pieces share a texture no longer come in flat white.</li>
 <li>Bug fixes and improvements.</li>
 </ul>
 <h2 id="version-121">Version 1.2.1</h2>
 <ul>
-<li><strong>Fixed:</strong> textures now load for iClone &quot;Export USD (Omniverse)&quot; characters, whose texture folders are laid out differently from Character Creator&#x27;s USD export.</li>
-<li>Added dedicated Character Creator <strong>FBX</strong> and <strong>USD</strong> export walkthroughs, and a new <strong>iClone</strong> export section — including how to bring iClone-authored motion into Houdini (an FBX round-trip through Character Creator, or the NVIDIA Omniverse plugin). Note: iClone&#x27;s direct USD export is experimental — standard characters work, stylized ones may not.</li>
-<li>Documented the <strong>best-quality workflow</strong>: an FBX-imported character driven by lightweight USD motion clips, so you keep the expression wrinkles while the animation stays light.</li>
-<li>Refreshed in-app tooltips and help that still referred only to FBX now that USD import is supported.</li>
+<li><strong>Fixed:</strong> textures now load for iClone &quot;Export USD (Omniverse)&quot; characters.</li>
+<li>Added Character Creator FBX and USD export walkthroughs, and an iClone export section.</li>
+<li>Documented the best-quality workflow.</li>
+<li>Refreshed tooltips and help that still referred only to FBX.</li>
 <li>Bug fixes and improvements.</li>
 </ul>
 <h2 id="version-12">Version 1.2</h2>
 <p><strong>USD import mode</strong></p>
 <ul>
-<li><strong>New USD import path.</strong> A new <strong>Import</strong> dropdown at the top of the node lets you import Character Creator&#x27;s <strong>Export USD (Omniverse)</strong> output instead of FBX. USD import is <strong>dramatically faster and lighter on memory</strong> — around 50–75× faster, with the gap widening on heavier characters — and is now the <strong>default</strong> mode. FBX import is unchanged and still available. See <a href="../../getting-started/import-modes/">USD vs FBX</a>.</li>
-<li><strong>Sparse facial deformation in USD mode.</strong> The facial blendshapes now stay sparse through deformation instead of being expanded into memory — only the expressions active on the current frame are computed. The heaviest HD characters drop from <strong>~26 GB to under 3 GB</strong> of working RAM, identical results. With this, <strong>16 GB of RAM works for standard characters and 32 GB covers HD</strong> in USD mode (FBX mode keeps its previous requirements).</li>
-<li><strong>Real Character Creator eye &amp; skin values.</strong> In USD mode the tool reads Character Creator&#x27;s actual shader values and seeds the lookdev controller with them automatically — real iris color, iris size, limbal ring, sclera shading, and subsurface amount — instead of the generic starting points the FBX export forces. Reset to Defaults returns to these real values in USD mode.</li>
-<li><strong>Honest feature gating.</strong> Character Creator&#x27;s USD export omits the data behind <strong>expression wrinkles</strong> and the <strong>root-to-tip / highlight hair re-dye</strong>, so those controls are clearly disabled with an &quot;(FBX import only)&quot; note in USD mode. Flat hair re-dye, the Lightness (Bleach) control, displacement, and everything else work in both modes.</li>
-<li><strong>Animation database accepts USD motion clips.</strong> Add Animation now also takes the <code translate="no" v-pre>Motions/*.usd</code> clips Character Creator writes beside a USD export — they load instantly and use a fraction of an FBX clip&#x27;s RAM. FBX and USD clips mix freely in one database and work in either import mode; USD clips can even drive an FBX-imported character, keeping expression wrinkles working from featherweight clips. <strong>Retarget Animation</strong> now engages automatically when a clip&#x27;s format differs from the import mode.</li>
-<li><strong>Cross-character clips no longer break characters with accessory bones.</strong> A clip from a character without this character&#x27;s hair/accessory rig used to explode those parts; they now follow along rigidly (hair rides the head).</li>
-<li>Scenes saved before 1.2 open in FBX mode automatically — existing work is unaffected.</li>
+<li><strong>New: USD import</strong>, reading Character Creator&#x27;s Export USD (Omniverse) output. Now the default mode.</li>
+<li>Sparse facial deformation in USD mode — the heaviest HD characters drop from ~26 GB to under 3 GB.</li>
+<li>Real Character Creator eye and skin values are read from the export and seeded into the lookdev controller.</li>
+<li>Controls the USD export cannot supply are disabled with an &quot;(FBX import only)&quot; note.</li>
+<li>The animation database now accepts USD motion clips.</li>
+<li><strong>Fixed:</strong> cross-character clips no longer break characters with accessory bones.</li>
+<li>Scenes saved before 1.2 open in FBX mode.</li>
 <li>Bug fixes and improvements.</li>
 </ul>
 <h2 id="version-11">Version 1.1</h2>
 <ul>
-<li><strong>Documentation moved to the new JVtools docs site</strong> (the one you&#x27;re reading now).</li>
-<li><strong>In-app update check.</strong> The asset now checks for a newer version when you build a character and shows an unobtrusive notice if one is available — so you never miss an update. A version label on the node shows which version you have.</li>
+<li>Documentation moved to the JVtools docs site.</li>
+<li><strong>New: in-app update check</strong>, plus a version label on the node.</li>
 <li>Bug fixes and improvements.</li>
 </ul>
 <h2 id="version-10">Version 1.0</h2>
 <p>The first public release.</p>
 <p><strong>Materials</strong></p>
 <ul>
-<li>Karma MaterialX materials for skin, eyes, teeth, hair, and clothing — tuned for Karma XPU, also render in Karma CPU</li>
-<li>Physically-based skin with subsurface scattering, normal detail, and roughness controls</li>
-<li>SSS Color, Amount, Radius, and Quality controls to balance lifelike scatter against skin detail</li>
-<li>Skin Re-tint: shift overall skin tone (warmer/cooler, tan, pale) live, across all skin, without re-exporting from Character Creator</li>
-<li>Teeth controls (Brightness, Roughness, Specular, SSS Amount) to tame Character Creator&#x27;s over-bright, glary teeth — grouped in a Teeth sub-folder inside Skin</li>
-<li>Refractive ray-traced corneas (Hero Eyes) with a fast cutout fallback</li>
-<li>Dielectric clothing/accessory handling (ignores Character Creator&#x27;s junk metallic maps by default)</li>
+<li>Karma MaterialX materials for skin, eyes, teeth, hair and clothing.</li>
+<li>Physically-based skin with subsurface scattering, normal detail and roughness controls.</li>
+<li>SSS Color, Amount, Radius and Quality controls.</li>
+<li>Skin Re-tint across all skin, with no re-export from Character Creator.</li>
+<li>Teeth controls — Brightness, Roughness, Specular, SSS Amount.</li>
+<li>Refractive ray-traced corneas (Hero Eyes), with a fast cutout fallback.</li>
+<li>Dielectric clothing and accessory handling.</li>
 </ul>
 <p><strong>Wrinkles</strong></p>
 <ul>
-<li>Expression-driven head wrinkle system reconstructed live in Karma</li>
-<li>Per-channel control over wrinkle relief, color, and roughness</li>
-<li>&quot;Go to Max Wrinkle Frame&quot; helper to find the most expressive frame</li>
+<li>Expression-driven head wrinkle system, reconstructed live in Karma.</li>
+<li>Per-channel control over wrinkle relief, colour and roughness.</li>
+<li>&quot;Go to Max Wrinkle Frame&quot; helper.</li>
 </ul>
 <p><strong>Hair</strong></p>
 <ul>
-<li>Full hair re-dye system: root-to-tip ombré and ID-based highlight streaks</li>
-<li>Luminance-preserving recolor that keeps strand detail intact</li>
-<li>Lightness (Bleach) control to lift dark hair lighter — turn a brown- or black-haired character blonde/platinum, not just recolor them</li>
-<li>Specular-mask control to tame over-bright highlights</li>
-<li>Flow-map-driven anisotropic sheen for realistic directional hair highlights</li>
-<li>Independent eyebrow tinting (Brows sub-folder) to match dyed hair</li>
+<li>Hair re-dye: root-to-tip ombre and ID-based highlight streaks.</li>
+<li>Luminance-preserving recolour.</li>
+<li>Lightness (Bleach) control for lifting dark hair.</li>
+<li>Specular-mask control.</li>
+<li>Flow-map-driven anisotropic sheen.</li>
+<li>Independent eyebrow tinting.</li>
 </ul>
 <p><strong>Eyes</strong></p>
 <ul>
-<li>Iris color tint, iris scale, and limbal ring — reproducing Character Creator&#x27;s HD eye look (which isn&#x27;t baked into the export)</li>
-<li>Sclera tinting for subtle realism pushes or fully stylized colored eyes</li>
-<li>Eyelid contact shadow, faked on the occlusion mesh with a top bias</li>
-<li>Overall eye glossiness/wetness control (works on every character)</li>
-<li>Tear-line wetness controls for characters that ship a tear-line mesh</li>
-<li>Separate eyeball normal strength</li>
-<li>Stylized eye glow with several modes (flat, texture, multiply, iris circle, iris dot)</li>
-<li>Eyes-as-light-source — glowing eyes illuminate the scene</li>
-<li>Controls organized into Iris / Limbus / Sclera / Eye Shadow / Wetness tabs</li>
+<li>Iris colour tint, iris scale and limbal ring.</li>
+<li>Sclera tinting.</li>
+<li>Eyelid contact shadow.</li>
+<li>Overall eye glossiness and wetness control.</li>
+<li>Tear-line wetness controls.</li>
+<li>Separate eyeball normal strength.</li>
+<li>Stylized eye glow with several modes.</li>
+<li>Eyes as a light source.</li>
+<li>Controls organized into Iris / Limbus / Sclera / Eye Shadow / Wetness tabs.</li>
 </ul>
 <p><strong>Displacement</strong></p>
 <ul>
-<li>Per-character displacement: bump or true displacement</li>
-<li>Adjustable displacement strength</li>
+<li>Per-character displacement — bump or true displacement.</li>
+<li>Adjustable displacement strength.</li>
 </ul>
 <p><strong>Animation</strong></p>
 <ul>
-<li>Animation database: add, select, and remove FBX motion clips</li>
-<li>Embedded-animation and database sources</li>
-<li>Retarget Animation: drive a character with a clip authored on a differently-proportioned Character Creator character — body proportions matched, teeth/tongue/eyes kept seated, and facial expressions/visemes/blinks carried over automatically</li>
-<li>Separate Body and Facial animation sources: drive the body from one clip and the face from another (Embedded / Animation Database), or bypass the face entirely — keep this character&#x27;s own facial performance on a borrowed body clip, with retargeting engaged automatically when the sources differ</li>
+<li>Animation database — add, select and remove FBX motion clips.</li>
+<li>Embedded-animation and database sources.</li>
+<li>Retarget Animation for clips authored on differently-proportioned characters.</li>
+<li>Separate Body and Facial animation sources.</li>
 </ul>
 <p><strong>Fixes &amp; workarounds</strong></p>
 <ul>
-<li>Fix Broken Blendshape: excludes elements affected by Character Creator&#x27;s rare duplicate-blendshape export glitch and point-deforms them cleanly</li>
-<li>Skin Fix: an editable subnetwork with ready-to-use Sculpt and Soft Edit tools for quickly fixing mesh intersections (clothing poking through the body) before skinning — blendshape data is separated out and merged back automatically</li>
+<li>Fix Broken Blendshape, for Character Creator&#x27;s duplicate-blendshape export glitch.</li>
+<li>Skin Fix — an editable subnetwork with Sculpt and Soft Edit tools for mesh intersections.</li>
 </ul>
 <p><strong>Rendering &amp; Setup</strong></p>
 <ul>
-<li>Optional one-click three-point light rig, camera, and Karma XPU render settings</li>
-<li>Lookdev controller gathering all look controls on one node</li>
-<li>Reset to Defaults button to return every lookdev control to its original value in one click</li>
-<li>Quality presets (Preview / Production) for fast look-dev</li>
+<li>Optional one-click three-point light rig, camera and Karma XPU render settings.</li>
+<li>Lookdev controller gathering every look control on one node.</li>
+<li>Reset to Defaults button.</li>
+<li>Quality presets — Preview and Production.</li>
 </ul>
 <p><strong>Utilities</strong></p>
 <ul>
-<li>Geometry caching and a scene-cache reclaim utility</li>
-<li>Navigation buttons and quick links to documentation and community</li>
+<li>Geometry caching and a scene-cache reclaim utility.</li>
+<li>Navigation buttons and quick links to documentation and community.</li>
 </ul>
 <hr>
 <div class="flex mb-6">
@@ -341,7 +341,7 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-25T12:46:03" title="2026-08-25" data-absolute-label="Last updated on 2026-08-25" data-absolute-label-html="Last updated on 2026-08-25" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-25T20:40:34" title="2026-08-25" data-absolute-label="Last updated on 2026-08-25" data-absolute-label-html="Last updated on 2026-08-25" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
                         Last updated on 2026-08-25
                     </time>
                 </div>

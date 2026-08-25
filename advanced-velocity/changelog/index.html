@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.840974195260">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.840998472326">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Changelog</title>
     <meta name="title" content="Changelog">
-    <meta name="description" content="The first public release — version 1.0 below is the feature set it launched with, finished just before the store went live.">
+    <meta name="description" content="The first public release — version 1.0 below is the feature set it launched with.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://tonehammer.github.io/jvtools-docs/advanced-velocity/changelog/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/advanced-velocity/changelog/">
     <meta property="og:title" content="Changelog">
-    <meta property="og:description" content="The first public release — version 1.0 below is the feature set it launched with, finished just before the store went live.">
+    <meta property="og:description" content="The first public release — version 1.0 below is the feature set it launched with.">
     <meta property="og:site_name" content="JVtools">
     <meta property="og:locale" content="en_US">
 
@@ -31,18 +31,18 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/advanced-velocity/changelog/">
     <meta name="twitter:title" content="Changelog">
-    <meta name="twitter:description" content="The first public release — version 1.0 below is the feature set it launched with, finished just before the store went live.">
+    <meta name="twitter:description" content="The first public release — version 1.0 below is the feature set it launched with.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://tonehammer.github.io/jvtools-docs/advanced-velocity/changelog.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.840974195260" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.840998472326" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.840974195260" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.840998472326" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.840974195260" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.840998472326" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -207,65 +207,67 @@
                 <!-- Page content  -->
 <h1 id="changelog">Changelog</h1>
 <h2 id="version-11">Version 1.1</h2>
-<p>The first public release — version 1.0 below is the feature set it launched with, finished just before the store went live.</p>
-<p><strong>Ballistic Motion — the node grew a second output</strong></p>
+<p>The first public release — version 1.0 below is the feature set it launched with.</p>
+<p><strong>Ballistic Motion</strong></p>
 <ul>
-<li>Output 2 delivers the pieces <em>already flying</em> — advanced along the velocity you authored, tumbling with any baked <code translate="no" v-pre>@w</code>, no solver required. Output 1 is untouched, so your sim workflow doesn&#x27;t change; the second output is for previz, motion-graphics moves, or anywhere a real solve is overkill</li>
-<li><strong>Return to Home</strong> — keyframe one slider from 0 to 1 and every piece flies back to exactly where it started, however far the motion has carried it. The landing is exact by construction: at 1 the output equals the input to the last bit</li>
-<li><strong>Return Shaping</strong> — arc the return paths, swirl them around an axis into a vortex, add whole extra turns, and stagger the arrivals (random, nearest first, or farthest first). None of it can break the landing</li>
-<li>Optional <strong>return-path guides</strong> draw each piece&#x27;s route home, sampled from the same curve the motion actually follows</li>
-<li><strong>Ballistic Return</strong> — a second node, shipped in the same file, that applies the whole return to a <em>finished simulation</em> instead of to the prediction. <strong>Create Ballistic Return</strong> builds it below your solver and wires it up; it can also return to a captured rest pose by name, for animated inputs</li>
+<li><strong>New: a second output</strong> delivering the pieces already flying, with no solver.</li>
+<li><strong>New: Return to Home</strong> — one slider flies every piece back to exactly where it started.</li>
+<li><strong>New: Return Shaping</strong> — arc, swirl, extra turns and staggered arrivals.</li>
+<li>Optional return-path guides.</li>
+<li><strong>New: Ballistic Return</strong>, a second node that applies the return to a finished simulation.</li>
 </ul>
 <p><strong>Event Strength</strong></p>
 <ul>
-<li>Per-event sliders at the top of the Velocity Mixer — scale whole events against each other after the fact, live at playback, no re-baking. The type Gains balance the streams <em>inside</em> an event; Event Strength balances the <em>events</em></li>
+<li><strong>New: per-event strength sliders</strong> at the top of the Velocity Mixer.</li>
 </ul>
 <p><strong>Visualization</strong></p>
 <ul>
-<li><strong>Ghost Style</strong> for the motion preview: Full Wireframe, Bounding Boxes (the new default — one wire box per piece, cheap at any density), or Points</li>
-<li>Preview Motion no longer switches itself off on heavy inputs — the Visualization Limit now governs the guide trails only</li>
+<li><strong>New: Ghost Style</strong> for the motion preview — Full Wireframe, Bounding Boxes (the new default) or Points.</li>
+<li>Preview Motion no longer switches itself off on heavy inputs.</li>
 </ul>
 <p><strong>Bug fixes and improvements</strong></p>
 <ul>
-<li>Three Point Source menus (Origin, Method, Direction) could display the wrong entry — and Point Source could not actually be picked from the Origin menu. Fixed</li>
-<li><strong>Output Guides Only now respects Preview Motion</strong> — with the preview on, the rendered guide pass follows the predicted motion instead of sitting pinned at rest; the ghost still never enters the pass</li>
-<li><strong>Propagate to All</strong> arrow buttons beside each event&#x27;s Mute Gravity and Release Mode — copy that setting to every other event in one click, live at playback</li>
-<li>Creating an event now switches the Events list to its tab, Create Connected RBD Sim no longer steals the display flag, and a tidier panel throughout: clearer type labels, a Return Shaping group, and attribute-name fields that only show for the active Output As mode</li>
+<li><strong>Fixed:</strong> the three Point Source menus could display the wrong entry, and Point Source could not be picked from the Origin menu.</li>
+<li><strong>Fixed:</strong> Output Guides Only now respects Preview Motion.</li>
+<li><strong>New: Propagate to All</strong> buttons beside each event&#x27;s Mute Gravity and Release Mode.</li>
+<li>Panel tidy-up, and creating an event now switches the Events list to its tab.</li>
 </ul>
 <h2 id="version-10">Version 1.0</h2>
 <p>The launch feature set.</p>
 <p><strong>Velocity types</strong></p>
 <ul>
-<li>Six velocity types on one node — Basic, Directional, Exploding, Velocity from Motion, Curl Noise, and Angular (<code translate="no" v-pre>@w</code>) — each in its own section with a header checkbox, its controls hidden until switched on</li>
-<li>Identical <strong>Adjust</strong> and <strong>Mask</strong> controls on every type, promoted from Houdini&#x27;s Attribute Adjust nodes, plus a one-click <strong>Randomize</strong> row with five variation strengths</li>
-<li>Directional velocity with a <strong>Direction Bias</strong> continuum — at the target, orbiting it, away from it, or anything between (spirals) — with target sources covering another SOP, the second input, a captured rest pose, or a typed position</li>
-<li>Exploding velocity from the whole object (<strong>Centroid</strong> or <strong>Medial Axis</strong>) or a <strong>Point Source</strong>, with interactive viewport placement, a live radius sphere, an affected-piece tint, and <strong>Off Surface / Outward / Inward / Both</strong> directions</li>
-<li>Velocity inherited from animated input, and divergence-free curl turbulence with fractal detail and time evolution</li>
+<li>Six velocity types on one node — Basic, Directional, Exploding, Velocity from Motion, Curl Noise and Angular.</li>
+<li>Adjust and Mask controls on every type, plus a one-click Randomize row.</li>
+<li>Directional velocity with a Direction Bias continuum from at-target through orbit to away.</li>
+<li>Exploding velocity from the whole object or a Point Source, with interactive viewport placement.</li>
+<li>Velocity inherited from animated input.</li>
+<li>Divergence-free curl turbulence with fractal detail and time evolution.</li>
 </ul>
 <p><strong>Timed Events</strong></p>
 <ul>
-<li>Bake the setup into <strong>events</strong> at different frames and play them back as one summed timeline — create, record live, copy, sort, solo and mute</li>
-<li>Per-event <strong>Attack / Hold / Release</strong> envelopes in <strong>frames</strong>, with curve presets (on by default, switch all off to latch for RBD injection), a Drag release that visibly slows thrown pieces, and <strong>Extend to Next</strong> to hold an event until the following one opens</li>
-<li><strong>Pulse</strong> timing as an alternative to the envelope — an event repeats across a range as a <strong>Hit</strong>, <strong>Build</strong> or <strong>Wave</strong>, with its own count, easing and hold width</li>
-<li>An on-screen <strong>event timeline</strong> with per-event state markers, a stale-event warning tied to the Recall / Update editing loop, and an <strong>At Frame</strong> readout</li>
-<li><strong>Motion preview</strong> — guides and a tumbling wireframe ghost advanced to where the events predict the pieces will be — with per-event <strong>Track Motion</strong> re-aiming directional fields as pieces travel</li>
-<li>Rest-position attributes per event — with <strong>Track Motion</strong>, a later event pulls every piece back to its own captured position</li>
-<li><strong>Stagger Points</strong> per event — the points of an event arrive one at a time across its window instead of all at once, with an optional ramp to shape the distribution and an <strong>Order</strong> that leads the cascade at random, strongest or weakest first, along an axis, or by piece size</li>
-<li><strong>Injecting Now</strong> output signal for gating an RBD solver, so physics owns the pieces between impulses</li>
+<li>Bake the setup into events at different frames and play them back as one timeline.</li>
+<li>Per-event Attack / Hold / Release envelopes in frames, with curve presets.</li>
+<li>Pulse timing — Hit, Build or Wave — as an alternative to the envelope.</li>
+<li>An on-screen event timeline with per-event state markers.</li>
+<li>Motion preview — guides and a tumbling ghost advanced to where the events predict.</li>
+<li>Rest-position attributes per event.</li>
+<li>Stagger Points, with an optional ramp and a choice of order.</li>
+<li>An Injecting Now output signal for gating an RBD solver.</li>
 </ul>
 <p><strong>Mixing and output</strong></p>
 <ul>
-<li>Additive mixing with per-type gains, or weighted mixing normalized across the enabled streams, with one <strong>Master Speed</strong></li>
-<li><strong>Incoming Velocity</strong> as its own stream, on by default — nodes stack, caches survive, and in Timed Events it plays as a live base under the events</li>
-<li>Velocity output for the RBD Bullet Solver or accumulated force for POP / Vellum, with independent velocity / force attribute names</li>
-<li><strong>Injecting Now</strong> and per-event <strong>Mute Gravity</strong> signals for gating an RBD solve — gravity can stay muted <strong>until the next event, or to the end of the shot on the last one</strong>, so pieces coast instead of falling between beats while physics still owns them — plus <strong>Create Connected RBD Sim</strong> to wire a solver to both in one click</li>
-<li><strong>Scale by Piece Size</strong> — big chunks fly slower, from a mass attribute or each packed piece&#x27;s real size</li>
-<li>Speed clamping, per-stream exports, an <strong>Activation Age</strong> export (<code translate="no" v-pre>@av_age</code>, frames since an event took hold of each point) for driving shading pickup, and an output stripped of every internal attribute</li>
+<li>Additive mixing with per-type gains, or weighted mixing, under one Master Speed.</li>
+<li>Incoming Velocity as its own stream, on by default.</li>
+<li>Velocity output for the RBD Bullet Solver, or accumulated force for POP and Vellum.</li>
+<li>Per-event Mute Gravity, plus Create Connected RBD Sim to wire a solver up in one click.</li>
+<li>Scale by Piece Size, from a mass attribute or each piece&#x27;s real size.</li>
+<li>Speed clamping, per-stream exports and an Activation Age export.</li>
 </ul>
 <p><strong>Visualization</strong></p>
 <ul>
-<li>Per-type guide trails scaled by each stream&#x27;s real contribution to the mix, drawn as guide geometry that never touches the output</li>
-<li>Guide density control for heavy fractures, per-type colours and scales, and a Utilities toggle to output the guide curves themselves for rendering</li>
+<li>Per-type guide trails scaled by each stream&#x27;s real contribution to the mix.</li>
+<li>Guide density control, per-type colours and scales.</li>
+<li>A Utilities toggle to output the guide curves for rendering.</li>
 </ul>
 <hr>
 <div class="flex mb-6">
@@ -288,8 +290,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-04T13:06:02" title="2026-08-04" data-absolute-label="Last updated on 2026-08-04" data-absolute-label-html="Last updated on 2026-08-04" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-08-04
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-25T20:40:34" title="2026-08-25" data-absolute-label="Last updated on 2026-08-25" data-absolute-label-html="Last updated on 2026-08-25" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-08-25
                     </time>
                 </div>
 

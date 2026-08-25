@@ -3,7 +3,7 @@
 > Houdini digital assets and tools for artists and technical directors. Pick a product below for its documentation.
 
 - [JVtools](https://tonehammer.github.io/jvtools-docs/index.md): JVtools
-- [Reallusion Importer for Houdini](https://tonehammer.github.io/jvtools-docs/reallusion-importer/readme.md): Reallusion Importer for Houdini (v1.2.2) turns a Character Creator 5 or iClone 8 character into a fully shaded, animatable, render-ready character in Houdini's Solaris environment — in seconds instead of hours.
+- [Reallusion Importer for Houdini](https://tonehammer.github.io/jvtools-docs/reallusion-importer/readme.md): Reallusion Importer for Houdini (v1.2.3) turns a Character Creator 5 or iClone 8 character into a fully shaded, animatable, render-ready character in Houdini's Solaris environment — in seconds instead of hours.
 - [Advanced Velocity](https://tonehammer.github.io/jvtools-docs/advanced-velocity/readme.md): Welcome! Advanced Velocity (v1.1) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node.
 - [RPLidar In](https://tonehammer.github.io/jvtools-docs/rplidar-in/readme.md): Welcome! RPLidar In (v1.0) brings live Slamtec RPLIDAR point-cloud data straight into Houdini as SOP geometry. Plug in the sensor, drop the node, and every
 
@@ -34,7 +34,7 @@
 - [Limitations & Expectations](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/limitations.md): This page sets honest expectations before and after you buy. Character Creator's FBX export — and Houdini itself — impose some hard limits no importer can work around.
 - [Performance & Caching](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/performance.md): Character Creator characters are detailed, and detailed characters use memory. Here's where the cost comes from and how to keep your sessions fast and lean.
 - [Troubleshooting & FAQ](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/troubleshooting.md): Common issues and their fixes. Most import problems trace back to either an export setting or a moved file.
-- [Changelog](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/changelog.md): Fixed: on FBX import, characters whose pieces share a texture — clothing or armor sharing one atlas, or a shared eye map — no longer come in flat white.
+- [Changelog](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/changelog.md): New: Eye "Lightness (Bleach)". A new control at the top of the Eyes folder — the eyeball counterpart to the hair bleach. It brightens the final eye colour, after the iris tint, limbal ring and sclera shading, so a very dark iris or a dull sclera can be lifted rather than only re-tinted.
 - [License](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/license.md): This is the End User License Agreement for the Reallusion Importer for Houdini. By downloading, installing, or using the asset, you agree to these terms.
 
 ## Advanced Velocity

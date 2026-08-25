@@ -1,5 +1,12 @@
 # Changelog
 
+## Version 1.2.3
+
+* **New: Eye "Lightness (Bleach)".** A new control at the top of the **Eyes** folder — the eyeball counterpart to the hair bleach. It brightens the *final* eye colour, after the iris tint, limbal ring and sclera shading, so a very dark iris or a dull sclera can be lifted rather than only re-tinted. Left at its default it changes nothing, and it works in **both FBX and USD** modes. Glow and emission are unaffected.
+* **Create Skin-Fix Setup** now switches on the Skin-Fix mesh for you. Previously it built the setup but left the toggle off, so nothing appeared to happen.
+* **Skin-Fix now tells you what it's doing.** Its first cook can take a while on a heavy character, and it used to look like Houdini had frozen — the console now reports each stage and how long it took.
+* **Fixed:** on **FBX** import, characters whose pieces share a texture no longer come in flat white. (Carried over from 1.2.2, which this release supersedes.)
+
 ## Version 1.2.2
 
 * **Fixed:** on **FBX** import, characters whose pieces share a texture — clothing or armor sharing one atlas, or a shared eye map — no longer come in flat white. Character Creator writes such a map once and cross-references it from the other materials; the importer now reads the FBX's own material-to-texture links to find it, the way other DCC apps do. (USD import was never affected.)

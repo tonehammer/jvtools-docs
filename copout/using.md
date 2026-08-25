@@ -16,7 +16,7 @@ order: 80
 
 Careful with Both: the COP underneath is drawn by the viewport, which applies an approximate gamma rather than the exact sRGB curve. It's a reference view, not a grading view.
 
-!!!warning The one that confuses everybody, including the author
+!!!warning Why all three modes can look identical
 While a **copnet holds the display flag**, the 3D viewport draws its image as a card — so all three modes can look identical and it seems like the Source menu does nothing. It isn't broken. Move the display flag to a geometry SOP and Scene View starts showing your actual scene.
 !!!
 

@@ -56,6 +56,12 @@ data:
   rp:
     name: RPLidar In
     version: "1.0"
+# 🔴 A PRE-RELEASE PRODUCT GETS NO ENTRY HERE, AND NO FOLDER IN THIS REPO.
+# This repo is PUBLIC (Pages + the raw manifest URL both require it), so a
+# `visibility: hidden` section still leaks the product's name, pitch and roadmap
+# to anyone browsing github.com. Unreleased sections live in the PRIVATE
+# jvtools-internal/docs-staging/ and are copied in on the day the Gumroad
+# listing goes live. That folder's README carries the publish checklist.
 
 # Analytics. Uncomment ONE and fill in the id - see the setup notes in
 # CLAUDE.md. Plausible is the privacy-preserving option and needs no cookie

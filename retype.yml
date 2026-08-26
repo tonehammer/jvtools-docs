@@ -20,20 +20,33 @@ branding:
   title: JVtools
   label: Docs
 
-# Top navigation (header links). Add one entry per product as the family grows.
+# Top navigation (header links). Products live in a DROPDOWN, not as flat entries.
+# 🔴 A flat entry per product does not scale, and the ceiling is lower than it looks:
+# measured on the live DOM, five flat items need ~1350px of header. Below that the
+# container overflows the viewport and clips the theme and history buttons off the
+# right edge - 85px over at 1280, and a 1366 laptop sits right on the line. Retype
+# supports nested `items:` one level deep, so the whole family fits in one menu and a
+# new product is a line in it rather than a width problem.
+# ⚠ Keep the members in the same order as the sidebar.
 links:
-  - text: Products
+  - text: Home
     link: /
     icon: home
-  - text: Reallusion Importer
-    link: /reallusion-importer/
-    icon: person
-  - text: RPLidar In
-    link: /rplidar-in/
-    icon: broadcast
-  - text: COPout
-    link: /copout/
-    icon: device-desktop
+  - text: Products
+    icon: package
+    items:
+      - text: Reallusion Importer
+        link: /reallusion-importer/
+        icon: person
+      - text: Advanced Velocity
+        link: /advanced-velocity/
+        icon: zap
+      - text: RPLidar In
+        link: /rplidar-in/
+        icon: broadcast
+      - text: COPout
+        link: /copout/
+        icon: device-desktop
 
 # Git-backed freshness stamp at the foot of every page. Needs full git history
 # at build time - the deploy workflow already checks out with fetch-depth: 0,

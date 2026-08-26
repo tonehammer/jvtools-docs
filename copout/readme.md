@@ -47,6 +47,6 @@ COPout does not modify the geometry a COP Network emits — it passes it straigh
 
 - [Getting started](getting-started.md)
 - [Using COPout](using.md)
-- [Parameter reference](parameters.md)
-- [Changelog](changelog.md)
-- [License](license.md)
+- [Parameter reference](reference/parameters.md)
+- [Changelog](reference/changelog.md)
+- [License](reference/license.md)

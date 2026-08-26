@@ -1,6 +1,6 @@
 # Using RPLidar In
 
-This page walks through the three modes, the two outputs, the on-screen guides, cropping, recording, and driving a live simulation. For a flat list of every control, see the [Parameter Reference](parameters.md).
+This page walks through the three modes, the two outputs, the on-screen guides, cropping, recording, and driving a live simulation. For a flat list of every control, see the [Parameter Reference](reference/parameters.md).
 
 ## Modes
 

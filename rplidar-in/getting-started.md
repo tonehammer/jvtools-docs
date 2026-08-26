@@ -69,7 +69,7 @@ Display the node in the viewport. The motor spins up over about two seconds, the
 On an open desk, most laser returns hit nothing in range and come back **invalid** — filtered out before they reach you. More than half of every rotation can be empty. Point the sensor at a wall to see a dense arc. See [Modes → invalid returns](using.md#a-note-on-invalid-returns).
 !!!
 
-If nothing appears, press **Test Sensor** to print the sensor's identity, health, and available scan modes to the console, then check [Troubleshooting](troubleshooting.md).
+If nothing appears, press **Test Sensor** to print the sensor's identity, health, and available scan modes to the console, then check [Troubleshooting](reference/troubleshooting.md).
 
 ## Set your working scale
 
@@ -92,4 +92,4 @@ A serial port can only be opened by one process. If Houdini can't open the senso
 * Learn every mode and control → [Using RPLidar In](using.md).
 * Develop without the sensor connected → [Recording & Playback](using.md#recording-and-playback).
 * Drive a simulation from the live points → [Live Simulation](using.md#live-simulation).
-* Something not working → [Troubleshooting](troubleshooting.md).
+* Something not working → [Troubleshooting](reference/troubleshooting.md).

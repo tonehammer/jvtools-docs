@@ -6,11 +6,11 @@ Every parameter on the RPLidar In node, grouped as it appears in the interface. 
 
 | Parameter | Name | Description |
 | --- | --- | --- |
-| Mode | `mode` | Off / Live / Playback. The master switch. See [Modes](using.md#modes). |
+| Mode | `mode` | Off / Live / Playback. The master switch. See [Modes](../using.md#modes). |
 | Pre-Rotate | `prerotate` | Spins the whole scan about the sensor, in degrees, so a physically-angled sensor lines up with your scene. Applied first, so Crop, tracking and the guides all follow. Turns the same way as Crop **Rotation**. |
-| Create Control Null | `createnull` | Creates the master runtime-control null for this sensor (one per node) — Start / Stop / Reset buttons plus a Solvers list. See [Live Simulation](using.md#live-simulation). |
-| Create Generic POP Network | `createpop` | Builds a ready-to-run POP network wired to the solver-ready output, and registers it on the control null. See [Live Simulation](using.md#live-simulation). |
-| Use Recipe | `use_recipe` | Enables the recipe controls below. See [Recipes](using.md#recipes). |
+| Create Control Null | `createnull` | Creates the master runtime-control null for this sensor (one per node) — Start / Stop / Reset buttons plus a Solvers list. See [Live Simulation](../using.md#live-simulation). |
+| Create Generic POP Network | `createpop` | Builds a ready-to-run POP network wired to the solver-ready output, and registers it on the control null. See [Live Simulation](../using.md#live-simulation). |
+| Use Recipe | `use_recipe` | Enables the recipe controls below. See [Recipes](../using.md#recipes). |
 | Recipe File | `recipefile` | A recipe `.py` file — a whole downstream network (sim + look). None ship with 1.0; point this at your own. |
 | Generate Recipe | `recipegen` | Builds the picked recipe file next to the node and registers its sims on the control null. |
 
@@ -32,8 +32,8 @@ Every parameter on the RPLidar In node, grouped as it appears in the interface. 
 | Center | `cropcenter` | Rectangle center on the ground (X, Z), relative to the sensor. |
 | Size | `cropsize` | Rectangle extent along X and Z. Default 26 × 26 (the sensor's 16 m range spans 32 × 32). |
 | Rotation | `croprot` | Rotation of the rectangle about the sensor's vertical axis. |
-| Edit Crop in Viewport | `editcrop` | Enter the interactive crop handle — drag the sides to resize, body to move, ring to rotate. See [Crop](using.md#crop). |
-| Fit to COP Space | `copfit` | Remap the output onto a default Copernicus canvas: the crop becomes −1 to +1 across X, centred on the sensor, rotation undone, and the ground plane stood up into XY. Off by default. See [Feeding a Copernicus network](using.md#feeding-a-copernicus-network). |
+| Edit Crop in Viewport | `editcrop` | Enter the interactive crop handle — drag the sides to resize, body to move, ring to rotate. See [Crop](../using.md#crop). |
+| Fit to COP Space | `copfit` | Remap the output onto a default Copernicus canvas: the crop becomes −1 to +1 across X, centred on the sensor, rotation undone, and the ground plane stood up into XY. Off by default. See [Feeding a Copernicus network](../using.md#feeding-a-copernicus-network). |
 | COP Network | `copnetpath` | The Copernicus network this sensor feeds. Used only by Snap Crop to COP — it is not a cook dependency. |
 | Snap Crop to COP | `snapcrop` | Set the crop's Size Z from the COP canvas's aspect, so the crop and the canvas are the same shape. Size X is left alone. |
 
@@ -41,12 +41,12 @@ Every parameter on the RPLidar In node, grouped as it appears in the interface. 
 
 | Parameter | Name | Description |
 | --- | --- | --- |
-| Create Orthographic Camera | `makecam` | Create (or retarget) a top-down orthographic camera looking down at the sensor, up = +X. One per node. See [Camera](using.md#camera). |
+| Create Orthographic Camera | `makecam` | Create (or retarget) a top-down orthographic camera looking down at the sensor, up = +X. One per node. See [Camera](../using.md#camera). |
 | Camera to Crop | `camtocrop` | Move and zoom that camera to frame the current Crop rectangle. |
 
 ## Tracking
 
-Cluster the scan into blobs and follow them across frames. See [Blob tracking](using.md#blob-tracking).
+Cluster the scan into blobs and follow them across frames. See [Blob tracking](../using.md#blob-tracking).
 
 | Parameter | Name | Description |
 | --- | --- | --- |
@@ -88,7 +88,7 @@ Cluster the scan into blobs and follow them across frames. See [Blob tracking](u
 | Sensor Size (m) | `vizsensor` | Diameter of the origin sphere, in real meters. |
 | Connect Points | `vizrays` | Draw a line from the sensor to each scan point (the beam fan). Off by default. |
 | Ray Color | `vizraycolor` | Color of the connecting rays. |
-| Store as Cd | `attrcd` | Bake the attribute colors below into `Cd` so they travel downstream. Off = the colors are shown for visualization only. See [Attribute color](using.md#attribute-color). |
+| Store as Cd | `attrcd` | Bake the attribute colors below into `Cd` so they travel downstream. Off = the colors are shown for visualization only. See [Attribute color](../using.md#attribute-color). |
 | Angle (enable) | `angle_enable` | Color the scan points by their `angle` attribute. |
 | Angle Range | `angle_range` | Attribute value range mapped onto the Angle ramp (outside clamped). |
 | Angle Ramp | `angle_ramp` | Color across the remapped angle range. |
@@ -99,7 +99,7 @@ Cluster the scan into blobs and follow them across frames. See [Blob tracking](u
 | Show Static Map | `mapshow` | Overlay the baked static map. |
 | Map Color | `mapcolor` | Color of the baked map marks. |
 
-See [Visualization](using.md#visualization) and [Attribute color](using.md#attribute-color).
+See [Visualization](../using.md#visualization) and [Attribute color](../using.md#attribute-color).
 
 ## Utilities
 

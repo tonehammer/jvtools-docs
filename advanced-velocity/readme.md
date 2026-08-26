@@ -41,5 +41,5 @@ Anyone who sets up FLIP, Pyro, Vellum, POP or RBD simulations in Houdini and is 
 1. [Getting Started](getting-started.md) — install the asset and author your first velocity.
 2. [Using Advanced Velocity](using.md) — the six velocity types, the mixer, the output, and the visualization.
 3. [Timed Events](timed-events.md) — the event workflow: baking, envelopes, the timeline, and driving an RBD solve.
-4. [Parameter Reference](parameters.md) — every parameter, grouped as it appears in the interface.
-5. [Troubleshooting](troubleshooting.md) — when the result isn't what you expected.
+4. [Parameter Reference](reference/parameters.md) — every parameter, grouped as it appears in the interface.
+5. [Troubleshooting](reference/troubleshooting.md) — when the result isn't what you expected.

@@ -21,7 +21,7 @@ At the top of the node is an **Import** dropdown. Leave it on **USD** (the defau
 
 Then set the file field the dropdown shows — **CC5/iClone USD** or **CC5/iClone FBX** — to your exported file.
 
-![](../static/elysse-FBX-filepath.png)
+![](../static/elysse-fbx-filepath.png)
 
 Keep your character's textures beside its file, exactly as Character Creator exports them — a `Materials` folder next to the `.usd`, or a `textures` folder next to the `.fbx`. The tool resolves them relative to the character file.
 

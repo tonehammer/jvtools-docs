@@ -18,7 +18,7 @@ Every simulation in Houdini starts with velocity, and getting it right normally 
 
 ![Velocity guides on a fractured object](static/hero.png)
 
-![](static/pasted-20260808115616.png)
+![The Timed Events panel and the Velocity Mixer tab](static/timed-events-panel.png)
 
 ## What it does for you
 

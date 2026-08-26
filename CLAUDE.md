@@ -133,7 +133,7 @@ deployed site**, and do not conclude the YAML is wrong from a local build.
   🔴 **Retype hardcodes `og:image:width`/`height` to 1200x630 regardless of the
   real file**, so a social image of any other size ships wrong dimensions to
   every platform reading those tags. **Make them exactly 1200x630** — the
-  cover generator (`Advanced Velocity/business-and-marketing/covers/`) has a
+  cover generator (`jvtools-internal/tools/covers/`) has a
   `social` preset for this.
 - **`lastUpdated`** — git-backed date footer, **Pro**. Needs full history at
   build time; the deploy workflow already checks out with `fetch-depth: 0`.

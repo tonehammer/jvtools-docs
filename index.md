@@ -10,6 +10,8 @@ Houdini digital assets and tools for artists and technical directors. Pick a pro
 
 [!card title="Advanced Velocity" image="/advanced-velocity/static/card.jpg" text="Author @v for simulations on one node — fixed, directional, exploding and angular velocity, with matching Adjust and Mask controls and interactive blast placement for fractured RBD."](/advanced-velocity/README.md)
 
+[!card title="COPout" image="/copout/static/card.png" text="Put a Copernicus network on a projector or a second screen as a borderless, chrome-free output window — any screen, any fit, with alignment, flips and an output grade saved in the scene."](/copout/README.md)
+
 ---
 
 More tools coming. Each product has its own section with a full guide, parameter reference, and troubleshooting.

@@ -1,9 +1,5 @@
 # COPout
 
-!!!warning Pre-release
-These docs cover **COPout 1.0**, which is not on sale yet — the download does not exist and the store link goes to a draft listing. This section is deliberately kept out of the site navigation until release. Delete this block and the `visibility: hidden` frontmatter then.
-!!!
-
 <p style="text-align:center; margin:0 0 1.5rem;"><a href="https://jvtonehammer.gumroad.com/l/copout_hda"><strong>Get it on Gumroad →</strong></a></p>
 
 Welcome! **COPout** (v1.0) puts a Copernicus network on a projector or a second screen as a borderless, chrome-free output window — no menu bars, no toolbars, nothing of Houdini in the way.

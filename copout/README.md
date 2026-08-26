@@ -1,7 +1,6 @@
 ---
 icon: static/copout_icon.svg
 order: 90
-visibility: hidden
 image: static/social.png
 ---
 
@@ -10,10 +9,6 @@ image: static/social.png
 <!-- `image:` sets og:image for link previews. Retype HARDCODES og:image:width/height
      to 1200x630 whatever the real file is, so social.png is exactly 1200x630.
      Without it the share card is blank — this page has no body image to fall back on. -->
-
-!!!warning Pre-release
-These docs cover **COPout 1.0**, which is not on sale yet — the download does not exist and the store link goes to a draft listing. This section is deliberately kept out of the site navigation until release. Delete this block and the `visibility: hidden` frontmatter then.
-!!!
 
 <p style="text-align:center; margin:0 0 1.5rem;"><a href="https://jvtonehammer.gumroad.com/l/copout_hda"><strong>Get it on Gumroad →</strong></a></p>
 

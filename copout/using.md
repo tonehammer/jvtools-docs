@@ -1,4 +1,5 @@
 ---
+icon: device-desktop
 order: 80
 ---
 

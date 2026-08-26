@@ -52,7 +52,7 @@ If you're brand new, read these two pages in order:
 1. [Getting Started](getting-started.md) — install the asset, connect the hardware, and see your first scan.
 2. [Using RPLidar In](using.md) — modes, outputs, visualization, crop, recording, and live simulation.
 
-After that, the [Parameter Reference](parameters.md) covers every control, and [Troubleshooting](troubleshooting.md) collects the fixes for common problems.
+After that, the [Parameter Reference](reference/parameters.md) covers every control, and [Troubleshooting](reference/troubleshooting.md) collects the fixes for common problems.
 
 ## Quick tour
 

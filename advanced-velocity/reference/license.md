@@ -1,23 +1,23 @@
 ---
 icon: law
-order: 50
+order: 60
 ---
 
 # License
 
-This is the End User License Agreement for **COPout**. By downloading, installing, or using the asset, you agree to these terms.
+This is the End User License Agreement for **Advanced Velocity**. By downloading, installing, or using the asset, you agree to these terms.
 
 !!!info Plain-language tl;dr
-(The full terms below govern.) You get a single-user license to use the asset on machines you control, for your own personal and commercial projects. Images, recordings and other output you create with it are yours, royalty-free. Your purchase includes all future updates to this product. The asset ships unlocked so you can open it up and learn from it — but you may not redistribute, resell, or share it, modified or otherwise. It's provided as-is with no warranty, and you're responsible for your own SideFX license compliance.
+(The full terms below govern.) You get a single-user license to use the asset on machines you control, for your own personal and commercial projects. Simulations, caches, and renders you create with it are yours, royalty-free. Your purchase includes all future updates to this product. The asset ships unlocked so you can open it up and learn from it — but you may not redistribute, resell, or share it, modified or otherwise. It's provided as-is with no warranty, and you're responsible for your own SideFX license compliance.
 !!!
 
 ---
 
-**COPout — End User License Agreement**
+**Advanced Velocity — End User License Agreement**
 
-Last updated: 25/08/2026
+Last updated: 21/07/2026
 
-This License Agreement ("Agreement") is a legal agreement between you (the "User") and tonehammer ("Author") for the Houdini Digital Asset known as "COPout" and any accompanying files, documentation, and resources (collectively, the "Asset").
+This License Agreement ("Agreement") is a legal agreement between you (the "User") and tonehammer ("Author") for the Houdini Digital Asset known as "Advanced Velocity" and any accompanying files, documentation, and resources (collectively, the "Asset").
 
 By downloading, installing, or using the Asset, you agree to be bound by the terms of this Agreement. If you do not agree, do not download, install, or use the Asset.
 
@@ -29,8 +29,8 @@ The Author grants you a non-exclusive, non-transferable license to use the Asset
 
 You may:
 
-* Use the Asset to display Copernicus networks and 3D viewports in your own personal or commercial projects, including live performances and installations.
-* Use images, recordings, animations, and other final output created with or displayed through the Asset freely, including commercially, with no royalty owed to the Author.
+* Use the Asset to author velocity for simulations in your own personal or commercial projects.
+* Use simulations, caches, images, animations, and other final output created with the Asset freely, including commercially, with no royalty owed to the Author.
 * Install the Asset on multiple machines that you personally own or control.
 * Open the Asset and inspect how it works. It is deliberately shipped unlocked rather than black-boxed, so you can learn from it and adapt its behaviour inside your own scenes.
 

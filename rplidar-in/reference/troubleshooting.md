@@ -1,6 +1,6 @@
 ---
 icon: bug
-order: 70
+order: 80
 ---
 
 # Troubleshooting
@@ -32,13 +32,13 @@ The motor runs independently of Houdini once started. Stop it by unplugging the 
 
 ## Guides ended up in my simulation
 
-You fed the solver from **Output 0** (Points & Guides). Switch to **Output 1** (Points), which strips the `rplidar_viz` guide geometry. Or turn off the Visualize guides, or delete the `rplidar_viz` group downstream. See [Outputs and Attributes](using.md#outputs-and-attributes).
+You fed the solver from **Output 0** (Points & Guides). Switch to **Output 1** (Points), which strips the `rplidar_viz` guide geometry. Or turn off the Visualize guides, or delete the `rplidar_viz` group downstream. See [Outputs and Attributes](../using.md#outputs-and-attributes).
 
 ## Tracking locks onto furniture instead of the hand
 
 Almost always the missing background bake. A real room clusters into 7–11 blobs per scan, and the largest is usually a chair or a wall corner — Single mode is picking the biggest thing present, which is working as designed and isn't what you wanted.
 
-Go **Live**, clear the interaction area completely, press **Bake Background**, then turn on **Subtract Background**. If it still wanders, tighten **Blob Size min/max** (a hand is roughly 0.05–0.15 m) — that throws out room geometry before clustering ever has to choose. See [Background subtraction](using.md#background-subtraction).
+Go **Live**, clear the interaction area completely, press **Bake Background**, then turn on **Subtract Background**. If it still wanders, tighten **Blob Size min/max** (a hand is roughly 0.05–0.15 m) — that throws out room geometry before clustering ever has to choose. See [Background subtraction](../using.md#background-subtraction).
 
 ## Tracking sees nothing at all after a background bake
 

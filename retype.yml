@@ -60,8 +60,9 @@ lastUpdated:
 # Reference as {{ av.version }} etc. so a release bumps ONE line here instead
 # of each product page separately.
 # 🔴 These are the DOCS versions (the changelog is their source of truth).
-# versions/<slug>.json is a SEPARATE signal feeding the HDAs' in-app update
-# check, and it deliberately lags on patch releases - do not sync them blindly.
+# versions/<slug>.json feeds the HDAs' in-app update check. It used to be allowed
+# to lag on a patch; that ended 2026-08-26 (Jovan: full version everywhere), so
+# the two now carry the SAME number and any disagreement is drift to fix.
 data:
   av:
     name: Advanced Velocity

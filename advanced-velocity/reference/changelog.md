@@ -1,6 +1,6 @@
 ---
 icon: history
-order: 60
+order: 70
 ---
 
 # Changelog

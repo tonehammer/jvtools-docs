@@ -1,6 +1,6 @@
 {
   "product": "Reallusion Importer for Houdini",
-  "latest": "1.2",
+  "latest": "1.2.3",
   "url": "https://jvtonehammer.gumroad.com/l/reallusionimporterforhoudini",
-  "notes": "New USD import mode: dramatically faster and lighter on memory, with Character Creator's real eye and skin shader values applied automatically. Plus bug fixes and improvements."
+  "notes": "New Eye Lightness (Bleach) control, Create Skin-Fix Setup now switches the Skin-Fix mesh on, and a fix for FBX characters sharing a texture importing flat white."
 }

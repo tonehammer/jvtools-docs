@@ -8,7 +8,12 @@ image: static/social.png
 
 <!-- `image:` sets og:image for link previews. Retype HARDCODES og:image:width/height
      to 1200x630 whatever the real file is, so social.png is exactly 1200x630.
-     Without it the share card is blank — this page has no body image to fall back on. -->
+     Keep it even though the page now has a body image: the fallback would pick
+     the icon strip below, which is not a share card. -->
+
+<div style="text-align:center; background:#0d1117; border-radius:16px; padding:2.5rem 1rem; margin:0.5rem 0 1.5rem;">
+  <img src="static/copout_icon.svg" alt="COPout" width="150" style="max-width:60%;">
+</div>
 
 <p style="text-align:center; margin:0 0 1.5rem;"><a href="https://jvtonehammer.gumroad.com/l/copout_hda"><strong>Get it on Gumroad →</strong></a></p>
 

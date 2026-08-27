@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.841183614261">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.841184617814">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Using Deoverlap Polylines</title>
     <meta name="title" content="Using Deoverlap Polylines">
-    <meta name="description" content="The node has two tabs and three folders, and most of the time you'll only touch two sliders. This page goes through them in panel order, and ends with the handful of things that look like bugs and aren't.">
+    <meta name="description" content="Most of the time you'll touch two sliders. This goes through the panel in order.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://tonehammer.github.io/jvtools-docs/deoverlap-polylines/using/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/deoverlap-polylines/using/">
     <meta property="og:title" content="Using Deoverlap Polylines">
-    <meta property="og:description" content="The node has two tabs and three folders, and most of the time you'll only touch two sliders. This page goes through them in panel order, and ends with the handful of things that look like bugs and aren't.">
+    <meta property="og:description" content="Most of the time you'll touch two sliders. This goes through the panel in order.">
     <meta property="og:site_name" content="JVtools">
     <meta property="og:locale" content="en_US">
 
@@ -31,7 +31,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/deoverlap-polylines/using/">
     <meta name="twitter:title" content="Using Deoverlap Polylines">
-    <meta name="twitter:description" content="The node has two tabs and three folders, and most of the time you'll only touch two sliders. This page goes through them in panel order, and ends with the handful of things that look like bugs and aren't.">
+    <meta name="twitter:description" content="Most of the time you'll touch two sliders. This goes through the panel in order.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://tonehammer.github.io/jvtools-docs/deoverlap-polylines/using.md">
@@ -39,11 +39,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.6.0.841183614261" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.841184617814" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.841183614261" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.841184617814" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.841183614261" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.841184617814" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -323,44 +323,46 @@
 
                 <!-- Page content  -->
 <h1 id="using-deoverlap-polylines">Using Deoverlap Polylines</h1>
-<p>The node has two tabs and three folders, and most of the time you&#x27;ll only touch two sliders. This page goes through them in panel order, and ends with the handful of things that look like bugs and aren&#x27;t.</p>
+<p>Most of the time you&#x27;ll touch two sliders. This goes through the panel in order.</p>
 <h2 id="push">Push</h2>
-<p>This is where you&#x27;ll spend your time.</p>
-<p><strong>Push Amount</strong> is the total separation at a crossing — the whole gap, not the distance each curve moves. <strong>Push Symmetry</strong> decides how it&#x27;s shared: at 1 both curves move half the distance, which reads as a real over/under; at 0 one curve moves the whole way and the other stays exactly as you drew it. That second one is genuinely useful when one set of curves is the thing you care about and the other is free to move. Either way the total gap is the same.</p>
-<p><strong>Push Radius</strong> is how far along the curves the push reaches from each crossing. Here&#x27;s the part worth understanding: it&#x27;s measured as a fraction of the <strong>average distance between crossings</strong>, not in point counts. That&#x27;s deliberate, and it&#x27;s what makes one default hold from a four-points-per-curve grid to a hundred-point one. Around 0.5 reaches halfway to the neighbouring crossing and gives a smooth weave. Push past 1 and neighbouring pushes start overlapping and partly cancelling, so the gap you actually get shrinks.</p>
-<p>Careful with this one: where crossings genuinely sit closer together than Push Radius, the separation you get is <em>less</em> than Push Amount. That blending is exactly what makes a woven grid undulate instead of step, so it&#x27;s a feature — but it does mean the number on the slider is a ceiling rather than a promise.</p>
-<p><strong>Push Core</strong> widens the flat top around each crossing before the falloff starts. Zero gives a smooth peak; raise it and the weave reads squarer and more stepped.</p>
+<p><strong>Push Amount</strong> is the total gap at a crossing, not the distance each curve moves. <strong>Push Symmetry</strong> shares it: at 1 both curves move half, at 0 one curve moves the whole way and the other stays exactly as you drew it — useful when one set is the thing you care about.</p>
+<p><strong>Push Radius</strong> is how far the push reaches along the curves from each crossing, measured as a fraction of the <strong>average distance between crossings</strong> rather than in points. That&#x27;s what makes one default hold from a four-point curve to a hundred-point one. Around 0.5 gives a smooth weave.</p>
+<p>Careful with this one: where crossings sit closer together than Push Radius, neighbouring pushes blend and partly cancel, so you get <em>less</em> separation than Push Amount asks for. That blending is what makes a weave undulate instead of step — but it means the slider is a ceiling, not a promise. Lower Push Radius if you want the full gap.</p>
+<p><strong>Push Core</strong> widens the flat top around each crossing. Zero is a smooth peak; raise it and the weave reads squarer.</p>
 <h3 id="push-along">Push Along</h3>
-<p>Leave this on <strong>Automatic</strong>. It takes the tangent of each curve at the crossing and pushes along the axis perpendicular to both — correct per crossing, no setup, and the only mode that stays correct on curves that wander in 3D.</p>
-<p>The rest are there for when you <em>want</em> everything moving along one fixed direction: <strong>Curve Normal</strong> pushes sideways relative to the first curve, and <strong>Up Vector</strong> / <strong>X</strong> / <strong>Y</strong> / <strong>Z</strong> push along a direction you name. On flat curves they&#x27;re all fine. On 3D curves they&#x27;ll look wrong at some crossings, which is the whole reason Automatic is the default.</p>
+<p>Leave this on <strong>Automatic</strong> — it takes both curves&#x27; tangents at the crossing and pushes perpendicular to both, which is the only mode that stays correct on curves that wander in 3D. The others (Curve Normal, Up Vector, X/Y/Z) push everything along one fixed direction. Fine on flat curves, wrong at some crossings on 3D ones.</p>
 <h3 id="overunder-pattern">Over/Under Pattern</h3>
-<p><strong>Alternating</strong> swaps over and under at every crossing along both curves, which is what produces the weave. It&#x27;s decided from each crossing&#x27;s position along its own curves, so it doesn&#x27;t depend on the order your curves happen to be in — that&#x27;s why a grid comes out as a proper checkerboard rather than something that looks almost right.</p>
-<p><strong>By Curve Order</strong> puts the lower-numbered curve over every time, so the curves read as stacked layers. Reach for it when you want a clear front-to-back rather than a weave.</p>
+<p><strong>Alternating</strong> swaps over and under at every crossing, which is what produces the weave. It&#x27;s decided from each crossing&#x27;s position along its own curves, so it doesn&#x27;t depend on the order your curves happen to be in. <strong>By Curve Order</strong> puts the lower-numbered curve over every time, for stacked layers rather than a weave.</p>
 <h2 id="crossings">Crossings</h2>
-<p>Everything about <em>finding</em> the crossings. When the node appears to be doing nothing, the answer is nearly always in here.</p>
-<p><strong>Initial Resample</strong> densifies the curves before the analysis. It&#x27;s off by default and most inputs don&#x27;t need it — crossing detection doesn&#x27;t care about point count. Reach for it when your curves are so coarse that a crossing falls between points. It&#x27;s also what makes NURBS and Bezier input work, since resampling converts them to polylines.</p>
-<p><strong>Split Shared Points</strong> is on by default and should stay that way. See the note in <a href="../getting-started/">Getting started</a> for why a Grid SOP needs it.</p>
-<p><strong>Intersect Mode</strong> chooses between every curve against every other, or only <strong>Group A</strong> against <strong>Group B</strong> — for when one set of curves should move around another. Leaving both group fields empty behaves exactly like All.</p>
-<p><strong>Proximity Tolerance</strong> is how close two curves have to come to count as crossing, in multiples of the average spacing between points. On flat curves it barely matters — they genuinely intersect. <strong>On curves that wander in 3D it matters more than anything else on the node</strong>, because two skew segments essentially never intersect exactly, so this is the setting that decides whether there&#x27;s a crossing there at all. If a 3D curve set comes out barely touched, raise this first.</p>
-<p><strong>Snap Intersecting Points</strong> merges crossings that land near each other into one, so a near-tangential pass doesn&#x27;t register as a cluster of separate crossings all pushing at once.</p>
+<p>Everything about <em>finding</em> the crossings. When the node seems to be doing nothing, the answer is nearly always in here.</p>
+<p><strong>Proximity Tolerance</strong> is how close two curves must come to count as crossing. On flat curves it barely matters. <strong>On 3D curves it matters more than anything else on the node</strong> — two skew segments essentially never intersect exactly, so this decides whether there&#x27;s a crossing there at all. If a 3D curve set comes out barely touched, raise this first.</p>
+<p><strong>Split Shared Points</strong> is on by default and should stay on: a Grid SOP&#x27;s rows and columns share a point at every junction, and a shared point can&#x27;t move two ways. It&#x27;s also why a welded lattice comes out with more points than it went in with.</p>
+<p><strong>Initial Resample</strong> densifies the curves first. Off by default and rarely needed — but it&#x27;s what makes NURBS and Bezier input work, since it converts them to polylines. Without it they pass straight through untouched.</p>
+<p><strong>Intersect Mode</strong> chooses every curve against every other, or only <strong>Group A</strong> against <strong>Group B</strong>. <strong>Snap Intersecting Points</strong> merges crossings that land near each other, so a near-tangential pass doesn&#x27;t register as a cluster.</p>
 <h2 id="visualization">Visualization</h2>
-<p>Both of these draw as guide geometry — visible only while this node is current, never in the output stream.</p>
-<p><strong>Visualize Intersection Points</strong> is the diagnostic. <strong>Visualize Push Weight</strong> colours the curves by how much push each point received, which is the quickest way to see what Push Radius and Push Core are actually doing.</p>
+<p><strong>Visualize Intersection Points</strong> shows what the node found; <strong>Visualize Push Weight</strong> colours the curves by how much push each point got, which is the quickest way to see what Push Radius is doing.</p>
+<p>Both draw as guide geometry, so they&#x27;re visible only while this node is current and never enter the output. That&#x27;s also the answer when the spheres vanish as you select another node.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>The node can&#x27;t tell you when it found nothing</h5>
+<p>An HDA cannot raise a warning on itself — Houdini only propagates interior <em>errors</em>, and erroring on &quot;no crossings&quot; would break your chain over a perfectly reasonable input. Turn on the intersection spheres; that&#x27;s the readout.</p>
+        </div>
+    </div>
+</div>
 <h2 id="utilities">Utilities</h2>
-<p><strong>Output Deintersect Attribute</strong> keeps the <code translate="no" v-pre>deintersect</code> point attribute on the output — a 0 to 1 weight of how much each point was pushed. Off by default, so the node leaves nothing behind in your geometry. Turn it on if you want to drive something downstream off the push.</p>
-<p><strong>Check for Updates</strong> asks whether a newer version is on Gumroad. It reads a small version file and sends nothing anywhere.</p>
-<p>The four buttons below it open the store page, these docs, the Discord and the YouTube channel.</p>
-<h2 id="things-that-look-wrong-and-arent">Things that look wrong and aren&#x27;t</h2>
-<ul>
-<li><strong>The intersection spheres disappear when you select another node.</strong> They&#x27;re guide geometry, which only draws while this node is current. That&#x27;s what keeps the output clean.</li>
-<li><strong>The tolerances look absurdly small.</strong> They are. The tool normalises your geometry into a fixed box before working on it, so a tolerance is a fraction of your input&#x27;s bounding box, not a world-space distance. That&#x27;s what makes the defaults work at any scale.</li>
-<li><strong>A Grid SOP in Rows and Columns does nothing with Split Shared Points off.</strong> It can&#x27;t — the curves are welded, and a shared point can&#x27;t move two ways.</li>
-<li><strong>NURBS or Bezier curves pass straight through.</strong> Turn on Initial Resample, or put a Convert SOP in front.</li>
-<li><strong>The gap is smaller than Push Amount.</strong> Your crossings are closer together than Push Radius, so neighbouring pushes are blending. Lower Push Radius if you want the full separation.</li>
-<li><strong>Nothing happens at all on 3D curves.</strong> Raise Proximity Tolerance. Two skew segments almost never intersect exactly, so with a tight tolerance there is genuinely nothing there to find.</li>
-<li><strong>The output has more points than the input.</strong> Only on a welded lattice, and only because each shared point had to become one point per curve. That&#x27;s the price of separating joined curves.</li>
-<li><strong>The node says nothing when there&#x27;s nothing to do.</strong> It can&#x27;t. An HDA cannot raise a warning on itself — Houdini only propagates interior <em>errors</em>, and erroring on &quot;no crossings found&quot; would break your chain over a perfectly reasonable input. Turn on the intersection spheres instead; that&#x27;s the readout.</li>
-</ul>
+<p><strong>Output Deintersect Attribute</strong> keeps the <code translate="no" v-pre>deintersect</code> point attribute — a 0–1 weight of how much each point moved — for driving something downstream. Off by default, so the node leaves nothing behind.</p>
+<p><strong>Check for Updates</strong> asks whether a newer version is on Gumroad. The four buttons below open the store page, these docs, the Discord and the YouTube channel.</p>
 <div id="retype-backlinks">
     <h2>See also</h2>
 <div class="card-compact-group">
@@ -371,7 +373,7 @@
                 <span class="card-compact-icon inline-flex shrink-0"><img width="20" height="20" src="static/deoverlap-polylines_icon.svg"></span>
                 <span class="card-compact-title">Deoverlap Polylines</span>
             </div>
-            <p class="card-compact-description">Deoverlap Polylines (v1.0) finds where your curves cross each other and pushes them apart at those crossings, so a tangle reads as separate strands.</p>
+            <p class="card-compact-description">Deoverlap Polylines (v1.0) finds where your curves cross and pushes them apart at the crossings, so a tangle reads as separate strands. Hair, fibres, cables, stitched lines, a grid of rows and columns.</p>
         </div>
     </a>
 </div>
@@ -390,8 +392,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-27T18:48:16" title="2026-08-27" data-absolute-label="Last updated on 2026-08-27" data-absolute-label-html="Last updated on 2026-08-27" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-08-27
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-28T00:23:16" title="2026-08-28" data-absolute-label="Last updated on 2026-08-28" data-absolute-label-html="Last updated on 2026-08-28" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-08-28
                     </time>
                 </div>
 

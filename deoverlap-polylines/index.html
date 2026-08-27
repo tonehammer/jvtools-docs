@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.841183614261">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.841184617814">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Deoverlap Polylines</title>
     <meta name="title" content="Deoverlap Polylines">
-    <meta name="description" content="Deoverlap Polylines (v1.0) finds where your curves cross each other and pushes them apart at those crossings, so a tangle reads as separate strands.">
+    <meta name="description" content="Deoverlap Polylines (v1.0) finds where your curves cross and pushes them apart at the crossings, so a tangle reads as separate strands. Hair, fibres, cables, stitched lines, a grid of rows and columns.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://tonehammer.github.io/jvtools-docs/deoverlap-polylines/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/deoverlap-polylines/">
     <meta property="og:title" content="Deoverlap Polylines">
-    <meta property="og:description" content="Deoverlap Polylines (v1.0) finds where your curves cross each other and pushes them apart at those crossings, so a tangle reads as separate strands.">
+    <meta property="og:description" content="Deoverlap Polylines (v1.0) finds where your curves cross and pushes them apart at the crossings, so a tangle reads as separate strands. Hair, fibres, cables, stitched lines, a grid of rows and columns.">
     <meta property="og:image" content="https://tonehammer.github.io/jvtools-docs/deoverlap-polylines/static/social.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -35,7 +35,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/deoverlap-polylines/">
     <meta name="twitter:title" content="Deoverlap Polylines">
-    <meta name="twitter:description" content="Deoverlap Polylines (v1.0) finds where your curves cross each other and pushes them apart at those crossings, so a tangle reads as separate strands.">
+    <meta name="twitter:description" content="Deoverlap Polylines (v1.0) finds where your curves cross and pushes them apart at the crossings, so a tangle reads as separate strands. Hair, fibres, cables, stitched lines, a grid of rows and columns.">
     <meta name="twitter:image" content="https://tonehammer.github.io/jvtools-docs/deoverlap-polylines/static/social.png">
     <meta name="twitter:image:alt" content="Deoverlap Polylines">
 
@@ -45,11 +45,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../static/favicon.png" />
-    <link href="../resources/css/retype.css?v=4.6.0.841183614261" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=4.6.0.841184617814" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=4.6.0.841183614261" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=4.6.0.841184617814" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=4.6.0.841183614261" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=4.6.0.841184617814" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -321,43 +321,13 @@
 
                 <!-- Page content  -->
 <h1 id="deoverlap-polylines">Deoverlap Polylines</h1>
-<p style="text-align:center; margin:0 0 1.5rem;"><a href="https://jvtonehammer.gumroad.com/l/deoverlap_polylines_hda"><strong>Get it free on Gumroad →</strong></a></p>
-<p><strong>Deoverlap Polylines</strong> (v1.0) finds where your curves cross each other and pushes them apart at those crossings, so a tangle reads as separate strands.</p>
-<p>Wire curves in, curves come out separated. Hair, fibres, wires, cables, stitched lines, scattered strands, a grid of rows and columns — anything that looks like a mess because the curves are sitting on top of each other.</p>
-<p>It&#x27;s a small, free tool that does one thing.</p>
-<h2 id="what-it-actually-does">What it actually does</h2>
-<p>Three stages, and the middle one is what makes it more than a blunt displacement.</p>
-<ol>
-<li><strong>It finds every crossing.</strong></li>
-<li><strong>It decides which curve goes over and which goes under</strong> — and by default that decision <em>alternates</em>, so a lattice of rows and columns comes out genuinely <strong>woven</strong>, like a hatch or a fence, instead of one set of curves lifted off the other.</li>
-<li><strong>It pushes the two apart along the axis that actually separates them</strong> — computed per crossing from both curves&#x27; tangents, so it stays correct on curves that wander in 3D. The push eases off along the curve rather than stepping, so the result undulates instead of kinking.</li>
-</ol>
-<h2 id="what-it-does-not-do">What it does not do</h2>
-<p>Worth stating plainly, because each one saves a support conversation:</p>
-<ul>
-<li>It is <strong>not a collision solver.</strong> One measured push, no iteration, no convergence. Two curves can still overlap afterwards.</li>
-<li>It is <strong>not a groom tool.</strong> It works on curves that already exist; it does not generate, clump, comb or guide them.</li>
-<li>It is <strong>not a mesh fixer.</strong> Polylines only.</li>
-<li>It works on <strong>polygon curves.</strong> NURBS and Bezier curves pass through untouched — unless <strong>Initial Resample</strong> is on, which converts them to polylines on the way in and then it works normally.</li>
-</ul>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
-    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
-                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                    <path fill="none" d="M0 0h24v24H0z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-            <h5>Everything is a ratio, not a distance</h5>
-<p>The node normalises your geometry into a fixed box before it works on it and restores the transform on the way out. That&#x27;s why every tolerance here reads as a small number and why one set of defaults behaves the same on a 1-unit curve set and a 1000-unit one. Read them as fractions of your input, not as world-space distances.</p>
-        </div>
-    </div>
+<div style="text-align:center; background:#0d1117; border-radius:16px; padding:2.5rem 1rem; margin:0.5rem 0 1.5rem;">
+  <img src="static/deoverlap-polylines_icon.svg" alt="Deoverlap Polylines" width="150" style="max-width:60%;">
 </div>
+<p style="text-align:center; margin:0 0 1.5rem;"><a href="https://jvtonehammer.gumroad.com/l/deoverlap_polylines_hda"><strong>Get it free on Gumroad →</strong></a></p>
+<p><strong>Deoverlap Polylines</strong> (v1.0) finds where your curves cross and pushes them apart at the crossings, so a tangle reads as separate strands. Hair, fibres, cables, stitched lines, a grid of rows and columns.</p>
+<p>The over/under <strong>alternates</strong> by default, so a lattice comes out genuinely woven rather than one set of curves lifted off the other. The push is measured per crossing from both curves&#x27; tangents, so it holds up on curves that wander in 3D, and it eases along the curve instead of kinking.</p>
+<p>One measured push, not a solver — curves can still touch afterwards.</p>
 <h2 id="requirements">Requirements</h2>
 <ul>
 <li><strong>Houdini 22.0+</strong>, Indie or Apprentice — it ships as <code translate="no" v-pre>.hdalc</code></li>
@@ -390,8 +360,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-27T18:54:14" title="2026-08-27" data-absolute-label="Last updated on 2026-08-27" data-absolute-label-html="Last updated on 2026-08-27" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-08-27
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-28T00:23:16" title="2026-08-28" data-absolute-label="Last updated on 2026-08-28" data-absolute-label-html="Last updated on 2026-08-28" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-08-28
                     </time>
                 </div>
 

@@ -1,5 +1,9 @@
 # COPout
 
+<div style="text-align:center; background:#0d1117; border-radius:16px; padding:2.5rem 1rem; margin:0.5rem 0 1.5rem;">
+  <img src="static/copout_icon.svg" alt="COPout" width="150" style="max-width:60%;">
+</div>
+
 <p style="text-align:center; margin:0 0 1.5rem;"><a href="https://jvtonehammer.gumroad.com/l/copout_hda"><strong>Get it on Gumroad →</strong></a></p>
 
 Welcome! **COPout** (v1.0) puts a Copernicus network on a projector or a second screen as a borderless, chrome-free output window — no menu bars, no toolbars, nothing of Houdini in the way.

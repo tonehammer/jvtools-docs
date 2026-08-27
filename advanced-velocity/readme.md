@@ -1,7 +1,7 @@
 # Advanced Velocity
 
-<div style="text-align:center; margin:0.5rem 0 1.5rem;">
-  <img src="static/advanced_velocity_icon.png" alt="Advanced Velocity" width="180" style="max-width:55%; border-radius:16px;">
+<div style="text-align:center; background:#0d1117; border-radius:16px; padding:2.5rem 1rem; margin:0.5rem 0 1.5rem;">
+  <img src="static/advanced_velocity_icon.png" alt="Advanced Velocity" width="150" style="max-width:60%;">
 </div>
 
 <p style="text-align:center; margin:0 0 1.5rem;"><a href="https://jvtonehammer.gumroad.com/l/advanced_velocity_hda"><strong>Get it on Gumroad →</strong></a></p>

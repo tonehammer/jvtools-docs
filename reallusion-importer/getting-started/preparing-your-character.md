@@ -115,7 +115,11 @@ To bring an iClone performance in as a **motion clip** for the animation databas
 
 #### Option B — FBX round-trip through Character Creator (recommended)
 
-Export your animation from iClone as **FBX**, then bring it onto the character in Character Creator, which re-exports it in a format this tool fully supports:
+Export your animation from iClone as **FBX**, then bring it onto the character in Character Creator, which re-exports it in a format this tool fully supports. The performance leaves iClone, passes through Character Creator, and comes back as something Houdini can read:
+
+<div style="text-align:center; background:#0d1117; border-radius:16px; padding:2rem 1rem; margin:0.5rem 0 1.5rem;">
+  <img src="../static/roundtrip.svg" alt="Motion out of iClone, back in through Character Creator" width="130" style="max-width:50%;">
+</div>
 
 1. In **Character Creator**, go **Import ▸ Import External Motion** and choose the FBX you exported from iClone.
 2. Wait while **"Fetching Characterization Profile"** finishes loading.

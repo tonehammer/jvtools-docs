@@ -24,13 +24,20 @@ url: https://tonehammer.github.io/jvtools-docs/
 
 # Browser-tab icon. Retype's `favicon` key is TOP-LEVEL (not under `branding`)
 # and takes a .ico or .png only, path relative to the input directory - so an
-# SVG that adapts to prefers-color-scheme is not available through it.
-# ⚠ This is the INK mark (#26211b). It is crisp on a light tab and very nearly
-# invisible on a dark one, which was measured rather than assumed - the mark is
-# a filled disc with the monogram knocked out, so on a dark tab the disc melts
-# into the ground. Jovan's call; `static/jvtools-icon-ink.svg` is the source and
-# `jvtools-website/public/jvtools-icon-green.svg` (#1da54f) is the swap that
-# reads on both grounds.
+# SVG that adapts to prefers-color-scheme is not available through it, and the
+# single file has to work on a light tab AND a dark one.
+#
+# The GREEN mark (#1da54f, static/jvtools-icon-green.svg) plus a white page-with-
+# a-folded-corner badge, so the tab says "jvtools" and "documentation" at once.
+# ⚠ The ink mark (#26211b) was tried first and rejected on measurement: it is a
+# filled disc, so on a dark tab it melts into the ground and all but disappears.
+# Green reads on both.
+# 🔑 The badge is a PAGE rather than a book or lines of text because the only
+# size that matters is 16px, and at 16px internal detail is mush - candidates
+# were rendered at 16/32/48 on both tab grounds before choosing. A page keeps a
+# distinct silhouette (a white square with one clipped corner) when an open book
+# has already collapsed into a smudge. Source: tools/favicon_docs.py in the
+# session scratchpad; regenerate from jvtools-icon-green.svg if the mark changes.
 favicon: static/favicon.png
 
 branding:

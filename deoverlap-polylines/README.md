@@ -18,6 +18,8 @@ The over/under **alternates** by default, so a lattice comes out genuinely woven
 
 One measured push, not a solver — curves can still touch afterwards.
 
+Houdini has no native node that does this. The closest is the **Detangle** SOP, which is a solver component: it needs a previous-position attribute hand-fed before it will touch static curves, it resolves overlap rather than pushing by an amount you asked for, and it has no over/under control — on a grid it stacks every column over every row instead of weaving. Past that you are into Vellum or the Wire solver, which means substeps, a cache and a sim to art-direct. This is one cook.
+
 ## Requirements
 
 - **Houdini 22.0+**, Indie or Apprentice — it ships as `.hdalc`

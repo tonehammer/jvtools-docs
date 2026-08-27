@@ -47,6 +47,9 @@ links:
       - text: COPout
         link: /copout/
         icon: device-desktop
+      - text: Deoverlap Polylines
+        link: /deoverlap-polylines/
+        icon: git-branch
 
 # Git-backed freshness stamp at the foot of every page. Needs full git history
 # at build time - the deploy workflow already checks out with fetch-depth: 0,
@@ -77,6 +80,9 @@ data:
     version: "1.0"
   co:
     name: COPout
+    version: "1.0"
+  dp:
+    name: Deoverlap Polylines
     version: "1.0"
 # 🔴 A PRE-RELEASE PRODUCT GETS NO ENTRY HERE, AND NO FOLDER IN THIS REPO.
 # This repo is PUBLIC (Pages + the raw manifest URL both require it), so a

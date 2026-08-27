@@ -19,6 +19,8 @@ Houdini digital assets and tools for artists and technical directors. Pick a pro
 
 [!card title="COPout" image="/copout/static/card.png" text="Put a Copernicus network on a projector or a second screen as a borderless, chrome-free output window — any screen, any fit, with alignment, flips and an output grade saved in the scene."](/copout/README.md)
 
+[!card title="Deoverlap Polylines" image="/deoverlap-polylines/static/card.png" text="Find where curves cross each other and push them apart at the crossings — with a real over/under, so a grid of rows and columns comes out woven. Free."](/deoverlap-polylines/README.md)
+
 ---
 
-More tools coming. Each product has its own section with a full guide, parameter reference, and troubleshooting.
+More tools coming. Each product has its own section with a full guide and a parameter reference.

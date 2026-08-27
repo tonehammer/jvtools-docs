@@ -80,7 +80,7 @@ data:
     version: "1.1"
   rl:
     name: Reallusion Importer for Houdini
-    version: "1.2.3"
+    version: "1.2.4"
   rp:
     name: RPLidar In
     version: "1.0"

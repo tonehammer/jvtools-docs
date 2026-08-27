@@ -6,7 +6,7 @@
 
 <p style="text-align:center; margin:0 0 1.5rem;"><a href="https://jvtonehammer.gumroad.com/l/reallusionimporterforhoudini"><strong>Get it on Gumroad →</strong></a></p>
 
-**Reallusion Importer for Houdini** (v1.2.3) turns a Character Creator 5 or iClone 8 character into a fully shaded, animatable, render-ready character in Houdini's Solaris environment — in seconds instead of hours.
+**Reallusion Importer for Houdini** (v1.2.4) turns a Character Creator 5 or iClone 8 character into a fully shaded, animatable, render-ready character in Houdini's Solaris environment — in seconds instead of hours.
 
 Export your character from Character Creator as **USD** (fast and light, the recommended default) or **FBX**, point this tool at it, and click one button. It rebuilds your character in Solaris with proper Karma MaterialX materials for skin, eyes, teeth, hair, and clothing, then gathers every meaningful look control onto a single panel so you can art-direct the result without touching a shader node.
 

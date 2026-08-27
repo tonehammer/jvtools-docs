@@ -1,5 +1,13 @@
 # Changelog
 
+## Version 1.2.4
+
+* **Fixed:** the eyebrow tint now produces a visible result on dark brows.
+* **New: Brow Lightness** — lifts Character Creator's near-black eyebrow maps.
+* **New: Facial Hair** — beards tint and lighten independently of scalp hair.
+* **Changed:** beards no longer follow the scalp hair colour controls.
+* New node icon and node colour.
+
 ## Version 1.2.3
 
 * **New: Eye "Lightness (Bleach)"** — brightens the final eye colour.

@@ -22,6 +22,17 @@ exclude:
 # move to a custom domain, update this AND re-license the key to that domain.
 url: https://tonehammer.github.io/jvtools-docs/
 
+# Browser-tab icon. Retype's `favicon` key is TOP-LEVEL (not under `branding`)
+# and takes a .ico or .png only, path relative to the input directory - so an
+# SVG that adapts to prefers-color-scheme is not available through it.
+# ⚠ This is the INK mark (#26211b). It is crisp on a light tab and very nearly
+# invisible on a dark one, which was measured rather than assumed - the mark is
+# a filled disc with the monogram knocked out, so on a dark tab the disc melts
+# into the ground. Jovan's call; `static/jvtools-icon-ink.svg` is the source and
+# `jvtools-website/public/jvtools-icon-green.svg` (#1da54f) is the swap that
+# reads on both grounds.
+favicon: static/favicon.png
+
 branding:
   title: JVtools
   label: Docs

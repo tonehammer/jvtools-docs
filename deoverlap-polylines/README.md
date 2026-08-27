@@ -6,7 +6,7 @@ image: static/social.png
 
 # Deoverlap Polylines
 
-<p style="text-align:center; margin:0 0 1.5rem;"><a href="https://jvtonehammer.gumroad.com/l/deoverlap_polylines_hda"><strong>Get it free on Gumroad &rarr;</strong></a></p>
+<p style="text-align:center; margin:0 0 1.5rem;"><a href="https://jvtonehammer.gumroad.com/l/deoverlap_polylines_hda"><strong>Get it free on Gumroad →</strong></a></p>
 
 **Deoverlap Polylines** (v{{ dp.version }}) finds where your curves cross each other and pushes them apart at those crossings, so a tangle reads as separate strands.
 

@@ -8,7 +8,7 @@ order: 100
 ## Installing
 
 >>> 1. Drop the file in your otls folder
-Put `JV-Deoverlap_Polylines-v{{ dp.version }}.hdalc` in `Documents/houdini22.0/otls/`. Houdini picks it up on the next launch.
+Put `JV-Deoverlap_Polylines-v1.0.hdalc` in `Documents/houdini22.0/otls/`. Houdini picks it up on the next launch.
 >>>
 
 >>> 2. Delete the previous version's file
@@ -16,7 +16,7 @@ If you're updating, **delete the old `.hdalc` first**. Two files defining the sa
 >>>
 
 >>> 3. Find the node
-It appears under **Tab &#9658; JV &#9658; Deoverlap Polylines**, at SOP level.
+It appears under **Tab ▸ JV ▸ Deoverlap Polylines**, at SOP level.
 >>>
 
 !!!warning Indie and Apprentice only

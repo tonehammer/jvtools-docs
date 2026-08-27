@@ -113,6 +113,17 @@ deployed site**, and do not conclude the YAML is wrong from a local build.
   emits them `v-pre`). Good news for code samples, which are safe by
   construction; bad news for anything like a filename in backticks — that
   still has to be written out or kept generic (`vX.Y`).
+  🔴 **AND IT DOES NOT MERELY FAIL TO SUBSTITUTE — IT FAILS THE PRO BUILD, WITH
+  AN ERROR THAT NAMES NOTHING.** Measured 2026-08-27: `` `JV-Thing-v{{ dp.version }}.hdalc` ``
+  on one page took the CI build down with `ERROR: capacity ('-2') must be a
+  non-negative value` and `1 page failed`, and the log does not say which page.
+  🔑 **A LOCAL BUILD CANNOT REPRODUCE IT** — locally the same commit was 48
+  pages, 0 errors, because the per-page link/template resolution that trips it
+  is Pro-gated (the giveaway is that CI printed 10 warnings and the local run
+  printed 1). ✅ **Diagnose it by grepping for what is NOVEL rather than
+  bisecting by push:** `grep -rn "{{" --include=*.md` showed every attested use
+  was plain prose in a README, and exactly one was inside backticks. That was
+  it. Write the version out literally on any page that needs it in a filename.
   🔑 The `data:` versions are the DOCS versions (changelog is their source of
   truth). `versions/<slug>.json` is a separate signal for the HDAs' update
   check, and its `latest` deliberately lags on patches so nothing notifies — do

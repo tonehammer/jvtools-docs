@@ -7,9 +7,15 @@ output: .retype
 # Keep the CLAUDE.md hub and the version manifests in the repo but out of the
 # built docs site. (versions/*.json is read by the HDAs' update check via the
 # GitHub raw URL, not served as a doc page.)
+# 🔴 store-covers/ holds GUMROAD cover + thumbnail art. It is excluded on
+# purpose: JVTOOLS_MARKETING_IMAGERY.md forbids publishing store covers onto
+# the docs site, but the Gumroad API can only FETCH a public URL — so the art
+# lives in this public repo, out of the build, and is served by
+# raw.githubusercontent.com. Exactly the versions/*.json trick.
 exclude:
   - "CLAUDE.md"
   - "versions"
+  - "store-covers"
 
 # The public base URL of the site. Must EXACTLY match the domain the Retype
 # Pro license key is registered to (here: tonehammer.github.io). If you later

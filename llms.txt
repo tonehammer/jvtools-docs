@@ -7,6 +7,7 @@
 - [Advanced Velocity](https://tonehammer.github.io/jvtools-docs/advanced-velocity/readme.md): Welcome! Advanced Velocity (v1.1) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node.
 - [RPLidar In](https://tonehammer.github.io/jvtools-docs/rplidar-in/readme.md): Welcome! RPLidar In (v1.0) brings live Slamtec RPLIDAR point-cloud data straight into Houdini as SOP geometry. Plug in the sensor, drop the node, and every
 - [COPout](https://tonehammer.github.io/jvtools-docs/copout/readme.md): Welcome! COPout (v1.0) puts a Copernicus network on a projector or a second screen as a borderless, chrome-free output window — no menu bars, no toolbars, nothing of Houdini in the way.
+- [Deoverlap Polylines](https://tonehammer.github.io/jvtools-docs/deoverlap-polylines/readme.md): Deoverlap Polylines (v1.0) finds where your curves cross each other and pushes them apart at those crossings, so a tangle reads as separate strands.
 
 ## Reallusion Importer for Houdini
 
@@ -73,3 +74,14 @@
 - [Parameter reference](https://tonehammer.github.io/jvtools-docs/copout/reference/parameters.md): Everything lives on one Setup tab, plus Utilities. Listed here in panel order.
 - [Changelog](https://tonehammer.github.io/jvtools-docs/copout/reference/changelog.md): The first public release.
 - [License](https://tonehammer.github.io/jvtools-docs/copout/reference/license.md): This is the End User License Agreement for COPout. By downloading, installing, or using the asset, you agree to these terms.
+
+## Deoverlap Polylines
+
+- [Getting started](https://tonehammer.github.io/jvtools-docs/deoverlap-polylines/getting-started.md): Put JV-Deoverlap_Polylines-v1.0.hdalc in Documents/houdini22.0/otls/. Houdini picks it up on the next launch.
+- [Using Deoverlap Polylines](https://tonehammer.github.io/jvtools-docs/deoverlap-polylines/using.md): The node has two tabs and three folders, and most of the time you'll only touch two sliders. This page goes through them in panel order, and ends with the handful of things that look like bugs and aren't.
+
+### Reference
+
+- [Parameter reference](https://tonehammer.github.io/jvtools-docs/deoverlap-polylines/reference/parameters.md): Every control on the node, in panel order. The prose version is in Using Deoverlap Polylines.
+- [Changelog](https://tonehammer.github.io/jvtools-docs/deoverlap-polylines/reference/changelog.md): First release.
+- [License](https://tonehammer.github.io/jvtools-docs/deoverlap-polylines/reference/license.md): This is the End User License Agreement for Deoverlap Polylines. By downloading, installing, or using the asset, you agree to these terms.

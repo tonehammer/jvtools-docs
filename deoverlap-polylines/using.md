@@ -10,6 +10,8 @@ Most of the time you'll touch two sliders. This goes through the panel in order.
 
 Careful with this one: where crossings sit closer together than Push Radius, neighbouring pushes blend and partly cancel, so you get *less* separation than Push Amount asks for. That blending is what makes a weave undulate instead of step — but it means the slider is a ceiling, not a promise. Lower Push Radius if you want the full gap.
 
+Within that, the amount is a real number rather than an outcome: the peak displacement matches what you asked for. A collision resolver works the other way round, aiming for "overlap gone" and handing you whatever gap that took — which is why one thickness setting there produces a spread of different gaps.
+
 **Push Core** widens the flat top around each crossing. Zero is a smooth peak; raise it and the weave reads squarer.
 
 ### Push Along
@@ -18,7 +20,9 @@ Leave this on **Automatic** — it takes both curves' tangents at the crossing a
 
 ### Over/Under Pattern
 
-**Alternating** swaps over and under at every crossing, which is what produces the weave. It's decided from each crossing's position along its own curves, so it doesn't depend on the order your curves happen to be in. **By Curve Order** puts the lower-numbered curve over every time, for stacked layers rather than a weave.
+**Alternating** swaps over and under at every crossing, which is what produces the weave. It's decided from each crossing's position along its own curves, so it doesn't depend on the order your curves happen to be in — that's why a grid comes out a proper checkerboard rather than something that looks almost right. **By Curve Order** puts the lower-numbered curve over every time, for stacked layers rather than a weave.
+
+That stacked result is what you get from every other route: Houdini's Detangle SOP resolves the overlap but has no over/under control, so a grid comes out as one set of curves lifted off the other. Alternating is the reason this node exists.
 
 ## Crossings
 

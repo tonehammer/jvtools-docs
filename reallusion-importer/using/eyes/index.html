@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.841185154674">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.841225358188">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Eyes</title>
     <meta name="title" content="Eyes">
-    <meta name="description" content="The Eyes folder gives you deep control over your character's eyes — recreating much of Character Creator's HD eye look, plus stylized glow effects. It's organized into tabs: Iris, Limbus, Sclera, Eye Shadow, and Wetness, with the Glow controls below.">
+    <meta name="description" content="The Eyes folder gives you deep control over your character's eyes — recreating much of Character Creator's HD eye look, plus stylized glow effects. Eye">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/eyes/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/eyes/">
     <meta property="og:title" content="Eyes">
-    <meta property="og:description" content="The Eyes folder gives you deep control over your character's eyes — recreating much of Character Creator's HD eye look, plus stylized glow effects. It's organized into tabs: Iris, Limbus, Sclera, Eye Shadow, and Wetness, with the Glow controls below.">
+    <meta property="og:description" content="The Eyes folder gives you deep control over your character's eyes — recreating much of Character Creator's HD eye look, plus stylized glow effects. Eye">
     <meta property="og:image" content="https://tonehammer.github.io/jvtools-docs/reallusion-importer/static/eyes-folder.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -35,7 +35,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/eyes/">
     <meta name="twitter:title" content="Eyes">
-    <meta name="twitter:description" content="The Eyes folder gives you deep control over your character's eyes — recreating much of Character Creator's HD eye look, plus stylized glow effects. It's organized into tabs: Iris, Limbus, Sclera, Eye Shadow, and Wetness, with the Glow controls below.">
+    <meta name="twitter:description" content="The Eyes folder gives you deep control over your character's eyes — recreating much of Character Creator's HD eye look, plus stylized glow effects. Eye">
     <meta name="twitter:image" content="https://tonehammer.github.io/jvtools-docs/reallusion-importer/static/eyes-folder.png">
     <meta name="twitter:image:alt" content="Eyes">
 
@@ -45,11 +45,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.841185154674" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.841225358188" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.841185154674" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.841225358188" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.841185154674" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.841225358188" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -337,7 +337,7 @@
 
                 <!-- Page content  -->
 <h1 id="eyes">Eyes</h1>
-<p>The Eyes folder gives you deep control over your character&#x27;s eyes — recreating much of Character Creator&#x27;s HD eye look, plus stylized glow effects. It&#x27;s organized into tabs: <strong>Iris</strong>, <strong>Limbus</strong>, <strong>Sclera</strong>, <strong>Eye Shadow</strong>, and <strong>Wetness</strong>, with the <strong>Glow</strong> controls below.</p>
+<p>The Eyes folder gives you deep control over your character&#x27;s eyes — recreating much of Character Creator&#x27;s HD eye look, plus stylized glow effects. <strong>Eye Normal Strength</strong> and <strong>Lightness</strong> sit at the top and apply to the whole eye; below them the look is built up in tabs — <strong>Iris</strong>, <strong>Limbus</strong>, <strong>Sclera</strong>, <strong>Eye Shadow</strong>, and <strong>Wetness</strong> — with the <strong>Glow</strong> controls at the bottom.</p>
 <figure class="content-center">
     <img src="../../static/eyes-folder.png" alt="" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="633" height="266" />
     <figcaption class="caption"></figcaption>
@@ -379,6 +379,16 @@
 </div>
 <h2 id="eye-normal-strength">Eye Normal Strength</h2>
 <p>At the top of the Eyes folder, separate from the head skin. Controls the strength of the eyeball&#x27;s surface detail (sclera veins, iris relief). Kept low by default (0.2) because Character Creator&#x27;s eye normal map is very strong — at full strength the veins read as raised welts. Raise for more surface detail, lower for a smoother eyeball.</p>
+<h2 id="lightness">Lightness</h2>
+<p>The eye&#x27;s equivalent of the hair <a href="../hair/#lightness-bleach">Lightness control</a>, and it solves exactly the same problem. Iris Color Tint changes the iris&#x27;s <em>hue</em>, but it can&#x27;t make a dark eye lighter — the tint shades the detail that&#x27;s already in the imported texture, so a very dark iris stays dark whatever color you pick.</p>
+<p><strong>Lightness</strong> lifts the brightness of the whole eye instead:</p>
+<ul>
+<li><strong>1</strong> <em>(default)</em> — unchanged.</li>
+<li><strong>Above 1</strong> — brightens. The slider stops at 5; type a higher value if you need more.</li>
+<li><strong>Below 1</strong> — darkens.</li>
+</ul>
+<p>It&#x27;s applied <strong>last</strong> — after the iris tint, the limbus and the sclera controls — so it lifts the eye you&#x27;ve already built rather than fighting with it. Works in both FBX and USD import modes.</p>
+<p>Reach for this first when a tint looks like it&#x27;s doing nothing. Nine times out of ten that&#x27;s a dark iris rather than a mask problem, and no amount of fiddling with Iris Tint Radius will fix it.</p>
 <h2 id="iris-tab">Iris tab</h2>
 <p><strong>Iris Color Tint</strong> + <strong>Iris Tint Amount</strong> — reproduces Character Creator&#x27;s iris color, which isn&#x27;t baked into the export. Set the tint to your desired iris color, then raise the amount from 0 to apply it. The tint is masked to the iris, so the white of the eye stays white. The amount can exceed 1 (type a higher value) to over-saturate for a more intense color.</p>
 <p><strong>Iris Scale</strong> — resizes the iris. 1 is the original; above 1 is bigger, below 1 smaller. Keep close to 1 for realism — large changes distort the iris/sclera boundary.</p>
@@ -520,8 +530,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-07T12:06:44" title="2026-08-07" data-absolute-label="Last updated on 2026-08-07" data-absolute-label-html="Last updated on 2026-08-07" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-08-07
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-28T11:41:25" title="2026-08-28" data-absolute-label="Last updated on 2026-08-28" data-absolute-label-html="Last updated on 2026-08-28" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-08-28
                     </time>
                 </div>
 

@@ -1,6 +1,6 @@
 # Eyes
 
-The Eyes folder gives you deep control over your character's eyes — recreating much of Character Creator's HD eye look, plus stylized glow effects. It's organized into tabs: **Iris**, **Limbus**, **Sclera**, **Eye Shadow**, and **Wetness**, with the **Glow** controls below.
+The Eyes folder gives you deep control over your character's eyes — recreating much of Character Creator's HD eye look, plus stylized glow effects. **Eye Normal Strength** and **Lightness** sit at the top and apply to the whole eye; below them the look is built up in tabs — **Iris**, **Limbus**, **Sclera**, **Eye Shadow**, and **Wetness** — with the **Glow** controls at the bottom.
 
 ![](../static/eyes-folder.png)
 
@@ -15,6 +15,20 @@ If you imported via **USD**, the tool reads Character Creator's actual eye shade
 ## Eye Normal Strength
 
 At the top of the Eyes folder, separate from the head skin. Controls the strength of the eyeball's surface detail (sclera veins, iris relief). Kept low by default (0.2) because Character Creator's eye normal map is very strong — at full strength the veins read as raised welts. Raise for more surface detail, lower for a smoother eyeball.
+
+## Lightness
+
+The eye's equivalent of the hair [Lightness control](hair.md#lightness-bleach), and it solves exactly the same problem. Iris Color Tint changes the iris's _hue_, but it can't make a dark eye lighter — the tint shades the detail that's already in the imported texture, so a very dark iris stays dark whatever color you pick.
+
+**Lightness** lifts the brightness of the whole eye instead:
+
+* **1** _(default)_ — unchanged.
+* **Above 1** — brightens. The slider stops at 5; type a higher value if you need more.
+* **Below 1** — darkens.
+
+It's applied **last** — after the iris tint, the limbus and the sclera controls — so it lifts the eye you've already built rather than fighting with it. Works in both FBX and USD import modes.
+
+Reach for this first when a tint looks like it's doing nothing. Nine times out of ten that's a dark iris rather than a mask problem, and no amount of fiddling with Iris Tint Radius will fix it.
 
 ## Iris tab
 

@@ -89,12 +89,41 @@ Anisotropy is most visible with a clear light hitting the hair. If you don't see
 
 ## Brows
 
-The **Brows** sub-folder (bottom of the Hair folder) re-tints the eyebrows independently of the scalp hair, so you can match them to a dyed hair color.
+The **Brows** sub-folder, near the bottom of the Hair folder, gives the eyebrows their own controls so you can match them to a dyed hair color.
 
+* **Brow Lightness** — lifts the brows' overall brightness. **1** _(default)_ is unchanged; the slider runs to 20 and accepts higher typed values.
 * **Brow Tint Color** — the hue to push the brows toward.
 * **Brow Tint Amount** — how strongly it's applied. **0** _(default)_ keeps the brows' original baked color; raise it to bring in the tint.
 
-Like the hair re-dye, this preserves the brows' strand detail — only the hue changes. It affects eyebrow materials only (not scalp hair or lashes). Brow underlay layers that export no diffuse texture can't be tinted and stay as they are.
+**Raise Brow Lightness first.** Character Creator's eyebrow textures are almost black, and a tint can only shade the strand detail that's already there — so whatever color you choose gets multiplied back down to near-black, and the tint reads as broken when it is in fact working perfectly. Lift the brows and the color appears. Somewhere around **6 to 14** is where brows typically start reading properly, which is why the slider goes as high as it does.
+
+Brow Lightness applies at **any** tint amount, including 0 — so it's also how you grey or lighten eyebrows without re-tinting them at all.
+
+Like the hair re-dye, the tint preserves the brows' strand detail; only the hue changes. Brow underlay layers that export no diffuse texture can't be tinted and stay as they are.
+
+!!!warning Custom hair mode re-dyes the brows too
+Eyebrows still run through the main scalp re-dye, so with **Hair Color Mode** set to _Custom_ your Root and Tip colors reach the brows as well, and these Brow controls layer on top of that result. Facial hair does **not** work this way — see below. If the brows land somewhere unexpected after a custom dye, this is why.
+!!!
+
+## Facial Hair
+
+Beards, moustaches and sideburns have their own sub-folder below Brows.
+
+* **Facial Hair Lightness** — lifts the beard's brightness. **1** _(default)_ is unchanged; slider to 20, higher values accepted.
+* **Facial Hair Tint Color** — the hue to push the facial hair toward.
+* **Facial Hair Tint Amount** — how strongly it's applied. **0** _(default)_ keeps the exported color.
+
+**Facial hair is deliberately decoupled from the hair on the head.** It used to run through the same re-dye, which meant every hair color change dragged the beard along with it — dark hair with a grey beard simply couldn't be authored. The scalp controls now leave facial hair alone entirely, and this folder is the only thing that colors it.
+
+The darkness problem from the Brows section applies here too, though less severely: beard textures are dark, so raise **Facial Hair Lightness** before deciding the tint does nothing. Beards start to blow out from around **4x** — much earlier than brows, because Character Creator exports them a good deal brighter to begin with.
+
+Beards do still follow **Controlled Specular Highlights** and **Hair Anisotropy**. Those shape the strand shading rather than the color, and a beard should catch the light the same way the hair does.
+
+Characters with no facial hair are unaffected — the controls just have nothing to act on.
+
+!!!info What counts as facial hair
+Character Creator names these materials `Beard1`, `Beard2` and so on regardless of what the piece actually is. Moustaches, sideburns, soul patches and chinstraps all arrive as beard materials, so they all follow these controls.
+!!!
 
 ## Putting it together
 

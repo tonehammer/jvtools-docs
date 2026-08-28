@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.841185154674">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.841225358188">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -45,11 +45,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.841185154674" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.841225358188" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.841185154674" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.841225358188" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.841185154674" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.841225358188" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -468,17 +468,77 @@
     </div>
 </div>
 <h2 id="brows">Brows</h2>
-<p>The <strong>Brows</strong> sub-folder (bottom of the Hair folder) re-tints the eyebrows independently of the scalp hair, so you can match them to a dyed hair color.</p>
+<p>The <strong>Brows</strong> sub-folder, near the bottom of the Hair folder, gives the eyebrows their own controls so you can match them to a dyed hair color.</p>
 <ul>
+<li><strong>Brow Lightness</strong> — lifts the brows&#x27; overall brightness. <strong>1</strong> <em>(default)</em> is unchanged; the slider runs to 20 and accepts higher typed values.</li>
 <li><strong>Brow Tint Color</strong> — the hue to push the brows toward.</li>
 <li><strong>Brow Tint Amount</strong> — how strongly it&#x27;s applied. <strong>0</strong> <em>(default)</em> keeps the brows&#x27; original baked color; raise it to bring in the tint.</li>
 </ul>
-<p>Like the hair re-dye, this preserves the brows&#x27; strand detail — only the hue changes. It affects eyebrow materials only (not scalp hair or lashes). Brow underlay layers that export no diffuse texture can&#x27;t be tinted and stay as they are.</p>
+<p><strong>Raise Brow Lightness first.</strong> Character Creator&#x27;s eyebrow textures are almost black, and a tint can only shade the strand detail that&#x27;s already there — so whatever color you choose gets multiplied back down to near-black, and the tint reads as broken when it is in fact working perfectly. Lift the brows and the color appears. Somewhere around <strong>6 to 14</strong> is where brows typically start reading properly, which is why the slider goes as high as it does.</p>
+<p>Brow Lightness applies at <strong>any</strong> tint amount, including 0 — so it&#x27;s also how you grey or lighten eyebrows without re-tinting them at all.</p>
+<p>Like the hair re-dye, the tint preserves the brows&#x27; strand detail; only the hue changes. Brow underlay layers that export no diffuse texture can&#x27;t be tinted and stay as they are.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-warning" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
+                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Custom hair mode re-dyes the brows too</h5>
+<p>Eyebrows still run through the main scalp re-dye, so with <strong>Hair Color Mode</strong> set to <em>Custom</em> your Root and Tip colors reach the brows as well, and these Brow controls layer on top of that result. Facial hair does <strong>not</strong> work this way — see below. If the brows land somewhere unexpected after a custom dye, this is why.</p>
+        </div>
+    </div>
+</div>
+<h2 id="facial-hair">Facial Hair</h2>
+<p>Beards, moustaches and sideburns have their own sub-folder below Brows.</p>
+<ul>
+<li><strong>Facial Hair Lightness</strong> — lifts the beard&#x27;s brightness. <strong>1</strong> <em>(default)</em> is unchanged; slider to 20, higher values accepted.</li>
+<li><strong>Facial Hair Tint Color</strong> — the hue to push the facial hair toward.</li>
+<li><strong>Facial Hair Tint Amount</strong> — how strongly it&#x27;s applied. <strong>0</strong> <em>(default)</em> keeps the exported color.</li>
+</ul>
+<p><strong>Facial hair is deliberately decoupled from the hair on the head.</strong> It used to run through the same re-dye, which meant every hair color change dragged the beard along with it — dark hair with a grey beard simply couldn&#x27;t be authored. The scalp controls now leave facial hair alone entirely, and this folder is the only thing that colors it.</p>
+<p>The darkness problem from the Brows section applies here too, though less severely: beard textures are dark, so raise <strong>Facial Hair Lightness</strong> before deciding the tint does nothing. Beards start to blow out from around <strong>4x</strong> — much earlier than brows, because Character Creator exports them a good deal brighter to begin with.</p>
+<p>Beards do still follow <strong>Controlled Specular Highlights</strong> and <strong>Hair Anisotropy</strong>. Those shape the strand shading rather than the color, and a beard should catch the light the same way the hair does.</p>
+<p>Characters with no facial hair are unaffected — the controls just have nothing to act on.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>What counts as facial hair</h5>
+<p>Character Creator names these materials <code translate="no" v-pre>Beard1</code>, <code translate="no" v-pre>Beard2</code> and so on regardless of what the piece actually is. Moustaches, sideburns, soul patches and chinstraps all arrive as beard materials, so they all follow these controls.</p>
+        </div>
+    </div>
+</div>
 <h2 id="putting-it-together">Putting it together</h2>
 <p>A natural-looking custom dye might use dark brown roots, warm caramel tips, a touch of golden highlight at a low amount, Controlled Specular on, and Anisotropy around 0.8. To go blonde on a dark-haired character, add Lightness on top so the strands actually brighten. A bold stylized look might use saturated complementary colors for roots and tips with strong highlights. Experiment — every control updates live, so you see the result immediately.</p>
 <div id="retype-backlinks">
     <h2>See also</h2>
 <div class="card-compact-group">
+<div class="card-compact-container">
+    <a href="/jvtools-docs/reallusion-importer/using/eyes/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M15.5 12a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"/><path d="M12 3.5c3.432 0 6.124 1.534 8.054 3.241 1.926 1.703 3.132 3.61 3.616 4.46a1.6 1.6 0 0 1 0 1.598c-.484.85-1.69 2.757-3.616 4.461-1.929 1.706-4.622 3.24-8.054 3.24-3.432 0-6.124-1.534-8.054-3.24C2.02 15.558.814 13.65.33 12.8a1.6 1.6 0 0 1 0-1.598c.484-.85 1.69-2.757 3.616-4.462C5.875 5.034 8.568 3.5 12 3.5ZM1.633 11.945a.115.115 0 0 0-.017.055c.001.02.006.039.017.056.441.774 1.551 2.527 3.307 4.08C6.691 17.685 9.045 19 12 19c2.955 0 5.31-1.315 7.06-2.864 1.756-1.553 2.866-3.306 3.307-4.08a.111.111 0 0 0 .017-.056.111.111 0 0 0-.017-.056c-.441-.773-1.551-2.527-3.307-4.08C17.309 6.315 14.955 5 12 5 9.045 5 6.69 6.314 4.94 7.865c-1.756 1.552-2.866 3.306-3.307 4.08Z"/></svg></span>
+                <span class="card-compact-title">Eyes</span>
+            </div>
+            <p class="card-compact-description">The Eyes folder gives you deep control over your character's eyes — recreating much of Character Creator's HD eye look, plus stylized glow effects. Eye</p>
+        </div>
+    </a>
+</div>
 <div class="card-compact-container">
     <a href="/jvtools-docs/reallusion-importer/reference/limitations/" class="group card-compact no-link">
         <div class="card-compact-body">
@@ -561,8 +621,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-07T12:06:44" title="2026-08-07" data-absolute-label="Last updated on 2026-08-07" data-absolute-label-html="Last updated on 2026-08-07" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-08-07
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-28T11:38:11" title="2026-08-28" data-absolute-label="Last updated on 2026-08-28" data-absolute-label-html="Last updated on 2026-08-28" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-08-28
                     </time>
                 </div>
 

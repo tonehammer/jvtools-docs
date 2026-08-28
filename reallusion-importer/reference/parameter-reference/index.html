@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/jvtools-docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.841185154674">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.841225358188">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -39,11 +39,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.841185154674" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.841225358188" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.841185154674" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.841225358188" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.841185154674" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.841225358188" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -820,7 +820,8 @@
 <p>Rebuilds Character Creator&#x27;s HD eye look, which barely travels in the export. Organized into Iris / Limbus / Sclera / Eye Shadow / Wetness tabs, with Glow below. See <a href="../../using/eyes/">Eyes</a>.</p>
 <retype-table copy-text="| Parameter | Description |
 | --- | --- |
-| **Eye Normal Strength** | Eyeball surface detail (sclera veins, iris relief), separate from the head. Low by default (0.2) — CC's eye normal is strong. |">
+| **Eye Normal Strength** | Eyeball surface detail (sclera veins, iris relief), separate from the head. Low by default (0.2) — CC's eye normal is strong. |
+| **Lightness** | Lifts the brightness of the whole eye, applied after the iris tint, limbus and sclera. 1 = unchanged; above 1 brightens (slider to 5, accepts higher); below 1 darkens. Raise this when a dark iris won't take a tint. Both import modes. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -833,6 +834,10 @@
 <tr>
 <td><strong>Eye Normal Strength</strong></td>
 <td>Eyeball surface detail (sclera veins, iris relief), separate from the head. Low by default (0.2) — CC&#x27;s eye normal is strong.</td>
+</tr>
+<tr>
+<td><strong>Lightness</strong></td>
+<td>Lifts the brightness of the whole eye, applied after the iris tint, limbus and sclera. 1 = unchanged; above 1 brightens (slider to 5, accepts higher); below 1 darkens. Raise this when a dark iris won&#x27;t take a tint. Both import modes.</td>
 </tr>
 </tbody>
 </table>
@@ -1054,7 +1059,8 @@
 <p><strong>Brows</strong> (sub-folder)</p>
 <retype-table copy-text="| Parameter | Description |
 | --- | --- |
-| **Brow Tint Color** / **Brow Tint Amount** | Re-tint the eyebrows independently of scalp hair, keeping strand detail. Amount 0 by default. Use to match brows to dyed hair. |">
+| **Brow Lightness** | Lifts the brows' brightness. 1 = unchanged; slider to 20, accepts higher. Applies at any tint amount, including 0. CC's brow maps are near-black, so raise this first or a tint reads as doing nothing — 6–14 is the usual working range. |
+| **Brow Tint Color** / **Brow Tint Amount** | Re-tint the eyebrows, keeping strand detail. Amount 0 by default. Use to match brows to dyed hair. Note brows also run through the scalp re-dye, so Custom mode reaches them and these controls layer on top. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -1065,8 +1071,39 @@
 </thead>
 <tbody>
 <tr>
+<td><strong>Brow Lightness</strong></td>
+<td>Lifts the brows&#x27; brightness. 1 = unchanged; slider to 20, accepts higher. Applies at any tint amount, including 0. CC&#x27;s brow maps are near-black, so raise this first or a tint reads as doing nothing — 6–14 is the usual working range.</td>
+</tr>
+<tr>
 <td><strong>Brow Tint Color</strong> / <strong>Brow Tint Amount</strong></td>
-<td>Re-tint the eyebrows independently of scalp hair, keeping strand detail. Amount 0 by default. Use to match brows to dyed hair.</td>
+<td>Re-tint the eyebrows, keeping strand detail. Amount 0 by default. Use to match brows to dyed hair. Note brows also run through the scalp re-dye, so Custom mode reaches them and these controls layer on top.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<p><strong>Facial Hair</strong> (sub-folder)</p>
+<p>Beards, moustaches and sideburns. Decoupled from the scalp hair — the Hair color controls above do not touch them. See <a href="../../using/hair/#facial-hair">Hair</a>.</p>
+<retype-table copy-text="| Parameter | Description |
+| --- | --- |
+| **Facial Hair Lightness** | Lifts the beard's brightness. 1 = unchanged; slider to 20, accepts higher. Applies at any tint amount, including 0 — this alone greys or lightens a beard. Blows out from around 4x. |
+| **Facial Hair Tint Color** / **Facial Hair Tint Amount** | Re-tint facial hair, keeping strand detail. Amount 0 by default. CC names every piece `Beard1`, `Beard2` and so on, so moustaches, sideburns and soul patches all follow these. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Facial Hair Lightness</strong></td>
+<td>Lifts the beard&#x27;s brightness. 1 = unchanged; slider to 20, accepts higher. Applies at any tint amount, including 0 — this alone greys or lightens a beard. Blows out from around 4x.</td>
+</tr>
+<tr>
+<td><strong>Facial Hair Tint Color</strong> / <strong>Facial Hair Tint Amount</strong></td>
+<td>Re-tint facial hair, keeping strand detail. Amount 0 by default. CC names every piece <code translate="no" v-pre>Beard1</code>, <code translate="no" v-pre>Beard2</code> and so on, so moustaches, sideburns and soul patches all follow these.</td>
 </tr>
 </tbody>
 </table>
@@ -1075,8 +1112,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-07T12:06:44" title="2026-08-07" data-absolute-label="Last updated on 2026-08-07" data-absolute-label-html="Last updated on 2026-08-07" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-08-07
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-28T11:41:25" title="2026-08-28" data-absolute-label="Last updated on 2026-08-28" data-absolute-label-html="Last updated on 2026-08-28" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-08-28
                     </time>
                 </div>
 

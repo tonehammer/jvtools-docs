@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tonehammer.github.io/jvtools-docs/sitemap.xml
+Sitemap: https://jvtools.dev/docs/sitemap.xml

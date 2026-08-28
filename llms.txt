@@ -2,86 +2,86 @@
 
 > Houdini digital assets and tools for artists and technical directors. Pick a product below for its documentation.
 
-- [JVtools](https://tonehammer.github.io/jvtools-docs/index.md): JVtools
-- [Reallusion Importer for Houdini](https://tonehammer.github.io/jvtools-docs/reallusion-importer/readme.md): Reallusion Importer for Houdini (v1.2.4) turns a Character Creator 5 or iClone 8 character into a fully shaded, animatable, render-ready character in Houdini's Solaris environment — in seconds instead of hours.
-- [Advanced Velocity](https://tonehammer.github.io/jvtools-docs/advanced-velocity/readme.md): Welcome! Advanced Velocity (v1.1) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node.
-- [RPLidar In](https://tonehammer.github.io/jvtools-docs/rplidar-in/readme.md): Welcome! RPLidar In (v1.0) brings live Slamtec RPLIDAR point-cloud data straight into Houdini as SOP geometry. Plug in the sensor, drop the node, and every
-- [COPout](https://tonehammer.github.io/jvtools-docs/copout/readme.md): Welcome! COPout (v1.0) puts a Copernicus network on a projector or a second screen as a borderless, chrome-free output window — no menu bars, no toolbars, nothing of Houdini in the way.
-- [Deoverlap Polylines](https://tonehammer.github.io/jvtools-docs/deoverlap-polylines/readme.md): Deoverlap Polylines (v1.0) finds where your curves cross and pushes them apart at the crossings, so a tangle reads as separate strands. Hair, fibres, cables, stitched lines, a grid of rows and columns.
+- [JVtools](https://jvtools.dev/docs/index.md): JVtools
+- [Reallusion Importer for Houdini](https://jvtools.dev/docs/reallusion-importer/readme.md): Reallusion Importer for Houdini (v1.2.4) turns a Character Creator 5 or iClone 8 character into a fully shaded, animatable, render-ready character in Houdini's Solaris environment — in seconds instead of hours.
+- [Advanced Velocity](https://jvtools.dev/docs/advanced-velocity/readme.md): Welcome! Advanced Velocity (v1.1) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node.
+- [RPLidar In](https://jvtools.dev/docs/rplidar-in/readme.md): Welcome! RPLidar In (v1.0) brings live Slamtec RPLIDAR point-cloud data straight into Houdini as SOP geometry. Plug in the sensor, drop the node, and every
+- [COPout](https://jvtools.dev/docs/copout/readme.md): Welcome! COPout (v1.0) puts a Copernicus network on a projector or a second screen as a borderless, chrome-free output window — no menu bars, no toolbars, nothing of Houdini in the way.
+- [Deoverlap Polylines](https://jvtools.dev/docs/deoverlap-polylines/readme.md): Deoverlap Polylines (v1.0) finds where your curves cross and pushes them apart at the crossings, so a tangle reads as separate strands. Hair, fibres, cables, stitched lines, a grid of rows and columns.
 
 ## Reallusion Importer for Houdini
 
 ### Getting Started
 
-- [Requirements & Installation](https://tonehammer.github.io/jvtools-docs/reallusion-importer/getting-started/installation.md): Before you start, make sure you have:
-- [USD vs FBX](https://tonehammer.github.io/jvtools-docs/reallusion-importer/getting-started/import-modes.md): Version 1.2 added a second way to import your character. At the very top of the node is an Import dropdown with two choices — USD (the default) and FBX.
-- [Quick Start](https://tonehammer.github.io/jvtools-docs/reallusion-importer/getting-started/quick-start.md): This page gets you from a fresh Houdini scene to a shaded, rendered character in about five steps. Every control is explained in depth later, in Using the Asset.
-- [Preparing Your Character in Character Creator](https://tonehammer.github.io/jvtools-docs/reallusion-importer/getting-started/preparing-your-character.md): Getting your export settings right the first time saves you a lot of frustration — a wrong setting is usually the reason a character comes in missing textures, wrinkles, or hair detail.
+- [Requirements & Installation](https://jvtools.dev/docs/reallusion-importer/getting-started/installation.md): Before you start, make sure you have:
+- [USD vs FBX](https://jvtools.dev/docs/reallusion-importer/getting-started/import-modes.md): Version 1.2 added a second way to import your character. At the very top of the node is an Import dropdown with two choices — USD (the default) and FBX.
+- [Quick Start](https://jvtools.dev/docs/reallusion-importer/getting-started/quick-start.md): This page gets you from a fresh Houdini scene to a shaded, rendered character in about five steps. Every control is explained in depth later, in Using the Asset.
+- [Preparing Your Character in Character Creator](https://jvtools.dev/docs/reallusion-importer/getting-started/preparing-your-character.md): Getting your export settings right the first time saves you a lot of frustration — a wrong setting is usually the reason a character comes in missing textures, wrinkles, or hair detail.
 
 ### Using the Asset
 
-- [The Lookdev Controller](https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/lookdev-controller.md): When you click Build Character, the tool creates a bright red controller node in the LOP network (Solaris). This node is the heart of the whole
-- [Skin](https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/skin.md): The Skin folder on the lookdev controller fine-tunes how your character's skin reads. The tool already builds physically-based skin with subsurface scattering, normal detail, and proper roughness — these controls push it toward your taste or your shot's lighting.
-- [Skin Fix](https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/skin-fix.md): Character Creator outfits don't always sit perfectly on every body, so you'll sometimes see a sleeve, collar, or boot poking through the skin. Skin Fix
-- [Wrinkles](https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/wrinkles.md): One of the tool's standout features is its animated expression-wrinkle system. Character Creator faces have a sophisticated wrinkle system — as a character frowns, squints, or opens their mouth, fine wrinkles appear in the right places.
-- [Displacement](https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/displacement.md): Displacement adds real, fine surface relief to your character — skin pores, deep wrinkles, fabric weave — by physically pushing geometry around at render time, based on displacement maps.
-- [Eyes](https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/eyes.md): The Eyes folder gives you deep control over your character's eyes — recreating much of Character Creator's HD eye look, plus stylized glow effects. Eye
-- [Hair](https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/hair.md): The Hair folder is one of the tool's most powerful features: a complete hair re-dye system. Recolor any compatible character's hair — brown to silver, ombré fades, painted-in highlight streaks — without going back to Character Creator.
-- [Animation](https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/animation.md): The tool plays the motion baked into your imported character, and it can also manage a small library of extra animation clips — added from FBX files or USD motion clips — so you can switch between motions on the same character.
-- [Rendering](https://tonehammer.github.io/jvtools-docs/reallusion-importer/using/rendering.md): The tool builds your character's materials specifically for Karma XPU, Houdini's GPU-accelerated production renderer. This page covers getting your character on screen, plus the optional one-click render setup.
+- [The Lookdev Controller](https://jvtools.dev/docs/reallusion-importer/using/lookdev-controller.md): When you click Build Character, the tool creates a bright red controller node in the LOP network (Solaris). This node is the heart of the whole
+- [Skin](https://jvtools.dev/docs/reallusion-importer/using/skin.md): The Skin folder on the lookdev controller fine-tunes how your character's skin reads. The tool already builds physically-based skin with subsurface scattering, normal detail, and proper roughness — these controls push it toward your taste or your shot's lighting.
+- [Skin Fix](https://jvtools.dev/docs/reallusion-importer/using/skin-fix.md): Character Creator outfits don't always sit perfectly on every body, so you'll sometimes see a sleeve, collar, or boot poking through the skin. Skin Fix
+- [Wrinkles](https://jvtools.dev/docs/reallusion-importer/using/wrinkles.md): One of the tool's standout features is its animated expression-wrinkle system. Character Creator faces have a sophisticated wrinkle system — as a character frowns, squints, or opens their mouth, fine wrinkles appear in the right places.
+- [Displacement](https://jvtools.dev/docs/reallusion-importer/using/displacement.md): Displacement adds real, fine surface relief to your character — skin pores, deep wrinkles, fabric weave — by physically pushing geometry around at render time, based on displacement maps.
+- [Eyes](https://jvtools.dev/docs/reallusion-importer/using/eyes.md): The Eyes folder gives you deep control over your character's eyes — recreating much of Character Creator's HD eye look, plus stylized glow effects. Eye
+- [Hair](https://jvtools.dev/docs/reallusion-importer/using/hair.md): The Hair folder is one of the tool's most powerful features: a complete hair re-dye system. Recolor any compatible character's hair — brown to silver, ombré fades, painted-in highlight streaks — without going back to Character Creator.
+- [Animation](https://jvtools.dev/docs/reallusion-importer/using/animation.md): The tool plays the motion baked into your imported character, and it can also manage a small library of extra animation clips — added from FBX files or USD motion clips — so you can switch between motions on the same character.
+- [Rendering](https://jvtools.dev/docs/reallusion-importer/using/rendering.md): The tool builds your character's materials specifically for Karma XPU, Houdini's GPU-accelerated production renderer. This page covers getting your character on screen, plus the optional one-click render setup.
 
 ### Reference
 
-- [Parameter Reference](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/parameter-reference.md): Every control on the Reallusion Importer, grouped by where you find it. Two panels:
-- [Limitations & Expectations](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/limitations.md): This page sets honest expectations before and after you buy. Character Creator's FBX export — and Houdini itself — impose some hard limits no importer can work around.
-- [Performance & Caching](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/performance.md): Character Creator characters are detailed, and detailed characters use memory. Here's where the cost comes from and how to keep your sessions fast and lean.
-- [Troubleshooting & FAQ](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/troubleshooting.md): Common issues and their fixes. Most import problems trace back to either an export setting or a moved file.
-- [Changelog](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/changelog.md): Fixed: the eyebrow tint now produces a visible result on dark brows.
-- [License](https://tonehammer.github.io/jvtools-docs/reallusion-importer/reference/license.md): This is the End User License Agreement for the Reallusion Importer for Houdini. By downloading, installing, or using the asset, you agree to these terms.
+- [Parameter Reference](https://jvtools.dev/docs/reallusion-importer/reference/parameter-reference.md): Every control on the Reallusion Importer, grouped by where you find it. Two panels:
+- [Limitations & Expectations](https://jvtools.dev/docs/reallusion-importer/reference/limitations.md): This page sets honest expectations before and after you buy. Character Creator's FBX export — and Houdini itself — impose some hard limits no importer can work around.
+- [Performance & Caching](https://jvtools.dev/docs/reallusion-importer/reference/performance.md): Character Creator characters are detailed, and detailed characters use memory. Here's where the cost comes from and how to keep your sessions fast and lean.
+- [Troubleshooting & FAQ](https://jvtools.dev/docs/reallusion-importer/reference/troubleshooting.md): Common issues and their fixes. Most import problems trace back to either an export setting or a moved file.
+- [Changelog](https://jvtools.dev/docs/reallusion-importer/reference/changelog.md): Fixed: the eyebrow tint now produces a visible result on dark brows.
+- [License](https://jvtools.dev/docs/reallusion-importer/reference/license.md): This is the End User License Agreement for the Reallusion Importer for Houdini. By downloading, installing, or using the asset, you agree to these terms.
 
 ## Advanced Velocity
 
-- [Getting Started](https://tonehammer.github.io/jvtools-docs/advanced-velocity/getting-started.md): Grab JV-Advanced_Velocity-vX.Y.hdalc from your Gumroad library.
-- [Using Advanced Velocity](https://tonehammer.github.io/jvtools-docs/advanced-velocity/using.md): This page covers the setup surface: the six velocity types, the mixer, the output and the visualization. The event workflow gets its own page.
-- [Timed Events](https://tonehammer.github.io/jvtools-docs/advanced-velocity/timed-events.md): One velocity field is rarely the whole story. The shot is a car lifted at frame 10, torn apart at frame 40, spun at frame 70 — three different velocity setups, at three different times, summed where they overlap.
+- [Getting Started](https://jvtools.dev/docs/advanced-velocity/getting-started.md): Grab JV-Advanced_Velocity-vX.Y.hdalc from your Gumroad library.
+- [Using Advanced Velocity](https://jvtools.dev/docs/advanced-velocity/using.md): This page covers the setup surface: the six velocity types, the mixer, the output and the visualization. The event workflow gets its own page.
+- [Timed Events](https://jvtools.dev/docs/advanced-velocity/timed-events.md): One velocity field is rarely the whole story. The shot is a car lifted at frame 10, torn apart at frame 40, spun at frame 70 — three different velocity setups, at three different times, summed where they overlap.
 
 ### Reference
 
-- [Parameter Reference](https://tonehammer.github.io/jvtools-docs/advanced-velocity/reference/parameters.md): Every hand-authored parameter on the Advanced Velocity node, grouped the way it appears in the interface. Names in code are the internal parameter names.
-- [Troubleshooting](https://tonehammer.github.io/jvtools-docs/advanced-velocity/reference/troubleshooting.md): You're in Timed Events mode, the default, where the live Setup is only a template — only baked events reach the output. Press Create Event to bake the setup, or Update on an existing event's row to fold your changes into it.
-- [Changelog](https://tonehammer.github.io/jvtools-docs/advanced-velocity/reference/changelog.md): The first public release — version 1.0 below is the feature set it launched with.
-- [License](https://tonehammer.github.io/jvtools-docs/advanced-velocity/reference/license.md): This is the End User License Agreement for Advanced Velocity. By downloading, installing, or using the asset, you agree to these terms.
+- [Parameter Reference](https://jvtools.dev/docs/advanced-velocity/reference/parameters.md): Every hand-authored parameter on the Advanced Velocity node, grouped the way it appears in the interface. Names in code are the internal parameter names.
+- [Troubleshooting](https://jvtools.dev/docs/advanced-velocity/reference/troubleshooting.md): You're in Timed Events mode, the default, where the live Setup is only a template — only baked events reach the output. Press Create Event to bake the setup, or Update on an existing event's row to fold your changes into it.
+- [Changelog](https://jvtools.dev/docs/advanced-velocity/reference/changelog.md): The first public release — version 1.0 below is the feature set it launched with.
+- [License](https://jvtools.dev/docs/advanced-velocity/reference/license.md): This is the End User License Agreement for Advanced Velocity. By downloading, installing, or using the asset, you agree to these terms.
 
 ## RPLidar In
 
-- [Getting Started](https://tonehammer.github.io/jvtools-docs/rplidar-in/getting-started.md): This page takes you from an unopened sensor to your first live scan in Houdini.
-- [Using RPLidar In](https://tonehammer.github.io/jvtools-docs/rplidar-in/using.md): This page walks through the three modes, the two outputs, the on-screen guides, cropping, recording, and driving a live simulation. For a flat list of every control, see the Parameter Reference.
+- [Getting Started](https://jvtools.dev/docs/rplidar-in/getting-started.md): This page takes you from an unopened sensor to your first live scan in Houdini.
+- [Using RPLidar In](https://jvtools.dev/docs/rplidar-in/using.md): This page walks through the three modes, the two outputs, the on-screen guides, cropping, recording, and driving a live simulation. For a flat list of every control, see the Parameter Reference.
 
 ### Reference
 
-- [Parameter Reference](https://tonehammer.github.io/jvtools-docs/rplidar-in/reference/parameters.md): Every parameter on the RPLidar In node, grouped as it appears in the interface. Names in code are the internal parameter names.
-- [Troubleshooting](https://tonehammer.github.io/jvtools-docs/rplidar-in/reference/troubleshooting.md): Press Test Sensor. It prints the sensor's identity, health, and available scan modes. No response means Houdini can't talk to the sensor.
-- [Changelog](https://tonehammer.github.io/jvtools-docs/rplidar-in/reference/changelog.md): The first public release.
-- [License](https://tonehammer.github.io/jvtools-docs/rplidar-in/reference/license.md): This is the End User License Agreement for RPLidar In. By downloading, installing, or using the asset, you agree to these terms.
+- [Parameter Reference](https://jvtools.dev/docs/rplidar-in/reference/parameters.md): Every parameter on the RPLidar In node, grouped as it appears in the interface. Names in code are the internal parameter names.
+- [Troubleshooting](https://jvtools.dev/docs/rplidar-in/reference/troubleshooting.md): Press Test Sensor. It prints the sensor's identity, health, and available scan modes. No response means Houdini can't talk to the sensor.
+- [Changelog](https://jvtools.dev/docs/rplidar-in/reference/changelog.md): The first public release.
+- [License](https://jvtools.dev/docs/rplidar-in/reference/license.md): This is the End User License Agreement for RPLidar In. By downloading, installing, or using the asset, you agree to these terms.
 
 ## COPout
 
-- [Getting started](https://tonehammer.github.io/jvtools-docs/copout/getting-started.md): Put JV-COPout-v1.0.hdalc in Documents/houdini22.0/otls/. Houdini picks it up on the next launch.
-- [Using COPout](https://tonehammer.github.io/jvtools-docs/copout/using.md): Source decides what the window shows, and the three options are genuinely different animals rather than three views of one thing.
+- [Getting started](https://jvtools.dev/docs/copout/getting-started.md): Put JV-COPout-v1.0.hdalc in Documents/houdini22.0/otls/. Houdini picks it up on the next launch.
+- [Using COPout](https://jvtools.dev/docs/copout/using.md): Source decides what the window shows, and the three options are genuinely different animals rather than three views of one thing.
 
 ### Reference
 
-- [Parameter reference](https://tonehammer.github.io/jvtools-docs/copout/reference/parameters.md): Everything lives on one Setup tab, plus Utilities. Listed here in panel order.
-- [Changelog](https://tonehammer.github.io/jvtools-docs/copout/reference/changelog.md): The first public release.
-- [License](https://tonehammer.github.io/jvtools-docs/copout/reference/license.md): This is the End User License Agreement for COPout. By downloading, installing, or using the asset, you agree to these terms.
+- [Parameter reference](https://jvtools.dev/docs/copout/reference/parameters.md): Everything lives on one Setup tab, plus Utilities. Listed here in panel order.
+- [Changelog](https://jvtools.dev/docs/copout/reference/changelog.md): The first public release.
+- [License](https://jvtools.dev/docs/copout/reference/license.md): This is the End User License Agreement for COPout. By downloading, installing, or using the asset, you agree to these terms.
 
 ## Deoverlap Polylines
 
-- [Getting started](https://tonehammer.github.io/jvtools-docs/deoverlap-polylines/getting-started.md): Put JV-Deoverlap_Polylines-v1.0.hdalc in Documents/houdini22.0/otls/. Houdini picks it up on the next launch.
-- [Using Deoverlap Polylines](https://tonehammer.github.io/jvtools-docs/deoverlap-polylines/using.md): Most of the time you'll touch two sliders. This goes through the panel in order.
+- [Getting started](https://jvtools.dev/docs/deoverlap-polylines/getting-started.md): Put JV-Deoverlap_Polylines-v1.0.hdalc in Documents/houdini22.0/otls/. Houdini picks it up on the next launch.
+- [Using Deoverlap Polylines](https://jvtools.dev/docs/deoverlap-polylines/using.md): Most of the time you'll touch two sliders. This goes through the panel in order.
 
 ### Reference
 
-- [Parameter reference](https://tonehammer.github.io/jvtools-docs/deoverlap-polylines/reference/parameters.md): Every control on the node, in panel order. The prose version is in Using Deoverlap Polylines.
-- [Changelog](https://tonehammer.github.io/jvtools-docs/deoverlap-polylines/reference/changelog.md): First release.
-- [License](https://tonehammer.github.io/jvtools-docs/deoverlap-polylines/reference/license.md): This is the End User License Agreement for Deoverlap Polylines. By downloading, installing, or using the asset, you agree to these terms.
+- [Parameter reference](https://jvtools.dev/docs/deoverlap-polylines/reference/parameters.md): Every control on the node, in panel order. The prose version is in Using Deoverlap Polylines.
+- [Changelog](https://jvtools.dev/docs/deoverlap-polylines/reference/changelog.md): First release.
+- [License](https://jvtools.dev/docs/deoverlap-polylines/reference/license.md): This is the End User License Agreement for Deoverlap Polylines. By downloading, installing, or using the asset, you agree to these terms.

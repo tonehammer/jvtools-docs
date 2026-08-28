@@ -30,7 +30,7 @@ exclude:
 # one build serves correctly under either prefix; only the canonical, og:url
 # and sitemap take this value - which is exactly what should point at the new
 # home while the old host keeps working.
-url: https://jvtools.dev/docs/
+url: https://tonehammer.github.io/jvtools-docs/
 
 # Browser-tab icon. Retype's `favicon` key is TOP-LEVEL (not under `branding`)
 # and takes a .ico or .png only, path relative to the input directory - so an

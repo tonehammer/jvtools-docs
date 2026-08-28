@@ -124,6 +124,20 @@ deployed site**, and do not conclude the YAML is wrong from a local build.
   bisecting by push:** `grep -rn "{{" --include=*.md` showed every attested use
   was plain prose in a README, and exactly one was inside backticks. That was
   it. Write the version out literally on any page that needs it in a filename.
+  🔴 **CORRECTED 2026-08-28 — THE SAME `capacity` ERROR IS ALSO THE FLAKY BUILD,
+  AND THE ENTRY ABOVE WILL SEND YOU HUNTING A CONTENT BUG THAT IS NOT THERE.**
+  A commit adding three docs sections went red with **4** of these errors and
+  `4 pages failed`. Two novel constructs were found by exactly the grep-for-novel
+  method above and removed; the next build came back **worse — 6 errors** from a
+  change that only deleted things. **Re-running that identical commit built 48
+  pages with 0 errors.** So the count is non-deterministic and the whole detour
+  was wasted. ✅ **RE-RUN THE BUILD FIRST — `gh run rerun <id>` — and only start
+  reading your diff if it fails the SAME WAY TWICE.** 🔑 The tell that it is the
+  race and not your content is the error count MOVING between runs of the same
+  or near-identical tree; a real content bug fails identically every time. Note
+  the 2026-08-27 case was diagnosed on a single red run, so it may itself have
+  been the flake — the `{{ }}`-in-backticks rule stands on the templating
+  behaviour, which is independently true, not on that one build.
   🔑 The `data:` versions are the DOCS versions (changelog is their source of
   truth). `versions/<slug>.json` is a separate signal for the HDAs' update
   check, and its `latest` deliberately lags on patches so nothing notifies — do

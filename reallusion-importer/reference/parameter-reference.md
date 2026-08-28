@@ -164,6 +164,7 @@ Rebuilds Character Creator's HD eye look, which barely travels in the export. Or
 | Parameter | Description |
 | --- | --- |
 | **Eye Normal Strength** | Eyeball surface detail (sclera veins, iris relief), separate from the head. Low by default (0.2) — CC's eye normal is strong. |
+| **Lightness** | Lifts the brightness of the whole eye, applied after the iris tint, limbus and sclera. 1 = unchanged; above 1 brightens (slider to 5, accepts higher); below 1 darkens. Raise this when a dark iris won't take a tint. Both import modes. |
 
 **Iris tab**
 
@@ -226,4 +227,14 @@ Re-dye and shade the character's scalp hair. Applies to hair carrying CC's hair 
 
 | Parameter | Description |
 | --- | --- |
-| **Brow Tint Color** / **Brow Tint Amount** | Re-tint the eyebrows independently of scalp hair, keeping strand detail. Amount 0 by default. Use to match brows to dyed hair. |
+| **Brow Lightness** | Lifts the brows' brightness. 1 = unchanged; slider to 20, accepts higher. Applies at any tint amount, including 0. CC's brow maps are near-black, so raise this first or a tint reads as doing nothing — 6–14 is the usual working range. |
+| **Brow Tint Color** / **Brow Tint Amount** | Re-tint the eyebrows, keeping strand detail. Amount 0 by default. Use to match brows to dyed hair. Note brows also run through the scalp re-dye, so Custom mode reaches them and these controls layer on top. |
+
+**Facial Hair** (sub-folder)
+
+Beards, moustaches and sideburns. Decoupled from the scalp hair — the Hair color controls above do not touch them. See [Hair](../using/hair.md#facial-hair).
+
+| Parameter | Description |
+| --- | --- |
+| **Facial Hair Lightness** | Lifts the beard's brightness. 1 = unchanged; slider to 20, accepts higher. Applies at any tint amount, including 0 — this alone greys or lightens a beard. Blows out from around 4x. |
+| **Facial Hair Tint Color** / **Facial Hair Tint Amount** | Re-tint facial hair, keeping strand detail. Amount 0 by default. CC names every piece `Beard<N>`, so moustaches, sideburns and soul patches all follow these. |

@@ -61,7 +61,7 @@ Why it is a rule and not a nicety: swapping the Advanced Velocity card image loo
 
 **The loop:**
 1. `retype build .` from the repo root (~3s, 36 pages). Works locally with no license key despite `poweredByRetype: false` being Pro-only.
-2. Serve it — `retype start` for live reload, or the **jvtools-docs-editor** (`C:\Users\Jovan\Documents\GitHub\jvtools-docs-editor\server.py`, port **8123**, base path **`/jvtools-docs/`**, rebuilds on save). ⚠ Serving `.retype/` directly at `/` 404s every asset — internal links are absolute under `/jvtools-docs/`.
+2. Serve it — `retype start` for live reload, or the **jvtools-docs-editor** (`C:\Users\Jovan\Documents\GitHub\jvtools-docs-editor\server.py`, port **8123**, base path **`/jvtools-docs/`**, rebuilds on save). ⚠ Serve it under the same base path the editor uses; a bare `/` can 404. 🔑 **CORRECTED 2026-08-28: this is NOT because links are absolute — they are DOCUMENT-RELATIVE, both page links and assets** (`href="../../../resources/css/retype.css"`, `src="../../static/x.png"`). Measured off the built HTML. **Only `canonical`, `og:url` and the sitemap carry the absolute `url:` value.** That is what makes one build portable across hosts, and it is the whole reason the docs could move to jvtools.dev/docs while `tonehammer.github.io/jvtools-docs/` keeps serving the same artifact correctly for every shipped HDA's baked Docs button.
 3. Screenshot it headless with Edge, then **Read the PNG**:
    ```
    msedge --headless=new --disable-gpu --hide-scrollbars \

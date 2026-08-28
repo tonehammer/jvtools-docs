@@ -28,8 +28,27 @@ jobs:
           fetch-depth: 0
 
       - uses: retypeapp/action-build@latest
+        id: build
         env:
           RETYPE_KEY: ${{ secrets.RETYPE_KEY }}
+
+      # 🔴 KEEP THE CNAME OUT OF THE PUBLISHED BRANCH. Retype writes a CNAME
+      # file from the HOST in retype.yml's `url:`. With url on jvtools.dev that
+      # made GitHub adopt jvtools.dev as THIS repo's Pages custom domain, and
+      # Pages then 301'd tonehammer.github.io/jvtools-docs/* to jvtools.dev/*
+      # with the /docs prefix DROPPED - so every one of those 404'd, including
+      # the Docs button baked into every shipped HDA. Measured 2026-08-28.
+      #
+      # We deliberately want the opposite: jvtools.dev/docs is served by the
+      # Cloudflare Pages website, while github.io keeps serving this same build
+      # directly, forever, for HDAs that still point at it. Only the canonical
+      # and og:url should carry the new home - and those come from `url:`, not
+      # from this file.
+      - name: Drop the CNAME so github.io keeps serving instead of redirecting
+        shell: bash
+        run: |
+          rm -f "${{ steps.build.outputs.retype-output-path }}/CNAME"
+          test ! -e "${{ steps.build.outputs.retype-output-path }}/CNAME"
 
       - uses: retypeapp/action-github-pages@latest
         with:

@@ -19,8 +19,15 @@ exclude:
 
 # The public base URL of the site. Must EXACTLY match the domain the Retype
 # Pro license key is registered to (here: jvtools.dev). If you later move
-# again, update this AND re-license the key to that domain. A mismatch does
-# not fail the build - it silently drops every Pro feature.
+# again, update this AND re-license the key to that domain.
+# 🔑 A mismatch FAILS THE BUILD OUTRIGHT and says so plainly:
+#   ERROR: The specified key is not valid for the "url" config host: "..."
+# so key and url must move in the same change. (It does NOT silently drop Pro,
+# which is what we assumed while planning the move - measured 2026-08-28.)
+#
+# ⚠ Changing this also changes the CNAME Retype writes into the build output.
+# The deploy workflow deletes that file on purpose - see the long comment there
+# before touching it; leaving it in takes the github.io docs down.
 #
 # The build is published to the `retype` branch exactly as before, so
 # tonehammer.github.io/jvtools-docs/ keeps serving it. That is deliberate and
@@ -30,7 +37,7 @@ exclude:
 # one build serves correctly under either prefix; only the canonical, og:url
 # and sitemap take this value - which is exactly what should point at the new
 # home while the old host keeps working.
-url: https://tonehammer.github.io/jvtools-docs/
+url: https://jvtools.dev/docs/
 
 # Browser-tab icon. Retype's `favicon` key is TOP-LEVEL (not under `branding`)
 # and takes a .ico or .png only, path relative to the input directory - so an

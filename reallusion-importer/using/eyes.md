@@ -23,7 +23,7 @@ At the top of the Eyes folder, separate from the head skin. Controls the strengt
 
 ## Lightness
 
-The eye's equivalent of the hair [Lightness (Bleach)](hair.md#lightness-bleach) control, and it solves exactly the same problem. Iris Color Tint changes the iris's _hue_, but it can't make a dark eye lighter — the tint shades the detail that's already in the imported texture, so a very dark iris stays dark whatever color you pick.
+The eye's equivalent of the hair [Lightness control](hair.md#lightness-bleach), and it solves exactly the same problem. Iris Color Tint changes the iris's _hue_, but it can't make a dark eye lighter — the tint shades the detail that's already in the imported texture, so a very dark iris stays dark whatever color you pick.
 
 **Lightness** lifts the brightness of the whole eye instead:
 

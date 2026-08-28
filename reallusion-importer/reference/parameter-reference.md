@@ -237,4 +237,4 @@ Beards, moustaches and sideburns. Decoupled from the scalp hair — the Hair col
 | Parameter | Description |
 | --- | --- |
 | **Facial Hair Lightness** | Lifts the beard's brightness. 1 = unchanged; slider to 20, accepts higher. Applies at any tint amount, including 0 — this alone greys or lightens a beard. Blows out from around 4x. |
-| **Facial Hair Tint Color** / **Facial Hair Tint Amount** | Re-tint facial hair, keeping strand detail. Amount 0 by default. CC names every piece `Beard<N>`, so moustaches, sideburns and soul patches all follow these. |
+| **Facial Hair Tint Color** / **Facial Hair Tint Amount** | Re-tint facial hair, keeping strand detail. Amount 0 by default. CC names every piece `Beard1`, `Beard2` and so on, so moustaches, sideburns and soul patches all follow these. |

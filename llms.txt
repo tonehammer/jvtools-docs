@@ -4,7 +4,7 @@
 
 - [JVtools](https://jvtools.dev/docs/index.md): JVtools
 - [Reallusion Importer for Houdini](https://jvtools.dev/docs/reallusion-importer/readme.md): Reallusion Importer for Houdini (v1.2.4) turns a Character Creator 5 or iClone 8 character into a fully shaded, animatable, render-ready character in Houdini's Solaris environment — in seconds instead of hours.
-- [Advanced Velocity](https://jvtools.dev/docs/advanced-velocity/readme.md): Welcome! Advanced Velocity (v1.1) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node.
+- [Advanced Velocity](https://jvtools.dev/docs/advanced-velocity/readme.md): Welcome! Advanced Velocity (v1.2) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node.
 - [RPLidar In](https://jvtools.dev/docs/rplidar-in/readme.md): Welcome! RPLidar In (v1.0) brings live Slamtec RPLIDAR point-cloud data straight into Houdini as SOP geometry. Plug in the sensor, drop the node, and every
 - [COPout](https://jvtools.dev/docs/copout/readme.md): Welcome! COPout (v1.0) puts a Copernicus network on a projector or a second screen as a borderless, chrome-free output window — no menu bars, no toolbars, nothing of Houdini in the way.
 - [Deoverlap Polylines](https://jvtools.dev/docs/deoverlap-polylines/readme.md): Deoverlap Polylines (v1.0) finds where your curves cross and pushes them apart at the crossings, so a tangle reads as separate strands. Hair, fibres, cables, stitched lines, a grid of rows and columns.
@@ -49,7 +49,7 @@
 
 - [Parameter Reference](https://jvtools.dev/docs/advanced-velocity/reference/parameters.md): Every hand-authored parameter on the Advanced Velocity node, grouped the way it appears in the interface. Names in code are the internal parameter names.
 - [Troubleshooting](https://jvtools.dev/docs/advanced-velocity/reference/troubleshooting.md): You're in Timed Events mode, the default, where the live Setup is only a template — only baked events reach the output. Press Create Event to bake the setup, or Update on an existing event's row to fold your changes into it.
-- [Changelog](https://jvtools.dev/docs/advanced-velocity/reference/changelog.md): The first public release — version 1.0 below is the feature set it launched with.
+- [Changelog](https://jvtools.dev/docs/advanced-velocity/reference/changelog.md): Bug fixes and improvements
 - [License](https://jvtools.dev/docs/advanced-velocity/reference/license.md): This is the End User License Agreement for Advanced Velocity. By downloading, installing, or using the asset, you agree to these terms.
 
 ## RPLidar In

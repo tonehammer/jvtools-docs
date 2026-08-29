@@ -178,7 +178,7 @@ Every type's Adjust folder opens with the same row: **Variation** (`variation1`�
 
 ### Ballistic Return (the sidecar node)
 
-Ballistic Motion returns the pieces home from a *prediction*. Often what you actually want is to reassemble a **finished simulation** — that has to happen downstream of the solver, on a node of its own. That node is **Ballistic Return**, and it ships in the same file: press **Create Ballistic Return**, or grab it from the JV tab menu.
+Ballistic Motion returns the pieces home from a *prediction*. Often what you actually want is to reassemble a **finished simulation** — that has to happen downstream of the solver, on a node of its own. That node is **Ballistic Return**, and it ships in the same file: press **Create Ballistic Return**, or grab it from the JV tab menu, where it is listed as **Advanced Velocity Ballistic Return** so it sits beside its parent.
 
 It wires itself up: input 1 takes the simulated pieces (the RBD solver below your Advanced Velocity node, if there is one), input 2 takes the rest pose (Advanced Velocity's own first output — the geometry before anything moved it). Keyframe **Return to Home** from 0 to 1 and the pieces fly back together.
 

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.841227247431">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.841339473673">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -39,11 +39,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.841227247431" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.841339473673" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.841227247431" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.841339473673" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.841227247431" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.841339473673" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -1175,7 +1175,7 @@
 </div>
 </retype-table>
 <h3 id="ballistic-return-the-sidecar-node">Ballistic Return (the sidecar node)</h3>
-<p>Ballistic Motion returns the pieces home from a <em>prediction</em>. Often what you actually want is to reassemble a <strong>finished simulation</strong> — that has to happen downstream of the solver, on a node of its own. That node is <strong>Ballistic Return</strong>, and it ships in the same file: press <strong>Create Ballistic Return</strong>, or grab it from the JV tab menu.</p>
+<p>Ballistic Motion returns the pieces home from a <em>prediction</em>. Often what you actually want is to reassemble a <strong>finished simulation</strong> — that has to happen downstream of the solver, on a node of its own. That node is <strong>Ballistic Return</strong>, and it ships in the same file: press <strong>Create Ballistic Return</strong>, or grab it from the JV tab menu, where it is listed as <strong>Advanced Velocity Ballistic Return</strong> so it sits beside its parent.</p>
 <p>It wires itself up: input 1 takes the simulated pieces (the RBD solver below your Advanced Velocity node, if there is one), input 2 takes the rest pose (Advanced Velocity&#x27;s own first output — the geometry before anything moved it). Keyframe <strong>Return to Home</strong> from 0 to 1 and the pieces fly back together.</p>
 <p>The landing is always exact because the blend&#x27;s endpoint is <em>absolute</em>: at Return 1 the result <strong>is</strong> the rest pose, whatever the simulation was doing underneath, since the target isn&#x27;t relative to the motion it replaces. Nothing is snapshotted either, so re-simulating upstream can never leave this node stale. Pieces are matched by point number, which a Bullet solve preserves.</p>
 <retype-table copy-text="| Parameter | Name | Description |
@@ -1439,7 +1439,7 @@
                 <span class="card-compact-icon inline-flex shrink-0"><img width="20" height="20" src="static/advanced_velocity_icon.png"></span>
                 <span class="card-compact-title">Advanced Velocity</span>
             </div>
-            <p class="card-compact-description">Welcome! Advanced Velocity (v1.1) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node.</p>
+            <p class="card-compact-description">Welcome! Advanced Velocity (v1.2) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node.</p>
         </div>
     </a>
 </div>
@@ -1448,8 +1448,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-26T09:24:56" title="2026-08-26" data-absolute-label="Last updated on 2026-08-26" data-absolute-label-html="Last updated on 2026-08-26" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-08-26
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-29T19:24:14" title="2026-08-29" data-absolute-label="Last updated on 2026-08-29" data-absolute-label-html="Last updated on 2026-08-29" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-08-29
                     </time>
                 </div>
 

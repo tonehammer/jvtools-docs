@@ -91,6 +91,9 @@ links:
       - text: Deoverlap Polylines
         link: /deoverlap-polylines/
         icon: git-branch
+      - text: FLIP DOP Controller
+        link: /flip-dop-controller/
+        icon: droplet
 
 # Git-backed freshness stamp at the foot of every page. Needs full git history
 # at build time - the deploy workflow already checks out with fetch-depth: 0,
@@ -124,6 +127,9 @@ data:
     version: "1.0"
   dp:
     name: Deoverlap Polylines
+    version: "1.0"
+  fdc:
+    name: FLIP DOP Controller
     version: "1.0"
 # 🔴 A PRE-RELEASE PRODUCT GETS NO ENTRY HERE, AND NO FOLDER IN THIS REPO.
 # This repo is PUBLIC (Pages + the raw manifest URL both require it), so a

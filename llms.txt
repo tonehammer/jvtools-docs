@@ -7,6 +7,7 @@
 - [Advanced Velocity](https://jvtools.dev/docs/advanced-velocity/readme.md): Welcome! Advanced Velocity (v1.2) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node.
 - [RPLidar In](https://jvtools.dev/docs/rplidar-in/readme.md): Welcome! RPLidar In (v1.0) brings live Slamtec RPLIDAR point-cloud data straight into Houdini as SOP geometry. Plug in the sensor, drop the node, and every
 - [COPout](https://jvtools.dev/docs/copout/readme.md): Welcome! COPout (v1.0) puts a Copernicus network on a projector or a second screen as a borderless, chrome-free output window — no menu bars, no toolbars, nothing of Houdini in the way.
+- [FLIP DOP Controller](https://jvtools.dev/docs/flip-dop-controller/readme.md): FLIP DOP Controller (v1.0) puts a FLIP simulation's key parameters on one SOP-level node.
 - [Deoverlap Polylines](https://jvtools.dev/docs/deoverlap-polylines/readme.md): Deoverlap Polylines (v1.0) finds where your curves cross and pushes them apart at the crossings, so a tangle reads as separate strands. Hair, fibres, cables, stitched lines, a grid of rows and columns.
 
 ## Reallusion Importer for Houdini
@@ -74,6 +75,18 @@
 - [Parameter reference](https://jvtools.dev/docs/copout/reference/parameters.md): Everything lives on one Setup tab, plus Utilities. Listed here in panel order.
 - [Changelog](https://jvtools.dev/docs/copout/reference/changelog.md): The first public release.
 - [License](https://jvtools.dev/docs/copout/reference/license.md): This is the End User License Agreement for COPout. By downloading, installing, or using the asset, you agree to these terms.
+
+## FLIP DOP Controller
+
+- [Getting started](https://jvtools.dev/docs/flip-dop-controller/getting-started.md): Put JV-FLIP_DOP_Controller-v1.0.hdalc in Documents/houdini22.0/otls/.
+- [Using FLIP DOP Controller](https://jvtools.dev/docs/flip-dop-controller/using.md): Set DOP Network, press Connect Parameters, then work from this panel. Connect writes channel references onto the targets, so the values live here and the sim reads them.
+
+### Reference
+
+- [Parameter reference](https://jvtools.dev/docs/flip-dop-controller/reference/parameters.md): In panel order. Every linkable parameter has a Link checkbox beside it, which decides whether Connect includes it — it does not switch the parameter off.
+- [Troubleshooting](https://jvtools.dev/docs/flip-dop-controller/reference/troubleshooting.md): "Nothing to connect" — no DOP Network set and no Add Linked SOPs rows. There is genuinely nothing to write to.
+- [Changelog](https://jvtools.dev/docs/flip-dop-controller/reference/changelog.md): First release.
+- [License](https://jvtools.dev/docs/flip-dop-controller/reference/license.md): FLIP DOP Controller — End User License Agreement. Last updated: 26/08/2026.
 
 ## Deoverlap Polylines
 

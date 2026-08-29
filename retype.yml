@@ -30,13 +30,17 @@ exclude:
 # before touching it; leaving it in takes the github.io docs down.
 #
 # The build is published to the `retype` branch exactly as before, so
-# tonehammer.github.io/jvtools-docs/ keeps serving it. That is deliberate and
-# must stay that way: every shipped HDA bakes the github.io URL into its Docs
-# button and will keep going there until that product's next release.
-# It works because Retype writes page links AND assets document-relative, so
-# one build serves correctly under either prefix; only the canonical, og:url
-# and sitemap take this value - which is exactly what should point at the new
-# home while the old host keeps working.
+# tonehammer.github.io/jvtools-docs/ keeps serving the ARTIFACT. ⚠ CORRECTED
+# 2026-08-30: serving is not rendering - since url: moved here, Retype's JS
+# draws "Website Configuration Error" over every github.io page in a real
+# browser (the raw HTML is complete, which is exactly why 200/content checks
+# pass over it). Every shipped HDA bakes the github.io URL into its Docs
+# button and lands on that error until its product's next release re-bakes
+# DOCS_URL to jvtools.dev/docs/<slug>/ (Jovan, 2026-08-30 - STANDARDS §8;
+# board chore utilities-website-button tracks the rollout). The branch keeps
+# publishing regardless: Retype writes page links AND assets document-relative,
+# so one build serves under either prefix; only canonical, og:url and the
+# sitemap take this value.
 url: https://jvtools.dev/docs/
 
 # Browser-tab icon. Retype's `favicon` key is TOP-LEVEL (not under `branding`)

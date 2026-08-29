@@ -5,6 +5,18 @@ order: 70
 
 # Changelog
 
+## Version 1.2
+
+**Bug fixes and improvements**
+
+* **Fixed:** the event timeline HUD did not draw when the node sat inside a transformed object.
+* **Fixed:** ten tooltips on the Velocity from Motion and Curl Noise streams described the exploding velocity.
+* **Fixed:** the pulse waveform icon shifted position when the Pattern changed.
+* **New:** a Website button in the Utilities link row.
+* The Ballistic Return node is now called **Advanced Velocity Ballistic Return** in the tab menu.
+* Removed a stray placeholder parameter from the top of the panel.
+* Interior network tidy-up.
+
 ## Version 1.1
 
 The first public release — version 1.0 below is the feature set it launched with.

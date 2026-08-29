@@ -176,7 +176,7 @@ It's a straight-line prediction — no collisions, no gravity. **Display Offset*
 
 Everything above returns pieces home from a prediction. But once the pieces have actually simulated — tumbled, hit the ground, settled — that reassembly can't happen on this node, since by then the solve is downstream. It gets a node of its own.
 
-Press **Create Ballistic Return** at the bottom of the Ballistic Motion folder. You get a second node, shipped inside the same file and in the JV tab menu, wired for you: input 1 takes the simulated pieces (it finds the RBD solver under your node), input 2 takes the rest pose from this node's first output.
+Press **Create Ballistic Return** at the bottom of the Ballistic Motion folder. You get a second node, shipped inside the same file and listed in the JV tab menu as **Advanced Velocity Ballistic Return**, wired for you: input 1 takes the simulated pieces (it finds the RBD solver under your node), input 2 takes the rest pose from this node's first output.
 
 ![The Ballistic Return node](static/ballistic-return-node.png)
 

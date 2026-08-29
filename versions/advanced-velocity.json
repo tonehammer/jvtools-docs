@@ -1,6 +1,6 @@
 {
   "product": "Advanced Velocity",
-  "latest": "1.1",
+  "latest": "1.2",
   "url": "https://jvtonehammer.gumroad.com/l/advanced_velocity_hda",
-  "notes": "First public release: Ballistic Motion second output with Return to Home, the Ballistic Return sidecar node for reassembling a finished simulation, Event Strength, Ghost Style."
+  "notes": "Fixes: the event timeline HUD now draws when the node sits inside a transformed object; ten tooltips on the Velocity from Motion and Curl Noise streams described the wrong stream; the pulse waveform icon no longer shifts as the Pattern changes. Adds a Website button to the Utilities link row."
 }

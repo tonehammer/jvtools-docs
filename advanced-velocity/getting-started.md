@@ -44,6 +44,12 @@ That's it — the node now outputs `@v`, and the viewport shows red guide trails
 A fresh node **passes the incoming velocity through** — the **Incoming Velocity** stream in the mixer is on by default, so dropping this node after a cache or a previous sim layers on top of that motion instead of erasing it. Switch that toggle off when you want to author the attribute outright.
 !!!
 
+!!!info The speeds size themselves to your object
+Velocity is in units per second, so a default that suits a one-unit test sphere is nearly invisible on an 80-unit building. The first time you connect geometry the node measures it and scales the world-space speeds — Basic, Directional, Exploding, Curl and the speed clamp — to match, rounding to something readable rather than leaving `118.6034` in a field.
+
+Only parameters still sitting at their default move, so nothing you've already dialled in gets touched, and it happens once rather than on every reconnect. **Measure Input Scale** (the tape measure in the Setup row) tells you what it measured and what it set.
+!!!
+
 ## The shape of the node
 
 Along the top: **Mode**, the **Group** the final write is restricted to, and (in Timed Events) the **Dynamic Events** section holding the event list.

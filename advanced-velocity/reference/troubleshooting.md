@@ -14,7 +14,7 @@ Work down this list — it's almost always one of them:
 * In the **Velocity Mixer**, a **Gain** of 0 (Additive) or a **Weight** of 0 (Weighted) mutes that type.
 * In Timed Events: no events, no output.
 * **Combine Into Attribute** (Output tab) is off.
-* **Output As** is set to *Force*, so the result went to the Force Attribute (`@force`) rather than `@v`.
+* **Output As** is set to *Force*, so the result went to the Force Attribute (`@av_force` by default) rather than `@v`. In Force mode an RBD solve also needs the wrangle that applies it — press **Create Connected RBD Sim**, or check the one you have reads that attribute and multiplies by `@mass`.
 
 ## The node changed the velocity my geometry already had
 
@@ -61,6 +61,12 @@ The solver's **Override Attributes from SOP** is re-stamping `@v` every frame, s
 Don't gate the *Override Attributes from SOP* toggle itself: the solver latches it at the sim's first frame, so your gating does nothing.
 
 Both live under **Properties ▸ Pieces ▸ Override Attributes**. Beware the similarly named *Overwrite Attributes from SOP* under **Collision ▸ Collision Geometry** — that one is for collision geometry and is not what you want.
+
+## My big scene runs in slow motion
+
+Usually it isn't the node, and it isn't a bug — it's scale. At Houdini's 1 unit = 1 metre, an 8-unit chunk of rubble is an 8-metre boulder, and a boulder that size genuinely takes about twice as long to fall its own length as a 2-metre rock does. The shot reads as slow because the objects are enormous.
+
+The node's *push* already sizes itself to your input, but **gravity belongs to the solver** and nothing was scaling that — so a large scene gets a correct launch and an unscaled fall, which is the asymmetry you're seeing. In **Force** mode, turn on **Scale Gravity to Scene** (Output tab): it raises the solver's gravity by the same ratio the speeds were seeded with. Press **Measure Input Scale** first if you want to see the numbers — the build message names the gravity it would use whether the toggle is on or off.
 
 ## My trigger wrangle does nothing
 

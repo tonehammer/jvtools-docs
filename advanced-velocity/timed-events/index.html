@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.841383962337">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.841424767978">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -45,12 +45,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.6.0.841383962337" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.841424767978" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.841383962337" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.841424767978" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.841383962337" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.841383962337" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.841424767978" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.841424767978" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -383,6 +383,9 @@
 <p><strong>Copy Event</strong> duplicates an existing event at the current frame — the same blast, later, with nothing re-baked.</p>
 </li>
 <li>
+<p><strong>Copy From</strong> points the other way: it overwrites the event you&#x27;re <em>currently on</em> with another event&#x27;s data. The event keeps its own frame and name — those are what make it that event — and everything else is replaced. Use it when two events should match and one has drifted, instead of deleting and re-copying.</p>
+</li>
+<li>
 <p><strong>Sort by Frame</strong> reorders the rows chronologically (playback doesn&#x27;t care about row order; this is purely for reading).</p>
 </li>
 </ul>
@@ -402,7 +405,7 @@
 <h2 id="editing-an-event">Editing an event</h2>
 <p><strong>Recall</strong> loads an event&#x27;s captured setup back into the live Setup and jumps to its frame. Edit whatever you like, then press <strong>Update</strong> to re-bake it.</p>
 <p>The node watches for the trap in that loop: if the live Setup no longer matches the event it was last based on, the <strong>Stale</strong> readout names the event and its timeline marker turns <strong>pink</strong>. Nothing is lost — press Update to capture your changes, or Create Event to make the changes a new event instead.</p>
-<p><strong>Clear Setup</strong> (the broom next to Fold / Unfold All) switches every velocity type in the live Setup off — a clean slate for authoring the next event.</p>
+<p><strong>Clear Setup</strong> (the broom next to Fold / Unfold All) switches every velocity type in the live Setup off and parks the playhead back at the start of the range — a clean slate for authoring the next event, from the top.</p>
 <h2 id="solo-and-mute">Solo and Mute</h2>
 <p><strong>Solo</strong> plays back <em>only</em> the listed events; <strong>Mute</strong> silences the listed ones. Both take space-separated numbers and ranges (<code translate="no" v-pre>1 3-5</code>), and picking from the dropdown <em>adds</em> to the list rather than replacing it. Solo wins over Mute, and a soloed event is never cut short by the events it was soloed away from.</p>
 <h2 id="event-strength">Event Strength</h2>
@@ -503,7 +506,7 @@
     </div>
 </div>
 <p><strong>In a hurry? Press Create Connected RBD Sim</strong> (Output tab). It builds an RBD Bullet Solver below the node with a ground plane, gravity, and both gates already wired.</p>
-<p>For POP and Vellum none of this is needed. Set <strong>Output As</strong> to Force and the node writes an accumulated <code translate="no" v-pre>@force</code> instead — those solvers accumulate forces every step rather than overwriting velocity, so there&#x27;s nothing to gate.</p>
+<p><strong>Or sidestep the gating entirely.</strong> Everything above is the price of Velocity mode: velocity is <em>set</em>, so it has to be gated. Set <strong>Output As</strong> to Force and there&#x27;s nothing to gate at all — a force adds to the solve instead of replacing it, so gravity keeps acting the whole time. POP and Vellum read it natively; on Bullet, Create Connected RBD Sim builds the wrangle that applies it. See <a href="../using/#output">Output</a> for Force Scale and the <code translate="no" v-pre>av_force</code> attribute name.</p>
 <h3 id="staggering-the-points">Staggering the points</h3>
 <p>By default every point in an event launches on the same frame — one slab, leaving together. <strong>Stagger Points</strong> (per event, in <strong>Event Options</strong>) brings them in one at a time instead: each waits for its own moment, shuffled evenly across the event&#x27;s window, then takes its full share.</p>
 <p>The shuffle is <em>even</em>, not random-per-point — points are shared out across the window rather than each rolling a die, so you get a steady cascade instead of clumps. It&#x27;s also stable: a point keeps its slot while you scrub, and the guides and motion preview show the same arrivals as the output.</p>
@@ -593,8 +596,9 @@ if (amp &gt; 0) {
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-            <h5>Add to <code translate="no" v-pre>v@v</code>, not <code translate="no" v-pre>v@force</code></h5>
-<p>On Bullet RBD, writing <code translate="no" v-pre>v@force</code> here is effectively a no-op: the solver divides it by the piece&#x27;s mass and the step, and at any sane trigger magnitude the pieces don&#x27;t visibly move. Add to <code translate="no" v-pre>v@v</code> instead. That is also what makes the trigger&#x27;s headline property useful — it <em>is</em> the speed the node would have written, so <code translate="no" v-pre>v@v += direction * amp</code> gives you the same push in your own direction. (<strong>Output As ▸ Force</strong> and <code translate="no" v-pre>@force</code> remain the right choice for POP and Vellum, which accumulate forces every step.)</p>
+            <h5>Writing <code translate="no" v-pre>v@force</code> instead? Multiply the mass back in</h5>
+<p><code translate="no" v-pre>v@v</code> is the direct route here, and it&#x27;s what makes the trigger&#x27;s headline property useful — it <em>is</em> the speed the node would have written, so <code translate="no" v-pre>v@v += direction * amp</code> gives you that same push in your own direction.</p>
+<p>A force works too, but it has to be scaled: a solver divides a force by each piece&#x27;s mass before anything moves, so <code translate="no" v-pre>v@force += direction * amp</code> does nothing at any sane magnitude, while <code translate="no" v-pre>v@force += direction * amp * @mass</code> behaves. What you get for the extra term is that a force <em>adds</em> rather than overwriting — gravity keeps acting throughout and there&#x27;s nothing to gate. <strong>Output As ▸ Force</strong> wires exactly this for you.</p>
         </div>
     </div>
 </div>
@@ -672,7 +676,7 @@ if (amp &gt; 0) {
                 <span class="card-compact-icon inline-flex shrink-0"><img width="20" height="20" src="static/advanced_velocity_icon.png"></span>
                 <span class="card-compact-title">Advanced Velocity</span>
             </div>
-            <p class="card-compact-description">Welcome! Advanced Velocity (v1.2) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node.</p>
+            <p class="card-compact-description">Welcome! Advanced Velocity (v1.3) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node.</p>
         </div>
     </a>
 </div>
@@ -725,8 +729,8 @@ if (amp &gt; 0) {
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-08T13:32:17" title="2026-08-08" data-absolute-label="Last updated on 2026-08-08" data-absolute-label-html="Last updated on 2026-08-08" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-08-08
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-30T19:05:42" title="2026-08-30" data-absolute-label="Last updated on 2026-08-30" data-absolute-label-html="Last updated on 2026-08-30" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-08-30
                     </time>
                 </div>
 

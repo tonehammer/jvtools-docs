@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.841383962337">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.841424767978">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -45,11 +45,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.6.0.841383962337" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.841424767978" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.841383962337" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.841424767978" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.841383962337" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.841424767978" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -484,14 +484,33 @@
 <hr>
 <h2 id="output">Output</h2>
 <p><strong>Combine Into Attribute</strong> writes the mixed result to the output attribute — on by default.</p>
-<p><strong>Output As</strong> picks between the two ways a solver can take motion from you, and the choice depends entirely on what you&#x27;re feeding:</p>
+<p><strong>Output As</strong> picks between the two ways a solver can take motion from you:</p>
 <ul>
-<li><strong>Velocity (<code translate="no" v-pre>@v</code>)</strong> — for the <strong>RBD Bullet Solver</strong>, which has no per-point force input. Velocity is <em>set</em>, not added — whatever the solve had accumulated gets replaced on the frames you write. That&#x27;s why an RBD setup needs gating (below); leave this writing every frame and the pieces can never fall.</li>
-<li><strong>Force (<code translate="no" v-pre>@force</code>)</strong> — for <strong>POP</strong> and <strong>Vellum</strong>, which accumulate forces every step. Nothing gets overwritten, so no gating is needed, and a fading release just stops pushing rather than braking motion the sim already has.</li>
+<li><strong>Velocity (<code translate="no" v-pre>@v</code>)</strong> — velocity is <em>set</em>, not added. Whatever the solve had accumulated gets replaced on the frames you write, which is why an RBD setup in this mode needs gating (below); leave it writing every frame and the pieces can never fall.</li>
+<li><strong>Force (<code translate="no" v-pre>@av_force</code>)</strong> — accumulated instead of set. Nothing gets overwritten, so no gating is needed anywhere, gravity keeps acting the whole time, and a fading release just stops pushing rather than braking motion the sim already has.</li>
 </ul>
-<p>The short version: <strong>if it&#x27;s Bullet, write velocity and gate it; if it&#x27;s POP or Vellum, write force and forget about it.</strong></p>
+<p>Both work on Bullet. <strong>POP</strong> and <strong>Vellum</strong> read <code translate="no" v-pre>@force</code> natively; the <strong>RBD Bullet Solver</strong> takes a force through a wrangle in its own forces context, which <strong>Create Connected RBD Sim</strong> builds for you.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-warning" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
+                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>The Force Attribute defaults to <code translate="no" v-pre>av_force</code>, not <code translate="no" v-pre>force</code></h5>
+<p>A force wrangle has to <em>read</em> one attribute and <em>write</em> another — <code translate="no" v-pre>@force</code> is what it writes into. So the node hands you <code translate="no" v-pre>@av_force</code> and the wrangle adds it to <code translate="no" v-pre>@force</code>. If you&#x27;re feeding POP or Vellum directly, type <code translate="no" v-pre>force</code> in the field and skip the wrangle entirely.</p>
+        </div>
+    </div>
+</div>
+<p><strong>Force Scale</strong> sets how hard that force pushes. It&#x27;s a multiplier, not a speed: a solver divides a force by each piece&#x27;s mass before anything moves, so heavy pieces need a bigger number than the equivalent velocity would be. 25 is the default and it&#x27;s a starting point, not a recommendation.</p>
+<p><strong>Scale Gravity to Scene</strong> raises the solver&#x27;s gravity by the same ratio your speeds were seeded with. Worth knowing why it exists: the node sizes its <em>push</em> to your input, but gravity belongs to the solver and nothing was scaling it — so a large scene got a correct launch and an unscaled fall, which reads as slow motion. It&#x27;s off by default, and the build message tells you the number it would use either way.</p>
 <p><strong>Velocity Attribute</strong> and <strong>Force Attribute</strong> let you rename the written attribute in each mode — author <code translate="no" v-pre>targetv</code> for Vellum without touching a wrangle.</p>
-<p><strong>Injecting Now</strong> and <strong>Muting Gravity</strong> are live 0/1 readouts for driving an RBD solve, and <strong>Create Connected RBD Sim</strong> builds a solver already wired to both — see <a href="../timed-events/#driving-an-rbd-solver">Driving an RBD solver</a>.</p>
+<p><strong>Injecting Now</strong> and <strong>Muting Gravity</strong> are live 0/1 readouts for driving an RBD solve in Velocity mode. <strong>Create Connected RBD Sim</strong> builds a solver wired for whichever mode you&#x27;re in — both gates in Velocity, the force wrangle in Force — and stamps a comment on it naming what it built, so flipping the mode afterwards doesn&#x27;t leave the network ambiguous. See <a href="../timed-events/#driving-an-rbd-solver">Driving an RBD solver</a>.</p>
 <h3 id="ballistic-motion--the-second-output">Ballistic Motion — the second output</h3>
 <p>The node&#x27;s second output delivers the pieces already flying: advanced along the velocity you authored, frame by frame, tumbling with any baked <code translate="no" v-pre>@w</code> if <strong>Include Rotation</strong> is on. No solver involved. Output 1 is untouched — your sim still gets the pieces at rest with <code translate="no" v-pre>@v</code> on them — so wire output 2 when a real solve is overkill: previz, motion-graphics moves, a quick look before committing to Bullet.</p>
 <p>It&#x27;s a straight-line prediction — no collisions, no gravity. <strong>Display Offset</strong> slides the result sideways in multiples of the object&#x27;s width, for reading it next to the original.</p>
@@ -557,7 +576,7 @@
                 <span class="card-compact-icon inline-flex shrink-0"><img width="20" height="20" src="static/advanced_velocity_icon.png"></span>
                 <span class="card-compact-title">Advanced Velocity</span>
             </div>
-            <p class="card-compact-description">Welcome! Advanced Velocity (v1.2) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node.</p>
+            <p class="card-compact-description">Welcome! Advanced Velocity (v1.3) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node.</p>
         </div>
     </a>
 </div>
@@ -583,13 +602,24 @@
         </div>
     </a>
 </div>
+<div class="card-compact-container">
+    <a href="/docs/advanced-velocity/timed-events/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M12.5 7.25a.75.75 0 0 0-1.5 0v5.5c0 .27.144.518.378.651l3.5 2a.75.75 0 0 0 .744-1.302L12.5 12.315V7.25Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></svg></span>
+                <span class="card-compact-title">Timed Events</span>
+            </div>
+            <p class="card-compact-description">One velocity field is rarely the whole story. The shot is a car lifted at frame 10, torn apart at frame 40, spun at frame 70 — three different velocity setups, at three different times, summed where they overlap.</p>
+        </div>
+    </a>
+</div>
 </div>
 </div>
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-29T19:24:14" title="2026-08-29" data-absolute-label="Last updated on 2026-08-29" data-absolute-label-html="Last updated on 2026-08-29" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-08-29
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-30T19:05:42" title="2026-08-30" data-absolute-label="Last updated on 2026-08-30" data-absolute-label-html="Last updated on 2026-08-30" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-08-30
                     </time>
                 </div>
 

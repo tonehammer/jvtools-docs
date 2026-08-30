@@ -1,5 +1,30 @@
 # Changelog
 
+## Version 1.3
+
+**Force output**
+
+* **Fixed:** Force mode now drives an RBD Bullet Solver.
+* **New: Create Connected RBD Sim** wires the solver for whichever Output As mode is set.
+* **New: Force Scale** sets the force multiplier.
+* **New: Scale Gravity to Scene** matches solver gravity to your input's size.
+* The Force Attribute now defaults to `av_force`.
+
+**Scale**
+
+* **New:** world-space speeds size themselves to your input when geometry is first connected.
+* **New: Measure Input Scale** reports the measured size and what it set.
+
+**Events**
+
+* **New: Copy From** overwrites the event you are on with another event's data.
+
+**Bug fixes and improvements**
+
+* **Fixed:** the point-source placement state ignored input size.
+* **Fixed:** the Documentation button opened a stale docs URL.
+* **Clear Setup** now parks the playhead at the range start.
+
 ## Version 1.2
 
 **Bug fixes and improvements**

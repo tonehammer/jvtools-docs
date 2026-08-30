@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.841383962337">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.841424767978">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -39,11 +39,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.841383962337" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.841424767978" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.841383962337" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.841424767978" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.841383962337" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.841424767978" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -357,7 +357,7 @@
 <li>In the <strong>Velocity Mixer</strong>, a <strong>Gain</strong> of 0 (Additive) or a <strong>Weight</strong> of 0 (Weighted) mutes that type.</li>
 <li>In Timed Events: no events, no output.</li>
 <li><strong>Combine Into Attribute</strong> (Output tab) is off.</li>
-<li><strong>Output As</strong> is set to <em>Force</em>, so the result went to the Force Attribute (<code translate="no" v-pre>@force</code>) rather than <code translate="no" v-pre>@v</code>.</li>
+<li><strong>Output As</strong> is set to <em>Force</em>, so the result went to the Force Attribute (<code translate="no" v-pre>@av_force</code> by default) rather than <code translate="no" v-pre>@v</code>. In Force mode an RBD solve also needs the wrangle that applies it — press <strong>Create Connected RBD Sim</strong>, or check the one you have reads that attribute and multiplies by <code translate="no" v-pre>@mass</code>.</li>
 </ul>
 <h2 id="the-node-changed-the-velocity-my-geometry-already-had">The node changed the velocity my geometry already had</h2>
 <p><strong>Incoming Velocity</strong> in the mixer controls this, and it&#x27;s <strong>on</strong> by default — upstream <code translate="no" v-pre>@v</code> passes through and the node layers on top. Switch it off to author the attribute outright.</p>
@@ -382,6 +382,9 @@
 <p>The solver&#x27;s <strong>Override Attributes from SOP</strong> is re-stamping <code translate="no" v-pre>@v</code> every frame, so gravity never accumulates. Gate the <strong>Attributes</strong> field beneath it on the node&#x27;s <strong>Injecting Now</strong> readout, so velocity is only taken during an event&#x27;s attack and hold — the recipe is in <a href="../../timed-events/#driving-an-rbd-solver">Driving an RBD solver</a>.</p>
 <p>Don&#x27;t gate the <em>Override Attributes from SOP</em> toggle itself: the solver latches it at the sim&#x27;s first frame, so your gating does nothing.</p>
 <p>Both live under <strong>Properties ▸ Pieces ▸ Override Attributes</strong>. Beware the similarly named <em>Overwrite Attributes from SOP</em> under <strong>Collision ▸ Collision Geometry</strong> — that one is for collision geometry and is not what you want.</p>
+<h2 id="my-big-scene-runs-in-slow-motion">My big scene runs in slow motion</h2>
+<p>Usually it isn&#x27;t the node, and it isn&#x27;t a bug — it&#x27;s scale. At Houdini&#x27;s 1 unit = 1 metre, an 8-unit chunk of rubble is an 8-metre boulder, and a boulder that size genuinely takes about twice as long to fall its own length as a 2-metre rock does. The shot reads as slow because the objects are enormous.</p>
+<p>The node&#x27;s <em>push</em> already sizes itself to your input, but <strong>gravity belongs to the solver</strong> and nothing was scaling that — so a large scene gets a correct launch and an unscaled fall, which is the asymmetry you&#x27;re seeing. In <strong>Force</strong> mode, turn on <strong>Scale Gravity to Scene</strong> (Output tab): it raises the solver&#x27;s gravity by the same ratio the speeds were seeded with. Press <strong>Measure Input Scale</strong> first if you want to see the numbers — the build message names the gravity it would use whether the toggle is on or off.</p>
 <h2 id="my-trigger-wrangle-does-nothing">My trigger wrangle does nothing</h2>
 <p><code translate="no" v-pre>trigger</code> is almost certainly missing from the solver&#x27;s <strong>Overwrite Attributes</strong> field (<strong>Properties ▸ Pieces ▸ Override Attributes ▸ Attributes</strong>). This is the single most common reason a trigger setup goes completely silent, and it&#x27;s worth understanding why it&#x27;s silent rather than just patching it: the solver copies every SOP attribute once, when it builds the objects at the sim&#x27;s first frame, so <code translate="no" v-pre>@trigger</code> genuinely exists inside the sim. It&#x27;s simply never refreshed after that — frozen at whatever it read on frame one, which is almost always 0. So <code translate="no" v-pre>f@trigger</code> reads a flat 0 on every substep of every frame, <code translate="no" v-pre>if (amp &gt; 0)</code> never fires, and the wrangle does nothing at all. No error on the wrangle, no error on the solver, nothing in the node&#x27;s own warnings — it just quietly never fires.</p>
 <p>To confirm it: find a frame where the node&#x27;s own <code translate="no" v-pre>@trigger</code> is clearly nonzero, then check the same attribute inside the sim at that frame. If it reads a flat 0 there while the node says otherwise, that&#x27;s the diagnosis, and adding <code translate="no" v-pre>trigger</code> to the Attributes field is the fix — see <a href="../../timed-events/#exporting-the-trigger">Exporting the trigger</a> for the full setup, including why <code translate="no" v-pre>v</code> has to come <strong>out</strong> of that same field once <code translate="no" v-pre>trigger</code> goes in.</p>
@@ -400,7 +403,7 @@
                 <span class="card-compact-icon inline-flex shrink-0"><img width="20" height="20" src="static/advanced_velocity_icon.png"></span>
                 <span class="card-compact-title">Advanced Velocity</span>
             </div>
-            <p class="card-compact-description">Welcome! Advanced Velocity (v1.2) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node.</p>
+            <p class="card-compact-description">Welcome! Advanced Velocity (v1.3) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node.</p>
         </div>
     </a>
 </div>
@@ -409,8 +412,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-26T09:24:56" title="2026-08-26" data-absolute-label="Last updated on 2026-08-26" data-absolute-label-html="Last updated on 2026-08-26" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-08-26
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-30T19:05:42" title="2026-08-30" data-absolute-label="Last updated on 2026-08-30" data-absolute-label-html="Last updated on 2026-08-30" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-08-30
                     </time>
                 </div>
 

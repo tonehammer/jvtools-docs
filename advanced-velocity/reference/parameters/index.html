@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.841383962337">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.841424767978">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -39,11 +39,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.841383962337" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.841424767978" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.841383962337" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.841424767978" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.841383962337" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.841424767978" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -387,6 +387,7 @@
 | *(warning)* Unplayable events | `stale_bake_label` | Appears when the input's point count no longer matches what an event baked against, so those events write zero. Fix with **Utilities ▸ Re-bake All Events**. |
 | Record / Stop / Create Event | `record_events`, `stop_events`, `create_event` | Play the range for live marking; stop; bake the current setup into a new event at the current frame. |
 | Copy Event | `copy_event` | Duplicate an existing event at the current frame, nothing re-baked. |
+| Copy From | `copy_from_event` | Overwrite the event you are currently on with another event's data — bake, snapshot, envelope and mixer strength. Its own frame and name are kept, so the event stays where it is and only its contents change. |
 | Sort by Frame | `dyn_sort_events` | Reorder the event rows chronologically. |
 | Solo / Mute | `dyn_solo`, `dyn_mute` | Play only / ignore the listed events. Space-separated numbers and ranges (`1 3-5`); the dropdowns add to the list. |">
 <div class="table-wrapper scrollbar overflow-hidden">
@@ -423,6 +424,11 @@
 <td>Copy Event</td>
 <td><code translate="no" v-pre>copy_event</code></td>
 <td>Duplicate an existing event at the current frame, nothing re-baked.</td>
+</tr>
+<tr>
+<td>Copy From</td>
+<td><code translate="no" v-pre>copy_from_event</code></td>
+<td>Overwrite the event you are currently on with another event&#x27;s data — bake, snapshot, envelope and mixer strength. Its own frame and name are kept, so the event stays where it is and only its contents change.</td>
 </tr>
 <tr>
 <td>Sort by Frame</td>
@@ -603,7 +609,8 @@
 <retype-table copy-text="| Parameter | Name | Description |
 | --- | --- | --- |
 | Fold / Unfold All | `dyn_fold_setup` | Collapse or expand the *enabled* velocity sections at once. Sections whose type is switched off are left closed — their controls are hidden anyway. |
-| Clear Setup | `dyn_clear_setup` | Switch every velocity type in the live Setup off. |">
+| Clear Setup | `dyn_clear_setup` | Switch every velocity type in the live Setup off, and park the playhead at the start of the playback range. A clean slate for authoring the next event. |
+| Measure Input Scale | `dyn_scale_report` | Report the input's measured size and the world-space speeds that were seeded from it when geometry was first connected. Read-only — it reports, it does not re-seed. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -622,7 +629,12 @@
 <tr>
 <td>Clear Setup</td>
 <td><code translate="no" v-pre>dyn_clear_setup</code></td>
-<td>Switch every velocity type in the live Setup off.</td>
+<td>Switch every velocity type in the live Setup off, and park the playhead at the start of the playback range. A clean slate for authoring the next event.</td>
+</tr>
+<tr>
+<td>Measure Input Scale</td>
+<td><code translate="no" v-pre>dyn_scale_report</code></td>
+<td>Report the input&#x27;s measured size and the world-space speeds that were seeded from it when geometry was first connected. Read-only — it reports, it does not re-seed.</td>
 </tr>
 </tbody>
 </table>
@@ -1035,9 +1047,11 @@
 | --- | --- | --- |
 | Combine Into Attribute | `out_combine` | Write the mixed result to the output attribute. On by default. |
 | Muting Gravity | `dyn_mute_gravity` | Live 0/1 — 1 while any playing event is inside its Mute Gravity window. Drive a solver's gravity force from it. Always 0 in Single Field. |
-| Create Connected RBD Sim | `make_rbd_sim` | Build an RBD Bullet Solver below the node, already gated on Injecting Now and Muting Gravity. |
-| Output As | `out_as` | Velocity (`@v`) — set directly, what RBD reads — or Force (`@force`) — accumulated by POP and Vellum. |
-| Velocity Attribute / Force Attribute | `out_attrib_name`, `out_force_name` | The written attribute name; only the field for the current Output As mode is shown, and both names are kept. |
+| Create Connected RBD Sim | `make_rbd_sim` | Build an RBD Bullet Solver below the node, wired for whichever Output As mode is set: in Velocity, gated on Injecting Now and Muting Gravity; in Force, a POP wrangle in the solver's forces that applies the force attribute scaled by piece mass. Stamps a comment on the solver naming the wiring it built. |
+| Output As | `out_as` | Velocity (`@v`) — set directly, so an RBD solve needs gating — or Force (`@av_force`) — accumulated, so nothing needs gating and gravity keeps acting. POP and Vellum read `@force` natively; Bullet takes a force through a wrangle, which Create Connected RBD Sim builds. |
+| Velocity Attribute / Force Attribute | `out_attrib_name`, `out_force_name` | The written attribute name; only the field for the current Output As mode is shown, and both names are kept. Force Attribute defaults to **`av_force`**, because a force wrangle reads one attribute and writes into `@force`. Type `force` here to feed POP or Vellum directly. |
+| Force Scale | `out_force_scale` | Force mode only. Multiplier on the written force. A solver divides a force by each piece's mass before it moves anything, so this is not a speed — heavy pieces need a larger number than the equivalent velocity. Default 25. |
+| Scale Gravity to Scene | `rbd_scale_gravity` | Force mode only, off by default. Raises the built solver's gravity by the same ratio the speeds were seeded with, so a large scene falls at its own scale rather than in apparent slow motion. The build message names the number it would use whether or not this is on. |
 | Injecting Now | `dyn_injecting` | Live 0/1: an event is delivering energy right now. Gate an RBD solver's Overwrite Attributes list on it — see [Driving an RBD solver](../timed-events.md#driving-an-rbd-solver). This is the `v` workflow specifically; driving the solve from Export Trigger instead means listing `trigger` in that same field and not `v`, never both. |
 | Clamp Speed | `out_clamp`, `out_clamp_min`, `out_clamp_max` | Clamp the final speed into a range. |">
 <div class="table-wrapper scrollbar overflow-hidden">
@@ -1063,17 +1077,27 @@
 <tr>
 <td>Create Connected RBD Sim</td>
 <td><code translate="no" v-pre>make_rbd_sim</code></td>
-<td>Build an RBD Bullet Solver below the node, already gated on Injecting Now and Muting Gravity.</td>
+<td>Build an RBD Bullet Solver below the node, wired for whichever Output As mode is set: in Velocity, gated on Injecting Now and Muting Gravity; in Force, a POP wrangle in the solver&#x27;s forces that applies the force attribute scaled by piece mass. Stamps a comment on the solver naming the wiring it built.</td>
 </tr>
 <tr>
 <td>Output As</td>
 <td><code translate="no" v-pre>out_as</code></td>
-<td>Velocity (<code translate="no" v-pre>@v</code>) — set directly, what RBD reads — or Force (<code translate="no" v-pre>@force</code>) — accumulated by POP and Vellum.</td>
+<td>Velocity (<code translate="no" v-pre>@v</code>) — set directly, so an RBD solve needs gating — or Force (<code translate="no" v-pre>@av_force</code>) — accumulated, so nothing needs gating and gravity keeps acting. POP and Vellum read <code translate="no" v-pre>@force</code> natively; Bullet takes a force through a wrangle, which Create Connected RBD Sim builds.</td>
 </tr>
 <tr>
 <td>Velocity Attribute / Force Attribute</td>
 <td><code translate="no" v-pre>out_attrib_name</code>, <code translate="no" v-pre>out_force_name</code></td>
-<td>The written attribute name; only the field for the current Output As mode is shown, and both names are kept.</td>
+<td>The written attribute name; only the field for the current Output As mode is shown, and both names are kept. Force Attribute defaults to <strong><code translate="no" v-pre>av_force</code></strong>, because a force wrangle reads one attribute and writes into <code translate="no" v-pre>@force</code>. Type <code translate="no" v-pre>force</code> here to feed POP or Vellum directly.</td>
+</tr>
+<tr>
+<td>Force Scale</td>
+<td><code translate="no" v-pre>out_force_scale</code></td>
+<td>Force mode only. Multiplier on the written force. A solver divides a force by each piece&#x27;s mass before it moves anything, so this is not a speed — heavy pieces need a larger number than the equivalent velocity. Default 25.</td>
+</tr>
+<tr>
+<td>Scale Gravity to Scene</td>
+<td><code translate="no" v-pre>rbd_scale_gravity</code></td>
+<td>Force mode only, off by default. Raises the built solver&#x27;s gravity by the same ratio the speeds were seeded with, so a large scene falls at its own scale rather than in apparent slow motion. The build message names the number it would use whether or not this is on.</td>
 </tr>
 <tr>
 <td>Injecting Now</td>
@@ -1455,7 +1479,7 @@
                 <span class="card-compact-icon inline-flex shrink-0"><img width="20" height="20" src="static/advanced_velocity_icon.png"></span>
                 <span class="card-compact-title">Advanced Velocity</span>
             </div>
-            <p class="card-compact-description">Welcome! Advanced Velocity (v1.2) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node.</p>
+            <p class="card-compact-description">Welcome! Advanced Velocity (v1.3) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node.</p>
         </div>
     </a>
 </div>
@@ -1464,8 +1488,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-29T19:24:14" title="2026-08-29" data-absolute-label="Last updated on 2026-08-29" data-absolute-label-html="Last updated on 2026-08-29" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-08-29
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-30T19:05:42" title="2026-08-30" data-absolute-label="Last updated on 2026-08-30" data-absolute-label-html="Last updated on 2026-08-30" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-08-30
                     </time>
                 </div>
 

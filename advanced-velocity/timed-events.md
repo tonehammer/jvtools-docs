@@ -10,7 +10,7 @@ In Timed Events mode the live Setup does not reach the output — only baked eve
 
 ## Creating events
 
-![The At Frame readout and the event buttons — Record, Stop, Create Event, Copy Event, Update](static/record-buttons.png)
+![The At Frame readout and the event button row](static/record-buttons.png)
 
 * **Create Event** bakes the current setup into a new event at the playbar frame.
 

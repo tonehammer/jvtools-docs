@@ -1,6 +1,6 @@
 {
   "product": "Advanced Velocity",
-  "latest": "1.2",
+  "latest": "1.3",
   "url": "https://jvtonehammer.gumroad.com/l/advanced_velocity_hda",
-  "notes": "Fixes: the event timeline HUD now draws when the node sits inside a transformed object; ten tooltips on the Velocity from Motion and Curl Noise streams described the wrong stream; the pulse waveform icon no longer shifts as the Pattern changes. Adds a Website button to the Utilities link row."
+  "notes": "Force mode now drives an RBD Bullet Solver, and Create Connected RBD Sim wires the solver for whichever Output As mode is set. World-space speeds size themselves to your input when geometry is first connected, with a Measure Input Scale readout and a Scale Gravity to Scene toggle. Adds Copy From on the Events row and a Force Scale control."
 }

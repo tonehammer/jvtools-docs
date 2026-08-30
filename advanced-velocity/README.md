@@ -27,11 +27,12 @@ Every simulation in Houdini starts with velocity, and getting it right normally 
 * **Identical Adjust and Mask controls on every type** — scale, rotate, randomise or noise the result, and restrict it with a constant, an attribute, noise, or a line / radial / bounding-box gradient. These are promoted from Houdini's own Attribute Adjust nodes, so they behave exactly the way you'd expect. A one-click **Randomize** row adds natural variation at five strengths.
 * **A real mixer** — combine the types additively with per-type gains, or blend them with normalized weights. The velocity already on your geometry joins in as its own stream, which is what lets nodes stack and caches survive.
 * **Interactive blast placement** — for fractured RBD, drop the explosion source by dragging on the mesh in the viewport, scroll to grow the blast radius or push the source into the body, and watch the affected pieces tint live inside the radius sphere.
-* **Solver-aware output** — write velocity for an RBD Bullet Solver or accumulated force for POP and Vellum, with **Injecting Now** and **Mute Gravity** signals that let events punch a solve and hand it straight back to physics. **Create Connected RBD Sim** builds a solver already wired to both.
+* **Solver-aware output** — write velocity, gated by **Injecting Now** and **Mute Gravity** signals that let events punch a solve and hand it straight back to physics, or write an accumulated force that needs no gating at all and leaves gravity acting throughout. **Create Connected RBD Sim** builds a solver wired for whichever you picked.
+* **Sized to your scene** — the world-space speeds seed themselves from the input the first time you connect geometry, so a building and a hand prop both start somewhere usable instead of at a default tuned for a one-unit sphere.
 * **Scale by Piece Size** — big chunks fly slower than slivers, from a mass attribute or each packed piece's real size.
 * **Ballistic Motion, a second output** — the pieces already flying along the velocity you authored, no solver needed, with **Return to Home**: one slider that flies every piece back to exactly where it started, with arcs, swirls, staggered arrivals and extra turns on the way. Previz, motion-graphics moves, telekinesis reassembly.
 * **Event Strength** — balance whole baked events against each other with one slider each, live at playback, no re-baking.
-* **Honest, clean visualization** — per-type guide trails scaled by each stream's *actual* contribution to the mix, drawn as guide geometry that never touches your output. The output carries `@v` (or `@force`) and nothing else, unless you explicitly export a sub-velocity.
+* **Honest, clean visualization** — per-type guide trails scaled by each stream's *actual* contribution to the mix, drawn as guide geometry that never touches your output. The output carries `@v` (or `@av_force`) and nothing else, unless you explicitly export a sub-velocity.
 
 ## Who it's for
 

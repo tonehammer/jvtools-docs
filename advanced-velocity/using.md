@@ -141,16 +141,24 @@ In Timed Events the tab gains a second block above all this: **Event Strength**,
 
 **Combine Into Attribute** writes the mixed result to the output attribute — on by default.
 
-**Output As** picks between the two ways a solver can take motion from you, and the choice depends entirely on what you're feeding:
+**Output As** picks between the two ways a solver can take motion from you:
 
-* **Velocity (`@v`)** — for the **RBD Bullet Solver**, which has no per-point force input. Velocity is *set*, not added — whatever the solve had accumulated gets replaced on the frames you write. That's why an RBD setup needs gating (below); leave this writing every frame and the pieces can never fall.
-* **Force (`@force`)** — for **POP** and **Vellum**, which accumulate forces every step. Nothing gets overwritten, so no gating is needed, and a fading release just stops pushing rather than braking motion the sim already has.
+* **Velocity (`@v`)** — velocity is *set*, not added. Whatever the solve had accumulated gets replaced on the frames you write, which is why an RBD setup in this mode needs gating (below); leave it writing every frame and the pieces can never fall.
+* **Force (`@av_force`)** — accumulated instead of set. Nothing gets overwritten, so no gating is needed anywhere, gravity keeps acting the whole time, and a fading release just stops pushing rather than braking motion the sim already has.
 
-The short version: **if it's Bullet, write velocity and gate it; if it's POP or Vellum, write force and forget about it.**
+Both work on Bullet. **POP** and **Vellum** read `@force` natively; the **RBD Bullet Solver** takes a force through a wrangle in its own forces context, which **Create Connected RBD Sim** builds for you.
+
+!!!warning The Force Attribute defaults to `av_force`, not `force`
+A force wrangle has to *read* one attribute and *write* another — `@force` is what it writes into. So the node hands you `@av_force` and the wrangle adds it to `@force`. If you're feeding POP or Vellum directly, type `force` in the field and skip the wrangle entirely.
+!!!
+
+**Force Scale** sets how hard that force pushes. It's a multiplier, not a speed: a solver divides a force by each piece's mass before anything moves, so heavy pieces need a bigger number than the equivalent velocity would be. 25 is the default and it's a starting point, not a recommendation.
+
+**Scale Gravity to Scene** raises the solver's gravity by the same ratio your speeds were seeded with. Worth knowing why it exists: the node sizes its *push* to your input, but gravity belongs to the solver and nothing was scaling it — so a large scene got a correct launch and an unscaled fall, which reads as slow motion. It's off by default, and the build message tells you the number it would use either way.
 
 **Velocity Attribute** and **Force Attribute** let you rename the written attribute in each mode — author `targetv` for Vellum without touching a wrangle.
 
-**Injecting Now** and **Muting Gravity** are live 0/1 readouts for driving an RBD solve, and **Create Connected RBD Sim** builds a solver already wired to both — see [Driving an RBD solver](timed-events.md#driving-an-rbd-solver).
+**Injecting Now** and **Muting Gravity** are live 0/1 readouts for driving an RBD solve in Velocity mode. **Create Connected RBD Sim** builds a solver wired for whichever mode you're in — both gates in Velocity, the force wrangle in Force — and stamps a comment on it naming what it built, so flipping the mode afterwards doesn't leave the network ambiguous. See [Driving an RBD solver](timed-events.md#driving-an-rbd-solver).
 
 ### Ballistic Motion — the second output
 

@@ -27,6 +27,7 @@ Visible in Timed Events mode. See [Timed Events](../timed-events.md) for the wor
 | *(warning)* Unplayable events | `stale_bake_label` | Appears when the input's point count no longer matches what an event baked against, so those events write zero. Fix with **Utilities ▸ Re-bake All Events**. |
 | Record / Stop / Create Event | `record_events`, `stop_events`, `create_event` | Play the range for live marking; stop; bake the current setup into a new event at the current frame. |
 | Copy Event | `copy_event` | Duplicate an existing event at the current frame, nothing re-baked. |
+| Copy From | `copy_from_event` | Overwrite the event you are currently on with another event's data — bake, snapshot, envelope and mixer strength. Its own frame and name are kept, so the event stays where it is and only its contents change. |
 | Sort by Frame | `dyn_sort_events` | Reorder the event rows chronologically. |
 | Solo / Mute | `dyn_solo`, `dyn_mute` | Play only / ignore the listed events. Space-separated numbers and ranges (`1 3-5`); the dropdowns add to the list. |
 
@@ -64,7 +65,8 @@ Visible in Timed Events mode. See [Timed Events](../timed-events.md) for the wor
 | Parameter | Name | Description |
 | --- | --- | --- |
 | Fold / Unfold All | `dyn_fold_setup` | Collapse or expand the *enabled* velocity sections at once. Sections whose type is switched off are left closed — their controls are hidden anyway. |
-| Clear Setup | `dyn_clear_setup` | Switch every velocity type in the live Setup off. |
+| Clear Setup | `dyn_clear_setup` | Switch every velocity type in the live Setup off, and park the playhead at the start of the playback range. A clean slate for authoring the next event. |
+| Measure Input Scale | `dyn_scale_report` | Report the input's measured size and the world-space speeds that were seeded from it when geometry was first connected. Read-only — it reports, it does not re-seed. |
 
 Every type's Adjust folder opens with the same row: **Variation** (`variation1`–`6`, five strengths), **Randomize** (`randomize1`–`6`, the dice), and **Reset** (`reset_variation1`–`6`).
 
@@ -156,9 +158,11 @@ Every type's Adjust folder opens with the same row: **Variation** (`variation1`�
 | --- | --- | --- |
 | Combine Into Attribute | `out_combine` | Write the mixed result to the output attribute. On by default. |
 | Muting Gravity | `dyn_mute_gravity` | Live 0/1 — 1 while any playing event is inside its Mute Gravity window. Drive a solver's gravity force from it. Always 0 in Single Field. |
-| Create Connected RBD Sim | `make_rbd_sim` | Build an RBD Bullet Solver below the node, already gated on Injecting Now and Muting Gravity. |
-| Output As | `out_as` | Velocity (`@v`) — set directly, what RBD reads — or Force (`@force`) — accumulated by POP and Vellum. |
-| Velocity Attribute / Force Attribute | `out_attrib_name`, `out_force_name` | The written attribute name; only the field for the current Output As mode is shown, and both names are kept. |
+| Create Connected RBD Sim | `make_rbd_sim` | Build an RBD Bullet Solver below the node, wired for whichever Output As mode is set: in Velocity, gated on Injecting Now and Muting Gravity; in Force, a POP wrangle in the solver's forces that applies the force attribute scaled by piece mass. Stamps a comment on the solver naming the wiring it built. |
+| Output As | `out_as` | Velocity (`@v`) — set directly, so an RBD solve needs gating — or Force (`@av_force`) — accumulated, so nothing needs gating and gravity keeps acting. POP and Vellum read `@force` natively; Bullet takes a force through a wrangle, which Create Connected RBD Sim builds. |
+| Velocity Attribute / Force Attribute | `out_attrib_name`, `out_force_name` | The written attribute name; only the field for the current Output As mode is shown, and both names are kept. Force Attribute defaults to **`av_force`**, because a force wrangle reads one attribute and writes into `@force`. Type `force` here to feed POP or Vellum directly. |
+| Force Scale | `out_force_scale` | Force mode only. Multiplier on the written force. A solver divides a force by each piece's mass before it moves anything, so this is not a speed — heavy pieces need a larger number than the equivalent velocity. Default 25. |
+| Scale Gravity to Scene | `rbd_scale_gravity` | Force mode only, off by default. Raises the built solver's gravity by the same ratio the speeds were seeded with, so a large scene falls at its own scale rather than in apparent slow motion. The build message names the number it would use whether or not this is on. |
 | Injecting Now | `dyn_injecting` | Live 0/1: an event is delivering energy right now. Gate an RBD solver's Overwrite Attributes list on it — see [Driving an RBD solver](../timed-events.md#driving-an-rbd-solver). This is the `v` workflow specifically; driving the solve from Export Trigger instead means listing `trigger` in that same field and not `v`, never both. |
 | Clamp Speed | `out_clamp`, `out_clamp_min`, `out_clamp_max` | Clamp the final speed into a range. |
 

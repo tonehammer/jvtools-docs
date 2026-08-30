@@ -25,6 +25,8 @@ In Timed Events mode the live Setup does not reach the output — only baked eve
 
 * **Copy Event** duplicates an existing event at the current frame — the same blast, later, with nothing re-baked.
 
+* **Copy From** points the other way: it overwrites the event you're *currently on* with another event's data. The event keeps its own frame and name — those are what make it that event — and everything else is replaced. Use it when two events should match and one has drifted, instead of deleting and re-copying.
+
 * **Sort by Frame** reorders the rows chronologically (playback doesn't care about row order; this is purely for reading).
 
 Each event is a tab in the **Events** list, named, stamped with its frame, and carrying a **Captured** summary of what it actually baked — which types, how many points, the peak speed. That line is worth glancing at every time: an event named "explosion" that captured `basic | 60 pts | max |v| 1` is telling you something.
@@ -53,7 +55,7 @@ Latching is the right shape when an RBD solver overwrites `@v` every frame (whic
 
 The node watches for the trap in that loop: if the live Setup no longer matches the event it was last based on, the **Stale** readout names the event and its timeline marker turns **pink**. Nothing is lost — press Update to capture your changes, or Create Event to make the changes a new event instead.
 
-**Clear Setup** (the broom next to Fold / Unfold All) switches every velocity type in the live Setup off — a clean slate for authoring the next event.
+**Clear Setup** (the broom next to Fold / Unfold All) switches every velocity type in the live Setup off and parks the playhead back at the start of the range — a clean slate for authoring the next event, from the top.
 
 ## Solo and Mute
 
@@ -139,7 +141,7 @@ Why this fails so quietly: an attribute *missing* from the list still exists in 
 
 **In a hurry? Press Create Connected RBD Sim** (Output tab). It builds an RBD Bullet Solver below the node with a ground plane, gravity, and both gates already wired.
 
-For POP and Vellum none of this is needed. Set **Output As** to Force and the node writes an accumulated `@force` instead — those solvers accumulate forces every step rather than overwriting velocity, so there's nothing to gate.
+**Or sidestep the gating entirely.** Everything above is the price of Velocity mode: velocity is *set*, so it has to be gated. Set **Output As** to Force and there's nothing to gate at all — a force adds to the solve instead of replacing it, so gravity keeps acting the whole time. POP and Vellum read it natively; on Bullet, Create Connected RBD Sim builds the wrangle that applies it. See [Output](using.md#output) for Force Scale and the `av_force` attribute name.
 
 ### Staggering the points
 
@@ -217,8 +219,10 @@ if (amp > 0) {
 
 `@P` is the *live simulated* position — that's the whole point — and multiplying by `{1, 0, 1}` flattens it into XZ so the kick runs sideways along the floor instead of back up.
 
-!!!warning Add to `v@v`, not `v@force`
-On Bullet RBD, writing `v@force` here is effectively a no-op: the solver divides it by the piece's mass and the step, and at any sane trigger magnitude the pieces don't visibly move. Add to `v@v` instead. That is also what makes the trigger's headline property useful — it *is* the speed the node would have written, so `v@v += direction * amp` gives you the same push in your own direction. (**Output As ▸ Force** and `@force` remain the right choice for POP and Vellum, which accumulate forces every step.)
+!!!warning Writing `v@force` instead? Multiply the mass back in
+`v@v` is the direct route here, and it's what makes the trigger's headline property useful — it *is* the speed the node would have written, so `v@v += direction * amp` gives you that same push in your own direction.
+
+A force works too, but it has to be scaled: a solver divides a force by each piece's mass before anything moves, so `v@force += direction * amp` does nothing at any sane magnitude, while `v@force += direction * amp * @mass` behaves. What you get for the extra term is that a force *adds* rather than overwriting — gravity keeps acting throughout and there's nothing to gate. **Output As ▸ Force** wires exactly this for you.
 !!!
 
 One thing worth knowing about `+=` specifically: a POP Wrangle in the solver's forces runs once per **substep**, not once per frame — Substeps defaults to 10 on a fresh solver — so that line fires several times for every frame the event is active. `@trigger` is an envelope, not a single-frame spike, so it stays nonzero for the whole attack-and-hold window, and `+=` integrates it across every substep of every one of those frames rather than delivering one clean kick. Expect the result to come out considerably stronger than the raw trigger number suggests. If you want a single discrete impulse rather than a build-up, scale `amp` down, or divide it by the substep count.

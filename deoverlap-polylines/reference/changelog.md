@@ -1,4 +1,5 @@
 ---
+icon: history
 order: 70
 ---
 

@@ -1,7 +1,7 @@
 ---
 icon: static/flip-dop-controller_icon.svg
 order: 85
-image: static/flip-dop-controller-og.jpg
+image: static/social.png
 ---
 
 # FLIP DOP Controller

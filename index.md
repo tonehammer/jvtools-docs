@@ -14,7 +14,7 @@ Houdini digital assets and tools for artists and technical directors. Pick a pro
 
 [!card title="Deoverlap Polylines" image="/deoverlap-polylines/static/card.png" text="Find where curves cross each other and push them apart at the crossings — with a real over/under, so a grid of rows and columns comes out woven. Free."](/deoverlap-polylines/README.md)
 
-[!card title="FLIP DOP Controller" image="/flip-dop-controller/static/card.jpg" text="Drive a FLIP simulation's key parameters from a single SOP-level node — and build the simulation container on the same node. Free."](/flip-dop-controller/README.md)
+[!card title="FLIP DOP Controller" image="/flip-dop-controller/static/card.png" text="Drive a FLIP simulation's key parameters from a single SOP-level node — and build the simulation container on the same node. Free."](/flip-dop-controller/README.md)
 
 ---
 

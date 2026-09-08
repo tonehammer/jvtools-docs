@@ -12,7 +12,7 @@ order: 70
      This page is the docs' source of truth for the product version — the
      manifest (versions/copout.json) is a SEPARATE signal and lags on patches. -->
 
-## Version 1.0
+## Version 1.0 — 26 August 2026
 
 The first public release.
 

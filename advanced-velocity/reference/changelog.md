@@ -5,7 +5,7 @@ order: 70
 
 # Changelog
 
-## Version 1.3
+## Version 1.3 — 30 August 2026
 
 **Force output**
 
@@ -30,7 +30,7 @@ order: 70
 * **Fixed:** the Documentation button opened a stale docs URL.
 * **Clear Setup** now parks the playhead at the range start.
 
-## Version 1.2
+## Version 1.2 — 29 August 2026
 
 **Bug fixes and improvements**
 
@@ -42,7 +42,7 @@ order: 70
 * Removed a stray placeholder parameter from the top of the panel.
 * Interior network tidy-up.
 
-## Version 1.1
+## Version 1.1 — 3 August 2026
 
 The first public release — version 1.0 below is the feature set it launched with.
 

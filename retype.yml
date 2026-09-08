@@ -99,6 +99,21 @@ links:
         link: /flip-dop-controller/
         icon: droplet
 
+# Site footer. `footer` is a FREE feature (checked against retype.com/configuration/
+# project/, not assumed), and `footer.links` takes the same keys as the top-level
+# `links` above.
+# 🔴 The URL is ABSOLUTE on purpose. This build is served from TWO origins -
+# jvtools.dev/docs and tonehammer.github.io/jvtools-docs - and /privacy exists on
+# only one of them, so a root-relative link would 404 for every customer whose
+# shipped HDA still opens the github.io copy. Everything else in this build is
+# document-relative, which is exactly what makes one artifact portable; a link
+# that must resolve OFF the docs site is the case that has to name its host.
+footer:
+  links:
+    - text: Privacy
+      link: https://jvtools.dev/privacy
+      title: How JVtools handles your data
+
 # Git-backed freshness stamp at the foot of every page. Needs full git history
 # at build time - the deploy workflow already checks out with fetch-depth: 0,
 # without which Retype silently skips the values rather than erroring.

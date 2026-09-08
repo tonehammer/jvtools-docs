@@ -12,7 +12,8 @@ order: 70
      manifest (versions/flip-dop-controller.json) is a SEPARATE signal and deliberately
      lags on patch releases. -->
 
-## v1.0 <span style="font-size:0.5em; font-weight:400; opacity:0.38; letter-spacing:0.01em; margin-left:0.6em; white-space:nowrap;">— 29 August 2026</span>
+## v1.0
+<p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">29 August 2026</p>
 
 First release.
 

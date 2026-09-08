@@ -1,6 +1,37 @@
 # Changelog
 
-## Version 1.3 — 30 August 2026
+## Version 1.4 <span style="font-size:0.58em; font-weight:400; opacity:0.5; letter-spacing:0.01em; margin-left:0.55em; white-space:nowrap;">— 8 September 2026</span>
+
+**Restricting a stream**
+
+* **New: Restrict To** on every velocity type — limit a stream to a point group or a bounding object.
+* **New: Invert** flips the restricted region, and **Output Group** records the points the stream reached.
+
+**RBD**
+
+* **New: Break Glue at Trigger** shatters glue bonds inside the blast instead of pushing against them.
+* **New: Check RBD Sim** reports every link between this node and the connected solver.
+* **Create Connected RBD Sim** now reconciles the solver it built instead of building a second one.
+
+**Events**
+
+* **New: Quick Setups** per event — Impact, Explosion, Shockwave, Sustained Push, Levitate, Rumble and Quake.
+* **New: Re-bake All Events** repairs bakes after the input's point count or transform changes.
+* **Fixed: Copy From** now loads the copied event's Setup, not just its baked data.
+
+**Output and visualization**
+
+* **New: Cull to Affected** deletes or marks the parts of the input no event reaches.
+* **New: Export Event Index (`@av_event`)** marks which event owns each point.
+* **New: Show Events** filters the guides to the events you tick.
+* Visualization and Output are reorganised into tabs.
+
+**Bug fixes and improvements**
+
+* **Fixed:** a bounding object left as a primitive sphere restricted an arbitrary subset.
+* The node help page is rewritten for the 1.4 feature set.
+
+## Version 1.3 <span style="font-size:0.58em; font-weight:400; opacity:0.5; letter-spacing:0.01em; margin-left:0.55em; white-space:nowrap;">— 30 August 2026</span>
 
 **Force output**
 
@@ -25,7 +56,7 @@
 * **Fixed:** the Documentation button opened a stale docs URL.
 * **Clear Setup** now parks the playhead at the range start.
 
-## Version 1.2 — 29 August 2026
+## Version 1.2 <span style="font-size:0.58em; font-weight:400; opacity:0.5; letter-spacing:0.01em; margin-left:0.55em; white-space:nowrap;">— 29 August 2026</span>
 
 **Bug fixes and improvements**
 
@@ -37,7 +68,7 @@
 * Removed a stray placeholder parameter from the top of the panel.
 * Interior network tidy-up.
 
-## Version 1.1 — 3 August 2026
+## Version 1.1 <span style="font-size:0.58em; font-weight:400; opacity:0.5; letter-spacing:0.01em; margin-left:0.55em; white-space:nowrap;">— 3 August 2026</span>
 
 The first public release — version 1.0 below is the feature set it launched with.
 

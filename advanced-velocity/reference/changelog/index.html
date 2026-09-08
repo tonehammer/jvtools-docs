@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.842172104235">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.842179149491">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Changelog</title>
     <meta name="title" content="Changelog">
-    <meta name="description" content="Force output">
+    <meta name="description" content="Restricting a stream">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://jvtools.dev/docs/advanced-velocity/reference/changelog/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jvtools.dev/docs/advanced-velocity/reference/changelog/">
     <meta property="og:title" content="Changelog">
-    <meta property="og:description" content="Force output">
+    <meta property="og:description" content="Restricting a stream">
     <meta property="og:site_name" content="JVtools">
     <meta property="og:locale" content="en_US">
 
@@ -31,7 +31,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://jvtools.dev/docs/advanced-velocity/reference/changelog/">
     <meta name="twitter:title" content="Changelog">
-    <meta name="twitter:description" content="Force output">
+    <meta name="twitter:description" content="Restricting a stream">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://jvtools.dev/docs/advanced-velocity/reference/changelog.md">
@@ -39,11 +39,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.842172104235" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.842179149491" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.842172104235" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.842179149491" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.842172104235" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.842179149491" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -347,7 +347,37 @@
 
                 <!-- Page content  -->
 <h1 id="changelog">Changelog</h1>
-<h2 id="version-13--30-august-2026">Version 1.3 — 30 August 2026</h2>
+<h2 id="version-14--8-september-2026">Version 1.4 <span style="font-size:0.58em; font-weight:400; opacity:0.5; letter-spacing:0.01em; margin-left:0.55em; white-space:nowrap;">— 8 September 2026</span></h2>
+<p><strong>Restricting a stream</strong></p>
+<ul>
+<li><strong>New: Restrict To</strong> on every velocity type — limit a stream to a point group or a bounding object.</li>
+<li><strong>New: Invert</strong> flips the restricted region, and <strong>Output Group</strong> records the points the stream reached.</li>
+</ul>
+<p><strong>RBD</strong></p>
+<ul>
+<li><strong>New: Break Glue at Trigger</strong> shatters glue bonds inside the blast instead of pushing against them.</li>
+<li><strong>New: Check RBD Sim</strong> reports every link between this node and the connected solver.</li>
+<li><strong>Create Connected RBD Sim</strong> now reconciles the solver it built instead of building a second one.</li>
+</ul>
+<p><strong>Events</strong></p>
+<ul>
+<li><strong>New: Quick Setups</strong> per event — Impact, Explosion, Shockwave, Sustained Push, Levitate, Rumble and Quake.</li>
+<li><strong>New: Re-bake All Events</strong> repairs bakes after the input&#x27;s point count or transform changes.</li>
+<li><strong>Fixed: Copy From</strong> now loads the copied event&#x27;s Setup, not just its baked data.</li>
+</ul>
+<p><strong>Output and visualization</strong></p>
+<ul>
+<li><strong>New: Cull to Affected</strong> deletes or marks the parts of the input no event reaches.</li>
+<li><strong>New: Export Event Index (<code translate="no" v-pre>@av_event</code>)</strong> marks which event owns each point.</li>
+<li><strong>New: Show Events</strong> filters the guides to the events you tick.</li>
+<li>Visualization and Output are reorganised into tabs.</li>
+</ul>
+<p><strong>Bug fixes and improvements</strong></p>
+<ul>
+<li><strong>Fixed:</strong> a bounding object left as a primitive sphere restricted an arbitrary subset.</li>
+<li>The node help page is rewritten for the 1.4 feature set.</li>
+</ul>
+<h2 id="version-13--30-august-2026">Version 1.3 <span style="font-size:0.58em; font-weight:400; opacity:0.5; letter-spacing:0.01em; margin-left:0.55em; white-space:nowrap;">— 30 August 2026</span></h2>
 <p><strong>Force output</strong></p>
 <ul>
 <li><strong>Fixed:</strong> Force mode now drives an RBD Bullet Solver.</li>
@@ -371,7 +401,7 @@
 <li><strong>Fixed:</strong> the Documentation button opened a stale docs URL.</li>
 <li><strong>Clear Setup</strong> now parks the playhead at the range start.</li>
 </ul>
-<h2 id="version-12--29-august-2026">Version 1.2 — 29 August 2026</h2>
+<h2 id="version-12--29-august-2026">Version 1.2 <span style="font-size:0.58em; font-weight:400; opacity:0.5; letter-spacing:0.01em; margin-left:0.55em; white-space:nowrap;">— 29 August 2026</span></h2>
 <p><strong>Bug fixes and improvements</strong></p>
 <ul>
 <li><strong>Fixed:</strong> the event timeline HUD did not draw when the node sat inside a transformed object.</li>
@@ -382,7 +412,7 @@
 <li>Removed a stray placeholder parameter from the top of the panel.</li>
 <li>Interior network tidy-up.</li>
 </ul>
-<h2 id="version-11--3-august-2026">Version 1.1 — 3 August 2026</h2>
+<h2 id="version-11--3-august-2026">Version 1.1 <span style="font-size:0.58em; font-weight:400; opacity:0.5; letter-spacing:0.01em; margin-left:0.55em; white-space:nowrap;">— 3 August 2026</span></h2>
 <p>The first public release — version 1.0 below is the feature set it launched with.</p>
 <p><strong>Ballistic Motion</strong></p>
 <ul>
@@ -466,7 +496,7 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-09-08T10:41:28" title="2026-09-08" data-absolute-label="Last updated on 2026-09-08" data-absolute-label-html="Last updated on 2026-09-08" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-09-08T12:38:52" title="2026-09-08" data-absolute-label="Last updated on 2026-09-08" data-absolute-label-html="Last updated on 2026-09-08" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
                         Last updated on 2026-09-08
                     </time>
                 </div>

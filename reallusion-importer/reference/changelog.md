@@ -5,7 +5,7 @@ order: 70
 
 # Changelog
 
-## Version 1.2.4 — 27 August 2026
+## Version 1.2.4 <span style="font-size:0.58em; font-weight:400; opacity:0.5; letter-spacing:0.01em; margin-left:0.55em; white-space:nowrap;">— 27 August 2026</span>
 
 * **Fixed:** the eyebrow tint now produces a visible result on dark brows.
 * **New: Brow Lightness** — lifts Character Creator's near-black eyebrow maps.
@@ -13,19 +13,19 @@ order: 70
 * **Changed:** beards no longer follow the scalp hair colour controls.
 * New node icon and node colour.
 
-## Version 1.2.3 — 25 August 2026
+## Version 1.2.3 <span style="font-size:0.58em; font-weight:400; opacity:0.5; letter-spacing:0.01em; margin-left:0.55em; white-space:nowrap;">— 25 August 2026</span>
 
 * **New: Eye "Lightness (Bleach)"** — brightens the final eye colour.
 * **Create Skin-Fix Setup** now switches the Skin-Fix mesh on for you.
 * Skin-Fix now reports its progress in the console during its first cook.
 * **Fixed:** on FBX import, characters whose pieces share a texture no longer come in flat white.
 
-## Version 1.2.2 — 24 August 2026
+## Version 1.2.2 <span style="font-size:0.58em; font-weight:400; opacity:0.5; letter-spacing:0.01em; margin-left:0.55em; white-space:nowrap;">— 24 August 2026</span>
 
 * **Fixed:** on FBX import, characters whose pieces share a texture no longer come in flat white.
 * Bug fixes and improvements.
 
-## Version 1.2.1 — 15 July 2026
+## Version 1.2.1 <span style="font-size:0.58em; font-weight:400; opacity:0.5; letter-spacing:0.01em; margin-left:0.55em; white-space:nowrap;">— 15 July 2026</span>
 
 * **Fixed:** textures now load for iClone "Export USD (Omniverse)" characters.
 * Added Character Creator FBX and USD export walkthroughs, and an iClone export section.
@@ -33,7 +33,7 @@ order: 70
 * Refreshed tooltips and help that still referred only to FBX.
 * Bug fixes and improvements.
 
-## Version 1.2 — 12 July 2026
+## Version 1.2 <span style="font-size:0.58em; font-weight:400; opacity:0.5; letter-spacing:0.01em; margin-left:0.55em; white-space:nowrap;">— 12 July 2026</span>
 
 **USD import mode**
 
@@ -46,13 +46,13 @@ order: 70
 * Scenes saved before 1.2 open in FBX mode.
 * Bug fixes and improvements.
 
-## Version 1.1 — 9 July 2026
+## Version 1.1 <span style="font-size:0.58em; font-weight:400; opacity:0.5; letter-spacing:0.01em; margin-left:0.55em; white-space:nowrap;">— 9 July 2026</span>
 
 * Documentation moved to the JVtools docs site.
 * **New: in-app update check**, plus a version label on the node.
 * Bug fixes and improvements.
 
-## Version 1.0 — 20 June 2026
+## Version 1.0 <span style="font-size:0.58em; font-weight:400; opacity:0.5; letter-spacing:0.01em; margin-left:0.55em; white-space:nowrap;">— 20 June 2026</span>
 
 The first public release.
 

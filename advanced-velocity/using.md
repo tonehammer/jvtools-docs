@@ -94,7 +94,7 @@ The controls are also shown on screen while the state is active.
 
 **Show Affected Pieces** highlights the pieces the blast will actually move, through the **Affected Color** ramp — green across most of the blast, hot pink at the core. The highlight is normalized against the strongest affected piece, so the core always reads clearly whatever radius or strength you've set.
 
-This is drawn in the viewport, not painted onto your geometry — nothing gets written to the output, so you can leave it on and send the result straight into a solver. It only shows while the node's own tool is active — click the node in the viewport, or press **Restore Viewport HUD** on the Utilities tab if it's gone quiet.
+This is drawn in the viewport, not painted onto your geometry — nothing gets written to the output, so you can leave it on and send the result straight into a solver. It only shows while the node's own tool is active — click the node in the viewport, or press **Restore Viewport HUD** on the Visualization ▸ Timeline HUD tab if it's gone quiet.
 
 ### Direction
 

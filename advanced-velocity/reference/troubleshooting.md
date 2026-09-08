@@ -29,7 +29,7 @@ Work down this list — it's almost always one of them:
 
 An event's bake is stored **per point**, so anything that changes the point count — re-fracturing, deleting geometry, a different scatter — leaves the old bakes unusable and the node silently writes zero. You'll see a warning on the **Events** tab when this has happened.
 
-Press **Utilities ▸ Re-bake All Events**. It replays each event against its own stored snapshot at its own frame, so your timings and settings survive. This is *not* the same as pressing Update on every row: Update re-bakes from the **live** Setup, which overwrites each event with whatever is currently on screen.
+Press **Re-bake All Events**, the reload icon in the Events tab's All Events row. It replays each event against its own stored snapshot at its own frame, so your timings and settings survive. This is *not* the same as pressing Update on every row: Update re-bakes from the **live** Setup, which overwrites each event with whatever is currently on screen.
 
 ## The guides vanished
 
@@ -37,7 +37,7 @@ Guide trails are **guide geometry** — they only draw while the Advanced Veloci
 
 ## The event timeline disappeared
 
-The timeline is drawn by the node's viewer state, and refreshing asset libraries (among other things) drops the viewer out of it. **Utilities ▸ Restore Viewport HUD** brings it back.
+The timeline is drawn by the node's viewer state, and refreshing asset libraries (among other things) drops the viewer out of it. **Visualization ▸ Timeline HUD ▸ Restore Viewport HUD** brings it back.
 
 ## Everything feels sluggish — scrubbing, parm edits, adding events
 

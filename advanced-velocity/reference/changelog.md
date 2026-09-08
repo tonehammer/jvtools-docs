@@ -1,6 +1,7 @@
 # Changelog
 
-## Version 1.4 <span style="font-size:0.5em; font-weight:400; opacity:0.38; letter-spacing:0.01em; margin-left:0.6em; white-space:nowrap;">— 8 September 2026</span>
+## Version 1.4
+<p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">8 September 2026</p>
 
 **Restricting a stream**
 
@@ -31,7 +32,8 @@
 * **Fixed:** a bounding object left as a primitive sphere restricted an arbitrary subset.
 * The node help page is rewritten for the 1.4 feature set.
 
-## Version 1.3 <span style="font-size:0.5em; font-weight:400; opacity:0.38; letter-spacing:0.01em; margin-left:0.6em; white-space:nowrap;">— 30 August 2026</span>
+## Version 1.3
+<p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">30 August 2026</p>
 
 **Force output**
 
@@ -56,7 +58,8 @@
 * **Fixed:** the Documentation button opened a stale docs URL.
 * **Clear Setup** now parks the playhead at the range start.
 
-## Version 1.2 <span style="font-size:0.5em; font-weight:400; opacity:0.38; letter-spacing:0.01em; margin-left:0.6em; white-space:nowrap;">— 29 August 2026</span>
+## Version 1.2
+<p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">29 August 2026</p>
 
 **Bug fixes and improvements**
 
@@ -68,7 +71,8 @@
 * Removed a stray placeholder parameter from the top of the panel.
 * Interior network tidy-up.
 
-## Version 1.1 <span style="font-size:0.5em; font-weight:400; opacity:0.38; letter-spacing:0.01em; margin-left:0.6em; white-space:nowrap;">— 3 August 2026</span>
+## Version 1.1
+<p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">3 August 2026</p>
 
 The first public release — version 1.0 below is the feature set it launched with.
 

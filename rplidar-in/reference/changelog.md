@@ -1,6 +1,7 @@
 # Changelog
 
-## Version 1.0 <span style="font-size:0.5em; font-weight:400; opacity:0.38; letter-spacing:0.01em; margin-left:0.6em; white-space:nowrap;">— 6 August 2026</span>
+## Version 1.0
+<p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">6 August 2026</p>
 
 The first public release.
 

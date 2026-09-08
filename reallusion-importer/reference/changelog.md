@@ -1,6 +1,7 @@
 # Changelog
 
-## Version 1.2.4 <span style="font-size:0.5em; font-weight:400; opacity:0.38; letter-spacing:0.01em; margin-left:0.6em; white-space:nowrap;">— 27 August 2026</span>
+## Version 1.2.4
+<p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">27 August 2026</p>
 
 * **Fixed:** the eyebrow tint now produces a visible result on dark brows.
 * **New: Brow Lightness** — lifts Character Creator's near-black eyebrow maps.
@@ -8,19 +9,22 @@
 * **Changed:** beards no longer follow the scalp hair colour controls.
 * New node icon and node colour.
 
-## Version 1.2.3 <span style="font-size:0.5em; font-weight:400; opacity:0.38; letter-spacing:0.01em; margin-left:0.6em; white-space:nowrap;">— 25 August 2026</span>
+## Version 1.2.3
+<p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">25 August 2026</p>
 
 * **New: Eye "Lightness (Bleach)"** — brightens the final eye colour.
 * **Create Skin-Fix Setup** now switches the Skin-Fix mesh on for you.
 * Skin-Fix now reports its progress in the console during its first cook.
 * **Fixed:** on FBX import, characters whose pieces share a texture no longer come in flat white.
 
-## Version 1.2.2 <span style="font-size:0.5em; font-weight:400; opacity:0.38; letter-spacing:0.01em; margin-left:0.6em; white-space:nowrap;">— 24 August 2026</span>
+## Version 1.2.2
+<p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">24 August 2026</p>
 
 * **Fixed:** on FBX import, characters whose pieces share a texture no longer come in flat white.
 * Bug fixes and improvements.
 
-## Version 1.2.1 <span style="font-size:0.5em; font-weight:400; opacity:0.38; letter-spacing:0.01em; margin-left:0.6em; white-space:nowrap;">— 15 July 2026</span>
+## Version 1.2.1
+<p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">15 July 2026</p>
 
 * **Fixed:** textures now load for iClone "Export USD (Omniverse)" characters.
 * Added Character Creator FBX and USD export walkthroughs, and an iClone export section.
@@ -28,7 +32,8 @@
 * Refreshed tooltips and help that still referred only to FBX.
 * Bug fixes and improvements.
 
-## Version 1.2 <span style="font-size:0.5em; font-weight:400; opacity:0.38; letter-spacing:0.01em; margin-left:0.6em; white-space:nowrap;">— 12 July 2026</span>
+## Version 1.2
+<p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">12 July 2026</p>
 
 **USD import mode**
 
@@ -41,13 +46,15 @@
 * Scenes saved before 1.2 open in FBX mode.
 * Bug fixes and improvements.
 
-## Version 1.1 <span style="font-size:0.5em; font-weight:400; opacity:0.38; letter-spacing:0.01em; margin-left:0.6em; white-space:nowrap;">— 9 July 2026</span>
+## Version 1.1
+<p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">9 July 2026</p>
 
 * Documentation moved to the JVtools docs site.
 * **New: in-app update check**, plus a version label on the node.
 * Bug fixes and improvements.
 
-## Version 1.0 <span style="font-size:0.5em; font-weight:400; opacity:0.38; letter-spacing:0.01em; margin-left:0.6em; white-space:nowrap;">— 20 June 2026</span>
+## Version 1.0
+<p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">20 June 2026</p>
 
 The first public release.
 

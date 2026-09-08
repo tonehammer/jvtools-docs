@@ -65,6 +65,8 @@ Below that, two tab strips:
 
 **Output | Visualization | Utilities** — what leaves the node and under which name, the viewport guides and event timeline, and the utility toggles plus links to these docs, Discord and YouTube.
 
+Output and Visualization each split again inside: Output into **General | RBD Sim | Ballistic Motion**, and Visualization into **General | Velocity Types | Timed Events | Timeline HUD**. Worth a glance before you go hunting for a control — the tabs are how a node with six hundred parameters stays findable.
+
 The version you have installed is shown at the very bottom of the parameter list.
 
 ## A quick explosion

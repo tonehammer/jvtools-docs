@@ -20,7 +20,7 @@ In Timed Events mode the live Setup does not reach the output — only baked eve
 
 * **Copy Event** duplicates an existing event at the current frame — the same blast, later, with nothing re-baked.
 
-* **Copy From** points the other way: it overwrites the event you're *currently on* with another event's data. The event keeps its own frame and name — those are what make it that event — and everything else is replaced. Use it when two events should match and one has drifted, instead of deleting and re-copying.
+* **Copy From** points the other way: it overwrites the event you're *currently on* with another event's data. The event keeps its own frame and name — those are what make it that event — and everything else is replaced. The Setup folder loads with it too, exactly as if you'd Recalled it, so the panel shows what the event now holds rather than what you had dialled in before. The playhead deliberately stays put: Recall jumps the frame because you're navigating, Copy From edits the row you're already on. Use it when two events should match and one has drifted, instead of deleting and re-copying.
 
 * **Sort by Frame** reorders the rows chronologically (playback doesn't care about row order; this is purely for reading).
 
@@ -77,7 +77,7 @@ Each event's label carries the same state in words, and the **At Frame** readout
 **Scheme** switches the timeline between Dark and Light palettes to match your viewport background.
 
 !!!info If the timeline disappears
-The timeline is drawn by the node's viewer state, and some actions (like refreshing asset libraries) drop the viewer out of it. **Utilities ▸ Restore Viewport HUD** brings it back.
+The timeline is drawn by the node's viewer state, and some actions (like refreshing asset libraries) drop the viewer out of it. **Visualization ▸ Timeline HUD ▸ Restore Viewport HUD** brings it back.
 !!!
 
 ## Motion preview
@@ -260,7 +260,7 @@ Muting is not per piece. Gravity in a simulation applies to every object in it, 
 
 * **Incoming Velocity is a live base layer.** It plays underneath the events every frame — never baked into them, so it can't be double-counted, and an animated input stays live between events.
 * **The Output tab is live too.** Clamp Speed and Scale by Piece Size apply at playback, no Update needed. Master Speed is the exception — it's baked into each event, and changing it afterwards flags the event stale.
-* **Bakes are per-point.** An event's field is stored against the input's point count, so re-fracturing the object leaves existing events unusable and the node writes zero for them. The Events tab warns you; **Utilities ▸ Re-bake All Events** repairs the lot, replaying each event against its own stored snapshot so timings survive — unlike Update, which re-bakes from the *live* Setup.
+* **Bakes are per-point.** An event's field is stored against the input's point count, so re-fracturing the object leaves existing events unusable and the node writes zero for them. The Events tab warns you; **Re-bake All Events**, in the All Events button row, repairs the lot, replaying each event against its own stored snapshot so timings survive — unlike Update, which re-bakes from the *live* Setup. It also repairs the other case that breaks a bake: moving or scaling the input, which leaves events playing from the old positions. Re-place any world-space sources first, since Place Source cannot know where the object went.
 * **A later blast kicks the pieces that were near it at bake time**, wherever they've since travelled — the radius selection is frozen at bake. Track Motion re-aims directions, not membership.
 * **Baked guides can be unified to one colour** (Visualization ▸ Unify Baked Guides) when the per-type colours are more information than you want.
 * **A blank event with Mute Gravity on freezes everything solid.** With no velocity types enabled its baked field is all zeros, yet it still opens the injection gate — so the solver zeroes every piece's velocity while gravity is muted, and the pieces hang until the event's hold ends, then fall again. Useful on purpose: drop one wherever you want everything suspended, and set its Hold to the pause length (or **Extend to Next** to hang right up to the following beat). Mute Gravity on a *real* event means gravity off while the pieces keep flying; on a *blank* event it means everything stops dead.

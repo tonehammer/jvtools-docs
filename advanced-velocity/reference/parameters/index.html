@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.842179149491">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.842179450572">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -39,11 +39,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.842179149491" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.842179450572" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.842179149491" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.842179450572" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.842179149491" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.842179450572" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -384,12 +384,16 @@
 | --- | --- | --- |
 | At Frame | `dyn_now` | Live readout of which events are contributing at the current frame, and by how much. |
 | Stale | `dyn_recall_note` | Warns when the live Setup no longer matches the event it was last based on. |
-| *(warning)* Unplayable events | `stale_bake_label` | Appears when the input's point count no longer matches what an event baked against, so those events write zero. Fix with **Utilities ▸ Re-bake All Events**. |
+| *(warning)* Unplayable events | `stale_bake_label` | Appears when the input's point count no longer matches what an event baked against, so those events write zero. Fix with **Re-bake All Events**, in the All Events row below. |
+| *(warning)* Input has moved | `moved_bake_label` | Appears when the input has been moved or scaled since some events were baked, so they play from the old positions. Re-place any world-space sources first, then Re-bake All Events. |
 | Record / Stop / Create Event | `record_events`, `stop_events`, `create_event` | Play the range for live marking; stop; bake the current setup into a new event at the current frame. |
 | Copy Event | `copy_event` | Duplicate an existing event at the current frame, nothing re-baked. |
-| Copy From | `copy_from_event` | Overwrite the event you are currently on with another event's data — bake, snapshot, envelope and mixer strength. Its own frame and name are kept, so the event stays where it is and only its contents change. |
+| Copy From | `copy_from_event` | Overwrite the event you are currently on with another event's data — bake, snapshot, envelope and mixer strength. Its own frame and name are kept, so the event stays where it is and only its contents change. The Setup folder loads with it, as if you had Recalled it, so what you see is what the event now holds. The playhead does not move. |
 | Sort by Frame | `dyn_sort_events` | Reorder the event rows chronologically. |
-| Solo / Mute | `dyn_solo`, `dyn_mute` | Play only / ignore the listed events. Space-separated numbers and ranges (`1 3-5`); the dropdowns add to the list. |">
+| Solo / Mute | `dyn_solo`, `dyn_mute` | Play only / ignore the listed events. Space-separated numbers and ranges (`1 3-5`); the dropdowns add to the list. |
+| *(All Events)* Re-bake All Events | `rebake_events` | Repair every event after the input's point count changed (a re-fracture, deleted geometry, a different scatter) or after the input moved. Each event is replayed against **its own** stored snapshot at **its own** frame, so timings and settings survive — unlike pressing Update on each row, which re-bakes from the live Setup. |
+| *(All Events)* Copy Events | `copy_events` | Copy this node's entire event set — baked fields included — to a disk clipboard that survives a Houdini restart. |
+| *(All Events)* Paste Events | `paste_events` | Replace the target node's events with the clipboard's, byte for byte. Asks for confirmation if the destination already has events. Pasted bakes belong to the setup that made them, so pasting onto a different input point count leaves them stale — fix with Re-bake All Events. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -413,7 +417,12 @@
 <tr>
 <td><em>(warning)</em> Unplayable events</td>
 <td><code translate="no" v-pre>stale_bake_label</code></td>
-<td>Appears when the input&#x27;s point count no longer matches what an event baked against, so those events write zero. Fix with <strong>Utilities ▸ Re-bake All Events</strong>.</td>
+<td>Appears when the input&#x27;s point count no longer matches what an event baked against, so those events write zero. Fix with <strong>Re-bake All Events</strong>, in the All Events row below.</td>
+</tr>
+<tr>
+<td><em>(warning)</em> Input has moved</td>
+<td><code translate="no" v-pre>moved_bake_label</code></td>
+<td>Appears when the input has been moved or scaled since some events were baked, so they play from the old positions. Re-place any world-space sources first, then Re-bake All Events.</td>
 </tr>
 <tr>
 <td>Record / Stop / Create Event</td>
@@ -428,7 +437,7 @@
 <tr>
 <td>Copy From</td>
 <td><code translate="no" v-pre>copy_from_event</code></td>
-<td>Overwrite the event you are currently on with another event&#x27;s data — bake, snapshot, envelope and mixer strength. Its own frame and name are kept, so the event stays where it is and only its contents change.</td>
+<td>Overwrite the event you are currently on with another event&#x27;s data — bake, snapshot, envelope and mixer strength. Its own frame and name are kept, so the event stays where it is and only its contents change. The Setup folder loads with it, as if you had Recalled it, so what you see is what the event now holds. The playhead does not move.</td>
 </tr>
 <tr>
 <td>Sort by Frame</td>
@@ -440,6 +449,21 @@
 <td><code translate="no" v-pre>dyn_solo</code>, <code translate="no" v-pre>dyn_mute</code></td>
 <td>Play only / ignore the listed events. Space-separated numbers and ranges (<code translate="no" v-pre>1 3-5</code>); the dropdowns add to the list.</td>
 </tr>
+<tr>
+<td><em>(All Events)</em> Re-bake All Events</td>
+<td><code translate="no" v-pre>rebake_events</code></td>
+<td>Repair every event after the input&#x27;s point count changed (a re-fracture, deleted geometry, a different scatter) or after the input moved. Each event is replayed against <strong>its own</strong> stored snapshot at <strong>its own</strong> frame, so timings and settings survive — unlike pressing Update on each row, which re-bakes from the live Setup.</td>
+</tr>
+<tr>
+<td><em>(All Events)</em> Copy Events</td>
+<td><code translate="no" v-pre>copy_events</code></td>
+<td>Copy this node&#x27;s entire event set — baked fields included — to a disk clipboard that survives a Houdini restart.</td>
+</tr>
+<tr>
+<td><em>(All Events)</em> Paste Events</td>
+<td><code translate="no" v-pre>paste_events</code></td>
+<td>Replace the target node&#x27;s events with the clipboard&#x27;s, byte for byte. Asks for confirmation if the destination already has events. Pasted bakes belong to the setup that made them, so pasting onto a different input point count leaves them stale — fix with Re-bake All Events.</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -447,6 +471,7 @@
 <h3 id="per-event">Per event</h3>
 <retype-table copy-text="| Parameter | Name | Description |
 | --- | --- | --- |
+| Quick Setups | `ev_quick#` | Presets for this event's **timing** — Impact, Explosion, Shockwave, Sustained Push, Levitate, Rumble, Quake. Each sets the envelope shape, the release curve and the Mute Gravity window, and nothing else: your Setup is untouched and nothing is re-baked, so it is safe on a finished event and takes effect immediately. The menu snaps back to its header afterwards, because it is a list of actions rather than a mode the event is in. |
 | Name | `ev_name#` | Label for the event, shown on its tab and the timeline. |
 | Event Frame | `ev_frame#` | The peak frame — Attack ramps into it, Release ramps out of it. |
 | Captured | `ev_summary#` | What the event actually baked: types, point count, peak speed. |
@@ -481,6 +506,11 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>Quick Setups</td>
+<td><code translate="no" v-pre>ev_quick#</code></td>
+<td>Presets for this event&#x27;s <strong>timing</strong> — Impact, Explosion, Shockwave, Sustained Push, Levitate, Rumble, Quake. Each sets the envelope shape, the release curve and the Mute Gravity window, and nothing else: your Setup is untouched and nothing is re-baked, so it is safe on a finished event and takes effect immediately. The menu snaps back to its header afterwards, because it is a list of actions rather than a mode the event is in.</td>
+</tr>
 <tr>
 <td>Name</td>
 <td><code translate="no" v-pre>ev_name#</code></td>
@@ -641,6 +671,76 @@
 </div>
 </retype-table>
 <p>Every type&#x27;s Adjust folder opens with the same row: <strong>Variation</strong> (<code translate="no" v-pre>variation1</code>–<code translate="no" v-pre>6</code>, five strengths), <strong>Randomize</strong> (<code translate="no" v-pre>randomize1</code>–<code translate="no" v-pre>6</code>, the dice), and <strong>Reset</strong> (<code translate="no" v-pre>reset_variation1</code>–<code translate="no" v-pre>6</code>).</p>
+<p>Every type also carries the same <strong>Restrict To</strong> folder, between Adjust and Mask. It decides which points <em>that stream</em> reaches — as opposed to the top-level Group, which restricts the final write for the whole node.</p>
+<retype-table copy-text="| Parameter | Name | Description |
+| --- | --- | --- |
+| Enable Restriction | `restrict_enable1`–`6` | Off by default. With it off the stream reaches every point, as before. |
+| Restrict To | `restrict_mode1`–`6` | **Group** — a point group on the incoming geometry. **Bounding Object** — a SOP holding a closed shape; everything inside it is kept. |
+| Restrict Group | `restrict_group1`–`6` | The point group name. Takes a viewport pick. |
+| Restrict SOP | `restrict_sop1`–`6` | The bounding object. It must be **closed** — an open surface has no interior, so nothing is inside it. |
+| Invert | `restrict_invert1`–`6` | Reach everything *outside* the region instead. |
+| Output Group | `restrict_out_group1`–`6` | Write the points the stream actually reached to a point group of this name, after Invert. Leave blank to write none, and give each type its own name — two types sharing one name overwrite each other. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Enable Restriction</td>
+<td><code translate="no" v-pre>restrict_enable1</code>–<code translate="no" v-pre>6</code></td>
+<td>Off by default. With it off the stream reaches every point, as before.</td>
+</tr>
+<tr>
+<td>Restrict To</td>
+<td><code translate="no" v-pre>restrict_mode1</code>–<code translate="no" v-pre>6</code></td>
+<td><strong>Group</strong> — a point group on the incoming geometry. <strong>Bounding Object</strong> — a SOP holding a closed shape; everything inside it is kept.</td>
+</tr>
+<tr>
+<td>Restrict Group</td>
+<td><code translate="no" v-pre>restrict_group1</code>–<code translate="no" v-pre>6</code></td>
+<td>The point group name. Takes a viewport pick.</td>
+</tr>
+<tr>
+<td>Restrict SOP</td>
+<td><code translate="no" v-pre>restrict_sop1</code>–<code translate="no" v-pre>6</code></td>
+<td>The bounding object. It must be <strong>closed</strong> — an open surface has no interior, so nothing is inside it.</td>
+</tr>
+<tr>
+<td>Invert</td>
+<td><code translate="no" v-pre>restrict_invert1</code>–<code translate="no" v-pre>6</code></td>
+<td>Reach everything <em>outside</em> the region instead.</td>
+</tr>
+<tr>
+<td>Output Group</td>
+<td><code translate="no" v-pre>restrict_out_group1</code>–<code translate="no" v-pre>6</code></td>
+<td>Write the points the stream actually reached to a point group of this name, after Invert. Leave blank to write none, and give each type its own name — two types sharing one name overwrite each other.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-warning" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
+                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Empty is inert, a typo is not</h5>
+<p>Leaving the group name or the SOP path <strong>empty</strong> restricts nothing, and stays inert even with Invert on — the alternative would zero the whole stream the moment you switched the menu before typing a name. But a group name matching <strong>no</strong> group restricts everything away, exactly as a Blast behaves with a name that does not exist.</p>
+        </div>
+    </div>
+</div>
 <h3 id="basic-velocity">Basic Velocity</h3>
 <retype-table copy-text="| Parameter | Name | Description |
 | --- | --- | --- |
@@ -1053,7 +1153,16 @@
 | Force Scale | `out_force_scale` | Force mode only. Multiplier on the written force. A solver divides a force by each piece's mass before it moves anything, so this is not a speed — heavy pieces need a larger number than the equivalent velocity. Default 25. |
 | Scale Gravity to Scene | `rbd_scale_gravity` | Force mode only, off by default. Raises the built solver's gravity by the same ratio the speeds were seeded with, so a large scene falls at its own scale rather than in apparent slow motion. The build message names the number it would use whether or not this is on. |
 | Injecting Now | `dyn_injecting` | Live 0/1: an event is delivering energy right now. Gate an RBD solver's Overwrite Attributes list on it — see [Driving an RBD solver](../timed-events.md#driving-an-rbd-solver). This is the `v` workflow specifically; driving the solve from Export Trigger instead means listing `trigger` in that same field and not `v`, never both. |
-| Clamp Speed | `out_clamp`, `out_clamp_min`, `out_clamp_max` | Clamp the final speed into a range. |">
+| Clamp Speed | `out_clamp`, `out_clamp_min`, `out_clamp_max` | Clamp the final speed into a range. |
+| Break Glue at Trigger | `rbd_break_glue` | On by default. Deletes glue bonds inside the blast, wherever either end of a bond carries a `@trigger` above the threshold. An applied force never breaks glue on its own — breaking runs on collision impulses — and a glue island reaching an inactive piece is anchored outright, so without this a glued body absorbs the push and sits there. It runs on simulation state, so a broken bond stays broken. |
+| Break Threshold | `rbd_break_threshold` | The `@trigger` value a bond's endpoint must exceed to break. Default 0.5. |
+| Check RBD Sim | `rbd_doctor` | Report what the connected solver actually has: mode match, the overwrite list, whether the force and threshold links resolve, the constraint wiring and bond count, and whether the breaker and the trigger export are in place. Reach for it first when a sim does nothing — every failure in this chain is silent. |
+| *(Cull to Affected)* Cull Mode | `cull_mode` | **Off**; **Delete Unaffected** removes the parts of the input no event ever touches; **Mark Affected** keeps everything and labels it instead. The affected set is the union of *all* the bakes, so it does not change as the playhead moves. |
+| *(Cull to Affected)* Padding | `cull_padding` | Grow the region by this fraction of the input's size, so pieces just outside the blast still take part in the collapse. |
+| *(Cull to Affected)* Show Region | `cull_show_region` | Draw the region as a guide hull, so you can see what you are about to throw away. |
+| *(Cull to Affected)* Attribute Name | `cull_attrib` | Mark Affected only. The attribute to write, default `active`. Blank writes none. **Careful:** `active` is what a Bullet solve reads to decide what is STATIC, and a glue island reaching a static piece is anchored, so it can never break. Write a plain name like `av_active` if that is not what you want. |
+| *(Cull to Affected)* Group Name | `cull_group` | Mark Affected only. An optional point group of the affected points. Blank makes none. Independent of the attribute — either, both or neither. |
+| *(Additional Exports)* Export Event Index | `out_event_id` | Write `@av_event`: the 1-based number of the event whose baked field is strongest at each point, and 0 where none reaches it. Read from the bakes rather than the current frame, so it does not change over time and it ignores Solo, Mute and Event Strength. It marks exactly the set Cull to Affected marks. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -1108,6 +1217,51 @@
 <td>Clamp Speed</td>
 <td><code translate="no" v-pre>out_clamp</code>, <code translate="no" v-pre>out_clamp_min</code>, <code translate="no" v-pre>out_clamp_max</code></td>
 <td>Clamp the final speed into a range.</td>
+</tr>
+<tr>
+<td>Break Glue at Trigger</td>
+<td><code translate="no" v-pre>rbd_break_glue</code></td>
+<td>On by default. Deletes glue bonds inside the blast, wherever either end of a bond carries a <code translate="no" v-pre>@trigger</code> above the threshold. An applied force never breaks glue on its own — breaking runs on collision impulses — and a glue island reaching an inactive piece is anchored outright, so without this a glued body absorbs the push and sits there. It runs on simulation state, so a broken bond stays broken.</td>
+</tr>
+<tr>
+<td>Break Threshold</td>
+<td><code translate="no" v-pre>rbd_break_threshold</code></td>
+<td>The <code translate="no" v-pre>@trigger</code> value a bond&#x27;s endpoint must exceed to break. Default 0.5.</td>
+</tr>
+<tr>
+<td>Check RBD Sim</td>
+<td><code translate="no" v-pre>rbd_doctor</code></td>
+<td>Report what the connected solver actually has: mode match, the overwrite list, whether the force and threshold links resolve, the constraint wiring and bond count, and whether the breaker and the trigger export are in place. Reach for it first when a sim does nothing — every failure in this chain is silent.</td>
+</tr>
+<tr>
+<td><em>(Cull to Affected)</em> Cull Mode</td>
+<td><code translate="no" v-pre>cull_mode</code></td>
+<td><strong>Off</strong>; <strong>Delete Unaffected</strong> removes the parts of the input no event ever touches; <strong>Mark Affected</strong> keeps everything and labels it instead. The affected set is the union of <em>all</em> the bakes, so it does not change as the playhead moves.</td>
+</tr>
+<tr>
+<td><em>(Cull to Affected)</em> Padding</td>
+<td><code translate="no" v-pre>cull_padding</code></td>
+<td>Grow the region by this fraction of the input&#x27;s size, so pieces just outside the blast still take part in the collapse.</td>
+</tr>
+<tr>
+<td><em>(Cull to Affected)</em> Show Region</td>
+<td><code translate="no" v-pre>cull_show_region</code></td>
+<td>Draw the region as a guide hull, so you can see what you are about to throw away.</td>
+</tr>
+<tr>
+<td><em>(Cull to Affected)</em> Attribute Name</td>
+<td><code translate="no" v-pre>cull_attrib</code></td>
+<td>Mark Affected only. The attribute to write, default <code translate="no" v-pre>active</code>. Blank writes none. <strong>Careful:</strong> <code translate="no" v-pre>active</code> is what a Bullet solve reads to decide what is STATIC, and a glue island reaching a static piece is anchored, so it can never break. Write a plain name like <code translate="no" v-pre>av_active</code> if that is not what you want.</td>
+</tr>
+<tr>
+<td><em>(Cull to Affected)</em> Group Name</td>
+<td><code translate="no" v-pre>cull_group</code></td>
+<td>Mark Affected only. An optional point group of the affected points. Blank makes none. Independent of the attribute — either, both or neither.</td>
+</tr>
+<tr>
+<td><em>(Additional Exports)</em> Export Event Index</td>
+<td><code translate="no" v-pre>out_event_id</code></td>
+<td>Write <code translate="no" v-pre>@av_event</code>: the 1-based number of the event whose baked field is strongest at each point, and 0 where none reaches it. Read from the bakes rather than the current frame, so it does not change over time and it ignores Solo, Mute and Event Strength. It marks exactly the set Cull to Affected marks.</td>
 </tr>
 </tbody>
 </table>
@@ -1326,7 +1480,10 @@
 | *Timed Events* ▸ Ghost Style | `dyn_ghost_style` | How the ghost draws: Full Wireframe (default), Bounding Boxes (one wire box per piece, cheap at any density), or Points. Drop to Bounding Boxes or Points on heavy input. |
 | *Timed Events* ▸ Offset | `dyn_preview_offset` | Slide the preview sideways, in multiples of the object's width. |
 | *Timed Events* ▸ Unify Baked Guides | `viz_baked_yellow`, `viz_baked_tint` | Draw every baked-event guide in one colour instead of per-type colours. |
-| *Timeline HUD* ▸ Event Timeline / Scheme | `viz_timeline`, `viz_timeline_scheme` | The on-screen frame ruler with a marker per event; Dark or Light palette. Drawn by the viewer state rather than as guide geometry, so Show Guides and the Visualization Limit do not affect it. |">
+| *Timed Events* ▸ Show Events | `dyn_guide_filter` | Filter the guides down to the events you tick, which is how you read one event out of a crowded timeline. A view only — the output is identical either way. |
+| *Timed Events* ▸ Simplify | `dyn_ghost_simplify` | Drop a random fraction of the ghost's pieces, on top of whatever Ghost Style is set to. The selection is frame-stable, so the ghost does not flicker as you scrub, and the trails and the output are untouched. |
+| *Timeline HUD* ▸ Event Timeline / Scheme | `viz_timeline`, `viz_timeline_scheme` | The on-screen frame ruler with a marker per event; Dark or Light palette. Drawn by the viewer state rather than as guide geometry, so Show Guides and the Visualization Limit do not affect it. |
+| *Timeline HUD* ▸ Restore Viewport HUD | `util_restore_hud` | Re-enter the node's viewer state, bringing the event timeline back after an asset refresh. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -1363,9 +1520,24 @@
 <td>Draw every baked-event guide in one colour instead of per-type colours.</td>
 </tr>
 <tr>
+<td><em>Timed Events</em> ▸ Show Events</td>
+<td><code translate="no" v-pre>dyn_guide_filter</code></td>
+<td>Filter the guides down to the events you tick, which is how you read one event out of a crowded timeline. A view only — the output is identical either way.</td>
+</tr>
+<tr>
+<td><em>Timed Events</em> ▸ Simplify</td>
+<td><code translate="no" v-pre>dyn_ghost_simplify</code></td>
+<td>Drop a random fraction of the ghost&#x27;s pieces, on top of whatever Ghost Style is set to. The selection is frame-stable, so the ghost does not flicker as you scrub, and the trails and the output are untouched.</td>
+</tr>
+<tr>
 <td><em>Timeline HUD</em> ▸ Event Timeline / Scheme</td>
 <td><code translate="no" v-pre>viz_timeline</code>, <code translate="no" v-pre>viz_timeline_scheme</code></td>
 <td>The on-screen frame ruler with a marker per event; Dark or Light palette. Drawn by the viewer state rather than as guide geometry, so Show Guides and the Visualization Limit do not affect it.</td>
+</tr>
+<tr>
+<td><em>Timeline HUD</em> ▸ Restore Viewport HUD</td>
+<td><code translate="no" v-pre>util_restore_hud</code></td>
+<td>Re-enter the node&#x27;s viewer state, bringing the event timeline back after an asset refresh.</td>
 </tr>
 </tbody>
 </table>
@@ -1397,11 +1569,7 @@
 <retype-table copy-text="| Parameter | Name | Description |
 | --- | --- | --- |
 | Output Guides Only (No Geometry) | `out_guides_only` | Output the guide curves instead of the geometry — for rendering the guides as their own pass. In Timed Events it always emits the baked event trails, ignoring Show Guides and Source (so the pass can't be empty), and **respects Preview Motion** — on, the trails follow the predicted motion; off, they sit at rest. The ghost never enters the pass. |
-| Restore Viewport HUD | `util_restore_hud` | Re-enter the node's viewer state, bringing the event timeline back after an asset refresh. |
-| Re-bake All Events | `rebake_events` | Repair every event after the input's point count changed (a re-fracture, deleted geometry, a different scatter). Each event is replayed against **its own** stored snapshot at **its own** frame, so timings and settings survive — unlike pressing Update on each row, which re-bakes from the live Setup. |
-| Copy Events | `copy_events` | Copy this node's entire event set — baked fields included — to a disk clipboard that survives a Houdini restart. |
-| Paste Events | `paste_events` | Replace the target node's events with the clipboard's, byte for byte. Asks for confirmation if the destination already has events. Pasted bakes belong to the setup that made them, so pasting onto a different input point count leaves them stale — fix with Re-bake All Events. |
-| Links | `gumroad`, `docs`, `discord`, `youtube` | This documentation, the store page, and the community. |">
+| Links | `website`, `gumroad`, `docs`, `discord`, `youtube` | The website, the store page, this documentation, and the community. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -1418,29 +1586,9 @@
 <td>Output the guide curves instead of the geometry — for rendering the guides as their own pass. In Timed Events it always emits the baked event trails, ignoring Show Guides and Source (so the pass can&#x27;t be empty), and <strong>respects Preview Motion</strong> — on, the trails follow the predicted motion; off, they sit at rest. The ghost never enters the pass.</td>
 </tr>
 <tr>
-<td>Restore Viewport HUD</td>
-<td><code translate="no" v-pre>util_restore_hud</code></td>
-<td>Re-enter the node&#x27;s viewer state, bringing the event timeline back after an asset refresh.</td>
-</tr>
-<tr>
-<td>Re-bake All Events</td>
-<td><code translate="no" v-pre>rebake_events</code></td>
-<td>Repair every event after the input&#x27;s point count changed (a re-fracture, deleted geometry, a different scatter). Each event is replayed against <strong>its own</strong> stored snapshot at <strong>its own</strong> frame, so timings and settings survive — unlike pressing Update on each row, which re-bakes from the live Setup.</td>
-</tr>
-<tr>
-<td>Copy Events</td>
-<td><code translate="no" v-pre>copy_events</code></td>
-<td>Copy this node&#x27;s entire event set — baked fields included — to a disk clipboard that survives a Houdini restart.</td>
-</tr>
-<tr>
-<td>Paste Events</td>
-<td><code translate="no" v-pre>paste_events</code></td>
-<td>Replace the target node&#x27;s events with the clipboard&#x27;s, byte for byte. Asks for confirmation if the destination already has events. Pasted bakes belong to the setup that made them, so pasting onto a different input point count leaves them stale — fix with Re-bake All Events.</td>
-</tr>
-<tr>
 <td>Links</td>
-<td><code translate="no" v-pre>gumroad</code>, <code translate="no" v-pre>docs</code>, <code translate="no" v-pre>discord</code>, <code translate="no" v-pre>youtube</code></td>
-<td>This documentation, the store page, and the community.</td>
+<td><code translate="no" v-pre>website</code>, <code translate="no" v-pre>gumroad</code>, <code translate="no" v-pre>docs</code>, <code translate="no" v-pre>discord</code>, <code translate="no" v-pre>youtube</code></td>
+<td>The website, the store page, this documentation, and the community.</td>
 </tr>
 </tbody>
 </table>
@@ -1488,8 +1636,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-30T19:05:42" title="2026-08-30" data-absolute-label="Last updated on 2026-08-30" data-absolute-label-html="Last updated on 2026-08-30" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-08-30
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-09-08T12:43:57" title="2026-09-08" data-absolute-label="Last updated on 2026-09-08" data-absolute-label-html="Last updated on 2026-09-08" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-09-08
                     </time>
                 </div>
 

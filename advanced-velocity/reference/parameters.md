@@ -19,17 +19,22 @@ Visible in Timed Events mode. See [Timed Events](../timed-events.md) for the wor
 | --- | --- | --- |
 | At Frame | `dyn_now` | Live readout of which events are contributing at the current frame, and by how much. |
 | Stale | `dyn_recall_note` | Warns when the live Setup no longer matches the event it was last based on. |
-| *(warning)* Unplayable events | `stale_bake_label` | Appears when the input's point count no longer matches what an event baked against, so those events write zero. Fix with **Utilities ▸ Re-bake All Events**. |
+| *(warning)* Unplayable events | `stale_bake_label` | Appears when the input's point count no longer matches what an event baked against, so those events write zero. Fix with **Re-bake All Events**, in the All Events row below. |
+| *(warning)* Input has moved | `moved_bake_label` | Appears when the input has been moved or scaled since some events were baked, so they play from the old positions. Re-place any world-space sources first, then Re-bake All Events. |
 | Record / Stop / Create Event | `record_events`, `stop_events`, `create_event` | Play the range for live marking; stop; bake the current setup into a new event at the current frame. |
 | Copy Event | `copy_event` | Duplicate an existing event at the current frame, nothing re-baked. |
-| Copy From | `copy_from_event` | Overwrite the event you are currently on with another event's data — bake, snapshot, envelope and mixer strength. Its own frame and name are kept, so the event stays where it is and only its contents change. |
+| Copy From | `copy_from_event` | Overwrite the event you are currently on with another event's data — bake, snapshot, envelope and mixer strength. Its own frame and name are kept, so the event stays where it is and only its contents change. The Setup folder loads with it, as if you had Recalled it, so what you see is what the event now holds. The playhead does not move. |
 | Sort by Frame | `dyn_sort_events` | Reorder the event rows chronologically. |
 | Solo / Mute | `dyn_solo`, `dyn_mute` | Play only / ignore the listed events. Space-separated numbers and ranges (`1 3-5`); the dropdowns add to the list. |
+| *(All Events)* Re-bake All Events | `rebake_events` | Repair every event after the input's point count changed (a re-fracture, deleted geometry, a different scatter) or after the input moved. Each event is replayed against **its own** stored snapshot at **its own** frame, so timings and settings survive — unlike pressing Update on each row, which re-bakes from the live Setup. |
+| *(All Events)* Copy Events | `copy_events` | Copy this node's entire event set — baked fields included — to a disk clipboard that survives a Houdini restart. |
+| *(All Events)* Paste Events | `paste_events` | Replace the target node's events with the clipboard's, byte for byte. Asks for confirmation if the destination already has events. Pasted bakes belong to the setup that made them, so pasting onto a different input point count leaves them stale — fix with Re-bake All Events. |
 
 ### Per event
 
 | Parameter | Name | Description |
 | --- | --- | --- |
+| Quick Setups | `ev_quick#` | Presets for this event's **timing** — Impact, Explosion, Shockwave, Sustained Push, Levitate, Rumble, Quake. Each sets the envelope shape, the release curve and the Mute Gravity window, and nothing else: your Setup is untouched and nothing is re-baked, so it is safe on a finished event and takes effect immediately. The menu snaps back to its header afterwards, because it is a list of actions rather than a mode the event is in. |
 | Name | `ev_name#` | Label for the event, shown on its tab and the timeline. |
 | Event Frame | `ev_frame#` | The peak frame — Attack ramps into it, Release ramps out of it. |
 | Captured | `ev_summary#` | What the event actually baked: types, point count, peak speed. |
@@ -64,6 +69,21 @@ Visible in Timed Events mode. See [Timed Events](../timed-events.md) for the wor
 | Measure Input Scale | `dyn_scale_report` | Report the input's measured size and the world-space speeds that were seeded from it when geometry was first connected. Read-only — it reports, it does not re-seed. |
 
 Every type's Adjust folder opens with the same row: **Variation** (`variation1`–`6`, five strengths), **Randomize** (`randomize1`–`6`, the dice), and **Reset** (`reset_variation1`–`6`).
+
+Every type also carries the same **Restrict To** folder, between Adjust and Mask. It decides which points *that stream* reaches — as opposed to the top-level Group, which restricts the final write for the whole node.
+
+| Parameter | Name | Description |
+| --- | --- | --- |
+| Enable Restriction | `restrict_enable1`–`6` | Off by default. With it off the stream reaches every point, as before. |
+| Restrict To | `restrict_mode1`–`6` | **Group** — a point group on the incoming geometry. **Bounding Object** — a SOP holding a closed shape; everything inside it is kept. |
+| Restrict Group | `restrict_group1`–`6` | The point group name. Takes a viewport pick. |
+| Restrict SOP | `restrict_sop1`–`6` | The bounding object. It must be **closed** — an open surface has no interior, so nothing is inside it. |
+| Invert | `restrict_invert1`–`6` | Reach everything *outside* the region instead. |
+| Output Group | `restrict_out_group1`–`6` | Write the points the stream actually reached to a point group of this name, after Invert. Leave blank to write none, and give each type its own name — two types sharing one name overwrite each other. |
+
+!!!warning Empty is inert, a typo is not
+Leaving the group name or the SOP path **empty** restricts nothing, and stays inert even with Invert on — the alternative would zero the whole stream the moment you switched the menu before typing a name. But a group name matching **no** group restricts everything away, exactly as a Blast behaves with a name that does not exist.
+!!!
 
 ### Basic Velocity
 
@@ -160,6 +180,15 @@ Every type's Adjust folder opens with the same row: **Variation** (`variation1`�
 | Scale Gravity to Scene | `rbd_scale_gravity` | Force mode only, off by default. Raises the built solver's gravity by the same ratio the speeds were seeded with, so a large scene falls at its own scale rather than in apparent slow motion. The build message names the number it would use whether or not this is on. |
 | Injecting Now | `dyn_injecting` | Live 0/1: an event is delivering energy right now. Gate an RBD solver's Overwrite Attributes list on it — see [Driving an RBD solver](../timed-events.md#driving-an-rbd-solver). This is the `v` workflow specifically; driving the solve from Export Trigger instead means listing `trigger` in that same field and not `v`, never both. |
 | Clamp Speed | `out_clamp`, `out_clamp_min`, `out_clamp_max` | Clamp the final speed into a range. |
+| Break Glue at Trigger | `rbd_break_glue` | On by default. Deletes glue bonds inside the blast, wherever either end of a bond carries a `@trigger` above the threshold. An applied force never breaks glue on its own — breaking runs on collision impulses — and a glue island reaching an inactive piece is anchored outright, so without this a glued body absorbs the push and sits there. It runs on simulation state, so a broken bond stays broken. |
+| Break Threshold | `rbd_break_threshold` | The `@trigger` value a bond's endpoint must exceed to break. Default 0.5. |
+| Check RBD Sim | `rbd_doctor` | Report what the connected solver actually has: mode match, the overwrite list, whether the force and threshold links resolve, the constraint wiring and bond count, and whether the breaker and the trigger export are in place. Reach for it first when a sim does nothing — every failure in this chain is silent. |
+| *(Cull to Affected)* Cull Mode | `cull_mode` | **Off**; **Delete Unaffected** removes the parts of the input no event ever touches; **Mark Affected** keeps everything and labels it instead. The affected set is the union of *all* the bakes, so it does not change as the playhead moves. |
+| *(Cull to Affected)* Padding | `cull_padding` | Grow the region by this fraction of the input's size, so pieces just outside the blast still take part in the collapse. |
+| *(Cull to Affected)* Show Region | `cull_show_region` | Draw the region as a guide hull, so you can see what you are about to throw away. |
+| *(Cull to Affected)* Attribute Name | `cull_attrib` | Mark Affected only. The attribute to write, default `active`. Blank writes none. **Careful:** `active` is what a Bullet solve reads to decide what is STATIC, and a glue island reaching a static piece is anchored, so it can never break. Write a plain name like `av_active` if that is not what you want. |
+| *(Cull to Affected)* Group Name | `cull_group` | Mark Affected only. An optional point group of the affected points. Blank makes none. Independent of the attribute — either, both or neither. |
+| *(Additional Exports)* Export Event Index | `out_event_id` | Write `@av_event`: the 1-based number of the event whose baked field is strongest at each point, and 0 where none reaches it. Read from the bakes rather than the current frame, so it does not change over time and it ignores Solo, Mute and Event Strength. It marks exactly the set Cull to Affected marks. |
 
 ### Ballistic Motion (output 2)
 
@@ -218,7 +247,10 @@ The next two groups appear in Timed Events only.
 | *Timed Events* ▸ Ghost Style | `dyn_ghost_style` | How the ghost draws: Full Wireframe (default), Bounding Boxes (one wire box per piece, cheap at any density), or Points. Drop to Bounding Boxes or Points on heavy input. |
 | *Timed Events* ▸ Offset | `dyn_preview_offset` | Slide the preview sideways, in multiples of the object's width. |
 | *Timed Events* ▸ Unify Baked Guides | `viz_baked_yellow`, `viz_baked_tint` | Draw every baked-event guide in one colour instead of per-type colours. |
+| *Timed Events* ▸ Show Events | `dyn_guide_filter` | Filter the guides down to the events you tick, which is how you read one event out of a crowded timeline. A view only — the output is identical either way. |
+| *Timed Events* ▸ Simplify | `dyn_ghost_simplify` | Drop a random fraction of the ghost's pieces, on top of whatever Ghost Style is set to. The selection is frame-stable, so the ghost does not flicker as you scrub, and the trails and the output are untouched. |
 | *Timeline HUD* ▸ Event Timeline / Scheme | `viz_timeline`, `viz_timeline_scheme` | The on-screen frame ruler with a marker per event; Dark or Light palette. Drawn by the viewer state rather than as guide geometry, so Show Guides and the Visualization Limit do not affect it. |
+| *Timeline HUD* ▸ Restore Viewport HUD | `util_restore_hud` | Re-enter the node's viewer state, bringing the event timeline back after an asset refresh. |
 
 | Parameter | Name | Description |
 | --- | --- | --- |
@@ -229,11 +261,7 @@ The next two groups appear in Timed Events only.
 | Parameter | Name | Description |
 | --- | --- | --- |
 | Output Guides Only (No Geometry) | `out_guides_only` | Output the guide curves instead of the geometry — for rendering the guides as their own pass. In Timed Events it always emits the baked event trails, ignoring Show Guides and Source (so the pass can't be empty), and **respects Preview Motion** — on, the trails follow the predicted motion; off, they sit at rest. The ghost never enters the pass. |
-| Restore Viewport HUD | `util_restore_hud` | Re-enter the node's viewer state, bringing the event timeline back after an asset refresh. |
-| Re-bake All Events | `rebake_events` | Repair every event after the input's point count changed (a re-fracture, deleted geometry, a different scatter). Each event is replayed against **its own** stored snapshot at **its own** frame, so timings and settings survive — unlike pressing Update on each row, which re-bakes from the live Setup. |
-| Copy Events | `copy_events` | Copy this node's entire event set — baked fields included — to a disk clipboard that survives a Houdini restart. |
-| Paste Events | `paste_events` | Replace the target node's events with the clipboard's, byte for byte. Asks for confirmation if the destination already has events. Pasted bakes belong to the setup that made them, so pasting onto a different input point count leaves them stale — fix with Re-bake All Events. |
-| Links | `gumroad`, `docs`, `discord`, `youtube` | This documentation, the store page, and the community. |
+| Links | `website`, `gumroad`, `docs`, `discord`, `youtube` | The website, the store page, this documentation, and the community. |
 
 ## About
 

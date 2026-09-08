@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.842179149491">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.842179450572">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -45,12 +45,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.6.0.842179149491" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.842179450572" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.842179149491" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.842179450572" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.842179149491" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.842179149491" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.842179450572" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.842179450572" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -383,7 +383,7 @@
 <p><strong>Copy Event</strong> duplicates an existing event at the current frame — the same blast, later, with nothing re-baked.</p>
 </li>
 <li>
-<p><strong>Copy From</strong> points the other way: it overwrites the event you&#x27;re <em>currently on</em> with another event&#x27;s data. The event keeps its own frame and name — those are what make it that event — and everything else is replaced. Use it when two events should match and one has drifted, instead of deleting and re-copying.</p>
+<p><strong>Copy From</strong> points the other way: it overwrites the event you&#x27;re <em>currently on</em> with another event&#x27;s data. The event keeps its own frame and name — those are what make it that event — and everything else is replaced. The Setup folder loads with it too, exactly as if you&#x27;d Recalled it, so the panel shows what the event now holds rather than what you had dialled in before. The playhead deliberately stays put: Recall jumps the frame because you&#x27;re navigating, Copy From edits the row you&#x27;re already on. Use it when two events should match and one has drifted, instead of deleting and re-copying.</p>
 </li>
 <li>
 <p><strong>Sort by Frame</strong> reorders the rows chronologically (playback doesn&#x27;t care about row order; this is purely for reading).</p>
@@ -438,7 +438,7 @@
         </div>
         <div class="pr-5 ml-3 w-full">
             <h5>If the timeline disappears</h5>
-<p>The timeline is drawn by the node&#x27;s viewer state, and some actions (like refreshing asset libraries) drop the viewer out of it. <strong>Utilities ▸ Restore Viewport HUD</strong> brings it back.</p>
+<p>The timeline is drawn by the node&#x27;s viewer state, and some actions (like refreshing asset libraries) drop the viewer out of it. <strong>Visualization ▸ Timeline HUD ▸ Restore Viewport HUD</strong> brings it back.</p>
         </div>
     </div>
 </div>
@@ -661,7 +661,7 @@ if (amp &gt; 0) {
 <ul>
 <li><strong>Incoming Velocity is a live base layer.</strong> It plays underneath the events every frame — never baked into them, so it can&#x27;t be double-counted, and an animated input stays live between events.</li>
 <li><strong>The Output tab is live too.</strong> Clamp Speed and Scale by Piece Size apply at playback, no Update needed. Master Speed is the exception — it&#x27;s baked into each event, and changing it afterwards flags the event stale.</li>
-<li><strong>Bakes are per-point.</strong> An event&#x27;s field is stored against the input&#x27;s point count, so re-fracturing the object leaves existing events unusable and the node writes zero for them. The Events tab warns you; <strong>Utilities ▸ Re-bake All Events</strong> repairs the lot, replaying each event against its own stored snapshot so timings survive — unlike Update, which re-bakes from the <em>live</em> Setup.</li>
+<li><strong>Bakes are per-point.</strong> An event&#x27;s field is stored against the input&#x27;s point count, so re-fracturing the object leaves existing events unusable and the node writes zero for them. The Events tab warns you; <strong>Re-bake All Events</strong>, in the All Events button row, repairs the lot, replaying each event against its own stored snapshot so timings survive — unlike Update, which re-bakes from the <em>live</em> Setup. It also repairs the other case that breaks a bake: moving or scaling the input, which leaves events playing from the old positions. Re-place any world-space sources first, since Place Source cannot know where the object went.</li>
 <li><strong>A later blast kicks the pieces that were near it at bake time</strong>, wherever they&#x27;ve since travelled — the radius selection is frozen at bake. Track Motion re-aims directions, not membership.</li>
 <li><strong>Baked guides can be unified to one colour</strong> (Visualization ▸ Unify Baked Guides) when the per-type colours are more information than you want.</li>
 <li><strong>A blank event with Mute Gravity on freezes everything solid.</strong> With no velocity types enabled its baked field is all zeros, yet it still opens the injection gate — so the solver zeroes every piece&#x27;s velocity while gravity is muted, and the pieces hang until the event&#x27;s hold ends, then fall again. Useful on purpose: drop one wherever you want everything suspended, and set its Hold to the pause length (or <strong>Extend to Next</strong> to hang right up to the following beat). Mute Gravity on a <em>real</em> event means gravity off while the pieces keep flying; on a <em>blank</em> event it means everything stops dead.</li>
@@ -729,8 +729,8 @@ if (amp &gt; 0) {
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-30T19:13:06" title="2026-08-30" data-absolute-label="Last updated on 2026-08-30" data-absolute-label-html="Last updated on 2026-08-30" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-08-30
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-09-08T12:43:57" title="2026-09-08" data-absolute-label="Last updated on 2026-09-08" data-absolute-label-html="Last updated on 2026-09-08" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-09-08
                     </time>
                 </div>
 

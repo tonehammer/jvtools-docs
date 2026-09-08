@@ -26,6 +26,16 @@ In Timed Events mode the live Setup does not reach the output — only baked eve
 
 Each event is a tab in the **Events** list, named, stamped with its frame, and carrying a **Captured** summary of what it actually baked — which types, how many points, the peak speed. That line is worth glancing at every time: an event named "explosion" that captured `basic | 60 pts | max |v| 1` is telling you something.
 
+## Quick Setups
+
+At the top of every event's tab is a **Quick Setups** dropdown: Impact, Explosion, Shockwave, Sustained Push, Levitate, Rumble, Quake. Pick one and that event's *timing* is set — the envelope shape, the release curve and the Mute Gravity window.
+
+Timing only. Your Setup isn't touched, nothing is re-baked, and the velocity the event carries is exactly what it carried a second ago. That's what makes it safe on a finished event: an explosion that reads as too polite becomes an Impact without you having to rebuild it, and it takes effect immediately on playback because timing was never baked in the first place.
+
+The menu snaps back to its header afterwards rather than staying on your choice, and that's deliberate — it's a list of actions, not a mode the event is in. The moment you nudge an Attack by hand the preset name would be a lie, so there's no name left sitting there to lie.
+
+Good places to start, not places to stop: Impact for anything that hits, Levitate for a slow lift with gravity muted through it, Rumble and Quake for the low sustained ones.
+
 ## The envelope
 
 Every event has an Attack / Hold / Release envelope around its **Event Frame** — the peak moment. Each phase has an enable checkbox and a duration in **frames**, the same unit as the Event Frame itself:
@@ -221,6 +231,24 @@ A force works too, but it has to be scaled: a solver divides a force by each pie
 !!!
 
 One thing worth knowing about `+=` specifically: a POP Wrangle in the solver's forces runs once per **substep**, not once per frame — Substeps defaults to 10 on a fresh solver — so that line fires several times for every frame the event is active. `@trigger` is an envelope, not a single-frame spike, so it stays nonzero for the whole attack-and-hold window, and `+=` integrates it across every substep of every one of those frames rather than delivering one clean kick. Expect the result to come out considerably stronger than the raw trigger number suggests. If you want a single discrete impulse rather than a build-up, scale `amp` down, or divide it by the substep count.
+
+### Exporting the event index
+
+**Export Event Index** writes `@av_event`: the number of the event that owns each point — 1-based, matching the event rows, and 0 where no event reaches that point at all.
+
+"Owns" means whichever event's baked field is strongest there, so on overlapping events you get the dominant one rather than the first or the last. Use it to colour a breakdown by event, to drive a per-event material, or just to see which parts of a fracture belong to which hit.
+
+It's read from the **bakes**, not from the current frame, so it doesn't change over time and it ignores Solo, Mute and Event Strength — the opposite register from `@av_age` and `@trigger` sitting next to it, which are both live. That also means `av_event > 0` marks exactly the set Cull to Affected marks, so the two can never disagree about what the events touched.
+
+### Breaking glue where the blast lands
+
+This is the one that ends most blast setups on a glued fracture, and the failure has no error attached to it: you push, and nothing moves.
+
+Two things are going on. An applied force never breaks glue — breaking runs on *collision impulses*, so a glued body simply absorbs whatever you push it with and sits there. And a glue island that reaches an inactive piece is anchored outright, which no amount of force will ever undo.
+
+**Break Glue at Trigger** (Output ▸ RBD Sim, on by default) attacks it from the other side: instead of pushing harder, it deletes the glue bonds inside the blast. Any bond with either end carrying a `@trigger` above **Break Threshold** goes, so the shell shatters where the event actually hits it and holds everywhere else. It runs on simulation state, so a broken bond stays broken.
+
+**Check RBD Sim** is the button to press when a sim does nothing. It reports what the connected solver really has: whether the mode matches, what's in the overwrite list, whether the force and threshold links resolve, how the constraints are wired and how many bonds they carry, and whether the breaker and the trigger export are in place. Every failure in this chain is silent, which is exactly why it's worth a readout rather than a guess.
 
 ### Muting gravity for an impulse
 

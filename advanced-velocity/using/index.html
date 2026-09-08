@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.842179450572">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.842180757529">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -45,11 +45,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.6.0.842179450572" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.842180757529" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.842179450572" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.842180757529" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.842179450572" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.842180757529" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -474,6 +474,53 @@
 <p><strong>Mask</strong> restricts the velocity to part of the geometry — a constant, random values, noise, another attribute, or a line / radial / bounding-box gradient, remapped through a ramp. The Line and Radial guides fit themselves to your input the first time you enable them, and a <strong>Fit to Input</strong> button re-fits them anytime.</p>
 <p>Both blocks are Houdini&#x27;s own controls — for anything not covered here, see the <a href="https://www.sidefx.com/docs/houdini/nodes/sop/attribadjustvector.html" class="outbound" target="_blank"><span>Attribute Adjust Vector</span><svg xmlns="http://www.w3.org/2000/svg" class="retype-outbound-trigger docs-icon ml-1" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="currentColor"><path d="M15.5 2.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V4.06l-6.22 6.22a.75.75 0 1 1-1.06-1.06L19.94 3h-3.69a.75.75 0 0 1-.75-.75Z"/><path d="M2.5 4.25c0-.966.784-1.75 1.75-1.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.25.25 0 0 0-.25.25v15.5c0 .138.112.25.25.25h15.5a.25.25 0 0 0 .25-.25v-8.5a.75.75 0 0 1 1.5 0v8.5a1.75 1.75 0 0 1-1.75 1.75H4.25a1.75 1.75 0 0 1-1.75-1.75V4.25Z"/></g></svg></a> and <a href="https://www.sidefx.com/docs/houdini/nodes/sop/attribadjustfloat.html" class="outbound" target="_blank"><span>Attribute Adjust Float</span><svg xmlns="http://www.w3.org/2000/svg" class="retype-outbound-trigger docs-icon ml-1" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="currentColor"><path d="M15.5 2.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V4.06l-6.22 6.22a.75.75 0 1 1-1.06-1.06L19.94 3h-3.69a.75.75 0 0 1-.75-.75Z"/><path d="M2.5 4.25c0-.966.784-1.75 1.75-1.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.25.25 0 0 0-.25.25v15.5c0 .138.112.25.25.25h15.5a.25.25 0 0 0 .25-.25v-8.5a.75.75 0 0 1 1.5 0v8.5a1.75 1.75 0 0 1-1.75 1.75H4.25a1.75 1.75 0 0 1-1.75-1.75V4.25Z"/></g></svg></a> help pages.</p>
 <hr>
+<h2 id="restrict-to--pointing-one-type-at-part-of-the-geometry">Restrict To — pointing one type at part of the geometry</h2>
+<p>There&#x27;s a third folder between Adjust and Mask on every type, and it answers a different question from either of them. Mask <em>weakens</em> a velocity where you say; <strong>Restrict To</strong> decides which points the type reaches at all.</p>
+<p>Why that&#x27;s worth its own control: a Mask at zero still costs you the mixer slot and still shows up in the guides, and getting a hard edge out of a gradient is fiddly. Restrict To is a straight yes/no, and the points outside it are simply not in that stream.</p>
+<p>Switch on <strong>Enable Restriction</strong> and pick how you describe the region:</p>
+<ul>
+<li><strong>Group</strong> — a point group on the incoming geometry. Type the name into <strong>Restrict Group</strong>, or pick it in the viewport.</li>
+<li><strong>Bounding Object</strong> — point <strong>Restrict SOP</strong> at a SOP holding a closed shape, and everything inside it is kept. A box, a sphere, a hand-modelled blob; it can be animated, and it can be as rough as you like since only the inside/outside answer matters.</li>
+</ul>
+<p><strong>Invert</strong> flips it, so the type reaches everything <em>outside</em> the region instead. And <strong>Output Group</strong> writes the points the stream actually reached into a point group of your naming — handy for handing the same selection to something downstream, and it reflects Invert, so it&#x27;s what the type really touched rather than what you selected.</p>
+<p>This is per type, so an explosion can reach only the rubble while the wind still reaches everything, on one node. It&#x27;s also inside the Setup folder, which means it snapshots, recalls and bakes with everything else — each event can restrict differently.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-warning" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
+                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>The shape has to be closed</h5>
+<p>An open surface has no interior, so nothing is inside it and the type reaches nothing. If a Bounding Object seems to switch the whole stream off, check the geometry is watertight before checking anything else.</p>
+        </div>
+    </div>
+</div>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Empty is safe, a typo is not</h5>
+<p>Leaving the group name or the SOP path blank restricts <strong>nothing</strong> — the type behaves exactly as before, and it stays that way even with Invert on. That&#x27;s deliberate: the alternative would silently kill the whole stream the moment you switched the menu before typing a name.</p>
+<p>But a group name that matches <strong>no</strong> group restricts everything away. That&#x27;s the same thing a Blast does with a name that doesn&#x27;t exist, and it&#x27;s the one to watch for — a misspelling looks identical to an empty field until you notice the type has gone quiet.</p>
+        </div>
+    </div>
+</div>
+<hr>
 <h2 id="the-velocity-mixer">The Velocity Mixer</h2>
 <p><strong>Additive</strong> multiplies each enabled type by its <strong>Gain</strong> and sums them up. Gains default to 1 and can go above it — your straightforward &quot;more of this, less of that&quot; mode.</p>
 <p><strong>Weighted (Normalized)</strong> blends the types in proportion to their <strong>Weights</strong>. Weights are normalized, so only the ratio between them matters, and the result can never exceed the source magnitudes.</p>
@@ -510,7 +557,33 @@
 <p><strong>Force Scale</strong> sets how hard that force pushes. It&#x27;s a multiplier, not a speed: a solver divides a force by each piece&#x27;s mass before anything moves, so heavy pieces need a bigger number than the equivalent velocity would be. 25 is the default and it&#x27;s a starting point, not a recommendation.</p>
 <p><strong>Scale Gravity to Scene</strong> raises the solver&#x27;s gravity by the same ratio your speeds were seeded with. Worth knowing why it exists: the node sizes its <em>push</em> to your input, but gravity belongs to the solver and nothing was scaling it — so a large scene got a correct launch and an unscaled fall, which reads as slow motion. It&#x27;s off by default, and the build message tells you the number it would use either way.</p>
 <p><strong>Velocity Attribute</strong> and <strong>Force Attribute</strong> let you rename the written attribute in each mode — author <code translate="no" v-pre>targetv</code> for Vellum without touching a wrangle.</p>
-<p><strong>Injecting Now</strong> and <strong>Muting Gravity</strong> are live 0/1 readouts for driving an RBD solve in Velocity mode. <strong>Create Connected RBD Sim</strong> builds a solver wired for whichever mode you&#x27;re in — both gates in Velocity, the force wrangle in Force — and stamps a comment on it naming what it built, so flipping the mode afterwards doesn&#x27;t leave the network ambiguous. See <a href="../timed-events/#driving-an-rbd-solver">Driving an RBD solver</a>.</p>
+<p><strong>Injecting Now</strong> and <strong>Muting Gravity</strong> are live 0/1 readouts for driving an RBD solve in Velocity mode. <strong>Create Connected RBD Sim</strong> builds a solver wired for whichever mode you&#x27;re in — both gates in Velocity, the force wrangle in Force — and stamps a comment on it naming what it built, so flipping the mode afterwards doesn&#x27;t leave the network ambiguous. Press it again on a solver it already built and it <em>reconciles</em> that one in place rather than building a second: the overwrite list, the gravity gate, the force wrangle and the constraint wiring all get re-imposed, and it never writes over a wire you made yourself. See <a href="../timed-events/#driving-an-rbd-solver">Driving an RBD solver</a>.</p>
+<h3 id="cull-to-affected">Cull to Affected</h3>
+<p>On a big fracture the blast usually reaches one wall and the other nine tenths of the geometry sits there being simulated for nothing. <strong>Cull to Affected</strong>, in Output ▸ General, throws that away.</p>
+<p>The affected set is the union of <em>all</em> your bakes, not whatever is playing right now — so it doesn&#x27;t change as you scrub, and culling can&#x27;t quietly remove something a later event needed. <strong>Padding</strong> grows the region by a fraction of the input&#x27;s size, which is what you want in practice: pieces just outside the blast still want to be there for the collapse. <strong>Show Region</strong> draws the region as a hull so you can see what you&#x27;re about to lose before you lose it.</p>
+<p><strong>Cull Mode</strong> picks what happens:</p>
+<ul>
+<li><strong>Delete Unaffected</strong> removes the rest outright. The cheapest thing you can do to a heavy sim.</li>
+<li><strong>Mark Affected</strong> keeps everything and labels it instead, writing an <strong>Attribute Name</strong> and/or a <strong>Group Name</strong> of your choosing. Either can be blank to switch that half off.</li>
+</ul>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-warning" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
+                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5><code translate="no" v-pre>active</code> is not a neutral name</h5>
+<p>The Attribute Name defaults to <code translate="no" v-pre>active</code>, which is the attribute a Bullet solve reads to decide what is <strong>static</strong>. That&#x27;s often exactly what you want — everything outside the blast stays put. But a glue island that reaches a static piece is <em>anchored</em>, and no force will ever break it, so on a glued fracture this can freeze the whole thing.</p>
+<p>If that&#x27;s not what you&#x27;re after, write a plain name like <code translate="no" v-pre>av_active</code> and use it yourself, or use the group instead. Both carry the same mask; only <code translate="no" v-pre>active</code> has the side effect.</p>
+        </div>
+    </div>
+</div>
 <h3 id="ballistic-motion--the-second-output">Ballistic Motion — the second output</h3>
 <p>The node&#x27;s second output delivers the pieces already flying: advanced along the velocity you authored, frame by frame, tumbling with any baked <code translate="no" v-pre>@w</code> if <strong>Include Rotation</strong> is on. No solver involved. Output 1 is untouched — your sim still gets the pieces at rest with <code translate="no" v-pre>@v</code> on them — so wire output 2 when a real solve is overkill: previz, motion-graphics moves, a quick look before committing to Bullet.</p>
 <p>It&#x27;s a straight-line prediction — no collisions, no gravity. <strong>Display Offset</strong> slides the result sideways in multiples of the object&#x27;s width, for reading it next to the original.</p>
@@ -561,7 +634,8 @@
 <p>The first time you connect geometry to a fresh node, Density gets set for you from the input&#x27;s point count, aiming at roughly 500 trails. This happens once and silently — change the value and it&#x27;s yours, and re-wiring a different mesh later won&#x27;t override it.</p>
 </li>
 <li>
-<p>Two further groups appear in Timed Events only. <strong>Timed Events</strong> holds <strong>Source</strong> (which stream the guides draw — Setup, Events or Both), <strong>Preview Motion</strong> with its ghost, <strong>Ghost Style</strong> and <strong>Offset</strong>, and <strong>Unify Baked Guides</strong>. Preview Motion ships <strong>off</strong> on purpose — it&#x27;s the one control here with a real cost, since the ghost redraws your pieces every refresh. <strong>Ghost Style</strong> ships on <strong>Full Wireframe</strong>, the best-looking and most expensive option — drop it to <strong>Bounding Boxes</strong> or <strong>Points</strong> on heavy input. Flip the preview on to check timing, then off again; on anything heavy it makes the whole scene sluggish. <strong>Timeline HUD</strong> holds the on-screen event ruler — see <a href="../timed-events/#the-event-timeline">the timeline and the preview</a>.</p>
+<p>Two further groups appear in Timed Events only. <strong>Timed Events</strong> holds <strong>Source</strong> (which stream the guides draw — Setup, Events or Both), <strong>Preview Motion</strong> with its ghost, <strong>Ghost Style</strong>, <strong>Simplify</strong> and <strong>Offset</strong>, <strong>Show Events</strong>, and <strong>Unify Baked Guides</strong>. Preview Motion ships <strong>off</strong> on purpose — it&#x27;s the one control here with a real cost, since the ghost redraws your pieces every refresh. <strong>Ghost Style</strong> ships on <strong>Full Wireframe</strong>, the best-looking and most expensive option — drop it to <strong>Bounding Boxes</strong> or <strong>Points</strong> on heavy input, and <strong>Simplify</strong> on top of that throws away a random fraction of the ghost&#x27;s pieces. The same pieces stay chosen as you scrub, so it thins the ghost rather than making it flicker, and it leaves the trails and the output alone.</p>
+<p><strong>Show Events</strong> filters the guides down to the events you tick. On a timeline with a dozen events the trails pile up into a single knot, and this is how you pull one back out to look at it — it&#x27;s a view only, so the output is identical either way. Flip the preview on to check timing, then off again; on anything heavy it makes the whole scene sluggish. <strong>Timeline HUD</strong> holds the on-screen event ruler — see <a href="../timed-events/#the-event-timeline">the timeline and the preview</a>.</p>
 </li>
 </ul>
 <p>Need the guides as renderable geometry, for a breakdown or preview render? <strong>Utilities ▸ Output Guides Only</strong> swaps the node&#x27;s output to the guide curves themselves.</p>
@@ -618,7 +692,7 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-09-08T12:43:57" title="2026-09-08" data-absolute-label="Last updated on 2026-09-08" data-absolute-label-html="Last updated on 2026-09-08" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-09-08T13:05:36" title="2026-09-08" data-absolute-label="Last updated on 2026-09-08" data-absolute-label-html="Last updated on 2026-09-08" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
                         Last updated on 2026-09-08
                     </time>
                 </div>

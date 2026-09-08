@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.842179450572">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.842180757529">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -45,12 +45,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.6.0.842179450572" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.842180757529" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.842179450572" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.842180757529" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.842179450572" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.842179450572" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.842180757529" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.842180757529" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -390,6 +390,11 @@
 </li>
 </ul>
 <p>Each event is a tab in the <strong>Events</strong> list, named, stamped with its frame, and carrying a <strong>Captured</strong> summary of what it actually baked — which types, how many points, the peak speed. That line is worth glancing at every time: an event named &quot;explosion&quot; that captured <code translate="no" v-pre>basic | 60 pts | max |v| 1</code> is telling you something.</p>
+<h2 id="quick-setups">Quick Setups</h2>
+<p>At the top of every event&#x27;s tab is a <strong>Quick Setups</strong> dropdown: Impact, Explosion, Shockwave, Sustained Push, Levitate, Rumble, Quake. Pick one and that event&#x27;s <em>timing</em> is set — the envelope shape, the release curve and the Mute Gravity window.</p>
+<p>Timing only. Your Setup isn&#x27;t touched, nothing is re-baked, and the velocity the event carries is exactly what it carried a second ago. That&#x27;s what makes it safe on a finished event: an explosion that reads as too polite becomes an Impact without you having to rebuild it, and it takes effect immediately on playback because timing was never baked in the first place.</p>
+<p>The menu snaps back to its header afterwards rather than staying on your choice, and that&#x27;s deliberate — it&#x27;s a list of actions, not a mode the event is in. The moment you nudge an Attack by hand the preset name would be a lie, so there&#x27;s no name left sitting there to lie.</p>
+<p>Good places to start, not places to stop: Impact for anything that hits, Levitate for a slow lift with gravity muted through it, Rumble and Quake for the low sustained ones.</p>
 <h2 id="the-envelope">The envelope</h2>
 <p>Every event has an Attack / Hold / Release envelope around its <strong>Event Frame</strong> — the peak moment. Each phase has an enable checkbox and a duration in <strong>frames</strong>, the same unit as the Event Frame itself:</p>
 <ul>
@@ -603,6 +608,15 @@ if (amp &gt; 0) {
     </div>
 </div>
 <p>One thing worth knowing about <code translate="no" v-pre>+=</code> specifically: a POP Wrangle in the solver&#x27;s forces runs once per <strong>substep</strong>, not once per frame — Substeps defaults to 10 on a fresh solver — so that line fires several times for every frame the event is active. <code translate="no" v-pre>@trigger</code> is an envelope, not a single-frame spike, so it stays nonzero for the whole attack-and-hold window, and <code translate="no" v-pre>+=</code> integrates it across every substep of every one of those frames rather than delivering one clean kick. Expect the result to come out considerably stronger than the raw trigger number suggests. If you want a single discrete impulse rather than a build-up, scale <code translate="no" v-pre>amp</code> down, or divide it by the substep count.</p>
+<h3 id="exporting-the-event-index">Exporting the event index</h3>
+<p><strong>Export Event Index</strong> writes <code translate="no" v-pre>@av_event</code>: the number of the event that owns each point — 1-based, matching the event rows, and 0 where no event reaches that point at all.</p>
+<p>&quot;Owns&quot; means whichever event&#x27;s baked field is strongest there, so on overlapping events you get the dominant one rather than the first or the last. Use it to colour a breakdown by event, to drive a per-event material, or just to see which parts of a fracture belong to which hit.</p>
+<p>It&#x27;s read from the <strong>bakes</strong>, not from the current frame, so it doesn&#x27;t change over time and it ignores Solo, Mute and Event Strength — the opposite register from <code translate="no" v-pre>@av_age</code> and <code translate="no" v-pre>@trigger</code> sitting next to it, which are both live. That also means <code translate="no" v-pre>av_event &gt; 0</code> marks exactly the set Cull to Affected marks, so the two can never disagree about what the events touched.</p>
+<h3 id="breaking-glue-where-the-blast-lands">Breaking glue where the blast lands</h3>
+<p>This is the one that ends most blast setups on a glued fracture, and the failure has no error attached to it: you push, and nothing moves.</p>
+<p>Two things are going on. An applied force never breaks glue — breaking runs on <em>collision impulses</em>, so a glued body simply absorbs whatever you push it with and sits there. And a glue island that reaches an inactive piece is anchored outright, which no amount of force will ever undo.</p>
+<p><strong>Break Glue at Trigger</strong> (Output ▸ RBD Sim, on by default) attacks it from the other side: instead of pushing harder, it deletes the glue bonds inside the blast. Any bond with either end carrying a <code translate="no" v-pre>@trigger</code> above <strong>Break Threshold</strong> goes, so the shell shatters where the event actually hits it and holds everywhere else. It runs on simulation state, so a broken bond stays broken.</p>
+<p><strong>Check RBD Sim</strong> is the button to press when a sim does nothing. It reports what the connected solver really has: whether the mode matches, what&#x27;s in the overwrite list, whether the force and threshold links resolve, how the constraints are wired and how many bonds they carry, and whether the breaker and the trigger export are in place. Every failure in this chain is silent, which is exactly why it&#x27;s worth a readout rather than a guess.</p>
 <h3 id="muting-gravity-for-an-impulse">Muting gravity for an impulse</h3>
 <p>Sometimes the physics is the problem. A telekinetic lift that fights 9.8 m/s² the whole way up reads as weak, and no amount of extra velocity fixes it — what you want is for the object to genuinely float while the event holds it.</p>
 <p><strong>Mute Gravity</strong> (per event, in <strong>Event Options</strong>) does that. Three settings:</p>
@@ -729,7 +743,7 @@ if (amp &gt; 0) {
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-09-08T12:43:57" title="2026-09-08" data-absolute-label="Last updated on 2026-09-08" data-absolute-label-html="Last updated on 2026-09-08" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-09-08T13:05:36" title="2026-09-08" data-absolute-label="Last updated on 2026-09-08" data-absolute-label-html="Last updated on 2026-09-08" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
                         Last updated on 2026-09-08
                     </time>
                 </div>

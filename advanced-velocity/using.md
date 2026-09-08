@@ -116,6 +116,33 @@ Both blocks are Houdini's own controls — for anything not covered here, see th
 
 ---
 
+## Restrict To — pointing one type at part of the geometry
+
+There's a third folder between Adjust and Mask on every type, and it answers a different question from either of them. Mask *weakens* a velocity where you say; **Restrict To** decides which points the type reaches at all.
+
+Why that's worth its own control: a Mask at zero still costs you the mixer slot and still shows up in the guides, and getting a hard edge out of a gradient is fiddly. Restrict To is a straight yes/no, and the points outside it are simply not in that stream.
+
+Switch on **Enable Restriction** and pick how you describe the region:
+
+* **Group** — a point group on the incoming geometry. Type the name into **Restrict Group**, or pick it in the viewport.
+* **Bounding Object** — point **Restrict SOP** at a SOP holding a closed shape, and everything inside it is kept. A box, a sphere, a hand-modelled blob; it can be animated, and it can be as rough as you like since only the inside/outside answer matters.
+
+**Invert** flips it, so the type reaches everything *outside* the region instead. And **Output Group** writes the points the stream actually reached into a point group of your naming — handy for handing the same selection to something downstream, and it reflects Invert, so it's what the type really touched rather than what you selected.
+
+This is per type, so an explosion can reach only the rubble while the wind still reaches everything, on one node. It's also inside the Setup folder, which means it snapshots, recalls and bakes with everything else — each event can restrict differently.
+
+!!!warning The shape has to be closed
+An open surface has no interior, so nothing is inside it and the type reaches nothing. If a Bounding Object seems to switch the whole stream off, check the geometry is watertight before checking anything else.
+!!!
+
+!!!info Empty is safe, a typo is not
+Leaving the group name or the SOP path blank restricts **nothing** — the type behaves exactly as before, and it stays that way even with Invert on. That's deliberate: the alternative would silently kill the whole stream the moment you switched the menu before typing a name.
+
+But a group name that matches **no** group restricts everything away. That's the same thing a Blast does with a name that doesn't exist, and it's the one to watch for — a misspelling looks identical to an empty field until you notice the type has gone quiet.
+!!!
+
+---
+
 ## The Velocity Mixer
 
 **Additive** multiplies each enabled type by its **Gain** and sums them up. Gains default to 1 and can go above it — your straightforward "more of this, less of that" mode.
@@ -153,7 +180,24 @@ A force wrangle has to *read* one attribute and *write* another — `@force` is 
 
 **Velocity Attribute** and **Force Attribute** let you rename the written attribute in each mode — author `targetv` for Vellum without touching a wrangle.
 
-**Injecting Now** and **Muting Gravity** are live 0/1 readouts for driving an RBD solve in Velocity mode. **Create Connected RBD Sim** builds a solver wired for whichever mode you're in — both gates in Velocity, the force wrangle in Force — and stamps a comment on it naming what it built, so flipping the mode afterwards doesn't leave the network ambiguous. See [Driving an RBD solver](timed-events.md#driving-an-rbd-solver).
+**Injecting Now** and **Muting Gravity** are live 0/1 readouts for driving an RBD solve in Velocity mode. **Create Connected RBD Sim** builds a solver wired for whichever mode you're in — both gates in Velocity, the force wrangle in Force — and stamps a comment on it naming what it built, so flipping the mode afterwards doesn't leave the network ambiguous. Press it again on a solver it already built and it *reconciles* that one in place rather than building a second: the overwrite list, the gravity gate, the force wrangle and the constraint wiring all get re-imposed, and it never writes over a wire you made yourself. See [Driving an RBD solver](timed-events.md#driving-an-rbd-solver).
+
+### Cull to Affected
+
+On a big fracture the blast usually reaches one wall and the other nine tenths of the geometry sits there being simulated for nothing. **Cull to Affected**, in Output ▸ General, throws that away.
+
+The affected set is the union of *all* your bakes, not whatever is playing right now — so it doesn't change as you scrub, and culling can't quietly remove something a later event needed. **Padding** grows the region by a fraction of the input's size, which is what you want in practice: pieces just outside the blast still want to be there for the collapse. **Show Region** draws the region as a hull so you can see what you're about to lose before you lose it.
+
+**Cull Mode** picks what happens:
+
+* **Delete Unaffected** removes the rest outright. The cheapest thing you can do to a heavy sim.
+* **Mark Affected** keeps everything and labels it instead, writing an **Attribute Name** and/or a **Group Name** of your choosing. Either can be blank to switch that half off.
+
+!!!warning `active` is not a neutral name
+The Attribute Name defaults to `active`, which is the attribute a Bullet solve reads to decide what is **static**. That's often exactly what you want — everything outside the blast stays put. But a glue island that reaches a static piece is *anchored*, and no force will ever break it, so on a glued fracture this can freeze the whole thing.
+
+If that's not what you're after, write a plain name like `av_active` and use it yourself, or use the group instead. Both carry the same mask; only `active` has the side effect.
+!!!
 
 ### Ballistic Motion — the second output
 
@@ -206,7 +250,9 @@ The guides are guide geometry: they draw in the viewport while the node is curre
 * **Guide Density** draws only a fraction of the trails, for viewport speed on heavy fractures. The same pieces stay chosen frame to frame, so nothing flickers. On dense inputs the trails auto-cap at the **Visualization Limit** (default 100,000), with Density scaling within that budget — raise the limit or switch it off if you want to draw everything.
 
     The first time you connect geometry to a fresh node, Density gets set for you from the input's point count, aiming at roughly 500 trails. This happens once and silently — change the value and it's yours, and re-wiring a different mesh later won't override it.
-* Two further groups appear in Timed Events only. **Timed Events** holds **Source** (which stream the guides draw — Setup, Events or Both), **Preview Motion** with its ghost, **Ghost Style** and **Offset**, and **Unify Baked Guides**. Preview Motion ships **off** on purpose — it's the one control here with a real cost, since the ghost redraws your pieces every refresh. **Ghost Style** ships on **Full Wireframe**, the best-looking and most expensive option — drop it to **Bounding Boxes** or **Points** on heavy input. Flip the preview on to check timing, then off again; on anything heavy it makes the whole scene sluggish. **Timeline HUD** holds the on-screen event ruler — see [the timeline and the preview](timed-events.md#the-event-timeline).
+* Two further groups appear in Timed Events only. **Timed Events** holds **Source** (which stream the guides draw — Setup, Events or Both), **Preview Motion** with its ghost, **Ghost Style**, **Simplify** and **Offset**, **Show Events**, and **Unify Baked Guides**. Preview Motion ships **off** on purpose — it's the one control here with a real cost, since the ghost redraws your pieces every refresh. **Ghost Style** ships on **Full Wireframe**, the best-looking and most expensive option — drop it to **Bounding Boxes** or **Points** on heavy input, and **Simplify** on top of that throws away a random fraction of the ghost's pieces. The same pieces stay chosen as you scrub, so it thins the ghost rather than making it flicker, and it leaves the trails and the output alone.
+
+    **Show Events** filters the guides down to the events you tick. On a timeline with a dozen events the trails pile up into a single knot, and this is how you pull one back out to look at it — it's a view only, so the output is identical either way. Flip the preview on to check timing, then off again; on anything heavy it makes the whole scene sluggish. **Timeline HUD** holds the on-screen event ruler — see [the timeline and the preview](timed-events.md#the-event-timeline).
 
 Need the guides as renderable geometry, for a breakdown or preview render? **Utilities ▸ Output Guides Only** swaps the node's output to the guide curves themselves.
 

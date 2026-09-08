@@ -1,6 +1,6 @@
 # Changelog
 
-## Version 1.2.4
+## Version 1.2.4 — 27 August 2026
 
 * **Fixed:** the eyebrow tint now produces a visible result on dark brows.
 * **New: Brow Lightness** — lifts Character Creator's near-black eyebrow maps.
@@ -8,19 +8,19 @@
 * **Changed:** beards no longer follow the scalp hair colour controls.
 * New node icon and node colour.
 
-## Version 1.2.3
+## Version 1.2.3 — 25 August 2026
 
 * **New: Eye "Lightness (Bleach)"** — brightens the final eye colour.
 * **Create Skin-Fix Setup** now switches the Skin-Fix mesh on for you.
 * Skin-Fix now reports its progress in the console during its first cook.
 * **Fixed:** on FBX import, characters whose pieces share a texture no longer come in flat white.
 
-## Version 1.2.2
+## Version 1.2.2 — 24 August 2026
 
 * **Fixed:** on FBX import, characters whose pieces share a texture no longer come in flat white.
 * Bug fixes and improvements.
 
-## Version 1.2.1
+## Version 1.2.1 — 15 July 2026
 
 * **Fixed:** textures now load for iClone "Export USD (Omniverse)" characters.
 * Added Character Creator FBX and USD export walkthroughs, and an iClone export section.
@@ -28,7 +28,7 @@
 * Refreshed tooltips and help that still referred only to FBX.
 * Bug fixes and improvements.
 
-## Version 1.2
+## Version 1.2 — 12 July 2026
 
 **USD import mode**
 
@@ -41,13 +41,13 @@
 * Scenes saved before 1.2 open in FBX mode.
 * Bug fixes and improvements.
 
-## Version 1.1
+## Version 1.1 — 9 July 2026
 
 * Documentation moved to the JVtools docs site.
 * **New: in-app update check**, plus a version label on the node.
 * Bug fixes and improvements.
 
-## Version 1.0
+## Version 1.0 — 20 June 2026
 
 The first public release.
 

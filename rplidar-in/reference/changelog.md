@@ -1,6 +1,6 @@
 # Changelog
 
-## Version 1.0
+## Version 1.0 — 6 August 2026
 
 The first public release.
 

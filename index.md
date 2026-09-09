@@ -15,6 +15,8 @@ Houdini digital assets and tools for artists and technical directors. Pick a pro
 
 [!card title="RPLidar In" image="/rplidar-in/static/card.png" text="Bring live Slamtec RPLIDAR point-cloud data into Houdini as SOP geometry — stream, record, visualize, and drive live simulations."](/rplidar-in/README.md)
 
+[!card title="Neonyte" image="/neonyte/static/card.png" text="Procedural neon signs for Houdini: click a wall, press one button, and every placeholder becomes a different lit sign, with the metal rig behind it and a Karma material."](/neonyte/README.md)
+
 [!card title="Advanced Velocity" image="/advanced-velocity/static/card.png" text="Author @v for simulations on one node — six velocity types blended by a real mixer, all with matching Adjust and Mask controls, plus interactive blast placement and a whole timeline of velocity events to drive a sim."](/advanced-velocity/README.md)
 
 [!card title="COPout" image="/copout/static/card.png" text="Put a Copernicus network on a projector or a second screen as a borderless, chrome-free output window — any screen, any fit, with alignment, flips and an output grade saved in the scene."](/copout/README.md)

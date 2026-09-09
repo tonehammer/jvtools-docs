@@ -1,0 +1,1747 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="turbo-root" content="/docs">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.842266996519">
+
+    <!-- See retype.com -->
+    <meta name="generator" content="Retype 4.6.0">
+
+    <!-- Primary Meta Tags -->
+    <title>VEXpression</title>
+    <meta name="title" content="VEXpression">
+    <meta name="description" content="Neonyte has two VEX hook parameters. Both run once per sign. Between them they cover the whole pipeline: before the planner has made a decision, and after it has made every decision.">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://jvtools.dev/docs/neonyte/control/vexpression/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://jvtools.dev/docs/sitemap.xml">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jvtools.dev/docs/neonyte/control/vexpression/">
+    <meta property="og:title" content="VEXpression">
+    <meta property="og:description" content="Neonyte has two VEX hook parameters. Both run once per sign. Between them they cover the whole pipeline: before the planner has made a decision, and after it has made every decision.">
+    <meta property="og:site_name" content="JVtools">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://jvtools.dev/docs/neonyte/control/vexpression/">
+    <meta name="twitter:title" content="VEXpression">
+    <meta name="twitter:description" content="Neonyte has two VEX hook parameters. Both run once per sign. Between them they cover the whole pipeline: before the planner has made a decision, and after it has made every decision.">
+
+    <!-- Alternate Markdown -->
+    <link rel="alternate" type="text/markdown" href="https://jvtools.dev/docs/neonyte/control/vexpression.md">
+
+    <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
+
+    <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
+    <link href="../../../resources/css/retype.css?v=4.6.0.842266996519" rel="stylesheet">
+
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.842266996519" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.842266996519" data-turbo-eval="false" defer></script>
+</head>
+<body>
+    <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
+    <div class="absolute bottom-0 left-0" style="top: 5rem; right: 50%"></div>
+
+    <header id="retype-header" class="sticky top-0 z-30 flex w-full h-16 bg-header-bg border-b border-header-border md:h-20">
+        <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
+            <!-- Mobile menu button skeleton -->
+            <button v-cloak class="skeleton retype-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-hidden rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+            <div v-cloak id="retype-sidebar-left-toggle-button"></div>
+    
+            <!-- Logo -->
+            <div class="flex items-center justify-between h-full py-2 md:w-75">
+                <div class="flex items-center px-2 md:px-6">
+                    <a id="retype-branding-logo" href="https://jvtools.dev/docs/" class="flex items-center leading-snug text-2xl">
+                        <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">JVtools</span>
+                    </a><span id="retype-branding-label" class="inline-flex mt-1 px-2 py-1 ml-4 text-xs font-medium leading-none items-center rounded-md bg-branding-label-bg text-branding-label-text ring-1 ring-branding-label-border ring-inset md:inline-block">Docs</span>
+                </div>
+    
+                <span class="hidden h-8 border-r md:inline-block border-base-border"></span>
+            </div>
+    
+            <div class="flex justify-between md:grow">
+                <!-- Top Nav -->
+                <nav id="retype-header-nav" class="hidden md:flex">
+                    <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+                        <li class="mr-6">
+                            <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"/>
+                                </svg>
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li class="mr-6 relative group/nav" data-retype-header-link-group>
+                            <span class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text cursor-default group-hover/nav:text-header-text-hover group-focus-within/nav:text-header-text-hover">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <path d="M12.876.64V.639l8.25 4.763c.541.313.875.89.875 1.515v9.525a1.75 1.75 0 0 1-.875 1.516l-8.25 4.762a1.748 1.748 0 0 1-1.75 0l-8.25-4.763a1.75 1.75 0 0 1-.875-1.515V6.917c0-.625.334-1.202.875-1.515L11.126.64a1.748 1.748 0 0 1 1.75 0Zm-1 1.298L4.251 6.34l7.75 4.474 7.75-4.474-7.625-4.402a.248.248 0 0 0-.25 0Zm.875 19.123 7.625-4.402a.25.25 0 0 0 .125-.216V7.639l-7.75 4.474ZM3.501 7.64v8.803c0 .09.048.172.125.216l7.625 4.402v-8.947Z"/>
+                                </svg>
+                                <span>Products</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 opacity-60" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </span>
+                            <span class="absolute bottom-full md:bottom-auto md:top-full" style="left: var(--header-links-dropdown-offset, 0rem); width: min(var(--header-links-dropdown-max-width, 300px), calc(100vw - 2rem)); height: var(--header-links-dropdown-gap, 0.5rem);"></span>
+                            <div class="absolute bottom-full md:bottom-auto md:top-full z-50 min-w-[180px] w-max opacity-0 invisible -translate-y-1 md:translate-y-1 group-hover/nav:translate-y-0 group-focus-within/nav:translate-y-0 group-hover/nav:opacity-100 group-focus-within/nav:opacity-100 group-hover/nav:visible group-focus-within/nav:visible pointer-events-none group-hover/nav:pointer-events-auto group-focus-within/nav:pointer-events-auto transition-all duration-150 ease-out" data-retype-header-link-menu style="left: var(--header-links-dropdown-offset, 0rem); margin-bottom: var(--header-links-dropdown-gap, 0.5rem); margin-top: var(--header-links-dropdown-gap, 0.5rem); max-width: min(var(--header-links-dropdown-max-width, 300px), calc(100vw - 2rem));">
+                                <ul class="flex flex-col rounded-lg border border-base-border bg-base-bg shadow-lg overflow-hidden w-full">
+                                    <li>
+                                        <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../../reallusion-importer/">
+                                            <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                    <path d="M12 2.5a5.5 5.5 0 0 1 3.096 10.047 9.005 9.005 0 0 1 5.9 8.181.75.75 0 1 1-1.499.044 7.5 7.5 0 0 0-14.993 0 .75.75 0 0 1-1.5-.045 9.005 9.005 0 0 1 5.9-8.18A5.5 5.5 0 0 1 12 2.5ZM8 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z"/>
+                                                </svg>
+                                            </span>
+                                            <span class="min-w-0 max-w-full">
+                                                <span class="block font-header-text leading-tight">Reallusion Importer</span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../../advanced-velocity/">
+                                            <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                    <path d="M15.716 1.329a1.341 1.341 0 0 1 2.109 1.55L15.147 9h4.161c1.623 0 2.372 2.016 1.143 3.075L8.102 22.721a1.148 1.148 0 0 1-1.81-1.317L8.996 15H4.674c-1.619 0-2.37-2.008-1.148-3.07l12.19-10.6Zm.452 1.595L4.51 13.061a.25.25 0 0 0 .164.439h5.45a.749.749 0 0 1 .692 1.041l-2.559 6.066 11.215-9.668a.25.25 0 0 0-.164-.439H14a.75.75 0 0 1-.687-1.05Z"/>
+                                                </svg>
+                                            </span>
+                                            <span class="min-w-0 max-w-full">
+                                                <span class="block font-header-text leading-tight">Advanced Velocity</span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../../rplidar-in/">
+                                            <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                    <path d="M20.485 2.515a.75.75 0 0 0-1.06 1.06A10.465 10.465 0 0 1 22.5 11c0 2.9-1.174 5.523-3.075 7.424a.75.75 0 0 0 1.06 1.061A11.965 11.965 0 0 0 24 11c0-3.314-1.344-6.315-3.515-8.485Zm-15.91 1.06a.75.75 0 0 0-1.06-1.06A11.965 11.965 0 0 0 0 11c0 3.313 1.344 6.314 3.515 8.485a.75.75 0 0 0 1.06-1.06A10.465 10.465 0 0 1 1.5 11c0-2.9 1.174-5.524 3.075-7.425ZM8.11 7.11a.75.75 0 0 0-1.06-1.06A6.98 6.98 0 0 0 5 11a6.98 6.98 0 0 0 2.05 4.95.75.75 0 0 0 1.06-1.061 5.48 5.48 0 0 1-1.61-3.89 5.48 5.48 0 0 1 1.61-3.888Zm8.84-1.06a.75.75 0 1 0-1.06 1.06A5.48 5.48 0 0 1 17.5 11a5.48 5.48 0 0 1-1.61 3.889.75.75 0 1 0 1.06 1.06A6.98 6.98 0 0 0 19 11a6.98 6.98 0 0 0-2.05-4.949ZM14 11a2 2 0 0 1-1.25 1.855v8.395a.75.75 0 0 1-1.5 0v-8.395A2 2 0 1 1 14 11Z"/>
+                                                </svg>
+                                            </span>
+                                            <span class="min-w-0 max-w-full">
+                                                <span class="block font-header-text leading-tight">RPLidar In</span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../../copout/">
+                                            <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                    <path d="M8.954 17H2.75A1.75 1.75 0 0 1 1 15.25V3.75C1 2.784 1.784 2 2.75 2h18.5c.966 0 1.75.784 1.75 1.75v11.5A1.75 1.75 0 0 1 21.25 17h-6.204c.171 1.375.805 2.652 1.769 3.757A.752.752 0 0 1 16.25 22h-8.5a.75.75 0 0 1-.565-1.243c.964-1.105 1.598-2.382 1.769-3.757ZM21.5 3.75a.25.25 0 0 0-.25-.25H2.75a.25.25 0 0 0-.25.25v11.5c0 .138.112.25.25.25h18.5a.25.25 0 0 0 .25-.25ZM13.537 17h-3.074c-.126 1.266-.564 2.445-1.223 3.5h5.52c-.659-1.055-1.098-2.234-1.223-3.5Z"/>
+                                                </svg>
+                                            </span>
+                                            <span class="min-w-0 max-w-full">
+                                                <span class="block font-header-text leading-tight">COPout</span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../../deoverlap-polylines/">
+                                            <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                    <path d="M15 4.75a3.25 3.25 0 1 1 6.5 0 3.25 3.25 0 0 1-6.5 0ZM2.5 19.25a3.25 3.25 0 1 1 6.5 0 3.25 3.25 0 0 1-6.5 0Zm0-14.5a3.25 3.25 0 1 1 6.5 0 3.25 3.25 0 0 1-6.5 0ZM5.75 6.5a1.75 1.75 0 1 0-.001-3.501A1.75 1.75 0 0 0 5.75 6.5Zm0 14.5a1.75 1.75 0 1 0-.001-3.501A1.75 1.75 0 0 0 5.75 21Zm12.5-14.5a1.75 1.75 0 1 0-.001-3.501A1.75 1.75 0 0 0 18.25 6.5Z"/><path d="M5.75 16.75A.75.75 0 0 1 5 16V8a.75.75 0 0 1 1.5 0v8a.75.75 0 0 1-.75.75Z"/><path d="M17.5 8.75v-1H19v1a3.75 3.75 0 0 1-3.75 3.75h-7a1.75 1.75 0 0 0-1.75 1.75H5A3.25 3.25 0 0 1 8.25 11h7a2.25 2.25 0 0 0 2.25-2.25Z"/>
+                                                </svg>
+                                            </span>
+                                            <span class="min-w-0 max-w-full">
+                                                <span class="block font-header-text leading-tight">Deoverlap Polylines</span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../../flip-dop-controller/">
+                                            <span class="mr-1.5 w-[18px] shrink-0"></span>
+                                            <span class="min-w-0 max-w-full">
+                                                <span class="block font-header-text leading-tight">FLIP DOP Controller</span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../../neonyte/">
+                                            <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                    <path d="M12 2.5c-3.81 0-6.5 2.743-6.5 6.119 0 1.536.632 2.572 1.425 3.56.172.215.347.422.527.635l.096.112c.21.25.427.508.63.774.404.531.783 1.128.995 1.834a.75.75 0 0 1-1.436.432c-.138-.46-.397-.89-.753-1.357a18.111 18.111 0 0 0-.582-.714l-.092-.11c-.18-.212-.37-.436-.555-.667C4.87 12.016 4 10.651 4 8.618 4 4.363 7.415 1 12 1s8 3.362 8 7.619c0 2.032-.87 3.397-1.755 4.5-.185.23-.375.454-.555.667l-.092.109c-.21.248-.405.481-.582.714-.356.467-.615.898-.753 1.357a.751.751 0 0 1-1.437-.432c.213-.706.592-1.303.997-1.834.202-.266.419-.524.63-.774l.095-.112c.18-.213.355-.42.527-.634.793-.99 1.425-2.025 1.425-3.561C18.5 5.243 15.81 2.5 12 2.5ZM8.75 18h6.5a.75.75 0 0 1 0 1.5h-6.5a.75.75 0 0 1 0-1.5Zm.75 3.75a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 0 1.5h-3.5a.75.75 0 0 1-.75-.75Z"/>
+                                                </svg>
+                                            </span>
+                                            <span class="min-w-0 max-w-full">
+                                                <span class="block font-header-text leading-tight">Neonyte</span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+    
+                    </ul>
+                </nav>
+    
+                <div v-cloak class="flex justify-end grow">
+                    <div id="retype-mobile-search-button"></div>
+                    <doc-search-desktop></doc-search-desktop>
+    
+                    <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                    <doc-history></doc-history>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div id="retype-container" class="container relative flex bg-white">
+        <!-- Sidebar Skeleton -->
+        <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-sidebar-left-bg border-sidebar-left-border sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton">
+        
+            <div class="flex items-center h-16 px-6">
+                <input id="retype-filter-input-mock" class="w-full h-10 pl-8 px-3 py-2 transition-colors duration-200 ease-linear bg-filter-bg border border-filter-border rounded-lg shadow-none md:text-sm hover:border-filter-border-hover focus:outline-hidden focus:border-filter-border-focus placeholder-filter-placeholder" type="text">
+            </div>
+        
+            <div class="pl-6 mt-1 mb-4">
+                <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            </div>
+        
+        </div>
+        
+        <!-- Sidebar component -->
+        <doc-sidebar v-cloak>
+            <template #sidebar-footer>
+                <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-base-border">
+        
+                    <div class="py-3 px-6 md:hidden border-b dark:border-base-border">
+                        <nav>
+                            <ul class="flex flex-wrap justify-center items-center">
+                                <li class="mr-6">
+                                    <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                            <path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"/>
+                                        </svg>
+                                        <span>Home</span>
+                                    </a>
+                                </li>
+                                <li class="mr-6 relative group/nav" data-retype-header-link-group>
+                                    <span class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text cursor-default group-hover/nav:text-header-text-hover group-focus-within/nav:text-header-text-hover">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                            <path d="M12.876.64V.639l8.25 4.763c.541.313.875.89.875 1.515v9.525a1.75 1.75 0 0 1-.875 1.516l-8.25 4.762a1.748 1.748 0 0 1-1.75 0l-8.25-4.763a1.75 1.75 0 0 1-.875-1.515V6.917c0-.625.334-1.202.875-1.515L11.126.64a1.748 1.748 0 0 1 1.75 0Zm-1 1.298L4.251 6.34l7.75 4.474 7.75-4.474-7.625-4.402a.248.248 0 0 0-.25 0Zm.875 19.123 7.625-4.402a.25.25 0 0 0 .125-.216V7.639l-7.75 4.474ZM3.501 7.64v8.803c0 .09.048.172.125.216l7.625 4.402v-8.947Z"/>
+                                        </svg>
+                                        <span>Products</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 opacity-60" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                    </span>
+                                    <span class="absolute bottom-full md:bottom-auto md:top-full" style="left: var(--header-links-dropdown-offset, 0rem); width: min(var(--header-links-dropdown-max-width, 300px), calc(100vw - 2rem)); height: var(--header-links-dropdown-gap, 0.5rem);"></span>
+                                    <div class="absolute bottom-full md:bottom-auto md:top-full z-50 min-w-[180px] w-max opacity-0 invisible -translate-y-1 md:translate-y-1 group-hover/nav:translate-y-0 group-focus-within/nav:translate-y-0 group-hover/nav:opacity-100 group-focus-within/nav:opacity-100 group-hover/nav:visible group-focus-within/nav:visible pointer-events-none group-hover/nav:pointer-events-auto group-focus-within/nav:pointer-events-auto transition-all duration-150 ease-out" data-retype-header-link-menu style="left: var(--header-links-dropdown-offset, 0rem); margin-bottom: var(--header-links-dropdown-gap, 0.5rem); margin-top: var(--header-links-dropdown-gap, 0.5rem); max-width: min(var(--header-links-dropdown-max-width, 300px), calc(100vw - 2rem));">
+                                        <ul class="flex flex-col rounded-lg border border-base-border bg-base-bg shadow-lg overflow-hidden w-full">
+                                            <li>
+                                                <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../../reallusion-importer/">
+                                                    <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                            <path d="M12 2.5a5.5 5.5 0 0 1 3.096 10.047 9.005 9.005 0 0 1 5.9 8.181.75.75 0 1 1-1.499.044 7.5 7.5 0 0 0-14.993 0 .75.75 0 0 1-1.5-.045 9.005 9.005 0 0 1 5.9-8.18A5.5 5.5 0 0 1 12 2.5ZM8 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z"/>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="min-w-0 max-w-full">
+                                                        <span class="block font-header-text leading-tight">Reallusion Importer</span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../../advanced-velocity/">
+                                                    <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                            <path d="M15.716 1.329a1.341 1.341 0 0 1 2.109 1.55L15.147 9h4.161c1.623 0 2.372 2.016 1.143 3.075L8.102 22.721a1.148 1.148 0 0 1-1.81-1.317L8.996 15H4.674c-1.619 0-2.37-2.008-1.148-3.07l12.19-10.6Zm.452 1.595L4.51 13.061a.25.25 0 0 0 .164.439h5.45a.749.749 0 0 1 .692 1.041l-2.559 6.066 11.215-9.668a.25.25 0 0 0-.164-.439H14a.75.75 0 0 1-.687-1.05Z"/>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="min-w-0 max-w-full">
+                                                        <span class="block font-header-text leading-tight">Advanced Velocity</span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../../rplidar-in/">
+                                                    <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                            <path d="M20.485 2.515a.75.75 0 0 0-1.06 1.06A10.465 10.465 0 0 1 22.5 11c0 2.9-1.174 5.523-3.075 7.424a.75.75 0 0 0 1.06 1.061A11.965 11.965 0 0 0 24 11c0-3.314-1.344-6.315-3.515-8.485Zm-15.91 1.06a.75.75 0 0 0-1.06-1.06A11.965 11.965 0 0 0 0 11c0 3.313 1.344 6.314 3.515 8.485a.75.75 0 0 0 1.06-1.06A10.465 10.465 0 0 1 1.5 11c0-2.9 1.174-5.524 3.075-7.425ZM8.11 7.11a.75.75 0 0 0-1.06-1.06A6.98 6.98 0 0 0 5 11a6.98 6.98 0 0 0 2.05 4.95.75.75 0 0 0 1.06-1.061 5.48 5.48 0 0 1-1.61-3.89 5.48 5.48 0 0 1 1.61-3.888Zm8.84-1.06a.75.75 0 1 0-1.06 1.06A5.48 5.48 0 0 1 17.5 11a5.48 5.48 0 0 1-1.61 3.889.75.75 0 1 0 1.06 1.06A6.98 6.98 0 0 0 19 11a6.98 6.98 0 0 0-2.05-4.949ZM14 11a2 2 0 0 1-1.25 1.855v8.395a.75.75 0 0 1-1.5 0v-8.395A2 2 0 1 1 14 11Z"/>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="min-w-0 max-w-full">
+                                                        <span class="block font-header-text leading-tight">RPLidar In</span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../../copout/">
+                                                    <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                            <path d="M8.954 17H2.75A1.75 1.75 0 0 1 1 15.25V3.75C1 2.784 1.784 2 2.75 2h18.5c.966 0 1.75.784 1.75 1.75v11.5A1.75 1.75 0 0 1 21.25 17h-6.204c.171 1.375.805 2.652 1.769 3.757A.752.752 0 0 1 16.25 22h-8.5a.75.75 0 0 1-.565-1.243c.964-1.105 1.598-2.382 1.769-3.757ZM21.5 3.75a.25.25 0 0 0-.25-.25H2.75a.25.25 0 0 0-.25.25v11.5c0 .138.112.25.25.25h18.5a.25.25 0 0 0 .25-.25ZM13.537 17h-3.074c-.126 1.266-.564 2.445-1.223 3.5h5.52c-.659-1.055-1.098-2.234-1.223-3.5Z"/>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="min-w-0 max-w-full">
+                                                        <span class="block font-header-text leading-tight">COPout</span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../../deoverlap-polylines/">
+                                                    <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                            <path d="M15 4.75a3.25 3.25 0 1 1 6.5 0 3.25 3.25 0 0 1-6.5 0ZM2.5 19.25a3.25 3.25 0 1 1 6.5 0 3.25 3.25 0 0 1-6.5 0Zm0-14.5a3.25 3.25 0 1 1 6.5 0 3.25 3.25 0 0 1-6.5 0ZM5.75 6.5a1.75 1.75 0 1 0-.001-3.501A1.75 1.75 0 0 0 5.75 6.5Zm0 14.5a1.75 1.75 0 1 0-.001-3.501A1.75 1.75 0 0 0 5.75 21Zm12.5-14.5a1.75 1.75 0 1 0-.001-3.501A1.75 1.75 0 0 0 18.25 6.5Z"/><path d="M5.75 16.75A.75.75 0 0 1 5 16V8a.75.75 0 0 1 1.5 0v8a.75.75 0 0 1-.75.75Z"/><path d="M17.5 8.75v-1H19v1a3.75 3.75 0 0 1-3.75 3.75h-7a1.75 1.75 0 0 0-1.75 1.75H5A3.25 3.25 0 0 1 8.25 11h7a2.25 2.25 0 0 0 2.25-2.25Z"/>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="min-w-0 max-w-full">
+                                                        <span class="block font-header-text leading-tight">Deoverlap Polylines</span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../../flip-dop-controller/">
+                                                    <span class="mr-1.5 w-[18px] shrink-0"></span>
+                                                    <span class="min-w-0 max-w-full">
+                                                        <span class="block font-header-text leading-tight">FLIP DOP Controller</span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../../neonyte/">
+                                                    <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                            <path d="M12 2.5c-3.81 0-6.5 2.743-6.5 6.119 0 1.536.632 2.572 1.425 3.56.172.215.347.422.527.635l.096.112c.21.25.427.508.63.774.404.531.783 1.128.995 1.834a.75.75 0 0 1-1.436.432c-.138-.46-.397-.89-.753-1.357a18.111 18.111 0 0 0-.582-.714l-.092-.11c-.18-.212-.37-.436-.555-.667C4.87 12.016 4 10.651 4 8.618 4 4.363 7.415 1 12 1s8 3.362 8 7.619c0 2.032-.87 3.397-1.755 4.5-.185.23-.375.454-.555.667l-.092.109c-.21.248-.405.481-.582.714-.356.467-.615.898-.753 1.357a.751.751 0 0 1-1.437-.432c.213-.706.592-1.303.997-1.834.202-.266.419-.524.63-.774l.095-.112c.18-.213.355-.42.527-.634.793-.99 1.425-2.025 1.425-3.561C18.5 5.243 15.81 2.5 12 2.5ZM8.75 18h6.5a.75.75 0 0 1 0 1.5h-6.5a.75.75 0 0 1 0-1.5Zm.75 3.75a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 0 1.5h-3.5a.75.75 0 0 1-.75-.75Z"/>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="min-w-0 max-w-full">
+                                                        <span class="block font-header-text leading-tight">Neonyte</span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+        
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </template>
+        </doc-sidebar>
+
+        <div class="grow min-w-0 bg-body-bg">
+            <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+<div class="flex">
+    <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
+        <main class="relative pb-12 lg:pt-2">
+            <div class="relative retype-markdown" id="retype-content">
+                <!-- Rendered if sidebar right is enabled -->
+                <div id="retype-sidebar-right-toggle"></div>
+                <nav id="retype-breadcrumb" class="breadcrumb" aria-label="Breadcrumb">
+                    <ol role="list">
+                        <li class="pr-4">
+                            <a href="../../../" class="pr-4">
+                                Products
+                            </a>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/>
+                            </svg>
+                        </li>
+                        <li class="pr-4">
+                            <a href="../../../neonyte/" class="pr-4">
+                                Neonyte
+                            </a>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/>
+                            </svg>
+                        </li>
+                        <li class="pr-4">
+                            <a href="../../../neonyte/control/" class="pr-4">
+                                Control
+                            </a>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/>
+                            </svg>
+                        </li>
+                        <li class="pr-4">
+                            <a href="../../../neonyte/control/vexpression/" class="pr-4">
+                                VE​Xpression
+                            </a>
+                        </li>
+                    </ol>
+                </nav>
+
+                <doc-page-actions></doc-page-actions>
+
+                <!-- Page content  -->
+<h1 id="vexpression">VEXpression</h1>
+<p>Neonyte has two VEX hook parameters. Both run once per sign. Between them they cover the whole pipeline: before the planner has made a decision, and after it has made every decision.</p>
+<h2 id="where-the-two-hooks-run">Where the two hooks run</h2>
+<p>This is the order geometry passes through the node.</p>
+<div id="where-the-two-hooks-run-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-none"><code v-pre class="language-none">placeholder boxes
+  -&gt; ANCHORS        one point per sign, 9 attributes
+  -&gt; anchor_vex     PRE-PLAN VEXpression   (parm: vex_anchor)
+  -&gt; sign_plan      the planner
+  -&gt; SLOTS          one point per sign, 134 attributes
+  -&gt; plan_vex       POST-PLAN VEXpression  (parm: vex_override)
+  -&gt; PLAN
+  -&gt; neon geometry, then hardware geometry</code></pre>
+</doc-codeblock></div>
+<p>The pre-plan VEXpression runs before the planner has made any decisions: at that point every sign is still a single anchor point, and business type, name, layout, colours, hardware and wear are all still open. The post-plan VEXpression runs after every decision the planner has made, on the finished plan, before any geometry is built.</p>
+<p>Hardware is built after <code translate="no" v-pre>plan_vex</code> runs, but it is still reachable from it. Every hardware decision is stamped onto the plan as an <code translate="no" v-pre>hw_*</code> attribute before the hardware geometry is generated from it, so writing to an <code translate="no" v-pre>hw_*</code> attribute here changes what gets built.</p>
+<h2 id="pre-plan-vex_anchor">Pre-plan: <code translate="no" v-pre>vex_anchor</code></h2>
+<p>This runs on ANCHORS, one point per sign, before the planner runs. It is the earliest point in the pipeline where you can touch a sign, and the only point where you can steer a decision before the planner makes it rather than overwrite the result afterward.</p>
+<p>From here you can reach decisions made inside the planner: business type, name form, era, script, palette, font, layout, theme, glyph substitution, and decay. You reach them through 29 <strong>force hooks</strong> - one per Advanced row that has a VEXpression column in the master matrix. The force hooks are derived directly from the 52 Advanced rows, so the two cannot drift apart.</p>
+<p>The 9 attributes available on ANCHORS:</p>
+<retype-table copy-text="| Attribute | Type | Meaning |
+|---|---|---|
+| `v@P` | vector | Sign centre, world space. |
+| `f@aspect` | float | Width divided by height of the placeholder box front face. |
+| `v@extents` | vector | Box size on the sign's own axes: width, height, depth. |
+| `i@piece` | int | Sign index, 0-based. Stable for a given input. |
+| `s@sign_name` | string | Name typed on this sign's card, empty when the engine is free to choose. |
+| `i@sign_seed` | int | The seed this sign draws from. |
+| `v@xaxis` | vector | Sign-local right, world space. |
+| `v@yaxis` | vector | Sign-local up, world space. |
+| `v@zaxis` | vector | Sign-local forward (out of the front face), world space. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>v@P</code></td>
+<td>vector</td>
+<td>Sign centre, world space.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@aspect</code></td>
+<td>float</td>
+<td>Width divided by height of the placeholder box front face.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>v@extents</code></td>
+<td>vector</td>
+<td>Box size on the sign&#x27;s own axes: width, height, depth.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@piece</code></td>
+<td>int</td>
+<td>Sign index, 0-based. Stable for a given input.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@sign_name</code></td>
+<td>string</td>
+<td>Name typed on this sign&#x27;s card, empty when the engine is free to choose.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@sign_seed</code></td>
+<td>int</td>
+<td>The seed this sign draws from.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>v@xaxis</code></td>
+<td>vector</td>
+<td>Sign-local right, world space.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>v@yaxis</code></td>
+<td>vector</td>
+<td>Sign-local up, world space.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>v@zaxis</code></td>
+<td>vector</td>
+<td>Sign-local forward (out of the front face), world space.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<p>The 29 force hooks:</p>
+<retype-table copy-text="| Anchor attribute | Sets | Advanced row | Section |
+|---|---|---|---|
+| `s@force_align` | `gen_align` | Alignment (`ga_align`) | Layout |
+| `s@force_arch` | `gen_arch` | Composition (`ga_arch`) | Layout |
+| `s@force_bg` | `background` | Background Decor (`ga_bg`) | Decor |
+| `s@force_col_mode` | `col_mode` | Title Colour Policy (`ga_col_mode`) | Type |
+| `s@force_colors` | `colour_only` | Colour (`ga_colors`) | Type |
+| `s@force_dash` | `dash_mult` | Dashed Decor (`ga_dash`) | Decor |
+| `s@force_decay_amt` | `decay_amt` | Deterioration Amount (`decay_amt`) | Aging |
+| `s@force_decay_mode` | `decay_mode` | Deterioration (`decay`) | Aging |
+| `s@force_decor_n` | `arm_n` | Decor Count (`ga_decor_n`) | Decor |
+| `s@force_emit` | `emit_mult` | Brightness (`ga_emit`) | Type |
+| `s@force_era` | `era` | Era (`ga_era`) | Content |
+| `s@force_font` | `font_style_only` | Font Style (`ga_font`) | Type |
+| `s@force_fontclass` | `font_class_only` | Font Class (`ga_fontclass`) | Type |
+| `s@force_form` | `form_only` | Name Form (`ga_form`) | Content |
+| `s@force_gauge` | `gauge` | Tube Gauge (`ga_gauge`) | Type |
+| `s@force_glyph` | `glyph` | Letter Swapped For Icon (`ga_glyph`) | Layout |
+| `s@force_icon` | `icon_mult` | Icon Presence (`ga_icon`) | Layout |
+| `s@force_layout` | `template_only` | Named Layout (`ga_layout`) | Layout |
+| `s@force_ornaments` | `decor_only` | Decor Family (`ga_ornaments`) | Decor |
+| `s@force_radius` | `radius_mult` | Tube Thickness (`ga_radius`) | Type |
+| `s@force_script` | `script_only` | Script (`ga_script`) | Content |
+| `s@force_strokes` | `strokes` | Decor Stroke Lines (`ga_strokes`) | Decor |
+| `s@force_theme` | `theme` | Theme (`theme`) | Content |
+| `s@force_txt_fit` | `txt_lock` | Title Auto-Fit (`ga_txt_fit`) | Content |
+| `s@force_txt_offx` | `txt_offx` | Title Offset X (`ga_txt_offx`) | Content |
+| `s@force_txt_offy` | `txt_offy` | Title Offset Y (`ga_txt_offy`) | Content |
+| `s@force_txt_rot` | `txt_rot` | Title Rotate (`ga_txt_rot`) | Content |
+| `s@force_txt_track` | `txt_track` | Title Tracking (`ga_txt_track`) | Content |
+| `s@force_type` | `type_only` | Business Type (`ga_type`) | Content |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Anchor attribute</th>
+<th>Sets</th>
+<th>Advanced row</th>
+<th>Section</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>s@force_align</code></td>
+<td><code translate="no" v-pre>gen_align</code></td>
+<td>Alignment (<code translate="no" v-pre>ga_align</code>)</td>
+<td>Layout</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@force_arch</code></td>
+<td><code translate="no" v-pre>gen_arch</code></td>
+<td>Composition (<code translate="no" v-pre>ga_arch</code>)</td>
+<td>Layout</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@force_bg</code></td>
+<td><code translate="no" v-pre>background</code></td>
+<td>Background Decor (<code translate="no" v-pre>ga_bg</code>)</td>
+<td>Decor</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@force_col_mode</code></td>
+<td><code translate="no" v-pre>col_mode</code></td>
+<td>Title Colour Policy (<code translate="no" v-pre>ga_col_mode</code>)</td>
+<td>Type</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@force_colors</code></td>
+<td><code translate="no" v-pre>colour_only</code></td>
+<td>Colour (<code translate="no" v-pre>ga_colors</code>)</td>
+<td>Type</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@force_dash</code></td>
+<td><code translate="no" v-pre>dash_mult</code></td>
+<td>Dashed Decor (<code translate="no" v-pre>ga_dash</code>)</td>
+<td>Decor</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@force_decay_amt</code></td>
+<td><code translate="no" v-pre>decay_amt</code></td>
+<td>Deterioration Amount (<code translate="no" v-pre>decay_amt</code>)</td>
+<td>Aging</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@force_decay_mode</code></td>
+<td><code translate="no" v-pre>decay_mode</code></td>
+<td>Deterioration (<code translate="no" v-pre>decay</code>)</td>
+<td>Aging</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@force_decor_n</code></td>
+<td><code translate="no" v-pre>arm_n</code></td>
+<td>Decor Count (<code translate="no" v-pre>ga_decor_n</code>)</td>
+<td>Decor</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@force_emit</code></td>
+<td><code translate="no" v-pre>emit_mult</code></td>
+<td>Brightness (<code translate="no" v-pre>ga_emit</code>)</td>
+<td>Type</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@force_era</code></td>
+<td><code translate="no" v-pre>era</code></td>
+<td>Era (<code translate="no" v-pre>ga_era</code>)</td>
+<td>Content</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@force_font</code></td>
+<td><code translate="no" v-pre>font_style_only</code></td>
+<td>Font Style (<code translate="no" v-pre>ga_font</code>)</td>
+<td>Type</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@force_fontclass</code></td>
+<td><code translate="no" v-pre>font_class_only</code></td>
+<td>Font Class (<code translate="no" v-pre>ga_fontclass</code>)</td>
+<td>Type</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@force_form</code></td>
+<td><code translate="no" v-pre>form_only</code></td>
+<td>Name Form (<code translate="no" v-pre>ga_form</code>)</td>
+<td>Content</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@force_gauge</code></td>
+<td><code translate="no" v-pre>gauge</code></td>
+<td>Tube Gauge (<code translate="no" v-pre>ga_gauge</code>)</td>
+<td>Type</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@force_glyph</code></td>
+<td><code translate="no" v-pre>glyph</code></td>
+<td>Letter Swapped For Icon (<code translate="no" v-pre>ga_glyph</code>)</td>
+<td>Layout</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@force_icon</code></td>
+<td><code translate="no" v-pre>icon_mult</code></td>
+<td>Icon Presence (<code translate="no" v-pre>ga_icon</code>)</td>
+<td>Layout</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@force_layout</code></td>
+<td><code translate="no" v-pre>template_only</code></td>
+<td>Named Layout (<code translate="no" v-pre>ga_layout</code>)</td>
+<td>Layout</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@force_ornaments</code></td>
+<td><code translate="no" v-pre>decor_only</code></td>
+<td>Decor Family (<code translate="no" v-pre>ga_ornaments</code>)</td>
+<td>Decor</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@force_radius</code></td>
+<td><code translate="no" v-pre>radius_mult</code></td>
+<td>Tube Thickness (<code translate="no" v-pre>ga_radius</code>)</td>
+<td>Type</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@force_script</code></td>
+<td><code translate="no" v-pre>script_only</code></td>
+<td>Script (<code translate="no" v-pre>ga_script</code>)</td>
+<td>Content</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@force_strokes</code></td>
+<td><code translate="no" v-pre>strokes</code></td>
+<td>Decor Stroke Lines (<code translate="no" v-pre>ga_strokes</code>)</td>
+<td>Decor</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@force_theme</code></td>
+<td><code translate="no" v-pre>theme</code></td>
+<td>Theme (<code translate="no" v-pre>theme</code>)</td>
+<td>Content</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@force_txt_fit</code></td>
+<td><code translate="no" v-pre>txt_lock</code></td>
+<td>Title Auto-Fit (<code translate="no" v-pre>ga_txt_fit</code>)</td>
+<td>Content</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@force_txt_offx</code></td>
+<td><code translate="no" v-pre>txt_offx</code></td>
+<td>Title Offset X (<code translate="no" v-pre>ga_txt_offx</code>)</td>
+<td>Content</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@force_txt_offy</code></td>
+<td><code translate="no" v-pre>txt_offy</code></td>
+<td>Title Offset Y (<code translate="no" v-pre>ga_txt_offy</code>)</td>
+<td>Content</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@force_txt_rot</code></td>
+<td><code translate="no" v-pre>txt_rot</code></td>
+<td>Title Rotate (<code translate="no" v-pre>ga_txt_rot</code>)</td>
+<td>Content</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@force_txt_track</code></td>
+<td><code translate="no" v-pre>txt_track</code></td>
+<td>Title Tracking (<code translate="no" v-pre>ga_txt_track</code>)</td>
+<td>Content</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@force_type</code></td>
+<td><code translate="no" v-pre>type_only</code></td>
+<td>Business Type (<code translate="no" v-pre>ga_type</code>)</td>
+<td>Content</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-warning" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
+                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Every force attribute is a string</h5>
+<p>This includes the numeric ones. It is deliberate, and it matters.</p>
+<p>A bound VEX write binds at compile time. If you write <code translate="no" v-pre>if (@piece == 3) f@force_icon = 0.0;</code>, VEX creates <code translate="no" v-pre>f@force_icon</code> on <strong>every</strong> point, not just point 3 - and every point that does not take the <code translate="no" v-pre>if</code> branch is left at the float default of <code translate="no" v-pre>0.0</code>. That silently strips icons off every other sign on the street.</p>
+<p>A string attribute defaults to empty, and empty means &quot;the engine decides&quot;. So the same conditional write, done as a string, is safe by construction: points that do not take the branch stay empty, and empty is a no-op.</p>
+<p><strong>Always write <code translate="no" v-pre>s@force_...</code>, and always assign a string</strong> - even for a value that looks numeric.</p>
+<p>An unparseable value is ignored, never guessed at. If you misspell a value, the hook does nothing and the engine falls back to its own decision - it does not try to coerce your typo into the closest plausible value. A typo stays visible as &quot;nothing changed&quot; rather than silently picking something else.</p>
+        </div>
+    </div>
+</div>
+<p>Verified example - this one produced a Japanese bar sign titled <code translate="no" v-pre>焼鳥 とり吉</code>:</p>
+<div id="pre-plan-vex_anchor-code-1" class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">vex</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none">s@force_type   = &quot;bar&quot;;
+s@force_script = &quot;ja&quot;;
+s@force_colors = &quot;red&quot;;</code></pre>
+</doc-codeblock></div>
+<p>Per-sign, using the anchor&#x27;s own <code translate="no" v-pre>@piece</code>:</p>
+<div id="pre-plan-vex_anchor-code-2" class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">vex</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none">if (@piece == 3) {
+    s@force_type = &quot;ramen&quot;;
+    s@force_era  = &quot;1980s&quot;;
+}</code></pre>
+</doc-codeblock></div>
+<h2 id="post-plan-vex_override">Post-plan: <code translate="no" v-pre>vex_override</code></h2>
+<p>This runs on the finished plan, one point per sign, after every decision the planner has made and before any geometry is built. It sees the whole plan: 134 attributes covering neon and lettering, hardware, content and placement.</p>
+<p>Normal VEX typing applies here - <code translate="no" v-pre>i@</code>, <code translate="no" v-pre>f@</code>, <code translate="no" v-pre>v@</code>, <code translate="no" v-pre>s@</code> - because these attributes already exist on every point by the time this hook runs. The compile-time binding trap described above does not apply on this hook.</p>
+<p>Hardware is built after this hook runs, but it is reachable from it: every hardware decision is stamped onto the plan as an <code translate="no" v-pre>hw_*</code> attribute before geometry is generated from it, so writing to an <code translate="no" v-pre>hw_*</code> attribute here changes what gets built.</p>
+<h4 id="neon-and-lettering-slot_">Neon and lettering (<code translate="no" v-pre>slot_*</code>)</h4>
+<p>33 attributes.</p>
+<retype-table copy-text="| Attribute | Example value | Meaning |
+|---|---|---|
+| `i@slot_arm` | `19` | Which decor shape this slot draws. 0 on text and icon slots. |
+| `i@slot_arm_n` | `0` | Repeat count for a decor shape's lines (rays, slashes, lattice bars). |
+| `i@slot_col_mode` | `0` | Title colour policy: 0 single colour, 1 per letter, 2 first letter, 3 per word. |
+| `v@slot_color` | `(0.55, 1, 0.78)` | Primary tube colour for this slot. |
+| `v@slot_color2` | `(0.55, 1, 0.78)` | Secondary tube colour, used by the multi-colour policies. |
+| `v@slot_color3` | `(0, 0, 0)` | Third tube colour, used by the two-tone and per-word policies. |
+| `i@slot_dash` | `0` | 1 if this decor line is drawn dashed or dotted. |
+| `f@slot_dead` | `0` | Share of this sign's letters that go fully dark, 0-1. |
+| `v@slot_dead_cd` | `(0, 0, 0)` | Colour of the unlit glass on a dead letter. |
+| `i@slot_decay_seed` | `0` | Random seed for this sign's per-letter decay rolls. |
+| `f@slot_dim` | `0` | Share of this sign's letters that run dim, 0-1. |
+| `f@slot_dim_lvl` | `0` | Brightness multiplier applied to a dim letter, 0-1. |
+| `f@slot_emit` | `1.396` | Emission multiplier for this slot's tubes. |
+| `i@slot_fit` | `1` | 1 if this shape stretches to fill its rect, 0 if it scales uniformly. |
+| `f@slot_fit_lock` | `0` | 0 scales the title to fit, 1 locks cap height and lets it run wide. |
+| `f@slot_flash_f` | `0` | Share of this sign's letters that blink fast, 0-1. |
+| `f@slot_flash_m` | `0` | Share of this sign's letters that blink at medium speed, 0-1. |
+| `f@slot_flash_s` | `0` | Share of this sign's letters that blink slowly, 0-1. |
+| `s@slot_font` | `` | Font path for this text slot, empty on non-text slots. |
+| `i@slot_gone` | `()` | Font SOP textindex values whose tube is broken off entirely. |
+| `s@slot_icon` | `` | Icon name drawn on this slot, empty on non-icon slots. |
+| `i@slot_id` | `0` | This slot's 0-based index among the sign's own slots. |
+| `i@slot_kind` | `1` | 0 text, 1 decor shape, 2 icon. |
+| `i@slot_layer` | `-1` | Depth-stacking order for overlapping decor; higher draws further forward. |
+| `f@slot_radius` | `0.0075` | Tube radius for this slot, in metres. |
+| `f@slot_rmax` | `0` | Maximum corner-rounding radius for this slot's outline, script or icon dependent. |
+| `f@slot_rot` | `0` | Rotation applied to this slot, in degrees. |
+| `i@slot_strokes` | `1` | Number of parallel outline strokes on this decor shape, 1-3. |
+| `s@slot_sub_icon` | `` | Icon substituted for a letter, when Letter Swapped For Icon fired. |
+| `i@slot_sub_idx` | `-1` | Font SOP textindex of the letter slot_sub_icon replaces, -1 when none. |
+| `s@slot_text` | `` | The literal text this slot draws, empty on icon and decor slots. |
+| `f@slot_tracking` | `0` | Extra letter spacing added to this slot's text. |
+| `i@slot_word_of` | `()` | Per-character-position word index, used by the per-word colour policy. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Example value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>i@slot_arm</code></td>
+<td><code translate="no" v-pre>19</code></td>
+<td>Which decor shape this slot draws. 0 on text and icon slots.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@slot_arm_n</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>Repeat count for a decor shape&#x27;s lines (rays, slashes, lattice bars).</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@slot_col_mode</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>Title colour policy: 0 single colour, 1 per letter, 2 first letter, 3 per word.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>v@slot_color</code></td>
+<td><code translate="no" v-pre>(0.55, 1, 0.78)</code></td>
+<td>Primary tube colour for this slot.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>v@slot_color2</code></td>
+<td><code translate="no" v-pre>(0.55, 1, 0.78)</code></td>
+<td>Secondary tube colour, used by the multi-colour policies.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>v@slot_color3</code></td>
+<td><code translate="no" v-pre>(0, 0, 0)</code></td>
+<td>Third tube colour, used by the two-tone and per-word policies.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@slot_dash</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>1 if this decor line is drawn dashed or dotted.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@slot_dead</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>Share of this sign&#x27;s letters that go fully dark, 0-1.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>v@slot_dead_cd</code></td>
+<td><code translate="no" v-pre>(0, 0, 0)</code></td>
+<td>Colour of the unlit glass on a dead letter.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@slot_decay_seed</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>Random seed for this sign&#x27;s per-letter decay rolls.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@slot_dim</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>Share of this sign&#x27;s letters that run dim, 0-1.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@slot_dim_lvl</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>Brightness multiplier applied to a dim letter, 0-1.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@slot_emit</code></td>
+<td><code translate="no" v-pre>1.396</code></td>
+<td>Emission multiplier for this slot&#x27;s tubes.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@slot_fit</code></td>
+<td><code translate="no" v-pre>1</code></td>
+<td>1 if this shape stretches to fill its rect, 0 if it scales uniformly.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@slot_fit_lock</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>0 scales the title to fit, 1 locks cap height and lets it run wide.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@slot_flash_f</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>Share of this sign&#x27;s letters that blink fast, 0-1.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@slot_flash_m</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>Share of this sign&#x27;s letters that blink at medium speed, 0-1.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@slot_flash_s</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>Share of this sign&#x27;s letters that blink slowly, 0-1.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@slot_font</code></td>
+<td>&#x60;&#x60;</td>
+<td>Font path for this text slot, empty on non-text slots.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@slot_gone</code></td>
+<td><code translate="no" v-pre>()</code></td>
+<td>Font SOP textindex values whose tube is broken off entirely.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@slot_icon</code></td>
+<td>&#x60;&#x60;</td>
+<td>Icon name drawn on this slot, empty on non-icon slots.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@slot_id</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>This slot&#x27;s 0-based index among the sign&#x27;s own slots.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@slot_kind</code></td>
+<td><code translate="no" v-pre>1</code></td>
+<td>0 text, 1 decor shape, 2 icon.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@slot_layer</code></td>
+<td><code translate="no" v-pre>-1</code></td>
+<td>Depth-stacking order for overlapping decor; higher draws further forward.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@slot_radius</code></td>
+<td><code translate="no" v-pre>0.0075</code></td>
+<td>Tube radius for this slot, in metres.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@slot_rmax</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>Maximum corner-rounding radius for this slot&#x27;s outline, script or icon dependent.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@slot_rot</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>Rotation applied to this slot, in degrees.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@slot_strokes</code></td>
+<td><code translate="no" v-pre>1</code></td>
+<td>Number of parallel outline strokes on this decor shape, 1-3.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@slot_sub_icon</code></td>
+<td>&#x60;&#x60;</td>
+<td>Icon substituted for a letter, when Letter Swapped For Icon fired.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@slot_sub_idx</code></td>
+<td><code translate="no" v-pre>-1</code></td>
+<td>Font SOP textindex of the letter slot_sub_icon replaces, -1 when none.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@slot_text</code></td>
+<td>&#x60;&#x60;</td>
+<td>The literal text this slot draws, empty on icon and decor slots.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@slot_tracking</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>Extra letter spacing added to this slot&#x27;s text.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@slot_word_of</code></td>
+<td><code translate="no" v-pre>()</code></td>
+<td>Per-character-position word index, used by the per-word colour policy.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h4 id="hardware-hw_">Hardware (<code translate="no" v-pre>hw_*</code>)</h4>
+<p>85 attributes.</p>
+<p>Attributes with a <code translate="no" v-pre>_ctl</code> row in the Advanced section take the same values as that row&#x27;s menu.</p>
+<retype-table copy-text="| Attribute | Example value | Meaning |
+|---|---|---|
+| `i@hw_bp` | `0` | LED backplate level: 0 none, 1 solid emissive field, 2-4 scattered dots, coarse to fine. |
+| `f@hw_bp_b` | `0` | Backplate colour, blue component. |
+| `f@hw_bp_burn` | `0` | Share of backplate LEDs burned out from deterioration, 0-1. |
+| `f@hw_bp_dot` | `0` | Dot radius as a fraction of the backplate's LED pitch. |
+| `f@hw_bp_emit` | `0` | Backplate emission brightness. |
+| `f@hw_bp_g` | `0` | Backplate colour, green component. |
+| `f@hw_bp_lift` | `0` | How far the backplate sits in front of the metal behind it, in metres. |
+| `f@hw_bp_max` | `0` | Hard cap on backplate LED dots for this sign. |
+| `f@hw_bp_pitch` | `0` | Spacing between backplate LED dots, in metres. |
+| `f@hw_bp_r` | `0` | Backplate colour, red component. |
+| `i@hw_brace` | `0` | Backing grid bracing: 0 plain, 1 Pratt, 2 Howe, 3 Warren, 4 cross-braced, 5 K truss, 6 chevron, 7 ladder. |
+| `f@hw_bu0` | `-0.4191` | Backing rectangle left edge, box fraction. |
+| `f@hw_bu1` | `0.4191` | Backing rectangle right edge, box fraction. |
+| `f@hw_bv0` | `-0.11` | Backing rectangle bottom edge, box fraction. |
+| `f@hw_bv1` | `0.19` | Backing rectangle top edge, box fraction. |
+| `i@hw_cab_n` | `2` | Number of cable runs from the electrical box to the glass. |
+| `f@hw_cab_r` | `0.009` | Cable radius, in metres. |
+| `f@hw_cab_sag` | `0.7926` | How far a cable sags at full deterioration, fraction of sign height. |
+| `i@hw_cols` | `4` | Number of grid bays across the backing. |
+| `f@hw_decay` | `0` | Overall hardware deterioration for this sign, 0-1; fades the paint tone. |
+| `f@hw_eb_d` | `0.1945` | Electrical box depth, in metres. |
+| `f@hw_eb_gap` | `0.02` | Gap held between the electrical box and its mount, in metres. |
+| `f@hw_eb_h` | `0.3044` | Electrical box height, in metres. |
+| `f@hw_eb_mind` | `0.055` | Minimum electrical box depth allowed by the wall-clearance clamp, in metres. |
+| `i@hw_eb_n` | `1` | Number of electrical boxes on this sign. |
+| `i@hw_eb_style` | `0` | Electrical box style: 0 square junction box, 1 driver brick, 2 flat LED panel. |
+| `f@hw_eb_w` | `0.2646` | Electrical box width, in metres. |
+| `i@hw_edge` | `1` | Panel edge: 0 none, 1 outset bevel, 2 inset chamfer. |
+| `i@hw_fit` | `1` | 0 backing fills the whole box, 1 backing is fitted to the content. |
+| `i@hw_frame` | `1` | Rim frame: 0 none, 1 stands proud of the face, 2 recessed cabinet. |
+| `f@hw_frame_d` | `0.0399` | Rim frame depth, in metres. |
+| `f@hw_frame_w` | `0.0522` | Rim frame width, fraction of the panel's shorter side. |
+| `f@hw_grey` | `0.7715` | Metal tone of the rig, 0-1, dark to pale. |
+| `f@hw_inset` | `-0.0205` | Panel edge bevel depth, in metres; follows hw_edge. |
+| `i@hw_l1` | `1` | Backing kind: 0 solid plate, 1 pipe grid, 2 part plate/grid, 3 minimal runs. |
+| `i@hw_l2` | `1` | Sub-frame pattern: 0 spine, 1 cross, 2 ladder, 3 small perimeter grid. |
+| `i@hw_l2_n` | `2` | Number of rungs or members in the sub-frame. |
+| `i@hw_l3_fan` | `0` | 1 if standoffs may give up on the wall and reach for the roof instead. |
+| `f@hw_l3_max` | `4.5` | Maximum standoff reach before it counts as open air, in metres. |
+| `i@hw_l3_n` | `3` | Number of standoffs holding the panel off the wall. |
+| `i@hw_l3_pat` | `2` | Standoff spacing: 0 evenly spaced, 1 spaced with gaps, 2 clustered in pairs. |
+| `f@hw_l3_slack` | `1.6` | How far past the measured wall distance a standoff may still reach. |
+| `f@hw_margin` | `0.0291` | Gap kept between the content and the backing edge, box fraction. |
+| `i@hw_min_n` | `1` | Number of straight runs carrying a MINIMAL-backing sign. |
+| `f@hw_min_r` | `0.016` | Tube radius of a MINIMAL-backing run, in metres. |
+| `f@hw_miss_cable` | `0` | Share of cable runs dropped by deterioration, 0-1. |
+| `f@hw_miss_elec` | `0` | Share of electrical boxes dropped by deterioration, 0-1. |
+| `f@hw_miss_pipe` | `0` | Share of pipe members dropped by deterioration, 0-1. |
+| `f@hw_missing` | `0` | Overall share of the rig dropped by deterioration, 0-1. |
+| `i@hw_mix` | `3` | Which regions of the backing are solid plate versus open grid. |
+| `f@hw_plate_t` | `0.02` | Backing plate thickness, in metres. |
+| `f@hw_prof_u` | `(-0.5, -0.5, 0.5, 0.5)` | Sign silhouette outline, u coordinates, box fraction -0.5..0.5. |
+| `f@hw_prof_v` | `(-0.5, 0.5, 0.5, -0.5)` | Sign silhouette outline, v coordinates, box fraction -0.5..0.5. |
+| `i@hw_profile` | `1` | Member cross-section: 1 round tube, 2 square section. |
+| `i@hw_proj` | `0` | 1 if this sign hangs sideways off the wall, a blade sign. |
+| `f@hw_pu0` | `-0.4191` | Usable content rectangle left edge, box fraction. |
+| `f@hw_pu1` | `0.4191` | Usable content rectangle right edge, box fraction. |
+| `f@hw_pv0` | `-0.11` | Usable content rectangle bottom edge, box fraction. |
+| `f@hw_pv1` | `0.19` | Usable content rectangle top edge, box fraction. |
+| `f@hw_r1` | `0.008` | Backing/panel member tube radius, in metres. |
+| `f@hw_r2` | `0.01` | Sub-frame member tube radius, in metres. |
+| `f@hw_r3` | `0.0125` | Rooftop truss member tube radius, in metres. |
+| `i@hw_rig` | `0` | How the sign is held up: 0 wall standoffs, 1 rooftop truss. |
+| `i@hw_rivet` | `6` | Rivet layout pattern index; 0 is no rivets. |
+| `f@hw_rivet_r` | `0.017` | Rivet radius, in metres. |
+| `i@hw_rows` | `1` | Number of grid bays down the backing. |
+| `i@hw_rv_diag` | `0` | Rivet pattern flags: which diagonals carry rivets. |
+| `i@hw_rv_edges` | `0` | Rivet pattern flags: which panel edges carry a row of rivets. |
+| `i@hw_rv_flags` | `0` | Rivet pattern flags: corner, centre and offset placements. |
+| `i@hw_rv_nu` | `5` | Rivet count along the panel's u axis. |
+| `i@hw_rv_nv` | `0` | Rivet count along the panel's v axis. |
+| `i@hw_seed` | `11756138` | Random seed for this sign's standoff and rivet detail draws. |
+| `i@hw_shape` | `0` | Sign silhouette: 0 rectangular panel, otherwise an index into the profile bank. |
+| `f@hw_sup_min` | `0.4564` | Shortest standoff length allowed, as a fraction of the full reach. |
+| `f@hw_sup_r` | `0.005` | Standoff tube radius, in metres. |
+| `f@hw_sup_step` | `0.3608` | Spacing between standoffs along a run, in metres. |
+| `f@hw_tr_base` | `0.6499` | How far the roof truss base runs back, multiple of sign height. |
+| `i@hw_tr_brace` | `5` | Bracing inside each roof truss triangle: 0 bare, 1 post, 2 two posts, 3 tie, 4 post+tie, 5 K, 6 X, 7 three ties. |
+| `f@hw_tr_foot` | `0` | How far the truss base runs forward as an outrigger foot, multiple of sign height. |
+| `f@hw_tr_inset` | `0.0832` | How far the truss legs are inset from the sign's ends, fraction of the truss span. |
+| `i@hw_tr_n` | `2` | Number of rooftop truss frames across the sign. |
+| `i@hw_tr_tie` | `0` | 1 if the truss frames are tied together along the sign. |
+| `f@hw_tr_top` | `0.8899` | How high up the sign the truss hypotenuse lands, fraction of sign height. |
+| `f@hw_z1` | `0.1962` | Depth of the backing/panel plane behind the front face, box fraction. |
+| `f@hw_z2` | `0.0853` | Depth of the sub-frame plane behind the front face, box fraction. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Example value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>i@hw_bp</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>LED backplate level: 0 none, 1 solid emissive field, 2-4 scattered dots, coarse to fine.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_bp_b</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>Backplate colour, blue component.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_bp_burn</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>Share of backplate LEDs burned out from deterioration, 0-1.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_bp_dot</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>Dot radius as a fraction of the backplate&#x27;s LED pitch.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_bp_emit</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>Backplate emission brightness.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_bp_g</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>Backplate colour, green component.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_bp_lift</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>How far the backplate sits in front of the metal behind it, in metres.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_bp_max</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>Hard cap on backplate LED dots for this sign.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_bp_pitch</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>Spacing between backplate LED dots, in metres.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_bp_r</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>Backplate colour, red component.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@hw_brace</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>Backing grid bracing: 0 plain, 1 Pratt, 2 Howe, 3 Warren, 4 cross-braced, 5 K truss, 6 chevron, 7 ladder.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_bu0</code></td>
+<td><code translate="no" v-pre>-0.4191</code></td>
+<td>Backing rectangle left edge, box fraction.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_bu1</code></td>
+<td><code translate="no" v-pre>0.4191</code></td>
+<td>Backing rectangle right edge, box fraction.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_bv0</code></td>
+<td><code translate="no" v-pre>-0.11</code></td>
+<td>Backing rectangle bottom edge, box fraction.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_bv1</code></td>
+<td><code translate="no" v-pre>0.19</code></td>
+<td>Backing rectangle top edge, box fraction.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@hw_cab_n</code></td>
+<td><code translate="no" v-pre>2</code></td>
+<td>Number of cable runs from the electrical box to the glass.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_cab_r</code></td>
+<td><code translate="no" v-pre>0.009</code></td>
+<td>Cable radius, in metres.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_cab_sag</code></td>
+<td><code translate="no" v-pre>0.7926</code></td>
+<td>How far a cable sags at full deterioration, fraction of sign height.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@hw_cols</code></td>
+<td><code translate="no" v-pre>4</code></td>
+<td>Number of grid bays across the backing.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_decay</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>Overall hardware deterioration for this sign, 0-1; fades the paint tone.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_eb_d</code></td>
+<td><code translate="no" v-pre>0.1945</code></td>
+<td>Electrical box depth, in metres.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_eb_gap</code></td>
+<td><code translate="no" v-pre>0.02</code></td>
+<td>Gap held between the electrical box and its mount, in metres.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_eb_h</code></td>
+<td><code translate="no" v-pre>0.3044</code></td>
+<td>Electrical box height, in metres.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_eb_mind</code></td>
+<td><code translate="no" v-pre>0.055</code></td>
+<td>Minimum electrical box depth allowed by the wall-clearance clamp, in metres.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@hw_eb_n</code></td>
+<td><code translate="no" v-pre>1</code></td>
+<td>Number of electrical boxes on this sign.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@hw_eb_style</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>Electrical box style: 0 square junction box, 1 driver brick, 2 flat LED panel.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_eb_w</code></td>
+<td><code translate="no" v-pre>0.2646</code></td>
+<td>Electrical box width, in metres.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@hw_edge</code></td>
+<td><code translate="no" v-pre>1</code></td>
+<td>Panel edge: 0 none, 1 outset bevel, 2 inset chamfer.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@hw_fit</code></td>
+<td><code translate="no" v-pre>1</code></td>
+<td>0 backing fills the whole box, 1 backing is fitted to the content.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@hw_frame</code></td>
+<td><code translate="no" v-pre>1</code></td>
+<td>Rim frame: 0 none, 1 stands proud of the face, 2 recessed cabinet.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_frame_d</code></td>
+<td><code translate="no" v-pre>0.0399</code></td>
+<td>Rim frame depth, in metres.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_frame_w</code></td>
+<td><code translate="no" v-pre>0.0522</code></td>
+<td>Rim frame width, fraction of the panel&#x27;s shorter side.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_grey</code></td>
+<td><code translate="no" v-pre>0.7715</code></td>
+<td>Metal tone of the rig, 0-1, dark to pale.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_inset</code></td>
+<td><code translate="no" v-pre>-0.0205</code></td>
+<td>Panel edge bevel depth, in metres; follows hw_edge.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@hw_l1</code></td>
+<td><code translate="no" v-pre>1</code></td>
+<td>Backing kind: 0 solid plate, 1 pipe grid, 2 part plate/grid, 3 minimal runs.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@hw_l2</code></td>
+<td><code translate="no" v-pre>1</code></td>
+<td>Sub-frame pattern: 0 spine, 1 cross, 2 ladder, 3 small perimeter grid.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@hw_l2_n</code></td>
+<td><code translate="no" v-pre>2</code></td>
+<td>Number of rungs or members in the sub-frame.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@hw_l3_fan</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>1 if standoffs may give up on the wall and reach for the roof instead.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_l3_max</code></td>
+<td><code translate="no" v-pre>4.5</code></td>
+<td>Maximum standoff reach before it counts as open air, in metres.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@hw_l3_n</code></td>
+<td><code translate="no" v-pre>3</code></td>
+<td>Number of standoffs holding the panel off the wall.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@hw_l3_pat</code></td>
+<td><code translate="no" v-pre>2</code></td>
+<td>Standoff spacing: 0 evenly spaced, 1 spaced with gaps, 2 clustered in pairs.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_l3_slack</code></td>
+<td><code translate="no" v-pre>1.6</code></td>
+<td>How far past the measured wall distance a standoff may still reach.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_margin</code></td>
+<td><code translate="no" v-pre>0.0291</code></td>
+<td>Gap kept between the content and the backing edge, box fraction.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@hw_min_n</code></td>
+<td><code translate="no" v-pre>1</code></td>
+<td>Number of straight runs carrying a MINIMAL-backing sign.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_min_r</code></td>
+<td><code translate="no" v-pre>0.016</code></td>
+<td>Tube radius of a MINIMAL-backing run, in metres.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_miss_cable</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>Share of cable runs dropped by deterioration, 0-1.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_miss_elec</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>Share of electrical boxes dropped by deterioration, 0-1.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_miss_pipe</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>Share of pipe members dropped by deterioration, 0-1.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_missing</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>Overall share of the rig dropped by deterioration, 0-1.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@hw_mix</code></td>
+<td><code translate="no" v-pre>3</code></td>
+<td>Which regions of the backing are solid plate versus open grid.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_plate_t</code></td>
+<td><code translate="no" v-pre>0.02</code></td>
+<td>Backing plate thickness, in metres.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_prof_u</code></td>
+<td><code translate="no" v-pre>(-0.5, -0.5, 0.5, 0.5)</code></td>
+<td>Sign silhouette outline, u coordinates, box fraction -0.5..0.5.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_prof_v</code></td>
+<td><code translate="no" v-pre>(-0.5, 0.5, 0.5, -0.5)</code></td>
+<td>Sign silhouette outline, v coordinates, box fraction -0.5..0.5.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@hw_profile</code></td>
+<td><code translate="no" v-pre>1</code></td>
+<td>Member cross-section: 1 round tube, 2 square section.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@hw_proj</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>1 if this sign hangs sideways off the wall, a blade sign.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_pu0</code></td>
+<td><code translate="no" v-pre>-0.4191</code></td>
+<td>Usable content rectangle left edge, box fraction.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_pu1</code></td>
+<td><code translate="no" v-pre>0.4191</code></td>
+<td>Usable content rectangle right edge, box fraction.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_pv0</code></td>
+<td><code translate="no" v-pre>-0.11</code></td>
+<td>Usable content rectangle bottom edge, box fraction.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_pv1</code></td>
+<td><code translate="no" v-pre>0.19</code></td>
+<td>Usable content rectangle top edge, box fraction.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_r1</code></td>
+<td><code translate="no" v-pre>0.008</code></td>
+<td>Backing/panel member tube radius, in metres.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_r2</code></td>
+<td><code translate="no" v-pre>0.01</code></td>
+<td>Sub-frame member tube radius, in metres.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_r3</code></td>
+<td><code translate="no" v-pre>0.0125</code></td>
+<td>Rooftop truss member tube radius, in metres.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@hw_rig</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>How the sign is held up: 0 wall standoffs, 1 rooftop truss.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@hw_rivet</code></td>
+<td><code translate="no" v-pre>6</code></td>
+<td>Rivet layout pattern index; 0 is no rivets.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_rivet_r</code></td>
+<td><code translate="no" v-pre>0.017</code></td>
+<td>Rivet radius, in metres.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@hw_rows</code></td>
+<td><code translate="no" v-pre>1</code></td>
+<td>Number of grid bays down the backing.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@hw_rv_diag</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>Rivet pattern flags: which diagonals carry rivets.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@hw_rv_edges</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>Rivet pattern flags: which panel edges carry a row of rivets.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@hw_rv_flags</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>Rivet pattern flags: corner, centre and offset placements.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@hw_rv_nu</code></td>
+<td><code translate="no" v-pre>5</code></td>
+<td>Rivet count along the panel&#x27;s u axis.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@hw_rv_nv</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>Rivet count along the panel&#x27;s v axis.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@hw_seed</code></td>
+<td><code translate="no" v-pre>11756138</code></td>
+<td>Random seed for this sign&#x27;s standoff and rivet detail draws.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@hw_shape</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>Sign silhouette: 0 rectangular panel, otherwise an index into the profile bank.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_sup_min</code></td>
+<td><code translate="no" v-pre>0.4564</code></td>
+<td>Shortest standoff length allowed, as a fraction of the full reach.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_sup_r</code></td>
+<td><code translate="no" v-pre>0.005</code></td>
+<td>Standoff tube radius, in metres.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_sup_step</code></td>
+<td><code translate="no" v-pre>0.3608</code></td>
+<td>Spacing between standoffs along a run, in metres.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_tr_base</code></td>
+<td><code translate="no" v-pre>0.6499</code></td>
+<td>How far the roof truss base runs back, multiple of sign height.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@hw_tr_brace</code></td>
+<td><code translate="no" v-pre>5</code></td>
+<td>Bracing inside each roof truss triangle: 0 bare, 1 post, 2 two posts, 3 tie, 4 post+tie, 5 K, 6 X, 7 three ties.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_tr_foot</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>How far the truss base runs forward as an outrigger foot, multiple of sign height.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_tr_inset</code></td>
+<td><code translate="no" v-pre>0.0832</code></td>
+<td>How far the truss legs are inset from the sign&#x27;s ends, fraction of the truss span.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@hw_tr_n</code></td>
+<td><code translate="no" v-pre>2</code></td>
+<td>Number of rooftop truss frames across the sign.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@hw_tr_tie</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>1 if the truss frames are tied together along the sign.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_tr_top</code></td>
+<td><code translate="no" v-pre>0.8899</code></td>
+<td>How high up the sign the truss hypotenuse lands, fraction of sign height.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_z1</code></td>
+<td><code translate="no" v-pre>0.1962</code></td>
+<td>Depth of the backing/panel plane behind the front face, box fraction.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>f@hw_z2</code></td>
+<td><code translate="no" v-pre>0.0853</code></td>
+<td>Depth of the sub-frame plane behind the front face, box fraction.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h4 id="content-sign_">Content (<code translate="no" v-pre>sign_*</code>)</h4>
+<p>5 attributes.</p>
+<retype-table copy-text="| Attribute | Example value | Meaning |
+|---|---|---|
+| `s@sign_name` | `` | Name typed on this sign's card, empty when the engine chose the title. |
+| `s@sign_sub` | `` | Subtitle text drawn under the title, when this sign has one. |
+| `s@sign_title` | `Bimini Roasters` | The sign's title as drawn. |
+| `s@sign_trans` | `` | English gloss of a non-Latin title, empty when already English or hand-typed. |
+| `s@sign_type` | `cafe` | Business type key this sign was generated as. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Example value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>s@sign_name</code></td>
+<td>&#x60;&#x60;</td>
+<td>Name typed on this sign&#x27;s card, empty when the engine chose the title.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@sign_sub</code></td>
+<td>&#x60;&#x60;</td>
+<td>Subtitle text drawn under the title, when this sign has one.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@sign_title</code></td>
+<td><code translate="no" v-pre>Bimini Roasters</code></td>
+<td>The sign&#x27;s title as drawn.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@sign_trans</code></td>
+<td>&#x60;&#x60;</td>
+<td>English gloss of a non-Latin title, empty when already English or hand-typed.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@sign_type</code></td>
+<td><code translate="no" v-pre>cafe</code></td>
+<td>Business type key this sign was generated as.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h4 id="placement-and-identity">Placement and identity</h4>
+<retype-table copy-text="| Attribute | Example value | Meaning |
+|---|---|---|
+| `v@P` | `(0, 0, 0)` | Sign centre, world space. Same on every slot of this sign. |
+| `v@extents` | `(4, 2, 0.5)` | Box size on the sign's own axes: width, height, depth. Same on every slot. |
+| `s@name_form` | `toponym` | Which naming method produced this sign's title, such as toponym or possessive. |
+| `i@piece` | `0` | Sign index, 0-based. Same as the anchor's piece. |
+| `v@rect_c` | `(0, 0.04, 0)` | Centre of this slot's content rect, box-fraction u, v. |
+| `v@rect_s` | `(0.613, 0.34, 0)` | Size of this slot's content rect, box-fraction width, height. |
+| `i@template` | `70` | Index into the layout template bank this sign used. |
+| `s@usd_name` | `Bimini_Roasters` | USD-safe version of the title, used to name this sign's geometry groups. |
+| `v@xaxis` | `(1, 0, 0)` | Sign-local right, world space. Same on every slot of this sign. |
+| `v@yaxis` | `(0, 1, 0)` | Sign-local up, world space. Same on every slot of this sign. |
+| `v@zaxis` | `(0, 0, 1)` | Sign-local forward, out of the front face, world space. Same on every slot. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Example value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>v@P</code></td>
+<td><code translate="no" v-pre>(0, 0, 0)</code></td>
+<td>Sign centre, world space. Same on every slot of this sign.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>v@extents</code></td>
+<td><code translate="no" v-pre>(4, 2, 0.5)</code></td>
+<td>Box size on the sign&#x27;s own axes: width, height, depth. Same on every slot.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@name_form</code></td>
+<td><code translate="no" v-pre>toponym</code></td>
+<td>Which naming method produced this sign&#x27;s title, such as toponym or possessive.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@piece</code></td>
+<td><code translate="no" v-pre>0</code></td>
+<td>Sign index, 0-based. Same as the anchor&#x27;s piece.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>v@rect_c</code></td>
+<td><code translate="no" v-pre>(0, 0.04, 0)</code></td>
+<td>Centre of this slot&#x27;s content rect, box-fraction u, v.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>v@rect_s</code></td>
+<td><code translate="no" v-pre>(0.613, 0.34, 0)</code></td>
+<td>Size of this slot&#x27;s content rect, box-fraction width, height.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>i@template</code></td>
+<td><code translate="no" v-pre>70</code></td>
+<td>Index into the layout template bank this sign used.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>s@usd_name</code></td>
+<td><code translate="no" v-pre>Bimini_Roasters</code></td>
+<td>USD-safe version of the title, used to name this sign&#x27;s geometry groups.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>v@xaxis</code></td>
+<td><code translate="no" v-pre>(1, 0, 0)</code></td>
+<td>Sign-local right, world space. Same on every slot of this sign.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>v@yaxis</code></td>
+<td><code translate="no" v-pre>(0, 1, 0)</code></td>
+<td>Sign-local up, world space. Same on every slot of this sign.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>v@zaxis</code></td>
+<td><code translate="no" v-pre>(0, 0, 1)</code></td>
+<td>Sign-local forward, out of the front face, world space. Same on every slot.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<p>Verified examples:</p>
+<div id="placement-and-identity-code-1" class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">vex</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none">f@slot_emit *= 3.0;          // three times the emission
+i@hw_l1     = 0;             // strip the backing panel
+i@hw_cab_n  = 0;             // and the cable runs</code></pre>
+</doc-codeblock></div>
+<h2 id="both-hooks">Both hooks</h2>
+<p>Both parameters carry the stock <code translate="no" v-pre>attribwrangle</code> snippet tags, including the button that creates spare parameters from every <code translate="no" v-pre>ch()</code> call in the expression. So writing <code translate="no" v-pre>chramp(&quot;falloff&quot;, x)</code> in either hook gives you a real ramp control on the node.</p>
+<p>There is no output 2. The node has one output. To see what the plan holds at any point, read the attributes listed on this page rather than looking for a debug stream.</p>
+<div id="retype-backlinks">
+    <h2>See also</h2>
+<div class="card-compact-group">
+<div class="card-compact-container">
+    <a href="/docs/neonyte/control/notes/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M1.5 4.25c0-.966.784-1.75 1.75-1.75h17.5c.966 0 1.75.784 1.75 1.75v12.5a1.75 1.75 0 0 1-1.75 1.75h-9.69l-3.573 3.573A1.458 1.458 0 0 1 5 21.043V18.5H3.25a1.75 1.75 0 0 1-1.75-1.75ZM3.25 4a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h2.5a.75.75 0 0 1 .75.75v3.19l3.72-3.72a.749.749 0 0 1 .53-.22h10a.25.25 0 0 0 .25-.25V4.25a.25.25 0 0 0-.25-.25Z"/></svg></span>
+                <span class="card-compact-title">Adjustment Notes</span>
+            </div>
+            <p class="card-compact-description">Adjustment Notes is a text field in the Content tab. Type what you want changed in plain English and press Give me the Signs; the whole street re-rolls to match.</p>
+        </div>
+    </a>
+</div>
+<div class="card-compact-container">
+    <a href="/docs/neonyte/control/advanced/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M8.75 5.5h11.5a.75.75 0 0 1 0 1.5H8.75a.75.75 0 0 1 0-1.5Zm0 6h11.5a.75.75 0 0 1 0 1.5H8.75a.75.75 0 0 1 0-1.5Zm0 6h11.5a.75.75 0 0 1 0 1.5H8.75a.75.75 0 0 1 0-1.5ZM5 12a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM4 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 12a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg></span>
+                <span class="card-compact-title">Advanced rows</span>
+            </div>
+            <p class="card-compact-description">52 rows, split across six sections: Content 10, Type 7, Layout 5, Decor 5, Hardware 23, Aging 2.</p>
+        </div>
+    </a>
+</div>
+<div class="card-compact-container">
+    <a href="/docs/neonyte/control/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M11 18.25a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1-.75-.75Zm-8-12a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 3 6.25Zm13 6a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 0 1.5h-3.5a.75.75 0 0 1-.75-.75ZM8.75 16a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75Z"/><path d="M3 18.25a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Zm0-6a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1-.75-.75ZM16.75 10a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75ZM14 6.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 0 1.5h-5.5a.75.75 0 0 1-.75-.75ZM11.25 4a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75Z"/></svg></span>
+                <span class="card-compact-title">Control</span>
+            </div>
+            <p class="card-compact-description">Every decision Neonyte makes has a default. Press Give me the Signs with nothing else set and you get a complete street.</p>
+        </div>
+    </a>
+</div>
+<div class="card-compact-container">
+    <a href="/docs/neonyte/reference/parameters/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M11 18.25a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1-.75-.75Zm-8-12a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 3 6.25Zm13 6a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 0 1.5h-3.5a.75.75 0 0 1-.75-.75ZM8.75 16a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75Z"/><path d="M3 18.25a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Zm0-6a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1-.75-.75ZM16.75 10a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75ZM14 6.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 0 1.5h-5.5a.75.75 0 0 1-.75-.75ZM11.25 4a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75Z"/></svg></span>
+                <span class="card-compact-title">Parameters</span>
+            </div>
+            <p class="card-compact-description">Every control on the node, grouped by the folder it lives in. The description column is the first line of each control's own tooltip, so the two always agree.</p>
+        </div>
+    </a>
+</div>
+<div class="card-compact-container">
+    <a href="/docs/neonyte/reference/troubleshooting/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M7.875 2.292a.114.114 0 0 0-.032.018A7.239 7.239 0 0 0 4.75 8.25a7.248 7.248 0 0 0 3.654 6.297c.57.327.982.955.941 1.682v.002l-.317 6.058a.75.75 0 1 1-1.498-.078l.317-6.062v-.004c.006-.09-.047-.215-.188-.296A8.749 8.749 0 0 1 3.25 8.25a8.738 8.738 0 0 1 3.732-7.169 1.547 1.547 0 0 1 1.709-.064c.484.292.809.835.809 1.46v4.714a.25.25 0 0 0 .119.213l2.25 1.385c.08.05.182.05.262 0l2.25-1.385a.25.25 0 0 0 .119-.213V2.478c0-.626.325-1.169.81-1.461a1.547 1.547 0 0 1 1.708.064 8.741 8.741 0 0 1 3.732 7.17 8.747 8.747 0 0 1-4.41 7.598c-.14.081-.193.206-.188.296v.004l.318 6.062a.75.75 0 1 1-1.498.078l-.317-6.058v-.002c-.041-.727.37-1.355.94-1.682A7.247 7.247 0 0 0 19.25 8.25a7.239 7.239 0 0 0-3.093-5.94.114.114 0 0 0-.032-.018l-.01-.001c-.003 0-.014 0-.031.01-.036.022-.084.079-.084.177V7.19c0 .608-.315 1.172-.833 1.49l-2.25 1.385a1.75 1.75 0 0 1-1.834 0l-2.25-1.384A1.752 1.752 0 0 1 8 7.192V2.477c0-.098-.048-.155-.084-.176a.068.068 0 0 0-.031-.011l-.01.001Z"/></svg></span>
+                <span class="card-compact-title">Troubleshooting</span>
+            </div>
+            <p class="card-compact-description">Check three things: that you have actually placed a sign, that any hand-built boxes are wired into input 2 and not input 1 (input 1 is the building geometry and passes through untouched), and that each hand-built box carries a front-face group.</p>
+        </div>
+    </a>
+</div>
+</div>
+</div>
+
+                <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
+                
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-09-09T13:02:56" title="2026-09-09" data-absolute-label="Last updated on 2026-09-09" data-absolute-label-html="Last updated on 2026-09-09" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-09-09
+                    </time>
+                </div>
+
+                <!-- Required only on API pages -->
+                <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
+            </div>
+            <footer id="retype-content-footer" class="clear-both">
+            
+                <nav id="retype-nextprev" class="print:hidden flex mt-14">
+                    <div class="w-1/2">
+                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../neonyte/control/">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                            <span>
+                                <span class="block text-xs font-normal text-base-text-muted">Previous</span>
+                                <span class="block mt-1">Control</span>
+                            </span>
+                        </a>
+                    </div>
+            
+                    <div class="w-1/2">
+                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../neonyte/control/advanced/">
+                            <span>
+                                <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
+                                <span class="block mt-1">Advanced rows</span>
+                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                        </a>
+                    </div>
+                </nav>
+            </footer>
+        </main>
+
+        <div id="retype-page-footer" class="print:border-none border-t border-base-border pt-6 mb-8">
+            <footer class="flex flex-wrap items-center justify-between print:justify-center">
+                <div id="retype-footer-links" class="print:hidden">
+                    <ul class="flex flex-wrap items-center text-sm">
+                        <li>
+                            <a class="block mr-4 py-2 text-sm whitespace-nowrap transition-colors duration-200 ease-linear text-footer-link hover:text-footer-link-hover md:mb-0" href="https://jvtools.dev/privacy" title="How JVtools handles your data">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="retype-copyright" class="print:justify-center py-2 text-footer-text font-footer-link text-sm leading-relaxed"></div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Rendered if sidebar right is enabled -->
+    <!-- Sidebar right skeleton-->
+    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-sidebar-right-bg border-sidebar-right-border lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:translate-x-0 sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton">
+        <div class="pl-5">
+            <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+        </div>
+    </div>
+
+    <!-- User should be able to hide sidebar right -->
+    <doc-sidebar-right v-cloak></doc-sidebar-right>
+</div>
+
+        </div>
+    </div>
+
+    <doc-search-mobile></doc-search-mobile>
+    <doc-back-to-top></doc-back-to-top>
+</div>
+
+
+    <div id="retype-overlay-target"></div>
+
+        <script data-cfasync="false">window.__DOCS__ = { "title": "VEXpression", level: 3, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/neonyte/control/vexpression.md" }</script>
+</body>
+</html>

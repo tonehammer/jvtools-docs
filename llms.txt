@@ -6,6 +6,7 @@
 - [Reallusion Importer for Houdini](https://jvtools.dev/docs/reallusion-importer/readme.md): Reallusion Importer for Houdini (v1.2.4) turns a Character Creator 5 or iClone 8 character into a fully shaded, animatable, render-ready character in Houdini's Solaris environment — in seconds instead of hours.
 - [Advanced Velocity](https://jvtools.dev/docs/advanced-velocity/readme.md): Welcome! Advanced Velocity (v1.4) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node.
 - [RPLidar In](https://jvtools.dev/docs/rplidar-in/readme.md): Welcome! RPLidar In (v1.0) brings live Slamtec RPLIDAR point-cloud data straight into Houdini as SOP geometry. Plug in the sensor, drop the node, and every
+- [Neonyte](https://jvtools.dev/docs/neonyte/readme.md): Neonyte is a Houdini SOP that turns placeholder boxes into generated neon signs: lettering, icons, decor tubes, the metal rig behind them, and a Karma material - for dressing buildings and streets.
 - [COPout](https://jvtools.dev/docs/copout/readme.md): Welcome! COPout (v1.0) puts a Copernicus network on a projector or a second screen as a borderless, chrome-free output window — no menu bars, no toolbars, nothing of Houdini in the way.
 - [FLIP DOP Controller](https://jvtools.dev/docs/flip-dop-controller/readme.md): FLIP DOP Controller (v1.0) puts a FLIP simulation's key parameters on one SOP-level node.
 - [Deoverlap Polylines](https://jvtools.dev/docs/deoverlap-polylines/readme.md): Deoverlap Polylines (v1.0) finds where your curves cross and pushes them apart at the crossings, so a tangle reads as separate strands. Hair, fibres, cables, stitched lines, a grid of rows and columns.
@@ -64,6 +65,27 @@
 - [Troubleshooting](https://jvtools.dev/docs/rplidar-in/reference/troubleshooting.md): Press Test Sensor. It prints the sensor's identity, health, and available scan modes. No response means Houdini can't talk to the sensor.
 - [Changelog](https://jvtools.dev/docs/rplidar-in/reference/changelog.md): The first public release.
 - [License](https://jvtools.dev/docs/rplidar-in/reference/license.md): This is the End User License Agreement for RPLidar In. By downloading, installing, or using the asset, you agree to these terms.
+
+## Neonyte
+
+- [Getting Started](https://jvtools.dev/docs/neonyte/getting-started.md): Copy JV-Neonyte-v1.0.hdalc into your Houdini 22 otls folder. On Windows that is C:\Users\you\Documents\houdini22.0\otls\. Then Refresh Asset Libraries, or restart Houdini.
+- [Using Neonyte](https://jvtools.dev/docs/neonyte/using.md): Seed is the number the whole street is built from. Change it for a different street.
+- [Rendering](https://jvtools.dev/docs/neonyte/rendering.md): Signs are built for Karma. Both Karma CPU and Karma XPU are supported.
+
+### Control
+
+- [Control](https://jvtools.dev/docs/neonyte/control/readme.md): Every decision Neonyte makes has a default. Press Give me the Signs with nothing else set and you get a complete street.
+- [VEXpression](https://jvtools.dev/docs/neonyte/control/vexpression.md): Neonyte has two VEX hook parameters. Both run once per sign. Between them they cover the whole pipeline: before the planner has made a decision, and after it has made every decision.
+- [Advanced rows](https://jvtools.dev/docs/neonyte/control/advanced.md): 52 rows, split across six sections: Content 10, Type 7, Layout 5, Decor 5, Hardware 23, Aging 2.
+- [Adjustment Notes](https://jvtools.dev/docs/neonyte/control/notes.md): Adjustment Notes is a text field in the Content tab. Type what you want changed in plain English and press Give me the Signs; the whole street re-rolls to match.
+- [Defaults and weights](https://jvtools.dev/docs/neonyte/control/defaults.md): This is what the engine draws from when every Advanced row is left on Auto and there is no Adjustment Note.
+
+### Reference
+
+- [Parameters](https://jvtools.dev/docs/neonyte/reference/parameters.md): Every control on the node, grouped by the folder it lives in. The description column is the first line of each control's own tooltip, so the two always agree.
+- [Troubleshooting](https://jvtools.dev/docs/neonyte/reference/troubleshooting.md): Check three things: that you have actually placed a sign, that any hand-built boxes are wired into input 2 and not input 1 (input 1 is the building geometry and passes through untouched), and that each hand-built box carries a front-face group.
+- [Changelog](https://jvtools.dev/docs/neonyte/reference/changelog.md): New: procedural neon signs from placeholder boxes, one sign each.
+- [License](https://jvtools.dev/docs/neonyte/reference/license.md): Neonyte's repo LICENSE.txt does not exist yet. This page is the paid, ships-unlocked variant. The repo file must be written to match this page before release, not the other way round.
 
 ## COPout
 

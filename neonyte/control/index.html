@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="turbo-root" content="/docs">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.842266996519">
+
+    <!-- See retype.com -->
+    <meta name="generator" content="Retype 4.6.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Control</title>
+    <meta name="title" content="Control">
+    <meta name="description" content="Every decision Neonyte makes has a default. Press Give me the Signs with nothing else set and you get a complete street.">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://jvtools.dev/docs/neonyte/control/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://jvtools.dev/docs/sitemap.xml">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jvtools.dev/docs/neonyte/control/">
+    <meta property="og:title" content="Control">
+    <meta property="og:description" content="Every decision Neonyte makes has a default. Press Give me the Signs with nothing else set and you get a complete street.">
+    <meta property="og:site_name" content="JVtools">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://jvtools.dev/docs/neonyte/control/">
+    <meta name="twitter:title" content="Control">
+    <meta name="twitter:description" content="Every decision Neonyte makes has a default. Press Give me the Signs with nothing else set and you get a complete street.">
+
+    <!-- Alternate Markdown -->
+    <link rel="alternate" type="text/markdown" href="https://jvtools.dev/docs/neonyte/control/readme.md">
+
+    <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
+
+    <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
+    <link href="../../resources/css/retype.css?v=4.6.0.842266996519" rel="stylesheet">
+
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.842266996519" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.842266996519" data-turbo-eval="false" defer></script>
+</head>
+<body>
+    <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
+    <div class="absolute bottom-0 left-0" style="top: 5rem; right: 50%"></div>
+
+    <header id="retype-header" class="sticky top-0 z-30 flex w-full h-16 bg-header-bg border-b border-header-border md:h-20">
+        <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
+            <!-- Mobile menu button skeleton -->
+            <button v-cloak class="skeleton retype-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-hidden rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+            <div v-cloak id="retype-sidebar-left-toggle-button"></div>
+    
+            <!-- Logo -->
+            <div class="flex items-center justify-between h-full py-2 md:w-75">
+                <div class="flex items-center px-2 md:px-6">
+                    <a id="retype-branding-logo" href="https://jvtools.dev/docs/" class="flex items-center leading-snug text-2xl">
+                        <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">JVtools</span>
+                    </a><span id="retype-branding-label" class="inline-flex mt-1 px-2 py-1 ml-4 text-xs font-medium leading-none items-center rounded-md bg-branding-label-bg text-branding-label-text ring-1 ring-branding-label-border ring-inset md:inline-block">Docs</span>
+                </div>
+    
+                <span class="hidden h-8 border-r md:inline-block border-base-border"></span>
+            </div>
+    
+            <div class="flex justify-between md:grow">
+                <!-- Top Nav -->
+                <nav id="retype-header-nav" class="hidden md:flex">
+                    <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+                        <li class="mr-6">
+                            <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"/>
+                                </svg>
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li class="mr-6 relative group/nav" data-retype-header-link-group>
+                            <span class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text cursor-default group-hover/nav:text-header-text-hover group-focus-within/nav:text-header-text-hover">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <path d="M12.876.64V.639l8.25 4.763c.541.313.875.89.875 1.515v9.525a1.75 1.75 0 0 1-.875 1.516l-8.25 4.762a1.748 1.748 0 0 1-1.75 0l-8.25-4.763a1.75 1.75 0 0 1-.875-1.515V6.917c0-.625.334-1.202.875-1.515L11.126.64a1.748 1.748 0 0 1 1.75 0Zm-1 1.298L4.251 6.34l7.75 4.474 7.75-4.474-7.625-4.402a.248.248 0 0 0-.25 0Zm.875 19.123 7.625-4.402a.25.25 0 0 0 .125-.216V7.639l-7.75 4.474ZM3.501 7.64v8.803c0 .09.048.172.125.216l7.625 4.402v-8.947Z"/>
+                                </svg>
+                                <span>Products</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 opacity-60" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </span>
+                            <span class="absolute bottom-full md:bottom-auto md:top-full" style="left: var(--header-links-dropdown-offset, 0rem); width: min(var(--header-links-dropdown-max-width, 300px), calc(100vw - 2rem)); height: var(--header-links-dropdown-gap, 0.5rem);"></span>
+                            <div class="absolute bottom-full md:bottom-auto md:top-full z-50 min-w-[180px] w-max opacity-0 invisible -translate-y-1 md:translate-y-1 group-hover/nav:translate-y-0 group-focus-within/nav:translate-y-0 group-hover/nav:opacity-100 group-focus-within/nav:opacity-100 group-hover/nav:visible group-focus-within/nav:visible pointer-events-none group-hover/nav:pointer-events-auto group-focus-within/nav:pointer-events-auto transition-all duration-150 ease-out" data-retype-header-link-menu style="left: var(--header-links-dropdown-offset, 0rem); margin-bottom: var(--header-links-dropdown-gap, 0.5rem); margin-top: var(--header-links-dropdown-gap, 0.5rem); max-width: min(var(--header-links-dropdown-max-width, 300px), calc(100vw - 2rem));">
+                                <ul class="flex flex-col rounded-lg border border-base-border bg-base-bg shadow-lg overflow-hidden w-full">
+                                    <li>
+                                        <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../reallusion-importer/">
+                                            <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                    <path d="M12 2.5a5.5 5.5 0 0 1 3.096 10.047 9.005 9.005 0 0 1 5.9 8.181.75.75 0 1 1-1.499.044 7.5 7.5 0 0 0-14.993 0 .75.75 0 0 1-1.5-.045 9.005 9.005 0 0 1 5.9-8.18A5.5 5.5 0 0 1 12 2.5ZM8 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z"/>
+                                                </svg>
+                                            </span>
+                                            <span class="min-w-0 max-w-full">
+                                                <span class="block font-header-text leading-tight">Reallusion Importer</span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../advanced-velocity/">
+                                            <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                    <path d="M15.716 1.329a1.341 1.341 0 0 1 2.109 1.55L15.147 9h4.161c1.623 0 2.372 2.016 1.143 3.075L8.102 22.721a1.148 1.148 0 0 1-1.81-1.317L8.996 15H4.674c-1.619 0-2.37-2.008-1.148-3.07l12.19-10.6Zm.452 1.595L4.51 13.061a.25.25 0 0 0 .164.439h5.45a.749.749 0 0 1 .692 1.041l-2.559 6.066 11.215-9.668a.25.25 0 0 0-.164-.439H14a.75.75 0 0 1-.687-1.05Z"/>
+                                                </svg>
+                                            </span>
+                                            <span class="min-w-0 max-w-full">
+                                                <span class="block font-header-text leading-tight">Advanced Velocity</span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../rplidar-in/">
+                                            <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                    <path d="M20.485 2.515a.75.75 0 0 0-1.06 1.06A10.465 10.465 0 0 1 22.5 11c0 2.9-1.174 5.523-3.075 7.424a.75.75 0 0 0 1.06 1.061A11.965 11.965 0 0 0 24 11c0-3.314-1.344-6.315-3.515-8.485Zm-15.91 1.06a.75.75 0 0 0-1.06-1.06A11.965 11.965 0 0 0 0 11c0 3.313 1.344 6.314 3.515 8.485a.75.75 0 0 0 1.06-1.06A10.465 10.465 0 0 1 1.5 11c0-2.9 1.174-5.524 3.075-7.425ZM8.11 7.11a.75.75 0 0 0-1.06-1.06A6.98 6.98 0 0 0 5 11a6.98 6.98 0 0 0 2.05 4.95.75.75 0 0 0 1.06-1.061 5.48 5.48 0 0 1-1.61-3.89 5.48 5.48 0 0 1 1.61-3.888Zm8.84-1.06a.75.75 0 1 0-1.06 1.06A5.48 5.48 0 0 1 17.5 11a5.48 5.48 0 0 1-1.61 3.889.75.75 0 1 0 1.06 1.06A6.98 6.98 0 0 0 19 11a6.98 6.98 0 0 0-2.05-4.949ZM14 11a2 2 0 0 1-1.25 1.855v8.395a.75.75 0 0 1-1.5 0v-8.395A2 2 0 1 1 14 11Z"/>
+                                                </svg>
+                                            </span>
+                                            <span class="min-w-0 max-w-full">
+                                                <span class="block font-header-text leading-tight">RPLidar In</span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../copout/">
+                                            <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                    <path d="M8.954 17H2.75A1.75 1.75 0 0 1 1 15.25V3.75C1 2.784 1.784 2 2.75 2h18.5c.966 0 1.75.784 1.75 1.75v11.5A1.75 1.75 0 0 1 21.25 17h-6.204c.171 1.375.805 2.652 1.769 3.757A.752.752 0 0 1 16.25 22h-8.5a.75.75 0 0 1-.565-1.243c.964-1.105 1.598-2.382 1.769-3.757ZM21.5 3.75a.25.25 0 0 0-.25-.25H2.75a.25.25 0 0 0-.25.25v11.5c0 .138.112.25.25.25h18.5a.25.25 0 0 0 .25-.25ZM13.537 17h-3.074c-.126 1.266-.564 2.445-1.223 3.5h5.52c-.659-1.055-1.098-2.234-1.223-3.5Z"/>
+                                                </svg>
+                                            </span>
+                                            <span class="min-w-0 max-w-full">
+                                                <span class="block font-header-text leading-tight">COPout</span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../deoverlap-polylines/">
+                                            <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                    <path d="M15 4.75a3.25 3.25 0 1 1 6.5 0 3.25 3.25 0 0 1-6.5 0ZM2.5 19.25a3.25 3.25 0 1 1 6.5 0 3.25 3.25 0 0 1-6.5 0Zm0-14.5a3.25 3.25 0 1 1 6.5 0 3.25 3.25 0 0 1-6.5 0ZM5.75 6.5a1.75 1.75 0 1 0-.001-3.501A1.75 1.75 0 0 0 5.75 6.5Zm0 14.5a1.75 1.75 0 1 0-.001-3.501A1.75 1.75 0 0 0 5.75 21Zm12.5-14.5a1.75 1.75 0 1 0-.001-3.501A1.75 1.75 0 0 0 18.25 6.5Z"/><path d="M5.75 16.75A.75.75 0 0 1 5 16V8a.75.75 0 0 1 1.5 0v8a.75.75 0 0 1-.75.75Z"/><path d="M17.5 8.75v-1H19v1a3.75 3.75 0 0 1-3.75 3.75h-7a1.75 1.75 0 0 0-1.75 1.75H5A3.25 3.25 0 0 1 8.25 11h7a2.25 2.25 0 0 0 2.25-2.25Z"/>
+                                                </svg>
+                                            </span>
+                                            <span class="min-w-0 max-w-full">
+                                                <span class="block font-header-text leading-tight">Deoverlap Polylines</span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../flip-dop-controller/">
+                                            <span class="mr-1.5 w-[18px] shrink-0"></span>
+                                            <span class="min-w-0 max-w-full">
+                                                <span class="block font-header-text leading-tight">FLIP DOP Controller</span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../neonyte/">
+                                            <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                    <path d="M12 2.5c-3.81 0-6.5 2.743-6.5 6.119 0 1.536.632 2.572 1.425 3.56.172.215.347.422.527.635l.096.112c.21.25.427.508.63.774.404.531.783 1.128.995 1.834a.75.75 0 0 1-1.436.432c-.138-.46-.397-.89-.753-1.357a18.111 18.111 0 0 0-.582-.714l-.092-.11c-.18-.212-.37-.436-.555-.667C4.87 12.016 4 10.651 4 8.618 4 4.363 7.415 1 12 1s8 3.362 8 7.619c0 2.032-.87 3.397-1.755 4.5-.185.23-.375.454-.555.667l-.092.109c-.21.248-.405.481-.582.714-.356.467-.615.898-.753 1.357a.751.751 0 0 1-1.437-.432c.213-.706.592-1.303.997-1.834.202-.266.419-.524.63-.774l.095-.112c.18-.213.355-.42.527-.634.793-.99 1.425-2.025 1.425-3.561C18.5 5.243 15.81 2.5 12 2.5ZM8.75 18h6.5a.75.75 0 0 1 0 1.5h-6.5a.75.75 0 0 1 0-1.5Zm.75 3.75a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 0 1.5h-3.5a.75.75 0 0 1-.75-.75Z"/>
+                                                </svg>
+                                            </span>
+                                            <span class="min-w-0 max-w-full">
+                                                <span class="block font-header-text leading-tight">Neonyte</span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+    
+                    </ul>
+                </nav>
+    
+                <div v-cloak class="flex justify-end grow">
+                    <div id="retype-mobile-search-button"></div>
+                    <doc-search-desktop></doc-search-desktop>
+    
+                    <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                    <doc-history></doc-history>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div id="retype-container" class="container relative flex bg-white">
+        <!-- Sidebar Skeleton -->
+        <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-sidebar-left-bg border-sidebar-left-border sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton">
+        
+            <div class="flex items-center h-16 px-6">
+                <input id="retype-filter-input-mock" class="w-full h-10 pl-8 px-3 py-2 transition-colors duration-200 ease-linear bg-filter-bg border border-filter-border rounded-lg shadow-none md:text-sm hover:border-filter-border-hover focus:outline-hidden focus:border-filter-border-focus placeholder-filter-placeholder" type="text">
+            </div>
+        
+            <div class="pl-6 mt-1 mb-4">
+                <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            </div>
+        
+        </div>
+        
+        <!-- Sidebar component -->
+        <doc-sidebar v-cloak>
+            <template #sidebar-footer>
+                <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-base-border">
+        
+                    <div class="py-3 px-6 md:hidden border-b dark:border-base-border">
+                        <nav>
+                            <ul class="flex flex-wrap justify-center items-center">
+                                <li class="mr-6">
+                                    <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                            <path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"/>
+                                        </svg>
+                                        <span>Home</span>
+                                    </a>
+                                </li>
+                                <li class="mr-6 relative group/nav" data-retype-header-link-group>
+                                    <span class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text cursor-default group-hover/nav:text-header-text-hover group-focus-within/nav:text-header-text-hover">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                            <path d="M12.876.64V.639l8.25 4.763c.541.313.875.89.875 1.515v9.525a1.75 1.75 0 0 1-.875 1.516l-8.25 4.762a1.748 1.748 0 0 1-1.75 0l-8.25-4.763a1.75 1.75 0 0 1-.875-1.515V6.917c0-.625.334-1.202.875-1.515L11.126.64a1.748 1.748 0 0 1 1.75 0Zm-1 1.298L4.251 6.34l7.75 4.474 7.75-4.474-7.625-4.402a.248.248 0 0 0-.25 0Zm.875 19.123 7.625-4.402a.25.25 0 0 0 .125-.216V7.639l-7.75 4.474ZM3.501 7.64v8.803c0 .09.048.172.125.216l7.625 4.402v-8.947Z"/>
+                                        </svg>
+                                        <span>Products</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 opacity-60" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                    </span>
+                                    <span class="absolute bottom-full md:bottom-auto md:top-full" style="left: var(--header-links-dropdown-offset, 0rem); width: min(var(--header-links-dropdown-max-width, 300px), calc(100vw - 2rem)); height: var(--header-links-dropdown-gap, 0.5rem);"></span>
+                                    <div class="absolute bottom-full md:bottom-auto md:top-full z-50 min-w-[180px] w-max opacity-0 invisible -translate-y-1 md:translate-y-1 group-hover/nav:translate-y-0 group-focus-within/nav:translate-y-0 group-hover/nav:opacity-100 group-focus-within/nav:opacity-100 group-hover/nav:visible group-focus-within/nav:visible pointer-events-none group-hover/nav:pointer-events-auto group-focus-within/nav:pointer-events-auto transition-all duration-150 ease-out" data-retype-header-link-menu style="left: var(--header-links-dropdown-offset, 0rem); margin-bottom: var(--header-links-dropdown-gap, 0.5rem); margin-top: var(--header-links-dropdown-gap, 0.5rem); max-width: min(var(--header-links-dropdown-max-width, 300px), calc(100vw - 2rem));">
+                                        <ul class="flex flex-col rounded-lg border border-base-border bg-base-bg shadow-lg overflow-hidden w-full">
+                                            <li>
+                                                <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../reallusion-importer/">
+                                                    <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                            <path d="M12 2.5a5.5 5.5 0 0 1 3.096 10.047 9.005 9.005 0 0 1 5.9 8.181.75.75 0 1 1-1.499.044 7.5 7.5 0 0 0-14.993 0 .75.75 0 0 1-1.5-.045 9.005 9.005 0 0 1 5.9-8.18A5.5 5.5 0 0 1 12 2.5ZM8 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z"/>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="min-w-0 max-w-full">
+                                                        <span class="block font-header-text leading-tight">Reallusion Importer</span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../advanced-velocity/">
+                                                    <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                            <path d="M15.716 1.329a1.341 1.341 0 0 1 2.109 1.55L15.147 9h4.161c1.623 0 2.372 2.016 1.143 3.075L8.102 22.721a1.148 1.148 0 0 1-1.81-1.317L8.996 15H4.674c-1.619 0-2.37-2.008-1.148-3.07l12.19-10.6Zm.452 1.595L4.51 13.061a.25.25 0 0 0 .164.439h5.45a.749.749 0 0 1 .692 1.041l-2.559 6.066 11.215-9.668a.25.25 0 0 0-.164-.439H14a.75.75 0 0 1-.687-1.05Z"/>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="min-w-0 max-w-full">
+                                                        <span class="block font-header-text leading-tight">Advanced Velocity</span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../rplidar-in/">
+                                                    <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                            <path d="M20.485 2.515a.75.75 0 0 0-1.06 1.06A10.465 10.465 0 0 1 22.5 11c0 2.9-1.174 5.523-3.075 7.424a.75.75 0 0 0 1.06 1.061A11.965 11.965 0 0 0 24 11c0-3.314-1.344-6.315-3.515-8.485Zm-15.91 1.06a.75.75 0 0 0-1.06-1.06A11.965 11.965 0 0 0 0 11c0 3.313 1.344 6.314 3.515 8.485a.75.75 0 0 0 1.06-1.06A10.465 10.465 0 0 1 1.5 11c0-2.9 1.174-5.524 3.075-7.425ZM8.11 7.11a.75.75 0 0 0-1.06-1.06A6.98 6.98 0 0 0 5 11a6.98 6.98 0 0 0 2.05 4.95.75.75 0 0 0 1.06-1.061 5.48 5.48 0 0 1-1.61-3.89 5.48 5.48 0 0 1 1.61-3.888Zm8.84-1.06a.75.75 0 1 0-1.06 1.06A5.48 5.48 0 0 1 17.5 11a5.48 5.48 0 0 1-1.61 3.889.75.75 0 1 0 1.06 1.06A6.98 6.98 0 0 0 19 11a6.98 6.98 0 0 0-2.05-4.949ZM14 11a2 2 0 0 1-1.25 1.855v8.395a.75.75 0 0 1-1.5 0v-8.395A2 2 0 1 1 14 11Z"/>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="min-w-0 max-w-full">
+                                                        <span class="block font-header-text leading-tight">RPLidar In</span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../copout/">
+                                                    <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                            <path d="M8.954 17H2.75A1.75 1.75 0 0 1 1 15.25V3.75C1 2.784 1.784 2 2.75 2h18.5c.966 0 1.75.784 1.75 1.75v11.5A1.75 1.75 0 0 1 21.25 17h-6.204c.171 1.375.805 2.652 1.769 3.757A.752.752 0 0 1 16.25 22h-8.5a.75.75 0 0 1-.565-1.243c.964-1.105 1.598-2.382 1.769-3.757ZM21.5 3.75a.25.25 0 0 0-.25-.25H2.75a.25.25 0 0 0-.25.25v11.5c0 .138.112.25.25.25h18.5a.25.25 0 0 0 .25-.25ZM13.537 17h-3.074c-.126 1.266-.564 2.445-1.223 3.5h5.52c-.659-1.055-1.098-2.234-1.223-3.5Z"/>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="min-w-0 max-w-full">
+                                                        <span class="block font-header-text leading-tight">COPout</span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../deoverlap-polylines/">
+                                                    <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                            <path d="M15 4.75a3.25 3.25 0 1 1 6.5 0 3.25 3.25 0 0 1-6.5 0ZM2.5 19.25a3.25 3.25 0 1 1 6.5 0 3.25 3.25 0 0 1-6.5 0Zm0-14.5a3.25 3.25 0 1 1 6.5 0 3.25 3.25 0 0 1-6.5 0ZM5.75 6.5a1.75 1.75 0 1 0-.001-3.501A1.75 1.75 0 0 0 5.75 6.5Zm0 14.5a1.75 1.75 0 1 0-.001-3.501A1.75 1.75 0 0 0 5.75 21Zm12.5-14.5a1.75 1.75 0 1 0-.001-3.501A1.75 1.75 0 0 0 18.25 6.5Z"/><path d="M5.75 16.75A.75.75 0 0 1 5 16V8a.75.75 0 0 1 1.5 0v8a.75.75 0 0 1-.75.75Z"/><path d="M17.5 8.75v-1H19v1a3.75 3.75 0 0 1-3.75 3.75h-7a1.75 1.75 0 0 0-1.75 1.75H5A3.25 3.25 0 0 1 8.25 11h7a2.25 2.25 0 0 0 2.25-2.25Z"/>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="min-w-0 max-w-full">
+                                                        <span class="block font-header-text leading-tight">Deoverlap Polylines</span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../flip-dop-controller/">
+                                                    <span class="mr-1.5 w-[18px] shrink-0"></span>
+                                                    <span class="min-w-0 max-w-full">
+                                                        <span class="block font-header-text leading-tight">FLIP DOP Controller</span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../neonyte/">
+                                                    <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                            <path d="M12 2.5c-3.81 0-6.5 2.743-6.5 6.119 0 1.536.632 2.572 1.425 3.56.172.215.347.422.527.635l.096.112c.21.25.427.508.63.774.404.531.783 1.128.995 1.834a.75.75 0 0 1-1.436.432c-.138-.46-.397-.89-.753-1.357a18.111 18.111 0 0 0-.582-.714l-.092-.11c-.18-.212-.37-.436-.555-.667C4.87 12.016 4 10.651 4 8.618 4 4.363 7.415 1 12 1s8 3.362 8 7.619c0 2.032-.87 3.397-1.755 4.5-.185.23-.375.454-.555.667l-.092.109c-.21.248-.405.481-.582.714-.356.467-.615.898-.753 1.357a.751.751 0 0 1-1.437-.432c.213-.706.592-1.303.997-1.834.202-.266.419-.524.63-.774l.095-.112c.18-.213.355-.42.527-.634.793-.99 1.425-2.025 1.425-3.561C18.5 5.243 15.81 2.5 12 2.5ZM8.75 18h6.5a.75.75 0 0 1 0 1.5h-6.5a.75.75 0 0 1 0-1.5Zm.75 3.75a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 0 1.5h-3.5a.75.75 0 0 1-.75-.75Z"/>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="min-w-0 max-w-full">
+                                                        <span class="block font-header-text leading-tight">Neonyte</span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+        
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </template>
+        </doc-sidebar>
+
+        <div class="grow min-w-0 bg-body-bg">
+            <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+<div class="flex">
+    <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
+        <main class="relative pb-12 lg:pt-2">
+            <div class="relative retype-markdown" id="retype-content">
+                <!-- Rendered if sidebar right is enabled -->
+                <div id="retype-sidebar-right-toggle"></div>
+                <nav id="retype-breadcrumb" class="breadcrumb" aria-label="Breadcrumb">
+                    <ol role="list">
+                        <li class="pr-4">
+                            <a href="../../" class="pr-4">
+                                Products
+                            </a>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/>
+                            </svg>
+                        </li>
+                        <li class="pr-4">
+                            <a href="../../neonyte/" class="pr-4">
+                                Neonyte
+                            </a>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/>
+                            </svg>
+                        </li>
+                        <li class="pr-4">
+                            <a href="../../neonyte/control/" class="pr-4">
+                                Control
+                            </a>
+                        </li>
+                    </ol>
+                </nav>
+
+                <doc-page-actions></doc-page-actions>
+
+                <!-- Page content  -->
+<h1 id="control">Control</h1>
+<p>Every decision Neonyte makes has a default. Press <strong>Give me the Signs</strong> with nothing else set and you get a complete street.</p>
+<p>Three levels of control sit on top of those defaults: Adjustment Notes, the Advanced rows, and the VEXpression hooks. They reach the same decisions three different ways.</p>
+<h2 id="the-three-levels">The three levels</h2>
+<retype-table copy-text="| Level | Where it lives | How exact | When to use it |
+| --- | --- | --- | --- |
+| Adjustment Notes | One text field in the Content tab | Changes how likely things are | Art-directing a whole street fast |
+| Advanced rows | 52 rows in Manual Overrides (Global), street-wide | Sets one decision exactly | Pinning one decision for the whole street |
+| A sign's card | The Note, Title, Subtitle and Business Group on each sign's card | Sets one sign | Steering one sign without touching the rest |
+| VEXpression | Two fields, VEXpression (Per Sign) and VEXpression Override | Exact, per sign, can read the input geometry | Per-sign control, or anything driven by the geometry |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Level</th>
+<th>Where it lives</th>
+<th>How exact</th>
+<th>When to use it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Adjustment Notes</td>
+<td>One text field in the Content tab</td>
+<td>Changes how likely things are</td>
+<td>Art-directing a whole street fast</td>
+</tr>
+<tr>
+<td>Advanced rows</td>
+<td>52 rows in Manual Overrides (Global), street-wide</td>
+<td>Sets one decision exactly</td>
+<td>Pinning one decision for the whole street</td>
+</tr>
+<tr>
+<td>A sign&#x27;s card</td>
+<td>The Note, Title, Subtitle and Business Group on each sign&#x27;s card</td>
+<td>Sets one sign</td>
+<td>Steering one sign without touching the rest</td>
+</tr>
+<tr>
+<td>VEXpression</td>
+<td>Two fields, VEXpression (Per Sign) and VEXpression Override</td>
+<td>Exact, per sign, can read the input geometry</td>
+<td>Per-sign control, or anything driven by the geometry</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h2 id="precedence">Precedence</h2>
+<p>Each level overrides the ones above it. An override replaces the value rather than blending with it. A card whose Note says <code translate="no" v-pre>yellow</code> beats a street-wide Colour row set to something else. The status bar says which control overrode a note.</p>
+<retype-table copy-text="| Order | Source | Effect |
+| --- | --- | --- |
+| 1 (weakest) | Theme preset | Sets the base weighting everything else starts from |
+| 2 | Adjustment Notes | Merged over the theme |
+| 3 | Street-wide Advanced rows | Overlay, replaces |
+| 4 | The sign's own card (its Note, Title, Subtitle, Business Group) | Overlay, replaces |
+| 5 | Pre-plan VEXpression `force_*` | Overlay, replaces - wins over everything above |
+| 6 (strongest) | Post-plan VEXpression | Runs after everything, on the finished plan - the last word before geometry is built |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Order</th>
+<th>Source</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 (weakest)</td>
+<td>Theme preset</td>
+<td>Sets the base weighting everything else starts from</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Adjustment Notes</td>
+<td>Merged over the theme</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Street-wide Advanced rows</td>
+<td>Overlay, replaces</td>
+</tr>
+<tr>
+<td>4</td>
+<td>The sign&#x27;s own card (its Note, Title, Subtitle, Business Group)</td>
+<td>Overlay, replaces</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Pre-plan VEXpression <code translate="no" v-pre>force_*</code></td>
+<td>Overlay, replaces - wins over everything above</td>
+</tr>
+<tr>
+<td>6 (strongest)</td>
+<td>Post-plan VEXpression</td>
+<td>Runs after everything, on the finished plan - the last word before geometry is built</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h2 id="every-control-at-a-glance">Every control at a glance</h2>
+<p>Every control, and the three ways to reach it. A blank cell means that control cannot be reached at that level; hardware has no pre-plan VEXpression hook, so change hardware from the post-plan VEXpression Override instead.</p>
+<retype-table copy-text="| Section | Control | Parm | VEXpression | In a note |
+|---|---|---|---|---|
+| Aging | Deterioration | `decay` | `s@force_decay_mode` | fresh, immaculate, maintained |
+| Aging | Deterioration Amount | `decay_amt` | `s@force_decay_amt` | abandoned, aged, battered, broken |
+| Colour | Colour families | - | - | warmer, cooler, pastel, acid, jewel |
+| Colour | One palette for the street | - | - | consistent, all the same, one palette |
+| Content | Business Type | `ga_type` | `s@force_type` | adult, arcade, arcades, auto, only bars |
+| Content | Era | `ga_era` | `s@force_era` | 1900s, 1910s, 1920s, 1930s |
+| Content | Name Form | `ga_form` | `s@force_form` | acronym, acronyms, attested, categories |
+| Content | Script | `ga_script` | `s@force_script` | arab, arabic, cantonese, cyrillic |
+| Content | Theme | `theme` | `s@force_theme` | americana, brash, classy, cyber |
+| Content | Title Auto-Fit | `ga_txt_fit` | `s@force_txt_fit` | fill the sign, leave the title alone |
+| Content | Title Offset X | `ga_txt_offx` | `s@force_txt_offx` | nudge the title left, nudge the title right |
+| Content | Title Offset Y | `ga_txt_offy` | `s@force_txt_offy` | nudge the title up, nudge the title down |
+| Content | Title Rotate | `ga_txt_rot` | `s@force_txt_rot` | tilted, angled, slanted, level titles, straight titles |
+| Content | Title Tracking | `ga_txt_track` | `s@force_txt_track` | tighter lettering, tight tracking, wider tracking, looser lettering, spaced out |
+| Decor | Background Decor | `ga_bg` | `s@force_bg` | background decor, a backdrop |
+| Decor | Dashed Decor | `ga_dash` | `s@force_dash` | dashed, dotted |
+| Decor | Decor Count | `ga_decor_n` | `s@force_decor_n` | busier, busy, busiest, simplest, sparse |
+| Decor | Decor Family | `ga_ornaments` | `s@force_ornaments` | arrow, arrows, badge, badges |
+| Decor | Decor Stroke Lines | `ga_strokes` | `s@force_strokes` | thicker decor lines, thin decor lines |
+| Hardware | Backing | `ga_hw_l1` | - | panel, panels, plate, backboard, scaffolding |
+| Hardware | Backing Margin | `ga_hw_margin` | - | tight margin, generous margin |
+| Hardware | Backing Size | `ga_hw_fit` | - | fitted backing |
+| Hardware | Bracing | `ga_hw_brace` | - | trussed, cross braced |
+| Hardware | Cable Runs | `ga_hw_cab_n` | - | cable, cables, clean mounts, tidy mounts |
+| Hardware | Electrical Box Style | `ga_hw_eb_style` | - | driver brick, led panel box |
+| Hardware | Electrical Boxes | `ga_hw_eb_n` | - | electrical box, junction box |
+| Hardware | Frame Depth | `ga_hw_tr_base` | - | deep frame, shallow frame |
+| Hardware | Member Section | `ga_hw_profile` | - | square section |
+| Hardware | Metal Tone | `ga_hw_grey` | - | dark metal, pale metal, bright metal |
+| Hardware | Minimal Run Count | `ga_hw_min_n` | - | one run, two runs, three runs |
+| Hardware | Panel Edge | `ga_hw_edge` | - | outset edge, inset edge, square edge |
+| Hardware | Part-Panel Division | `ga_hw_mix` | - | top plate, bottom plate, left plate, right plate, band plate |
+| Hardware | Rim Frame | `ga_hw_frame` | - | rim frame |
+| Hardware | Rivet Layout | `ga_hw_rivet` | - | rivet, rivets |
+| Hardware | Roof Frame Bracing | `ga_hw_tr_brace` | - | roof bracing |
+| Hardware | Roof Frame Count | `ga_hw_tr_n` | - | roof frame |
+| Hardware | Roof Frame Purlins | `ga_hw_tr_tie` | - | purlins |
+| Hardware | Sign Silhouette | `ga_hw_shape` | - | rect shaped, rect signs, ellipse shaped, ellipse signs, rounded shaped |
+| Hardware | Standoff Count | `ga_hw_l3n` | - | standoff, standoffs, spacers |
+| Hardware | Standoff Spacing | `ga_hw_l3pat` | - | evenly spaced standoffs, standoffs in pairs |
+| Hardware | Standoffs Reach For The Wall | `ga_hw_l3fan` | - | legs to the wall, standoffs to the wall |
+| Hardware | Sub-Frame | `ga_hw_l2` | - | spine frame, cross frame, ladder frame |
+| Layout | Alignment | `ga_align` | `s@force_align` | centred titles, centered titles, left aligned, right aligned |
+| Layout | Composition | `ga_arch` | `s@force_arch` | horizontal lockup, wordmark, split composition, mark only, emblem composition |
+| Layout | Icon Presence | `ga_icon` | `s@force_icon` | icons, symbols, no icons |
+| Layout | Letter Swapped For Icon | `ga_glyph` | `s@force_glyph` | letter swap, swap a letter, letter for an icon |
+| Layout | Named Layout | `ga_layout` | `s@force_layout` | underlined, framed, with borders, bordered |
+| Modifier | Scale that strength | - | - | a bit, slightly, very, way, max |
+| Modifier | Strength of a clause | - | - | no, fewer, more, mostly, only |
+| Scope | Aim at a trade | - | - | yellow on the bars, red for the diners |
+| Scope | Aim at part of the street | - | - | big signs, the vertical ones, rooftop signs, every other sign |
+| Scope | Everything but | - | - | except, apart from, other than |
+| Type | Brightness | `ga_emit` | `s@force_emit` | blazing, blinding, bright, brighter |
+| Type | Colour | `ga_colors` | `s@force_colors` | amber, amethyst, apricot, aqua, only red |
+| Type | Font Class | `ga_fontclass` | `s@force_fontclass` | army, bold, cursive, deco |
+| Type | Font Style | `ga_font` | `s@force_font` | army, bold, cursive, deco |
+| Type | Title Colour Policy | `ga_col_mode` | `s@force_col_mode` | one colour per sign, one color per sign, single colour, single color, one colour titles |
+| Type | Tube Gauge | `ga_gauge` | `s@force_gauge` | lightest gauge, fine gauge, medium gauge, fat gauge, heaviest gauge |
+| Type | Tube Thickness | `ga_radius` | `s@force_radius` | beefy, bolder, boldest, bulky |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Section</th>
+<th>Control</th>
+<th>Parm</th>
+<th>VEXpression</th>
+<th>In a note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aging</td>
+<td>Deterioration</td>
+<td><code translate="no" v-pre>decay</code></td>
+<td><code translate="no" v-pre>s@force_decay_mode</code></td>
+<td>fresh, immaculate, maintained</td>
+</tr>
+<tr>
+<td>Aging</td>
+<td>Deterioration Amount</td>
+<td><code translate="no" v-pre>decay_amt</code></td>
+<td><code translate="no" v-pre>s@force_decay_amt</code></td>
+<td>abandoned, aged, battered, broken</td>
+</tr>
+<tr>
+<td>Colour</td>
+<td>Colour families</td>
+<td>-</td>
+<td>-</td>
+<td>warmer, cooler, pastel, acid, jewel</td>
+</tr>
+<tr>
+<td>Colour</td>
+<td>One palette for the street</td>
+<td>-</td>
+<td>-</td>
+<td>consistent, all the same, one palette</td>
+</tr>
+<tr>
+<td>Content</td>
+<td>Business Type</td>
+<td><code translate="no" v-pre>ga_type</code></td>
+<td><code translate="no" v-pre>s@force_type</code></td>
+<td>adult, arcade, arcades, auto, only bars</td>
+</tr>
+<tr>
+<td>Content</td>
+<td>Era</td>
+<td><code translate="no" v-pre>ga_era</code></td>
+<td><code translate="no" v-pre>s@force_era</code></td>
+<td>1900s, 1910s, 1920s, 1930s</td>
+</tr>
+<tr>
+<td>Content</td>
+<td>Name Form</td>
+<td><code translate="no" v-pre>ga_form</code></td>
+<td><code translate="no" v-pre>s@force_form</code></td>
+<td>acronym, acronyms, attested, categories</td>
+</tr>
+<tr>
+<td>Content</td>
+<td>Script</td>
+<td><code translate="no" v-pre>ga_script</code></td>
+<td><code translate="no" v-pre>s@force_script</code></td>
+<td>arab, arabic, cantonese, cyrillic</td>
+</tr>
+<tr>
+<td>Content</td>
+<td>Theme</td>
+<td><code translate="no" v-pre>theme</code></td>
+<td><code translate="no" v-pre>s@force_theme</code></td>
+<td>americana, brash, classy, cyber</td>
+</tr>
+<tr>
+<td>Content</td>
+<td>Title Auto-Fit</td>
+<td><code translate="no" v-pre>ga_txt_fit</code></td>
+<td><code translate="no" v-pre>s@force_txt_fit</code></td>
+<td>fill the sign, leave the title alone</td>
+</tr>
+<tr>
+<td>Content</td>
+<td>Title Offset X</td>
+<td><code translate="no" v-pre>ga_txt_offx</code></td>
+<td><code translate="no" v-pre>s@force_txt_offx</code></td>
+<td>nudge the title left, nudge the title right</td>
+</tr>
+<tr>
+<td>Content</td>
+<td>Title Offset Y</td>
+<td><code translate="no" v-pre>ga_txt_offy</code></td>
+<td><code translate="no" v-pre>s@force_txt_offy</code></td>
+<td>nudge the title up, nudge the title down</td>
+</tr>
+<tr>
+<td>Content</td>
+<td>Title Rotate</td>
+<td><code translate="no" v-pre>ga_txt_rot</code></td>
+<td><code translate="no" v-pre>s@force_txt_rot</code></td>
+<td>tilted, angled, slanted, level titles, straight titles</td>
+</tr>
+<tr>
+<td>Content</td>
+<td>Title Tracking</td>
+<td><code translate="no" v-pre>ga_txt_track</code></td>
+<td><code translate="no" v-pre>s@force_txt_track</code></td>
+<td>tighter lettering, tight tracking, wider tracking, looser lettering, spaced out</td>
+</tr>
+<tr>
+<td>Decor</td>
+<td>Background Decor</td>
+<td><code translate="no" v-pre>ga_bg</code></td>
+<td><code translate="no" v-pre>s@force_bg</code></td>
+<td>background decor, a backdrop</td>
+</tr>
+<tr>
+<td>Decor</td>
+<td>Dashed Decor</td>
+<td><code translate="no" v-pre>ga_dash</code></td>
+<td><code translate="no" v-pre>s@force_dash</code></td>
+<td>dashed, dotted</td>
+</tr>
+<tr>
+<td>Decor</td>
+<td>Decor Count</td>
+<td><code translate="no" v-pre>ga_decor_n</code></td>
+<td><code translate="no" v-pre>s@force_decor_n</code></td>
+<td>busier, busy, busiest, simplest, sparse</td>
+</tr>
+<tr>
+<td>Decor</td>
+<td>Decor Family</td>
+<td><code translate="no" v-pre>ga_ornaments</code></td>
+<td><code translate="no" v-pre>s@force_ornaments</code></td>
+<td>arrow, arrows, badge, badges</td>
+</tr>
+<tr>
+<td>Decor</td>
+<td>Decor Stroke Lines</td>
+<td><code translate="no" v-pre>ga_strokes</code></td>
+<td><code translate="no" v-pre>s@force_strokes</code></td>
+<td>thicker decor lines, thin decor lines</td>
+</tr>
+<tr>
+<td>Hardware</td>
+<td>Backing</td>
+<td><code translate="no" v-pre>ga_hw_l1</code></td>
+<td>-</td>
+<td>panel, panels, plate, backboard, scaffolding</td>
+</tr>
+<tr>
+<td>Hardware</td>
+<td>Backing Margin</td>
+<td><code translate="no" v-pre>ga_hw_margin</code></td>
+<td>-</td>
+<td>tight margin, generous margin</td>
+</tr>
+<tr>
+<td>Hardware</td>
+<td>Backing Size</td>
+<td><code translate="no" v-pre>ga_hw_fit</code></td>
+<td>-</td>
+<td>fitted backing</td>
+</tr>
+<tr>
+<td>Hardware</td>
+<td>Bracing</td>
+<td><code translate="no" v-pre>ga_hw_brace</code></td>
+<td>-</td>
+<td>trussed, cross braced</td>
+</tr>
+<tr>
+<td>Hardware</td>
+<td>Cable Runs</td>
+<td><code translate="no" v-pre>ga_hw_cab_n</code></td>
+<td>-</td>
+<td>cable, cables, clean mounts, tidy mounts</td>
+</tr>
+<tr>
+<td>Hardware</td>
+<td>Electrical Box Style</td>
+<td><code translate="no" v-pre>ga_hw_eb_style</code></td>
+<td>-</td>
+<td>driver brick, led panel box</td>
+</tr>
+<tr>
+<td>Hardware</td>
+<td>Electrical Boxes</td>
+<td><code translate="no" v-pre>ga_hw_eb_n</code></td>
+<td>-</td>
+<td>electrical box, junction box</td>
+</tr>
+<tr>
+<td>Hardware</td>
+<td>Frame Depth</td>
+<td><code translate="no" v-pre>ga_hw_tr_base</code></td>
+<td>-</td>
+<td>deep frame, shallow frame</td>
+</tr>
+<tr>
+<td>Hardware</td>
+<td>Member Section</td>
+<td><code translate="no" v-pre>ga_hw_profile</code></td>
+<td>-</td>
+<td>square section</td>
+</tr>
+<tr>
+<td>Hardware</td>
+<td>Metal Tone</td>
+<td><code translate="no" v-pre>ga_hw_grey</code></td>
+<td>-</td>
+<td>dark metal, pale metal, bright metal</td>
+</tr>
+<tr>
+<td>Hardware</td>
+<td>Minimal Run Count</td>
+<td><code translate="no" v-pre>ga_hw_min_n</code></td>
+<td>-</td>
+<td>one run, two runs, three runs</td>
+</tr>
+<tr>
+<td>Hardware</td>
+<td>Panel Edge</td>
+<td><code translate="no" v-pre>ga_hw_edge</code></td>
+<td>-</td>
+<td>outset edge, inset edge, square edge</td>
+</tr>
+<tr>
+<td>Hardware</td>
+<td>Part-Panel Division</td>
+<td><code translate="no" v-pre>ga_hw_mix</code></td>
+<td>-</td>
+<td>top plate, bottom plate, left plate, right plate, band plate</td>
+</tr>
+<tr>
+<td>Hardware</td>
+<td>Rim Frame</td>
+<td><code translate="no" v-pre>ga_hw_frame</code></td>
+<td>-</td>
+<td>rim frame</td>
+</tr>
+<tr>
+<td>Hardware</td>
+<td>Rivet Layout</td>
+<td><code translate="no" v-pre>ga_hw_rivet</code></td>
+<td>-</td>
+<td>rivet, rivets</td>
+</tr>
+<tr>
+<td>Hardware</td>
+<td>Roof Frame Bracing</td>
+<td><code translate="no" v-pre>ga_hw_tr_brace</code></td>
+<td>-</td>
+<td>roof bracing</td>
+</tr>
+<tr>
+<td>Hardware</td>
+<td>Roof Frame Count</td>
+<td><code translate="no" v-pre>ga_hw_tr_n</code></td>
+<td>-</td>
+<td>roof frame</td>
+</tr>
+<tr>
+<td>Hardware</td>
+<td>Roof Frame Purlins</td>
+<td><code translate="no" v-pre>ga_hw_tr_tie</code></td>
+<td>-</td>
+<td>purlins</td>
+</tr>
+<tr>
+<td>Hardware</td>
+<td>Sign Silhouette</td>
+<td><code translate="no" v-pre>ga_hw_shape</code></td>
+<td>-</td>
+<td>rect shaped, rect signs, ellipse shaped, ellipse signs, rounded shaped</td>
+</tr>
+<tr>
+<td>Hardware</td>
+<td>Standoff Count</td>
+<td><code translate="no" v-pre>ga_hw_l3n</code></td>
+<td>-</td>
+<td>standoff, standoffs, spacers</td>
+</tr>
+<tr>
+<td>Hardware</td>
+<td>Standoff Spacing</td>
+<td><code translate="no" v-pre>ga_hw_l3pat</code></td>
+<td>-</td>
+<td>evenly spaced standoffs, standoffs in pairs</td>
+</tr>
+<tr>
+<td>Hardware</td>
+<td>Standoffs Reach For The Wall</td>
+<td><code translate="no" v-pre>ga_hw_l3fan</code></td>
+<td>-</td>
+<td>legs to the wall, standoffs to the wall</td>
+</tr>
+<tr>
+<td>Hardware</td>
+<td>Sub-Frame</td>
+<td><code translate="no" v-pre>ga_hw_l2</code></td>
+<td>-</td>
+<td>spine frame, cross frame, ladder frame</td>
+</tr>
+<tr>
+<td>Layout</td>
+<td>Alignment</td>
+<td><code translate="no" v-pre>ga_align</code></td>
+<td><code translate="no" v-pre>s@force_align</code></td>
+<td>centred titles, centered titles, left aligned, right aligned</td>
+</tr>
+<tr>
+<td>Layout</td>
+<td>Composition</td>
+<td><code translate="no" v-pre>ga_arch</code></td>
+<td><code translate="no" v-pre>s@force_arch</code></td>
+<td>horizontal lockup, wordmark, split composition, mark only, emblem composition</td>
+</tr>
+<tr>
+<td>Layout</td>
+<td>Icon Presence</td>
+<td><code translate="no" v-pre>ga_icon</code></td>
+<td><code translate="no" v-pre>s@force_icon</code></td>
+<td>icons, symbols, no icons</td>
+</tr>
+<tr>
+<td>Layout</td>
+<td>Letter Swapped For Icon</td>
+<td><code translate="no" v-pre>ga_glyph</code></td>
+<td><code translate="no" v-pre>s@force_glyph</code></td>
+<td>letter swap, swap a letter, letter for an icon</td>
+</tr>
+<tr>
+<td>Layout</td>
+<td>Named Layout</td>
+<td><code translate="no" v-pre>ga_layout</code></td>
+<td><code translate="no" v-pre>s@force_layout</code></td>
+<td>underlined, framed, with borders, bordered</td>
+</tr>
+<tr>
+<td>Modifier</td>
+<td>Scale that strength</td>
+<td>-</td>
+<td>-</td>
+<td>a bit, slightly, very, way, max</td>
+</tr>
+<tr>
+<td>Modifier</td>
+<td>Strength of a clause</td>
+<td>-</td>
+<td>-</td>
+<td>no, fewer, more, mostly, only</td>
+</tr>
+<tr>
+<td>Scope</td>
+<td>Aim at a trade</td>
+<td>-</td>
+<td>-</td>
+<td>yellow on the bars, red for the diners</td>
+</tr>
+<tr>
+<td>Scope</td>
+<td>Aim at part of the street</td>
+<td>-</td>
+<td>-</td>
+<td>big signs, the vertical ones, rooftop signs, every other sign</td>
+</tr>
+<tr>
+<td>Scope</td>
+<td>Everything but</td>
+<td>-</td>
+<td>-</td>
+<td>except, apart from, other than</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Brightness</td>
+<td><code translate="no" v-pre>ga_emit</code></td>
+<td><code translate="no" v-pre>s@force_emit</code></td>
+<td>blazing, blinding, bright, brighter</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Colour</td>
+<td><code translate="no" v-pre>ga_colors</code></td>
+<td><code translate="no" v-pre>s@force_colors</code></td>
+<td>amber, amethyst, apricot, aqua, only red</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Font Class</td>
+<td><code translate="no" v-pre>ga_fontclass</code></td>
+<td><code translate="no" v-pre>s@force_fontclass</code></td>
+<td>army, bold, cursive, deco</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Font Style</td>
+<td><code translate="no" v-pre>ga_font</code></td>
+<td><code translate="no" v-pre>s@force_font</code></td>
+<td>army, bold, cursive, deco</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Title Colour Policy</td>
+<td><code translate="no" v-pre>ga_col_mode</code></td>
+<td><code translate="no" v-pre>s@force_col_mode</code></td>
+<td>one colour per sign, one color per sign, single colour, single color, one colour titles</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Tube Gauge</td>
+<td><code translate="no" v-pre>ga_gauge</code></td>
+<td><code translate="no" v-pre>s@force_gauge</code></td>
+<td>lightest gauge, fine gauge, medium gauge, fat gauge, heaviest gauge</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Tube Thickness</td>
+<td><code translate="no" v-pre>ga_radius</code></td>
+<td><code translate="no" v-pre>s@force_radius</code></td>
+<td>beefy, bolder, boldest, bulky</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h2 id="which-one-do-i-want">Which one do I want</h2>
+<ul>
+<li><strong>Adjustment Notes</strong> to art-direct a whole street fast, in plain language, without opening a single folder.</li>
+<li><strong>An Advanced row</strong> to pin one decision exactly across the street, when a note does not give you a strong enough guarantee. For one sign, use its card&#x27;s Note.</li>
+<li><strong>A VEXpression</strong> for exact per-sign control, for a decision the rows and notes do not cover, or for anything that has to be driven by the input geometry itself rather than by a fixed rule.</li>
+</ul>
+<h2 id="in-this-section">In this section</h2>
+<ul>
+<li><a href="vexpression/">VEXpression</a> - the two script hooks and what each one reaches.</li>
+<li><a href="advanced/">Advanced rows</a> - the 52 street-wide and per-sign controls.</li>
+<li><a href="notes/">Adjustment Notes</a> - the plain-language steering vocabulary.</li>
+<li><a href="defaults/">Defaults and weights</a> - what the engine does with nothing set.</li>
+</ul>
+<div id="retype-backlinks">
+    <h2>See also</h2>
+<div class="card-compact-group">
+<div class="card-compact-container">
+    <a href="/docs/neonyte/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><img width="20" height="20" src="static/neonyte_icon.svg"></span>
+                <span class="card-compact-title">Neonyte</span>
+            </div>
+            <p class="card-compact-description">Neonyte is a Houdini SOP that turns placeholder boxes into generated neon signs: lettering, icons, decor tubes, the metal rig behind them, and a Karma material - for dressing buildings and streets.</p>
+        </div>
+    </a>
+</div>
+<div class="card-compact-container">
+    <a href="/docs/neonyte/using/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M12 2.5c-3.81 0-6.5 2.743-6.5 6.119 0 1.536.632 2.572 1.425 3.56.172.215.347.422.527.635l.096.112c.21.25.427.508.63.774.404.531.783 1.128.995 1.834a.75.75 0 0 1-1.436.432c-.138-.46-.397-.89-.753-1.357a18.111 18.111 0 0 0-.582-.714l-.092-.11c-.18-.212-.37-.436-.555-.667C4.87 12.016 4 10.651 4 8.618 4 4.363 7.415 1 12 1s8 3.362 8 7.619c0 2.032-.87 3.397-1.755 4.5-.185.23-.375.454-.555.667l-.092.109c-.21.248-.405.481-.582.714-.356.467-.615.898-.753 1.357a.751.751 0 0 1-1.437-.432c.213-.706.592-1.303.997-1.834.202-.266.419-.524.63-.774l.095-.112c.18-.213.355-.42.527-.634.793-.99 1.425-2.025 1.425-3.561C18.5 5.243 15.81 2.5 12 2.5ZM8.75 18h6.5a.75.75 0 0 1 0 1.5h-6.5a.75.75 0 0 1 0-1.5Zm.75 3.75a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 0 1.5h-3.5a.75.75 0 0 1-.75-.75Z"/></svg></span>
+                <span class="card-compact-title">Using Neonyte</span>
+            </div>
+            <p class="card-compact-description">Seed is the number the whole street is built from. Change it for a different street.</p>
+        </div>
+    </a>
+</div>
+</div>
+</div>
+
+                <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
+                
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-09-09T13:02:56" title="2026-09-09" data-absolute-label="Last updated on 2026-09-09" data-absolute-label-html="Last updated on 2026-09-09" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-09-09
+                    </time>
+                </div>
+
+                <!-- Required only on API pages -->
+                <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
+            </div>
+            <footer id="retype-content-footer" class="clear-both">
+            
+                <nav id="retype-nextprev" class="print:hidden flex mt-14">
+                    <div class="w-1/2">
+                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../neonyte/rendering/">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                            <span>
+                                <span class="block text-xs font-normal text-base-text-muted">Previous</span>
+                                <span class="block mt-1">Rendering</span>
+                            </span>
+                        </a>
+                    </div>
+            
+                    <div class="w-1/2">
+                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../neonyte/control/vexpression/">
+                            <span>
+                                <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
+                                <span class="block mt-1">VE​Xpression</span>
+                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                        </a>
+                    </div>
+                </nav>
+            </footer>
+        </main>
+
+        <div id="retype-page-footer" class="print:border-none border-t border-base-border pt-6 mb-8">
+            <footer class="flex flex-wrap items-center justify-between print:justify-center">
+                <div id="retype-footer-links" class="print:hidden">
+                    <ul class="flex flex-wrap items-center text-sm">
+                        <li>
+                            <a class="block mr-4 py-2 text-sm whitespace-nowrap transition-colors duration-200 ease-linear text-footer-link hover:text-footer-link-hover md:mb-0" href="https://jvtools.dev/privacy" title="How JVtools handles your data">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="retype-copyright" class="print:justify-center py-2 text-footer-text font-footer-link text-sm leading-relaxed"></div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Rendered if sidebar right is enabled -->
+    <!-- Sidebar right skeleton-->
+    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-sidebar-right-bg border-sidebar-right-border lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:translate-x-0 sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton">
+        <div class="pl-5">
+            <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+        </div>
+    </div>
+
+    <!-- User should be able to hide sidebar right -->
+    <doc-sidebar-right v-cloak></doc-sidebar-right>
+</div>
+
+        </div>
+    </div>
+
+    <doc-search-mobile></doc-search-mobile>
+    <doc-back-to-top></doc-back-to-top>
+</div>
+
+
+    <div id="retype-overlay-target"></div>
+
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Control", level: 2, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/neonyte/control/readme.md" }</script>
+</body>
+</html>

@@ -1,0 +1,1925 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="turbo-root" content="/docs">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.842266996519">
+
+    <!-- See retype.com -->
+    <meta name="generator" content="Retype 4.6.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Parameters</title>
+    <meta name="title" content="Parameters">
+    <meta name="description" content="Every control on the node, grouped by the folder it lives in. The description column is the first line of each control's own tooltip, so the two always agree.">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://jvtools.dev/docs/neonyte/reference/parameters/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://jvtools.dev/docs/sitemap.xml">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jvtools.dev/docs/neonyte/reference/parameters/">
+    <meta property="og:title" content="Parameters">
+    <meta property="og:description" content="Every control on the node, grouped by the folder it lives in. The description column is the first line of each control's own tooltip, so the two always agree.">
+    <meta property="og:site_name" content="JVtools">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://jvtools.dev/docs/neonyte/reference/parameters/">
+    <meta name="twitter:title" content="Parameters">
+    <meta name="twitter:description" content="Every control on the node, grouped by the folder it lives in. The description column is the first line of each control's own tooltip, so the two always agree.">
+
+    <!-- Alternate Markdown -->
+    <link rel="alternate" type="text/markdown" href="https://jvtools.dev/docs/neonyte/reference/parameters.md">
+
+    <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
+
+    <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
+    <link href="../../../resources/css/retype.css?v=4.6.0.842266996519" rel="stylesheet">
+
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.842266996519" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.842266996519" data-turbo-eval="false" defer></script>
+</head>
+<body>
+    <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
+    <div class="absolute bottom-0 left-0" style="top: 5rem; right: 50%"></div>
+
+    <header id="retype-header" class="sticky top-0 z-30 flex w-full h-16 bg-header-bg border-b border-header-border md:h-20">
+        <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
+            <!-- Mobile menu button skeleton -->
+            <button v-cloak class="skeleton retype-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-hidden rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+            <div v-cloak id="retype-sidebar-left-toggle-button"></div>
+    
+            <!-- Logo -->
+            <div class="flex items-center justify-between h-full py-2 md:w-75">
+                <div class="flex items-center px-2 md:px-6">
+                    <a id="retype-branding-logo" href="https://jvtools.dev/docs/" class="flex items-center leading-snug text-2xl">
+                        <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">JVtools</span>
+                    </a><span id="retype-branding-label" class="inline-flex mt-1 px-2 py-1 ml-4 text-xs font-medium leading-none items-center rounded-md bg-branding-label-bg text-branding-label-text ring-1 ring-branding-label-border ring-inset md:inline-block">Docs</span>
+                </div>
+    
+                <span class="hidden h-8 border-r md:inline-block border-base-border"></span>
+            </div>
+    
+            <div class="flex justify-between md:grow">
+                <!-- Top Nav -->
+                <nav id="retype-header-nav" class="hidden md:flex">
+                    <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+                        <li class="mr-6">
+                            <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"/>
+                                </svg>
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li class="mr-6 relative group/nav" data-retype-header-link-group>
+                            <span class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text cursor-default group-hover/nav:text-header-text-hover group-focus-within/nav:text-header-text-hover">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <path d="M12.876.64V.639l8.25 4.763c.541.313.875.89.875 1.515v9.525a1.75 1.75 0 0 1-.875 1.516l-8.25 4.762a1.748 1.748 0 0 1-1.75 0l-8.25-4.763a1.75 1.75 0 0 1-.875-1.515V6.917c0-.625.334-1.202.875-1.515L11.126.64a1.748 1.748 0 0 1 1.75 0Zm-1 1.298L4.251 6.34l7.75 4.474 7.75-4.474-7.625-4.402a.248.248 0 0 0-.25 0Zm.875 19.123 7.625-4.402a.25.25 0 0 0 .125-.216V7.639l-7.75 4.474ZM3.501 7.64v8.803c0 .09.048.172.125.216l7.625 4.402v-8.947Z"/>
+                                </svg>
+                                <span>Products</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 opacity-60" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </span>
+                            <span class="absolute bottom-full md:bottom-auto md:top-full" style="left: var(--header-links-dropdown-offset, 0rem); width: min(var(--header-links-dropdown-max-width, 300px), calc(100vw - 2rem)); height: var(--header-links-dropdown-gap, 0.5rem);"></span>
+                            <div class="absolute bottom-full md:bottom-auto md:top-full z-50 min-w-[180px] w-max opacity-0 invisible -translate-y-1 md:translate-y-1 group-hover/nav:translate-y-0 group-focus-within/nav:translate-y-0 group-hover/nav:opacity-100 group-focus-within/nav:opacity-100 group-hover/nav:visible group-focus-within/nav:visible pointer-events-none group-hover/nav:pointer-events-auto group-focus-within/nav:pointer-events-auto transition-all duration-150 ease-out" data-retype-header-link-menu style="left: var(--header-links-dropdown-offset, 0rem); margin-bottom: var(--header-links-dropdown-gap, 0.5rem); margin-top: var(--header-links-dropdown-gap, 0.5rem); max-width: min(var(--header-links-dropdown-max-width, 300px), calc(100vw - 2rem));">
+                                <ul class="flex flex-col rounded-lg border border-base-border bg-base-bg shadow-lg overflow-hidden w-full">
+                                    <li>
+                                        <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../../reallusion-importer/">
+                                            <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                    <path d="M12 2.5a5.5 5.5 0 0 1 3.096 10.047 9.005 9.005 0 0 1 5.9 8.181.75.75 0 1 1-1.499.044 7.5 7.5 0 0 0-14.993 0 .75.75 0 0 1-1.5-.045 9.005 9.005 0 0 1 5.9-8.18A5.5 5.5 0 0 1 12 2.5ZM8 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z"/>
+                                                </svg>
+                                            </span>
+                                            <span class="min-w-0 max-w-full">
+                                                <span class="block font-header-text leading-tight">Reallusion Importer</span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../../advanced-velocity/">
+                                            <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                    <path d="M15.716 1.329a1.341 1.341 0 0 1 2.109 1.55L15.147 9h4.161c1.623 0 2.372 2.016 1.143 3.075L8.102 22.721a1.148 1.148 0 0 1-1.81-1.317L8.996 15H4.674c-1.619 0-2.37-2.008-1.148-3.07l12.19-10.6Zm.452 1.595L4.51 13.061a.25.25 0 0 0 .164.439h5.45a.749.749 0 0 1 .692 1.041l-2.559 6.066 11.215-9.668a.25.25 0 0 0-.164-.439H14a.75.75 0 0 1-.687-1.05Z"/>
+                                                </svg>
+                                            </span>
+                                            <span class="min-w-0 max-w-full">
+                                                <span class="block font-header-text leading-tight">Advanced Velocity</span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../../rplidar-in/">
+                                            <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                    <path d="M20.485 2.515a.75.75 0 0 0-1.06 1.06A10.465 10.465 0 0 1 22.5 11c0 2.9-1.174 5.523-3.075 7.424a.75.75 0 0 0 1.06 1.061A11.965 11.965 0 0 0 24 11c0-3.314-1.344-6.315-3.515-8.485Zm-15.91 1.06a.75.75 0 0 0-1.06-1.06A11.965 11.965 0 0 0 0 11c0 3.313 1.344 6.314 3.515 8.485a.75.75 0 0 0 1.06-1.06A10.465 10.465 0 0 1 1.5 11c0-2.9 1.174-5.524 3.075-7.425ZM8.11 7.11a.75.75 0 0 0-1.06-1.06A6.98 6.98 0 0 0 5 11a6.98 6.98 0 0 0 2.05 4.95.75.75 0 0 0 1.06-1.061 5.48 5.48 0 0 1-1.61-3.89 5.48 5.48 0 0 1 1.61-3.888Zm8.84-1.06a.75.75 0 1 0-1.06 1.06A5.48 5.48 0 0 1 17.5 11a5.48 5.48 0 0 1-1.61 3.889.75.75 0 1 0 1.06 1.06A6.98 6.98 0 0 0 19 11a6.98 6.98 0 0 0-2.05-4.949ZM14 11a2 2 0 0 1-1.25 1.855v8.395a.75.75 0 0 1-1.5 0v-8.395A2 2 0 1 1 14 11Z"/>
+                                                </svg>
+                                            </span>
+                                            <span class="min-w-0 max-w-full">
+                                                <span class="block font-header-text leading-tight">RPLidar In</span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../../copout/">
+                                            <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                    <path d="M8.954 17H2.75A1.75 1.75 0 0 1 1 15.25V3.75C1 2.784 1.784 2 2.75 2h18.5c.966 0 1.75.784 1.75 1.75v11.5A1.75 1.75 0 0 1 21.25 17h-6.204c.171 1.375.805 2.652 1.769 3.757A.752.752 0 0 1 16.25 22h-8.5a.75.75 0 0 1-.565-1.243c.964-1.105 1.598-2.382 1.769-3.757ZM21.5 3.75a.25.25 0 0 0-.25-.25H2.75a.25.25 0 0 0-.25.25v11.5c0 .138.112.25.25.25h18.5a.25.25 0 0 0 .25-.25ZM13.537 17h-3.074c-.126 1.266-.564 2.445-1.223 3.5h5.52c-.659-1.055-1.098-2.234-1.223-3.5Z"/>
+                                                </svg>
+                                            </span>
+                                            <span class="min-w-0 max-w-full">
+                                                <span class="block font-header-text leading-tight">COPout</span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../../deoverlap-polylines/">
+                                            <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                    <path d="M15 4.75a3.25 3.25 0 1 1 6.5 0 3.25 3.25 0 0 1-6.5 0ZM2.5 19.25a3.25 3.25 0 1 1 6.5 0 3.25 3.25 0 0 1-6.5 0Zm0-14.5a3.25 3.25 0 1 1 6.5 0 3.25 3.25 0 0 1-6.5 0ZM5.75 6.5a1.75 1.75 0 1 0-.001-3.501A1.75 1.75 0 0 0 5.75 6.5Zm0 14.5a1.75 1.75 0 1 0-.001-3.501A1.75 1.75 0 0 0 5.75 21Zm12.5-14.5a1.75 1.75 0 1 0-.001-3.501A1.75 1.75 0 0 0 18.25 6.5Z"/><path d="M5.75 16.75A.75.75 0 0 1 5 16V8a.75.75 0 0 1 1.5 0v8a.75.75 0 0 1-.75.75Z"/><path d="M17.5 8.75v-1H19v1a3.75 3.75 0 0 1-3.75 3.75h-7a1.75 1.75 0 0 0-1.75 1.75H5A3.25 3.25 0 0 1 8.25 11h7a2.25 2.25 0 0 0 2.25-2.25Z"/>
+                                                </svg>
+                                            </span>
+                                            <span class="min-w-0 max-w-full">
+                                                <span class="block font-header-text leading-tight">Deoverlap Polylines</span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../../flip-dop-controller/">
+                                            <span class="mr-1.5 w-[18px] shrink-0"></span>
+                                            <span class="min-w-0 max-w-full">
+                                                <span class="block font-header-text leading-tight">FLIP DOP Controller</span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../../neonyte/">
+                                            <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                    <path d="M12 2.5c-3.81 0-6.5 2.743-6.5 6.119 0 1.536.632 2.572 1.425 3.56.172.215.347.422.527.635l.096.112c.21.25.427.508.63.774.404.531.783 1.128.995 1.834a.75.75 0 0 1-1.436.432c-.138-.46-.397-.89-.753-1.357a18.111 18.111 0 0 0-.582-.714l-.092-.11c-.18-.212-.37-.436-.555-.667C4.87 12.016 4 10.651 4 8.618 4 4.363 7.415 1 12 1s8 3.362 8 7.619c0 2.032-.87 3.397-1.755 4.5-.185.23-.375.454-.555.667l-.092.109c-.21.248-.405.481-.582.714-.356.467-.615.898-.753 1.357a.751.751 0 0 1-1.437-.432c.213-.706.592-1.303.997-1.834.202-.266.419-.524.63-.774l.095-.112c.18-.213.355-.42.527-.634.793-.99 1.425-2.025 1.425-3.561C18.5 5.243 15.81 2.5 12 2.5ZM8.75 18h6.5a.75.75 0 0 1 0 1.5h-6.5a.75.75 0 0 1 0-1.5Zm.75 3.75a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 0 1.5h-3.5a.75.75 0 0 1-.75-.75Z"/>
+                                                </svg>
+                                            </span>
+                                            <span class="min-w-0 max-w-full">
+                                                <span class="block font-header-text leading-tight">Neonyte</span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+    
+                    </ul>
+                </nav>
+    
+                <div v-cloak class="flex justify-end grow">
+                    <div id="retype-mobile-search-button"></div>
+                    <doc-search-desktop></doc-search-desktop>
+    
+                    <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                    <doc-history></doc-history>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div id="retype-container" class="container relative flex bg-white">
+        <!-- Sidebar Skeleton -->
+        <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-sidebar-left-bg border-sidebar-left-border sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton">
+        
+            <div class="flex items-center h-16 px-6">
+                <input id="retype-filter-input-mock" class="w-full h-10 pl-8 px-3 py-2 transition-colors duration-200 ease-linear bg-filter-bg border border-filter-border rounded-lg shadow-none md:text-sm hover:border-filter-border-hover focus:outline-hidden focus:border-filter-border-focus placeholder-filter-placeholder" type="text">
+            </div>
+        
+            <div class="pl-6 mt-1 mb-4">
+                <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            </div>
+        
+        </div>
+        
+        <!-- Sidebar component -->
+        <doc-sidebar v-cloak>
+            <template #sidebar-footer>
+                <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-base-border">
+        
+                    <div class="py-3 px-6 md:hidden border-b dark:border-base-border">
+                        <nav>
+                            <ul class="flex flex-wrap justify-center items-center">
+                                <li class="mr-6">
+                                    <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                            <path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"/>
+                                        </svg>
+                                        <span>Home</span>
+                                    </a>
+                                </li>
+                                <li class="mr-6 relative group/nav" data-retype-header-link-group>
+                                    <span class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text cursor-default group-hover/nav:text-header-text-hover group-focus-within/nav:text-header-text-hover">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                            <path d="M12.876.64V.639l8.25 4.763c.541.313.875.89.875 1.515v9.525a1.75 1.75 0 0 1-.875 1.516l-8.25 4.762a1.748 1.748 0 0 1-1.75 0l-8.25-4.763a1.75 1.75 0 0 1-.875-1.515V6.917c0-.625.334-1.202.875-1.515L11.126.64a1.748 1.748 0 0 1 1.75 0Zm-1 1.298L4.251 6.34l7.75 4.474 7.75-4.474-7.625-4.402a.248.248 0 0 0-.25 0Zm.875 19.123 7.625-4.402a.25.25 0 0 0 .125-.216V7.639l-7.75 4.474ZM3.501 7.64v8.803c0 .09.048.172.125.216l7.625 4.402v-8.947Z"/>
+                                        </svg>
+                                        <span>Products</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 opacity-60" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                    </span>
+                                    <span class="absolute bottom-full md:bottom-auto md:top-full" style="left: var(--header-links-dropdown-offset, 0rem); width: min(var(--header-links-dropdown-max-width, 300px), calc(100vw - 2rem)); height: var(--header-links-dropdown-gap, 0.5rem);"></span>
+                                    <div class="absolute bottom-full md:bottom-auto md:top-full z-50 min-w-[180px] w-max opacity-0 invisible -translate-y-1 md:translate-y-1 group-hover/nav:translate-y-0 group-focus-within/nav:translate-y-0 group-hover/nav:opacity-100 group-focus-within/nav:opacity-100 group-hover/nav:visible group-focus-within/nav:visible pointer-events-none group-hover/nav:pointer-events-auto group-focus-within/nav:pointer-events-auto transition-all duration-150 ease-out" data-retype-header-link-menu style="left: var(--header-links-dropdown-offset, 0rem); margin-bottom: var(--header-links-dropdown-gap, 0.5rem); margin-top: var(--header-links-dropdown-gap, 0.5rem); max-width: min(var(--header-links-dropdown-max-width, 300px), calc(100vw - 2rem));">
+                                        <ul class="flex flex-col rounded-lg border border-base-border bg-base-bg shadow-lg overflow-hidden w-full">
+                                            <li>
+                                                <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../../reallusion-importer/">
+                                                    <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                            <path d="M12 2.5a5.5 5.5 0 0 1 3.096 10.047 9.005 9.005 0 0 1 5.9 8.181.75.75 0 1 1-1.499.044 7.5 7.5 0 0 0-14.993 0 .75.75 0 0 1-1.5-.045 9.005 9.005 0 0 1 5.9-8.18A5.5 5.5 0 0 1 12 2.5ZM8 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z"/>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="min-w-0 max-w-full">
+                                                        <span class="block font-header-text leading-tight">Reallusion Importer</span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../../advanced-velocity/">
+                                                    <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                            <path d="M15.716 1.329a1.341 1.341 0 0 1 2.109 1.55L15.147 9h4.161c1.623 0 2.372 2.016 1.143 3.075L8.102 22.721a1.148 1.148 0 0 1-1.81-1.317L8.996 15H4.674c-1.619 0-2.37-2.008-1.148-3.07l12.19-10.6Zm.452 1.595L4.51 13.061a.25.25 0 0 0 .164.439h5.45a.749.749 0 0 1 .692 1.041l-2.559 6.066 11.215-9.668a.25.25 0 0 0-.164-.439H14a.75.75 0 0 1-.687-1.05Z"/>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="min-w-0 max-w-full">
+                                                        <span class="block font-header-text leading-tight">Advanced Velocity</span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../../rplidar-in/">
+                                                    <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                            <path d="M20.485 2.515a.75.75 0 0 0-1.06 1.06A10.465 10.465 0 0 1 22.5 11c0 2.9-1.174 5.523-3.075 7.424a.75.75 0 0 0 1.06 1.061A11.965 11.965 0 0 0 24 11c0-3.314-1.344-6.315-3.515-8.485Zm-15.91 1.06a.75.75 0 0 0-1.06-1.06A11.965 11.965 0 0 0 0 11c0 3.313 1.344 6.314 3.515 8.485a.75.75 0 0 0 1.06-1.06A10.465 10.465 0 0 1 1.5 11c0-2.9 1.174-5.524 3.075-7.425ZM8.11 7.11a.75.75 0 0 0-1.06-1.06A6.98 6.98 0 0 0 5 11a6.98 6.98 0 0 0 2.05 4.95.75.75 0 0 0 1.06-1.061 5.48 5.48 0 0 1-1.61-3.89 5.48 5.48 0 0 1 1.61-3.888Zm8.84-1.06a.75.75 0 1 0-1.06 1.06A5.48 5.48 0 0 1 17.5 11a5.48 5.48 0 0 1-1.61 3.889.75.75 0 1 0 1.06 1.06A6.98 6.98 0 0 0 19 11a6.98 6.98 0 0 0-2.05-4.949ZM14 11a2 2 0 0 1-1.25 1.855v8.395a.75.75 0 0 1-1.5 0v-8.395A2 2 0 1 1 14 11Z"/>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="min-w-0 max-w-full">
+                                                        <span class="block font-header-text leading-tight">RPLidar In</span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../../copout/">
+                                                    <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                            <path d="M8.954 17H2.75A1.75 1.75 0 0 1 1 15.25V3.75C1 2.784 1.784 2 2.75 2h18.5c.966 0 1.75.784 1.75 1.75v11.5A1.75 1.75 0 0 1 21.25 17h-6.204c.171 1.375.805 2.652 1.769 3.757A.752.752 0 0 1 16.25 22h-8.5a.75.75 0 0 1-.565-1.243c.964-1.105 1.598-2.382 1.769-3.757ZM21.5 3.75a.25.25 0 0 0-.25-.25H2.75a.25.25 0 0 0-.25.25v11.5c0 .138.112.25.25.25h18.5a.25.25 0 0 0 .25-.25ZM13.537 17h-3.074c-.126 1.266-.564 2.445-1.223 3.5h5.52c-.659-1.055-1.098-2.234-1.223-3.5Z"/>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="min-w-0 max-w-full">
+                                                        <span class="block font-header-text leading-tight">COPout</span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../../deoverlap-polylines/">
+                                                    <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                            <path d="M15 4.75a3.25 3.25 0 1 1 6.5 0 3.25 3.25 0 0 1-6.5 0ZM2.5 19.25a3.25 3.25 0 1 1 6.5 0 3.25 3.25 0 0 1-6.5 0Zm0-14.5a3.25 3.25 0 1 1 6.5 0 3.25 3.25 0 0 1-6.5 0ZM5.75 6.5a1.75 1.75 0 1 0-.001-3.501A1.75 1.75 0 0 0 5.75 6.5Zm0 14.5a1.75 1.75 0 1 0-.001-3.501A1.75 1.75 0 0 0 5.75 21Zm12.5-14.5a1.75 1.75 0 1 0-.001-3.501A1.75 1.75 0 0 0 18.25 6.5Z"/><path d="M5.75 16.75A.75.75 0 0 1 5 16V8a.75.75 0 0 1 1.5 0v8a.75.75 0 0 1-.75.75Z"/><path d="M17.5 8.75v-1H19v1a3.75 3.75 0 0 1-3.75 3.75h-7a1.75 1.75 0 0 0-1.75 1.75H5A3.25 3.25 0 0 1 8.25 11h7a2.25 2.25 0 0 0 2.25-2.25Z"/>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="min-w-0 max-w-full">
+                                                        <span class="block font-header-text leading-tight">Deoverlap Polylines</span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../../flip-dop-controller/">
+                                                    <span class="mr-1.5 w-[18px] shrink-0"></span>
+                                                    <span class="min-w-0 max-w-full">
+                                                        <span class="block font-header-text leading-tight">FLIP DOP Controller</span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="flex items-start pl-4 pr-3 py-3 text-sm transition-colors duration-200 ease-linear text-header-text hover:text-header-text-hover hover:bg-base-item-bg-hover" href="../../../neonyte/">
+                                                    <span class="inline-flex items-center justify-center mr-1.5 w-[18px] shrink-0">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="block" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                                            <path d="M12 2.5c-3.81 0-6.5 2.743-6.5 6.119 0 1.536.632 2.572 1.425 3.56.172.215.347.422.527.635l.096.112c.21.25.427.508.63.774.404.531.783 1.128.995 1.834a.75.75 0 0 1-1.436.432c-.138-.46-.397-.89-.753-1.357a18.111 18.111 0 0 0-.582-.714l-.092-.11c-.18-.212-.37-.436-.555-.667C4.87 12.016 4 10.651 4 8.618 4 4.363 7.415 1 12 1s8 3.362 8 7.619c0 2.032-.87 3.397-1.755 4.5-.185.23-.375.454-.555.667l-.092.109c-.21.248-.405.481-.582.714-.356.467-.615.898-.753 1.357a.751.751 0 0 1-1.437-.432c.213-.706.592-1.303.997-1.834.202-.266.419-.524.63-.774l.095-.112c.18-.213.355-.42.527-.634.793-.99 1.425-2.025 1.425-3.561C18.5 5.243 15.81 2.5 12 2.5ZM8.75 18h6.5a.75.75 0 0 1 0 1.5h-6.5a.75.75 0 0 1 0-1.5Zm.75 3.75a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 0 1.5h-3.5a.75.75 0 0 1-.75-.75Z"/>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="min-w-0 max-w-full">
+                                                        <span class="block font-header-text leading-tight">Neonyte</span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+        
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </template>
+        </doc-sidebar>
+
+        <div class="grow min-w-0 bg-body-bg">
+            <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+<div class="flex">
+    <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
+        <main class="relative pb-12 lg:pt-2">
+            <div class="relative retype-markdown" id="retype-content">
+                <!-- Rendered if sidebar right is enabled -->
+                <div id="retype-sidebar-right-toggle"></div>
+                <nav id="retype-breadcrumb" class="breadcrumb" aria-label="Breadcrumb">
+                    <ol role="list">
+                        <li class="pr-4">
+                            <a href="../../../" class="pr-4">
+                                Products
+                            </a>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/>
+                            </svg>
+                        </li>
+                        <li class="pr-4">
+                            <a href="../../../neonyte/" class="pr-4">
+                                Neonyte
+                            </a>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/>
+                            </svg>
+                        </li>
+                        <li class="pr-4">
+                            <span class="pr-4">
+                                Reference
+                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/>
+                            </svg>
+                        </li>
+                        <li class="pr-4">
+                            <a href="../../../neonyte/reference/parameters/" class="pr-4">
+                                Parameters
+                            </a>
+                        </li>
+                    </ol>
+                </nav>
+
+                <doc-page-actions></doc-page-actions>
+
+                <!-- Page content  -->
+<h1 id="parameters">Parameters</h1>
+<p>Every control on the node, grouped by the folder it lives in. The description column is the first line of each control&#x27;s own tooltip, so the two always agree. The <code translate="no" v-pre>Internal name</code> column is what you use in a channel reference or a script.</p>
+<p>164 controls in total.</p>
+<p>The Manual Overrides (Global) folders are the street-wide half of the Advanced rows; each row also appears on every sign&#x27;s own card. See <a href="../../control/advanced/">Advanced rows</a> for how Auto and Custom work. The two VEXpression hooks are documented at <a href="../../control/vexpression/">VEXpression</a>.</p>
+<p>Rows inside a sign card carry a <code translate="no" v-pre>#</code> in the internal name; on the node it is replaced by the card number, so the Title on card 3 is <code translate="no" v-pre>psa_title3</code>.</p>
+<h3 id="top-level">Top level</h3>
+<retype-table copy-text="| Parameter | Internal name | Type | What it does |
+|---|---|---|---|
+| Give me the Signs | `randomize` | Button | Rebuilds every sign on the street using a new random seed, so pressing it again gives you a different set of names, layouts and colors. |
+| Done Editing | `done_editing` | Button | Calls off an edit that was started and never finished, and puts the display flag back on this node. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Internal name</th>
+<th>Type</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Give me the Signs</td>
+<td><code translate="no" v-pre>randomize</code></td>
+<td>Button</td>
+<td>Rebuilds every sign on the street using a new random seed, so pressing it again gives you a different set of names, layouts and colors.</td>
+</tr>
+<tr>
+<td>Done Editing</td>
+<td><code translate="no" v-pre>done_editing</code></td>
+<td>Button</td>
+<td>Calls off an edit that was started and never finished, and puts the display flag back on this node.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="sign-placement">Sign Placement</h3>
+<retype-table copy-text="| Parameter | Internal name | Type | What it does |
+|---|---|---|---|
+| Place Sign in Viewport | `place_start` | Button | Switches the viewport into placement mode - click any surface to drop a sign there. |
+| Edit Sign in Viewport | `edit_start` | Button | Lets you pick a sign in the viewport and put it back into placement mode, following the surface again. |
+| Placeholder Boxes Only | `boxes_only` | Toggle | Skips building the signs and shows just the placeholder boxes, so laying a street out stays responsive. |
+| Default Sign | `place_type` | Menu | Which kind of sign the placement tool starts with when you enter the viewport. |
+| Size | `place_scale` | Float | How big the next placed sign will be, as a multiplier on its normal size. |
+| Nudge Step | `place_nudge` | Float | How far one click of the mouse wheel pushes a sign off the surface it is sitting on, in metres. |
+| Rotation Step | `place_rot_step` | Float | How many degrees one click of the mouse wheel turns a latched sign. |
+| Max Tilt Off Surface | `place_tilt_max` | Float | The furthest a sign can be tilted away from the surface it is sitting on, in degrees. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Internal name</th>
+<th>Type</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Place Sign in Viewport</td>
+<td><code translate="no" v-pre>place_start</code></td>
+<td>Button</td>
+<td>Switches the viewport into placement mode - click any surface to drop a sign there.</td>
+</tr>
+<tr>
+<td>Edit Sign in Viewport</td>
+<td><code translate="no" v-pre>edit_start</code></td>
+<td>Button</td>
+<td>Lets you pick a sign in the viewport and put it back into placement mode, following the surface again.</td>
+</tr>
+<tr>
+<td>Placeholder Boxes Only</td>
+<td><code translate="no" v-pre>boxes_only</code></td>
+<td>Toggle</td>
+<td>Skips building the signs and shows just the placeholder boxes, so laying a street out stays responsive.</td>
+</tr>
+<tr>
+<td>Default Sign</td>
+<td><code translate="no" v-pre>place_type</code></td>
+<td>Menu</td>
+<td>Which kind of sign the placement tool starts with when you enter the viewport.</td>
+</tr>
+<tr>
+<td>Size</td>
+<td><code translate="no" v-pre>place_scale</code></td>
+<td>Float</td>
+<td>How big the next placed sign will be, as a multiplier on its normal size.</td>
+</tr>
+<tr>
+<td>Nudge Step</td>
+<td><code translate="no" v-pre>place_nudge</code></td>
+<td>Float</td>
+<td>How far one click of the mouse wheel pushes a sign off the surface it is sitting on, in metres.</td>
+</tr>
+<tr>
+<td>Rotation Step</td>
+<td><code translate="no" v-pre>place_rot_step</code></td>
+<td>Float</td>
+<td>How many degrees one click of the mouse wheel turns a latched sign.</td>
+</tr>
+<tr>
+<td>Max Tilt Off Surface</td>
+<td><code translate="no" v-pre>place_tilt_max</code></td>
+<td>Float</td>
+<td>The furthest a sign can be tilted away from the surface it is sitting on, in degrees.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="content--design">Content / Design</h3>
+<retype-table copy-text="| Parameter | Internal name | Type | What it does |
+|---|---|---|---|
+| Seed | `seed` | Int | The master number every sign on the street is generated from. |
+| Theme | `theme` | Menu | A style preset that shifts the mix of business types, colors, fonts and layouts toward a look. |
+| Adjustment Notes | `adjustment_notes` | String | Words the engine understands, in any order, then press Give me the Signs to apply them. |
+| Force Title | `force_title` | String | Puts the same words on every sign in the street, and leaves each one the typography, layout, colour and decor it drew. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Internal name</th>
+<th>Type</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Seed</td>
+<td><code translate="no" v-pre>seed</code></td>
+<td>Int</td>
+<td>The master number every sign on the street is generated from.</td>
+</tr>
+<tr>
+<td>Theme</td>
+<td><code translate="no" v-pre>theme</code></td>
+<td>Menu</td>
+<td>A style preset that shifts the mix of business types, colors, fonts and layouts toward a look.</td>
+</tr>
+<tr>
+<td>Adjustment Notes</td>
+<td><code translate="no" v-pre>adjustment_notes</code></td>
+<td>String</td>
+<td>Words the engine understands, in any order, then press Give me the Signs to apply them.</td>
+</tr>
+<tr>
+<td>Force Title</td>
+<td><code translate="no" v-pre>force_title</code></td>
+<td>String</td>
+<td>Puts the same words on every sign in the street, and leaves each one the typography, layout, colour and decor it drew.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="content--design--manual-overrides-global--content">Content / Design / Manual Overrides (Global) / Content</h3>
+<retype-table copy-text="| Parameter | Internal name | Type | What it does |
+|---|---|---|---|
+| Business Type | `ga_type_ctl` | Menu | Pins the trade every sign advertises, overriding whatever the engine would otherwise pick. |
+| Business Type | `ga_type` | Menu | Which trade to force on every sign when the row above is set to Custom. |
+| Name Form | `ga_form_ctl` | Menu | Pins the shape of every sign's name - a plain category sign, an owner's name, a place name, and so on. |
+| Name Form | `ga_form` | Menu | The shape of name to force when the row above is set to Custom. |
+| Era | `ga_era_ctl` | Menu | Weights every sign's owner name toward a decade. |
+| Era | `ga_era` | Menu | The decade to weight the owner's name toward, when the row above is set to Custom. |
+| Script | `ga_script_ctl` | Menu | Forces which writing script every sign's title uses. |
+| Script | `ga_script` | Menu | The writing script to force when the row above is set to Custom. |
+| Title Auto-Fit | `ga_txt_fit_ctl` | Menu | Controls how every sign's title is scaled to fill its space. |
+| Title Auto-Fit | `ga_txt_fit` | Menu | How the title is sized when the row above is set to Custom. |
+| Title Offset X | `ga_txt_offx_ctl` | Menu | Shifts the title sideways from where the layout would normally place it. |
+| Title Offset X | `ga_txt_offx` | Float | How far to shift the title sideways, as a fraction of the sign's width, when the row above is set to Custom. |
+| Title Offset Y | `ga_txt_offy_ctl` | Menu | Shifts the title up or down from where the layout would normally place it. |
+| Title Offset Y | `ga_txt_offy` | Float | How far to shift the title up or down, as a fraction of the sign's height, when the row above is set to Custom. |
+| Title Rotate | `ga_txt_rot_ctl` | Menu | Tilts the title away from its normal orientation. |
+| Title Rotate | `ga_txt_rot` | Float | How many degrees to tilt the title when the row above is set to Custom. |
+| Title Tracking | `ga_txt_track_ctl` | Menu | Adjusts the spacing between the title's letters. |
+| Title Tracking | `ga_txt_track` | Float | How much extra space to add between the title's letters when the row above is set to Custom. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Internal name</th>
+<th>Type</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Business Type</td>
+<td><code translate="no" v-pre>ga_type_ctl</code></td>
+<td>Menu</td>
+<td>Pins the trade every sign advertises, overriding whatever the engine would otherwise pick.</td>
+</tr>
+<tr>
+<td>Business Type</td>
+<td><code translate="no" v-pre>ga_type</code></td>
+<td>Menu</td>
+<td>Which trade to force on every sign when the row above is set to Custom.</td>
+</tr>
+<tr>
+<td>Name Form</td>
+<td><code translate="no" v-pre>ga_form_ctl</code></td>
+<td>Menu</td>
+<td>Pins the shape of every sign&#x27;s name - a plain category sign, an owner&#x27;s name, a place name, and so on.</td>
+</tr>
+<tr>
+<td>Name Form</td>
+<td><code translate="no" v-pre>ga_form</code></td>
+<td>Menu</td>
+<td>The shape of name to force when the row above is set to Custom.</td>
+</tr>
+<tr>
+<td>Era</td>
+<td><code translate="no" v-pre>ga_era_ctl</code></td>
+<td>Menu</td>
+<td>Weights every sign&#x27;s owner name toward a decade.</td>
+</tr>
+<tr>
+<td>Era</td>
+<td><code translate="no" v-pre>ga_era</code></td>
+<td>Menu</td>
+<td>The decade to weight the owner&#x27;s name toward, when the row above is set to Custom.</td>
+</tr>
+<tr>
+<td>Script</td>
+<td><code translate="no" v-pre>ga_script_ctl</code></td>
+<td>Menu</td>
+<td>Forces which writing script every sign&#x27;s title uses.</td>
+</tr>
+<tr>
+<td>Script</td>
+<td><code translate="no" v-pre>ga_script</code></td>
+<td>Menu</td>
+<td>The writing script to force when the row above is set to Custom.</td>
+</tr>
+<tr>
+<td>Title Auto-Fit</td>
+<td><code translate="no" v-pre>ga_txt_fit_ctl</code></td>
+<td>Menu</td>
+<td>Controls how every sign&#x27;s title is scaled to fill its space.</td>
+</tr>
+<tr>
+<td>Title Auto-Fit</td>
+<td><code translate="no" v-pre>ga_txt_fit</code></td>
+<td>Menu</td>
+<td>How the title is sized when the row above is set to Custom.</td>
+</tr>
+<tr>
+<td>Title Offset X</td>
+<td><code translate="no" v-pre>ga_txt_offx_ctl</code></td>
+<td>Menu</td>
+<td>Shifts the title sideways from where the layout would normally place it.</td>
+</tr>
+<tr>
+<td>Title Offset X</td>
+<td><code translate="no" v-pre>ga_txt_offx</code></td>
+<td>Float</td>
+<td>How far to shift the title sideways, as a fraction of the sign&#x27;s width, when the row above is set to Custom.</td>
+</tr>
+<tr>
+<td>Title Offset Y</td>
+<td><code translate="no" v-pre>ga_txt_offy_ctl</code></td>
+<td>Menu</td>
+<td>Shifts the title up or down from where the layout would normally place it.</td>
+</tr>
+<tr>
+<td>Title Offset Y</td>
+<td><code translate="no" v-pre>ga_txt_offy</code></td>
+<td>Float</td>
+<td>How far to shift the title up or down, as a fraction of the sign&#x27;s height, when the row above is set to Custom.</td>
+</tr>
+<tr>
+<td>Title Rotate</td>
+<td><code translate="no" v-pre>ga_txt_rot_ctl</code></td>
+<td>Menu</td>
+<td>Tilts the title away from its normal orientation.</td>
+</tr>
+<tr>
+<td>Title Rotate</td>
+<td><code translate="no" v-pre>ga_txt_rot</code></td>
+<td>Float</td>
+<td>How many degrees to tilt the title when the row above is set to Custom.</td>
+</tr>
+<tr>
+<td>Title Tracking</td>
+<td><code translate="no" v-pre>ga_txt_track_ctl</code></td>
+<td>Menu</td>
+<td>Adjusts the spacing between the title&#x27;s letters.</td>
+</tr>
+<tr>
+<td>Title Tracking</td>
+<td><code translate="no" v-pre>ga_txt_track</code></td>
+<td>Float</td>
+<td>How much extra space to add between the title&#x27;s letters when the row above is set to Custom.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="content--design--manual-overrides-global--type">Content / Design / Manual Overrides (Global) / Type</h3>
+<retype-table copy-text="| Parameter | Internal name | Type | What it does |
+|---|---|---|---|
+| Colour | `ga_colors_ctl` | Menu | Pins the neon color for every sign. |
+| Colour | `ga_colors` | Menu | The neon color to force when the row above is set to Custom. |
+| Font Class | `ga_fontclass_ctl` | Menu | Forces the general category of typeface, overriding whatever the name form would normally call for. |
+| Font Class | `ga_fontclass` | Menu | The typeface category to force when the row above is set to Custom. |
+| Font Style | `ga_font_ctl` | Menu | Prefers typefaces tagged with a particular style, such as stencil or gothic. |
+| Font Style | `ga_font` | Menu | The style tag to prefer when the row above is set to Custom, for example stencil, gothic or futuristic. |
+| Tube Gauge | `ga_gauge_ctl` | Menu | Forces the thickness of the neon tubing, from real stock sizes. |
+| Tube Gauge | `ga_gauge` | Menu | The tube gauge to force when the row above is set to Custom, in millimetres of real stock tubing. |
+| Tube Thickness | `ga_radius_ctl` | Menu | Scales the neon tube thickness up or down from its normal gauge. |
+| Tube Thickness | `ga_radius` | Float | How much to scale the tube thickness when the row above is set to Custom. |
+| Brightness | `ga_emit_ctl` | Menu | Scales how brightly every sign's neon glows. |
+| Brightness | `ga_emit` | Float | How much to scale every sign's brightness when the row above is set to Custom. |
+| Title Colour Policy | `ga_col_mode_ctl` | Menu | Controls how color is spread across the title's letters. |
+| Title Colour Policy | `ga_col_mode` | Menu | How color is spread across the title when the row above is set to Custom. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Internal name</th>
+<th>Type</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Colour</td>
+<td><code translate="no" v-pre>ga_colors_ctl</code></td>
+<td>Menu</td>
+<td>Pins the neon color for every sign.</td>
+</tr>
+<tr>
+<td>Colour</td>
+<td><code translate="no" v-pre>ga_colors</code></td>
+<td>Menu</td>
+<td>The neon color to force when the row above is set to Custom.</td>
+</tr>
+<tr>
+<td>Font Class</td>
+<td><code translate="no" v-pre>ga_fontclass_ctl</code></td>
+<td>Menu</td>
+<td>Forces the general category of typeface, overriding whatever the name form would normally call for.</td>
+</tr>
+<tr>
+<td>Font Class</td>
+<td><code translate="no" v-pre>ga_fontclass</code></td>
+<td>Menu</td>
+<td>The typeface category to force when the row above is set to Custom.</td>
+</tr>
+<tr>
+<td>Font Style</td>
+<td><code translate="no" v-pre>ga_font_ctl</code></td>
+<td>Menu</td>
+<td>Prefers typefaces tagged with a particular style, such as stencil or gothic.</td>
+</tr>
+<tr>
+<td>Font Style</td>
+<td><code translate="no" v-pre>ga_font</code></td>
+<td>Menu</td>
+<td>The style tag to prefer when the row above is set to Custom, for example stencil, gothic or futuristic.</td>
+</tr>
+<tr>
+<td>Tube Gauge</td>
+<td><code translate="no" v-pre>ga_gauge_ctl</code></td>
+<td>Menu</td>
+<td>Forces the thickness of the neon tubing, from real stock sizes.</td>
+</tr>
+<tr>
+<td>Tube Gauge</td>
+<td><code translate="no" v-pre>ga_gauge</code></td>
+<td>Menu</td>
+<td>The tube gauge to force when the row above is set to Custom, in millimetres of real stock tubing.</td>
+</tr>
+<tr>
+<td>Tube Thickness</td>
+<td><code translate="no" v-pre>ga_radius_ctl</code></td>
+<td>Menu</td>
+<td>Scales the neon tube thickness up or down from its normal gauge.</td>
+</tr>
+<tr>
+<td>Tube Thickness</td>
+<td><code translate="no" v-pre>ga_radius</code></td>
+<td>Float</td>
+<td>How much to scale the tube thickness when the row above is set to Custom.</td>
+</tr>
+<tr>
+<td>Brightness</td>
+<td><code translate="no" v-pre>ga_emit_ctl</code></td>
+<td>Menu</td>
+<td>Scales how brightly every sign&#x27;s neon glows.</td>
+</tr>
+<tr>
+<td>Brightness</td>
+<td><code translate="no" v-pre>ga_emit</code></td>
+<td>Float</td>
+<td>How much to scale every sign&#x27;s brightness when the row above is set to Custom.</td>
+</tr>
+<tr>
+<td>Title Colour Policy</td>
+<td><code translate="no" v-pre>ga_col_mode_ctl</code></td>
+<td>Menu</td>
+<td>Controls how color is spread across the title&#x27;s letters.</td>
+</tr>
+<tr>
+<td>Title Colour Policy</td>
+<td><code translate="no" v-pre>ga_col_mode</code></td>
+<td>Menu</td>
+<td>How color is spread across the title when the row above is set to Custom.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="content--design--manual-overrides-global--layout">Content / Design / Manual Overrides (Global) / Layout</h3>
+<retype-table copy-text="| Parameter | Internal name | Type | What it does |
+|---|---|---|---|
+| Named Layout | `ga_layout_ctl` | Menu | Pins every sign to one of the hand-built layout templates, and turns off the procedural layout generator so the pin actually sticks. |
+| Named Layout | `ga_layout` | Menu | Which hand-built layout template to force when the row above is set to Custom. |
+| Composition | `ga_arch_ctl` | Menu | Forces the logo lockup style. |
+| Composition | `ga_arch` | Menu | The logo lockup arrangement to force when the row above is set to Custom - how the title, icon and decor are grouped together, generated rather than picked from a fixed template. |
+| Alignment | `ga_align_ctl` | Menu | Forces which edge every text element on the sign lines up against. |
+| Alignment | `ga_align` | Menu | Which edge to align every text element against when the row above is set to Custom. |
+| Letter Swapped For Icon | `ga_glyph_ctl` | Menu | Forces one letter in the title to be swapped for a matching icon, or forbids it entirely (a donut for the O in DONUTS is the classic example). |
+| Letter Swapped For Icon | `ga_glyph` | Menu | Whether to force a letter-for-icon swap when the row above is set to Custom, or forbid one. |
+| Icon Presence | `ga_icon_ctl` | Menu | Scales how likely every sign is to carry an icon. |
+| Icon Presence | `ga_icon` | Float | How much to scale the chance of an icon appearing when the row above is set to Custom. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Internal name</th>
+<th>Type</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Named Layout</td>
+<td><code translate="no" v-pre>ga_layout_ctl</code></td>
+<td>Menu</td>
+<td>Pins every sign to one of the hand-built layout templates, and turns off the procedural layout generator so the pin actually sticks.</td>
+</tr>
+<tr>
+<td>Named Layout</td>
+<td><code translate="no" v-pre>ga_layout</code></td>
+<td>Menu</td>
+<td>Which hand-built layout template to force when the row above is set to Custom.</td>
+</tr>
+<tr>
+<td>Composition</td>
+<td><code translate="no" v-pre>ga_arch_ctl</code></td>
+<td>Menu</td>
+<td>Forces the logo lockup style.</td>
+</tr>
+<tr>
+<td>Composition</td>
+<td><code translate="no" v-pre>ga_arch</code></td>
+<td>Menu</td>
+<td>The logo lockup arrangement to force when the row above is set to Custom - how the title, icon and decor are grouped together, generated rather than picked from a fixed template.</td>
+</tr>
+<tr>
+<td>Alignment</td>
+<td><code translate="no" v-pre>ga_align_ctl</code></td>
+<td>Menu</td>
+<td>Forces which edge every text element on the sign lines up against.</td>
+</tr>
+<tr>
+<td>Alignment</td>
+<td><code translate="no" v-pre>ga_align</code></td>
+<td>Menu</td>
+<td>Which edge to align every text element against when the row above is set to Custom.</td>
+</tr>
+<tr>
+<td>Letter Swapped For Icon</td>
+<td><code translate="no" v-pre>ga_glyph_ctl</code></td>
+<td>Menu</td>
+<td>Forces one letter in the title to be swapped for a matching icon, or forbids it entirely (a donut for the O in DONUTS is the classic example).</td>
+</tr>
+<tr>
+<td>Letter Swapped For Icon</td>
+<td><code translate="no" v-pre>ga_glyph</code></td>
+<td>Menu</td>
+<td>Whether to force a letter-for-icon swap when the row above is set to Custom, or forbid one.</td>
+</tr>
+<tr>
+<td>Icon Presence</td>
+<td><code translate="no" v-pre>ga_icon_ctl</code></td>
+<td>Menu</td>
+<td>Scales how likely every sign is to carry an icon.</td>
+</tr>
+<tr>
+<td>Icon Presence</td>
+<td><code translate="no" v-pre>ga_icon</code></td>
+<td>Float</td>
+<td>How much to scale the chance of an icon appearing when the row above is set to Custom.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="content--design--manual-overrides-global--decor">Content / Design / Manual Overrides (Global) / Decor</h3>
+<retype-table copy-text="| Parameter | Internal name | Type | What it does |
+|---|---|---|---|
+| Decor Family | `ga_ornaments_ctl` | Menu | Restricts every sign's decor to one family, like arrows, stars or scallops. |
+| Decor Family | `ga_ornaments` | Menu | Which decor family to restrict every sign to when the row above is set to Custom, for example frame, wave or bunting. |
+| Background Decor | `ga_bg_ctl` | Menu | Forces the dim decor sitting behind everything else on the sign on or off. |
+| Background Decor | `ga_bg` | Menu | Whether to force the background decor on or off when the row above is set to Custom. |
+| Decor Count | `ga_decor_n_ctl` | Menu | Sets how many lines a multi-line decor element draws, such as a set of rays or a row of chevrons. |
+| Decor Count | `ga_decor_n` | Menu | How many lines to draw when the row above is set to Custom, for any decor element made of repeated lines. |
+| Decor Stroke Lines | `ga_strokes_ctl` | Menu | Draws decor lines as two or three parallel strokes instead of one. |
+| Decor Stroke Lines | `ga_strokes` | Menu | How many parallel strokes to draw when the row above is set to Custom. |
+| Dashed Decor | `ga_dash_ctl` | Menu | Scales how likely every sign's decor is to be dashed rather than solid. |
+| Dashed Decor | `ga_dash` | Float | How much to scale the chance of dashed decor when the row above is set to Custom. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Internal name</th>
+<th>Type</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Decor Family</td>
+<td><code translate="no" v-pre>ga_ornaments_ctl</code></td>
+<td>Menu</td>
+<td>Restricts every sign&#x27;s decor to one family, like arrows, stars or scallops.</td>
+</tr>
+<tr>
+<td>Decor Family</td>
+<td><code translate="no" v-pre>ga_ornaments</code></td>
+<td>Menu</td>
+<td>Which decor family to restrict every sign to when the row above is set to Custom, for example frame, wave or bunting.</td>
+</tr>
+<tr>
+<td>Background Decor</td>
+<td><code translate="no" v-pre>ga_bg_ctl</code></td>
+<td>Menu</td>
+<td>Forces the dim decor sitting behind everything else on the sign on or off.</td>
+</tr>
+<tr>
+<td>Background Decor</td>
+<td><code translate="no" v-pre>ga_bg</code></td>
+<td>Menu</td>
+<td>Whether to force the background decor on or off when the row above is set to Custom.</td>
+</tr>
+<tr>
+<td>Decor Count</td>
+<td><code translate="no" v-pre>ga_decor_n_ctl</code></td>
+<td>Menu</td>
+<td>Sets how many lines a multi-line decor element draws, such as a set of rays or a row of chevrons.</td>
+</tr>
+<tr>
+<td>Decor Count</td>
+<td><code translate="no" v-pre>ga_decor_n</code></td>
+<td>Menu</td>
+<td>How many lines to draw when the row above is set to Custom, for any decor element made of repeated lines.</td>
+</tr>
+<tr>
+<td>Decor Stroke Lines</td>
+<td><code translate="no" v-pre>ga_strokes_ctl</code></td>
+<td>Menu</td>
+<td>Draws decor lines as two or three parallel strokes instead of one.</td>
+</tr>
+<tr>
+<td>Decor Stroke Lines</td>
+<td><code translate="no" v-pre>ga_strokes</code></td>
+<td>Menu</td>
+<td>How many parallel strokes to draw when the row above is set to Custom.</td>
+</tr>
+<tr>
+<td>Dashed Decor</td>
+<td><code translate="no" v-pre>ga_dash_ctl</code></td>
+<td>Menu</td>
+<td>Scales how likely every sign&#x27;s decor is to be dashed rather than solid.</td>
+</tr>
+<tr>
+<td>Dashed Decor</td>
+<td><code translate="no" v-pre>ga_dash</code></td>
+<td>Float</td>
+<td>How much to scale the chance of dashed decor when the row above is set to Custom.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="content--design--manual-overrides-global--hardware">Content / Design / Manual Overrides (Global) / Hardware</h3>
+<retype-table copy-text="| Parameter | Internal name | Type | What it does |
+|---|---|---|---|
+| Backing | `ga_hw_l1_ctl` | Menu | Forces what kind of backing every sign hangs on. |
+| Backing | `ga_hw_l1` | Menu | The backing type to force when the row above is set to Custom. |
+| Part-Panel Division | `ga_hw_mix_ctl` | Menu | Forces how a Part panel backing divides the sign face into solid and open regions. |
+| Part-Panel Division | `ga_hw_mix` | Menu | How the Part panel backing divides the face when the row above is set to Custom, for example a plate along the top, a band, or a plate behind the text only. |
+| Bracing | `ga_hw_brace_ctl` | Menu | Forces the truss pattern inside each bay of a pipe grid backing. |
+| Bracing | `ga_hw_brace` | Menu | The truss pattern to force when the row above is set to Custom, from a plain welded grid up to the classic named bridge trusses (Pratt, Howe, Warren) and a diagonal or ladder pattern. |
+| Rivet Layout | `ga_hw_rivet_ctl` | Menu | Forces the layout of studs and rivets around the backing panel's edge. |
+| Rivet Layout | `ga_hw_rivet` | Menu | Which stud pattern to force when the row above is set to Custom, from a plain perimeter run to a full grid. |
+| Rim Frame | `ga_hw_frame_ctl` | Menu | Forces a rim around the backing - either standing proud of the face or returning back like a shallow cabinet - or removes it. |
+| Rim Frame | `ga_hw_frame` | Menu | Whether to add a rim around the backing when the row above is set to Custom, and which way it runs. |
+| Panel Edge | `ga_hw_edge_ctl` | Menu | Forces how the backing panel's edge is cut - flat, chamfered out, or chamfered in. |
+| Panel Edge | `ga_hw_edge` | Menu | How the panel edge is cut when the row above is set to Custom. |
+| Backing Size | `ga_hw_fit_ctl` | Menu | Forces whether the backing covers the whole sign box or is fitted tight around the neon it sits behind. |
+| Backing Size | `ga_hw_fit` | Menu | Whether the backing covers the whole sign box or is fitted to the neon when the row above is set to Custom. |
+| Sign Silhouette | `ga_hw_shape_ctl` | Menu | Forces the backing to follow a badge-style outline instead of a plain rectangle. |
+| Sign Silhouette | `ga_hw_shape` | Menu | Which outline the backing follows when the row above is set to Custom, for example ellipse, hexagon, shield or starburst. |
+| Member Section | `ga_hw_profile_ctl` | Menu | Forces the cross-section shape of every rig member on every sign. |
+| Member Section | `ga_hw_profile` | Menu | The cross-section to force on every rig member when the row above is set to Custom - round tube or square section. |
+| Sub-Frame | `ga_hw_l2_ctl` | Menu | Forces the shape of the sub-frame that sits behind the backing. |
+| Sub-Frame | `ga_hw_l2` | Menu | The sub-frame shape to force when the row above is set to Custom. |
+| Standoff Spacing | `ga_hw_l3pat_ctl` | Menu | Forces how the standoffs bolting every sign to the building are spaced out. |
+| Standoff Spacing | `ga_hw_l3pat` | Menu | How the standoffs are spaced when the row above is set to Custom. |
+| Standoff Count | `ga_hw_l3n_ctl` | Menu | Forces how many standoffs to try to build. |
+| Standoff Count | `ga_hw_l3n` | Menu | How many standoffs to try to build when the row above is set to Custom. |
+| Standoffs Reach For The Wall | `ga_hw_l3fan_ctl` | Menu | Forces whether standoffs are allowed to angle sideways to find the building, instead of only going straight back. |
+| Standoffs Reach For The Wall | `ga_hw_l3fan` | Menu | Whether standoffs are allowed to angle sideways to reach the building when the row above is set to Custom, instead of only going straight back. |
+| Minimal Run Count | `ga_hw_min_n_ctl` | Menu | Forces how many straight rails a Minimal runs backing uses. |
+| Minimal Run Count | `ga_hw_min_n` | Menu | How many rails a Minimal runs backing uses when the row above is set to Custom. |
+| Backing Margin | `ga_hw_margin_ctl` | Menu | Forces how much extra room the backing leaves around the neon it sits behind. |
+| Backing Margin | `ga_hw_margin` | Float | How much extra margin the backing leaves around the neon when the row above is set to Custom, as a fraction of the sign's size. |
+| Metal Tone | `ga_hw_grey_ctl` | Menu | Forces how light or dark the rig's metal color is. |
+| Metal Tone | `ga_hw_grey` | Float | How light or dark the rig's metal tone is when the row above is set to Custom, from 0 (near black) to 1 (near white). |
+| Electrical Boxes | `ga_hw_eb_n_ctl` | Menu | Forces how many transformer or driver boxes every sign carries. |
+| Electrical Boxes | `ga_hw_eb_n` | Menu | How many electrical boxes to build when the row above is set to Custom. |
+| Electrical Box Style | `ga_hw_eb_style_ctl` | Menu | Forces which kind of electrical box every sign carries. |
+| Electrical Box Style | `ga_hw_eb_style` | Menu | The electrical box style to force when the row above is set to Custom. |
+| Cable Runs | `ga_hw_cab_n_ctl` | Menu | Forces how many cable runs lead from the electrical box to the rig. |
+| Cable Runs | `ga_hw_cab_n` | Menu | How many cable runs to build when the row above is set to Custom. |
+| Roof Frame Count | `ga_hw_tr_n_ctl` | Menu | Forces how many support triangles hold up a rooftop sign. |
+| Roof Frame Count | `ga_hw_tr_n` | Menu | How many support triangles to build when the row above is set to Custom. |
+| Roof Frame Bracing | `ga_hw_tr_brace_ctl` | Menu | Forces the internal bracing pattern inside each rooftop support triangle. |
+| Roof Frame Bracing | `ga_hw_tr_brace` | Menu | The bracing pattern to force inside each support triangle when the row above is set to Custom, from a bare triangle up to a fully cross-braced one. |
+| Roof Frame Purlins | `ga_hw_tr_tie_ctl` | Menu | Forces whether the rooftop support triangles get longitudinal purlins tying them together. |
+| Roof Frame Purlins | `ga_hw_tr_tie` | Menu | Whether to add purlins tying the support triangles together when the row above is set to Custom. |
+| Frame Depth | `ga_hw_tr_base_ctl` | Menu | Forces how far a rooftop support triangle's base runs back across the roof. |
+| Frame Depth | `ga_hw_tr_base` | Float | How far the support triangle's base runs back across the roof when the row above is set to Custom, as a multiple of the sign's own height. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Internal name</th>
+<th>Type</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Backing</td>
+<td><code translate="no" v-pre>ga_hw_l1_ctl</code></td>
+<td>Menu</td>
+<td>Forces what kind of backing every sign hangs on.</td>
+</tr>
+<tr>
+<td>Backing</td>
+<td><code translate="no" v-pre>ga_hw_l1</code></td>
+<td>Menu</td>
+<td>The backing type to force when the row above is set to Custom.</td>
+</tr>
+<tr>
+<td>Part-Panel Division</td>
+<td><code translate="no" v-pre>ga_hw_mix_ctl</code></td>
+<td>Menu</td>
+<td>Forces how a Part panel backing divides the sign face into solid and open regions.</td>
+</tr>
+<tr>
+<td>Part-Panel Division</td>
+<td><code translate="no" v-pre>ga_hw_mix</code></td>
+<td>Menu</td>
+<td>How the Part panel backing divides the face when the row above is set to Custom, for example a plate along the top, a band, or a plate behind the text only.</td>
+</tr>
+<tr>
+<td>Bracing</td>
+<td><code translate="no" v-pre>ga_hw_brace_ctl</code></td>
+<td>Menu</td>
+<td>Forces the truss pattern inside each bay of a pipe grid backing.</td>
+</tr>
+<tr>
+<td>Bracing</td>
+<td><code translate="no" v-pre>ga_hw_brace</code></td>
+<td>Menu</td>
+<td>The truss pattern to force when the row above is set to Custom, from a plain welded grid up to the classic named bridge trusses (Pratt, Howe, Warren) and a diagonal or ladder pattern.</td>
+</tr>
+<tr>
+<td>Rivet Layout</td>
+<td><code translate="no" v-pre>ga_hw_rivet_ctl</code></td>
+<td>Menu</td>
+<td>Forces the layout of studs and rivets around the backing panel&#x27;s edge.</td>
+</tr>
+<tr>
+<td>Rivet Layout</td>
+<td><code translate="no" v-pre>ga_hw_rivet</code></td>
+<td>Menu</td>
+<td>Which stud pattern to force when the row above is set to Custom, from a plain perimeter run to a full grid.</td>
+</tr>
+<tr>
+<td>Rim Frame</td>
+<td><code translate="no" v-pre>ga_hw_frame_ctl</code></td>
+<td>Menu</td>
+<td>Forces a rim around the backing - either standing proud of the face or returning back like a shallow cabinet - or removes it.</td>
+</tr>
+<tr>
+<td>Rim Frame</td>
+<td><code translate="no" v-pre>ga_hw_frame</code></td>
+<td>Menu</td>
+<td>Whether to add a rim around the backing when the row above is set to Custom, and which way it runs.</td>
+</tr>
+<tr>
+<td>Panel Edge</td>
+<td><code translate="no" v-pre>ga_hw_edge_ctl</code></td>
+<td>Menu</td>
+<td>Forces how the backing panel&#x27;s edge is cut - flat, chamfered out, or chamfered in.</td>
+</tr>
+<tr>
+<td>Panel Edge</td>
+<td><code translate="no" v-pre>ga_hw_edge</code></td>
+<td>Menu</td>
+<td>How the panel edge is cut when the row above is set to Custom.</td>
+</tr>
+<tr>
+<td>Backing Size</td>
+<td><code translate="no" v-pre>ga_hw_fit_ctl</code></td>
+<td>Menu</td>
+<td>Forces whether the backing covers the whole sign box or is fitted tight around the neon it sits behind.</td>
+</tr>
+<tr>
+<td>Backing Size</td>
+<td><code translate="no" v-pre>ga_hw_fit</code></td>
+<td>Menu</td>
+<td>Whether the backing covers the whole sign box or is fitted to the neon when the row above is set to Custom.</td>
+</tr>
+<tr>
+<td>Sign Silhouette</td>
+<td><code translate="no" v-pre>ga_hw_shape_ctl</code></td>
+<td>Menu</td>
+<td>Forces the backing to follow a badge-style outline instead of a plain rectangle.</td>
+</tr>
+<tr>
+<td>Sign Silhouette</td>
+<td><code translate="no" v-pre>ga_hw_shape</code></td>
+<td>Menu</td>
+<td>Which outline the backing follows when the row above is set to Custom, for example ellipse, hexagon, shield or starburst.</td>
+</tr>
+<tr>
+<td>Member Section</td>
+<td><code translate="no" v-pre>ga_hw_profile_ctl</code></td>
+<td>Menu</td>
+<td>Forces the cross-section shape of every rig member on every sign.</td>
+</tr>
+<tr>
+<td>Member Section</td>
+<td><code translate="no" v-pre>ga_hw_profile</code></td>
+<td>Menu</td>
+<td>The cross-section to force on every rig member when the row above is set to Custom - round tube or square section.</td>
+</tr>
+<tr>
+<td>Sub-Frame</td>
+<td><code translate="no" v-pre>ga_hw_l2_ctl</code></td>
+<td>Menu</td>
+<td>Forces the shape of the sub-frame that sits behind the backing.</td>
+</tr>
+<tr>
+<td>Sub-Frame</td>
+<td><code translate="no" v-pre>ga_hw_l2</code></td>
+<td>Menu</td>
+<td>The sub-frame shape to force when the row above is set to Custom.</td>
+</tr>
+<tr>
+<td>Standoff Spacing</td>
+<td><code translate="no" v-pre>ga_hw_l3pat_ctl</code></td>
+<td>Menu</td>
+<td>Forces how the standoffs bolting every sign to the building are spaced out.</td>
+</tr>
+<tr>
+<td>Standoff Spacing</td>
+<td><code translate="no" v-pre>ga_hw_l3pat</code></td>
+<td>Menu</td>
+<td>How the standoffs are spaced when the row above is set to Custom.</td>
+</tr>
+<tr>
+<td>Standoff Count</td>
+<td><code translate="no" v-pre>ga_hw_l3n_ctl</code></td>
+<td>Menu</td>
+<td>Forces how many standoffs to try to build.</td>
+</tr>
+<tr>
+<td>Standoff Count</td>
+<td><code translate="no" v-pre>ga_hw_l3n</code></td>
+<td>Menu</td>
+<td>How many standoffs to try to build when the row above is set to Custom.</td>
+</tr>
+<tr>
+<td>Standoffs Reach For The Wall</td>
+<td><code translate="no" v-pre>ga_hw_l3fan_ctl</code></td>
+<td>Menu</td>
+<td>Forces whether standoffs are allowed to angle sideways to find the building, instead of only going straight back.</td>
+</tr>
+<tr>
+<td>Standoffs Reach For The Wall</td>
+<td><code translate="no" v-pre>ga_hw_l3fan</code></td>
+<td>Menu</td>
+<td>Whether standoffs are allowed to angle sideways to reach the building when the row above is set to Custom, instead of only going straight back.</td>
+</tr>
+<tr>
+<td>Minimal Run Count</td>
+<td><code translate="no" v-pre>ga_hw_min_n_ctl</code></td>
+<td>Menu</td>
+<td>Forces how many straight rails a Minimal runs backing uses.</td>
+</tr>
+<tr>
+<td>Minimal Run Count</td>
+<td><code translate="no" v-pre>ga_hw_min_n</code></td>
+<td>Menu</td>
+<td>How many rails a Minimal runs backing uses when the row above is set to Custom.</td>
+</tr>
+<tr>
+<td>Backing Margin</td>
+<td><code translate="no" v-pre>ga_hw_margin_ctl</code></td>
+<td>Menu</td>
+<td>Forces how much extra room the backing leaves around the neon it sits behind.</td>
+</tr>
+<tr>
+<td>Backing Margin</td>
+<td><code translate="no" v-pre>ga_hw_margin</code></td>
+<td>Float</td>
+<td>How much extra margin the backing leaves around the neon when the row above is set to Custom, as a fraction of the sign&#x27;s size.</td>
+</tr>
+<tr>
+<td>Metal Tone</td>
+<td><code translate="no" v-pre>ga_hw_grey_ctl</code></td>
+<td>Menu</td>
+<td>Forces how light or dark the rig&#x27;s metal color is.</td>
+</tr>
+<tr>
+<td>Metal Tone</td>
+<td><code translate="no" v-pre>ga_hw_grey</code></td>
+<td>Float</td>
+<td>How light or dark the rig&#x27;s metal tone is when the row above is set to Custom, from 0 (near black) to 1 (near white).</td>
+</tr>
+<tr>
+<td>Electrical Boxes</td>
+<td><code translate="no" v-pre>ga_hw_eb_n_ctl</code></td>
+<td>Menu</td>
+<td>Forces how many transformer or driver boxes every sign carries.</td>
+</tr>
+<tr>
+<td>Electrical Boxes</td>
+<td><code translate="no" v-pre>ga_hw_eb_n</code></td>
+<td>Menu</td>
+<td>How many electrical boxes to build when the row above is set to Custom.</td>
+</tr>
+<tr>
+<td>Electrical Box Style</td>
+<td><code translate="no" v-pre>ga_hw_eb_style_ctl</code></td>
+<td>Menu</td>
+<td>Forces which kind of electrical box every sign carries.</td>
+</tr>
+<tr>
+<td>Electrical Box Style</td>
+<td><code translate="no" v-pre>ga_hw_eb_style</code></td>
+<td>Menu</td>
+<td>The electrical box style to force when the row above is set to Custom.</td>
+</tr>
+<tr>
+<td>Cable Runs</td>
+<td><code translate="no" v-pre>ga_hw_cab_n_ctl</code></td>
+<td>Menu</td>
+<td>Forces how many cable runs lead from the electrical box to the rig.</td>
+</tr>
+<tr>
+<td>Cable Runs</td>
+<td><code translate="no" v-pre>ga_hw_cab_n</code></td>
+<td>Menu</td>
+<td>How many cable runs to build when the row above is set to Custom.</td>
+</tr>
+<tr>
+<td>Roof Frame Count</td>
+<td><code translate="no" v-pre>ga_hw_tr_n_ctl</code></td>
+<td>Menu</td>
+<td>Forces how many support triangles hold up a rooftop sign.</td>
+</tr>
+<tr>
+<td>Roof Frame Count</td>
+<td><code translate="no" v-pre>ga_hw_tr_n</code></td>
+<td>Menu</td>
+<td>How many support triangles to build when the row above is set to Custom.</td>
+</tr>
+<tr>
+<td>Roof Frame Bracing</td>
+<td><code translate="no" v-pre>ga_hw_tr_brace_ctl</code></td>
+<td>Menu</td>
+<td>Forces the internal bracing pattern inside each rooftop support triangle.</td>
+</tr>
+<tr>
+<td>Roof Frame Bracing</td>
+<td><code translate="no" v-pre>ga_hw_tr_brace</code></td>
+<td>Menu</td>
+<td>The bracing pattern to force inside each support triangle when the row above is set to Custom, from a bare triangle up to a fully cross-braced one.</td>
+</tr>
+<tr>
+<td>Roof Frame Purlins</td>
+<td><code translate="no" v-pre>ga_hw_tr_tie_ctl</code></td>
+<td>Menu</td>
+<td>Forces whether the rooftop support triangles get longitudinal purlins tying them together.</td>
+</tr>
+<tr>
+<td>Roof Frame Purlins</td>
+<td><code translate="no" v-pre>ga_hw_tr_tie</code></td>
+<td>Menu</td>
+<td>Whether to add purlins tying the support triangles together when the row above is set to Custom.</td>
+</tr>
+<tr>
+<td>Frame Depth</td>
+<td><code translate="no" v-pre>ga_hw_tr_base_ctl</code></td>
+<td>Menu</td>
+<td>Forces how far a rooftop support triangle&#x27;s base runs back across the roof.</td>
+</tr>
+<tr>
+<td>Frame Depth</td>
+<td><code translate="no" v-pre>ga_hw_tr_base</code></td>
+<td>Float</td>
+<td>How far the support triangle&#x27;s base runs back across the roof when the row above is set to Custom, as a multiple of the sign&#x27;s own height.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="content--design--manual-overrides-global">Content / Design / Manual Overrides (Global)</h3>
+<retype-table copy-text="| Parameter | Internal name | Type | What it does |
+|---|---|---|---|
+| VEXpression (Per Sign) | `vex_anchor` | String | Custom VEX over the sign anchors, before the engine decides what each sign is. |
+| VEXpression Override | `vex_override` | String | Custom VEX code that runs over the sign plan after the engine has decided everything, before any geometry gets built. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Internal name</th>
+<th>Type</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VEXpression (Per Sign)</td>
+<td><code translate="no" v-pre>vex_anchor</code></td>
+<td>String</td>
+<td>Custom VEX over the sign anchors, before the engine decides what each sign is.</td>
+</tr>
+<tr>
+<td>VEXpression Override</td>
+<td><code translate="no" v-pre>vex_override</code></td>
+<td>String</td>
+<td>Custom VEX code that runs over the sign plan after the engine has decided everything, before any geometry gets built.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="content--build">Content / Build</h3>
+<retype-table copy-text="| Parameter | Internal name | Type | What it does |
+|---|---|---|---|
+| Real-World Scale | `unit_scale` | Float | Tells the asset how many scene units make up one metre, so it can build signs at real-world sizes. |
+| Build Hardware | `hardware` | Toggle | Builds the metal rig behind each sign: the backing panel or pipe grid, the frame behind that, and the standoffs bolting it to the building. |
+| Tube Detail | `tube_detail` | Menu | How finely the neon tubes are built. |
+|   | `lod_preset` | Menu | One-click detail settings for how far the signs are from camera. |
+| Hardware Colour | `hw_color` | Float | The colour every sign rig is painted - the backing, the frame, the standoffs and the cabling. |
+| Enable Hardware Colour Range | `hw_color_var` | Toggle | Draw each sign rig colour from the ramp instead of using the one colour above. |
+| Hardware Colour Range | `hw_color_ramp` | Ramp | Each sign takes one colour from this ramp, at random. |
+| Enable Sizing Randomness | `size_rand` | Toggle | Varies the overall size of each placed sign a little, so a street does not look like the same box copied over and over. |
+| Sizing Randomness | `size_rand_amt` | Float | How much size variation to use, as a percentage of the sign's own size. |
+| Shape Variety | `shape_rand` | Toggle | Lets each sign take one of its type's authored proportions rather than the nominal one - a blade may come out square or tall, a marquee wide or deep. |
+| Enable Deterioration | `decay` | Toggle | Ages the signs: letters go dark or start flickering, whole decor lines go out, the rig behind loses paint, and the odd frame piece goes missing. |
+| Deterioration | `decay_amt` | Float | How run-down the street looks overall, as a percentage. |
+| Flicker | `usd_flicker` | Menu | How fast the faulty tubes blink. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Internal name</th>
+<th>Type</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Real-World Scale</td>
+<td><code translate="no" v-pre>unit_scale</code></td>
+<td>Float</td>
+<td>Tells the asset how many scene units make up one metre, so it can build signs at real-world sizes.</td>
+</tr>
+<tr>
+<td>Build Hardware</td>
+<td><code translate="no" v-pre>hardware</code></td>
+<td>Toggle</td>
+<td>Builds the metal rig behind each sign: the backing panel or pipe grid, the frame behind that, and the standoffs bolting it to the building.</td>
+</tr>
+<tr>
+<td>Tube Detail</td>
+<td><code translate="no" v-pre>tube_detail</code></td>
+<td>Menu</td>
+<td>How finely the neon tubes are built.</td>
+</tr>
+<tr>
+<td> </td>
+<td><code translate="no" v-pre>lod_preset</code></td>
+<td>Menu</td>
+<td>One-click detail settings for how far the signs are from camera.</td>
+</tr>
+<tr>
+<td>Hardware Colour</td>
+<td><code translate="no" v-pre>hw_color</code></td>
+<td>Float</td>
+<td>The colour every sign rig is painted - the backing, the frame, the standoffs and the cabling.</td>
+</tr>
+<tr>
+<td>Enable Hardware Colour Range</td>
+<td><code translate="no" v-pre>hw_color_var</code></td>
+<td>Toggle</td>
+<td>Draw each sign rig colour from the ramp instead of using the one colour above.</td>
+</tr>
+<tr>
+<td>Hardware Colour Range</td>
+<td><code translate="no" v-pre>hw_color_ramp</code></td>
+<td>Ramp</td>
+<td>Each sign takes one colour from this ramp, at random.</td>
+</tr>
+<tr>
+<td>Enable Sizing Randomness</td>
+<td><code translate="no" v-pre>size_rand</code></td>
+<td>Toggle</td>
+<td>Varies the overall size of each placed sign a little, so a street does not look like the same box copied over and over.</td>
+</tr>
+<tr>
+<td>Sizing Randomness</td>
+<td><code translate="no" v-pre>size_rand_amt</code></td>
+<td>Float</td>
+<td>How much size variation to use, as a percentage of the sign&#x27;s own size.</td>
+</tr>
+<tr>
+<td>Shape Variety</td>
+<td><code translate="no" v-pre>shape_rand</code></td>
+<td>Toggle</td>
+<td>Lets each sign take one of its type&#x27;s authored proportions rather than the nominal one - a blade may come out square or tall, a marquee wide or deep.</td>
+</tr>
+<tr>
+<td>Enable Deterioration</td>
+<td><code translate="no" v-pre>decay</code></td>
+<td>Toggle</td>
+<td>Ages the signs: letters go dark or start flickering, whole decor lines go out, the rig behind loses paint, and the odd frame piece goes missing.</td>
+</tr>
+<tr>
+<td>Deterioration</td>
+<td><code translate="no" v-pre>decay_amt</code></td>
+<td>Float</td>
+<td>How run-down the street looks overall, as a percentage.</td>
+</tr>
+<tr>
+<td>Flicker</td>
+<td><code translate="no" v-pre>usd_flicker</code></td>
+<td>Menu</td>
+<td>How fast the faulty tubes blink.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="render-and-output--solaris">Render and Output / Solaris</h3>
+<retype-table copy-text="| Parameter | Internal name | Type | What it does |
+|---|---|---|---|
+| Send to Solaris | `render_send` | Button | Builds the Solaris setup for these signs: a SOP Import and a material library, wired together in /stage. |
+| USD Root | `usd_root` | String | The name of the branch the signs are gathered under in the USD scene graph, so each one can be found, hidden or overridden on its own. |
+| Sign Lights | `usd_lights` | Menu | Whether the signs light the scene around them, or only look bright themselves. |
+| Build In | `usd_lopnet` | String | Which LOP network the Send to Solaris button builds into. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Internal name</th>
+<th>Type</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Send to Solaris</td>
+<td><code translate="no" v-pre>render_send</code></td>
+<td>Button</td>
+<td>Builds the Solaris setup for these signs: a SOP Import and a material library, wired together in /stage.</td>
+</tr>
+<tr>
+<td>USD Root</td>
+<td><code translate="no" v-pre>usd_root</code></td>
+<td>String</td>
+<td>The name of the branch the signs are gathered under in the USD scene graph, so each one can be found, hidden or overridden on its own.</td>
+</tr>
+<tr>
+<td>Sign Lights</td>
+<td><code translate="no" v-pre>usd_lights</code></td>
+<td>Menu</td>
+<td>Whether the signs light the scene around them, or only look bright themselves.</td>
+</tr>
+<tr>
+<td>Build In</td>
+<td><code translate="no" v-pre>usd_lopnet</code></td>
+<td>String</td>
+<td>Which LOP network the Send to Solaris button builds into.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="render-and-output--output">Render and Output / Output</h3>
+<retype-table copy-text="| Parameter | Internal name | Type | What it does |
+|---|---|---|---|
+| Name Attribute | `out_name` | Toggle | Puts a name on every piece of geometry, so a downstream SOP can address one sign without knowing anything about this asset. |
+| Sign ID Attribute | `out_classid` | Toggle | Adds an integer id per sign, alongside the name. |
+| Keep Colour (Cd) | `out_cd` | Toggle | Carries each sign's colour out on the geometry as Cd. |
+| Keep Emission (emit) | `out_emit` | Toggle | Carries each sign's brightness out as emit. |
+| Generate UVs | `usd_uv` | Toggle | Builds UVs so the signs can be textured. |
+| Animate Flicker in SOPs | `out_flicker` | Toggle | Blinks the faulty tubes in SOPs as well as in the render. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Internal name</th>
+<th>Type</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name Attribute</td>
+<td><code translate="no" v-pre>out_name</code></td>
+<td>Toggle</td>
+<td>Puts a name on every piece of geometry, so a downstream SOP can address one sign without knowing anything about this asset.</td>
+</tr>
+<tr>
+<td>Sign ID Attribute</td>
+<td><code translate="no" v-pre>out_classid</code></td>
+<td>Toggle</td>
+<td>Adds an integer id per sign, alongside the name.</td>
+</tr>
+<tr>
+<td>Keep Colour (Cd)</td>
+<td><code translate="no" v-pre>out_cd</code></td>
+<td>Toggle</td>
+<td>Carries each sign&#x27;s colour out on the geometry as Cd.</td>
+</tr>
+<tr>
+<td>Keep Emission (emit)</td>
+<td><code translate="no" v-pre>out_emit</code></td>
+<td>Toggle</td>
+<td>Carries each sign&#x27;s brightness out as emit.</td>
+</tr>
+<tr>
+<td>Generate UVs</td>
+<td><code translate="no" v-pre>usd_uv</code></td>
+<td>Toggle</td>
+<td>Builds UVs so the signs can be textured.</td>
+</tr>
+<tr>
+<td>Animate Flicker in SOPs</td>
+<td><code translate="no" v-pre>out_flicker</code></td>
+<td>Toggle</td>
+<td>Blinks the faulty tubes in SOPs as well as in the render.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="utilities">Utilities</h3>
+<retype-table copy-text="| Parameter | Internal name | Type | What it does |
+|---|---|---|---|
+| Front Group | `front_group` | String | The name of the primitive group that marks which face is the FRONT on placeholder boxes you build by hand and wire into input 2. |
+| Links | `website` | Button | Opens the JVtools website in your web browser - every tool, the docs and the store in one place. |
+| Gumroad | `gumroad` | Button | Opens the Neonyte product page in your web browser. |
+| Documentation | `docs` | Button | Opens the Neonyte documentation in your web browser. |
+| Discord | `discord` | Button | Opens the JVtools Discord server in your web browser, for community and support. |
+| YouTube | `youtube` | Button | Opens the JVtools YouTube channel in your web browser. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Internal name</th>
+<th>Type</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Front Group</td>
+<td><code translate="no" v-pre>front_group</code></td>
+<td>String</td>
+<td>The name of the primitive group that marks which face is the FRONT on placeholder boxes you build by hand and wire into input 2.</td>
+</tr>
+<tr>
+<td>Links</td>
+<td><code translate="no" v-pre>website</code></td>
+<td>Button</td>
+<td>Opens the JVtools website in your web browser - every tool, the docs and the store in one place.</td>
+</tr>
+<tr>
+<td>Gumroad</td>
+<td><code translate="no" v-pre>gumroad</code></td>
+<td>Button</td>
+<td>Opens the Neonyte product page in your web browser.</td>
+</tr>
+<tr>
+<td>Documentation</td>
+<td><code translate="no" v-pre>docs</code></td>
+<td>Button</td>
+<td>Opens the Neonyte documentation in your web browser.</td>
+</tr>
+<tr>
+<td>Discord</td>
+<td><code translate="no" v-pre>discord</code></td>
+<td>Button</td>
+<td>Opens the JVtools Discord server in your web browser, for community and support.</td>
+</tr>
+<tr>
+<td>YouTube</td>
+<td><code translate="no" v-pre>youtube</code></td>
+<td>Button</td>
+<td>Opens the JVtools YouTube channel in your web browser.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="signs">Signs</h3>
+<retype-table copy-text="| Parameter | Internal name | Type | What it does |
+|---|---|---|---|
+|   | `delete_all_signs` | Button | Removes every placed sign from the scene and clears the list below. |
+| Delete Signs in Viewport | `delete_in_viewport` | Button | Hands the viewport an eraser brush: a red ball follows your cursor, and dragging with the left mouse button deletes every sign inside it. |
+| Open / Close All Signs | `toggle_all_signs` | Button | Opens or shuts every sign card at once - whichever the list needs. |
+| Find Sign | `sign_search_go` | Button | Asks you for a business name or a card number, then shuts every sign card except the ones that match. |
+| Rebuild List from Signs | `rebuild_sign_list` | Button | Gives every sign already in the scene a card, for when the list below is empty but the signs are there. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Internal name</th>
+<th>Type</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> </td>
+<td><code translate="no" v-pre>delete_all_signs</code></td>
+<td>Button</td>
+<td>Removes every placed sign from the scene and clears the list below.</td>
+</tr>
+<tr>
+<td>Delete Signs in Viewport</td>
+<td><code translate="no" v-pre>delete_in_viewport</code></td>
+<td>Button</td>
+<td>Hands the viewport an eraser brush: a red ball follows your cursor, and dragging with the left mouse button deletes every sign inside it.</td>
+</tr>
+<tr>
+<td>Open / Close All Signs</td>
+<td><code translate="no" v-pre>toggle_all_signs</code></td>
+<td>Button</td>
+<td>Opens or shuts every sign card at once - whichever the list needs.</td>
+</tr>
+<tr>
+<td>Find Sign</td>
+<td><code translate="no" v-pre>sign_search_go</code></td>
+<td>Button</td>
+<td>Asks you for a business name or a card number, then shuts every sign card except the ones that match.</td>
+</tr>
+<tr>
+<td>Rebuild List from Signs</td>
+<td><code translate="no" v-pre>rebuild_sign_list</code></td>
+<td>Button</td>
+<td>Gives every sign already in the scene a card, for when the list below is empty but the signs are there.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="signs--per-sign--sign">Signs / Per-Sign / Sign</h3>
+<retype-table copy-text="| Parameter | Internal name | Type | What it does |
+|---|---|---|---|
+| Sign | `psa_name#` | String | The name of the sign this card belongs to. |
+|   | `psa_reroll#` | Button | Draws a fresh name, layout and color palette for this sign only - every other sign on the street stays exactly as it is. |
+| Edit in Viewport | `psa_edit#` | Button | Picks this sign up in the viewport: it follows the surface again as a green placeholder and one click drops it in its new spot. |
+| Zoom to Sign | `psa_zoom#` | Button | Frames this sign in the viewport, so you can see the one you are editing without hunting for it on the street. |
+| Reset to Defaults | `psa_reset#` | Button | Clears this card's Note and the steering it applied, so the sign goes back to what the street-wide controls alone would produce. |
+| Delete Sign | `psa_del#` | Button | Removes this one sign and its card. |
+| Title | `psa_title#` | String | This sign's title. |
+| Lock | `psa_title_lock#` | Toggle | Holds this title while everything else re-rolls. |
+| Translation | `psa_trans#` | String | The English meaning of the title, when the title is written in another script. |
+| Subtitle | `psa_sub#` | String | This sign's subtitle or catchphrase, on layouts that have room for one. |
+| Business Group | `psa_group#` | String | Type the same word on two or more cards to make those signs read as one business - they will share a name, a color palette and matching lettering. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Internal name</th>
+<th>Type</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sign</td>
+<td><code translate="no" v-pre>psa_name#</code></td>
+<td>String</td>
+<td>The name of the sign this card belongs to.</td>
+</tr>
+<tr>
+<td> </td>
+<td><code translate="no" v-pre>psa_reroll#</code></td>
+<td>Button</td>
+<td>Draws a fresh name, layout and color palette for this sign only - every other sign on the street stays exactly as it is.</td>
+</tr>
+<tr>
+<td>Edit in Viewport</td>
+<td><code translate="no" v-pre>psa_edit#</code></td>
+<td>Button</td>
+<td>Picks this sign up in the viewport: it follows the surface again as a green placeholder and one click drops it in its new spot.</td>
+</tr>
+<tr>
+<td>Zoom to Sign</td>
+<td><code translate="no" v-pre>psa_zoom#</code></td>
+<td>Button</td>
+<td>Frames this sign in the viewport, so you can see the one you are editing without hunting for it on the street.</td>
+</tr>
+<tr>
+<td>Reset to Defaults</td>
+<td><code translate="no" v-pre>psa_reset#</code></td>
+<td>Button</td>
+<td>Clears this card&#x27;s Note and the steering it applied, so the sign goes back to what the street-wide controls alone would produce.</td>
+</tr>
+<tr>
+<td>Delete Sign</td>
+<td><code translate="no" v-pre>psa_del#</code></td>
+<td>Button</td>
+<td>Removes this one sign and its card.</td>
+</tr>
+<tr>
+<td>Title</td>
+<td><code translate="no" v-pre>psa_title#</code></td>
+<td>String</td>
+<td>This sign&#x27;s title.</td>
+</tr>
+<tr>
+<td>Lock</td>
+<td><code translate="no" v-pre>psa_title_lock#</code></td>
+<td>Toggle</td>
+<td>Holds this title while everything else re-rolls.</td>
+</tr>
+<tr>
+<td>Translation</td>
+<td><code translate="no" v-pre>psa_trans#</code></td>
+<td>String</td>
+<td>The English meaning of the title, when the title is written in another script.</td>
+</tr>
+<tr>
+<td>Subtitle</td>
+<td><code translate="no" v-pre>psa_sub#</code></td>
+<td>String</td>
+<td>This sign&#x27;s subtitle or catchphrase, on layouts that have room for one.</td>
+</tr>
+<tr>
+<td>Business Group</td>
+<td><code translate="no" v-pre>psa_group#</code></td>
+<td>String</td>
+<td>Type the same word on two or more cards to make those signs read as one business - they will share a name, a color palette and matching lettering.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="signs--per-sign--sign---transform">Signs / Per-Sign / Sign # / Transform</h3>
+<retype-table copy-text="| Parameter | Internal name | Type | What it does |
+|---|---|---|---|
+| Translate | `psa_t#` | Float | Where this sign sits in the scene. |
+| Rotate | `psa_r#` | Float | This sign's orientation, in degrees. |
+| Scale | `psa_scale#` | Float | A uniform size multiplier on this sign's placeholder box. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Internal name</th>
+<th>Type</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Translate</td>
+<td><code translate="no" v-pre>psa_t#</code></td>
+<td>Float</td>
+<td>Where this sign sits in the scene.</td>
+</tr>
+<tr>
+<td>Rotate</td>
+<td><code translate="no" v-pre>psa_r#</code></td>
+<td>Float</td>
+<td>This sign&#x27;s orientation, in degrees.</td>
+</tr>
+<tr>
+<td>Scale</td>
+<td><code translate="no" v-pre>psa_scale#</code></td>
+<td>Float</td>
+<td>A uniform size multiplier on this sign&#x27;s placeholder box.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="signs--per-sign--sign---adjustment-notes-this-sign">Signs / Per-Sign / Sign # / Adjustment Notes (This Sign)</h3>
+<retype-table copy-text="| Parameter | Internal name | Type | What it does |
+|---|---|---|---|
+| Note | `psa_notes#` | String | The same vocabulary as the street-wide Adjustment Notes, for this sign only - 'make it a japanese bar', 'no icons or arrows', 'possessive name', 'film noir'. |
+| Apply | `psa_apply#` | Button | Translates this sign's note into the constraints the engine reads, and reports what was understood. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Internal name</th>
+<th>Type</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Note</td>
+<td><code translate="no" v-pre>psa_notes#</code></td>
+<td>String</td>
+<td>The same vocabulary as the street-wide Adjustment Notes, for this sign only - &#x27;make it a japanese bar&#x27;, &#x27;no icons or arrows&#x27;, &#x27;possessive name&#x27;, &#x27;film noir&#x27;.</td>
+</tr>
+<tr>
+<td>Apply</td>
+<td><code translate="no" v-pre>psa_apply#</code></td>
+<td>Button</td>
+<td>Translates this sign&#x27;s note into the constraints the engine reads, and reports what was understood.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<div id="retype-backlinks">
+    <h2>See also</h2>
+<div class="card-compact-group">
+<div class="card-compact-container">
+    <a href="/docs/neonyte/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><img width="20" height="20" src="static/neonyte_icon.svg"></span>
+                <span class="card-compact-title">Neonyte</span>
+            </div>
+            <p class="card-compact-description">Neonyte is a Houdini SOP that turns placeholder boxes into generated neon signs: lettering, icons, decor tubes, the metal rig behind them, and a Karma material - for dressing buildings and streets.</p>
+        </div>
+    </a>
+</div>
+</div>
+</div>
+
+                <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
+                
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-09-09T13:02:56" title="2026-09-09" data-absolute-label="Last updated on 2026-09-09" data-absolute-label-html="Last updated on 2026-09-09" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-09-09
+                    </time>
+                </div>
+
+                <!-- Required only on API pages -->
+                <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
+            </div>
+            <footer id="retype-content-footer" class="clear-both">
+            
+                <nav id="retype-nextprev" class="print:hidden flex mt-14">
+                    <div class="w-1/2">
+                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../neonyte/control/defaults/">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                            <span>
+                                <span class="block text-xs font-normal text-base-text-muted">Previous</span>
+                                <span class="block mt-1">Defaults and weights</span>
+                            </span>
+                        </a>
+                    </div>
+            
+                    <div class="w-1/2">
+                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../neonyte/reference/troubleshooting/">
+                            <span>
+                                <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
+                                <span class="block mt-1">Troubleshooting</span>
+                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                        </a>
+                    </div>
+                </nav>
+            </footer>
+        </main>
+
+        <div id="retype-page-footer" class="print:border-none border-t border-base-border pt-6 mb-8">
+            <footer class="flex flex-wrap items-center justify-between print:justify-center">
+                <div id="retype-footer-links" class="print:hidden">
+                    <ul class="flex flex-wrap items-center text-sm">
+                        <li>
+                            <a class="block mr-4 py-2 text-sm whitespace-nowrap transition-colors duration-200 ease-linear text-footer-link hover:text-footer-link-hover md:mb-0" href="https://jvtools.dev/privacy" title="How JVtools handles your data">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="retype-copyright" class="print:justify-center py-2 text-footer-text font-footer-link text-sm leading-relaxed"></div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Rendered if sidebar right is enabled -->
+    <!-- Sidebar right skeleton-->
+    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-sidebar-right-bg border-sidebar-right-border lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:translate-x-0 sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton">
+        <div class="pl-5">
+            <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+        </div>
+    </div>
+
+    <!-- User should be able to hide sidebar right -->
+    <doc-sidebar-right v-cloak></doc-sidebar-right>
+</div>
+
+        </div>
+    </div>
+
+    <doc-search-mobile></doc-search-mobile>
+    <doc-back-to-top></doc-back-to-top>
+</div>
+
+
+    <div id="retype-overlay-target"></div>
+
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Parameters", level: 3, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/neonyte/reference/parameters.md" }</script>
+</body>
+</html>

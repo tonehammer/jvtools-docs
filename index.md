@@ -11,11 +11,21 @@ Houdini digital assets and tools for artists and technical directors. Pick a pro
 
 ## Products
 
+Every tool has a **role**: an *integrator* connects an external program, device
+or format to Houdini, a *generator* makes geometry or data that was not there
+before, and a *workflow* tool improves how you work inside Houdini.
+
+### Integrators
+
 [!card title="Reallusion Importer for Houdini" image="/reallusion-importer/static/card.png" text="Turn a Character Creator 5 / iClone 8 FBX character into a fully shaded, animatable, render-ready Solaris character with Karma XPU MaterialX materials — in one click."](/reallusion-importer/README.md)
 
 [!card title="RPLidar In" image="/rplidar-in/static/card.png" text="Bring live Slamtec RPLIDAR point-cloud data into Houdini as SOP geometry — stream, record, visualize, and drive live simulations."](/rplidar-in/README.md)
 
+### Generators
+
 [!card title="Neonyte" image="/neonyte/static/card.png" text="Procedural neon signs for Houdini: click a wall, press one button, and every placeholder becomes a different lit sign, with the metal rig behind it and a Karma material."](/neonyte/README.md)
+
+### Workflow
 
 [!card title="Advanced Velocity" image="/advanced-velocity/static/card.png" text="Author @v for simulations on one node — six velocity types blended by a real mixer, all with matching Adjust and Mask controls, plus interactive blast placement and a whole timeline of velocity events to drive a sim."](/advanced-velocity/README.md)
 

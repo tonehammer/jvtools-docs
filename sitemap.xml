@@ -33,6 +33,10 @@
     <lastmod>2026-08-26T12:22:27Z</lastmod>
   </url>
   <url>
+    <loc>https://jvtools.dev/docs/reallusion-importer/using/lookdev-controller/</loc>
+    <lastmod>2026-09-11T00:31:25Z</lastmod>
+  </url>
+  <url>
     <loc>https://jvtools.dev/docs/reallusion-importer/getting-started/import-modes/</loc>
     <lastmod>2026-08-07T12:06:44Z</lastmod>
   </url>
@@ -49,8 +53,8 @@
     <lastmod>2026-08-28T00:32:15Z</lastmod>
   </url>
   <url>
-    <loc>https://jvtools.dev/docs/reallusion-importer/using/lookdev-controller/</loc>
-    <lastmod>2026-08-07T12:06:44Z</lastmod>
+    <loc>https://jvtools.dev/docs/reallusion-importer/reference/troubleshooting/</loc>
+    <lastmod>2026-09-11T00:31:25Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/advanced-velocity/timed-events/</loc>
@@ -59,10 +63,6 @@
   <url>
     <loc>https://jvtools.dev/docs/reallusion-importer/using/hair/</loc>
     <lastmod>2026-08-28T11:38:11Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jvtools.dev/docs/reallusion-importer/reference/troubleshooting/</loc>
-    <lastmod>2026-08-23T13:13:53Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/advanced-velocity/using/</loc>
@@ -117,6 +117,10 @@
     <lastmod>2026-08-07T12:06:44Z</lastmod>
   </url>
   <url>
+    <loc>https://jvtools.dev/docs/reallusion-importer/using/rendering/</loc>
+    <lastmod>2026-09-11T00:31:25Z</lastmod>
+  </url>
+  <url>
     <loc>https://jvtools.dev/docs/neonyte/rendering/</loc>
     <lastmod>2026-09-09T13:02:56Z</lastmod>
   </url>
@@ -127,10 +131,6 @@
   <url>
     <loc>https://jvtools.dev/docs/neonyte/getting-started/</loc>
     <lastmod>2026-09-09T13:02:56Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jvtools.dev/docs/reallusion-importer/using/rendering/</loc>
-    <lastmod>2026-08-07T12:06:44Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/reallusion-importer/using/skin/</loc>

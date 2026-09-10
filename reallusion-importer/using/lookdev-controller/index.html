@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.842269565130">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.842394705258">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -45,11 +45,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.842269565130" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.842394705258" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.842269565130" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.842394705258" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.842269565130" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.842394705258" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -388,7 +388,7 @@
 <p>Think of the controller as your character&#x27;s &quot;look dashboard.&quot; The materials don&#x27;t store their own settings — they read from this controller instead. That means:</p>
 <ul>
 <li><strong>Changes are live.</strong> Drag a slider and the Karma render updates (a couple of exceptions below).</li>
-<li><strong>Your settings survive rebuilds.</strong> Rebuild the character (say, after changing an export) and your dialed-in look values are preserved — the controller isn&#x27;t wiped.</li>
+<li><strong>Your settings survive rebuilds.</strong> Rebuild the character (say, after changing an export) and your dialed-in look values are preserved — the controller isn&#x27;t wiped. This matters more than it sounds; see <doc-anchor-trigger to="#what-survives-a-rebuild">What survives a rebuild</doc-anchor-trigger> below.</li>
 <li><strong>Everything is in one place.</strong> No hunting through dozens of shader nodes.</li>
 </ul>
 <div class="flex mb-6">
@@ -406,6 +406,57 @@
         <div class="pr-5 ml-3 w-full">
             <h5>A few controls need a render restart</h5>
 <p>Most controls update live. A small number — the eye light controls and SSS Quality — are Karma <em>render properties</em>, which Karma only reads when a render starts. If one doesn&#x27;t seem to update, restart your Karma render. Each such control says so in its tooltip, and it&#x27;s noted on the relevant pages here.</p>
+        </div>
+    </div>
+</div>
+<h2 id="what-survives-a-rebuild">What survives a rebuild</h2>
+<p>The materials the tool builds are ordinary MaterialX networks sitting in your <code translate="no" v-pre>/stage</code> network. Nothing is locked, so you can dive in and modify them however you like — and for a one-off tweak the tool doesn&#x27;t expose, you should.</p>
+<p>Careful with this one, though: <strong>Build Character regenerates those material networks from scratch every time.</strong> It tears down the import, the material library, and the displacement nodes and rebuilds them, so anything you hand-edited inside a material is gone. Not damaged, not merged — simply rebuilt as if you&#x27;d never touched it.</p>
+<p>Here&#x27;s the full picture:</p>
+<retype-table copy-text="| What | On rebuild |
+|---|---|
+| Lookdev controller values | **Preserved** — the controller is never wiped |
+| Lights, camera, render settings | **Preserved** — built once, then left alone so your lighting tweaks stick |
+| Material networks, import, displacement nodes | **Rebuilt from scratch** — hand edits are lost |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>What</th>
+<th>On rebuild</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lookdev controller values</td>
+<td><strong>Preserved</strong> — the controller is never wiped</td>
+</tr>
+<tr>
+<td>Lights, camera, render settings</td>
+<td><strong>Preserved</strong> — built once, then left alone so your lighting tweaks stick</td>
+</tr>
+<tr>
+<td>Material networks, import, displacement nodes</td>
+<td><strong>Rebuilt from scratch</strong> — hand edits are lost</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<p>So the rule of thumb is simple: if you want a change to survive, make it on the <strong>controller</strong>, which is exactly what it&#x27;s there for. Hand-editing a material is fine for experimenting or for something genuinely outside the controller&#x27;s scope — just save that material off to the side, or accept that you&#x27;ll re-apply it after the next rebuild.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-warning" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
+                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+<p>This bites hardest when you rebuild for an unrelated reason — swapping to a re-export, switching import mode, or fixing a texture path. The rebuild is doing its job; it just takes your shader edits with it.</p>
         </div>
     </div>
 </div>
@@ -523,13 +574,24 @@
         </div>
     </a>
 </div>
+<div class="card-compact-container">
+    <a href="/docs/reallusion-importer/reference/troubleshooting/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M10.97 8.265a1.45 1.45 0 0 0-.487.57.75.75 0 0 1-1.341-.67c.2-.402.513-.826.997-1.148C10.627 6.69 11.244 6.5 12 6.5c.658 0 1.369.195 1.934.619a2.45 2.45 0 0 1 1.004 2.006c0 1.033-.513 1.72-1.027 2.215-.19.183-.399.358-.579.508l-.147.123a4.329 4.329 0 0 0-.435.409v1.37a.75.75 0 1 1-1.5 0v-1.473c0-.237.067-.504.247-.736.22-.28.486-.517.718-.714l.183-.153.001-.001c.172-.143.324-.27.47-.412.368-.355.569-.676.569-1.136a.953.953 0 0 0-.404-.806C12.766 8.118 12.384 8 12 8c-.494 0-.814.121-1.03.265ZM13 17a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></svg></span>
+                <span class="card-compact-title">Troubleshooting & FAQ</span>
+            </div>
+            <p class="card-compact-description">Common issues and their fixes. Most import problems trace back to either an export setting or a moved file.</p>
+        </div>
+    </a>
+</div>
 </div>
 </div>
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-07T12:06:44" title="2026-08-07" data-absolute-label="Last updated on 2026-08-07" data-absolute-label-html="Last updated on 2026-08-07" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-08-07
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-09-11T00:31:25" title="2026-09-11" data-absolute-label="Last updated on 2026-09-11" data-absolute-label-html="Last updated on 2026-09-11" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-09-11
                     </time>
                 </div>
 

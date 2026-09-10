@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.842269565130">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.842394705258">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -39,11 +39,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.842269565130" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.842394705258" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.842269565130" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.842394705258" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.842269565130" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.842394705258" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -392,6 +392,9 @@
 <h2 id="a-control-i-changed-didnt-update-the-render">A control I changed didn&#x27;t update the render</h2>
 <p><strong>Cause:</strong> a few controls — <strong>SSS Quality</strong> and the <strong>eye-light controls</strong> (Eyes Cast Light, Light Quality, Light Intensity) — are Karma render properties, which Karma reads only when a render starts.</p>
 <p><strong>Fix:</strong> restart your Karma render after changing these. Every other control updates live.</p>
+<h2 id="my-hand-edits-to-a-material-disappeared">My hand-edits to a material disappeared</h2>
+<p><strong>Cause:</strong> you rebuilt. <strong>Build Character</strong> regenerates the material networks from scratch every time — it tears down the import, the material library, and the displacement nodes and builds them fresh, so anything you edited inside a material goes with them. This catches people out most often when they rebuild for an unrelated reason, like pointing at a re-export or fixing a texture path.</p>
+<p><strong>Fix:</strong> make look changes on the <strong>lookdev controller</strong> instead — controller values are preserved across rebuilds, and so are your lights, camera, and render settings. If you genuinely need a hand-edited material, save it off to one side so you can re-apply it. See <a href="../../using/lookdev-controller/#what-survives-a-rebuild">What survives a rebuild</a>.</p>
 <h2 id="displacement-looks-like-its-exploding--cracking">Displacement looks like it&#x27;s exploding / cracking</h2>
 <p><strong>Cause:</strong> displacement strength too high.</p>
 <p><strong>Fix:</strong> lower the <strong>Displacement Strength</strong> — these maps are sensitive, and values around 0.002 are typical. See <a href="../../using/displacement/">Displacement</a>.</p>
@@ -409,6 +412,9 @@
 <p><strong>Fix:</strong> use the <strong>Fix Broken Blendshape</strong> folder on the Reallusion Importer node. Put the offending element into <strong>Broken Elements</strong> as an <code translate="no" v-pre>@name</code> group (the <code translate="no" v-pre>@name</code> attribute of that mesh), then turn on <strong>Fix Broken Blendshape</strong>. That element is now excluded from the character&#x27;s blendshape deform and instead point-deformed by the nearest face/body geometry, so it follows the animation cleanly. Adjust the <strong>Radius</strong> if you see deforming artifacts. Leave this off unless you actually have a broken element — with no element specified, the toggle would bypass the whole mesh.</p>
 <h2 id="can-i-use-this-in-a-commercial-studio-pipeline">Can I use this in a commercial studio pipeline?</h2>
 <p>The tool is a limited-commercial (Indie) asset. Loading it into a commercial Houdini session switches that session to limited-commercial mode, per SideFX&#x27;s rules. If that&#x27;s a problem for your pipeline, this tool may not fit it. You are responsible for your own SideFX license compliance. See <a href="../../getting-started/installation/">Requirements &amp; Installation</a>.</p>
+<h2 id="does-this-work-in-an-aces-pipeline">Does this work in an ACES pipeline?</h2>
+<p>Yes. Every texture the tool builds is tagged with its colorspace explicitly — sRGB for color maps, raw for normal, roughness, metallic, opacity, AO, and displacement — so OCIO converts them into whatever working space your scene uses. The tool sets no view transform, no tonemap, and no OCIO override of its own; it inherits your config rather than fighting it. The materials were developed in an ACEScg working space, so ACES is what they were built for.</p>
+<p>Two caveats, both minor: the optional light rig&#x27;s dome HDRI isn&#x27;t explicitly tagged (use your own IBL if lighting accuracy matters), and the shipped defaults were tuned viewing un-tone-mapped, so through a full ACES output transform expect a slightly softer render. See <a href="../../using/rendering/#color-management-and-aces">Color management and ACES</a>.</p>
 <h2 id="my-eyes-dont-look-like-they-did-in-character-creator">My eyes don&#x27;t look like they did in Character Creator</h2>
 <p>This is expected. Character Creator&#x27;s HD eye shader bakes very little of its look into the export, so the eye imports with a neutral base color. Use the tool&#x27;s eye controls (Iris Color Tint, Iris Scale, Limbus, Eye Shadow, Eye Glossiness) to rebuild the look in Houdini. Some aspects (true iris depth/parallax, pupil resize) can&#x27;t be reproduced at all because the data isn&#x27;t exported. See <a href="../limitations/">Limitations &amp; Expectations</a> and <a href="../../using/eyes/">Eyes</a>.</p>
 <h2 id="a-control-does-nothing-on-my-character">A control does nothing on my character</h2>
@@ -434,8 +440,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-23T13:13:53" title="2026-08-23" data-absolute-label="Last updated on 2026-08-23" data-absolute-label-html="Last updated on 2026-08-23" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-08-23
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-09-11T00:31:25" title="2026-09-11" data-absolute-label="Last updated on 2026-09-11" data-absolute-label-html="Last updated on 2026-09-11" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-09-11
                     </time>
                 </div>
 

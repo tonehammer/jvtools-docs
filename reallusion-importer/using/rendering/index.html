@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.842269565130">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.842394705258">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -45,11 +45,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.842269565130" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.842394705258" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.842269565130" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.842394705258" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.842269565130" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.842394705258" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -407,6 +407,38 @@
         </div>
     </div>
 </div>
+<h2 id="color-management-and-aces">Color management and ACES</h2>
+<p>The tool inherits your scene&#x27;s color management rather than imposing its own. It never sets a view transform, never applies a tonemap, and never overrides your OCIO config — whatever you&#x27;ve configured is what you get.</p>
+<p>What makes that safe is that <strong>every texture is tagged with its colorspace explicitly</strong>, at build time:</p>
+<ul>
+<li><strong>Color maps</strong> — diffuse, and the wrinkle diffuse sets — are tagged <code translate="no" v-pre>sRGB</code>.</li>
+<li><strong>Everything else</strong> — normal, roughness, metallic, opacity, ambient occlusion, displacement, and the hair flow and ID maps — is tagged <code translate="no" v-pre>raw</code>.</li>
+</ul>
+<p>Nothing is left on &quot;auto&quot; and nothing is baked into an assumed space, so OCIO converts each texture into whatever working space your scene uses. In practice that means an <strong>ACES pipeline works out of the box</strong> — the materials were developed and tuned in an ACEScg working space, so an ACES look is what the tool was built for, not something bolted on afterwards. Full character builds have been verified under two generations of ACES config, and the colorspace tags resolve correctly in every ACES <strong>CG</strong> and <strong>Studio</strong> config tested, across Houdini 20.5, 21, and 22.</p>
+<p>Two things worth knowing if you&#x27;re on ACES:</p>
+<ul>
+<li>The optional light rig (below) puts a studio <code translate="no" v-pre>.hdr</code> on its dome light for reflections. That one texture isn&#x27;t explicitly tagged, so it follows your config&#x27;s file rules. If lighting accuracy matters to you, use your own IBL or set the dome light&#x27;s colorspace yourself. Your character&#x27;s materials are unaffected either way.</li>
+<li>The shipped material defaults were tuned while viewing un-tone-mapped. Seen through a full ACES output transform you&#x27;ll get the same data through a filmic curve — a slightly softer render. Nothing&#x27;s wrong; your key light&#x27;s exposure and <strong>SSS Amount</strong> are the two dials worth a nudge.</li>
+</ul>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Not sure what config you&#x27;re on?</h5>
+<p>Houdini 20.5 and later ship three ACES-based OCIO configs under <code translate="no" v-pre>$HFS/packages/ocio</code>, and which one you use decides your working space. The <strong>cg</strong> config works in ACEScg — that&#x27;s the one to point <code translate="no" v-pre>OCIO</code> at for an ACES setup. Houdini&#x27;s own <strong>houdini</strong> config works in linear Rec.709. Textures convert correctly under either, because they&#x27;re tagged rather than assumed.</p>
+<p>The <strong>reference</strong> config is the one exception: it doesn&#x27;t define a standard sRGB texture space at all, so the tool&#x27;s tags can&#x27;t resolve there and you&#x27;ll get an error rather than a wrong-looking render. It isn&#x27;t meant for texturing work — use the cg config instead.</p>
+        </div>
+    </div>
+</div>
 <h2 id="motion-blur">Motion blur</h2>
 <p>The tool computes a velocity attribute on the character&#x27;s geometry, so <strong>motion blur works automatically</strong> on animated characters in Karma — fast movement renders with natural blur instead of looking strobed or unnaturally crisp. Just enable motion blur in your Karma render settings as usual; the character&#x27;s motion is picked up with no extra setup.</p>
 <h2 id="optional-one-click-render-setup">Optional one-click render setup</h2>
@@ -468,13 +500,24 @@
         </div>
     </a>
 </div>
+<div class="card-compact-container">
+    <a href="/docs/reallusion-importer/reference/troubleshooting/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M10.97 8.265a1.45 1.45 0 0 0-.487.57.75.75 0 0 1-1.341-.67c.2-.402.513-.826.997-1.148C10.627 6.69 11.244 6.5 12 6.5c.658 0 1.369.195 1.934.619a2.45 2.45 0 0 1 1.004 2.006c0 1.033-.513 1.72-1.027 2.215-.19.183-.399.358-.579.508l-.147.123a4.329 4.329 0 0 0-.435.409v1.37a.75.75 0 1 1-1.5 0v-1.473c0-.237.067-.504.247-.736.22-.28.486-.517.718-.714l.183-.153.001-.001c.172-.143.324-.27.47-.412.368-.355.569-.676.569-1.136a.953.953 0 0 0-.404-.806C12.766 8.118 12.384 8 12 8c-.494 0-.814.121-1.03.265ZM13 17a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></svg></span>
+                <span class="card-compact-title">Troubleshooting & FAQ</span>
+            </div>
+            <p class="card-compact-description">Common issues and their fixes. Most import problems trace back to either an export setting or a moved file.</p>
+        </div>
+    </a>
+</div>
 </div>
 </div>
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-07T12:06:44" title="2026-08-07" data-absolute-label="Last updated on 2026-08-07" data-absolute-label-html="Last updated on 2026-08-07" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-08-07
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-09-11T00:31:25" title="2026-09-11" data-absolute-label="Last updated on 2026-09-11" data-absolute-label-html="Last updated on 2026-09-11" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-09-11
                     </time>
                 </div>
 

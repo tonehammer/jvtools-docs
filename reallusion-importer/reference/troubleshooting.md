@@ -47,6 +47,12 @@ You can confirm wrinkles are working by clicking **Go to Max Wrinkle Frame** in 
 
 **Fix:** restart your Karma render after changing these. Every other control updates live.
 
+## My hand-edits to a material disappeared
+
+**Cause:** you rebuilt. **Build Character** regenerates the material networks from scratch every time — it tears down the import, the material library, and the displacement nodes and builds them fresh, so anything you edited inside a material goes with them. This catches people out most often when they rebuild for an unrelated reason, like pointing at a re-export or fixing a texture path.
+
+**Fix:** make look changes on the **lookdev controller** instead — controller values are preserved across rebuilds, and so are your lights, camera, and render settings. If you genuinely need a hand-edited material, save it off to one side so you can re-apply it. See [What survives a rebuild](../using/lookdev-controller.md#what-survives-a-rebuild).
+
 ## Displacement looks like it's exploding / cracking
 
 **Cause:** displacement strength too high.
@@ -80,6 +86,12 @@ You can confirm wrinkles are working by clicking **Go to Max Wrinkle Frame** in 
 ## Can I use this in a commercial studio pipeline?
 
 The tool is a limited-commercial (Indie) asset. Loading it into a commercial Houdini session switches that session to limited-commercial mode, per SideFX's rules. If that's a problem for your pipeline, this tool may not fit it. You are responsible for your own SideFX license compliance. See [Requirements & Installation](../getting-started/installation.md).
+
+## Does this work in an ACES pipeline?
+
+Yes. Every texture the tool builds is tagged with its colorspace explicitly — sRGB for color maps, raw for normal, roughness, metallic, opacity, AO, and displacement — so OCIO converts them into whatever working space your scene uses. The tool sets no view transform, no tonemap, and no OCIO override of its own; it inherits your config rather than fighting it. The materials were developed in an ACEScg working space, so ACES is what they were built for.
+
+Two caveats, both minor: the optional light rig's dome HDRI isn't explicitly tagged (use your own IBL if lighting accuracy matters), and the shipped defaults were tuned viewing un-tone-mapped, so through a full ACES output transform expect a slightly softer render. See [Color management and ACES](../using/rendering.md#color-management-and-aces).
 
 ## My eyes don't look like they did in Character Creator
 

@@ -18,11 +18,31 @@ Click **Go to LOPs** on the Reallusion Importer node to jump straight to the con
 Think of the controller as your character's "look dashboard." The materials don't store their own settings — they read from this controller instead. That means:
 
 * **Changes are live.** Drag a slider and the Karma render updates (a couple of exceptions below).
-* **Your settings survive rebuilds.** Rebuild the character (say, after changing an export) and your dialed-in look values are preserved — the controller isn't wiped.
+* **Your settings survive rebuilds.** Rebuild the character (say, after changing an export) and your dialed-in look values are preserved — the controller isn't wiped. This matters more than it sounds; see [What survives a rebuild](#what-survives-a-rebuild) below.
 * **Everything is in one place.** No hunting through dozens of shader nodes.
 
 !!!info A few controls need a render restart
 Most controls update live. A small number — the eye light controls and SSS Quality — are Karma _render properties_, which Karma only reads when a render starts. If one doesn't seem to update, restart your Karma render. Each such control says so in its tooltip, and it's noted on the relevant pages here.
+!!!
+
+## What survives a rebuild
+
+The materials the tool builds are ordinary MaterialX networks sitting in your `/stage` network. Nothing is locked, so you can dive in and modify them however you like — and for a one-off tweak the tool doesn't expose, you should.
+
+Careful with this one, though: **Build Character regenerates those material networks from scratch every time.** It tears down the import, the material library, and the displacement nodes and rebuilds them, so anything you hand-edited inside a material is gone. Not damaged, not merged — simply rebuilt as if you'd never touched it.
+
+Here's the full picture:
+
+| What | On rebuild |
+|---|---|
+| Lookdev controller values | **Preserved** — the controller is never wiped |
+| Lights, camera, render settings | **Preserved** — built once, then left alone so your lighting tweaks stick |
+| Material networks, import, displacement nodes | **Rebuilt from scratch** — hand edits are lost |
+
+So the rule of thumb is simple: if you want a change to survive, make it on the **controller**, which is exactly what it's there for. Hand-editing a material is fine for experimenting or for something genuinely outside the controller's scope — just save that material off to the side, or accept that you'll re-apply it after the next rebuild.
+
+!!!warning
+This bites hardest when you rebuild for an unrelated reason — swapping to a re-export, switching import mode, or fixing a texture path. The rebuild is doing its job; it just takes your shader edits with it.
 !!!
 
 ## The control folders

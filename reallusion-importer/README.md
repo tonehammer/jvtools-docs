@@ -10,7 +10,7 @@ image: /reallusion-importer/static/social.jpg
   <img src="static/reallusion_importer_logo.svg" alt="Reallusion Importer for Houdini" width="150" style="max-width:60%;">
 </div>
 
-<p style="text-align:center; margin:0 0 1.5rem;"><a href="https://jvtonehammer.gumroad.com/l/reallusionimporterforhoudini"><strong>Get it on Gumroad →</strong></a></p>
+<p style="text-align:center; margin:0 0 1.5rem;"><a href="https://jvtonehammer.gumroad.com/l/reallusionimporterforhoudini"><strong>Get it on Gumroad →</strong></a><br><a href="https://jvtools.dev/" style="font-size:0.9em;">More Houdini tools at jvtools.dev</a></p>
 
 **{{ rl.name }}** (v{{ rl.version }}) turns a Character Creator 5 or iClone 8 character into a fully shaded, animatable, render-ready character in Houdini's Solaris environment — in seconds instead of hours.
 

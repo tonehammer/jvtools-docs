@@ -10,7 +10,7 @@ image: static/social.png
   <img src="static/deoverlap-polylines_icon.svg" alt="Deoverlap Polylines" width="150" style="max-width:60%;">
 </div>
 
-<p style="text-align:center; margin:0 0 1.5rem;"><a href="https://jvtonehammer.gumroad.com/l/deoverlap_polylines_hda"><strong>Get it on Gumroad →</strong></a></p>
+<p style="text-align:center; margin:0 0 1.5rem;"><a href="https://jvtonehammer.gumroad.com/l/deoverlap_polylines_hda"><strong>Get it on Gumroad →</strong></a><br><a href="https://jvtools.dev/" style="font-size:0.9em;">More Houdini tools at jvtools.dev</a></p>
 
 **Deoverlap Polylines** (v{{ dp.version }}) finds where your curves cross and pushes them apart at the crossings, so a tangle reads as separate strands. Hair, fibres, cables, stitched lines, a grid of rows and columns.
 

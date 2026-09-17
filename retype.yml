@@ -43,6 +43,14 @@ exclude:
 # sitemap take this value.
 url: https://jvtools.dev/docs/
 
+# 🔴 THIS IS A BROWSER-TAB ICON AND NOTHING ELSE - IT CAN NEVER REACH A GOOGLE
+# RESULT, SO DO NOT COME HERE TO FIX ONE. Google Search takes ONE favicon per
+# HOSTNAME, read off that host's HOME PAGE; /docs is a subdirectory of
+# jvtools.dev, so every docs result shows the icon declared in jvtools-website's
+# src/layouts/Base.astro. (It also does not support SVG at all - BMP/GIF/ICO/
+# PNG/JPEG/PPM/TIFF only - which is why the site now ships /favicon.ico and
+# /favicon.png beside the SVG. Measured 2026-09-17 against Google's own spec.)
+#
 # Browser-tab icon. Retype's `favicon` key is TOP-LEVEL (not under `branding`)
 # and takes a .ico or .png only, path relative to the input directory - so an
 # SVG that adapts to prefers-color-scheme is not available through it, and the

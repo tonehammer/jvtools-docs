@@ -4,6 +4,8 @@
   <img src="static/neonyte_icon.svg" alt="Neonyte" width="180" style="max-width:55%;">
 </div>
 
+<p style="text-align:center; margin:0 0 1.5rem;"><a href="https://jvtonehammer.gumroad.com/l/neonyte_hda"><strong>Get it on Gumroad →</strong></a><br><a href="https://jvtools.dev/" style="font-size:0.9em;">More Houdini tools at jvtools.dev</a></p>
+
 Neonyte is a Houdini SOP that turns placeholder boxes into generated neon signs: lettering, icons, decor tubes, the metal rig behind them, and a Karma material - for dressing buildings and streets. It is built to read as real from across the street. Close-up hero detail is not what it is for.
 
 ![A wall of generated signs, rendered in Karma](static/hero.jpg)

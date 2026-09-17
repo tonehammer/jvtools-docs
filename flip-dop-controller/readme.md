@@ -4,7 +4,7 @@
   <img src="static/flip-dop-controller_icon.svg" alt="FLIP DOP Controller" width="150" style="max-width:60%;">
 </div>
 
-<p style="text-align:center; margin:0 0 1.5rem;"><a href="https://jvtonehammer.gumroad.com/l/flipdop_controller_hda"><strong>Get it free on Gumroad →</strong></a></p>
+<p style="text-align:center; margin:0 0 1.5rem;"><a href="https://jvtonehammer.gumroad.com/l/flipdop_controller_hda"><strong>Get it free on Gumroad →</strong></a><br><a href="https://jvtools.dev/" style="font-size:0.9em;">More Houdini tools at jvtools.dev</a></p>
 
 **FLIP DOP Controller** (v1.0) puts a FLIP simulation's key parameters on one SOP-level node.
 

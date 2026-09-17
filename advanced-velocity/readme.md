@@ -4,7 +4,7 @@
   <img src="static/advanced_velocity_icon.png" alt="Advanced Velocity" width="150" style="max-width:60%;">
 </div>
 
-<p style="text-align:center; margin:0 0 1.5rem;"><a href="https://jvtonehammer.gumroad.com/l/advanced_velocity_hda"><strong>Get it on Gumroad →</strong></a></p>
+<p style="text-align:center; margin:0 0 1.5rem;"><a href="https://jvtonehammer.gumroad.com/l/advanced_velocity_hda"><strong>Get it on Gumroad →</strong></a><br><a href="https://jvtools.dev/" style="font-size:0.9em;">More Houdini tools at jvtools.dev</a></p>
 
 Welcome! **Advanced Velocity** (v1.4) is a single Houdini SOP that authors the `@v` velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node. And because one velocity is rarely the whole story, it can also play a whole *sequence* of velocity events over time: a car lifted at frame 10, torn apart at frame 40, spun at frame 70, all from one node.
 

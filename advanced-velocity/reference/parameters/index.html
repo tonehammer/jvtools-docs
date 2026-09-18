@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.842981149276">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843074705737">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -39,11 +39,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.842981149276" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.843074705737" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.842981149276" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.843074705737" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.842981149276" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.843074705737" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -701,7 +701,7 @@
 | Enable Restriction | `restrict_enable1`–`6` | Off by default. With it off the stream reaches every point, as before. |
 | Restrict To | `restrict_mode1`–`6` | **Group** — a point group on the incoming geometry. **Bounding Object** — a SOP holding a closed shape; everything inside it is kept. |
 | Restrict Group | `restrict_group1`–`6` | The point group name. Takes a viewport pick. |
-| Restrict SOP | `restrict_sop1`–`6` | The bounding object. It must be **closed** — an open surface has no interior, so nothing is inside it. |
+| Restrict SOP | `restrict_sop1`–`6` | The bounding object. It must be **closed** — an open surface has no interior, so nothing is inside it. A SOP with no surface at all (points only, or an open curve) restricts nothing, the same as leaving this blank. |
 | Invert | `restrict_invert1`–`6` | Reach everything *outside* the region instead. |
 | Output Group | `restrict_out_group1`–`6` | Write the points the stream actually reached to a point group of this name, after Invert. Leave blank to write none, and give each type its own name — two types sharing one name overwrite each other. |">
 <div class="table-wrapper scrollbar overflow-hidden">
@@ -732,7 +732,7 @@
 <tr>
 <td>Restrict SOP</td>
 <td><code translate="no" v-pre>restrict_sop1</code>–<code translate="no" v-pre>6</code></td>
-<td>The bounding object. It must be <strong>closed</strong> — an open surface has no interior, so nothing is inside it.</td>
+<td>The bounding object. It must be <strong>closed</strong> — an open surface has no interior, so nothing is inside it. A SOP with no surface at all (points only, or an open curve) restricts nothing, the same as leaving this blank.</td>
 </tr>
 <tr>
 <td>Invert</td>
@@ -1651,7 +1651,7 @@
                 <span class="card-compact-icon inline-flex shrink-0"><img width="20" height="20" src="static/advanced_velocity_icon.png"></span>
                 <span class="card-compact-title">Advanced Velocity</span>
             </div>
-            <p class="card-compact-description">Welcome! Advanced Velocity (v1.4) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node.</p>
+            <p class="card-compact-description">Welcome! Advanced Velocity (v1.4.1) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node.</p>
         </div>
     </a>
 </div>
@@ -1660,8 +1660,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-09-08T12:43:57" title="2026-09-08" data-absolute-label="Last updated on 2026-09-08" data-absolute-label-html="Last updated on 2026-09-08" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-09-08
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-09-18T21:24:37" title="2026-09-18" data-absolute-label="Last updated on 2026-09-18" data-absolute-label-html="Last updated on 2026-09-18" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-09-18
                     </time>
                 </div>
 

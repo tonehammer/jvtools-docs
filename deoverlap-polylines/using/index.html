@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843082844242">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843083188179">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -39,11 +39,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.6.0.843082844242" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.843083188179" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.843082844242" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.843083188179" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.843082844242" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.843083188179" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -377,8 +377,7 @@
 <p>That stacked result is what you get from every other route: Houdini&#x27;s Detangle SOP resolves the overlap but has no over/under control, so a grid comes out as one set of curves lifted off the other. Alternating is the reason this node exists.</p>
 <h2 id="crossings">Crossings</h2>
 <p>Everything about <em>finding</em> the crossings. When the node seems to be doing nothing, the answer is nearly always in here.</p>
-<p><strong>Proximity Tolerance</strong> is how close two curves must come to count as crossing, measured in multiples of the average spacing between points. On flat curves it barely matters. <strong>On 3D curves it matters more than anything else on the node</strong> — two skew segments essentially never intersect exactly, so this decides whether there&#x27;s a crossing there at all. If a 3D curve set comes out barely touched, raise this first: <strong>0.5 to 0.75 finds the most</strong>, and the default of 0.25 is deliberately conservative.</p>
-<p>The slider stops just short of 1, and that ceiling is doing real work. At one full point spacing the tolerance reaches the <em>next point along the same curve</em>, so every curve starts registering as crossing itself, the analysis fills up with those, and the genuine crossings drop out — the node goes quiet exactly when you were turning the dial up to make it do more. It can&#x27;t be dragged there any more.</p>
+<p><strong>Proximity Tolerance</strong> is how close two curves must come to count as crossing. On flat curves it barely matters. <strong>On 3D curves it matters more than anything else on the node</strong> — two skew segments essentially never intersect exactly, so this decides whether there&#x27;s a crossing there at all. If a 3D curve set comes out barely touched, raise this first.</p>
 <p><strong>Split Shared Points</strong> is on by default and should stay on: a Grid SOP&#x27;s rows and columns share a point at every junction, and a shared point can&#x27;t move two ways. It&#x27;s also why a welded lattice comes out with more points than it went in with.</p>
 <p><strong>Initial Resample</strong> densifies the curves first. Off by default and rarely needed — but it&#x27;s what makes NURBS and Bezier input work, since it converts them to polylines. Without it they pass straight through untouched.</p>
 <p><strong>Intersect Mode</strong> chooses every curve against every other, or only <strong>Group A</strong> against <strong>Group B</strong>. <strong>Snap Intersecting Points</strong> merges crossings that land near each other, so a near-tangential pass doesn&#x27;t register as a cluster.</p>
@@ -405,7 +404,7 @@
 </div>
 <h2 id="utilities">Utilities</h2>
 <p><strong>Output Deintersect Attribute</strong> keeps the <code translate="no" v-pre>deintersect</code> point attribute — a 0–1 weight of how much each point moved — for driving something downstream. Off by default, so the node leaves nothing behind.</p>
-<p><strong>Check for Updates</strong> asks whether a newer version is on Gumroad. The five buttons below open the JVtools site, the store page, these docs, the Discord and the YouTube channel.</p>
+<p><strong>Check for Updates</strong> asks whether a newer version is on Gumroad. The four buttons below open the store page, these docs, the Discord and the YouTube channel.</p>
 <div id="retype-backlinks">
     <h2>See also</h2>
 <div class="card-compact-group">
@@ -416,7 +415,7 @@
                 <span class="card-compact-icon inline-flex shrink-0"><img width="20" height="20" src="static/deoverlap-polylines_icon.svg"></span>
                 <span class="card-compact-title">Deoverlap Polylines</span>
             </div>
-            <p class="card-compact-description">Deoverlap Polylines (v1.1) finds where your curves cross and pushes them apart at the crossings, so a tangle reads as separate strands. Hair, fibres, cables, stitched lines, a grid of rows and columns.</p>
+            <p class="card-compact-description">Deoverlap Polylines (v1.0) finds where your curves cross and pushes them apart at the crossings, so a tangle reads as separate strands. Hair, fibres, cables, stitched lines, a grid of rows and columns.</p>
         </div>
     </a>
 </div>
@@ -436,7 +435,7 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-09-18T23:07:47" title="2026-09-18" data-absolute-label="Last updated on 2026-09-18" data-absolute-label-html="Last updated on 2026-09-18" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-09-18T23:45:33" title="2026-09-18" data-absolute-label="Last updated on 2026-09-18" data-absolute-label-html="Last updated on 2026-09-18" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
                         Last updated on 2026-09-18
                     </time>
                 </div>

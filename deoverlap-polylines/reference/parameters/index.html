@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843082844242">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843083188179">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -39,11 +39,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.843082844242" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.843083188179" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.843082844242" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.843083188179" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.843082844242" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.843083188179" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -437,7 +437,7 @@
 | **Maximum Segments** / **Segments** | Limit the number of segments per curve instead. |
 | **Split Shared Points** | Split points belonging to more than one curve so they can move independently. Required for a welded lattice (a Grid SOP in Rows and Columns). A no-op on curves that are already separate, and it never moves a point. |
 | **Intersect Mode** | *All* finds crossings between every curve; *Specific Groups* only between Group A and Group B. Both group fields empty behaves like All. |
-| **Proximity Tolerance** | How close two curves must come to count as crossing, in multiples of the average spacing between points. Barely matters on flat curves; on 3D curves it is the single most important setting here. Around 0.5 to 0.75 finds the most. Capped just under 1: at one full point spacing the tolerance reaches the next point along the same curve, so curves start crossing themselves and the real crossings are lost. |
+| **Proximity Tolerance** | How close two curves must come to count as crossing, in multiples of the average spacing between points. Barely matters on flat curves; on 3D curves it is the single most important setting here. |
 | **Group A** / **Group B** | The two primitive groups, in Specific Groups mode. |
 | **Snap Intersecting Points** | Merge crossings that land within this distance of each other into one. |">
 <div class="table-wrapper scrollbar overflow-hidden">
@@ -471,7 +471,7 @@
 </tr>
 <tr>
 <td><strong>Proximity Tolerance</strong></td>
-<td>How close two curves must come to count as crossing, in multiples of the average spacing between points. Barely matters on flat curves; on 3D curves it is the single most important setting here. Around 0.5 to 0.75 finds the most. Capped just under 1: at one full point spacing the tolerance reaches the next point along the same curve, so curves start crossing themselves and the real crossings are lost.</td>
+<td>How close two curves must come to count as crossing, in multiples of the average spacing between points. Barely matters on flat curves; on 3D curves it is the single most important setting here.</td>
 </tr>
 <tr>
 <td><strong>Group A</strong> / <strong>Group B</strong></td>
@@ -527,7 +527,7 @@
 |---|---|
 | **Output Deintersect Attribute** | Keep the `deintersect` point attribute (0 to 1 push weight) on the output. Off by default, so the node leaves nothing behind. |
 | **Check for Updates** | Check whether a newer version is on Gumroad. Reads a version file; sends nothing anywhere. |
-| **Links** | JVtools site, store page, documentation, Discord, YouTube. |">
+| **Links** | Store page, documentation, Discord, YouTube. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -547,7 +547,7 @@
 </tr>
 <tr>
 <td><strong>Links</strong></td>
-<td>JVtools site, store page, documentation, Discord, YouTube.</td>
+<td>Store page, documentation, Discord, YouTube.</td>
 </tr>
 </tbody>
 </table>
@@ -590,7 +590,7 @@
                 <span class="card-compact-icon inline-flex shrink-0"><img width="20" height="20" src="static/deoverlap-polylines_icon.svg"></span>
                 <span class="card-compact-title">Deoverlap Polylines</span>
             </div>
-            <p class="card-compact-description">Deoverlap Polylines (v1.1) finds where your curves cross and pushes them apart at the crossings, so a tangle reads as separate strands. Hair, fibres, cables, stitched lines, a grid of rows and columns.</p>
+            <p class="card-compact-description">Deoverlap Polylines (v1.0) finds where your curves cross and pushes them apart at the crossings, so a tangle reads as separate strands. Hair, fibres, cables, stitched lines, a grid of rows and columns.</p>
         </div>
     </a>
 </div>
@@ -599,7 +599,7 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-09-18T23:07:47" title="2026-09-18" data-absolute-label="Last updated on 2026-09-18" data-absolute-label-html="Last updated on 2026-09-18" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-09-18T23:45:33" title="2026-09-18" data-absolute-label="Last updated on 2026-09-18" data-absolute-label-html="Last updated on 2026-09-18" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
                         Last updated on 2026-09-18
                     </time>
                 </div>

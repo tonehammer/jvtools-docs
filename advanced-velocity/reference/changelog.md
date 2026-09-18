@@ -5,6 +5,12 @@ order: 70
 
 # Changelog
 
+## Version 1.4.1
+<p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">18 September 2026</p>
+
+* **Fixed: Restrict To** — an open curve used as a bounding object restricted an arbitrary subset.
+* **Fixed:** the node help page named the wrong Ghost Style default.
+
 ## Version 1.4
 <p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">8 September 2026</p>
 
@@ -95,7 +101,7 @@ The first public release — version 1.0 below is the feature set it launched wi
 
 **Visualization**
 
-* **New: Ghost Style** for the motion preview — Full Wireframe, Bounding Boxes (the new default) or Points.
+* **New: Ghost Style** for the motion preview — Full Wireframe (the default), Bounding Boxes or Points.
 * Preview Motion no longer switches itself off on heavy inputs.
 
 **Bug fixes and improvements**

@@ -1,6 +1,7 @@
 {
   "product": "Advanced Velocity",
   "latest": "1.4",
+  "shipped": "1.4.1",
   "url": "https://jvtonehammer.gumroad.com/l/advanced_velocity_hda",
   "notes": "Restrict To limits any velocity type to a point group or a bounding object, and Cull to Affected deletes or marks the parts of the input no event ever reaches. Create Connected RBD Sim now reconciles the solver it built instead of building a second one, Break Glue at Trigger shatters glue bonds inside the blast, and Check RBD Sim reports every link. Adds Quick Setups presets per event, Export Event Index, Show Events and Re-bake All Events."
 }

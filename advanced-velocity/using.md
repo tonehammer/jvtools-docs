@@ -138,6 +138,8 @@ This is per type, so an explosion can reach only the rubble while the wind still
 
 !!!warning The shape has to be closed
 An open surface has no interior, so nothing is inside it and the type reaches nothing. If a Bounding Object seems to switch the whole stream off, check the geometry is watertight before checking anything else.
+
+An open *curve* is the opposite case and is deliberately inert — it restricts nothing at all, the same as leaving the field blank. So a shape that isn't closed either kills the stream or does nothing, depending on whether it's a surface or a curve; neither is a selection.
 !!!
 
 !!!info Empty is safe, a typo is not

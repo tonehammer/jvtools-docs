@@ -82,7 +82,7 @@ Every type also carries the same **Restrict To** folder, between Adjust and Mask
 | Enable Restriction | `restrict_enable1`–`6` | Off by default. With it off the stream reaches every point, as before. |
 | Restrict To | `restrict_mode1`–`6` | **Group** — a point group on the incoming geometry. **Bounding Object** — a SOP holding a closed shape; everything inside it is kept. |
 | Restrict Group | `restrict_group1`–`6` | The point group name. Takes a viewport pick. |
-| Restrict SOP | `restrict_sop1`–`6` | The bounding object. It must be **closed** — an open surface has no interior, so nothing is inside it. |
+| Restrict SOP | `restrict_sop1`–`6` | The bounding object. It must be **closed** — an open surface has no interior, so nothing is inside it. A SOP with no surface at all (points only, or an open curve) restricts nothing, the same as leaving this blank. |
 | Invert | `restrict_invert1`–`6` | Reach everything *outside* the region instead. |
 | Output Group | `restrict_out_group1`–`6` | Write the points the stream actually reached to a point group of this name, after Invert. Leave blank to write none, and give each type its own name — two types sharing one name overwrite each other. |
 

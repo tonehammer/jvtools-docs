@@ -145,7 +145,7 @@ lastUpdated:
 data:
   av:
     name: Advanced Velocity
-    version: "1.4"
+    version: "1.4.1"
   rl:
     name: Reallusion Importer for Houdini
     version: "1.2.4"

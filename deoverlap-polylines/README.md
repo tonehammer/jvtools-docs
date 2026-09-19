@@ -16,6 +16,8 @@ image: static/social.png
 
 The over/under **alternates** by default, so a lattice comes out genuinely woven rather than one set of curves lifted off the other. The push is measured per crossing from both curves' tangents, so it holds up on curves that wander in 3D, and it eases along the curve instead of kinking.
 
+**Minimum Gap** handles the case crossings can't reach: in three dimensions curves almost never meet exactly, they pass near each other — and that near miss is what reads as overlap. Switch it on and anything closer than a distance you set gets separated too.
+
 One measured push, not a solver — curves can still touch afterwards.
 
 Houdini has no native node that does this. The closest is the **Detangle** SOP, which is a solver component: it needs a previous-position attribute hand-fed before it will touch static curves, it resolves overlap rather than pushing by an amount you asked for, and it has no over/under control — on a grid it stacks every column over every row instead of weaving. Past that you are into Vellum or the Wire solver, which means substeps, a cache and a sim to art-direct. This is one cook.

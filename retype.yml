@@ -157,7 +157,7 @@ data:
     version: "1.0"
   dp:
     name: Deoverlap Polylines
-    version: "1.0"
+    version: "1.2"
   fdc:
     name: FLIP DOP Controller
     version: "1.0"

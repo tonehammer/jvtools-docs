@@ -33,7 +33,17 @@ That stacked result is what you get from every other route: Houdini's Detangle S
 
 Everything about *finding* the crossings. When the node seems to be doing nothing, the answer is nearly always in here.
 
-**Proximity Tolerance** is how close two curves must come to count as crossing. On flat curves it barely matters. **On 3D curves it matters more than anything else on the node** — two skew segments essentially never intersect exactly, so this decides whether there's a crossing there at all. If a 3D curve set comes out barely touched, raise this first.
+**Proximity Tolerance** is how close two curves must come to count as crossing, measured in multiples of the average spacing between points. On flat curves it barely matters. **On 3D curves it matters more than anything else on the node** — two skew segments essentially never intersect exactly, so this decides whether there's a crossing there at all. If a 3D curve set comes out barely touched, raise this first: **0.5 to 0.75 finds the most**, and the default of 0.25 is deliberately conservative.
+
+The slider stops just short of 1, and that ceiling earns its keep: at one full point spacing the tolerance reaches the *next point along the same curve*, so every curve starts crossing itself and the genuine crossings drop out. The node would go quiet exactly as you turned the dial up to make it do more.
+
+**Minimum Gap** is the answer when raising that still isn't enough. Everything above only acts where two curves *genuinely meet* — and in three dimensions they almost never do. They pass near each other, and that near miss is what reads as overlap. Switch this on and any two curves within **Gap Distance** are pushed apart as well, crossing or not.
+
+Gap Distance is in the same units as Push Amount, so the two are comparable. It's a *detection* threshold rather than a target: Push Amount still decides how far things move, and the push eases off with distance as it does everywhere else here, so between two contacts the curves relax back. Off by default — it's a second pass over the geometry, and on curves that genuinely cross it changes nothing.
+
+!!!info It works between different curves
+A curve passing close to *itself* isn't separated by Minimum Gap. A curve that genuinely crosses itself still is, by the crossing engine, exactly as before.
+!!!
 
 **Split Shared Points** is on by default and should stay on: a Grid SOP's rows and columns share a point at every junction, and a shared point can't move two ways. It's also why a welded lattice comes out with more points than it went in with.
 
@@ -55,4 +65,4 @@ An HDA cannot raise a warning on itself — Houdini only propagates interior *er
 
 **Output Deintersect Attribute** keeps the `deintersect` point attribute — a 0–1 weight of how much each point moved — for driving something downstream. Off by default, so the node leaves nothing behind.
 
-**Check for Updates** asks whether a newer version is on Gumroad. The four buttons below open the store page, these docs, the Discord and the YouTube channel.
+**Check for Updates** asks whether a newer version is on Gumroad. The five buttons below open the JVtools site, the store page, these docs, the Discord and the YouTube channel.

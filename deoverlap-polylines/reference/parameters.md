@@ -25,7 +25,9 @@ Every control on the node, in panel order. The prose version is in
 | **Maximum Segments** / **Segments** | Limit the number of segments per curve instead. |
 | **Split Shared Points** | Split points belonging to more than one curve so they can move independently. Required for a welded lattice (a Grid SOP in Rows and Columns). A no-op on curves that are already separate, and it never moves a point. |
 | **Intersect Mode** | *All* finds crossings between every curve; *Specific Groups* only between Group A and Group B. Both group fields empty behaves like All. |
-| **Proximity Tolerance** | How close two curves must come to count as crossing, in multiples of the average spacing between points. Barely matters on flat curves; on 3D curves it is the single most important setting here. |
+| **Proximity Tolerance** | How close two curves must come to count as crossing, in multiples of the average spacing between points. Barely matters on flat curves; on 3D curves it is the single most important setting here. Around 0.5 to 0.75 finds the most. Capped just under 1: at one full point spacing the tolerance reaches the next point along the same curve, so curves start crossing themselves and the real crossings are lost. |
+| **Minimum Gap** | Also push apart curves that come close without ever crossing. Off by default. Between *different* curves — a curve passing close to itself is not separated, though one that genuinely crosses itself still is. |
+| **Gap Distance** | Curves closer together than this are treated as overlapping. Same units as Push Amount, so the two are comparable. A detection threshold, not a target — Push Amount still decides how far the curves move. |
 | **Group A** / **Group B** | The two primitive groups, in Specific Groups mode. |
 | **Snap Intersecting Points** | Merge crossings that land within this distance of each other into one. |
 
@@ -46,7 +48,7 @@ Both draw as **guide geometry** — visible only while the node is current, neve
 |---|---|
 | **Output Deintersect Attribute** | Keep the `deintersect` point attribute (0 to 1 push weight) on the output. Off by default, so the node leaves nothing behind. |
 | **Check for Updates** | Check whether a newer version is on Gumroad. Reads a version file; sends nothing anywhere. |
-| **Links** | Store page, documentation, Discord, YouTube. |
+| **Links** | JVtools site, store page, documentation, Discord, YouTube. |
 
 ## Version signals
 

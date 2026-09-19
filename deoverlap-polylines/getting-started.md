@@ -3,7 +3,7 @@
 ## Installing
 
 >>> 1. Drop the file in your otls folder
-Put `JV-Deoverlap_Polylines-v1.0.hdalc` in `Documents/houdini22.0/otls/`. Houdini picks it up on the next launch.
+Put `JV-Deoverlap_Polylines-v1.2.hdalc` in `Documents/houdini22.0/otls/`. Houdini picks it up on the next launch.
 >>>
 
 >>> 2. Delete the previous version's file

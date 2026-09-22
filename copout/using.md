@@ -20,6 +20,8 @@ While a **copnet holds the display flag**, the 3D viewport draws its image as a 
 
 **Screen** picks the display. It's also an indicator, which is more useful than it sounds: middle-drag the window onto another monitor and the parameter updates to name where it ended up.
 
+**Duplicate To** puts the same image on more screens at once. Tick the box, pick as many as you like from the list, and each one gets its own window. They follow every setting the main window has — fit, zoom, offset, flips, exposure, gamma, fullscreen, blackout — and cost an extra texture upload rather than another COP cook. They are display only: the mouse and keyboard stay with the main window, so a stray click on a projector cannot move the output.
+
 **Fullscreen** covers that screen; off gives you a window at exactly the COP's resolution, centred. Double-clicking the output window does the same thing, and Esc leaves.
 
 **Always On Top** is on by default — that's what you want on a projector while you keep working on the first monitor. Turn it off while grading, when you'd rather it behaved like a normal window.
@@ -63,3 +65,9 @@ The network is usually the real ceiling, not this node. Before raising the cap, 
 ## Following the playbar
 
 The output window mirrors the playbar and never advances time by itself. Scrub, play, or sit still, and the window follows. A COP feedback simulation therefore steps exactly when your scene steps — there is no second clock anywhere in this tool to get out of sync with.
+
+## Passing the input through
+
+The wire from the COP Network tells COPout *which* network to read. It does not also have to carry that network's geometry downstream, and by default it no longer does — **Pass Through Input** in Utilities is off. That matters in Scene View and Both, where the node was re-cooking the COP network every frame to pass on geometry nothing was looking at.
+
+Turn it on if you had something wired below COPout that expected the canvas to come through, which is how 1.0 behaved.

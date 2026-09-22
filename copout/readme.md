@@ -6,7 +6,7 @@
 
 <p style="text-align:center; margin:0 0 1.5rem;"><a href="https://jvtonehammer.gumroad.com/l/copout_hda"><strong>Get it on Gumroad →</strong></a><br><a href="https://jvtools.dev/" style="font-size:0.9em;">More Houdini tools at jvtools.dev</a></p>
 
-Welcome! **COPout** (v1.0) puts a Copernicus network on a projector or a second screen as a borderless, chrome-free output window — no menu bars, no toolbars, nothing of Houdini in the way.
+Welcome! **COPout** (v1.1) puts a Copernicus network on a projector or a second screen as a borderless, chrome-free output window — no menu bars, no toolbars, nothing of Houdini in the way.
 
 **TouchDesigner has the Perform Window. After Effects has Mercury Transmit.** Every tool built for live visuals and installation work can put a clean, full-screen image on a second display, because that is how the work gets shown. Houdini has no equivalent — and COPout is it.
 

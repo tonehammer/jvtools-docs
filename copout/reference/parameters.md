@@ -36,6 +36,8 @@ The pattern goes through the same path as real content, so Fit, Zoom, Offset and
 | Parameter | Default | What it does |
 |---|---|---|
 | **Screen** | *(primary)* | Which display the window opens on. The list is the screens Qt can see right now, so a projector appears once Windows has it. It's also an indicator — middle-drag the window elsewhere and this updates to name where it landed. |
+| **Duplicate To** *(toggle)* | Off | Shows the same image on more screens at once — one extra window per screen picked beside it, all fed from a single read of the COP. |
+| **Duplicate To** *(screens)* | *(none)* | Which screens get a copy. Picking adds a screen to the list and picking it again removes it. The main window's own screen is ignored, and Scene View and Both cannot be duplicated. Duplicates are display only and follow every setting the main window has. |
 | **Fullscreen** | Off | Fills the screen. Off gives a window at exactly the COP's resolution, centred. Double-clicking the window toggles it too. |
 | **Always On Top** | **On** | Keeps the window above everything else — what you want on a projector, and what you may not want while grading. |
 | **Auto-Open On Load** | Off | Opens the window automatically when the scene loads, using the saved Screen and Fullscreen settings. Does nothing if there's no COP wired and no test pattern on. |
@@ -69,6 +71,7 @@ Both are display trims. They change nothing upstream in the COP network — do t
 | Parameter | Default | What it does |
 |---|---|---|
 | **Show Diagnostics** | Off | Draws a readout in the bottom right of the output window: frame, source, resolution, measured read time, and the frames actually reaching the screen. Costs nothing when off. |
+| **Pass Through Input** | Off | Sends the wired COP Network's geometry on to COPout's own output. Off — the default from 1.1 — means the node carries no dependency on that network's cook, which is what stops Scene View and Both re-cooking it every frame. Which network COPout reads is unaffected either way. |
 
 Show Diagnostics updates every frame, which **Status** deliberately does not — that one is a parameter, so it's rounded and written only when it changes.
 

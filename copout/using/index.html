@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843113240368">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843416061697">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -39,11 +39,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/favicon.png" />
-    <link href="../../resources/css/retype.css?v=4.6.0.843113240368" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.843416061697" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.843113240368" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.843416061697" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.843113240368" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.843416061697" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -388,6 +388,7 @@
 </div>
 <h2 id="placing-the-window">Placing the window</h2>
 <p><strong>Screen</strong> picks the display. It&#x27;s also an indicator, which is more useful than it sounds: middle-drag the window onto another monitor and the parameter updates to name where it ended up.</p>
+<p><strong>Duplicate To</strong> puts the same image on more screens at once. Tick the box, pick as many as you like from the list, and each one gets its own window. They follow every setting the main window has — fit, zoom, offset, flips, exposure, gamma, fullscreen, blackout — and cost an extra texture upload rather than another COP cook. They are display only: the mouse and keyboard stay with the main window, so a stray click on a projector cannot move the output.</p>
 <p><strong>Fullscreen</strong> covers that screen; off gives you a window at exactly the COP&#x27;s resolution, centred. Double-clicking the output window does the same thing, and Esc leaves.</p>
 <p><strong>Always On Top</strong> is on by default — that&#x27;s what you want on a projector while you keep working on the first monitor. Turn it off while grading, when you&#x27;d rather it behaved like a normal window.</p>
 <p><strong>Hide Cursor</strong> blanks the pointer over the output. Nothing should be sitting on a projected image.</p>
@@ -410,6 +411,9 @@
 <p><strong>Show Diagnostics</strong> (in Utilities) draws a live readout on the output window itself — frame, source, resolution, read time, the frames actually reaching the screen, zoom and offset. It costs nothing when it&#x27;s off, and unlike Status it updates every frame.</p>
 <h2 id="following-the-playbar">Following the playbar</h2>
 <p>The output window mirrors the playbar and never advances time by itself. Scrub, play, or sit still, and the window follows. A COP feedback simulation therefore steps exactly when your scene steps — there is no second clock anywhere in this tool to get out of sync with.</p>
+<h2 id="passing-the-input-through">Passing the input through</h2>
+<p>The wire from the COP Network tells COPout <em>which</em> network to read. It does not also have to carry that network&#x27;s geometry downstream, and by default it no longer does — <strong>Pass Through Input</strong> in Utilities is off. That matters in Scene View and Both, where the node was re-cooking the COP network every frame to pass on geometry nothing was looking at.</p>
+<p>Turn it on if you had something wired below COPout that expected the canvas to come through, which is how 1.0 behaved.</p>
 <div id="retype-backlinks">
     <h2>See also</h2>
 <div class="card-compact-group">
@@ -420,7 +424,7 @@
                 <span class="card-compact-icon inline-flex shrink-0"><img width="20" height="20" src="static/copout_icon.svg"></span>
                 <span class="card-compact-title">COPout</span>
             </div>
-            <p class="card-compact-description">Welcome! COPout (v1.0) puts a Copernicus network on a projector or a second screen as a borderless, chrome-free output window — no menu bars, no toolbars, nothing of Houdini in the way.</p>
+            <p class="card-compact-description">Welcome! COPout (v1.1) puts a Copernicus network on a projector or a second screen as a borderless, chrome-free output window — no menu bars, no toolbars, nothing of Houdini in the way.</p>
         </div>
     </a>
 </div>
@@ -429,8 +433,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-26T09:24:56" title="2026-08-26" data-absolute-label="Last updated on 2026-08-26" data-absolute-label-html="Last updated on 2026-08-26" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-08-26
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-09-22T20:14:00" title="2026-09-22" data-absolute-label="Last updated on 2026-09-22" data-absolute-label-html="Last updated on 2026-09-22" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-09-22
                     </time>
                 </div>
 

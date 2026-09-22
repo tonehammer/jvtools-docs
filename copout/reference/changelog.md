@@ -1,5 +1,17 @@
 # Changelog
 
+## Version 1.1
+<p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">22 September 2026</p>
+
+**Output window**
+
+* **Duplicate To** puts the same image on as many attached screens as you pick.
+
+**Utilities**
+
+* **Pass Through Input**, off by default: the node no longer sends the COP network's geometry downstream unless you ask.
+* New **Website** button on the Links row, and the **Documentation** button now opens the current docs site.
+
 ## Version 1.0
 <p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">26 August 2026</p>
 

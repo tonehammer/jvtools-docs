@@ -7,7 +7,7 @@
 - [Advanced Velocity](https://jvtools.dev/docs/advanced-velocity/readme.md): Welcome! Advanced Velocity (v1.4.1) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node.
 - [RPLidar In](https://jvtools.dev/docs/rplidar-in/readme.md): Welcome! RPLidar In (v1.0) brings live Slamtec RPLIDAR point-cloud data straight into Houdini as SOP geometry. Plug in the sensor, drop the node, and every
 - [Neonyte](https://jvtools.dev/docs/neonyte/readme.md): Neonyte is a Houdini SOP that turns placeholder boxes into generated neon signs: lettering, icons, decor tubes, the metal rig behind them, and a Karma material - for dressing buildings and streets.
-- [COPout](https://jvtools.dev/docs/copout/readme.md): Welcome! COPout (v1.0) puts a Copernicus network on a projector or a second screen as a borderless, chrome-free output window — no menu bars, no toolbars, nothing of Houdini in the way.
+- [COPout](https://jvtools.dev/docs/copout/readme.md): Welcome! COPout (v1.1) puts a Copernicus network on a projector or a second screen as a borderless, chrome-free output window — no menu bars, no toolbars, nothing of Houdini in the way.
 - [FLIP DOP Controller](https://jvtools.dev/docs/flip-dop-controller/readme.md): FLIP DOP Controller (v1.0) puts a FLIP simulation's key parameters on one SOP-level node.
 - [Deoverlap Polylines](https://jvtools.dev/docs/deoverlap-polylines/readme.md): Deoverlap Polylines (v1.2) finds where your curves cross and pushes them apart at the crossings, so a tangle reads as separate strands. Hair, fibres, cables, stitched lines, a grid of rows and columns.
 
@@ -89,13 +89,13 @@
 
 ## COPout
 
-- [Getting started](https://jvtools.dev/docs/copout/getting-started.md): Put JV-COPout-v1.0.hdalc in Documents/houdini22.0/otls/. Houdini picks it up on the next launch.
+- [Getting started](https://jvtools.dev/docs/copout/getting-started.md): Put JV-COPout-v1.1.hdalc in Documents/houdini22.0/otls/. Houdini picks it up on the next launch.
 - [Using COPout](https://jvtools.dev/docs/copout/using.md): Source decides what the window shows, and the three options are genuinely different animals rather than three views of one thing.
 
 ### Reference
 
 - [Parameter reference](https://jvtools.dev/docs/copout/reference/parameters.md): Everything lives on one Setup tab, plus Utilities. Listed here in panel order.
-- [Changelog](https://jvtools.dev/docs/copout/reference/changelog.md): The first public release.
+- [Changelog](https://jvtools.dev/docs/copout/reference/changelog.md): Output window
 - [License](https://jvtools.dev/docs/copout/reference/license.md): This is the End User License Agreement for COPout. By downloading, installing, or using the asset, you agree to these terms.
 
 ## FLIP DOP Controller

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843113240368">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843416061697">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -39,11 +39,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.843113240368" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.843416061697" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.843113240368" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.843416061697" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.843113240368" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.843416061697" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -490,6 +490,8 @@
 <retype-table copy-text="| Parameter | Default | What it does |
 |---|---|---|
 | **Screen** | *(primary)* | Which display the window opens on. The list is the screens Qt can see right now, so a projector appears once Windows has it. It's also an indicator — middle-drag the window elsewhere and this updates to name where it landed. |
+| **Duplicate To** *(toggle)* | Off | Shows the same image on more screens at once — one extra window per screen picked beside it, all fed from a single read of the COP. |
+| **Duplicate To** *(screens)* | *(none)* | Which screens get a copy. Picking adds a screen to the list and picking it again removes it. The main window's own screen is ignored, and Scene View and Both cannot be duplicated. Duplicates are display only and follow every setting the main window has. |
 | **Fullscreen** | Off | Fills the screen. Off gives a window at exactly the COP's resolution, centred. Double-clicking the window toggles it too. |
 | **Always On Top** | **On** | Keeps the window above everything else — what you want on a projector, and what you may not want while grading. |
 | **Auto-Open On Load** | Off | Opens the window automatically when the scene loads, using the saved Screen and Fullscreen settings. Does nothing if there's no COP wired and no test pattern on. |
@@ -508,6 +510,16 @@
 <td><strong>Screen</strong></td>
 <td><em>(primary)</em></td>
 <td>Which display the window opens on. The list is the screens Qt can see right now, so a projector appears once Windows has it. It&#x27;s also an indicator — middle-drag the window elsewhere and this updates to name where it landed.</td>
+</tr>
+<tr>
+<td><strong>Duplicate To</strong> <em>(toggle)</em></td>
+<td>Off</td>
+<td>Shows the same image on more screens at once — one extra window per screen picked beside it, all fed from a single read of the COP.</td>
+</tr>
+<tr>
+<td><strong>Duplicate To</strong> <em>(screens)</em></td>
+<td><em>(none)</em></td>
+<td>Which screens get a copy. Picking adds a screen to the list and picking it again removes it. The main window&#x27;s own screen is ignored, and Scene View and Both cannot be duplicated. Duplicates are display only and follow every setting the main window has.</td>
 </tr>
 <tr>
 <td><strong>Fullscreen</strong></td>
@@ -626,7 +638,8 @@
 <h2 id="utilities">Utilities</h2>
 <retype-table copy-text="| Parameter | Default | What it does |
 |---|---|---|
-| **Show Diagnostics** | Off | Draws a readout in the bottom right of the output window: frame, source, resolution, measured read time, and the frames actually reaching the screen. Costs nothing when off. |">
+| **Show Diagnostics** | Off | Draws a readout in the bottom right of the output window: frame, source, resolution, measured read time, and the frames actually reaching the screen. Costs nothing when off. |
+| **Pass Through Input** | Off | Sends the wired COP Network's geometry on to COPout's own output. Off — the default from 1.1 — means the node carries no dependency on that network's cook, which is what stops Scene View and Both re-cooking it every frame. Which network COPout reads is unaffected either way. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -641,6 +654,11 @@
 <td><strong>Show Diagnostics</strong></td>
 <td>Off</td>
 <td>Draws a readout in the bottom right of the output window: frame, source, resolution, measured read time, and the frames actually reaching the screen. Costs nothing when off.</td>
+</tr>
+<tr>
+<td><strong>Pass Through Input</strong></td>
+<td>Off</td>
+<td>Sends the wired COP Network&#x27;s geometry on to COPout&#x27;s own output. Off — the default from 1.1 — means the node carries no dependency on that network&#x27;s cook, which is what stops Scene View and Both re-cooking it every frame. Which network COPout reads is unaffected either way.</td>
 </tr>
 </tbody>
 </table>
@@ -685,7 +703,7 @@
                 <span class="card-compact-icon inline-flex shrink-0"><img width="20" height="20" src="static/copout_icon.svg"></span>
                 <span class="card-compact-title">COPout</span>
             </div>
-            <p class="card-compact-description">Welcome! COPout (v1.0) puts a Copernicus network on a projector or a second screen as a borderless, chrome-free output window — no menu bars, no toolbars, nothing of Houdini in the way.</p>
+            <p class="card-compact-description">Welcome! COPout (v1.1) puts a Copernicus network on a projector or a second screen as a borderless, chrome-free output window — no menu bars, no toolbars, nothing of Houdini in the way.</p>
         </div>
     </a>
 </div>
@@ -694,8 +712,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-26T09:24:56" title="2026-08-26" data-absolute-label="Last updated on 2026-08-26" data-absolute-label-html="Last updated on 2026-08-26" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-08-26
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-09-22T20:14:00" title="2026-09-22" data-absolute-label="Last updated on 2026-09-22" data-absolute-label-html="Last updated on 2026-09-22" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-09-22
                     </time>
                 </div>
 

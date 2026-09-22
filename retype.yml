@@ -154,7 +154,7 @@ data:
     version: "1.0"
   co:
     name: COPout
-    version: "1.0"
+    version: "1.1"
   dp:
     name: Deoverlap Polylines
     version: "1.2"

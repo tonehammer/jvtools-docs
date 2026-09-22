@@ -1,6 +1,6 @@
 {
   "product": "COPout",
-  "latest": "1.0",
+  "latest": "1.1",
   "url": "https://jvtonehammer.gumroad.com/l/copout_hda",
-  "notes": "Initial release."
+  "notes": "Duplicate To puts the same image on as many attached screens as you pick. Pass Through Input makes the node's geometry pass-through opt-in and off by default. Adds a Website button, and the Documentation button now opens the current docs site."
 }

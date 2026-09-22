@@ -3,12 +3,6 @@ icon: law
 order: 60
 ---
 
-!!!danger CHECK THE VARIANT BEFORE PUBLISHING
-Neonyte's repo `LICENSE.txt` does not exist yet. This page is the paid,
-ships-unlocked variant. The repo file must be written to match this page before
-release, not the other way round.
-!!!
-
 # License
 
 This is the End User License Agreement for **Neonyte**. By downloading, installing, or using the asset, you agree to these terms.

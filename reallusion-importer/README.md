@@ -1,5 +1,6 @@
 ---
-icon: static/reallusion_importer_logo.svg
+# Absolute on purpose: Retype's "See also" cards copy this string verbatim onto sub-pages, where a relative path 404s.
+icon: https://jvtools.dev/docs/reallusion-importer/static/reallusion_importer_logo.svg
 order: 1000
 image: /reallusion-importer/static/social.jpg
 ---

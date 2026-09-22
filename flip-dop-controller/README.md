@@ -1,5 +1,6 @@
 ---
-icon: static/flip-dop-controller_icon.svg
+# Absolute on purpose: Retype's "See also" cards copy this string verbatim onto sub-pages, where a relative path 404s.
+icon: https://jvtools.dev/docs/flip-dop-controller/static/flip-dop-controller_icon.svg
 order: 85
 image: static/social.png
 ---

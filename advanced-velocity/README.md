@@ -1,5 +1,6 @@
 ---
-icon: static/advanced_velocity_icon.png
+# Absolute on purpose: Retype's "See also" cards copy this string verbatim onto sub-pages, where a relative path 404s.
+icon: https://jvtools.dev/docs/advanced-velocity/static/advanced_velocity_icon.png
 order: 110
 image: /advanced-velocity/static/social.jpg
 ---

@@ -1,5 +1,6 @@
 ---
-icon: static/rplidar_logo.svg
+# Absolute on purpose: Retype's "See also" cards copy this string verbatim onto sub-pages, where a relative path 404s.
+icon: https://jvtools.dev/docs/rplidar-in/static/rplidar_logo.svg
 order: 110
 image: /rplidar-in/static/social.png
 ---

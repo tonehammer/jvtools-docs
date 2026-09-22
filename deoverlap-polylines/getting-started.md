@@ -14,8 +14,8 @@ If you're updating, **delete the old `.hdalc` first**. Two files defining the sa
 It appears under **Tab ▸ JV ▸ Deoverlap Polylines**, at SOP level.
 >>>
 
-!!!warning Indie and Apprentice only
-`.hdalc` is the Indie/Apprentice asset format. It will **not** load in Houdini FX or Core (commercial). That's a Houdini licensing rule, not a choice this tool makes.
+!!!warning Indie asset format
+`.hdalc` is Houdini's Indie/Apprentice asset format. Houdini FX and Core can load it, but doing so switches that session to limited-commercial (Indie) mode. That's a SideFX licensing rule, not a choice this tool makes.
 !!!
 
 ## Your first result

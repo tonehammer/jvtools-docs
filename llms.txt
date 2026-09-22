@@ -85,7 +85,7 @@
 - [Parameters](https://jvtools.dev/docs/neonyte/reference/parameters.md): Every control on the node, grouped by the folder it lives in. The description column is the first line of each control's own tooltip, so the two always agree.
 - [Troubleshooting](https://jvtools.dev/docs/neonyte/reference/troubleshooting.md): Check three things: that you have actually placed a sign, that any hand-built boxes are wired into input 2 and not input 1 (input 1 is the building geometry and passes through untouched), and that each hand-built box carries a front-face group.
 - [Changelog](https://jvtools.dev/docs/neonyte/reference/changelog.md): New: procedural neon signs from placeholder boxes, one sign each.
-- [License](https://jvtools.dev/docs/neonyte/reference/license.md): Neonyte's repo LICENSE.txt does not exist yet. This page is the paid, ships-unlocked variant. The repo file must be written to match this page before release, not the other way round.
+- [License](https://jvtools.dev/docs/neonyte/reference/license.md): This is the End User License Agreement for Neonyte. By downloading, installing, or using the asset, you agree to these terms.
 
 ## COPout
 

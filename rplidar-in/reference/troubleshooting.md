@@ -59,7 +59,7 @@ Check **Solver Output** in the Tracking tab. Set to **Blobs**, Output 1 carries 
 
 ## The asset won't load
 
-RPLidar In ships as `.hdalc`, which loads only in **Houdini Indie and Apprentice**, not commercial (FX/Core) licenses.
+RPLidar In ships as `.hdalc`, Houdini's Indie/Apprentice format. It loads in **Houdini Indie and Apprentice**, and commercial Houdini (FX/Core) can load it too, but that switches the session to limited-commercial (Indie) mode. If the node doesn't appear at all, re-check the install steps in [Getting Started](../getting-started.md).
 
 ## Changing Scan Mode or Baud pauses the stream
 

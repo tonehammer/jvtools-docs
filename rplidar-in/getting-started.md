@@ -20,8 +20,8 @@ Or use **Assets ▸ Install Digital Asset Library** to pick it up without restar
 
 The node then appears in the SOP tab menu under **JV ▸ RPLidar In**.
 
-!!!warning Indie / Apprentice only
-The asset is saved as `.hdalc`, which loads in Houdini **Indie** and **Apprentice** but **not** in commercial (FX/Core) licenses.
+!!!warning Indie asset format
+The asset is saved as `.hdalc`, Houdini's **Indie** / **Apprentice** format. Commercial Houdini (FX/Core) can load it too, but that switches the session to limited-commercial (Indie) mode, per SideFX's licensing rules.
 !!!
 
 !!!warning Updating

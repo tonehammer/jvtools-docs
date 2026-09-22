@@ -7,8 +7,8 @@
 3. Restart Houdini, or **Assets ▸ Refresh Asset Libraries**.
 4. It appears at **Tab ▸ JV ▸ FLIP DOP Controller**, at SOP level.
 
-!!!warning Indie and Apprentice only
-`.hdalc` does not load in commercial FX or Core.
+!!!warning Indie asset format
+`.hdalc` also loads in commercial FX or Core, but doing so switches that session to limited-commercial (Indie) mode, per SideFX's licensing rules.
 !!!
 
 ## First setup

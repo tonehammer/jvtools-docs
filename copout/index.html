@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843418148284">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843419452226">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -45,11 +45,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../static/favicon.png" />
-    <link href="../resources/css/retype.css?v=4.6.0.843418148284" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=4.6.0.843419452226" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=4.6.0.843418148284" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=4.6.0.843419452226" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=4.6.0.843418148284" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=4.6.0.843419452226" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -379,6 +379,7 @@
 <ul>
 <li><strong>Three sources.</strong> The COP image, a clean 3D viewport, or the viewport drawn over the COP.</li>
 <li><strong>Any screen, any fit.</strong> Pick the projector from a dropdown, go fullscreen, and letterbox, crop, 1:1 or stretch.</li>
+<li><strong>Several screens at once.</strong> <strong>Duplicate To</strong> puts the same image on every attached display you tick, each following the main window&#x27;s fit, alignment and grade.</li>
 <li><strong>Align it by hand, and keep it.</strong> Right-drag moves the image, the arrows nudge it a pixel at a time, and the result is saved with the scene — so a projector alignment survives a save and travels with the hip.</li>
 <li><strong>A test pattern that works with nothing wired.</strong> Grid, crosshair, aspect circle, colour bars, gamma ramp. Aim and focus the projector before the content exists.</li>
 <li><strong>Blackout.</strong> Kill the output to black instantly without tearing anything down — and bring it back just as fast, already current.</li>
@@ -390,7 +391,7 @@
 <ul>
 <li>It <strong>does not record or render to file.</strong> It is an output window, not a ROP.</li>
 <li>It <strong>does not run its own clock.</strong> If you want the image moving, something has to be advancing time — play the playbar.</li>
-<li>It <strong>drives one output window per node.</strong> Two projectors means two nodes.</li>
+<li>It <strong>shows one image per node.</strong> Duplicate To puts that image on several screens; two <em>different</em> images need two nodes.</li>
 <li>The grade is a <strong>display trim only.</strong> It changes nothing upstream in your network.</li>
 </ul>
 <div class="flex mb-6">
@@ -406,8 +407,8 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-            <h5>The node is a pass-through</h5>
-<p>COPout does not modify the geometry a COP Network emits — it passes it straight down, so you can keep sampling or rendering the image downstream. Opening the window is a button press, never a side effect of cooking.</p>
+            <h5>Nothing passes downstream by default</h5>
+<p>The wire from the COP Network tells COPout which network to read; it does not carry that network&#x27;s geometry on. Turn on <strong>Pass Through Input</strong> (Utilities) if something below COPout expects the canvas to come through, which is how 1.0 behaved. Opening the window is a button press, never a side effect of cooking.</p>
         </div>
     </div>
 </div>
@@ -444,7 +445,7 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-09-22T20:14:00" title="2026-09-22" data-absolute-label="Last updated on 2026-09-22" data-absolute-label-html="Last updated on 2026-09-22" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-09-22T21:10:30" title="2026-09-22" data-absolute-label="Last updated on 2026-09-22" data-absolute-label-html="Last updated on 2026-09-22" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
                         Last updated on 2026-09-22
                     </time>
                 </div>

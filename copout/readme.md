@@ -22,6 +22,7 @@ So COPout draws the pixels itself. Which is also why it can offer things the nat
 
 - **Three sources.** The COP image, a clean 3D viewport, or the viewport drawn over the COP.
 - **Any screen, any fit.** Pick the projector from a dropdown, go fullscreen, and letterbox, crop, 1:1 or stretch.
+- **Several screens at once.** **Duplicate To** puts the same image on every attached display you tick, each following the main window's fit, alignment and grade.
 - **Align it by hand, and keep it.** Right-drag moves the image, the arrows nudge it a pixel at a time, and the result is saved with the scene — so a projector alignment survives a save and travels with the hip.
 - **A test pattern that works with nothing wired.** Grid, crosshair, aspect circle, colour bars, gamma ramp. Aim and focus the projector before the content exists.
 - **Blackout.** Kill the output to black instantly without tearing anything down — and bring it back just as fast, already current.
@@ -34,11 +35,11 @@ Worth saying plainly, because each one saves a support conversation:
 
 - It **does not record or render to file.** It is an output window, not a ROP.
 - It **does not run its own clock.** If you want the image moving, something has to be advancing time — play the playbar.
-- It **drives one output window per node.** Two projectors means two nodes.
+- It **shows one image per node.** Duplicate To puts that image on several screens; two *different* images need two nodes.
 - The grade is a **display trim only.** It changes nothing upstream in your network.
 
-!!!info The node is a pass-through
-COPout does not modify the geometry a COP Network emits — it passes it straight down, so you can keep sampling or rendering the image downstream. Opening the window is a button press, never a side effect of cooking.
+!!!info Nothing passes downstream by default
+The wire from the COP Network tells COPout which network to read; it does not carry that network's geometry on. Turn on **Pass Through Input** (Utilities) if something below COPout expects the canvas to come through, which is how 1.0 behaved. Opening the window is a button press, never a side effect of cooking.
 !!!
 
 ## Requirements

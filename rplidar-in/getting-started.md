@@ -50,11 +50,6 @@ RPLIDAR units use two separate leads — **both must be connected** for a scan:
 
 The motor lead can go to a plain charger — it doesn't need to be the same machine.
 
-<!-- SCREENSHOT PENDING - drop the file in and delete these two
-     comment markers to publish it:
-![The RPLIDAR sensor with its two leads and the CP210x USB/UART adapter](static/two-cables.png)
--->
-
 ### The USB/UART adapter
 
 The sensor connects through a **Silicon Labs CP210x** USB-to-serial adapter, which enumerates as a COM port on Windows (the driver ships with Windows 11, so it installs automatically). Once connected, Windows gives the adapter a COM port (e.g. `COM3`).
@@ -62,11 +57,6 @@ The sensor connects through a **Silicon Labs CP210x** USB-to-serial adapter, whi
 !!!danger The baud-rate switch must be at 256000
 The adapter has a **baud-rate switch**, and the A2 family needs it set to **256000**. At the wrong setting the device is completely silent — no error, no points, nothing to diagnose. Check this first if your first scan comes up empty.
 !!!
-
-<!-- SCREENSHOT PENDING - drop the file in and delete these two
-     comment markers to publish it:
-![Close-up of the adapter's baud-rate switch set to 256000](static/adapter-baud-switch.png)
--->
 
 ## See your first scan
 
@@ -80,21 +70,11 @@ Set **Mode** to **Live**.
 Display the node in the viewport. The motor spins up over about two seconds, then a ring of points appears — one point per laser return. Empty space in front of the sensor produces gaps; walls and objects produce dense arcs.
 >>>
 
-<!-- SCREENSHOT PENDING - drop the file in and delete these two
-     comment markers to publish it:
-![The first scan — a dense arc of points where the sensor faces a wall](static/first-scan.png)
--->
-
 !!!info Lots of gaps is normal
 On an open desk, most laser returns hit nothing in range and come back **invalid** — filtered out before they reach you. More than half of every rotation can be empty. Point the sensor at a wall to see a dense arc. See [Modes → invalid returns](using.md#a-note-on-invalid-returns).
 !!!
 
 If nothing appears, press **Test Sensor** to print the sensor's identity, health, and available scan modes to the console, then check [Troubleshooting](reference/troubleshooting.md).
-
-<!-- SCREENSHOT PENDING - drop the file in and delete these two
-     comment markers to publish it:
-![Test Sensor console output showing the sensor's identity, health, and scan modes](static/test-sensor-console.png)
--->
 
 ## Set your working scale
 

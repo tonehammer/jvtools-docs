@@ -5,11 +5,6 @@ order: 110
 
 # Parameter reference
 
-<!-- 🔴 The parm Help fields on the HDA are the SOURCE OF TRUTH for tooltips.
-     This page syncs FROM them, never the reverse, and all layers sync MANUALLY
-     (STANDARDS §9). Re-read this page whenever a feature lands — a stale
-     reference page is worse than none. -->
-
 In panel order. Every linkable parameter has a **Link** checkbox beside it, which decides whether Connect includes it — it does not switch the parameter off.
 
 ## Top

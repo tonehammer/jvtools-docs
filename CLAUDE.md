@@ -24,6 +24,7 @@ A **Retype** static documentation site. Each product (HDA) is a folder under the
   🔴 **The move changes URLs, and the links are not all in this repo** — after any such move, grep `(parameters.md)` / `(troubleshooting.md)` / `(changelog.md)` / `(license.md)` here until clean, then fix **jvtools-website**: the version badge href in `src/pages/products/[slug].astro` and every `notes:` in `src/data/changelog.mjs`.
 - **Page frontmatter:** `icon:` + `order:`. **Higher `order` = higher in the sidebar** (verified). No order ⇒ alphabetical by title.
 - **Icons:** emoji shortcodes (`:satellite:`, `:wrench:`) are safe and used throughout; Octicon names also work.
+- 🔴 **NO HTML COMMENTS IN A PAGE** (2026-09-22). Retype copies `<!-- -->` into the published page source, so anyone can read them with View Source. Eleven were live, including internal pointers ("STANDARDS §9") and five "SCREENSHOT PENDING" placeholders. Authoring rules go in this file; a picture still to be shot goes on the production board, with its image line in the row's note.
 - **NO GitBook-style `description:` frontmatter** (it rendered as an unwanted subtitle — a rule carried from the product repos). Keep `icon:`/`order:` only.
 - **Retype specifics:** don't guess component/config syntax from memory — Retype iterates. Verify against retype.com docs (WebFetch) before using an unfamiliar option, same discipline as never-guess-parm-names in the product repos.
 

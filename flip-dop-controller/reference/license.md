@@ -5,14 +5,6 @@ order: 60
 
 # License
 
-<!-- 🔴 THIS PAGE AND THE SHIPPED LICENSE.txt ARE ONE ARTIFACT - EDIT THEM
-     TOGETHER (STANDARDS section 7). The source is the repo's LICENSE.txt.
-
-     🔴 ONE DELIBERATE DIFFERENCE, DO NOT "FIX" IT: this page is PUBLIC, so it
-     carries the mention-only Discord line with NO invite URL. The live URL
-     belongs only on customer-only surfaces - the shipped LICENSE.txt and the
-     HDA's Utilities button. (STANDARDS section 8.) -->
-
 **FLIP DOP Controller — End User License Agreement.** Last updated: 26/08/2026.
 
 In plain language: FLIP DOP Controller is **free**. You may use it on machines you control, for your own personal and commercial projects, and everything you create with it — simulations, caches, and renders — is yours, royalty-free. The asset ships unlocked so you can open it up and learn from it. You may share the original, unmodified asset with others, but you may not sell it or pass it off as your own. It is provided as-is with no warranty, and you are responsible for your own SideFX license compliance. The full terms below govern.

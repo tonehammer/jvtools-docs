@@ -5,13 +5,6 @@ order: 70
 
 # Changelog
 
-<!-- Register (STANDARDS §9): ONE LINE per bullet. Say what was done and stop —
-     no explaining the mechanism, no teaching how to use it, no caveats. That
-     material belongs on the feature pages. Altitude: minor fixes group under
-     "Bug fixes and improvements"; individual bullets for headline features.
-     This page is the docs' source of truth for the product version — the
-     manifest (versions/copout.json) is a SEPARATE signal and lags on patches. -->
-
 ## Version 1.1
 <p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">22 September 2026</p>
 

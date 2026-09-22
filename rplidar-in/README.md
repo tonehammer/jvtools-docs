@@ -17,11 +17,6 @@ Welcome! **{{ rp.name }}** (v{{ rp.version }}) brings live [Slamtec RPLIDAR](htt
 
 It's built for **TouchDesigner-style interactive work**: a person walks past the sensor, and their outline drives a POP or Vellum solver live, with no baking step in between.
 
-<!-- SCREENSHOT PENDING - drop the file in and delete these two
-     comment markers to publish it:
-![A live scan ring in the Houdini viewport, with the sensor guide and range ring](static/hero-scan.png)
--->
-
 ## What it does for you
 
 * **Live streaming** — reads the sensor over USB and outputs one point per laser return, updated every cook.

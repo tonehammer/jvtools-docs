@@ -5,13 +5,6 @@ order: 70
 
 # Changelog
 
-<!-- The public changelog COMPRESSES (STANDARDS §9): minor fixes group under one
-     "Bug fixes and improvements" line; individual bullets are for headline
-     features only. The verbose per-session record lives in the repo CLAUDE.md.
-     This page is the docs' source of truth for the product version — the
-     manifest (versions/flip-dop-controller.json) is a SEPARATE signal and deliberately
-     lags on patch releases. -->
-
 ## v1.0
 <p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">29 August 2026</p>
 

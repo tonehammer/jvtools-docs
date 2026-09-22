@@ -5,12 +5,6 @@ order: 110
 
 # Parameter reference
 
-<!-- 🔴 The parm Help fields on the HDA are the SOURCE OF TRUTH for tooltips.
-     This page syncs FROM them, never the reverse, and all layers sync MANUALLY
-     (STANDARDS §9). Re-read this page whenever a feature lands.
-     Synced 2026-08-25 from build_assets.py::build_parms — panel order below
-     matches the built parm surface exactly. -->
-
 Everything lives on one **Setup** tab, plus **Utilities**. Listed here in panel order.
 
 !!!info Scene View disables a lot, on purpose

@@ -86,7 +86,7 @@ Both are display trims. They change nothing upstream in the COP network — do t
 
 Show Diagnostics updates every frame, which **Status** deliberately does not — that one is a parameter, so it's rounded and written only when it changes.
 
-Underneath sit the window's input bindings, and links to the store page, these docs, the Discord and the YouTube channel.
+Underneath sit the window's input bindings, and links to the JVtools website, the store page, these docs, the Discord and the YouTube channel.
 
 ## Version signals
 

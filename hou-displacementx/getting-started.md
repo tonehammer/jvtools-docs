@@ -1,4 +1,5 @@
 ---
+icon: rocket
 order: 100
 ---
 

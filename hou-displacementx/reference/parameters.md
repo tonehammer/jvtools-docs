@@ -1,4 +1,5 @@
 ---
+icon: sliders
 order: 110
 ---
 

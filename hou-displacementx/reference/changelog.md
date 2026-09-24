@@ -1,4 +1,5 @@
 ---
+icon: history
 order: 70
 ---
 
@@ -15,4 +16,4 @@ First release.
 - New: full-float **height**, **normal**, **basecolor** and **id** outputs.
 - New: the **Hou-DisplacementX Heightfield** SOP node - heightfield out, or triplanar displacement of wired geometry.
 - New: **Show Color** previews the Color Gradient in the viewport.
-- Free software under GPL-3.0; the source is public.
+- Free software under GPL-3.0; the asset ships unlocked.

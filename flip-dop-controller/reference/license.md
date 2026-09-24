@@ -32,7 +32,7 @@ You may not:
 
 ## 4. Houdini license compliance
 
-The Asset is distributed as a Houdini Indie / Apprentice ("limited commercial") Digital Asset (`.hdalc`), which loads in Houdini Indie and Apprentice but not in commercial (FX/Core) licenses. You are solely responsible for ensuring your own use of Houdini and of this Asset complies with SideFX's licensing terms; the Author is not responsible for your compliance with SideFX licensing.
+The Asset is built with and distributed as a Houdini Indie ("limited commercial") Digital Asset (`.hdalc`). You are solely responsible for ensuring your own use of Houdini and of this Asset complies with SideFX's licensing terms. Loading a limited-commercial Asset into a commercial Houdini session may affect that session under SideFX's rules; the Author is not responsible for your compliance with SideFX licensing.
 
 ## 5. Third-party content
 

@@ -29,18 +29,6 @@ Common issues and their fixes. Most import problems trace back to either an expo
 
 You can confirm wrinkles are working by clicking **Go to Max Wrinkle Frame** in the Wrinkles folder — it jumps to the most expressive frame so you can see them.
 
-## Nothing happens when I click Build Character
-
-**Cause:** no FBX is set, or the path doesn't exist.
-
-**Fix:** set a valid FBX path on the **CC5/iClone FBX** field, then click Build Character. The tool will warn you if the path is empty or missing.
-
-## The hair recolor controls don't do anything
-
-**Cause:** your character's hair doesn't carry Character Creator's hair maps (root/ID/flow), so there's nothing for the recolor system to work with — it stays on the baked color.
-
-**Fix:** this is expected for hairstyles that bake everything into a flat diffuse, and for caps and some brows/lashes. The hair will still look correct; it just can't be re-dyed. Hair that _does_ carry the maps (most styled scalp hair) will recolor normally. See [Hair](../using/hair.md).
-
 ## A control I changed didn't update the render
 
 **Cause:** a few controls — **SSS Quality** and the **eye-light controls** (Eyes Cast Light, Light Quality, Light Intensity) — are Karma render properties, which Karma reads only when a render starts.
@@ -53,29 +41,11 @@ You can confirm wrinkles are working by clicking **Go to Max Wrinkle Frame** in 
 
 **Fix:** make look changes on the **lookdev controller** instead — controller values are preserved across rebuilds, and so are your lights, camera, and render settings. If you genuinely need a hand-edited material, save it off to one side so you can re-apply it. See [What survives a rebuild](../using/lookdev-controller.md#what-survives-a-rebuild).
 
-## Displacement looks like it's exploding / cracking
-
-**Cause:** displacement strength too high.
-
-**Fix:** lower the **Displacement Strength** — these maps are sensitive, and values around 0.002 are typical. See [Displacement](../using/displacement.md).
-
-## Houdini runs out of memory
-
-**Cause:** character data and animation clips are memory-heavy.
-
-**Fix:** remove animation clips you're not using, clear the scene cache, and work with one character at a time on a tight memory budget. See [Performance & Caching](performance.md).
-
-## My render looks noisy in the soft skin areas
-
-**Cause:** subsurface scattering needs more samples.
-
-**Fix:** raise **SSS Quality** in the Skin folder (and restart the render, since it's a render property). Make sure you're in Production quality, not Preview.
-
 ## Clothing or an accessory pokes through the body
 
 **Cause:** Character Creator outfits don't always sit perfectly on every body.
 
-**Fix:** use **Skin Fix** (the **Skin-Fix** folder → **Create Skin-Fix Setup**). Double-click into the gold subnetwork and brush the green **Sculpt** / **Soft Edit** nodes to push the body in (or the garment out), then turn on **Use Skin-Fix Mesh**. Move points only — don't add, delete, or change the mesh's point count, and only touch the green nodes. See [Skin Fix](../using/skin-fix.md).
+**Fix:** use **Skin Fix** (the **Skin-Fix** folder → **Create Skin-Fix Setup**) to push the body in, or the garment out. See [Skin Fix](../using/skin-fix.md).
 
 ## A small element (usually facial hair) breaks up or mangles during animation
 
@@ -89,9 +59,7 @@ The tool is a limited-commercial (Indie) asset. Loading it into a commercial Hou
 
 ## Does this work in an ACES pipeline?
 
-Yes. Every texture the tool builds is tagged with its colorspace explicitly — sRGB for color maps, raw for normal, roughness, metallic, opacity, AO, and displacement — so OCIO converts them into whatever working space your scene uses. The tool sets no view transform, no tonemap, and no OCIO override of its own; it inherits your config rather than fighting it. The materials were developed in an ACEScg working space, so ACES is what they were built for.
-
-Two caveats, both minor: the optional light rig's dome HDRI isn't explicitly tagged (use your own IBL if lighting accuracy matters), and the shipped defaults were tuned viewing un-tone-mapped, so through a full ACES output transform expect a slightly softer render. See [Color management and ACES](../using/rendering.md#color-management-and-aces).
+Yes. Every texture is tagged with its colorspace explicitly and the tool sets no OCIO override of its own, so it follows your scene's config. The materials were built in ACEScg. See [Color management and ACES](../using/rendering.md#color-management-and-aces).
 
 ## My eyes don't look like they did in Character Creator
 

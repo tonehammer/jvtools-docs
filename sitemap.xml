@@ -154,7 +154,7 @@
   </url>
   <url>
     <loc>https://jvtools.dev/docs/advanced-velocity/reference/troubleshooting/</loc>
-    <lastmod>2026-09-08T12:43:57Z</lastmod>
+    <lastmod>2026-09-24T03:29:19Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/flip-dop-controller/using/</loc>
@@ -170,7 +170,7 @@
   </url>
   <url>
     <loc>https://jvtools.dev/docs/rplidar-in/reference/troubleshooting/</loc>
-    <lastmod>2026-09-22T20:48:47Z</lastmod>
+    <lastmod>2026-09-24T03:29:19Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/flip-dop-controller/getting-started/</loc>
@@ -179,10 +179,6 @@
   <url>
     <loc>https://jvtools.dev/docs/hou-displacementx/using/</loc>
     <lastmod>2026-09-24T03:06:17Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jvtools.dev/docs/neonyte/control/vexpression/</loc>
-    <lastmod>2026-09-09T13:02:56Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/advanced-velocity/reference/changelog/</loc>
@@ -209,6 +205,10 @@
     <lastmod>2026-09-19T08:07:01Z</lastmod>
   </url>
   <url>
+    <loc>https://jvtools.dev/docs/neonyte/control/vexpression/</loc>
+    <lastmod>2026-09-09T13:02:56Z</lastmod>
+  </url>
+  <url>
     <loc>https://jvtools.dev/docs/neonyte/control/advanced/</loc>
     <lastmod>2026-09-09T13:02:56Z</lastmod>
   </url>
@@ -233,12 +233,12 @@
     <lastmod>2026-09-09T13:02:56Z</lastmod>
   </url>
   <url>
-    <loc>https://jvtools.dev/docs/neonyte/reference/troubleshooting/</loc>
+    <loc>https://jvtools.dev/docs/neonyte/reference/changelog/</loc>
     <lastmod>2026-09-09T13:02:56Z</lastmod>
   </url>
   <url>
-    <loc>https://jvtools.dev/docs/neonyte/reference/changelog/</loc>
-    <lastmod>2026-09-09T13:02:56Z</lastmod>
+    <loc>https://jvtools.dev/docs/neonyte/reference/troubleshooting/</loc>
+    <lastmod>2026-09-24T03:29:19Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/copout/reference/parameters/</loc>
@@ -262,7 +262,7 @@
   </url>
   <url>
     <loc>https://jvtools.dev/docs/flip-dop-controller/reference/troubleshooting/</loc>
-    <lastmod>2026-08-30T19:41:16Z</lastmod>
+    <lastmod>2026-09-24T03:29:19Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/flip-dop-controller/reference/changelog/</loc>
@@ -278,7 +278,7 @@
   </url>
   <url>
     <loc>https://jvtools.dev/docs/hou-displacementx/reference/troubleshooting/</loc>
-    <lastmod>2026-09-24T03:06:17Z</lastmod>
+    <lastmod>2026-09-24T03:29:19Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/hou-displacementx/reference/changelog/</loc>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843527200231">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843528578684">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Troubleshooting</title>
     <meta name="title" content="Troubleshooting">
-    <meta name="description" content="The node draws the whole map on the GPU through Houdini's OpenCL device. If other OpenCL COPs do not cook on your machine, this one will not either - check that Houdini has a working OpenCL device before looking anywhere else.">
+    <meta name="description" content="Nothing appears / the node errors — the node draws the whole map on the GPU through Houdini's OpenCL device. If other OpenCL COPs do not cook on your machine, this one will not either - check that Houdini has a working OpenCL device before looking anywhere else.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://jvtools.dev/docs/hou-displacementx/reference/troubleshooting/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jvtools.dev/docs/hou-displacementx/reference/troubleshooting/">
     <meta property="og:title" content="Troubleshooting">
-    <meta property="og:description" content="The node draws the whole map on the GPU through Houdini's OpenCL device. If other OpenCL COPs do not cook on your machine, this one will not either - check that Houdini has a working OpenCL device before looking anywhere else.">
+    <meta property="og:description" content="Nothing appears / the node errors — the node draws the whole map on the GPU through Houdini's OpenCL device. If other OpenCL COPs do not cook on your machine, this one will not either - check that Houdini has a working OpenCL device before looking anywhere else.">
     <meta property="og:site_name" content="JVtools">
     <meta property="og:locale" content="en_US">
 
@@ -31,7 +31,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://jvtools.dev/docs/hou-displacementx/reference/troubleshooting/">
     <meta name="twitter:title" content="Troubleshooting">
-    <meta name="twitter:description" content="The node draws the whole map on the GPU through Houdini's OpenCL device. If other OpenCL COPs do not cook on your machine, this one will not either - check that Houdini has a working OpenCL device before looking anywhere else.">
+    <meta name="twitter:description" content="Nothing appears / the node errors — the node draws the whole map on the GPU through Houdini's OpenCL device. If other OpenCL COPs do not cook on your machine, this one will not either - check that Houdini has a working OpenCL device before looking anywhere else.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://jvtools.dev/docs/hou-displacementx/reference/troubleshooting.md">
@@ -39,11 +39,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.843527200231" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.843528578684" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.843527200231" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.843528578684" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.843527200231" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.843528578684" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -395,22 +395,11 @@
 
                 <!-- Page content  -->
 <h1 id="troubleshooting">Troubleshooting</h1>
-<h2 id="nothing-appears--the-node-errors">Nothing appears / the node errors</h2>
-<p>The node draws the whole map on the GPU through Houdini&#x27;s OpenCL device. If other OpenCL COPs do not cook on your machine, this one will not either - check that Houdini has a working OpenCL device before looking anywhere else.</p>
-<h2 id="sprites-do-nothing">Sprites do nothing</h2>
-<p><strong>Enable Sprites</strong> is off by default. Turn it on, and make sure at least one of the four packs is ticked - with none ticked, nothing is stamped.</p>
-<h2 id="changing-resolution-has-no-effect">Changing Resolution has no effect</h2>
-<p>A layer is wired into the <strong>Size Reference</strong> input, and that layer&#x27;s size wins. Unwire it, or change the size of what is feeding it instead.</p>
-<h2 id="my-displaced-geometry-barely-changes">My displaced geometry barely changes</h2>
-<p>The geometry is too sparse - displacement only moves the points that are already there. Subdivide or Remesh it first, then raise <strong>Displace Amount</strong>. Also check <strong>Midpoint</strong>: at 0.5 a mid-grey area barely moves at all, since it sits close to the surface either way.</p>
-<h2 id="the-map-does-not-match-the-web-version-with-the-same-settings">The map does not match the web version with the same settings</h2>
-<p>The random sequence here is seeded independently, so the same settings give a different map with the same look, not the same map. Use <strong>Seed</strong> to reproduce a specific map inside Houdini rather than trying to match the web version&#x27;s output.</p>
-<h2 id="a-sprite-is-partly-cut-off--moved">A sprite is partly cut off / moved</h2>
-<p><strong>Rotate</strong> turns each sprite about the image centre, not the sprite&#x27;s own centre - as in the original. On a non-square image this can carry a rotated sprite partly off-canvas.</p>
-<h2 id="show-color-replaced-my-heightfield-material">Show Color replaced my heightfield material</h2>
-<p>That is expected: <strong>Show Color</strong> assigns a HeightField Visualize material to preview the Color Gradient, and it replaces whatever material was already on the heightfield. Switch it off before rendering.</p>
-<h2 id="the-node-says-a-new-version-is-available">The node says a new version is available</h2>
-<p>Download the new file from Gumroad, delete the old one, and restart Houdini.</p>
+<p><strong>Nothing appears / the node errors</strong> — the node draws the whole map on the GPU through Houdini&#x27;s OpenCL device. If other OpenCL COPs do not cook on your machine, this one will not either - check that Houdini has a working OpenCL device before looking anywhere else.</p>
+<p><strong>Changing Resolution has no effect</strong> — a layer is wired into the <strong>Size Reference</strong> input, and that layer&#x27;s size wins. Unwire it, or change the size of what is feeding it instead.</p>
+<p><strong>My displaced geometry barely changes</strong> — the geometry is too sparse - displacement only moves the points that are already there. Subdivide or Remesh it first, then raise <strong>Displace Amount</strong>. Also check <strong>Midpoint</strong>: at 0.5 a mid-grey area barely moves at all, since it sits close to the surface either way.</p>
+<hr>
+<p>Still stuck? Find me on the JVtools Discord — the invite link is in the <strong>Utilities</strong> folder on the HDA node.</p>
 <div id="retype-backlinks">
     <h2>See also</h2>
 <div class="card-compact-group">
@@ -430,7 +419,7 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-09-24T03:06:17" title="2026-09-24" data-absolute-label="Last updated on 2026-09-24" data-absolute-label-html="Last updated on 2026-09-24" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-09-24T03:29:19" title="2026-09-24" data-absolute-label="Last updated on 2026-09-24" data-absolute-label-html="Last updated on 2026-09-24" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
                         Last updated on 2026-09-24
                     </time>
                 </div>

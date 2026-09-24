@@ -51,7 +51,7 @@
 ### Reference
 
 - [Parameter Reference](https://jvtools.dev/docs/advanced-velocity/reference/parameters.md): Every hand-authored parameter on the Advanced Velocity node, grouped the way it appears in the interface. Names in code are the internal parameter names.
-- [Troubleshooting](https://jvtools.dev/docs/advanced-velocity/reference/troubleshooting.md): You're in Timed Events mode, the default, where the live Setup is only a template — only baked events reach the output. Press Create Event to bake the setup, or Update on an existing event's row to fold your changes into it.
+- [Troubleshooting](https://jvtools.dev/docs/advanced-velocity/reference/troubleshooting.md): I tweak the Setup sliders and nothing changes — you're in Timed Events mode, the default, where the live Setup is only a template — only baked events reach the output.
 - [Changelog](https://jvtools.dev/docs/advanced-velocity/reference/changelog.md): Fixed: Restrict To — an open curve used as a bounding object restricted an arbitrary subset.
 - [License](https://jvtools.dev/docs/advanced-velocity/reference/license.md): This is the End User License Agreement for Advanced Velocity. By downloading, installing, or using the asset, you agree to these terms.
 
@@ -63,7 +63,7 @@
 ### Reference
 
 - [Parameter Reference](https://jvtools.dev/docs/rplidar-in/reference/parameters.md): Every parameter on the RPLidar In node, grouped as it appears in the interface. Names in code are the internal parameter names.
-- [Troubleshooting](https://jvtools.dev/docs/rplidar-in/reference/troubleshooting.md): Press Test Sensor. It prints the sensor's identity, health, and available scan modes. No response means Houdini can't talk to the sensor.
+- [Troubleshooting](https://jvtools.dev/docs/rplidar-in/reference/troubleshooting.md): No points appear in Live mode — work down this list:
 - [Changelog](https://jvtools.dev/docs/rplidar-in/reference/changelog.md): The first public release.
 - [License](https://jvtools.dev/docs/rplidar-in/reference/license.md): This is the End User License Agreement for RPLidar In. By downloading, installing, or using the asset, you agree to these terms.
 
@@ -84,7 +84,7 @@
 ### Reference
 
 - [Parameters](https://jvtools.dev/docs/neonyte/reference/parameters.md): Every control on the node, grouped by the folder it lives in. The description column is the first line of each control's own tooltip, so the two always agree.
-- [Troubleshooting](https://jvtools.dev/docs/neonyte/reference/troubleshooting.md): Check three things: that you have actually placed a sign, that any hand-built boxes are wired into input 2 and not input 1 (input 1 is the building geometry and passes through untouched), and that each hand-built box carries a front-face group.
+- [Troubleshooting](https://jvtools.dev/docs/neonyte/reference/troubleshooting.md): No signs appear after pressing the button — check three things: that you have actually placed a sign, that any hand-built boxes are wired into input 2 and not input 1 (input 1 is the building geometry and passes through untouched), and that each hand-built box carries a front-face group.
 - [Changelog](https://jvtools.dev/docs/neonyte/reference/changelog.md): New: procedural neon signs from placeholder boxes, one sign each.
 - [License](https://jvtools.dev/docs/neonyte/reference/license.md): This is the End User License Agreement for Neonyte. By downloading, installing, or using the asset, you agree to these terms.
 
@@ -107,7 +107,7 @@
 ### Reference
 
 - [Parameter reference](https://jvtools.dev/docs/flip-dop-controller/reference/parameters.md): In panel order. Every linkable parameter has a Link checkbox beside it, which decides whether Connect includes it — it does not switch the parameter off.
-- [Troubleshooting](https://jvtools.dev/docs/flip-dop-controller/reference/troubleshooting.md): "Nothing to connect" — no DOP Network set and no Add Linked SOPs rows. There is genuinely nothing to write to.
+- [Troubleshooting](https://jvtools.dev/docs/flip-dop-controller/reference/troubleshooting.md): "No FLIP Solver found" / "No FLIP Object found" — three causes. Discovery looks at the dopnet's direct children, so a solver inside a DOP subnet is missed. Or it is a SOP FLIP setup (see below).
 - [Changelog](https://jvtools.dev/docs/flip-dop-controller/reference/changelog.md): First release.
 - [License](https://jvtools.dev/docs/flip-dop-controller/reference/license.md): FLIP DOP Controller — End User License Agreement. Last updated: 26/08/2026.
 
@@ -119,7 +119,7 @@
 ### Reference
 
 - [Parameter reference](https://jvtools.dev/docs/hou-displacementx/reference/parameters.md): Parameter
-- [Troubleshooting](https://jvtools.dev/docs/hou-displacementx/reference/troubleshooting.md): The node draws the whole map on the GPU through Houdini's OpenCL device. If other OpenCL COPs do not cook on your machine, this one will not either - check that Houdini has a working OpenCL device before looking anywhere else.
+- [Troubleshooting](https://jvtools.dev/docs/hou-displacementx/reference/troubleshooting.md): Nothing appears / the node errors — the node draws the whole map on the GPU through Houdini's OpenCL device. If other OpenCL COPs do not cook on your machine, this one will not either - check that Houdini has a working OpenCL device before looking anywhere else.
 - [Changelog](https://jvtools.dev/docs/hou-displacementx/reference/changelog.md): First release.
 - [License](https://jvtools.dev/docs/hou-displacementx/reference/license.md): Hou-DisplacementX is free software, released under the GNU General Public License, version 3.
 

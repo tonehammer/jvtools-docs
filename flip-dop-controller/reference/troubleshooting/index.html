@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843527200231">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843528578684">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Troubleshooting</title>
     <meta name="title" content="Troubleshooting">
-    <meta name="description" content="\"Nothing to connect\" — no DOP Network set and no Add Linked SOPs rows. There is genuinely nothing to write to.">
+    <meta name="description" content="\"No FLIP Solver found\" / \"No FLIP Object found\" — three causes. Discovery looks at the dopnet's direct children, so a solver inside a DOP subnet is missed. Or it is a SOP FLIP setup (see below).">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://jvtools.dev/docs/flip-dop-controller/reference/troubleshooting/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jvtools.dev/docs/flip-dop-controller/reference/troubleshooting/">
     <meta property="og:title" content="Troubleshooting">
-    <meta property="og:description" content="\"Nothing to connect\" — no DOP Network set and no Add Linked SOPs rows. There is genuinely nothing to write to.">
+    <meta property="og:description" content="\"No FLIP Solver found\" / \"No FLIP Object found\" — three causes. Discovery looks at the dopnet's direct children, so a solver inside a DOP subnet is missed. Or it is a SOP FLIP setup (see below).">
     <meta property="og:site_name" content="JVtools">
     <meta property="og:locale" content="en_US">
 
@@ -31,7 +31,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://jvtools.dev/docs/flip-dop-controller/reference/troubleshooting/">
     <meta name="twitter:title" content="Troubleshooting">
-    <meta name="twitter:description" content="\"Nothing to connect\" — no DOP Network set and no Add Linked SOPs rows. There is genuinely nothing to write to.">
+    <meta name="twitter:description" content="\"No FLIP Solver found\" / \"No FLIP Object found\" — three causes. Discovery looks at the dopnet's direct children, so a solver inside a DOP subnet is missed. Or it is a SOP FLIP setup (see below).">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://jvtools.dev/docs/flip-dop-controller/reference/troubleshooting.md">
@@ -39,11 +39,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.843527200231" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.843528578684" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.843527200231" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.843528578684" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.843527200231" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.843528578684" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -395,17 +395,9 @@
 
                 <!-- Page content  -->
 <h1 id="troubleshooting">Troubleshooting</h1>
-<p><strong>&quot;Nothing to connect&quot;</strong> — no DOP Network set and no Add Linked SOPs rows. There is genuinely nothing to write to.</p>
 <p><strong>&quot;No FLIP Solver found&quot; / &quot;No FLIP Object found&quot;</strong> — three causes. Discovery looks at the dopnet&#x27;s <strong>direct children</strong>, so a solver inside a DOP subnet is missed. Or it is a SOP FLIP setup (see below). Or the path points somewhere unexpected.</p>
-<p><strong>&quot;The DOP Network path does not resolve&quot;</strong> — the path points at a node that does not exist. Distinct from an empty path, which is a valid SOP-only setup.</p>
 <p><strong>I use the SOP FLIP nodes</strong> — not supported directly. What works: leave DOP Network empty and add <strong>Add Linked SOPs</strong> rows for your <code translate="no" v-pre>flipcontainer</code> and <code translate="no" v-pre>flipsolver</code> SOPs, which carry <code translate="no" v-pre>particlesep</code> and <code translate="no" v-pre>gridscale</code> under those names. They hold those values independently, so you need a row for each. Substeps, CFL and the bounding box cannot be driven this way.</p>
-<p><strong>The container box vanished</strong> — guide geometry only draws while its node is current. Select the controller again.</p>
 <p><strong>Connect took over an expression I wrote</strong> — by design, and it said so in the report. Untick that parameter&#x27;s <strong>Link</strong> checkbox to leave it alone. Unlink is the conservative direction and would have left yours alone.</p>
-<p><strong>A Linked SOPs row says &quot;NOT FOUND&quot;</strong> — the named parameter does not exist on that SOP, usually a node-version difference. Hover the parameter in the SOP&#x27;s own panel to get its internal name.</p>
-<p><strong>Unticking Link switched my parameter off</strong> — it did not. Link only decides whether Connect includes it.</p>
-<p><strong>Status is out of date</strong> — it records the last Connect or Unlink. Press either to refresh.</p>
-<p><strong>Time Scale slowed something that is not the fluid</strong> — expected. It scales the whole DOP Network.</p>
-<p><strong>The node is not in the Tab menu</strong> — check the <code translate="no" v-pre>.hdalc</code> is in <code translate="no" v-pre>Documents/houdini22.0/otls/</code> and that you have refreshed asset libraries. If Houdini refuses the file, check your licence: <code translate="no" v-pre>.hdalc</code> is Indie/Apprentice only.</p>
 <hr>
 <p>Still stuck? Find me on the JVtools Discord — the invite link is in the <strong>Utilities</strong> folder on the HDA node.</p>
 <div id="retype-backlinks">
@@ -427,8 +419,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-08-30T19:41:16" title="2026-08-30" data-absolute-label="Last updated on 2026-08-30" data-absolute-label-html="Last updated on 2026-08-30" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-08-30
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-09-24T03:29:19" title="2026-09-24" data-absolute-label="Last updated on 2026-09-24" data-absolute-label-html="Last updated on 2026-09-24" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-09-24
                     </time>
                 </div>
 

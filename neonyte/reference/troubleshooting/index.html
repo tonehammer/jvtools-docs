@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843527200231">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843528578684">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Troubleshooting</title>
     <meta name="title" content="Troubleshooting">
-    <meta name="description" content="Check three things: that you have actually placed a sign, that any hand-built boxes are wired into input 2 and not input 1 (input 1 is the building geometry and passes through untouched), and that each hand-built box carries a front-face group.">
+    <meta name="description" content="No signs appear after pressing the button — check three things: that you have actually placed a sign, that any hand-built boxes are wired into input 2 and not input 1 (input 1 is the building geometry and passes through untouched), and that each hand-built box carries a front-face group.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://jvtools.dev/docs/neonyte/reference/troubleshooting/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jvtools.dev/docs/neonyte/reference/troubleshooting/">
     <meta property="og:title" content="Troubleshooting">
-    <meta property="og:description" content="Check three things: that you have actually placed a sign, that any hand-built boxes are wired into input 2 and not input 1 (input 1 is the building geometry and passes through untouched), and that each hand-built box carries a front-face group.">
+    <meta property="og:description" content="No signs appear after pressing the button — check three things: that you have actually placed a sign, that any hand-built boxes are wired into input 2 and not input 1 (input 1 is the building geometry and passes through untouched), and that each hand-built box carries a front-face group.">
     <meta property="og:site_name" content="JVtools">
     <meta property="og:locale" content="en_US">
 
@@ -31,7 +31,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://jvtools.dev/docs/neonyte/reference/troubleshooting/">
     <meta name="twitter:title" content="Troubleshooting">
-    <meta name="twitter:description" content="Check three things: that you have actually placed a sign, that any hand-built boxes are wired into input 2 and not input 1 (input 1 is the building geometry and passes through untouched), and that each hand-built box carries a front-face group.">
+    <meta name="twitter:description" content="No signs appear after pressing the button — check three things: that you have actually placed a sign, that any hand-built boxes are wired into input 2 and not input 1 (input 1 is the building geometry and passes through untouched), and that each hand-built box carries a front-face group.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://jvtools.dev/docs/neonyte/reference/troubleshooting.md">
@@ -39,11 +39,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.843527200231" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.843528578684" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.843527200231" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.843528578684" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.843527200231" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.843528578684" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -395,35 +395,20 @@
 
                 <!-- Page content  -->
 <h1 id="troubleshooting">Troubleshooting</h1>
-<h2 id="no-signs-appear-after-pressing-the-button">No signs appear after pressing the button</h2>
-<p>Check three things: that you have actually placed a sign, that any hand-built boxes are wired into input 2 and not input 1 (input 1 is the building geometry and passes through untouched), and that each hand-built box carries a front-face group.</p>
-<h2 id="signs-show-colour-but-no-glow">Signs show colour but no glow</h2>
-<p>The colour in the viewport is a preview. The glow is only visible in a Karma render - press <strong>Send to Solaris</strong> and render.</p>
-<h2 id="rendered-signs-are-dark">Rendered signs are dark</h2>
-<p>Check <strong>Keep Colour (Cd)</strong> and <strong>Keep Emission (emit)</strong> are both on. Check the material library has not been deleted. Press <strong>Send to Solaris</strong> again to rebuild it.</p>
-<h2 id="tubes-or-signs-are-the-wrong-size">Tubes or signs are the wrong size</h2>
-<p>Set <strong>Real-World Scale</strong> to match your scene&#x27;s units: 1 for metres, 100 for centimetres, 3.28 for feet.</p>
-<h2 id="standoffs-are-missing">Standoffs are missing</h2>
-<p>A standoff only builds where it finds a building surface within reach. <strong>Standoff Count</strong> sets how many a sign tries to build; only the ones that actually find a surface get built.</p>
-<h2 id="a-note-did-nothing">A note did nothing</h2>
-<p>Press <strong>Give me the Signs</strong>, or <strong>Apply</strong> on a card, to apply a note - typing it alone does nothing until you do. Read the status bar for what was understood and what was not. A card&#x27;s Note or a Manual Override can beat a street-wide note; the status bar says which one did. A scope phrase like &quot;big signs&quot; needs an instruction paired with it - &quot;red on the big signs&quot; works, &quot;big signs&quot; alone does not.</p>
-<h2 id="a-force-attribute-in-the-pre-plan-vexpression-stripped-every-other-sign">A force attribute in the pre-plan VEXpression stripped every other sign</h2>
-<p>You wrote a numeric type instead of a string. Every force attribute is a string, including the numeric-looking ones. See <a href="../../control/vexpression/">VEXpression</a>.</p>
-<h2 id="a-force-did-nothing">A force did nothing</h2>
-<p>Check the spelling against the Advanced row&#x27;s own values. An unparseable value is ignored rather than guessed at.</p>
-<h2 id="the-scene-is-slow-while-placing-signs">The scene is slow while placing signs</h2>
-<p>Turn on <strong>Placeholder Boxes Only</strong>, or press <strong>B</strong> in the viewport, while you lay out a street. Lower <strong>Tube Detail</strong> for a heavier scene.</p>
-<h2 id="the-node-cooks-on-every-frame">The node cooks on every frame</h2>
-<p>Check <strong>Animate Flicker in SOPs</strong>. Turning it off moves the blink back into the material, and the node stops being time dependent.</p>
-<h2 id="the-signs-list-is-empty-but-signs-exist-in-the-scene">The Signs list is empty but signs exist in the scene</h2>
-<p>Press <strong>Rebuild List from Signs</strong> to give every sign already in the scene a card.</p>
-<h2 id="a-done-editing-button-appeared">A Done Editing button appeared</h2>
-<p>An edit was started and not finished. Press it to call off the edit.</p>
+<p><strong>No signs appear after pressing the button</strong> — check three things: that you have actually placed a sign, that any hand-built boxes are wired into input 2 and not input 1 (input 1 is the building geometry and passes through untouched), and that each hand-built box carries a front-face group.</p>
+<p><strong>Signs show colour but no glow</strong> — the colour in the viewport is a preview. The glow is only visible in a Karma render - press <strong>Send to Solaris</strong> and render.</p>
+<p><strong>Rendered signs are dark</strong> — check <strong>Keep Colour (Cd)</strong> and <strong>Keep Emission (emit)</strong> are both on. Check the material library has not been deleted. Press <strong>Send to Solaris</strong> again to rebuild it.</p>
+<p><strong>Tubes or signs are the wrong size</strong> — set <strong>Real-World Scale</strong> to match your scene&#x27;s units: 1 for metres, 100 for centimetres, 3.28 for feet.</p>
+<p><strong>A note did nothing</strong> — press <strong>Give me the Signs</strong>, or <strong>Apply</strong> on a card, to apply a note - typing it alone does nothing until you do. Read the status bar for what was understood and what was not. A card&#x27;s Note or a Manual Override can beat a street-wide note; the status bar says which one did. A scope phrase like &quot;big signs&quot; needs an instruction paired with it - &quot;red on the big signs&quot; works, &quot;big signs&quot; alone does not.</p>
+<p><strong>The scene is slow while placing signs</strong> — turn on <strong>Placeholder Boxes Only</strong>, or press <strong>B</strong> in the viewport, while you lay out a street. Lower <strong>Tube Detail</strong> for a heavier scene.</p>
+<p><strong>The Signs list is empty but signs exist in the scene</strong> — press <strong>Rebuild List from Signs</strong> to give every sign already in the scene a card.</p>
+<hr>
+<p>Still stuck? Find me on the JVtools Discord — the invite link is in the <strong>Utilities</strong> folder on the HDA node.</p>
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-09-09T13:02:56" title="2026-09-09" data-absolute-label="Last updated on 2026-09-09" data-absolute-label-html="Last updated on 2026-09-09" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-09-09
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-09-24T03:29:19" title="2026-09-24" data-absolute-label="Last updated on 2026-09-24" data-absolute-label-html="Last updated on 2026-09-24" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-09-24
                     </time>
                 </div>
 

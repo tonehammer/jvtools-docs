@@ -25,6 +25,8 @@ before, and a *workflow* tool improves how you work inside Houdini.
 
 [!card title="Neonyte" image="/neonyte/static/card.png" text="Procedural neon signs for Houdini: click a wall, press one button, and every placeholder becomes a different lit sign, with the metal rig behind it and a Karma material."](/neonyte/README.md)
 
+[!card title="Hou-DisplacementX" image="/hou-displacementx/static/card.png" text="Procedural sci-fi displacement maps in Copernicus — random panels, grids, strips, lines and sprites drawn into a height map on the GPU, from a seed, at any resolution. Plus a Heightfield node in the same file. GPL-3.0."](/hou-displacementx/README.md)
+
 ### Workflow
 
 [!card title="Advanced Velocity" image="/advanced-velocity/static/card.png" text="Author @v for simulations on one node — six velocity types blended by a real mixer, all with matching Adjust and Mask controls, plus interactive blast placement and a whole timeline of velocity events to drive a sim."](/advanced-velocity/README.md)

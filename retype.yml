@@ -109,6 +109,9 @@ links:
       - text: Neonyte
         link: /neonyte/
         icon: light-bulb
+      - text: Hou-DisplacementX
+        link: /hou-displacementx/
+        icon: paintbrush
 
 # Site footer. `footer` is a FREE feature (checked against retype.com/configuration/
 # project/, not assumed), and `footer.links` takes the same keys as the top-level
@@ -163,6 +166,9 @@ data:
     version: "1.0"
   ne:
     name: Neonyte
+    version: "1.0"
+  hdx:
+    name: Hou-DisplacementX
     version: "1.0"
 # 🔴 A PRE-RELEASE PRODUCT GETS NO ENTRY HERE, AND NO FOLDER IN THIS REPO.
 # This repo is PUBLIC (Pages + the raw manifest URL both require it), so a

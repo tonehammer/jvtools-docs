@@ -7,7 +7,7 @@ The download is `JV-Hou-DisplacementX-v1.0.hdalc`. Put it in `Documents/houdini2
 >>> 2. Remove any older version
 Delete an earlier build's file first - two files of the same node type in that folder collide.
 >>> 3. Load it
-Restart Houdini, or use Asset Manager > Refresh Asset Libraries.
+Restart Houdini, or **Assets ▸ Refresh Asset Libraries**.
 >>> 4. Find the nodes
 Both nodes appear under Tab > JV: **Hou-DisplacementX** (inside a copnet) and **Hou-DisplacementX Heightfield** (inside a geometry network).
 >>>

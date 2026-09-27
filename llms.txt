@@ -120,8 +120,8 @@
 
 - [Parameter reference](https://jvtools.dev/docs/hou-displacementx/reference/parameters.md): Parameter
 - [Troubleshooting](https://jvtools.dev/docs/hou-displacementx/reference/troubleshooting.md): Nothing appears / the node errors — the node draws the whole map on the GPU through Houdini's OpenCL device. If other OpenCL COPs do not cook on your machine, this one will not either - check that Houdini has a working OpenCL device before looking anywhere else.
-- [Changelog](https://jvtools.dev/docs/hou-displacementx/reference/changelog.md): First release.
-- [License](https://jvtools.dev/docs/hou-displacementx/reference/license.md): Hou-DisplacementX is free software, released under the GNU General Public License, version 3.
+- [Changelog](https://jvtools.dev/docs/hou-displacementx/reference/changelog.md): The first public release.
+- [License](https://jvtools.dev/docs/hou-displacementx/reference/license.md): Hou-DisplacementX is released under the GNU General Public License, version 3 or later.
 
 ## Deoverlap Polylines
 

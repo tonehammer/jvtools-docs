@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843598557357">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843864846655">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Changelog</title>
     <meta name="title" content="Changelog">
-    <meta name="description" content="First release.">
+    <meta name="description" content="The first public release.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://jvtools.dev/docs/hou-displacementx/reference/changelog/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jvtools.dev/docs/hou-displacementx/reference/changelog/">
     <meta property="og:title" content="Changelog">
-    <meta property="og:description" content="First release.">
+    <meta property="og:description" content="The first public release.">
     <meta property="og:site_name" content="JVtools">
     <meta property="og:locale" content="en_US">
 
@@ -31,7 +31,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://jvtools.dev/docs/hou-displacementx/reference/changelog/">
     <meta name="twitter:title" content="Changelog">
-    <meta name="twitter:description" content="First release.">
+    <meta name="twitter:description" content="The first public release.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://jvtools.dev/docs/hou-displacementx/reference/changelog.md">
@@ -39,11 +39,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.843598557357" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.843864846655" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.843598557357" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.843864846655" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.843598557357" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.843864846655" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -397,15 +397,39 @@
 <h1 id="changelog">Changelog</h1>
 <h2 id="version-10">Version 1.0</h2>
 <p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">24 September 2026</p>
-<p>First release.</p>
+<p>The first public release.</p>
+<p><strong>Generator</strong></p>
 <ul>
-<li>New: the <strong>Hou-DisplacementX</strong> COP node - a GPU port of the Displacement X generator.</li>
-<li>New: five shape types, four sprite packs and sixteen blend modes, as in the web version.</li>
-<li>New: <strong>Seed</strong> reproduces the same map at any resolution.</li>
-<li>New: full-float <strong>height</strong>, <strong>normal</strong>, <strong>basecolor</strong> and <strong>id</strong> outputs.</li>
-<li>New: the <strong>Hou-DisplacementX Heightfield</strong> SOP node - heightfield out, or triplanar displacement of wired geometry.</li>
-<li>New: <strong>Show Color</strong> previews the Color Gradient in the viewport.</li>
-<li>Free software under GPL-3.0; the asset ships unlocked.</li>
+<li>The <strong>Hou-DisplacementX</strong> COP node - a GPU port of the Displacement X generator, drawn by one OpenCL kernel.</li>
+<li><strong>Seed</strong> reproduces the same map at any resolution; <strong>New Seed</strong> picks a random one.</li>
+<li><strong>Iterations</strong>, <strong>Background</strong>, <strong>Seamless</strong> and <strong>Invert</strong>.</li>
+<li><strong>Resolution</strong> up to 8192, with a preset menu, or matched to a layer wired into <strong>Size Reference</strong>.</li>
+</ul>
+<p><strong>Shapes and sprites</strong></p>
+<ul>
+<li>Five shape types - Rectangles, Grid, Columns, Rows and Lines - each with its own enable and ranges.</li>
+<li>Four sprite packs from the original, with optional 90-degree <strong>Rotate</strong>.</li>
+<li>Sixteen blend modes, picked at random per shape from the ones ticked.</li>
+<li><strong>Randomize All</strong> plus a Randomize button per section, neither touching Seed or Resolution.</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul>
+<li><strong>height</strong>, <strong>normal</strong>, <strong>basecolor</strong> and <strong>id</strong> layers at once, in full 32-bit float.</li>
+<li>Output names match Houdini Engine for Unreal&#x27;s texture types.</li>
+<li><strong>Normal Strength</strong>, and a <strong>Color Gradient</strong> for basecolor.</li>
+</ul>
+<p><strong>Heightfield node</strong></p>
+<ul>
+<li>The <strong>Hou-DisplacementX Heightfield</strong> SOP - a heightfield with nothing wired, or triplanar displacement of wired geometry.</li>
+<li><strong>Size</strong> and <strong>Height Scale</strong> for the heightfield; <strong>Tile Size</strong>, <strong>Tile Offset</strong>, <strong>Blend Sharpness</strong>, <strong>Displace Amount</strong> and <strong>Midpoint</strong> for displacement.</li>
+<li><strong>All Layers</strong> output adds normal, basecolor and id as volumes, or as point attributes when displacing.</li>
+<li><strong>Show Color</strong> previews the Color Gradient in the viewport.</li>
+</ul>
+<p><strong>Utilities</strong></p>
+<ul>
+<li>Links to the website, Gumroad page, documentation, Discord and YouTube.</li>
+<li>Update check on the first Randomize All of a session.</li>
+<li>Licensed under GPL-3.0; the asset ships unlocked, with the licence text inside.</li>
 </ul>
 <div id="retype-backlinks">
     <h2>See also</h2>
@@ -426,8 +450,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-09-24T03:06:17" title="2026-09-24" data-absolute-label="Last updated on 2026-09-24" data-absolute-label-html="Last updated on 2026-09-24" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-09-24
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-09-28T00:53:48" title="2026-09-28" data-absolute-label="Last updated on 2026-09-28" data-absolute-label-html="Last updated on 2026-09-28" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-09-28
                     </time>
                 </div>
 

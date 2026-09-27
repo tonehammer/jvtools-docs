@@ -18,7 +18,7 @@
 
 ### Shapes
 
-Rectangles, Grid, Columns, Rows and Lines each have their own folder with a header checkbox (**Enable Rectangles**, **Enable Grid**, and so on) and a **Randomize** button that rerolls that shape's own settings without touching Seed. A shape type left off still takes its share of the iterations, so the others do not get denser.
+Rectangles, Grid, Columns, Rows and Lines each have their own folder with a header checkbox (**Enable Rectangles**, **Enable Grid**, and so on) and a Randomize button (**Randomize Rectangles**, **Randomize Grid**, and so on) that rerolls that shape's own settings without touching Seed. A shape type left off still takes its share of the iterations, so the others do not get denser.
 
 | Parameter | What it does |
 |---|---|
@@ -37,7 +37,7 @@ Rectangles, Grid, Columns, Rows and Lines each have their own folder with a head
 | **Classic** | Includes the Classic pack. With several packs on, each sprite is picked from all of them at once. Default on. |
 | **Big Data** | Includes the Big Data pack. Default off. |
 | **Aggromaxx** | Includes the Aggromaxx pack. Default off. |
-| **Crap Pack** | Includes the Crap Pack pack. Default off. |
+| **Crap Pack** | Includes the Crap Pack. Default off. |
 | **Rotate** | Turns each sprite by a random multiple of 90 degrees. As in the web version, the turn is about the image centre, so it moves the sprite as well as turning it. Default on. |
 | **Randomize Sprites** | Picks random packs and a random Rotate setting. |
 
@@ -57,9 +57,10 @@ Sixteen toggles - Color Burn, Color Dodge, Darken, Difference, Exclusion, Hard L
 | Parameter | What it does |
 |---|---|
 | **Links** | Opens the JVtools website in your browser. |
-| **Gumroad** | Opens Gumroad in your browser. |
+| **Gumroad** | Opens the product's Gumroad page in your browser. |
 | **Documentation** | Opens the documentation in your browser. |
-| **Youtube** | Opens Youtube in your browser. |
+| **Discord** | Opens an invite to the JVtools Discord. |
+| **Youtube** | Opens the JVtools YouTube channel in your browser. |
 
 ## Hou-DisplacementX Heightfield (SOP)
 

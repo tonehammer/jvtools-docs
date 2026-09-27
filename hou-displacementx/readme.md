@@ -6,7 +6,7 @@
 
 <p style="text-align:center; margin:0 0 1.5rem;"><a href="https://jvtonehammer.gumroad.com/l/hou_displacementx_hda"><strong>Get it on Gumroad →</strong></a><br><a href="https://jvtools.dev/" style="font-size:0.9em;">More Houdini tools at jvtools.dev</a></p>
 
-Welcome! **Hou-DisplacementX** (v1.0) is a Houdini port of Displacement X, the free web sci-fi height-map generator by Yehor Misiats, itself a take on Windmill's JSplacement. Two nodes ship in the file: a Copernicus generator, and a Heightfield SOP running the same generator that builds a heightfield or displaces wired-in geometry. Shapes, ranges, defaults and sprite packs are the web version's; this port draws them on the GPU. Free software, GPL-3.0.
+Welcome! **Hou-DisplacementX** (v1.0) is a Houdini port of Displacement X, the free web sci-fi height-map generator by Yehor Misiats, itself a take on Windmill's JSplacement. Two nodes ship in the file: a Copernicus generator, and a Heightfield SOP running the same generator that builds a heightfield or displaces wired-in geometry. Shapes, ranges, defaults and sprite packs are the web version's; this port draws them on the GPU. Licensed under GPL-3.0; the asset ships unlocked.
 
 ## What it does
 
@@ -32,7 +32,7 @@ Each iteration draws one randomly picked shape - rectangles, grids, columns, row
 - Windows is the only tested platform.
 - A working OpenCL device - the whole map is drawn by an OpenCL kernel.
 
-## Getting it
+## Pages
 
 - [Getting started](getting-started.md)
 - [Using Hou-DisplacementX](using.md)

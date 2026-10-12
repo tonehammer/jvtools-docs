@@ -11,6 +11,8 @@ The rig is built by the same **Build Character** button that builds the characte
 
 With **Build APEX Rig** on (the default), **Build Character** builds a body and facial rig as its own node, the **Reallusion Rigger APEX Rig**, directly below the Rigger:
 
+<div style="margin:0 0 1rem;"><img src="../../static/rig-node-tile.png" alt="The Reallusion Rigger APEX Rig node" style="height:90px; width:auto;"></div>
+
 * **The body:** IK/FK arms and legs, reverse feet, a spline spine, FK for every finger and toe, and a **gear** control per body part holding that part's settings.
 * **The face:** a keyable channel for every Character Creator facial morph, sliders on the face, a flat face board, and the Face gear beside the head.
 * **The animation:** the character's own exported clip, baked through the rig once as the bottom animation layer, **BaseAnimation**.

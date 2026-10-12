@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.845104992608">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.845125130195">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Auto Animation</title>
     <meta name="title" content="Auto Animation">
-    <meta name="description" content="Auto Blink and Auto Breathe write ordinary keys, each press on an animation layer of its own, so you can mute, reweight or delete the result. Both are in the rig node's Auto Animation folder.">
+    <meta name="description" content="Auto Blink and Auto Breathe take care of the two things a character does all the time and an animator never wants to key by hand. Both write ordinary keys, each press on an animation layer of its own, so the result is yours to mute, re-weight, edit or delete like any other layer.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://jvtools.dev/docs/reallusion-rigger/using/auto-animation/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jvtools.dev/docs/reallusion-rigger/using/auto-animation/">
     <meta property="og:title" content="Auto Animation">
-    <meta property="og:description" content="Auto Blink and Auto Breathe write ordinary keys, each press on an animation layer of its own, so you can mute, reweight or delete the result. Both are in the rig node's Auto Animation folder.">
+    <meta property="og:description" content="Auto Blink and Auto Breathe take care of the two things a character does all the time and an animator never wants to key by hand. Both write ordinary keys, each press on an animation layer of its own, so the result is yours to mute, re-weight, edit or delete like any other layer.">
     <meta property="og:site_name" content="JVtools">
     <meta property="og:locale" content="en_US">
 
@@ -31,7 +31,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://jvtools.dev/docs/reallusion-rigger/using/auto-animation/">
     <meta name="twitter:title" content="Auto Animation">
-    <meta name="twitter:description" content="Auto Blink and Auto Breathe write ordinary keys, each press on an animation layer of its own, so you can mute, reweight or delete the result. Both are in the rig node's Auto Animation folder.">
+    <meta name="twitter:description" content="Auto Blink and Auto Breathe take care of the two things a character does all the time and an animator never wants to key by hand. Both write ordinary keys, each press on an animation layer of its own, so the result is yours to mute, re-weight, edit or delete like any other layer.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://jvtools.dev/docs/reallusion-rigger/using/auto-animation.md">
@@ -39,11 +39,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.845104992608" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.845125130195" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.845104992608" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.845125130195" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.845104992608" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.845125130195" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -419,33 +419,46 @@
 
                 <!-- Page content  -->
 <h1 id="auto-animation">Auto Animation</h1>
-<p>Auto Blink and Auto Breathe write ordinary keys, each press on an animation layer of its own, so you can mute, reweight or delete the result. Both are in the rig node&#x27;s <strong>Auto Animation</strong> folder.</p>
+<p>Auto Blink and Auto Breathe take care of the two things a character does all the time and an animator never wants to key by hand. Both write ordinary keys, each press on an animation layer of its own, so the result is yours to mute, re-weight, edit or delete like any other layer. Both are in the rig node&#x27;s <strong>Auto Animation</strong> folder.</p>
 <h2 id="auto-blink">Auto Blink</h2>
-<p><strong>Add Auto Blink</strong> keys <code translate="no" v-pre>face_Eye_Blink_L</code> and <code translate="no" v-pre>face_Eye_Blink_R</code> over the <strong>Frame Range</strong> on a layer named AutoBlink, AutoBlink2 and so on. It is one undo step and is greyed out on a body-only rig.</p>
+<p><strong>Add Auto Blink</strong> keys <code translate="no" v-pre>face_Eye_Blink_L</code> and <code translate="no" v-pre>face_Eye_Blink_R</code> over the <strong>Frame Range</strong>, on a layer named AutoBlink (then AutoBlink2, and so on). It&#x27;s one undo step, and it&#x27;s greyed out on a body-only rig.</p>
 <ul>
-<li><strong>Profile</strong> uses iClone&#x27;s Auto Blink profiles: Normal, Nervous, Speechless, Charming and Child.</li>
-<li><strong>Clip Blinks</strong> sets what happens to blinks already in the animation. <strong>Keep</strong> leaves them and makes an additive layer. <strong>Replace</strong> makes an override layer, so the eyelids blink only when Auto Blink says so over the Frame Range.</li>
+<li><strong>Profile</strong> uses iClone&#x27;s own Auto Blink profiles: <strong>Normal</strong>, <strong>Nervous</strong>, <strong>Speechless</strong>, <strong>Charming</strong> and <strong>Child</strong>. They differ in how often the character blinks, how long a blink lasts, and how often blinks come in quick runs.</li>
+<li><strong>Clip Blinks</strong> decides what happens to blinks already in the animation. <strong>Keep</strong> leaves them, makes an additive layer, and skips any blink that would land right on top of one of the clip&#x27;s. <strong>Replace</strong> makes an override layer, so inside the Frame Range the eyelids blink only when Auto Blink says so; outside it, the clip&#x27;s own blinks are untouched.</li>
 <li><strong>Seed</strong> gives a different pattern with the same profile. To try another, delete the layer, change the Seed and press again.</li>
-<li><strong>Frame Range</strong> follows the playback range until you type your own. Right-click it and choose Revert to Defaults to follow the playback range again.</li>
+<li><strong>Frame Range</strong> follows the playback range until you type your own. Right-click it and choose <strong>Revert to Defaults</strong> to make it follow the playback range again.</li>
 </ul>
+<p>Use <strong>Keep</strong> on a clip whose face already performs (a dialogue take), and <strong>Replace</strong> when the clip&#x27;s blinks are missing, too regular, or wrong for the shot. To see exactly what was written, make the AutoBlink layer active and press <strong>Show Face Keys</strong>; see <a href="../face-tools/#show-face-keys">Face Tools</a>.</p>
 <h2 id="auto-breathe">Auto Breathe</h2>
-<p><strong>Add Auto Breathe</strong> keys breathing onto an additive layer named AutoBreathe, AutoBreathe2 and so on. It needs no facial rig.</p>
+<p><strong>Add Auto Breathe</strong> keys breathing onto an additive layer named AutoBreathe (then AutoBreathe2, and so on). It moves body controls only, so it needs no facial rig and works on a body-only rig too.</p>
 <ul>
-<li><strong>Profile:</strong> Calm is about 12 breaths a minute and shallow, Normal about 16, Heavy about 30 and deep with the shoulders lifting, Sleeping about 10, slow and deep, from the ribs.</li>
-<li><strong>Depth</strong> scales the breaths (1 is the profile as it comes), and the layer&#x27;s weight scales them again.</li>
+<li><strong>Profile:</strong> <strong>Calm</strong> is about 12 breaths a minute and shallow, <strong>Normal</strong> about 16, <strong>Heavy</strong> about 30 and deep with the shoulders lifting, <strong>Sleeping</strong> about 10, slow and deep, from the ribs.</li>
+<li><strong>Depth</strong> scales the breaths: 1 is the profile as it comes, 2 twice as far. The layer&#x27;s weight scales them again, and you can key it to make the breathing build or settle.</li>
 <li><strong>Seed</strong> and <strong>Frame Range</strong> work as they do for Auto Blink.</li>
 </ul>
-<p>It moves the chest, the two ribcage controls (<code translate="no" v-pre>L_RibsTwist</code>, <code translate="no" v-pre>R_RibsTwist</code>) and, on Calm, Normal and Heavy, the clavicles. The head keeps its aim and the hands stay where the clip holds them. Only whole breaths inside the Frame Range are written.</p>
+<p>What moves: the chest control tilts back and lifts a little, the two ribcage controls (<code translate="no" v-pre>L_RibsTwist</code>, <code translate="no" v-pre>R_RibsTwist</code>) move forward and up, and on Calm, Normal and Heavy the clavicles lift the shoulders. The neck turns back by the chest&#x27;s tilt, so the head keeps its aim, and the hands stay where the clip holds them. Only whole breaths inside the Frame Range are written, so the layer adds nothing outside them.</p>
 <h2 id="look-at">Look At</h2>
-<p>The eyes can aim at two kinds of target, and the <strong>Look At</strong> slider chooses between them.</p>
+<p>The eyes can aim at two kinds of target, and the <strong>Look At</strong> slider on the Eyes gear chooses between them.</p>
 <ul>
 <li><strong>Each eye has its own small cross</strong> in front of it. The crosses ride with the head and normally sit where the clip puts the gaze, so the clip&#x27;s eye motion lives on them. Animate glances here.</li>
-<li><strong>The yellow three-ring control</strong>, about a metre in front of the face, stays put in the world. Park it on another character or the camera and the eyes stay on it whatever the head does.</li>
+<li><strong>The yellow three-ring control</strong>, about a metre in front of the face, stays put in the world. Park it on another character, an object or the camera, and the eyes stay on it whatever the head and body do.</li>
 </ul>
-<p>At <strong>0</strong> the crosses stay with the clip and the yellow target does nothing. At <strong>1</strong> the crosses sit on the yellow target, the eyes look at it, and the head and chest turn to help (<strong>Head Weight</strong>, <strong>Body Weight</strong>). In between, they sit partway. So moving the slider moves the crosses back and forth, which is intended. Neither target can do both jobs alone, so Look At blends from one to the other, as iClone&#x27;s does.</p>
+<p>At <strong>0</strong> the crosses stay with the clip and the yellow target does nothing. At <strong>1</strong> the crosses sit on the yellow target, the eyes look at it, and the head and chest turn to help, as much as <strong>Head Weight</strong> and <strong>Body Weight</strong> say. In between, they sit partway. So moving the slider moves the crosses back and forth; that&#x27;s intended, not a glitch.</p>
+<p>Why two targets? They do different jobs, and neither can do both. A target that rides with the head can&#x27;t steer the head without chasing itself; a target fixed in the world would drag the eyes against every head move. So Look At blends from the first to the second, the way iClone&#x27;s Look At does.</p>
 <div id="retype-backlinks">
     <h2>See also</h2>
 <div class="card-compact-group">
+<div class="card-compact-container">
+    <a href="/docs/reallusion-rigger/getting-started/quick-start/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M15.716 1.329a1.341 1.341 0 0 1 2.109 1.55L15.147 9h4.161c1.623 0 2.372 2.016 1.143 3.075L8.102 22.721a1.148 1.148 0 0 1-1.81-1.317L8.996 15H4.674c-1.619 0-2.37-2.008-1.148-3.07l12.19-10.6Zm.452 1.595L4.51 13.061a.25.25 0 0 0 .164.439h5.45a.749.749 0 0 1 .692 1.041l-2.559 6.066 11.215-9.668a.25.25 0 0 0-.164-.439H14a.75.75 0 0 1-.687-1.05Z"/></svg></span>
+                <span class="card-compact-title">Quick Start</span>
+            </div>
+            <p class="card-compact-description">This page gets you from a fresh Houdini scene to a shaded character you can animate, in five steps. Every control is explained in depth later, in Using the Asset.</p>
+        </div>
+    </a>
+</div>
 <div class="card-compact-container">
     <a href="/docs/reallusion-rigger/reference/troubleshooting/" class="group card-compact no-link">
         <div class="card-compact-body">
@@ -462,7 +475,7 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-12T09:15:55" title="2026-10-12" data-absolute-label="Last updated on 2026-10-12" data-absolute-label-html="Last updated on 2026-10-12" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-12T14:58:17" title="2026-10-12" data-absolute-label="Last updated on 2026-10-12" data-absolute-label-html="Last updated on 2026-10-12" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
                         Last updated on 2026-10-12
                     </time>
                 </div>

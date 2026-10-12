@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.845104992608">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.845125130195">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>USD vs FBX</title>
     <meta name="title" content="USD vs FBX">
-    <meta name="description" content="The Import dropdown at the top of the node (USD by default, or FBX) works exactly as it does on the Importer, and the rig works in both modes. The Importer's USD vs FBX page has the full comparison.">
+    <meta name="description" content="At the very top of the node is an Import dropdown with two choices — USD (the default) and FBX. Both produce the same shaded character with the same">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://jvtools.dev/docs/reallusion-rigger/getting-started/import-modes/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jvtools.dev/docs/reallusion-rigger/getting-started/import-modes/">
     <meta property="og:title" content="USD vs FBX">
-    <meta property="og:description" content="The Import dropdown at the top of the node (USD by default, or FBX) works exactly as it does on the Importer, and the rig works in both modes. The Importer's USD vs FBX page has the full comparison.">
+    <meta property="og:description" content="At the very top of the node is an Import dropdown with two choices — USD (the default) and FBX. Both produce the same shaded character with the same">
     <meta property="og:site_name" content="JVtools">
     <meta property="og:locale" content="en_US">
 
@@ -31,7 +31,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://jvtools.dev/docs/reallusion-rigger/getting-started/import-modes/">
     <meta name="twitter:title" content="USD vs FBX">
-    <meta name="twitter:description" content="The Import dropdown at the top of the node (USD by default, or FBX) works exactly as it does on the Importer, and the rig works in both modes. The Importer's USD vs FBX page has the full comparison.">
+    <meta name="twitter:description" content="At the very top of the node is an Import dropdown with two choices — USD (the default) and FBX. Both produce the same shaded character with the same">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://jvtools.dev/docs/reallusion-rigger/getting-started/import-modes.md">
@@ -39,11 +39,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.845104992608" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.845125130195" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.845104992608" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.845125130195" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.845104992608" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.845125130195" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -419,46 +419,159 @@
 
                 <!-- Page content  -->
 <h1 id="usd-vs-fbx">USD vs FBX</h1>
-<p>The <strong>Import</strong> dropdown at the top of the node (USD by default, or FBX) works exactly as it does on the Importer, and the rig works in both modes. The <a href="../../../reallusion-importer/getting-started/import-modes/">Importer&#x27;s USD vs FBX page</a> has the full comparison.</p>
-<h2 id="speed-and-memory">Speed and memory</h2>
-<p>USD is much faster and lighter. Measured on our test characters:</p>
-<retype-table copy-text="| | **USD** | **FBX** |
+<p>At the very top of the node is an <strong>Import</strong> dropdown with two choices — <strong>USD</strong> (the default) and <strong>FBX</strong>. Both produce the same shaded character with the same lookdev controller, and the rig builds on either; they differ only in import speed, memory use, and a few features that depend on data Character Creator writes to one export but not the other.</p>
+<h2 id="tldr--what-you-get-from-each">TL;DR — what you get from each</h2>
+<retype-table copy-text="| | **USD** *(default)* | **FBX** |
 |---|---|---|
-| Kevin (standard) | 0.4 s, 0.5 GB | 19 s, 5.2 GB |
-| Jester (HD) | 1.3 s, 0.9 GB | 96 s, 12.9 GB |
-| **RAM to plan for** | 16 GB minimum, 32 GB recommended | 48 GB minimum, 64 GB recommended |">
+| **Import speed** | less than a minute, even for HD characters | 1 - 3 min (grows with character weight) |
+| **Memory (one loaded character)** | less than 8GB, even for HD characters | ~10–40 GB |
+| **RAM to plan for** | 16 GB min / 32 GB recommended | 48 GB min / 64 GB recommended (HD) |
+| Geometry, skeleton, body + facial animation | ✅ Full | ✅ Full |
+| Materials (skin, eyes, teeth, hair, clothing) | ✅ Full | ✅ Full |
+| Subsurface, displacement, Skin Fix, render rig | ✅ Full | ✅ Full |
+| The APEX rig, the facial rig and every animation tool | ✅ Full | ✅ Full |
+| **Real CC eye &amp; skin values** (iris color, iris size, limbus, sclera, SSS) | ✅ Read from the file &amp; auto-applied | ⚠️ Not exported — generic starting defaults |
+| **Expression wrinkles** | ❌ Not in the USD export | ✅ Yes |
+| **Hair root-to-tip ombré + highlight streaks + flow sheen** | ❌ Maps not in the USD export | ✅ Yes |
+| Hair flat re-dye + Lightness (Bleach) | ✅ Yes | ✅ Yes |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
 <tr>
 <th> </th>
-<th><strong>USD</strong></th>
+<th><strong>USD</strong> <em>(default)</em></th>
 <th><strong>FBX</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Kevin (standard)</td>
-<td>0.4 s, 0.5 GB</td>
-<td>19 s, 5.2 GB</td>
+<td><strong>Import speed</strong></td>
+<td>less than a minute, even for HD characters</td>
+<td>1 - 3 min (grows with character weight)</td>
 </tr>
 <tr>
-<td>Jester (HD)</td>
-<td>1.3 s, 0.9 GB</td>
-<td>96 s, 12.9 GB</td>
+<td><strong>Memory (one loaded character)</strong></td>
+<td>less than 8GB, even for HD characters</td>
+<td>~10–40 GB</td>
 </tr>
 <tr>
 <td><strong>RAM to plan for</strong></td>
-<td>16 GB minimum, 32 GB recommended</td>
-<td>48 GB minimum, 64 GB recommended</td>
+<td>16 GB min / 32 GB recommended</td>
+<td>48 GB min / 64 GB recommended (HD)</td>
+</tr>
+<tr>
+<td>Geometry, skeleton, body + facial animation</td>
+<td><span class="docs-emoji">&#x2705;</span> Full</td>
+<td><span class="docs-emoji">&#x2705;</span> Full</td>
+</tr>
+<tr>
+<td>Materials (skin, eyes, teeth, hair, clothing)</td>
+<td><span class="docs-emoji">&#x2705;</span> Full</td>
+<td><span class="docs-emoji">&#x2705;</span> Full</td>
+</tr>
+<tr>
+<td>Subsurface, displacement, Skin Fix, render rig</td>
+<td><span class="docs-emoji">&#x2705;</span> Full</td>
+<td><span class="docs-emoji">&#x2705;</span> Full</td>
+</tr>
+<tr>
+<td>The APEX rig, the facial rig and every animation tool</td>
+<td><span class="docs-emoji">&#x2705;</span> Full</td>
+<td><span class="docs-emoji">&#x2705;</span> Full</td>
+</tr>
+<tr>
+<td><strong>Real CC eye &amp; skin values</strong> (iris color, iris size, limbus, sclera, SSS)</td>
+<td><span class="docs-emoji">&#x2705;</span> Read from the file &amp; auto-applied</td>
+<td><span class="docs-emoji">&#x26A0;&#xFE0F;</span> Not exported — generic starting defaults</td>
+</tr>
+<tr>
+<td><strong>Expression wrinkles</strong></td>
+<td><span class="docs-emoji">&#x274C;</span> Not in the USD export</td>
+<td><span class="docs-emoji">&#x2705;</span> Yes</td>
+</tr>
+<tr>
+<td><strong>Hair root-to-tip ombré + highlight streaks + flow sheen</strong></td>
+<td><span class="docs-emoji">&#x274C;</span> Maps not in the USD export</td>
+<td><span class="docs-emoji">&#x2705;</span> Yes</td>
+</tr>
+<tr>
+<td>Hair flat re-dye + Lightness (Bleach)</td>
+<td><span class="docs-emoji">&#x2705;</span> Yes</td>
+<td><span class="docs-emoji">&#x2705;</span> Yes</td>
 </tr>
 </tbody>
 </table>
 </div>
 </retype-table>
-<h2 id="what-only-fbx-has">What only FBX has</h2>
-<p>Character Creator&#x27;s USD export carries no data for expression wrinkles, hair ombre and ID recolour, or flow-map anisotropy on hair, so those are FBX-only. Everything else works in both modes, including the rig, the facial rig and every animation tool.</p>
-<p>Once the rig exists, <strong>Stash Rig</strong> (on by default) keeps a reopened scene from importing the FBX again at all. See <a href="../../using/rig-settings/">Rig Settings</a>.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-success"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-success" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M21 9.09c-.55 0-1 .45-1 1v.92c0 4.96-4.04 8.99-9 8.99-4.97 0-9-4.04-9-9s4.04-9 9-9c1.27 0 2.5.26 3.66.78.51.22 1.1 0 1.32-.51.23-.5 0-1.1-.51-1.32C14.06.32 12.56 0 11.01 0H11C4.94 0 0 4.93 0 10.99 0 17.06 4.93 22 10.99 22H11c6.06 0 11-4.93 11-10.99v-.92c0-.56-.45-1-1-1z"></path>
+                    <path d="M8.71 9.31a.996.996 0 10-1.41 1.41l3 3c.19.19.44.29.71.29.27 0 .52-.11.71-.29l10-10.01a.996.996 0 10-1.41-1.41L11 11.6 8.71 9.31z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Bottom line</h5>
+<p>Use <strong>USD</strong> for almost everything — it&#x27;s far faster, far lighter, and <em>better</em> at eyes/skin because it carries Character Creator&#x27;s real shader values. Switch to <strong>FBX</strong> only when you specifically need <strong>animated expression wrinkles</strong> or the <strong>full hair re-dye</strong> (root-to-tip / highlight streaks).</p>
+        </div>
+    </div>
+</div>
+<h2 id="the-best-quality-workflow">The best-quality workflow</h2>
+<p><strong>An FBX character.</strong> The expression wrinkles are the single feature that makes a Character Creator face read as <em>alive</em> in motion, and they&#x27;re <strong>FBX-only</strong> — the rig carries them through to its output, so a face you animate on the rig wrinkles the way Character Creator&#x27;s does. When the look matters, import the character as <strong>FBX</strong>.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>An honest caveat</h5>
+<p>This is the best-quality path, not the lightest one. An FBX-imported character is memory-heavy no matter what — that&#x27;s the cost of carrying the wrinkle data, and it&#x27;s unavoidable if you want wrinkles. Once the rig is built, <strong>Stash Rig</strong> (on by default) means a reopened scene never imports the FBX again, so you pay the import once per character, not once per session. See <a href="../../using/rig-settings/">Rig Settings</a>. If you don&#x27;t need wrinkles at all, a plain <strong>USD</strong> import is the lighter choice.</p>
+        </div>
+    </div>
+</div>
+<h2 id="why-usd-is-so-much-faster-and-lighter">Why USD is so much faster and lighter</h2>
+<p>Character Creator&#x27;s FBX stores every facial blendshape as a full mesh copy, and Houdini has to expand all of them on import — tens of gigabytes of RAM and a minute or more on a heavy HD character. The USD export keeps those blendshapes sparse, and the tool keeps them sparse <strong>through deformation too</strong>: only the expressions actually active on the current frame are computed. On the heaviest HD character, working footprint drops from <strong>~26 GB via FBX to under 8 GB via USD</strong>, and raw import time drops from a minute and a half to about a second — the gap grows the heavier the character.</p>
+<h2 id="what-usd-does-better--real-character-creator-eye--skin-values">What USD does <em>better</em> — real Character Creator eye &amp; skin values</h2>
+<p>The FBX export leaves out most of Character Creator&#x27;s HD eye shader, so in FBX mode the eye controls start from generic defaults you dial in by eye. <strong>The USD export carries Character Creator&#x27;s actual shader values</strong>, so in USD mode the tool reads them and seeds the controller automatically — real iris color (when CC actually tinted it), iris size and limbal ring, and sclera shading and subsurface amount from the real per-character values. It&#x27;s all still adjustable; these are just smarter starting points, and <strong>Reset to Defaults</strong> returns to them. See the Importer&#x27;s <a href="../../../reallusion-importer/using/eyes/">Eyes</a> page.</p>
+<h2 id="what-usd-mode-does-not-carry">What USD mode does <em>not</em> carry</h2>
+<p>Character Creator&#x27;s USD export omits some data the FBX export includes. Where that happens, the affected controls stay visible but are <strong>disabled with an &quot;(FBX import only)&quot; note</strong> — nothing is hidden or silently broken.</p>
+<ul>
+<li><strong>Expression wrinkles</strong> — the animated head-wrinkle system is <strong>FBX only</strong>; the USD export contains no wrinkle maps or weights. See the Importer&#x27;s <a href="../../../reallusion-importer/using/wrinkles/">Wrinkles</a> page.</li>
+<li><strong>Root-to-tip and highlight hair re-dye</strong> — Character Creator&#x27;s USD export leaves out the hair root, ID, and flow maps, so the ombré recolor, highlight streaks, and flow-based sheen are <strong>FBX only</strong>. A <strong>flat re-dye and the Lightness (Bleach) control still work</strong> in USD. See the Importer&#x27;s <a href="../../../reallusion-importer/using/hair/">Hair</a> page.</li>
+</ul>
+<p>Everything else — including <strong>displacement</strong>, the rig and every animation tool — works in both modes.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Motion clips</h5>
+<p>The rig&#x27;s <strong>Clip Files</strong> list takes Character Creator <strong>USD</strong> Motions clips and <strong>FBX</strong> animation alike — a USD Motions clip is the small, fast one. A clip exported on a different character is retargeted automatically, but it is an approximation; see <a href="../../using/clips-and-layers/#what-to-do-where">Clips &amp; Layers</a>.</p>
+        </div>
+    </div>
+</div>
+<h2 id="switching-modes">Switching modes</h2>
+<p>The <strong>Import</strong> dropdown swaps which file field is shown — <strong>USD File</strong> or <strong>FBX File</strong> — and builds accordingly on <strong>Build Character</strong>. Before a rig exists you can switch any time; just set the matching file. Once the rig is built it is frozen to the character it was built from, so switching modes afterwards changes nothing until you delete the rig node and press <strong>Build Character</strong> again.</p>
+<p>Next: <a href="../preparing-your-character/">Preparing Your Character</a> covers how to export for <strong>both</strong> modes.</p>
 <div id="retype-backlinks">
     <h2>See also</h2>
 <div class="card-compact-group">
@@ -474,13 +587,35 @@
     </a>
 </div>
 <div class="card-compact-container">
+    <a href="/docs/reallusion-rigger/getting-started/preparing-your-character/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M3.5 3.75a.25.25 0 0 1 .25-.25h13.5a.25.25 0 0 1 .25.25v10a.75.75 0 0 0 1.5 0v-10A1.75 1.75 0 0 0 17.25 2H3.75A1.75 1.75 0 0 0 2 3.75v16.5c0 .966.784 1.75 1.75 1.75h7a.75.75 0 0 0 0-1.5h-7a.25.25 0 0 1-.25-.25V3.75Z"/><path d="M6.25 7a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5Zm-.75 4.75a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Zm16.28 4.53a.75.75 0 1 0-1.06-1.06l-4.97 4.97-1.97-1.97a.75.75 0 1 0-1.06 1.06l2.5 2.5a.75.75 0 0 0 1.06 0l5.5-5.5Z"/></svg></span>
+                <span class="card-compact-title">Preparing Your Character in Character Creator</span>
+            </div>
+            <p class="card-compact-description">Getting your export settings right the first time saves you a lot of frustration — a wrong setting is usually the reason a character comes in missing textures, wrinkles, or hair detail, or the rig comes out in the wrong pose.</p>
+        </div>
+    </a>
+</div>
+<div class="card-compact-container">
     <a href="/docs/reallusion-rigger/getting-started/quick-start/" class="group card-compact no-link">
         <div class="card-compact-body">
             <div class="card-compact-header">
                 <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M15.716 1.329a1.341 1.341 0 0 1 2.109 1.55L15.147 9h4.161c1.623 0 2.372 2.016 1.143 3.075L8.102 22.721a1.148 1.148 0 0 1-1.81-1.317L8.996 15H4.674c-1.619 0-2.37-2.008-1.148-3.07l12.19-10.6Zm.452 1.595L4.51 13.061a.25.25 0 0 0 .164.439h5.45a.749.749 0 0 1 .692 1.041l-2.559 6.066 11.215-9.668a.25.25 0 0 0-.164-.439H14a.75.75 0 0 1-.687-1.05Z"/></svg></span>
                 <span class="card-compact-title">Quick Start</span>
             </div>
-            <p class="card-compact-description">This takes you from an empty scene to a character you can animate.</p>
+            <p class="card-compact-description">This page gets you from a fresh Houdini scene to a shaded character you can animate, in five steps. Every control is explained in depth later, in Using the Asset.</p>
+        </div>
+    </a>
+</div>
+<div class="card-compact-container">
+    <a href="/docs/reallusion-rigger/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><img width="20" height="20" src="https://jvtools.dev/docs/reallusion-rigger/static/reallusion_rigger_logo.svg"></span>
+                <span class="card-compact-title">Reallusion Rigger for Houdini</span>
+            </div>
+            <p class="card-compact-description">Reallusion Rigger (v1.0) turns a Character Creator 5 or iClone 8 character into a fully shaded character in Houdini's Solaris environment, and builds it an APEX animation rig — body and face — that you animate right in the viewport.</p>
         </div>
     </a>
 </div>
@@ -489,7 +624,7 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-12T09:15:55" title="2026-10-12" data-absolute-label="Last updated on 2026-10-12" data-absolute-label-html="Last updated on 2026-10-12" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-12T14:58:17" title="2026-10-12" data-absolute-label="Last updated on 2026-10-12" data-absolute-label-html="Last updated on 2026-10-12" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
                         Last updated on 2026-10-12
                     </time>
                 </div>

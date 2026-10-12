@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.845104992608">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.845125130195">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Face Tools</title>
     <meta name="title" content="Face Tools">
-    <meta name="description" content="Every Character Creator morph channel is keyable on the rig as face_channel, and a clip carries its facial performance with its body. The Face Tools folder is greyed out on a body-only rig.">
+    <meta name="description" content="Every Character Creator morph channel is keyable on the rig as face_channel, and a clip carries its facial performance along with its body, so playing a clip plays the face too.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://jvtools.dev/docs/reallusion-rigger/using/face-tools/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jvtools.dev/docs/reallusion-rigger/using/face-tools/">
     <meta property="og:title" content="Face Tools">
-    <meta property="og:description" content="Every Character Creator morph channel is keyable on the rig as face_channel, and a clip carries its facial performance with its body. The Face Tools folder is greyed out on a body-only rig.">
+    <meta property="og:description" content="Every Character Creator morph channel is keyable on the rig as face_channel, and a clip carries its facial performance along with its body, so playing a clip plays the face too.">
     <meta property="og:site_name" content="JVtools">
     <meta property="og:locale" content="en_US">
 
@@ -31,7 +31,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://jvtools.dev/docs/reallusion-rigger/using/face-tools/">
     <meta name="twitter:title" content="Face Tools">
-    <meta name="twitter:description" content="Every Character Creator morph channel is keyable on the rig as face_channel, and a clip carries its facial performance with its body. The Face Tools folder is greyed out on a body-only rig.">
+    <meta name="twitter:description" content="Every Character Creator morph channel is keyable on the rig as face_channel, and a clip carries its facial performance along with its body, so playing a clip plays the face too.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://jvtools.dev/docs/reallusion-rigger/using/face-tools.md">
@@ -39,11 +39,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.845104992608" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.845125130195" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.845104992608" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.845125130195" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.845104992608" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.845125130195" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -419,10 +419,16 @@
 
                 <!-- Page content  -->
 <h1 id="face-tools">Face Tools</h1>
-<p>Every Character Creator morph channel is keyable on the rig as <code translate="no" v-pre>face_&lt;channel&gt;</code>, and a clip carries its facial performance with its body. The <strong>Face Tools</strong> folder is greyed out on a body-only rig.</p>
+<p>Every Character Creator morph channel is keyable on the rig as <code translate="no" v-pre>face_&lt;channel&gt;</code>, and a clip carries its facial performance along with its body, so playing a clip plays the face too. On top of plain keys, the rig gives you four ways to work on the face: sliders, Face Key Muscle, Face Puppet, and catalog expressions (see <a href="../animating/#the-animation-catalog">Animating</a>).</p>
+<p>The <strong>Face Tools</strong> folder on the rig node is greyed out on a body-only rig (built with <strong>Build Facial Rig</strong> off).</p>
 <h2 id="sliders-and-the-face-board">Sliders and the face board</h2>
-<p>In the animate state, sliders sit on the face for brows, blinks, gaze, cheeks, jaw, mouth, tongue and visemes, and a small panel beside the head holds the rest. A slider <strong>adds</strong> to the clip&#x27;s value, so a keyed slider is an offset over the performance.</p>
-<p>The <strong>Face</strong> gear beside the head carries <code translate="no" v-pre>boxlayout</code> (the same sliders as a flat panel locked to the viewport, the face board) and <code translate="no" v-pre>mouthControls</code> (the lower teeth and tongue FK controls, hidden by default), among others.</p>
+<p>In the animate state, sliders sit on the face for the brows, blinks, gaze, cheeks, jaw, mouth, tongue and visemes, and a small panel beside the head holds the channels that have no spot on the face. A slider <strong>adds</strong> to the clip&#x27;s value, so a keyed slider is an offset on top of the performance, not a replacement of it.</p>
+<p>The <strong>Face</strong> gear beside the head carries the face&#x27;s settings. Two you&#x27;ll use:</p>
+<ul>
+<li><strong>boxlayout</strong> shows the same sliders as a flat panel locked to the viewport — the <strong>face board</strong> — and hides the ones on the face. It&#x27;s easier to work with when the head is turned or small on screen. Drag the board by its circle; the X beside the circle turns it off again.</li>
+<li><strong>mouthControls</strong> shows the lower teeth and tongue FK controls, hidden by default.</li>
+</ul>
+<p>The Face gear&#x27;s set menu (the face sprite at the bottom left of the viewport opens the same list) picks which sliders are shown: <strong>Curated</strong> (the essentials, the default), one region of the face with every channel in it, or <strong>None</strong>.</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
     <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
@@ -436,22 +442,63 @@
         </div>
         <div class="pr-5 ml-3 w-full">
             <h5>Jaw Open needs the jaw bone</h5>
-<p>Keying <code translate="no" v-pre>face_Jaw_Open</code> alone doesn&#x27;t open the mouth. Character Creator opens the jaw with the jaw bone, and the morph is only the skin correction. Key <code translate="no" v-pre>JawRoot_rx</code> as well. The Jaw Open slider and Face Puppet drive both.</p>
+<p>Keying <code translate="no" v-pre>face_Jaw_Open</code> to 1 doesn&#x27;t open the mouth — it can even look more closed. In Character Creator the jaw opens by rotating the jaw bone, and the <code translate="no" v-pre>Jaw_Open</code> morph is only the skin correction that goes with that rotation, so on its own it pushes the lips and chin. To open the jaw by curve, key <code translate="no" v-pre>JawRoot_rx</code> (the bone), ideally together with <code translate="no" v-pre>face_Jaw_Open</code>. The Jaw Open slider and Face Puppet drive both for you.</p>
         </div>
     </div>
 </div>
+<p>The head-turn morphs (<code translate="no" v-pre>Head_Turn_L/R/Up/Down</code>, <code translate="no" v-pre>Head_Tilt_L/R</code>) reshape the neck as the head moves, and the rig drives them from the head control. So they count as <strong>body</strong> channels: <strong>Clear Body Keys</strong> resets them with the head, and <strong>Clear Face Keys</strong> and <strong>Show Face Keys</strong> leave them alone. Edit them by moving the head.</p>
 <h2 id="face-key-muscle">Face Key Muscle</h2>
-<p><strong>Face Key Muscle</strong> opens Character Creator&#x27;s Muscle mode: a drawing of the face with Full Face, Eye, Mouth and Tongue tabs. In the animate state, click a region (Ctrl-click for several) and drag. The face follows, and the frame is keyed when you let go, as one undo step. Esc cancels a drag.</p>
-<p><strong>Symmetric</strong> brings the other side along. <strong>Expressiveness</strong> sets how far a drag can push a shape, and <strong>Mouse Range</strong> how far you move for it. <strong>Reset Selected</strong>, <strong>Reset to Zero</strong> and <strong>Revert</strong> return regions or the whole face to neutral, or restore the animation as it was when the panel opened. Muscle drags key <strong>BaseAnimation</strong>; <strong>Revert to Clip</strong> undoes that.</p>
+<p><strong>Face Key Muscle</strong> opens Character Creator&#x27;s Muscle mode for this character: a drawing of the face with <strong>Full Face</strong>, <strong>Eye</strong>, <strong>Mouth</strong> and <strong>Tongue</strong> tabs. In the animate state, click a region (Ctrl-click for several) and drag. The face follows while you drag, and the frame is keyed when you let go, as one undo step. Esc cancels a drag.</p>
+<ul>
+<li><strong>Symmetric</strong> brings the other side of the face along.</li>
+<li><strong>Expressiveness</strong> sets how far a drag can push a shape, and <strong>Mouse Range</strong> how far you move the mouse for it.</li>
+<li><strong>Reset Selected</strong>, <strong>Reset to Zero</strong> and <strong>Revert</strong> return the picked regions or the whole face to neutral, or restore the animation as it was when the panel opened.</li>
+</ul>
+<p>Muscle drags key <strong>BaseAnimation</strong> directly. If that wasn&#x27;t what you wanted, <strong>Revert to Clip</strong> undoes it; see <a href="../clips-and-layers/#animation-layers">Clips &amp; Layers</a>.</p>
 <h2 id="face-puppet">Face Puppet</h2>
-<p>Face Puppet records a facial performance with the mouse. The pad sits bottom-left in the animate state. Its menu sprite (top right of the pad) picks the profile, from Character Creator&#x27;s puppet tables, and the sprite beside it picks <strong>Solo</strong>, which limits the parts of the face the profile may move. Nothing picked means everything the profile drives. The menu lists region profiles, then iClone&#x27;s Full Face Control presets.</p>
-<p>To record, press <strong>Record</strong> (the red dot) in Face Tools, put the mouse over the viewport and press <strong>SPACE</strong>. A red countdown runs the <strong>Preroll</strong>, then the playbar plays with a red frame round the viewport while the mouse drives the pad. <strong>SPACE</strong> again or the end of the range stops, and <strong>Esc</strong> cancels. Hold the left mouse button to close the eyes, and Q W E R T Y switch to preset 1 to 6 of the current Full Face set. <strong>Preview</strong> is the same control with no playbar and no keys.</p>
-<p><strong>Record Mode</strong> decides what a take does to what is already there: <strong>Replace</strong> (iClone&#x27;s default) makes the take the animation of the features it drives, and <strong>Blend</strong> adds it on top. With <strong>Record to New Layer</strong> on (the default), each take gets its own layer, FacePuppet, FacePuppet2 and so on, and one undo removes the whole take. With it off, a Replace take overwrites the clip&#x27;s keys on BaseAnimation.</p>
+<p>Face Puppet records a facial performance with the mouse, the way iClone&#x27;s does: you move the mouse, the playbar runs, and the face follows and is keyed.</p>
+<p><strong>The pad</strong> sits bottom-left in the animate state. Its menu sprite, at the pad&#x27;s top right, picks the <strong>profile</strong>, from Character Creator&#x27;s own puppet tables: region profiles first (brows, eyes, mouth and so on), then iClone&#x27;s <strong>Full Face</strong> presets. The sprite beside it picks <strong>Solo</strong>, which limits the parts of the face the profile may move: Brow L/R, Blink L/R, Eye L/R, Eyeball L/R, Nose Tip, Nose L/R, Cheek L/R, Mouth, Jaw, Head Turn, Head Up/Down and Head Tilt. With nothing picked, the profile moves everything it drives. With some picked, the rest of the face keeps what the clip or your keys already had, and a take writes only those parts — solo <strong>Mouth</strong> and <strong>Jaw</strong> on a Full Face profile to puppet just the mouth.</p>
+<h3 id="recording-a-take">Recording a take</h3>
+<ol>
+<li>Press <strong>Record</strong> (the red dot) in the <strong>Face Tools</strong> folder.</li>
+<li>Put the mouse over the viewport and press <strong>SPACE</strong>.</li>
+<li>A red countdown runs the <strong>Preroll</strong> seconds, so you have time to find the motion. Then the playbar plays, with a red frame around the viewport while frames are being recorded, and the mouse drives the pad.</li>
+<li><strong>SPACE</strong> again, or the end of the frame range, stops the take. <strong>Esc</strong> cancels it.</li>
+</ol>
+<p>While a take runs, hold the left mouse button to close the eyes, and press <strong>Q W E R T Y</strong> to switch to preset 1 to 6 of the current Full Face set. <strong>Preview</strong> (the play triangle) is the same control with no playbar and no keys, for trying a profile out.</p>
+<h3 id="where-a-take-goes">Where a take goes</h3>
+<p><strong>Record Mode</strong> decides what a take does to the animation already there: <strong>Replace</strong> (iClone&#x27;s default) makes the take the animation of the features it drives, and <strong>Blend</strong> adds it on top.</p>
+<p>With <strong>Record to New Layer</strong> on (the default), each take gets a layer of its own — FacePuppet, FacePuppet2 and so on — that you can mute, delete or re-weight without touching the clip, and one undo removes the whole take. Replace makes that layer an override (the take replaces the face over its frames), Blend an additive one. With <strong>Record to New Layer</strong> off, a Replace take overwrites the clip&#x27;s keys on BaseAnimation.</p>
+<p><strong>Recording Settings</strong> (closed by default) holds the rest: <strong>Preroll</strong>, <strong>Record Speed</strong> (1 is real time — slow it down for a tricky beat), <strong>Mouse Range</strong>, <strong>Smoothing</strong>, <strong>Return to Start</strong> and <strong>Show Controls While Recording</strong>.</p>
 <h2 id="show-face-keys">Show Face Keys</h2>
-<p>The Animation Editor lists only the channels of the controls you select, and face morphs belong to no control, so face curves never show up there. In the animate state, <strong>Show Face Keys</strong> (in the <strong>Layers</strong> row) lists every face channel with keys on the <strong>active</strong> layer, and edits there play back at once. It replaces whatever was pinned and goes away when you exit Animate.</p>
+<p>The Animation Editor lists only the channels of the controls you select, and face morphs belong to no control — so face curves never show up there on their own.</p>
+<p>In the animate state, <strong>Show Face Keys</strong> (an icon in the rig node&#x27;s <strong>Layers</strong> row) lists every face channel with keys on the <strong>active</strong> layer. Edits there play back at once, and Ctrl+Z undoes them. It replaces whatever was pinned, and it goes away when you exit the animate state.</p>
+<p>To see only what one tool wrote, make its layer active first. For example, click the <strong>AutoBlink</strong> layer in the Layers tab, then press <strong>Show Face Keys</strong>, and only <code translate="no" v-pre>face_Eye_Blink_L</code> and <code translate="no" v-pre>face_Eye_Blink_R</code> are listed.</p>
 <div id="retype-backlinks">
     <h2>See also</h2>
 <div class="card-compact-group">
+<div class="card-compact-container">
+    <a href="/docs/reallusion-rigger/using/animating/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M9.5 15.584V8.416a.5.5 0 0 1 .77-.42l5.576 3.583a.5.5 0 0 1 0 .842l-5.576 3.584a.5.5 0 0 1-.77-.42Z"/><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12Zm11-9.5A9.5 9.5 0 0 0 2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5Z"/></svg></span>
+                <span class="card-compact-title">Animating</span>
+            </div>
+            <p class="card-compact-description">Everything on this page happens on the rig node, in Houdini's APEX animate state. If you've animated with APEX before, it's the same state with this character's controls in it; if you haven't, the short version is: pick a control, move it, key it.</p>
+        </div>
+    </a>
+</div>
+<div class="card-compact-container">
+    <a href="/docs/reallusion-rigger/using/auto-animation/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M9.002 2.5a.75.75 0 0 1 .691.464l6.302 15.305 2.56-6.301a.75.75 0 0 1 .695-.468h4a.75.75 0 0 1 0 1.5h-3.495l-3.06 7.532a.75.75 0 0 1-1.389.004L8.997 5.21l-3.054 7.329A.75.75 0 0 1 5.25 13H.75a.75.75 0 0 1 0-1.5h4l3.558-8.538a.75.75 0 0 1 .694-.462Z"/></svg></span>
+                <span class="card-compact-title">Auto Animation</span>
+            </div>
+            <p class="card-compact-description">Auto Blink and Auto Breathe take care of the two things a character does all the time and an animator never wants to key by hand. Both write ordinary keys, each press on an animation layer of its own, so the result is yours to mute, re-weight, edit or delete like any other layer.</p>
+        </div>
+    </a>
+</div>
 <div class="card-compact-container">
     <a href="/docs/reallusion-rigger/using/clips-and-layers/" class="group card-compact no-link">
         <div class="card-compact-body">
@@ -459,7 +506,18 @@
                 <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M11.063 1.456a1.749 1.749 0 0 1 1.874 0l8.383 5.316a1.751 1.751 0 0 1 0 2.956l-8.383 5.316a1.749 1.749 0 0 1-1.874 0L2.68 9.728a1.751 1.751 0 0 1 0-2.956Zm1.071 1.267a.25.25 0 0 0-.268 0L3.483 8.039a.25.25 0 0 0 0 .422l8.383 5.316a.25.25 0 0 0 .268 0l8.383-5.316a.25.25 0 0 0 0-.422Z"/><path d="M1.867 12.324a.75.75 0 0 1 1.035-.232l8.964 5.685a.25.25 0 0 0 .268 0l8.964-5.685a.75.75 0 0 1 .804 1.267l-8.965 5.685a1.749 1.749 0 0 1-1.874 0l-8.965-5.685a.75.75 0 0 1-.231-1.035Z"/><path d="M1.867 16.324a.75.75 0 0 1 1.035-.232l8.964 5.685a.25.25 0 0 0 .268 0l8.964-5.685a.75.75 0 0 1 .804 1.267l-8.965 5.685a1.749 1.749 0 0 1-1.874 0l-8.965-5.685a.75.75 0 0 1-.231-1.035Z"/></svg></span>
                 <span class="card-compact-title">Clips & Layers</span>
             </div>
-            <p class="card-compact-description">The Rigger has two core jobs: animating from scratch in Houdini, body and face, and refining a clip exported on the same character. For the second, add the clip, switch to it with Play Clip, and adjust it on layers.</p>
+            <p class="card-compact-description">The Rigger has two core jobs, and it helps to know them before you plan a shot:</p>
+        </div>
+    </a>
+</div>
+<div class="card-compact-container">
+    <a href="/docs/reallusion-rigger/getting-started/quick-start/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M15.716 1.329a1.341 1.341 0 0 1 2.109 1.55L15.147 9h4.161c1.623 0 2.372 2.016 1.143 3.075L8.102 22.721a1.148 1.148 0 0 1-1.81-1.317L8.996 15H4.674c-1.619 0-2.37-2.008-1.148-3.07l12.19-10.6Zm.452 1.595L4.51 13.061a.25.25 0 0 0 .164.439h5.45a.749.749 0 0 1 .692 1.041l-2.559 6.066 11.215-9.668a.25.25 0 0 0-.164-.439H14a.75.75 0 0 1-.687-1.05Z"/></svg></span>
+                <span class="card-compact-title">Quick Start</span>
+            </div>
+            <p class="card-compact-description">This page gets you from a fresh Houdini scene to a shaded character you can animate, in five steps. Every control is explained in depth later, in Using the Asset.</p>
         </div>
     </a>
 </div>
@@ -468,7 +526,7 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-12T09:15:55" title="2026-10-12" data-absolute-label="Last updated on 2026-10-12" data-absolute-label-html="Last updated on 2026-10-12" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-12T14:58:17" title="2026-10-12" data-absolute-label="Last updated on 2026-10-12" data-absolute-label-html="Last updated on 2026-10-12" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
                         Last updated on 2026-10-12
                     </time>
                 </div>

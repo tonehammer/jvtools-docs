@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.845104992608">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.845125130195">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Clips &amp; Layers</title>
     <meta name="title" content="Clips & Layers">
-    <meta name="description" content="The Rigger has two core jobs: animating from scratch in Houdini, body and face, and refining a clip exported on the same character. For the second, add the clip, switch to it with Play Clip, and adjust it on layers.">
+    <meta name="description" content="The Rigger has two core jobs, and it helps to know them before you plan a shot:">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://jvtools.dev/docs/reallusion-rigger/using/clips-and-layers/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jvtools.dev/docs/reallusion-rigger/using/clips-and-layers/">
     <meta property="og:title" content="Clips & Layers">
-    <meta property="og:description" content="The Rigger has two core jobs: animating from scratch in Houdini, body and face, and refining a clip exported on the same character. For the second, add the clip, switch to it with Play Clip, and adjust it on layers.">
+    <meta property="og:description" content="The Rigger has two core jobs, and it helps to know them before you plan a shot:">
     <meta property="og:site_name" content="JVtools">
     <meta property="og:locale" content="en_US">
 
@@ -31,7 +31,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://jvtools.dev/docs/reallusion-rigger/using/clips-and-layers/">
     <meta name="twitter:title" content="Clips & Layers">
-    <meta name="twitter:description" content="The Rigger has two core jobs: animating from scratch in Houdini, body and face, and refining a clip exported on the same character. For the second, add the clip, switch to it with Play Clip, and adjust it on layers.">
+    <meta name="twitter:description" content="The Rigger has two core jobs, and it helps to know them before you plan a shot:">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://jvtools.dev/docs/reallusion-rigger/using/clips-and-layers.md">
@@ -39,11 +39,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.845104992608" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.845125130195" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.845104992608" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.845125130195" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.845104992608" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.845125130195" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -420,27 +420,75 @@
                 <!-- Page content  -->
 <h1 id="clips--layers">Clips &amp; Layers</h1>
 <h2 id="what-to-do-where">What to do where</h2>
-<p>The Rigger has two core jobs: <strong>animating from scratch in Houdini</strong>, body and face, and <strong>refining a clip exported on the same character</strong>. For the second, add the clip, switch to it with <strong>Play Clip</strong>, and adjust it on layers.</p>
-<p>Mocap capture and cleanup, face capture and lip-sync, assembling takes and transitions, and combining body and face from different takes are better done in iClone, then exported on your character. To put a motion on a different character, apply it to your character there and export it. Every Character Creator body shares one skeleton and Reallusion keeps each body&#x27;s own posture, so the clip plays exactly.</p>
-<p>A clip exported on another character still works, because it is retargeted automatically, but it is an approximation. The posture follows the source body, which can pinch the waist, and the face is approximate across Character Creator&#x27;s HD and Extended facial profiles. Use such a clip for blocking and reference. Edits made in Houdini stay in Houdini; there is no round trip back to iClone.</p>
+<p>The Rigger has two core jobs, and it helps to know them before you plan a shot:</p>
+<ul>
+<li><strong>Animating from scratch in Houdini</strong>, body and face: the controls and gears, the Character Picker, catalog poses, Face Puppet, Face Key Muscle, Auto Blink, Auto Breathe and Look At.</li>
+<li><strong>Refining a clip exported on the same character</strong>: add the clip, switch to it with <strong>Play Clip</strong>, and adjust it on layers — a contact, a glance, a blink, a facial beat.</li>
+</ul>
+<p>Some work is better done in Reallusion&#x27;s tools and exported onto your character: mocap capture and cleanup, face capture and lip-sync, assembling takes and transitions, and combining body and face from different takes all belong in iClone. To put a motion on a different character, apply it to <strong>your</strong> character in Character Creator 5 or iClone and export it from there. Every Character Creator body shares one skeleton and Character Creator keeps each body&#x27;s own posture, so the clip then plays exactly, with nothing retargeted in Houdini.</p>
+<p>A clip exported on another character still works, because it is retargeted automatically when you add it — but it is an approximation. The posture follows the source body (a curvy character played with a straighter body&#x27;s walk gets its spine straightened, which can pinch the waist), and the face is approximate across Character Creator&#x27;s two facial profiles (see <doc-anchor-trigger to="#clips-from-the-other-facial-profile">below</doc-anchor-trigger>). Use such a clip for blocking and reference; for final animation, apply the motion in Character Creator 5 or iClone.</p>
+<p>Edits made in Houdini stay in Houdini. There is no round trip back to iClone.</p>
 <h2 id="motion-clips">Motion clips</h2>
 <p>The character&#x27;s own clip is baked when the rig is built. The <strong>Motion Clips</strong> folder on the rig node holds the rest.</p>
 <ul>
-<li><strong>Clip Files</strong> lists the clips to bake: a Character Creator Motions clip (USD), a character export (USD or FBX), or any FBX animation on a Character Creator skeleton. Picking a file fills the <strong>Frames</strong> limits with its range.</li>
-<li><strong>Update Motion Clips</strong> bakes the list onto the rig without rebuilding it. New rows are baked, each into a clip of its own, removed rows leave, and unchanged rows are kept. The character&#x27;s own clip always stays.</li>
-<li><strong>Clear Motion Clips</strong> empties the list, after asking.</li>
-<li><strong>Play Clip</strong> picks the clip the rig plays and fits the playback range to it.</li>
+<li><strong>Clip Files</strong> lists the clips to bake. A row takes a Character Creator <strong>Motions</strong> clip (USD — the small, fast one), a character export (USD or FBX), or any FBX animation on a Character Creator skeleton. Picking a file fills the <strong>Frames</strong> limits with its range; the two arrow buttons reset them.</li>
+<li><strong>Update Motion Clips</strong> bakes the list onto the rig without rebuilding it. New rows are baked, each into a clip of its own, removed rows leave, and unchanged rows are kept as they are. The character&#x27;s own clip always stays.</li>
+<li><strong>Clear Motion Clips</strong> empties the list and updates in one step, after asking.</li>
+<li><strong>Play Clip</strong> picks the clip the rig plays and renders, and fits the playback range to it. Switching takes a couple of seconds and re-bakes nothing.</li>
 </ul>
-<p>Careful with this one: switch clips with <strong>Play Clip</strong>, not the clip menu at the top of the animate state&#x27;s Layers tab. That menu is SideFX&#x27;s own and doesn&#x27;t fit the frame range, so a longer clip is cut at the old range.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-warning" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
+                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Careful with this one: switch clips with Play Clip</h5>
+<p>The animate state&#x27;s <strong>Layers</strong> tab has a clip menu of its own at the top. It&#x27;s SideFX&#x27;s, and in their workflow it picks which of a rig&#x27;s clips you animate. A pick there also changes what plays, but it doesn&#x27;t move <strong>Play Clip</strong> or fit the frame range, so a longer clip gets cut off at the old range. Use <strong>Play Clip</strong>, which moves that menu along with it, and the two stay in step.</p>
+        </div>
+    </div>
+</div>
+<h3 id="clips-from-the-other-facial-profile">Clips from the other facial profile</h3>
+<p>Character Creator characters come with one of two facial profiles: <strong>HD</strong> (Character Creator 5&#x27;s) and <strong>Extended</strong> (Character Creator 4&#x27;s). A clip made on a character with the other profile has its face converted through Reallusion&#x27;s own channel table. The body plays normally, but the face is an approximation: the HD profile has mouth and cheek shapes the Extended profile has no counterpart for, so mouth shapes can look off. For a faithful face, apply the motion to your character in iClone and export it from there.</p>
 <h2 id="animation-layers">Animation layers</h2>
-<p>BaseAnimation is the character&#x27;s own animation, even if that&#x27;s just the pose it was exported in. Every other layer sits on top of it, so Houdini won&#x27;t let you delete it. The <strong>Layers</strong> row on the rig node has the tools:</p>
+<p>Your keys sit on animation layers, stacked in the animate state&#x27;s <strong>Layers</strong> tab. At the bottom is <strong>BaseAnimation</strong>: the character&#x27;s own animation, even if that&#x27;s just the pose it was exported in. Every other layer sits on top of it, which is why Houdini won&#x27;t let you delete it.</p>
+<p>The <strong>Layers</strong> row at the top of the rig node has five tools for them, as icons:</p>
 <ul>
-<li><strong>Add Rest Pose Layer</strong> adds an override layer, RestPose, holding every body and face channel at rest, and makes it active. Key on it, and mute or delete it to get the clip back. Don&#x27;t lower the BaseAnimation weight instead: it fades every channel toward zero, scales included, and the character collapses.</li>
-<li><strong>Clear Body Keys</strong> and <strong>Clear Face Keys</strong> remove the active layer&#x27;s animation. On BaseAnimation the body or face goes to the rest pose. On another layer the channels leave it and the layers below show through. Gear settings are never touched.</li>
-<li><strong>Revert to Clip</strong> puts BaseAnimation back to the clip as it was baked, for Body, Face or Both. Other layers and gear settings stay as they are. It also works after a scene is saved and reopened, where Ctrl+Z no longer reaches.</li>
-<li><strong>Show Face Keys</strong> is covered in <a href="../face-tools/#show-face-keys">Face Tools</a>.</li>
+<li><strong>Add Rest Pose Layer</strong> adds an override layer, <strong>RestPose</strong>, holding every body and face channel at rest, and makes it active. It&#x27;s how you start from scratch without losing the clip: key on it, and mute or delete it to get the clip back. Don&#x27;t lower the BaseAnimation weight instead — it fades every channel toward zero, scales included, and the character collapses.</li>
+<li><strong>Clear Body Keys</strong> and <strong>Clear Face Keys</strong> remove the active layer&#x27;s animation. On BaseAnimation, the body or face goes to the <strong>rest pose</strong> (not back to the clip). On any other layer the channels leave that layer, and the layers below show through. Gear settings are never touched.</li>
+<li><strong>Revert to Clip</strong> puts BaseAnimation back to the clip as it was baked, for <strong>Body</strong>, <strong>Face</strong> or <strong>Both</strong>. Other layers and gear settings stay as they are, and Ctrl+Z undoes the revert. It also works after a scene is saved and reopened, where Ctrl+Z no longer reaches.</li>
+<li><strong>Show Face Keys</strong> lists the face curves in the Animation Editor; see <a href="../face-tools/#show-face-keys">Face Tools</a>.</li>
 </ul>
-<p>Key on a layer of your own to keep the clip safe. To adjust a stretch of a clip, use an additive layer, because a change at one frame of a baked clip is a pop: select the control, create a layer from the selected controls (the + in the Layers tab), right-click it and choose Additive, then key a few frames: nothing at 20, arm up at 30, nothing at 40.</p>
+<h3 id="editing-a-stretch-of-a-clip">Editing a stretch of a clip</h3>
+<p>A baked clip has a key on every frame. So if you move the arm at frame 30 on BaseAnimation, only frame 30 changes, and the arm pops there. To adjust a stretch of motion, put the change on a layer of its own:</p>
+<ol>
+<li>Select the control.</li>
+<li>Create a layer from the selected controls (the <strong>+</strong> in the Layers tab).</li>
+<li>Right-click the new layer and choose <strong>Additive</strong>.</li>
+<li>Key the change at a few frames: nothing at 20, arm up at 30, nothing at 40.</li>
+</ol>
+<p>The additive layer adds on top of the clip and eases between its keys. This is the usual way to edit mocap, and it keeps the clip itself untouched.</p>
+<h3 id="what-lands-on-baseanimation-by-accident">What lands on BaseAnimation by accident</h3>
+<p>Keying on a layer of your own keeps the clip safe. These are the things that write to BaseAnimation, and that <strong>Revert to Clip</strong> undoes:</p>
+<ul>
+<li>a catalog pose applied with <strong>Add to New Layer</strong> off,</li>
+<li><strong>Face Key Muscle</strong> drags (they key BaseAnimation by design),</li>
+<li>a Face Puppet take with <strong>Record to New Layer</strong> off,</li>
+<li><strong>Clear Body Keys</strong> or <strong>Clear Face Keys</strong> with BaseAnimation active.</li>
+</ul>
+<h3 id="animating-a-layers-weight">Animating a layer&#x27;s weight</h3>
+<p>A layer&#x27;s weight scales everything on it, and you can key it. Right-click the layer in the Layers tab:</p>
+<ul>
+<li><strong>Add Weight to Channel List</strong> puts the weight curve in the Animation Editor.</li>
+<li><strong>Set Weight Keyframe</strong> and <strong>Remove Weight Keyframe</strong> key or unkey the current weight at the current frame.</li>
+<li><strong>Set Weight from Playbar Selection</strong>: Shift-drag a range on the timeline first, and the weight becomes 1 over it and 0 just outside.</li>
+</ul>
+<p>Once the weight has keys, moving its slider keys it at the current frame.</p>
 <div id="retype-backlinks">
     <h2>See also</h2>
 <div class="card-compact-group">
@@ -451,7 +499,18 @@
                 <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M9.5 15.584V8.416a.5.5 0 0 1 .77-.42l5.576 3.583a.5.5 0 0 1 0 .842l-5.576 3.584a.5.5 0 0 1-.77-.42Z"/><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12Zm11-9.5A9.5 9.5 0 0 0 2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5Z"/></svg></span>
                 <span class="card-compact-title">Animating</span>
             </div>
-            <p class="card-compact-description">Everything here happens on the rig node, in the animate state.</p>
+            <p class="card-compact-description">Everything on this page happens on the rig node, in Houdini's APEX animate state. If you've animated with APEX before, it's the same state with this character's controls in it; if you haven't, the short version is: pick a control, move it, key it.</p>
+        </div>
+    </a>
+</div>
+<div class="card-compact-container">
+    <a href="/docs/reallusion-rigger/using/face-tools/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M8.456 14.494a.75.75 0 0 1 1.068.17 3.08 3.08 0 0 0 .572.492A3.381 3.381 0 0 0 12 15.72c.855 0 1.487-.283 1.904-.562a3.081 3.081 0 0 0 .572-.492l.021-.026a.75.75 0 0 1 1.197.905l-.027.034c-.013.016-.03.038-.052.063-.044.05-.105.119-.184.198a4.569 4.569 0 0 1-.695.566A4.88 4.88 0 0 1 12 17.22a4.88 4.88 0 0 1-2.736-.814 4.57 4.57 0 0 1-.695-.566 3.253 3.253 0 0 1-.236-.261c-.259-.332-.223-.824.123-1.084Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/><path d="M9 10.75a1.25 1.25 0 1 1-2.5 0 1.25 1.25 0 0 1 2.5 0ZM16.25 12a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5Z"/></svg></span>
+                <span class="card-compact-title">Face Tools</span>
+            </div>
+            <p class="card-compact-description">Every Character Creator morph channel is keyable on the rig as face_channel, and a clip carries its facial performance along with its body, so playing a clip plays the face too.</p>
         </div>
     </a>
 </div>
@@ -471,9 +530,31 @@
         <div class="card-compact-body">
             <div class="card-compact-header">
                 <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M3.5 3.75a.25.25 0 0 1 .25-.25h13.5a.25.25 0 0 1 .25.25v10a.75.75 0 0 0 1.5 0v-10A1.75 1.75 0 0 0 17.25 2H3.75A1.75 1.75 0 0 0 2 3.75v16.5c0 .966.784 1.75 1.75 1.75h7a.75.75 0 0 0 0-1.5h-7a.25.25 0 0 1-.25-.25V3.75Z"/><path d="M6.25 7a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5Zm-.75 4.75a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Zm16.28 4.53a.75.75 0 1 0-1.06-1.06l-4.97 4.97-1.97-1.97a.75.75 0 1 0-1.06 1.06l2.5 2.5a.75.75 0 0 0 1.06 0l5.5-5.5Z"/></svg></span>
-                <span class="card-compact-title">Preparing Your Character</span>
+                <span class="card-compact-title">Preparing Your Character in Character Creator</span>
             </div>
-            <p class="card-compact-description">The Rigger imports the same files the Importer does, so the export settings are the same. The Importer's page covers them for USD, FBX and iClone. Do that first.</p>
+            <p class="card-compact-description">Getting your export settings right the first time saves you a lot of frustration — a wrong setting is usually the reason a character comes in missing textures, wrinkles, or hair detail, or the rig comes out in the wrong pose.</p>
+        </div>
+    </a>
+</div>
+<div class="card-compact-container">
+    <a href="/docs/reallusion-rigger/getting-started/quick-start/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M15.716 1.329a1.341 1.341 0 0 1 2.109 1.55L15.147 9h4.161c1.623 0 2.372 2.016 1.143 3.075L8.102 22.721a1.148 1.148 0 0 1-1.81-1.317L8.996 15H4.674c-1.619 0-2.37-2.008-1.148-3.07l12.19-10.6Zm.452 1.595L4.51 13.061a.25.25 0 0 0 .164.439h5.45a.749.749 0 0 1 .692 1.041l-2.559 6.066 11.215-9.668a.25.25 0 0 0-.164-.439H14a.75.75 0 0 1-.687-1.05Z"/></svg></span>
+                <span class="card-compact-title">Quick Start</span>
+            </div>
+            <p class="card-compact-description">This page gets you from a fresh Houdini scene to a shaded character you can animate, in five steps. Every control is explained in depth later, in Using the Asset.</p>
+        </div>
+    </a>
+</div>
+<div class="card-compact-container">
+    <a href="/docs/reallusion-rigger/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><img width="20" height="20" src="https://jvtools.dev/docs/reallusion-rigger/static/reallusion_rigger_logo.svg"></span>
+                <span class="card-compact-title">Reallusion Rigger for Houdini</span>
+            </div>
+            <p class="card-compact-description">Reallusion Rigger (v1.0) turns a Character Creator 5 or iClone 8 character into a fully shaded character in Houdini's Solaris environment, and builds it an APEX animation rig — body and face — that you animate right in the viewport.</p>
         </div>
     </a>
 </div>
@@ -488,12 +569,23 @@
         </div>
     </a>
 </div>
+<div class="card-compact-container">
+    <a href="/docs/reallusion-rigger/getting-started/import-modes/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M7.72 21.78a.75.75 0 0 0 1.06-1.06L5.56 17.5h14.69a.75.75 0 0 0 0-1.5H5.56l3.22-3.22a.75.75 0 1 0-1.06-1.06l-4.5 4.5a.75.75 0 0 0 0 1.06l4.5 4.5Zm8.56-9.5a.75.75 0 1 1-1.06-1.06L18.44 8H3.75a.75.75 0 0 1 0-1.5h14.69l-3.22-3.22a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5Z"/></svg></span>
+                <span class="card-compact-title">USD vs FBX</span>
+            </div>
+            <p class="card-compact-description">At the very top of the node is an Import dropdown with two choices — USD (the default) and FBX. Both produce the same shaded character with the same</p>
+        </div>
+    </a>
+</div>
 </div>
 </div>
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-12T09:15:55" title="2026-10-12" data-absolute-label="Last updated on 2026-10-12" data-absolute-label-html="Last updated on 2026-10-12" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-12T14:58:17" title="2026-10-12" data-absolute-label="Last updated on 2026-10-12" data-absolute-label-html="Last updated on 2026-10-12" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
                         Last updated on 2026-10-12
                     </time>
                 </div>

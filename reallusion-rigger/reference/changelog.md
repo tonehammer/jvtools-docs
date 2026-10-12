@@ -1,7 +1,7 @@
 # Changelog
 
 ## Version 1.0
-<p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">RELEASE_DATE</p>
+<p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">12 October 2026</p>
 
 The first release.
 

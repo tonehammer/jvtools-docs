@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.845104992608">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.845125130195">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Animating</title>
     <meta name="title" content="Animating">
-    <meta name="description" content="Everything here happens on the rig node, in the animate state.">
+    <meta name="description" content="Everything on this page happens on the rig node, in Houdini's APEX animate state. If you've animated with APEX before, it's the same state with this character's controls in it; if you haven't, the short version is: pick a control, move it, key it.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://jvtools.dev/docs/reallusion-rigger/using/animating/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jvtools.dev/docs/reallusion-rigger/using/animating/">
     <meta property="og:title" content="Animating">
-    <meta property="og:description" content="Everything here happens on the rig node, in the animate state.">
+    <meta property="og:description" content="Everything on this page happens on the rig node, in Houdini's APEX animate state. If you've animated with APEX before, it's the same state with this character's controls in it; if you haven't, the short version is: pick a control, move it, key it.">
     <meta property="og:site_name" content="JVtools">
     <meta property="og:locale" content="en_US">
 
@@ -31,7 +31,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://jvtools.dev/docs/reallusion-rigger/using/animating/">
     <meta name="twitter:title" content="Animating">
-    <meta name="twitter:description" content="Everything here happens on the rig node, in the animate state.">
+    <meta name="twitter:description" content="Everything on this page happens on the rig node, in Houdini's APEX animate state. If you've animated with APEX before, it's the same state with this character's controls in it; if you haven't, the short version is: pick a control, move it, key it.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://jvtools.dev/docs/reallusion-rigger/using/animating.md">
@@ -39,11 +39,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.845104992608" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.845125130195" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.845104992608" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.845125130195" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.845104992608" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.845125130195" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -419,21 +419,32 @@
 
                 <!-- Page content  -->
 <h1 id="animating">Animating</h1>
-<p>Everything here happens on the rig node, in the animate state.</p>
+<p>Everything on this page happens on the rig node, in Houdini&#x27;s APEX animate state. If you&#x27;ve animated with APEX before, it&#x27;s the same state with this character&#x27;s controls in it; if you haven&#x27;t, the short version is: pick a control, move it, key it.</p>
 <h2 id="animate-and-exit">Animate and Exit</h2>
-<p><strong>Animate</strong> enters the APEX animate state, where you pose and key the controls in the viewport. <strong>Exit Animate State</strong> returns you to the normal view. Your keys live on animation layers inside the rig node, with the character&#x27;s own clip at the bottom as <strong>BaseAnimation</strong>. See <a href="../clips-and-layers/">Clips &amp; Layers</a>.</p>
+<p><strong>Animate</strong> enters the animate state on the rig, where you pose and key the controls in the viewport. <strong>Exit Animate State</strong> returns you to the normal view.</p>
+<p>Your keys don&#x27;t live on the controls you see. They live on <strong>animation layers</strong> inside the rig node, with the character&#x27;s own clip at the bottom as <strong>BaseAnimation</strong>. That matters as soon as you want to change a clip rather than replace it, so read <a href="../clips-and-layers/">Clips &amp; Layers</a> before you start editing the baked animation.</p>
 <h2 id="controls-and-gears">Controls and gears</h2>
-<p>The body has IK/FK limbs, reverse feet, a spline spine, and FK for every finger and toe. Each part also has a <strong>gear</strong> control holding its settings, such as IK/FK and stretch. Two gear buttons are worth knowing:</p>
+<p>The body has IK/FK arms and legs, reverse feet, a spline spine, and FK controls for every finger and toe. Each body part also has a <strong>gear</strong> control holding its settings — IK/FK blend, stretch, foot roll and the like.</p>
+<p>Two gear buttons are worth knowing, because they don&#x27;t do what their names suggest:</p>
 <ul>
-<li><strong>Pin Controls</strong> lists that gear&#x27;s channels in the Animation Editor. It does not lock the pose, and pinning another gear replaces the list.</li>
-<li><strong>LOD 1, 2 and 3</strong> are independent show/hide toggles. On the root gear they act on the whole rig, on any other gear only on that part.</li>
+<li><strong>Pin Controls</strong> lists that gear&#x27;s channels in the Animation Editor: the spine, neck and head for the spine gear, the fingers for a hand gear. It does not lock the pose. Pinning another gear replaces the list rather than adding to it.</li>
+<li><strong>LOD 1, 2 and 3</strong> are independent show/hide toggles, not a level of detail you step through. On the root gear they act on the whole rig; on any other gear, only on that body part. Use them to clear controls out of the way while you work on one area.</li>
 </ul>
-<p>The <strong>Mirror</strong> tool is in the Pose Tools row above the viewport. It draws a pale preview arm first: press <strong>Enter</strong> over the viewport to apply it, or Shift+click the Mirror icon to mirror at once.</p>
+<p>The face has its own gear beside the head; see <a href="../face-tools/">Face Tools</a>.</p>
+<h2 id="mirroring-a-pose">Mirroring a pose</h2>
+<p>The <strong>Mirror</strong> tool is in the Pose Tools row above the viewport. Clicking it draws a pale preview of the mirrored limb first — that&#x27;s the live preview, not a failure. Press <strong>Enter</strong> over the viewport to apply it, or Shift+click the Mirror icon for a mirror that applies at once. The opposite control is found by its <code translate="no" v-pre>L_</code> / <code translate="no" v-pre>R_</code> name.</p>
 <h2 id="the-character-picker">The Character Picker</h2>
-<p>In the animate state, open <strong>New Pane Tab ▸ Animation ▸ APEX Character Picker</strong>. It has Body, Hands, Feet and Face tabs, plus Extras if the character has joints beyond the standard Character Creator skeleton, such as hair bones. Each tab has a button per control, and clicking one selects it. The layout is read-only; to make your own, add a layout in the pane.</p>
+<p>Clicking small controls on a character in the viewport gets old fast, and the picker is the cure. In the animate state, open <strong>New Pane Tab ▸ Animation ▸ APEX Character Picker</strong>. It has <strong>Body</strong>, <strong>Hands</strong>, <strong>Feet</strong> and <strong>Face</strong> tabs, plus <strong>Extras</strong> if the character has joints beyond the standard Character Creator skeleton, such as hair bones. Each tab has a button per control, and clicking one selects that control.</p>
+<p>The layout the rig ships with is read-only. To arrange your own, add a layout in the pane.</p>
 <h2 id="the-animation-catalog">The Animation Catalog</h2>
-<p>The rig build fills Houdini&#x27;s Animation Catalog with 301 <strong>expression</strong> poses and 71 <strong>hand poses</strong> from Character Creator&#x27;s own templates, in folders named after the rig.</p>
-<p>Open an Animation Catalog pane in the animate state and apply a pose at the current frame. With controls selected, only those controls take it. With nothing selected, click the pose&#x27;s tile and press <strong>Apply</strong> in the panel beside it, and it lands on every channel of the active layer. A hand pose sets both hands unless you first select one with <strong>L Fingers</strong> or <strong>R Fingers</strong> on the picker&#x27;s Hands tab. A pose adds onto the clip&#x27;s own face.</p>
+<p>The rig build fills Houdini&#x27;s Animation Catalog with <strong>301 expression poses</strong> and <strong>71 hand poses</strong>, taken from Character Creator&#x27;s own expression and gesture templates, in folders named after the rig. Open an Animation Catalog pane in the animate state to use them.</p>
+<p>There are two ways to apply a pose, and they behave differently:</p>
+<ul>
+<li><strong>With controls selected</strong>, a pose applies only to those controls. This is how you put a hand pose on one hand: select <strong>L Fingers</strong> or <strong>R Fingers</strong> on the picker&#x27;s <strong>Hands</strong> tab first.</li>
+<li><strong>With nothing selected</strong>, click the pose&#x27;s tile and press <strong>Apply</strong> in the panel beside it. It lands on every channel of the active layer: an expression on the face, a hand pose on both hands.</li>
+</ul>
+<p>Dropping a pose into the viewport always needs selected controls, for all three options in the drop menu; that&#x27;s SideFX&#x27;s rule, and with nothing selected it says &quot;No controls selected&quot;. <strong>Add to New Layer</strong> builds its layer from the selected controls too, so select first or you get an empty layer.</p>
+<p>A pose writes <strong>one key, at the current frame</strong>. That explains the one thing that surprises everyone: a fist applied over a clip shows on one frame only, because the fingers already carry the clip with a key on every frame and the fist replaces just that one. An expression usually holds across the whole clip, because it lands on the face gear&#x27;s channels, which had no other keys, and a single key holds everywhere. To shape that, apply a second expression at another frame and the face blends between the two, apply a neutral one where it should end, or use <strong>Add to New Layer</strong> and set that layer&#x27;s weight over the frames you want. An expression <strong>adds</strong> onto the clip&#x27;s own face rather than replacing it.</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
     <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
@@ -446,15 +457,25 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-            <h5>The catalog is not saved with the hip</h5>
-<p>After reopening a scene, press <strong>Reload Catalog Poses</strong> on the rig node.</p>
+            <h5>The catalog is not saved with the scene</h5>
+<p>After reopening a scene, press <strong>Reload Catalog Poses</strong> on the rig node to put this character&#x27;s poses back.</p>
         </div>
     </div>
 </div>
-<p>Dropping a pose into the viewport always needs selected controls, and a pose writes a single key. <a href="../../reference/troubleshooting/">Troubleshooting</a> has the details.</p>
 <div id="retype-backlinks">
     <h2>See also</h2>
 <div class="card-compact-group">
+<div class="card-compact-container">
+    <a href="/docs/reallusion-rigger/using/face-tools/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M8.456 14.494a.75.75 0 0 1 1.068.17 3.08 3.08 0 0 0 .572.492A3.381 3.381 0 0 0 12 15.72c.855 0 1.487-.283 1.904-.562a3.081 3.081 0 0 0 .572-.492l.021-.026a.75.75 0 0 1 1.197.905l-.027.034c-.013.016-.03.038-.052.063-.044.05-.105.119-.184.198a4.569 4.569 0 0 1-.695.566A4.88 4.88 0 0 1 12 17.22a4.88 4.88 0 0 1-2.736-.814 4.57 4.57 0 0 1-.695-.566 3.253 3.253 0 0 1-.236-.261c-.259-.332-.223-.824.123-1.084Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/><path d="M9 10.75a1.25 1.25 0 1 1-2.5 0 1.25 1.25 0 0 1 2.5 0ZM16.25 12a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5Z"/></svg></span>
+                <span class="card-compact-title">Face Tools</span>
+            </div>
+            <p class="card-compact-description">Every Character Creator morph channel is keyable on the rig as face_channel, and a clip carries its facial performance along with its body, so playing a clip plays the face too.</p>
+        </div>
+    </a>
+</div>
 <div class="card-compact-container">
     <a href="/docs/reallusion-rigger/getting-started/quick-start/" class="group card-compact no-link">
         <div class="card-compact-body">
@@ -462,7 +483,7 @@
                 <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M15.716 1.329a1.341 1.341 0 0 1 2.109 1.55L15.147 9h4.161c1.623 0 2.372 2.016 1.143 3.075L8.102 22.721a1.148 1.148 0 0 1-1.81-1.317L8.996 15H4.674c-1.619 0-2.37-2.008-1.148-3.07l12.19-10.6Zm.452 1.595L4.51 13.061a.25.25 0 0 0 .164.439h5.45a.749.749 0 0 1 .692 1.041l-2.559 6.066 11.215-9.668a.25.25 0 0 0-.164-.439H14a.75.75 0 0 1-.687-1.05Z"/></svg></span>
                 <span class="card-compact-title">Quick Start</span>
             </div>
-            <p class="card-compact-description">This takes you from an empty scene to a character you can animate.</p>
+            <p class="card-compact-description">This page gets you from a fresh Houdini scene to a shaded character you can animate, in five steps. Every control is explained in depth later, in Using the Asset.</p>
         </div>
     </a>
 </div>
@@ -471,7 +492,7 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-12T09:15:55" title="2026-10-12" data-absolute-label="Last updated on 2026-10-12" data-absolute-label-html="Last updated on 2026-10-12" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-12T14:58:17" title="2026-10-12" data-absolute-label="Last updated on 2026-10-12" data-absolute-label-html="Last updated on 2026-10-12" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
                         Last updated on 2026-10-12
                     </time>
                 </div>

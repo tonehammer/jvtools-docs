@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.845104992608">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.845125130195">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Reallusion Rigger for Houdini</title>
     <meta name="title" content="Reallusion Rigger for Houdini">
-    <meta name="description" content="Reallusion Rigger (v1.0) imports a Character Creator 5 or iClone 8 character into Houdini's Solaris environment, builds Karma XPU materials for it, and builds an APEX animation rig for it.">
+    <meta name="description" content="Reallusion Rigger (v1.0) turns a Character Creator 5 or iClone 8 character into a fully shaded character in Houdini's Solaris environment, and builds it an APEX animation rig — body and face — that you animate right in the viewport.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://jvtools.dev/docs/reallusion-rigger/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jvtools.dev/docs/reallusion-rigger/">
     <meta property="og:title" content="Reallusion Rigger for Houdini">
-    <meta property="og:description" content="Reallusion Rigger (v1.0) imports a Character Creator 5 or iClone 8 character into Houdini's Solaris environment, builds Karma XPU materials for it, and builds an APEX animation rig for it.">
+    <meta property="og:description" content="Reallusion Rigger (v1.0) turns a Character Creator 5 or iClone 8 character into a fully shaded character in Houdini's Solaris environment, and builds it an APEX animation rig — body and face — that you animate right in the viewport.">
     <meta property="og:site_name" content="JVtools">
     <meta property="og:locale" content="en_US">
 
@@ -31,7 +31,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://jvtools.dev/docs/reallusion-rigger/">
     <meta name="twitter:title" content="Reallusion Rigger for Houdini">
-    <meta name="twitter:description" content="Reallusion Rigger (v1.0) imports a Character Creator 5 or iClone 8 character into Houdini's Solaris environment, builds Karma XPU materials for it, and builds an APEX animation rig for it.">
+    <meta name="twitter:description" content="Reallusion Rigger (v1.0) turns a Character Creator 5 or iClone 8 character into a fully shaded character in Houdini's Solaris environment, and builds it an APEX animation rig — body and face — that you animate right in the viewport.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://jvtools.dev/docs/reallusion-rigger/readme.md">
@@ -39,11 +39,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../static/favicon.png" />
-    <link href="../resources/css/retype.css?v=4.6.0.845104992608" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=4.6.0.845125130195" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=4.6.0.845104992608" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=4.6.0.845125130195" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=4.6.0.845104992608" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=4.6.0.845125130195" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -407,38 +407,68 @@
   <img src="static/reallusion_rigger_logo.svg" alt="Reallusion Rigger for Houdini" width="150" style="max-width:60%;">
 </div>
 <p style="text-align:center; margin:0 0 1.5rem;"><a href="https://jvtonehammer.gumroad.com/l/reallusionimporterforhoudini"><strong>Get it on Gumroad →</strong></a><br><a href="https://jvtools.dev/" style="font-size:0.9em;">More Houdini tools at jvtools.dev</a></p>
-<p><strong>Reallusion Rigger</strong> (v1.0) imports a Character Creator 5 or iClone 8 character into Houdini&#x27;s Solaris environment, builds Karma XPU materials for it, and builds an APEX animation rig for it. The <strong>Build Character</strong> button does all of this.</p>
-<p>It includes everything the <a href="../reallusion-importer/">Reallusion Importer</a> does: FBX or USD import, MaterialX materials and the lookdev controller. The Rigger adds a rig node below the importer. Press <strong>Animate</strong> on it to pose and key the character in the viewport, face included.</p>
-<h2 id="rigger-and-importer-compared">Rigger and Importer compared</h2>
-<ul>
-<li><strong>Pick the Importer</strong> to render characters with their exported animation, or if you work in Houdini 21. It runs on Houdini 21 and 22 and ships as one file.</li>
-<li><strong>Pick the Rigger</strong> to animate in Houdini. It needs Houdini 22 or newer, because it is built on Houdini 22&#x27;s APEX autorig builder. It also ships as one file.</li>
-</ul>
-<p>One Gumroad page sells both as separate versions. Buying one does not include the other, and there is no upgrade from the Importer to the Rigger; they are separate purchases.</p>
-<h2 id="what-the-rigger-adds">What the Rigger adds</h2>
-<p>A body rig and a facial rig with every morph channel keyable, Face Puppet, Face Key Muscle, 301 expressions and 71 hand poses, Auto Blink, Auto Breathe, Look At, motion clips, layer tools and Stash Rig.</p>
-<p>AccuLips, AccuFACE and Motion LIVE are out of scope. Do mocap, face capture and lip-sync in iClone and export the result.</p>
-<h2 id="requirements">Requirements</h2>
-<p>Houdini 22.0 or newer, on Windows (what it was tested on), and a Character Creator 5 / iClone 8 character exported as USD or FBX. RAM: with USD import, 16 GB minimum and 32 GB recommended. With FBX import, 48 GB minimum and 64 GB recommended.</p>
+<p><strong>Reallusion Rigger</strong> (v1.0) turns a Character Creator 5 or iClone 8 character into a fully shaded character in Houdini&#x27;s Solaris environment, and builds it an APEX animation rig — body and face — that you animate right in the viewport.</p>
+<p>Export your character from Character Creator as <strong>USD</strong> (fast and light, the recommended default) or <strong>FBX</strong>, point this tool at it, and click one button. It rebuilds your character with proper Karma MaterialX materials and a look controller, exactly as the <a href="../reallusion-importer/">Reallusion Importer</a> does, and then builds a rig node below it. Press <strong>Animate</strong> on that node and you&#x27;re posing and keying the character in Houdini&#x27;s APEX animate state, face included, with the character&#x27;s own exported animation already on it.</p>
+<p>Built for Character Creator 5 / iClone 8 and Houdini 22.0 or newer. Ships as a black-boxed Houdini Digital Asset, tuned for Karma XPU and also renders in Karma CPU.</p>
 <div class="flex mb-6">
-    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
     <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
         <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-warning" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
                 <g fill="currentColor"><g>
-                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
-                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
                 </g></g>
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-            <h5>About the Indie license format</h5>
-<p>The Rigger is a Houdini Indie <code translate="no" v-pre>.hdalc</code> asset. It loads in Houdini Indie and Apprentice. Houdini FX and Core can load it too, but that switches the session to limited-commercial (Indie) mode, per SideFX.</p>
+            <h5>Rigger and Importer</h5>
+<p>The Rigger includes everything the Importer does. <strong>Pick the Importer</strong> to render characters with the animation they were exported with, or if you work in Houdini 21 — it runs on Houdini 21 and 22. <strong>Pick the Rigger</strong> to animate in Houdini; it needs Houdini 22.0 or newer, because it is built on Houdini 22&#x27;s APEX autorig builder. One Gumroad page sells both as separate versions. Buying one does not include the other, and there is no upgrade from the Importer to the Rigger; they are separate purchases.</p>
         </div>
     </div>
 </div>
-<h2 id="where-to-start">Where to start</h2>
-<p>Read <a href="getting-started/installation/">Requirements &amp; Installation</a>, <a href="getting-started/preparing-your-character/">Preparing Your Character</a> and <a href="getting-started/quick-start/">Quick Start</a> in that order. <strong>Using the Asset</strong> covers the rig and the animation tools. Materials and look development are the Importer&#x27;s, so see its <a href="../reallusion-importer/using/lookdev-controller/">docs</a>.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-success"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-success" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M21 9.09c-.55 0-1 .45-1 1v.92c0 4.96-4.04 8.99-9 8.99-4.97 0-9-4.04-9-9s4.04-9 9-9c1.27 0 2.5.26 3.66.78.51.22 1.1 0 1.32-.51.23-.5 0-1.1-.51-1.32C14.06.32 12.56 0 11.01 0H11C4.94 0 0 4.93 0 10.99 0 17.06 4.93 22 10.99 22H11c6.06 0 11-4.93 11-10.99v-.92c0-.56-.45-1-1-1z"></path>
+                    <path d="M8.71 9.31a.996.996 0 10-1.41 1.41l3 3c.19.19.44.29.71.29.27 0 .52-.11.71-.29l10-10.01a.996.996 0 10-1.41-1.41L11 11.6 8.71 9.31z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>The best-quality workflow</h5>
+<p>USD import is fast and light, but the <strong>expression wrinkles</strong> — the thing that makes a Character Creator face look alive — are <strong>FBX-only</strong>, and the rig carries them through to the animated face. For the best-looking result, import your character as <strong>FBX</strong>. See <a href="getting-started/import-modes/#the-best-quality-workflow">USD vs FBX</a>.</p>
+        </div>
+    </div>
+</div>
+<h2 id="what-it-does-for-you">What it does for you</h2>
+<ul>
+<li><strong>One-click character and rig.</strong> <strong>Build Character</strong> imports the character, builds its materials and look controls, and builds the rig, in one press. The character&#x27;s own animation is baked through the rig as its first animation layer.</li>
+<li><strong>A body rig.</strong> IK/FK limbs with reverse feet, a spline spine, FK for every finger and toe, and a gear control per body part holding its settings.</li>
+<li><strong>A facial rig.</strong> Every Character Creator facial morph is a keyable channel, with sliders on the face, a flat face board, and the expression wrinkles following along in FBX mode.</li>
+<li><strong>Character Creator&#x27;s own face tools.</strong> Face Puppet records a facial performance with the mouse, using Character Creator&#x27;s puppet profiles and iClone&#x27;s Full Face presets. Face Key Muscle is Character Creator&#x27;s Muscle mode: click a region of the face and drag.</li>
+<li><strong>Poses from Character Creator.</strong> 301 expressions and 71 hand poses from Character Creator&#x27;s own templates, in Houdini&#x27;s Animation Catalog.</li>
+<li><strong>Auto Blink, Auto Breathe and Look At.</strong> Blinks from iClone&#x27;s Auto Blink profiles, breathing on an additive layer, and eyes that hold on a target while the head turns to help.</li>
+<li><strong>Motion clips and layers.</strong> Add more clips exported on your character, switch between them, and refine them on animation layers without touching the baked clip.</li>
+<li><strong>Everything the Importer does.</strong> Karma MaterialX skin, eyes, teeth and hair, the hair re-dye, glowing eyes, Skin Fix, and the render setup.</li>
+</ul>
+<h2 id="who-its-for">Who it&#x27;s for</h2>
+<p>Character artists, animators, and small studios who use Character Creator or iClone and want to animate their characters in Houdini — blocking a shot, refining a clip, adding a glance or a facial beat — and render them in Karma, without building a rig by hand.</p>
+<p>You don&#x27;t need to know how APEX rigs are built. If you&#x27;ve animated in any 3D application, the animate state will feel familiar: pick a control, move it, key it.</p>
+<h2 id="what-it-does-not-do">What it does not do</h2>
+<p>Mocap capture and cleanup, face capture and lip-sync, and assembling takes and transitions belong in iClone; AccuLips, AccuFACE and Motion LIVE are out of scope. Do that work there and export the result onto your character. See <a href="using/clips-and-layers/#what-to-do-where">Clips &amp; Layers</a>.</p>
+<h2 id="how-to-use-this-documentation">How to use this documentation</h2>
+<p>If you&#x27;re brand new, read these three pages in order:</p>
+<ol>
+<li><a href="getting-started/installation/">Requirements &amp; Installation</a> — get the tool into Houdini.</li>
+<li><a href="getting-started/preparing-your-character/">Preparing Your Character in Character Creator</a> — export your character the right way (this matters!).</li>
+<li><a href="getting-started/quick-start/">Quick Start</a> — build and animate your first character.</li>
+</ol>
+<p>After that, <strong>Using the Asset</strong> explains the rig and every animation tool, and <strong>Reference</strong> covers the parameters, troubleshooting, and what&#x27;s new in each version. Materials and look development are the Importer&#x27;s, and its <a href="../reallusion-importer/using/lookdev-controller/">documentation</a> covers them.</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
     <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
@@ -486,7 +516,7 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-12T09:15:55" title="2026-10-12" data-absolute-label="Last updated on 2026-10-12" data-absolute-label-html="Last updated on 2026-10-12" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-12T14:58:17" title="2026-10-12" data-absolute-label="Last updated on 2026-10-12" data-absolute-label-html="Last updated on 2026-10-12" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
                         Last updated on 2026-10-12
                     </time>
                 </div>

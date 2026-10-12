@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.845104992608">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.845125130195">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Building the Rig</title>
     <meta name="title" content="Building the Rig">
-    <meta name="description" content="The rig is built by the same Build Character button that builds the character, in the Character ▸ Build tab.">
+    <meta name="description" content="The rig is built by the same Build Character button that builds the character, in the Character ▸ Build tab. There is no separate rigging step: one press imports the character, builds its materials, and builds its rig.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://jvtools.dev/docs/reallusion-rigger/using/building-the-rig/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jvtools.dev/docs/reallusion-rigger/using/building-the-rig/">
     <meta property="og:title" content="Building the Rig">
-    <meta property="og:description" content="The rig is built by the same Build Character button that builds the character, in the Character ▸ Build tab.">
+    <meta property="og:description" content="The rig is built by the same Build Character button that builds the character, in the Character ▸ Build tab. There is no separate rigging step: one press imports the character, builds its materials, and builds its rig.">
     <meta property="og:site_name" content="JVtools">
     <meta property="og:locale" content="en_US">
 
@@ -31,7 +31,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://jvtools.dev/docs/reallusion-rigger/using/building-the-rig/">
     <meta name="twitter:title" content="Building the Rig">
-    <meta name="twitter:description" content="The rig is built by the same Build Character button that builds the character, in the Character ▸ Build tab.">
+    <meta name="twitter:description" content="The rig is built by the same Build Character button that builds the character, in the Character ▸ Build tab. There is no separate rigging step: one press imports the character, builds its materials, and builds its rig.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://jvtools.dev/docs/reallusion-rigger/using/building-the-rig.md">
@@ -39,11 +39,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.845104992608" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.845125130195" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.845104992608" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.845125130195" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.845104992608" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.845125130195" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -419,19 +419,80 @@
 
                 <!-- Page content  -->
 <h1 id="building-the-rig">Building the Rig</h1>
-<p>The rig is built by the same <strong>Build Character</strong> button that builds the character, in the <strong>Character ▸ Build</strong> tab.</p>
+<p>The rig is built by the same <strong>Build Character</strong> button that builds the character, in the <strong>Character ▸ Build</strong> tab. There is no separate rigging step: one press imports the character, builds its materials, and builds its rig.</p>
 <h2 id="what-gets-built">What gets built</h2>
-<p>With <strong>Build APEX Rig</strong> on (the default), <strong>Build Character</strong> also builds a body and facial rig as its own node, directly below the Rigger. It has IK/FK limbs, reverse feet, a spline spine, per-finger and per-toe FK, and a keyable channel for every Character Creator facial morph. The rig node <em>is</em> the animatable character: its output is the deformed, textured mesh, and Karma reads it. The character&#x27;s own animation is baked through the rig once, as the <strong>BaseAnimation</strong> layer.</p>
-<h2 id="the-build-options">The build options</h2>
+<p>With <strong>Build APEX Rig</strong> on (the default), <strong>Build Character</strong> builds a body and facial rig as its own node, the <strong>Reallusion Rigger APEX Rig</strong>, directly below the Rigger:</p>
 <ul>
-<li><strong>Build APEX Rig.</strong> Off gives you the Importer on its own: the character plays its exported animation.</li>
-<li><strong>Build Facial Rig.</strong> Off builds a body-only rig, which builds faster and is much lighter to animate, but the face stays neutral and the clip&#x27;s expressions do not play. The jaw and eyes still follow the clip. Use it for dancers and fighters.</li>
-<li><strong>Load Expression Presets</strong> and <strong>Load Hand Poses.</strong> They put about 300 expression poses and 71 hand poses in the Animation Catalog during the build, adding roughly 5 to 20 seconds and 5 seconds. Hand poses need no facial rig. <strong>Reload Catalog Poses</strong> on the rig node loads them later if you turn them off.</li>
-<li><strong>Stash Rig.</strong> Stores the built, baked rig in the rig node so a reopened scene loads in seconds. It costs hip size, about 220 MB for a standard character. See <a href="../rig-settings/">Rig Settings</a>.</li>
-<li><strong>Set Frame Range to Animation.</strong> Sets the scene&#x27;s frame range to the character&#x27;s animation before the rig is built. Careful with this one: with <strong>Stash Rig</strong> off, changing the range later rebuilds and rebakes the whole rig, about a minute on a heavy character. It&#x27;s skipped when the rig already exists or the character has no animation.</li>
+<li><strong>The body:</strong> IK/FK arms and legs, reverse feet, a spline spine, FK for every finger and toe, and a <strong>gear</strong> control per body part holding that part&#x27;s settings.</li>
+<li><strong>The face:</strong> a keyable channel for every Character Creator facial morph, sliders on the face, a flat face board, and the Face gear beside the head.</li>
+<li><strong>The animation:</strong> the character&#x27;s own exported clip, baked through the rig once as the bottom animation layer, <strong>BaseAnimation</strong>.</li>
+<li><strong>The catalog:</strong> Character Creator&#x27;s expressions and hand poses, loaded into Houdini&#x27;s Animation Catalog.</li>
 </ul>
+<p>The rig node <em>is</em> the animatable character. Its output is the deformed, textured mesh, the Rigger hands its Solaris import over to it, and Karma reads it — so what you animate is what renders.</p>
+<p>On our test characters the whole press takes roughly <strong>40 to 90 seconds</strong> (a standard character from USD at the fast end, an HD character from FBX at the slow end). Progress shows in the bar at the bottom of the Houdini window, and the console prints how long each stage took when it finishes.</p>
+<h2 id="the-build-options">The build options</h2>
+<p>The options sit in <strong>Character ▸ Build</strong>, below <strong>Build Character</strong>. They are read when the rig is built, so set them before you press it.</p>
+<retype-table copy-text="| Option | Default | What it does |
+|---|---|---|
+| **Build APEX Rig** | On | Off gives you the Importer on its own: the character is built and plays the animation it was exported with. |
+| **Build Facial Rig** | On | Off builds a body-only rig: faster to build and much lighter to animate. The face stays neutral and the clip's expressions do not play, but the jaw and eyes still follow the clip. |
+| **Load Expression Presets** | On | Puts about 300 expression poses in the Animation Catalog during the build. Adds roughly 5 to 20 seconds. |
+| **Load Hand Poses** | On | Puts 71 hand poses in the catalog. Adds roughly 5 seconds, and needs no facial rig. |
+| **Stash Rig** | On | Stores the built, baked rig in the rig node, so a reopened scene loads in seconds instead of rebuilding. See [Rig Settings](rig-settings.md). |
+| **Set Frame Range to Animation** | On | Sets the scene's frame range to the character's animation before the rig is built. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Build APEX Rig</strong></td>
+<td>On</td>
+<td>Off gives you the Importer on its own: the character is built and plays the animation it was exported with.</td>
+</tr>
+<tr>
+<td><strong>Build Facial Rig</strong></td>
+<td>On</td>
+<td>Off builds a body-only rig: faster to build and much lighter to animate. The face stays neutral and the clip&#x27;s expressions do not play, but the jaw and eyes still follow the clip.</td>
+</tr>
+<tr>
+<td><strong>Load Expression Presets</strong></td>
+<td>On</td>
+<td>Puts about 300 expression poses in the Animation Catalog during the build. Adds roughly 5 to 20 seconds.</td>
+</tr>
+<tr>
+<td><strong>Load Hand Poses</strong></td>
+<td>On</td>
+<td>Puts 71 hand poses in the catalog. Adds roughly 5 seconds, and needs no facial rig.</td>
+</tr>
+<tr>
+<td><strong>Stash Rig</strong></td>
+<td>On</td>
+<td>Stores the built, baked rig in the rig node, so a reopened scene loads in seconds instead of rebuilding. See <a href="../rig-settings/">Rig Settings</a>.</td>
+</tr>
+<tr>
+<td><strong>Set Frame Range to Animation</strong></td>
+<td>On</td>
+<td>Sets the scene&#x27;s frame range to the character&#x27;s animation before the rig is built.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<p>A few of these deserve a word of explanation.</p>
+<p><strong>Build Facial Rig</strong> is the one to turn off for body work: a dancer, a fighter, a crowd character seen from a distance. The rig builds faster and plays back faster, and <strong>Auto Breathe</strong> still works. <strong>Face Tools</strong> and <strong>Auto Blink</strong> are greyed out on a body-only rig, and there&#x27;s no way to add the face afterwards except building again with the option on.</p>
+<p><strong>Load Expression Presets</strong> and <strong>Load Hand Poses</strong> only fill the catalog. If you turn them off to save build time, <strong>Reload Catalog Poses</strong> on the rig node loads them whenever you want them. The catalog isn&#x27;t saved with the scene in any case, so after reopening a scene you press that button anyway.</p>
+<p><strong>Set Frame Range to Animation</strong> matters because Houdini&#x27;s APEX nodes read the scene&#x27;s frame range. Careful with this one: with <strong>Stash Rig</strong> off, changing the frame range later rebuilds and rebakes the whole rig, which takes about as long as the first build on a heavy character. With <strong>Stash Rig</strong> on, it doesn&#x27;t. The option is skipped when the rig already exists or the character was exported without animation.</p>
+<h2 id="a-character-exported-without-animation">A character exported without animation</h2>
+<p>If you exported <strong>Mesh only</strong>, or Character Creator&#x27;s two-frame export pose, the rig is built at the character&#x27;s rest pose: <strong>BaseAnimation</strong> holds one key per control, so a pose you key holds instead of popping back, and the scene&#x27;s frame range is left as it is. The console line at the end of the build says so.</p>
 <h2 id="building-again">Building again</h2>
-<p><strong>Build Character</strong> builds the rig only when the character has none. Pressing it again refreshes the materials and leaves the rig, and the animation keyed on it, alone. To rebuild, delete the rig node and press <strong>Build Character</strong>. Deleting the node also hands the character back to the importer, which plays its embedded animation again.</p>
+<p><strong>Build Character</strong> builds the rig only when the character has none. Pressing it again refreshes the materials and leaves the rig, and every key on it, alone. That makes it safe to press while you work on the look.</p>
+<p>To rebuild the rig — because you changed the character, the import mode or a build option — delete the rig node and press <strong>Build Character</strong>. Deleting the node also hands the character back to the Rigger, which plays its embedded animation again until the new rig exists.</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
     <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
@@ -445,11 +506,12 @@
         </div>
         <div class="pr-5 ml-3 w-full">
             <h5>The rig freezes the character</h5>
-<p>Don&#x27;t change the import settings or the character file while a rig exists. Delete the rig node first.</p>
+<p>The rig is built from the character as it was when you pressed the button. Changing the import settings or the character file while a rig exists does nothing to it. And your keys live inside the rig node, so deleting the node deletes the animation you keyed on it. Settle the character and the build options before you start animating.</p>
         </div>
     </div>
 </div>
-<p>The <strong>Render</strong> folder, <strong>Skin-Fix</strong> and <strong>Fix Broken Blendshape</strong> work as they do on the Importer: see its <a href="../../../reallusion-importer/using/rendering/">Rendering</a> and <a href="../../../reallusion-importer/using/skin-fix/">Skin Fix</a> pages.</p>
+<h2 id="the-rest-of-the-build-tab">The rest of the Build tab</h2>
+<p>The <strong>Render</strong> folder (<strong>Build In</strong>, <strong>Create Render Setup</strong>, <strong>Go to LOPs</strong>), <strong>Skin-Fix</strong> and <strong>Fix Broken Blendshape</strong> work exactly as they do on the Importer: see its <a href="../../../reallusion-importer/using/rendering/">Rendering</a> and <a href="../../../reallusion-importer/using/skin-fix/">Skin Fix</a> pages.</p>
 <div id="retype-backlinks">
     <h2>See also</h2>
 <div class="card-compact-group">
@@ -460,7 +522,7 @@
                 <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M15.716 1.329a1.341 1.341 0 0 1 2.109 1.55L15.147 9h4.161c1.623 0 2.372 2.016 1.143 3.075L8.102 22.721a1.148 1.148 0 0 1-1.81-1.317L8.996 15H4.674c-1.619 0-2.37-2.008-1.148-3.07l12.19-10.6Zm.452 1.595L4.51 13.061a.25.25 0 0 0 .164.439h5.45a.749.749 0 0 1 .692 1.041l-2.559 6.066 11.215-9.668a.25.25 0 0 0-.164-.439H14a.75.75 0 0 1-.687-1.05Z"/></svg></span>
                 <span class="card-compact-title">Quick Start</span>
             </div>
-            <p class="card-compact-description">This takes you from an empty scene to a character you can animate.</p>
+            <p class="card-compact-description">This page gets you from a fresh Houdini scene to a shaded character you can animate, in five steps. Every control is explained in depth later, in Using the Asset.</p>
         </div>
     </a>
 </div>
@@ -469,7 +531,7 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-12T09:15:55" title="2026-10-12" data-absolute-label="Last updated on 2026-10-12" data-absolute-label-html="Last updated on 2026-10-12" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-12T14:58:17" title="2026-10-12" data-absolute-label="Last updated on 2026-10-12" data-absolute-label-html="Last updated on 2026-10-12" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
                         Last updated on 2026-10-12
                     </time>
                 </div>
@@ -485,7 +547,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                             <span>
                                 <span class="block text-xs font-normal text-base-text-muted">Previous</span>
-                                <span class="block mt-1">Preparing Your Character</span>
+                                <span class="block mt-1">Preparing Your Character in Character Creator</span>
                             </span>
                         </a>
                     </div>

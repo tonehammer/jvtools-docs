@@ -6,34 +6,50 @@
 
 <p style="text-align:center; margin:0 0 1.5rem;"><a href="https://jvtonehammer.gumroad.com/l/reallusionimporterforhoudini"><strong>Get it on Gumroad →</strong></a><br><a href="https://jvtools.dev/" style="font-size:0.9em;">More Houdini tools at jvtools.dev</a></p>
 
-**Reallusion Rigger** (v1.0) imports a Character Creator 5 or iClone 8 character into Houdini's Solaris environment, builds Karma XPU materials for it, and builds an APEX animation rig for it. The **Build Character** button does all of this.
+**Reallusion Rigger** (v1.0) turns a Character Creator 5 or iClone 8 character into a fully shaded character in Houdini's Solaris environment, and builds it an APEX animation rig — body and face — that you animate right in the viewport.
 
-It includes everything the [Reallusion Importer](/reallusion-importer/README.md) does: FBX or USD import, MaterialX materials and the lookdev controller. The Rigger adds a rig node below the importer. Press **Animate** on it to pose and key the character in the viewport, face included.
+Export your character from Character Creator as **USD** (fast and light, the recommended default) or **FBX**, point this tool at it, and click one button. It rebuilds your character with proper Karma MaterialX materials and a look controller, exactly as the [Reallusion Importer](/reallusion-importer/README.md) does, and then builds a rig node below it. Press **Animate** on that node and you're posing and keying the character in Houdini's APEX animate state, face included, with the character's own exported animation already on it.
 
-## Rigger and Importer compared
+Built for Character Creator 5 / iClone 8 and Houdini 22.0 or newer. Ships as a black-boxed Houdini Digital Asset, tuned for Karma XPU and also renders in Karma CPU.
 
-* **Pick the Importer** to render characters with their exported animation, or if you work in Houdini 21. It runs on Houdini 21 and 22 and ships as one file.
-* **Pick the Rigger** to animate in Houdini. It needs Houdini 22 or newer, because it is built on Houdini 22's APEX autorig builder. It also ships as one file.
-
-One Gumroad page sells both as separate versions. Buying one does not include the other, and there is no upgrade from the Importer to the Rigger; they are separate purchases.
-
-## What the Rigger adds
-
-A body rig and a facial rig with every morph channel keyable, Face Puppet, Face Key Muscle, 301 expressions and 71 hand poses, Auto Blink, Auto Breathe, Look At, motion clips, layer tools and Stash Rig.
-
-AccuLips, AccuFACE and Motion LIVE are out of scope. Do mocap, face capture and lip-sync in iClone and export the result.
-
-## Requirements
-
-Houdini 22.0 or newer, on Windows (what it was tested on), and a Character Creator 5 / iClone 8 character exported as USD or FBX. RAM: with USD import, 16 GB minimum and 32 GB recommended. With FBX import, 48 GB minimum and 64 GB recommended.
-
-!!!warning About the Indie license format
-The Rigger is a Houdini Indie `.hdalc` asset. It loads in Houdini Indie and Apprentice. Houdini FX and Core can load it too, but that switches the session to limited-commercial (Indie) mode, per SideFX.
+!!!info Rigger and Importer
+The Rigger includes everything the Importer does. **Pick the Importer** to render characters with the animation they were exported with, or if you work in Houdini 21 — it runs on Houdini 21 and 22. **Pick the Rigger** to animate in Houdini; it needs Houdini 22.0 or newer, because it is built on Houdini 22's APEX autorig builder. One Gumroad page sells both as separate versions. Buying one does not include the other, and there is no upgrade from the Importer to the Rigger; they are separate purchases.
 !!!
 
-## Where to start
+!!!success The best-quality workflow
+USD import is fast and light, but the **expression wrinkles** — the thing that makes a Character Creator face look alive — are **FBX-only**, and the rig carries them through to the animated face. For the best-looking result, import your character as **FBX**. See [USD vs FBX](getting-started/import-modes.md#the-best-quality-workflow).
+!!!
 
-Read [Requirements & Installation](getting-started/installation.md), [Preparing Your Character](getting-started/preparing-your-character.md) and [Quick Start](getting-started/quick-start.md) in that order. **Using the Asset** covers the rig and the animation tools. Materials and look development are the Importer's, so see its [docs](/reallusion-importer/using/lookdev-controller.md).
+## What it does for you
+
+* **One-click character and rig.** **Build Character** imports the character, builds its materials and look controls, and builds the rig, in one press. The character's own animation is baked through the rig as its first animation layer.
+* **A body rig.** IK/FK limbs with reverse feet, a spline spine, FK for every finger and toe, and a gear control per body part holding its settings.
+* **A facial rig.** Every Character Creator facial morph is a keyable channel, with sliders on the face, a flat face board, and the expression wrinkles following along in FBX mode.
+* **Character Creator's own face tools.** Face Puppet records a facial performance with the mouse, using Character Creator's puppet profiles and iClone's Full Face presets. Face Key Muscle is Character Creator's Muscle mode: click a region of the face and drag.
+* **Poses from Character Creator.** 301 expressions and 71 hand poses from Character Creator's own templates, in Houdini's Animation Catalog.
+* **Auto Blink, Auto Breathe and Look At.** Blinks from iClone's Auto Blink profiles, breathing on an additive layer, and eyes that hold on a target while the head turns to help.
+* **Motion clips and layers.** Add more clips exported on your character, switch between them, and refine them on animation layers without touching the baked clip.
+* **Everything the Importer does.** Karma MaterialX skin, eyes, teeth and hair, the hair re-dye, glowing eyes, Skin Fix, and the render setup.
+
+## Who it's for
+
+Character artists, animators, and small studios who use Character Creator or iClone and want to animate their characters in Houdini — blocking a shot, refining a clip, adding a glance or a facial beat — and render them in Karma, without building a rig by hand.
+
+You don't need to know how APEX rigs are built. If you've animated in any 3D application, the animate state will feel familiar: pick a control, move it, key it.
+
+## What it does not do
+
+Mocap capture and cleanup, face capture and lip-sync, and assembling takes and transitions belong in iClone; AccuLips, AccuFACE and Motion LIVE are out of scope. Do that work there and export the result onto your character. See [Clips & Layers](using/clips-and-layers.md#what-to-do-where).
+
+## How to use this documentation
+
+If you're brand new, read these three pages in order:
+
+1. [Requirements & Installation](getting-started/installation.md) — get the tool into Houdini.
+2. [Preparing Your Character in Character Creator](getting-started/preparing-your-character.md) — export your character the right way (this matters!).
+3. [Quick Start](getting-started/quick-start.md) — build and animate your first character.
+
+After that, **Using the Asset** explains the rig and every animation tool, and **Reference** covers the parameters, troubleshooting, and what's new in each version. Materials and look development are the Importer's, and its [documentation](/reallusion-importer/using/lookdev-controller.md) covers them.
 
 !!!info
 This tool is an independent product and is not affiliated with, endorsed by, or sponsored by Reallusion or SideFX. "Character Creator," "iClone," and "Houdini" are trademarks of their respective owners.

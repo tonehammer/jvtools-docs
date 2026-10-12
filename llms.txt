@@ -4,7 +4,7 @@
 
 - [JVtools](https://jvtools.dev/docs/index.md): JVtools
 - [Reallusion Importer for Houdini](https://jvtools.dev/docs/reallusion-importer/readme.md): Reallusion Importer for Houdini (v1.3) turns a Character Creator 5 or iClone 8 character into a fully shaded, animatable, render-ready character in Houdini's Solaris environment — in seconds instead of hours.
-- [Reallusion Rigger for Houdini](https://jvtools.dev/docs/reallusion-rigger/readme.md): Reallusion Rigger (v1.0) imports a Character Creator 5 or iClone 8 character into Houdini's Solaris environment, builds Karma XPU materials for it, and builds an APEX animation rig for it.
+- [Reallusion Rigger for Houdini](https://jvtools.dev/docs/reallusion-rigger/readme.md): Reallusion Rigger (v1.0) turns a Character Creator 5 or iClone 8 character into a fully shaded character in Houdini's Solaris environment, and builds it an APEX animation rig — body and face — that you animate right in the viewport.
 - [Advanced Velocity](https://jvtools.dev/docs/advanced-velocity/readme.md): Welcome! Advanced Velocity (v1.4.1) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node.
 - [RPLidar In](https://jvtools.dev/docs/rplidar-in/readme.md): Welcome! RPLidar In (v1.0) brings live Slamtec RPLIDAR point-cloud data straight into Houdini as SOP geometry. Plug in the sensor, drop the node, and every
 - [Neonyte](https://jvtools.dev/docs/neonyte/readme.md): Neonyte is a Houdini SOP that turns placeholder boxes into generated neon signs: lettering, icons, decor tubes, the metal rig behind them, and a Karma material - for dressing buildings and streets.
@@ -47,19 +47,19 @@
 
 ### Getting Started
 
-- [Requirements & Installation](https://jvtools.dev/docs/reallusion-rigger/getting-started/installation.md): Houdini 22.0 or newer. The Rigger is built on Houdini 22's APEX autorig builder. (The Reallusion Importer also runs on Houdini 21.)
-- [USD vs FBX](https://jvtools.dev/docs/reallusion-rigger/getting-started/import-modes.md): The Import dropdown at the top of the node (USD by default, or FBX) works exactly as it does on the Importer, and the rig works in both modes. The Importer's USD vs FBX page has the full comparison.
-- [Quick Start](https://jvtools.dev/docs/reallusion-rigger/getting-started/quick-start.md): This takes you from an empty scene to a character you can animate.
-- [Preparing Your Character](https://jvtools.dev/docs/reallusion-rigger/getting-started/preparing-your-character.md): The Rigger imports the same files the Importer does, so the export settings are the same. The Importer's page covers them for USD, FBX and iClone. Do that first.
+- [Requirements & Installation](https://jvtools.dev/docs/reallusion-rigger/getting-started/installation.md): Before you start, make sure you have:
+- [USD vs FBX](https://jvtools.dev/docs/reallusion-rigger/getting-started/import-modes.md): At the very top of the node is an Import dropdown with two choices — USD (the default) and FBX. Both produce the same shaded character with the same
+- [Quick Start](https://jvtools.dev/docs/reallusion-rigger/getting-started/quick-start.md): This page gets you from a fresh Houdini scene to a shaded character you can animate, in five steps. Every control is explained in depth later, in Using the Asset.
+- [Preparing Your Character in Character Creator](https://jvtools.dev/docs/reallusion-rigger/getting-started/preparing-your-character.md): Getting your export settings right the first time saves you a lot of frustration — a wrong setting is usually the reason a character comes in missing textures, wrinkles, or hair detail, or the rig comes out in the wrong pose.
 
 ### Using the Asset
 
-- [Building the Rig](https://jvtools.dev/docs/reallusion-rigger/using/building-the-rig.md): The rig is built by the same Build Character button that builds the character, in the Character ▸ Build tab.
-- [Animating](https://jvtools.dev/docs/reallusion-rigger/using/animating.md): Everything here happens on the rig node, in the animate state.
-- [Face Tools](https://jvtools.dev/docs/reallusion-rigger/using/face-tools.md): Every Character Creator morph channel is keyable on the rig as face_channel, and a clip carries its facial performance with its body. The Face Tools folder is greyed out on a body-only rig.
-- [Auto Animation](https://jvtools.dev/docs/reallusion-rigger/using/auto-animation.md): Auto Blink and Auto Breathe write ordinary keys, each press on an animation layer of its own, so you can mute, reweight or delete the result. Both are in the rig node's Auto Animation folder.
-- [Clips & Layers](https://jvtools.dev/docs/reallusion-rigger/using/clips-and-layers.md): The Rigger has two core jobs: animating from scratch in Houdini, body and face, and refining a clip exported on the same character. For the second, add the clip, switch to it with Play Clip, and adjust it on layers.
-- [Rig Settings](https://jvtools.dev/docs/reallusion-rigger/using/rig-settings.md): Stash Rig stores the built, baked rig in the node, so reopening the scene or changing the frame range loads it in about a second. Update Motion Clips stores the new bake.
+- [Building the Rig](https://jvtools.dev/docs/reallusion-rigger/using/building-the-rig.md): The rig is built by the same Build Character button that builds the character, in the Character ▸ Build tab. There is no separate rigging step: one press imports the character, builds its materials, and builds its rig.
+- [Animating](https://jvtools.dev/docs/reallusion-rigger/using/animating.md): Everything on this page happens on the rig node, in Houdini's APEX animate state. If you've animated with APEX before, it's the same state with this character's controls in it; if you haven't, the short version is: pick a control, move it, key it.
+- [Face Tools](https://jvtools.dev/docs/reallusion-rigger/using/face-tools.md): Every Character Creator morph channel is keyable on the rig as face_channel, and a clip carries its facial performance along with its body, so playing a clip plays the face too.
+- [Auto Animation](https://jvtools.dev/docs/reallusion-rigger/using/auto-animation.md): Auto Blink and Auto Breathe take care of the two things a character does all the time and an animator never wants to key by hand. Both write ordinary keys, each press on an animation layer of its own, so the result is yours to mute, re-weight, edit or delete like any other layer.
+- [Clips & Layers](https://jvtools.dev/docs/reallusion-rigger/using/clips-and-layers.md): The Rigger has two core jobs, and it helps to know them before you plan a shot:
+- [Rig Settings](https://jvtools.dev/docs/reallusion-rigger/using/rig-settings.md): The Rig Settings folder on the rig node (closed by default) holds the settings you set once per character, and the Viewport folder above it controls how the character draws in the SOP viewport.
 
 ### Reference
 

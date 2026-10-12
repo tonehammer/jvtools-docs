@@ -1,32 +1,47 @@
 # Animating
 
-Everything here happens on the rig node, in the animate state.
+Everything on this page happens on the rig node, in Houdini's APEX animate state. If you've animated with APEX before, it's the same state with this character's controls in it; if you haven't, the short version is: pick a control, move it, key it.
 
 ## Animate and Exit
 
-**Animate** enters the APEX animate state, where you pose and key the controls in the viewport. **Exit Animate State** returns you to the normal view. Your keys live on animation layers inside the rig node, with the character's own clip at the bottom as **BaseAnimation**. See [Clips & Layers](clips-and-layers.md).
+**Animate** enters the animate state on the rig, where you pose and key the controls in the viewport. **Exit Animate State** returns you to the normal view.
+
+Your keys don't live on the controls you see. They live on **animation layers** inside the rig node, with the character's own clip at the bottom as **BaseAnimation**. That matters as soon as you want to change a clip rather than replace it, so read [Clips & Layers](clips-and-layers.md) before you start editing the baked animation.
 
 ## Controls and gears
 
-The body has IK/FK limbs, reverse feet, a spline spine, and FK for every finger and toe. Each part also has a **gear** control holding its settings, such as IK/FK and stretch. Two gear buttons are worth knowing:
+The body has IK/FK arms and legs, reverse feet, a spline spine, and FK controls for every finger and toe. Each body part also has a **gear** control holding its settings — IK/FK blend, stretch, foot roll and the like.
 
-* **Pin Controls** lists that gear's channels in the Animation Editor. It does not lock the pose, and pinning another gear replaces the list.
-* **LOD 1, 2 and 3** are independent show/hide toggles. On the root gear they act on the whole rig, on any other gear only on that part.
+Two gear buttons are worth knowing, because they don't do what their names suggest:
 
-The **Mirror** tool is in the Pose Tools row above the viewport. It draws a pale preview arm first: press **Enter** over the viewport to apply it, or Shift+click the Mirror icon to mirror at once.
+* **Pin Controls** lists that gear's channels in the Animation Editor: the spine, neck and head for the spine gear, the fingers for a hand gear. It does not lock the pose. Pinning another gear replaces the list rather than adding to it.
+* **LOD 1, 2 and 3** are independent show/hide toggles, not a level of detail you step through. On the root gear they act on the whole rig; on any other gear, only on that body part. Use them to clear controls out of the way while you work on one area.
+
+The face has its own gear beside the head; see [Face Tools](face-tools.md).
+
+## Mirroring a pose
+
+The **Mirror** tool is in the Pose Tools row above the viewport. Clicking it draws a pale preview of the mirrored limb first — that's the live preview, not a failure. Press **Enter** over the viewport to apply it, or Shift+click the Mirror icon for a mirror that applies at once. The opposite control is found by its `L_` / `R_` name.
 
 ## The Character Picker
 
-In the animate state, open **New Pane Tab ▸ Animation ▸ APEX Character Picker**. It has Body, Hands, Feet and Face tabs, plus Extras if the character has joints beyond the standard Character Creator skeleton, such as hair bones. Each tab has a button per control, and clicking one selects it. The layout is read-only; to make your own, add a layout in the pane.
+Clicking small controls on a character in the viewport gets old fast, and the picker is the cure. In the animate state, open **New Pane Tab ▸ Animation ▸ APEX Character Picker**. It has **Body**, **Hands**, **Feet** and **Face** tabs, plus **Extras** if the character has joints beyond the standard Character Creator skeleton, such as hair bones. Each tab has a button per control, and clicking one selects that control.
+
+The layout the rig ships with is read-only. To arrange your own, add a layout in the pane.
 
 ## The Animation Catalog
 
-The rig build fills Houdini's Animation Catalog with 301 **expression** poses and 71 **hand poses** from Character Creator's own templates, in folders named after the rig.
+The rig build fills Houdini's Animation Catalog with **301 expression poses** and **71 hand poses**, taken from Character Creator's own expression and gesture templates, in folders named after the rig. Open an Animation Catalog pane in the animate state to use them.
 
-Open an Animation Catalog pane in the animate state and apply a pose at the current frame. With controls selected, only those controls take it. With nothing selected, click the pose's tile and press **Apply** in the panel beside it, and it lands on every channel of the active layer. A hand pose sets both hands unless you first select one with **L Fingers** or **R Fingers** on the picker's Hands tab. A pose adds onto the clip's own face.
+There are two ways to apply a pose, and they behave differently:
 
-!!!warning The catalog is not saved with the hip
-After reopening a scene, press **Reload Catalog Poses** on the rig node.
+* **With controls selected**, a pose applies only to those controls. This is how you put a hand pose on one hand: select **L Fingers** or **R Fingers** on the picker's **Hands** tab first.
+* **With nothing selected**, click the pose's tile and press **Apply** in the panel beside it. It lands on every channel of the active layer: an expression on the face, a hand pose on both hands.
+
+Dropping a pose into the viewport always needs selected controls, for all three options in the drop menu; that's SideFX's rule, and with nothing selected it says "No controls selected". **Add to New Layer** builds its layer from the selected controls too, so select first or you get an empty layer.
+
+A pose writes **one key, at the current frame**. That explains the one thing that surprises everyone: a fist applied over a clip shows on one frame only, because the fingers already carry the clip with a key on every frame and the fist replaces just that one. An expression usually holds across the whole clip, because it lands on the face gear's channels, which had no other keys, and a single key holds everywhere. To shape that, apply a second expression at another frame and the face blends between the two, apply a neutral one where it should end, or use **Add to New Layer** and set that layer's weight over the frames you want. An expression **adds** onto the clip's own face rather than replacing it.
+
+!!!warning The catalog is not saved with the scene
+After reopening a scene, press **Reload Catalog Poses** on the rig node to put this character's poses back.
 !!!
-
-Dropping a pose into the viewport always needs selected controls, and a pose writes a single key. [Troubleshooting](../reference/troubleshooting.md) has the details.

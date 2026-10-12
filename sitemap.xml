@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://jvtools.dev/docs/reallusion-rigger/</loc>
-    <lastmod>2026-10-12T09:15:55Z</lastmod>
+    <lastmod>2026-10-12T14:58:17Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/neonyte/</loc>
@@ -37,10 +37,6 @@
     <lastmod>2026-09-22T20:48:47Z</lastmod>
   </url>
   <url>
-    <loc>https://jvtools.dev/docs/reallusion-importer/getting-started/import-modes/</loc>
-    <lastmod>2026-08-07T12:06:44Z</lastmod>
-  </url>
-  <url>
     <loc>https://jvtools.dev/docs/hou-displacementx/</loc>
     <lastmod>2026-09-28T00:53:48Z</lastmod>
   </url>
@@ -49,35 +45,39 @@
     <lastmod>2026-08-26T12:22:27Z</lastmod>
   </url>
   <url>
-    <loc>https://jvtools.dev/docs/reallusion-importer/getting-started/preparing-your-character/</loc>
-    <lastmod>2026-09-22T20:48:47Z</lastmod>
+    <loc>https://jvtools.dev/docs/reallusion-importer/getting-started/import-modes/</loc>
+    <lastmod>2026-08-07T12:06:44Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/reallusion-importer/reference/parameter-reference/</loc>
     <lastmod>2026-08-28T11:41:25Z</lastmod>
   </url>
   <url>
+    <loc>https://jvtools.dev/docs/reallusion-rigger/getting-started/quick-start/</loc>
+    <lastmod>2026-10-12T14:58:17Z</lastmod>
+  </url>
+  <url>
     <loc>https://jvtools.dev/docs/deoverlap-polylines/</loc>
     <lastmod>2026-09-22T20:48:47Z</lastmod>
   </url>
   <url>
-    <loc>https://jvtools.dev/docs/reallusion-importer/reference/troubleshooting/</loc>
-    <lastmod>2026-09-24T03:32:39Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jvtools.dev/docs/reallusion-importer/getting-started/installation/</loc>
-    <lastmod>2026-08-07T12:06:44Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jvtools.dev/docs/reallusion-importer/using/eyes/</loc>
-    <lastmod>2026-08-28T11:41:25Z</lastmod>
+    <loc>https://jvtools.dev/docs/reallusion-importer/getting-started/preparing-your-character/</loc>
+    <lastmod>2026-09-22T20:48:47Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/reallusion-importer/using/hair/</loc>
     <lastmod>2026-08-28T11:38:11Z</lastmod>
   </url>
   <url>
-    <loc>https://jvtools.dev/docs/reallusion-importer/reference/limitations/</loc>
+    <loc>https://jvtools.dev/docs/reallusion-importer/reference/troubleshooting/</loc>
+    <lastmod>2026-09-24T03:32:39Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jvtools.dev/docs/reallusion-importer/using/eyes/</loc>
+    <lastmod>2026-08-28T11:41:25Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jvtools.dev/docs/reallusion-importer/getting-started/installation/</loc>
     <lastmod>2026-08-07T12:06:44Z</lastmod>
   </url>
   <url>
@@ -89,15 +89,19 @@
     <lastmod>2026-09-11T00:31:25Z</lastmod>
   </url>
   <url>
+    <loc>https://jvtools.dev/docs/reallusion-importer/reference/limitations/</loc>
+    <lastmod>2026-08-07T12:06:44Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jvtools.dev/docs/reallusion-rigger/getting-started/import-modes/</loc>
+    <lastmod>2026-10-12T14:58:17Z</lastmod>
+  </url>
+  <url>
     <loc>https://jvtools.dev/docs/advanced-velocity/timed-events/</loc>
     <lastmod>2026-09-08T13:05:36Z</lastmod>
   </url>
   <url>
-    <loc>https://jvtools.dev/docs/neonyte/control/</loc>
-    <lastmod>2026-09-09T13:02:56Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jvtools.dev/docs/reallusion-importer/using/skin-fix/</loc>
+    <loc>https://jvtools.dev/docs/reallusion-importer/using/wrinkles/</loc>
     <lastmod>2026-08-07T12:06:44Z</lastmod>
   </url>
   <url>
@@ -105,11 +109,19 @@
     <lastmod>2026-08-07T12:06:44Z</lastmod>
   </url>
   <url>
+    <loc>https://jvtools.dev/docs/reallusion-rigger/using/clips-and-layers/</loc>
+    <lastmod>2026-10-12T14:58:17Z</lastmod>
+  </url>
+  <url>
     <loc>https://jvtools.dev/docs/advanced-velocity/using/</loc>
     <lastmod>2026-09-18T21:24:37Z</lastmod>
   </url>
   <url>
-    <loc>https://jvtools.dev/docs/reallusion-importer/using/wrinkles/</loc>
+    <loc>https://jvtools.dev/docs/neonyte/control/</loc>
+    <lastmod>2026-09-09T13:02:56Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jvtools.dev/docs/reallusion-importer/using/skin-fix/</loc>
     <lastmod>2026-08-07T12:06:44Z</lastmod>
   </url>
   <url>
@@ -125,12 +137,20 @@
     <lastmod>2026-09-09T13:02:56Z</lastmod>
   </url>
   <url>
-    <loc>https://jvtools.dev/docs/reallusion-rigger/getting-started/quick-start/</loc>
-    <lastmod>2026-10-12T09:15:55Z</lastmod>
+    <loc>https://jvtools.dev/docs/reallusion-rigger/getting-started/preparing-your-character/</loc>
+    <lastmod>2026-10-12T14:58:17Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/rplidar-in/getting-started/</loc>
     <lastmod>2026-09-22T21:55:36Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jvtools.dev/docs/reallusion-importer/using/displacement/</loc>
+    <lastmod>2026-08-07T12:06:44Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jvtools.dev/docs/reallusion-rigger/getting-started/installation/</loc>
+    <lastmod>2026-10-12T14:58:17Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/neonyte/rendering/</loc>
@@ -141,36 +161,16 @@
     <lastmod>2026-08-07T12:06:44Z</lastmod>
   </url>
   <url>
-    <loc>https://jvtools.dev/docs/reallusion-importer/using/displacement/</loc>
-    <lastmod>2026-08-07T12:06:44Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jvtools.dev/docs/reallusion-rigger/getting-started/preparing-your-character/</loc>
-    <lastmod>2026-10-12T09:15:55Z</lastmod>
-  </url>
-  <url>
     <loc>https://jvtools.dev/docs/reallusion-rigger/using/building-the-rig/</loc>
-    <lastmod>2026-10-12T09:15:55Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jvtools.dev/docs/reallusion-rigger/using/clips-and-layers/</loc>
-    <lastmod>2026-10-12T09:15:55Z</lastmod>
+    <lastmod>2026-10-12T14:58:17Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/neonyte/getting-started/</loc>
     <lastmod>2026-09-09T13:02:56Z</lastmod>
   </url>
   <url>
-    <loc>https://jvtools.dev/docs/reallusion-rigger/getting-started/import-modes/</loc>
-    <lastmod>2026-10-12T09:15:55Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jvtools.dev/docs/reallusion-rigger/getting-started/installation/</loc>
-    <lastmod>2026-10-12T09:15:55Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jvtools.dev/docs/reallusion-rigger/using/animating/</loc>
-    <lastmod>2026-10-12T09:15:55Z</lastmod>
+    <loc>https://jvtools.dev/docs/reallusion-rigger/using/rig-settings/</loc>
+    <lastmod>2026-10-12T14:58:17Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/reallusion-rigger/reference/limitations/</loc>
@@ -178,10 +178,6 @@
   </url>
   <url>
     <loc>https://jvtools.dev/docs/reallusion-rigger/reference/troubleshooting/</loc>
-    <lastmod>2026-10-12T09:15:55Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jvtools.dev/docs/reallusion-rigger/using/rig-settings/</loc>
     <lastmod>2026-10-12T09:15:55Z</lastmod>
   </url>
   <url>
@@ -193,20 +189,24 @@
     <lastmod>2026-10-12T09:15:55Z</lastmod>
   </url>
   <url>
+    <loc>https://jvtools.dev/docs/reallusion-rigger/using/animating/</loc>
+    <lastmod>2026-10-12T14:58:17Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jvtools.dev/docs/reallusion-rigger/using/face-tools/</loc>
+    <lastmod>2026-10-12T14:58:17Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jvtools.dev/docs/reallusion-rigger/using/auto-animation/</loc>
+    <lastmod>2026-10-12T14:58:17Z</lastmod>
+  </url>
+  <url>
     <loc>https://jvtools.dev/docs/reallusion-importer/reference/license/</loc>
     <lastmod>2026-10-12T09:15:55Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/copout/getting-started/</loc>
     <lastmod>2026-09-22T21:10:30Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jvtools.dev/docs/reallusion-rigger/using/face-tools/</loc>
-    <lastmod>2026-10-12T09:15:55Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jvtools.dev/docs/reallusion-rigger/using/auto-animation/</loc>
-    <lastmod>2026-10-12T09:15:55Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/flip-dop-controller/using/</loc>
@@ -217,16 +217,16 @@
     <lastmod>2026-10-12T09:15:55Z</lastmod>
   </url>
   <url>
-    <loc>https://jvtools.dev/docs/advanced-velocity/reference/parameters/</loc>
-    <lastmod>2026-09-18T21:24:37Z</lastmod>
-  </url>
-  <url>
     <loc>https://jvtools.dev/docs/flip-dop-controller/getting-started/</loc>
     <lastmod>2026-09-22T20:48:47Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/hou-displacementx/using/</loc>
     <lastmod>2026-09-24T03:06:17Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jvtools.dev/docs/advanced-velocity/reference/parameters/</loc>
+    <lastmod>2026-09-18T21:24:37Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/advanced-velocity/reference/troubleshooting/</loc>
@@ -242,7 +242,7 @@
   </url>
   <url>
     <loc>https://jvtools.dev/docs/reallusion-rigger/reference/changelog/</loc>
-    <lastmod>2026-10-12T09:15:55Z</lastmod>
+    <lastmod>2026-10-12T14:58:17Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/reallusion-rigger/reference/license/</loc>
@@ -253,15 +253,7 @@
     <lastmod>2026-09-19T08:07:01Z</lastmod>
   </url>
   <url>
-    <loc>https://jvtools.dev/docs/rplidar-in/reference/parameters/</loc>
-    <lastmod>2026-08-26T09:24:56Z</lastmod>
-  </url>
-  <url>
     <loc>https://jvtools.dev/docs/neonyte/control/notes/</loc>
-    <lastmod>2026-09-09T13:02:56Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jvtools.dev/docs/neonyte/reference/parameters/</loc>
     <lastmod>2026-09-09T13:02:56Z</lastmod>
   </url>
   <url>
@@ -277,11 +269,19 @@
     <lastmod>2026-08-26T09:24:56Z</lastmod>
   </url>
   <url>
+    <loc>https://jvtools.dev/docs/rplidar-in/reference/parameters/</loc>
+    <lastmod>2026-08-26T09:24:56Z</lastmod>
+  </url>
+  <url>
     <loc>https://jvtools.dev/docs/neonyte/control/vexpression/</loc>
     <lastmod>2026-09-09T13:02:56Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/neonyte/control/advanced/</loc>
+    <lastmod>2026-09-09T13:02:56Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jvtools.dev/docs/neonyte/reference/parameters/</loc>
     <lastmod>2026-09-09T13:02:56Z</lastmod>
   </url>
   <url>

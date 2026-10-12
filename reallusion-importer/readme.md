@@ -6,11 +6,15 @@
 
 <p style="text-align:center; margin:0 0 1.5rem;"><a href="https://jvtonehammer.gumroad.com/l/reallusionimporterforhoudini"><strong>Get it on Gumroad →</strong></a><br><a href="https://jvtools.dev/" style="font-size:0.9em;">More Houdini tools at jvtools.dev</a></p>
 
-**Reallusion Importer for Houdini** (v1.2.4) turns a Character Creator 5 or iClone 8 character into a fully shaded, animatable, render-ready character in Houdini's Solaris environment — in seconds instead of hours.
+**Reallusion Importer for Houdini** (v1.3) turns a Character Creator 5 or iClone 8 character into a fully shaded, animatable, render-ready character in Houdini's Solaris environment — in seconds instead of hours.
 
 Export your character from Character Creator as **USD** (fast and light, the recommended default) or **FBX**, point this tool at it, and click one button. It rebuilds your character in Solaris with proper Karma MaterialX materials for skin, eyes, teeth, hair, and clothing, then gathers every meaningful look control onto a single panel so you can art-direct the result without touching a shader node.
 
 Built for Character Creator 5 / iClone 8, working with all CC3+ characters. Ships as a black-boxed Houdini Digital Asset, tuned for Karma XPU and also renders in Karma CPU.
+
+!!!info Reallusion Rigger
+The [Reallusion Rigger](/reallusion-rigger/README.md) is a separate product sold on the same Gumroad page: the Importer's features plus an APEX body and facial rig and animation tools, for Houdini 22.0 or newer. There is no upgrade from the Importer to the Rigger; they are separate purchases.
+!!!
 
 !!!success The best-quality workflow
 USD import is fast and light, but the **expression wrinkles** — the thing that makes a Character Creator face look alive — are **FBX-only**. For the best-looking result, import your character as **FBX** and drive its motion with **lightweight USD motion clips**. You keep the wrinkles while the animation stays featherweight. See [USD vs FBX](getting-started/import-modes.md#the-best-quality-workflow).

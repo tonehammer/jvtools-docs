@@ -1,5 +1,16 @@
 # Changelog
 
+## Version 1.3
+<p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">12 October 2026</p>
+
+* **Fixed:** USD characters no longer import and render as subdivision surfaces.
+* **Fixed:** texture colour spaces resolve under any OCIO config, including older ACES configs.
+* **Fixed:** eyebrows named after Character Creator brow templates now get the Brow tint.
+* **Fixed:** the Docs and Import Modes buttons open the current documentation.
+* Faster Solaris playback on animated characters.
+* New website link in Utilities; tooltips for the Skin Cache and link buttons.
+* Bug fixes and improvements.
+
 ## Version 1.2.4
 <p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">27 August 2026</p>
 

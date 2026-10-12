@@ -1,0 +1,55 @@
+# Troubleshooting & FAQ
+
+Look-development problems (grey characters, missing wrinkles, white accessories) are the Importer's, and its [troubleshooting page](/reallusion-importer/reference/troubleshooting.md) covers them. This page is about the rig and the animation tools.
+
+## Build and rig
+
+**I changed the character file or import settings and nothing happened.** The rig freezes the character it was built for. Delete the rig node and press **Build Character** again. Pressing it with a rig in place only refreshes the materials.
+
+**The Face Tools and Auto Blink controls are greyed out.** The rig was built with **Build Facial Rig** off, so it has no face tools. Auto Breathe still works. To get the face tools, delete the rig node, turn **Build Facial Rig** on and build again.
+
+**The Animation Catalog is empty after I reopened the scene.** The catalog is not saved with the hip. Press **Reload Catalog Poses** on the rig node.
+
+**I use External File for the stash and the clips are missing.** The files have to travel with the hip. If they went missing, press **Update Motion Clips** to bake the clips again.
+
+## Face
+
+**I keyed `face_Jaw_Open` to 1 and the mouth did not open. It even looks more closed.** In Character Creator the jaw opens by rotating the jaw bone, and the `Jaw_Open` morph is only the skin correction that goes with that rotation, so on its own it pushes the lips and chin. Key `JawRoot_rx` (the bone), ideally together with `face_Jaw_Open`. The Jaw Open slider and Face Puppet drive both.
+
+**I can't find the head-turn morphs among the face keys.** `Head_Turn_L/R/Up/Down` and `Head_Tilt_L/R` reshape the neck when the head moves, and the rig drives them from the head control, so they count as body channels. Clear Body Keys resets them with the head, while Clear Face Keys and Show Face Keys leave them alone. Edit them by moving the head.
+
+**The Animation Editor never shows my face curves.** It lists only the channels of the controls you select, and face morphs belong to no control. Press **Show Face Keys** in the animate state.
+
+**How do I see only the blinks Auto Blink wrote?** Click the AutoBlink layer in the Layers tab to make it active, then press **Show Face Keys**. Only `face_Eye_Blink_L` and `face_Eye_Blink_R` are listed.
+
+**Moving the Look At slider pushes the eye crosses back and forth.** That is intended. See [Look At](../using/auto-animation.md#look-at).
+
+## Catalog and posing
+
+**I dragged a pose into the viewport and it says "No controls selected".** Dropping a catalog item into the viewport needs selected controls, for all three options in the drop menu. That's SideFX's rule. With nothing selected, click the pose's tile and press **Apply** in the panel beside it.
+
+**Add to New Layer made an empty layer.** A new layer is built from the selected controls. Select them first: the Character Picker's Hands tab (left or right fingers) for a hand pose, the face gear for an expression.
+
+**The fist showed on one frame, but the expression held across the whole clip.** A pose writes one key at the current frame. The fingers already carry the clip with a key on every frame, so the fist replaces just that frame. The expression lands on the face gear's channels, which had no other keys, and a single key holds everywhere. Apply a second expression at another frame and the face blends between the two, apply a neutral one where it should end, or use Add to New Layer and set that layer's weight over the frames you want.
+
+**I clicked Mirror and only a pale preview arm appeared.** That is the live preview. Press **Enter** over the viewport to apply it, or Shift+click the Mirror icon for a mirror that applies at once.
+
+## Clips and layers
+
+**Play Clip and the clip menu in the Layers tab disagree.** Switch clips with **Play Clip**. It changes what the node plays and renders, fits the frame range, and moves the Layers-tab menu with it. The menu is SideFX's own, and a pick there doesn't move Play Clip or the frame range, so a longer clip is cut at the old range.
+
+**I moved the arm at one frame and only that frame changed.** The baked clip has a key on every frame, so an edit changes only the key at the current frame. Put the change on an additive layer and key it at a few frames. See [Clips & Layers](../using/clips-and-layers.md#animation-layers).
+
+**I can't delete BaseAnimation.** It is the character's own animation, even if that's just the pose it was exported in. Every other layer sits on top of it.
+
+**I changed BaseAnimation by mistake.** Press **Revert to Clip** and pick Body, Face or Both. It also works after the scene was saved and reopened.
+
+**How do I animate a layer's weight?** Right-click the layer in the Animation Layers pane and use **Add Weight to Channel List**, **Set Weight Keyframe**, **Remove Weight Keyframe** or **Set Weight from Playbar Selection**. Once the weight has keys, moving its slider keys it at the current frame.
+
+**A clip from another character pinches the waist, or its mouth shapes look off.** Cross-character clips are approximations. The posture follows the source body, and the face is converted between Character Creator's HD and Extended profiles through Reallusion's channel table, which has no counterpart for some HD mouth and cheek shapes. Apply the motion to your character in Character Creator 5 or iClone and export it from there.
+
+**Does Pin Controls lock the pose?** No. It lists that gear's channels in the Animation Editor, and pinning another gear replaces the list.
+
+---
+
+For anything not covered here, find me on the JVtools Discord - the invite link is in the **Utilities** folder on the HDA node.

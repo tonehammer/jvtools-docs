@@ -15,6 +15,8 @@ The **Face** gear beside the head carries the face's settings. Two you'll use:
 * **boxlayout** shows the same sliders as a flat panel locked to the viewport — the **face board** — and hides the ones on the face. It's easier to work with when the head is turned or small on screen. Drag the board by its circle; the X beside the circle turns it off again.
 * **mouthControls** shows the lower teeth and tongue FK controls, hidden by default.
 
+![The face board (boxlayout on): the sliders laid out on a flat face beside the head, with the move circle and the X that turns it off](../static/face-board.png)
+
 The Face gear's set menu (the face sprite at the bottom left of the viewport opens the same list) picks which sliders are shown: **Curated** (the essentials, the default), one region of the face with every channel in it, or **None**.
 
 !!!warning Jaw Open needs the jaw bone

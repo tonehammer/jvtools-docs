@@ -12,6 +12,14 @@ Your keys don't live on the controls you see. They live on **animation layers** 
 
 The body has IK/FK arms and legs, reverse feet, a spline spine, and FK controls for every finger and toe. Each body part also has a **gear** control holding its settings — IK/FK blend, stretch, foot roll and the like.
 
+![The body rig in the animate state: limb boxes, spine and pelvis rings, the gears beside each body part](../static/body-controls.png)
+
+<div style="display:flex; flex-wrap:wrap; gap:0.75rem; margin:0 0 1.5rem;">
+  <img src="../../static/hand-controls.png" alt="A hand: the IK box and the finger rings" style="height:260px; width:auto; border-radius:6px;">
+  <img src="../../static/foot-controls.png" alt="The feet: reverse-foot boxes and toe controls" style="height:260px; width:auto; border-radius:6px;">
+  <img src="../../static/torso-controls.png" alt="The spine, ribcage and pelvis rings" style="height:260px; width:auto; border-radius:6px;">
+</div>
+
 Two gear buttons are worth knowing, because they don't do what their names suggest:
 
 * **Pin Controls** lists that gear's channels in the Animation Editor: the spine, neck and head for the spine gear, the fingers for a hand gear. It does not lock the pose. Pinning another gear replaces the list rather than adding to it.
@@ -27,11 +35,22 @@ The **Mirror** tool is in the Pose Tools row above the viewport. Clicking it dra
 
 Clicking small controls on a character in the viewport gets old fast, and the picker is the cure. In the animate state, open **New Pane Tab ▸ Animation ▸ APEX Character Picker**. It has **Body**, **Hands**, **Feet** and **Face** tabs, plus **Extras** if the character has joints beyond the standard Character Creator skeleton, such as hair bones. Each tab has a button per control, and clicking one selects that control.
 
+<div style="display:flex; flex-wrap:wrap; gap:0.75rem; margin:0 0 1.5rem;">
+  <img src="../../static/picker-body.png" alt="Character Picker, Body tab" style="height:300px; width:auto; border-radius:6px;">
+  <img src="../../static/picker-hands.png" alt="Character Picker, Hands tab" style="height:300px; width:auto; border-radius:6px;">
+  <img src="../../static/picker-feet.png" alt="Character Picker, Feet tab" style="height:300px; width:auto; border-radius:6px;">
+  <img src="../../static/picker-face.png" alt="Character Picker, Face tab" style="height:300px; width:auto; border-radius:6px;">
+</div>
+
 The layout the rig ships with is read-only. To arrange your own, add a layout in the pane.
 
 ## The Animation Catalog
 
 The rig build fills Houdini's Animation Catalog with **301 expression poses** and **71 hand poses**, taken from Character Creator's own expression and gesture templates, in folders named after the rig. Open an Animation Catalog pane in the animate state to use them.
+
+![The expressions, by folder: Angry, Disgust, FACS, Fear, Happy, Parts, Sad, Surprise, Tongue](../static/catalog-expressions.png)
+
+![The hand poses: Gestures, Hold and Sign](../static/catalog-hand-poses.png)
 
 There are two ways to apply a pose, and they behave differently:
 
@@ -45,3 +64,11 @@ A pose writes **one key, at the current frame**. That explains the one thing tha
 !!!warning The catalog is not saved with the scene
 After reopening a scene, press **Reload Catalog Poses** on the rig node to put this character's poses back.
 !!!
+
+## Where your animation lives
+
+Your keys are stored inside the rig node, on its **ANIMATE** node (an APEX Scene Animate node, drawn yellow). **Animate** on the rig node enters the animate state on exactly that node, the keys and layers you make there are stored on it, and they are saved with your scene. The baked clips come into it from the rig above. That's why the build unlocks the rig node, and why deleting the rig node deletes the animation keyed on it.
+
+![Inside the rig node: the ANIMATE node, below the rig and above its output](../static/animate-node.png)
+
+You never need to go inside to animate. If you do look, leave ANIMATE where it is: everything below it turns your keys into the deformed character that Karma renders.

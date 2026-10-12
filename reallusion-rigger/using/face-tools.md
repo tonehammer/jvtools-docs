@@ -8,6 +8,8 @@ The **Face Tools** folder on the rig node is greyed out on a body-only rig (buil
 
 In the animate state, sliders sit on the face for the brows, blinks, gaze, cheeks, jaw, mouth, tongue and visemes, and a small panel beside the head holds the channels that have no spot on the face. A slider **adds** to the clip's value, so a keyed slider is an offset on top of the performance, not a replacement of it.
 
+![The face sliders on the face, the panel beside the head, and the gears](../static/face-sliders.png)
+
 The **Face** gear beside the head carries the face's settings. Two you'll use:
 
 * **boxlayout** shows the same sliders as a flat panel locked to the viewport — the **face board** — and hides the ones on the face. It's easier to work with when the head is turned or small on screen. Drag the board by its circle; the X beside the circle turns it off again.
@@ -25,7 +27,11 @@ The head-turn morphs (`Head_Turn_L/R/Up/Down`, `Head_Tilt_L/R`) reshape the neck
 
 **Face Key Muscle** opens Character Creator's Muscle mode for this character: a drawing of the face with **Full Face**, **Eye**, **Mouth** and **Tongue** tabs. In the animate state, click a region (Ctrl-click for several) and drag. The face follows while you drag, and the frame is keyed when you let go, as one undo step. Esc cancels a drag.
 
+<div style="text-align:center; margin:0 0 1.5rem;"><img src="../../static/face-key-muscle.png" alt="The Face Key Muscle panel, Full Face tab" style="height:520px; width:auto; border-radius:6px;"></div>
+
 * **Symmetric** brings the other side of the face along.
+* **Key All** keys every face channel at this frame on each drag, not only the ones that moved, so the whole expression holds there.
+* **Clear Selection** unpicks every region (double-clicking the drawing does the same).
 * **Expressiveness** sets how far a drag can push a shape, and **Mouse Range** how far you move the mouse for it.
 * **Reset Selected**, **Reset to Zero** and **Revert** return the picked regions or the whole face to neutral, or restore the animation as it was when the panel opened.
 
@@ -34,6 +40,8 @@ Muscle drags key **BaseAnimation** directly. If that wasn't what you wanted, **R
 ## Face Puppet
 
 Face Puppet records a facial performance with the mouse, the way iClone's does: you move the mouse, the playbar runs, and the face follows and is keyed.
+
+![The Face Puppet pad (the square, left) and the face-set sprite below it](../static/face-puppet-pad.png)
 
 **The pad** sits bottom-left in the animate state. Its menu sprite, at the pad's top right, picks the **profile**, from Character Creator's own puppet tables: region profiles first (brows, eyes, mouth and so on), then iClone's **Full Face** presets. The sprite beside it picks **Solo**, which limits the parts of the face the profile may move: Brow L/R, Blink L/R, Eye L/R, Eyeball L/R, Nose Tip, Nose L/R, Cheek L/R, Mouth, Jaw, Head Turn, Head Up/Down and Head Tilt. With nothing picked, the profile moves everything it drives. With some picked, the rest of the face keeps what the clip or your keys already had, and a take writes only those parts — solo **Mouth** and **Jaw** on a Full Face profile to puppet just the mouth.
 

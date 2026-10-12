@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.845125130195">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.845127224493">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -24,6 +24,10 @@
     <meta property="og:url" content="https://jvtools.dev/docs/reallusion-rigger/using/face-tools/">
     <meta property="og:title" content="Face Tools">
     <meta property="og:description" content="Every Character Creator morph channel is keyable on the rig as face_channel, and a clip carries its facial performance along with its body, so playing a clip plays the face too.">
+    <meta property="og:image" content="https://jvtools.dev/docs/reallusion-rigger/static/face-sliders.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Face Tools">
     <meta property="og:site_name" content="JVtools">
     <meta property="og:locale" content="en_US">
 
@@ -32,6 +36,8 @@
     <meta name="twitter:url" content="https://jvtools.dev/docs/reallusion-rigger/using/face-tools/">
     <meta name="twitter:title" content="Face Tools">
     <meta name="twitter:description" content="Every Character Creator morph channel is keyable on the rig as face_channel, and a clip carries its facial performance along with its body, so playing a clip plays the face too.">
+    <meta name="twitter:image" content="https://jvtools.dev/docs/reallusion-rigger/static/face-sliders.png">
+    <meta name="twitter:image:alt" content="Face Tools">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://jvtools.dev/docs/reallusion-rigger/using/face-tools.md">
@@ -39,11 +45,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.845125130195" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.845127224493" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.845125130195" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.845127224493" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.845125130195" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.845127224493" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -423,6 +429,10 @@
 <p>The <strong>Face Tools</strong> folder on the rig node is greyed out on a body-only rig (built with <strong>Build Facial Rig</strong> off).</p>
 <h2 id="sliders-and-the-face-board">Sliders and the face board</h2>
 <p>In the animate state, sliders sit on the face for the brows, blinks, gaze, cheeks, jaw, mouth, tongue and visemes, and a small panel beside the head holds the channels that have no spot on the face. A slider <strong>adds</strong> to the clip&#x27;s value, so a keyed slider is an offset on top of the performance, not a replacement of it.</p>
+<figure class="content-center">
+    <img src="../../static/face-sliders.png" alt="The face sliders on the face, the panel beside the head, and the gears" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="590" height="474" />
+    <figcaption class="caption">The face sliders on the face, the panel beside the head, and the gears</figcaption>
+</figure>
 <p>The <strong>Face</strong> gear beside the head carries the face&#x27;s settings. Two you&#x27;ll use:</p>
 <ul>
 <li><strong>boxlayout</strong> shows the same sliders as a flat panel locked to the viewport — the <strong>face board</strong> — and hides the ones on the face. It&#x27;s easier to work with when the head is turned or small on screen. Drag the board by its circle; the X beside the circle turns it off again.</li>
@@ -449,14 +459,21 @@
 <p>The head-turn morphs (<code translate="no" v-pre>Head_Turn_L/R/Up/Down</code>, <code translate="no" v-pre>Head_Tilt_L/R</code>) reshape the neck as the head moves, and the rig drives them from the head control. So they count as <strong>body</strong> channels: <strong>Clear Body Keys</strong> resets them with the head, and <strong>Clear Face Keys</strong> and <strong>Show Face Keys</strong> leave them alone. Edit them by moving the head.</p>
 <h2 id="face-key-muscle">Face Key Muscle</h2>
 <p><strong>Face Key Muscle</strong> opens Character Creator&#x27;s Muscle mode for this character: a drawing of the face with <strong>Full Face</strong>, <strong>Eye</strong>, <strong>Mouth</strong> and <strong>Tongue</strong> tabs. In the animate state, click a region (Ctrl-click for several) and drag. The face follows while you drag, and the frame is keyed when you let go, as one undo step. Esc cancels a drag.</p>
+<div style="text-align:center; margin:0 0 1.5rem;"><img src="../../static/face-key-muscle.png" alt="The Face Key Muscle panel, Full Face tab" style="height:520px; width:auto; border-radius:6px;"></div>
 <ul>
 <li><strong>Symmetric</strong> brings the other side of the face along.</li>
+<li><strong>Key All</strong> keys every face channel at this frame on each drag, not only the ones that moved, so the whole expression holds there.</li>
+<li><strong>Clear Selection</strong> unpicks every region (double-clicking the drawing does the same).</li>
 <li><strong>Expressiveness</strong> sets how far a drag can push a shape, and <strong>Mouse Range</strong> how far you move the mouse for it.</li>
 <li><strong>Reset Selected</strong>, <strong>Reset to Zero</strong> and <strong>Revert</strong> return the picked regions or the whole face to neutral, or restore the animation as it was when the panel opened.</li>
 </ul>
 <p>Muscle drags key <strong>BaseAnimation</strong> directly. If that wasn&#x27;t what you wanted, <strong>Revert to Clip</strong> undoes it; see <a href="../clips-and-layers/#animation-layers">Clips &amp; Layers</a>.</p>
 <h2 id="face-puppet">Face Puppet</h2>
 <p>Face Puppet records a facial performance with the mouse, the way iClone&#x27;s does: you move the mouse, the playbar runs, and the face follows and is keyed.</p>
+<figure class="content-center">
+    <img src="../../static/face-puppet-pad.png" alt="The Face Puppet pad (the square, left) and the face-set sprite below it" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="739" height="710" />
+    <figcaption class="caption">The Face Puppet pad (the square, left) and the face-set sprite below it</figcaption>
+</figure>
 <p><strong>The pad</strong> sits bottom-left in the animate state. Its menu sprite, at the pad&#x27;s top right, picks the <strong>profile</strong>, from Character Creator&#x27;s own puppet tables: region profiles first (brows, eyes, mouth and so on), then iClone&#x27;s <strong>Full Face</strong> presets. The sprite beside it picks <strong>Solo</strong>, which limits the parts of the face the profile may move: Brow L/R, Blink L/R, Eye L/R, Eyeball L/R, Nose Tip, Nose L/R, Cheek L/R, Mouth, Jaw, Head Turn, Head Up/Down and Head Tilt. With nothing picked, the profile moves everything it drives. With some picked, the rest of the face keeps what the clip or your keys already had, and a take writes only those parts — solo <strong>Mouth</strong> and <strong>Jaw</strong> on a Full Face profile to puppet just the mouth.</p>
 <h3 id="recording-a-take">Recording a take</h3>
 <ol>
@@ -526,7 +543,7 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-12T14:58:17" title="2026-10-12" data-absolute-label="Last updated on 2026-10-12" data-absolute-label-html="Last updated on 2026-10-12" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-12T15:33:20" title="2026-10-12" data-absolute-label="Last updated on 2026-10-12" data-absolute-label-html="Last updated on 2026-10-12" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
                         Last updated on 2026-10-12
                     </time>
                 </div>

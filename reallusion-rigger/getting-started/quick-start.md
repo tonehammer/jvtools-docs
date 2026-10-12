@@ -30,6 +30,8 @@ The rig freezes the character it was built from. If you change the import settin
 >>> 4. Animate
 Select the rig node and press **Animate**. You're now in Houdini's APEX animate state: pick a control in the viewport, move it, key it. The character's own animation is already there, as the **BaseAnimation** layer, so you're refining it rather than starting from nothing — or press **Add Rest Pose Layer** (the first icon in the rig node's **Layers** row) to start from the rest pose on a layer of its own. **Exit Animate State** returns you to the normal view.
 
+![The rig in the animate state](../static/body-controls.png)
+
 The face has its own sliders, and the rig node's **Face Tools** and **Auto Animation** folders add Face Puppet, Face Key Muscle, Auto Blink and Auto Breathe. See [Animating](../using/animating.md).
 >>>
 >>> 5. Look at your character

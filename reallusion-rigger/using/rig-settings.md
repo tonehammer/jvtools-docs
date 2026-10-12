@@ -32,7 +32,9 @@ The **Viewport** folder (closed by default, with a checkbox in its header) shows
 
 ## The rig node is unlocked
 
-The build unlocks the rig node, because your keys are stored in its interior. The licence lets you open and modify it in your own scenes.
+The build unlocks the rig node, because your keys are stored in its interior (on the ANIMATE node; see [Animating](animating.md#where-your-animation-lives)). The licence lets you open and modify it in your own scenes.
+
+<div style="text-align:center; margin:0 0 1.5rem;"><img src="../../static/rig-interior.png" alt="The rig node's interior, in boxes: body prep, rig, face, clips, output" style="height:640px; width:auto; border-radius:6px;"></div>
 
 !!!danger Never use Match Current Definition on a built rig
 It would wipe the generated rig and your animation.

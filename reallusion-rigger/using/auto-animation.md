@@ -27,8 +27,10 @@ What moves: the chest control tilts back and lifts a little, the two ribcage con
 
 The eyes can aim at two kinds of target, and the **Look At** slider on the Eyes gear chooses between them.
 
-* **Each eye has its own small cross** in front of it. The crosses ride with the head and normally sit where the clip puts the gaze, so the clip's eye motion lives on them. Animate glances here.
+* **Each eye has its own small cross** in front of it, inside a yellow frame. The crosses ride with the head and normally sit where the clip puts the gaze, so the clip's eye motion lives on them. Animate glances here.
 * **The yellow three-ring control**, about a metre in front of the face, stays put in the world. Park it on another character, an object or the camera, and the eyes stay on it whatever the head and body do.
+
+![The eye crosses in their frame in front of the face](../static/look-at.png)
 
 At **0** the crosses stay with the clip and the yellow target does nothing. At **1** the crosses sit on the yellow target, the eyes look at it, and the head and chest turn to help, as much as **Head Weight** and **Body Weight** say. In between, they sit partway. So moving the slider moves the crosses back and forth; that's intended, not a glitch.
 

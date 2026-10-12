@@ -19,6 +19,8 @@ before, and a *workflow* tool improves how you work inside Houdini.
 
 [!card title="Reallusion Importer for Houdini" image="/reallusion-importer/static/card.png" text="Turn a Character Creator 5 / iClone 8 FBX character into a fully shaded, animatable, render-ready Solaris character with Karma XPU MaterialX materials — in one click."](/reallusion-importer/README.md)
 
+[!card title="Reallusion Rigger for Houdini" image="/reallusion-rigger/static/card.png" text="Character Creator 5 / iClone 8 characters in Houdini with Karma XPU materials and an APEX body and facial rig: Face Puppet, expression and hand-pose catalog, Auto Blink, Auto Breathe, Look At and animation layers."](/reallusion-rigger/README.md)
+
 [!card title="RPLidar In" image="/rplidar-in/static/card.png" text="Bring live Slamtec RPLIDAR point-cloud data into Houdini as SOP geometry — stream, record, visualize, and drive live simulations."](/rplidar-in/README.md)
 
 ### Generators

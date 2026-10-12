@@ -19,6 +19,10 @@ Export your character from Character Creator as **USD** (fast and light, the rec
 
 Built for Character Creator 5 / iClone 8, working with all CC3+ characters. Ships as a black-boxed Houdini Digital Asset, tuned for Karma XPU and also renders in Karma CPU.
 
+!!!info Reallusion Rigger
+The [Reallusion Rigger](/reallusion-rigger/README.md) is a separate product sold on the same Gumroad page: the Importer's features plus an APEX body and facial rig and animation tools, for Houdini 22.0 or newer. There is no upgrade from the Importer to the Rigger; they are separate purchases.
+!!!
+
 !!!success The best-quality workflow
 USD import is fast and light, but the **expression wrinkles** — the thing that makes a Character Creator face look alive — are **FBX-only**. For the best-looking result, import your character as **FBX** and drive its motion with **lightweight USD motion clips**. You keep the wrinkles while the animation stays featherweight. See [USD vs FBX](getting-started/import-modes.md#the-best-quality-workflow).
 !!!

@@ -1,7 +1,6 @@
 {
   "product": "Reallusion Importer for Houdini",
-  "latest": "1.2",
-  "shipped": "1.2.4",
+  "latest": "1.3",
   "url": "https://jvtonehammer.gumroad.com/l/reallusionimporterforhoudini",
-  "notes": "New USD import mode: dramatically faster and lighter on memory, with Character Creator's real eye and skin shader values applied automatically. Plus bug fixes and improvements."
+  "notes": "Faster Solaris playback on animated characters, USD characters no longer rendered as subdivision surfaces, texture colour spaces resolved against any OCIO config, eyebrow tint fixes, and working documentation links."
 }

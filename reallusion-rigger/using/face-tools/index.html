@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.845127777904">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.845282882601">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -45,11 +45,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.845127777904" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.845282882601" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.845127777904" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.845282882601" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.845127777904" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.845282882601" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -461,17 +461,73 @@
     </div>
 </div>
 <p>The head-turn morphs (<code translate="no" v-pre>Head_Turn_L/R/Up/Down</code>, <code translate="no" v-pre>Head_Tilt_L/R</code>) reshape the neck as the head moves, and the rig drives them from the head control. So they count as <strong>body</strong> channels: <strong>Clear Body Keys</strong> resets them with the head, and <strong>Clear Face Keys</strong> and <strong>Show Face Keys</strong> leave them alone. Edit them by moving the head.</p>
-<h2 id="face-key-muscle">Face Key Muscle</h2>
-<p><strong>Face Key Muscle</strong> opens Character Creator&#x27;s Muscle mode for this character: a drawing of the face with <strong>Full Face</strong>, <strong>Eye</strong>, <strong>Mouth</strong> and <strong>Tongue</strong> tabs. In the animate state, click a region (Ctrl-click for several) and drag. The face follows while you drag, and the frame is keyed when you let go, as one undo step. Esc cancels a drag.</p>
-<div style="text-align:center; margin:0 0 1.5rem;"><img src="../../static/face-key-muscle.png" alt="The Face Key Muscle panel, Full Face tab" style="height:520px; width:auto; border-radius:6px;"></div>
+<h2 id="a-face-workflow">A face workflow</h2>
+<p>The face tools all key the same <code translate="no" v-pre>face_&lt;channel&gt;</code> channels, so they combine. One way to use them together:</p>
+<ol>
+<li><strong>Start on a layer.</strong> To animate a face over a clip, press <strong>New Layer</strong> in the Face Key Muscle pane. It adds an additive FaceKey layer, so the clip underneath is never touched. To animate from scratch, press <strong>Add Rest Pose Layer</strong> in the <strong>Layers</strong> row and key on that. Every face tool keys the active layer in the <a href="../clips-and-layers/#animation-layers">Animation Layers pane</a>, except Face Puppet and Auto Blink, which make layers of their own.</li>
+<li><strong>Block out the big beats</strong> with catalog expressions (in the Animation Catalog pane) or a Face Puppet take: press <strong>Record</strong>, then <strong>SPACE</strong> over the viewport.</li>
+<li><strong>Shape the details</strong> with Face Key Muscle. Pick regions and drag. Set <strong>Ease In</strong> and <strong>Ease Out</strong> so each edit blends into the frames around it.</li>
+<li><strong>Add life</strong> with Auto Blink, Auto Breathe and Look At (see <a href="../auto-animation/">Auto Animation</a>).</li>
+<li><strong>Check the curves.</strong> Picking regions in Face Key Muscle lists their channels in the Animation Editor. <strong>Show Face Keys</strong> lists every face channel keyed on the active layer.</li>
+<li><strong>Undo or start over.</strong> Ctrl+Z undoes any step. Mute or delete a layer in the Animation Layers pane. <strong>Revert to Clip</strong> puts BaseAnimation back to the clip.</li>
+</ol>
+<h2 id="the-face-tools-folder">The Face Tools folder</h2>
+<figure class="content-center">
+    <img src="../../static/face-tools-folder.png" alt="The Face Tools folder on the rig node" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="681" height="750" />
+    <figcaption class="caption">The Face Tools folder on the rig node</figcaption>
+</figure>
+<p>The folder has three collapsible sections. They&#x27;re all closed by default.</p>
 <ul>
-<li><strong>Symmetric</strong> brings the other side of the face along.</li>
-<li><strong>Key All</strong> keys every face channel at this frame on each drag, not only the ones that moved, so the whole expression holds there.</li>
-<li><strong>Clear Selection</strong> unpicks every region (double-clicking the drawing does the same).</li>
-<li><strong>Expressiveness</strong> sets how far a drag can push a shape, and <strong>Mouse Range</strong> how far you move the mouse for it.</li>
-<li><strong>Reset Selected</strong>, <strong>Reset to Zero</strong> and <strong>Revert</strong> return the picked regions or the whole face to neutral, or restore the animation as it was when the panel opened.</li>
+<li><strong>Face Key Muscle</strong> has a two-line how-to, the <strong>Open Face Key Muscle</strong> button, a <strong>Record</strong> row (the record dot, plus the play triangle for <strong>Preview</strong>), and the <strong>Face Key Muscle Settings</strong> sub-folder.</li>
+<li><strong>Face Puppet</strong> has a three-line how-to and its own <strong>Record</strong> row.</li>
+<li><strong>Recording Settings</strong> is used by both Record rows. <strong>Record Mode</strong> and <strong>Record to New Layer</strong> share one row, followed by <strong>Preroll</strong>, <strong>Record Speed</strong>, <strong>Mouse Range</strong>, <strong>Smoothing</strong>, <strong>Return to Start</strong> and <strong>Show Controls While Recording</strong>.</li>
 </ul>
-<p>Muscle drags key <strong>BaseAnimation</strong> directly. If that wasn&#x27;t what you wanted, <strong>Revert to Clip</strong> undoes it; see <a href="../clips-and-layers/#animation-layers">Clips &amp; Layers</a>.</p>
+<p>The next two sections go through Face Key Muscle and Face Puppet. Recording Settings is described under Face Puppet.</p>
+<h2 id="face-key-muscle">Face Key Muscle</h2>
+<p><strong>Face Key Muscle</strong> is Character Creator&#x27;s Muscle mode for this character: a drawing of the face with a spot for each region, on four tabs, <strong>Full Face</strong>, <strong>Eye</strong>, <strong>Mouth</strong> and <strong>Tongue</strong>. Drag a region and the face follows. Let go and the frame is keyed, as one undo step.</p>
+<p>Press <strong>Open Face Key Muscle</strong> to open it. It opens in a pane of its own, floating at first. Dock it like any other Houdini pane.</p>
+<div style="text-align:center; margin:0 0 1.5rem;"><img src="../../static/face-key-muscle.png" alt="The Face Key Muscle pane, Full Face tab" style="height:640px; width:auto; border-radius:6px;"></div>
+<h3 id="where-the-keys-go">Where the keys go</h3>
+<p>Keys go on the active animation layer. The top of the pane names that layer with its type, its weight and the current frame.</p>
+<p><strong>New Layer</strong> adds an additive layer called FaceKey and makes it the active one. The clip underneath is left untouched. Mute, reweight or delete the layer in the <a href="../clips-and-layers/#animation-layers">Animation Layers pane</a>. Adding the layer is one undo step.</p>
+<p>Careful with this one: <strong>New Layer</strong> and posing both need the animate state. Outside it the button is greyed out and the top line of the pane reads &quot;Keys go to: (enter the animate state)&quot;. Press <strong>Animate</strong> on the rig node first.</p>
+<p>On BaseAnimation with a clip, every frame already has a key. An edit then changes that one frame, unless <strong>Ease In</strong> or <strong>Ease Out</strong> is set. The pane tells you so after the drag.</p>
+<h3 id="picking-regions">Picking regions</h3>
+<ul>
+<li>Click a spot to pick it. <strong>Shift</strong> adds to the picks, <strong>Ctrl</strong> removes, and <strong>Ctrl+Shift</strong> toggles, the same as in the viewport.</li>
+<li>Two buttons above the drawing switch between a box and a lasso. With nothing picked, drag on the drawing to pick with whichever one is on. With regions picked, a plain drag poses them instead, so hold <strong>Shift</strong> or <strong>Ctrl</strong> to drag a box.</li>
+<li>Click empty space to pick nothing.</li>
+<li>The picked regions&#x27; channels are listed in the Animation Editor, so their curves are in view while you key. Eye and head regions list the eye and head control rotations, and the chin lists the jaw bone.</li>
+</ul>
+<h3 id="posing">Posing</h3>
+<p>With regions picked, drag anywhere on the drawing, or MMB-drag. The face follows while you drag. <strong>Esc</strong> during a drag cancels it.</p>
+<p>A drag starts from what the face shows now. Dragging a lid up first opens the blink that is there, then widens the eye.</p>
+<p>Right double-click a spot to reset that region.</p>
+<h3 id="lip-shape-and-split-lips">Lip Shape and Split Lips</h3>
+<p>On the <strong>Mouth</strong> tab, <strong>Lip Shape</strong> chooses which shape the lips spot drives: Funnel, Pucker, Press, Roll Out, Push, Pull, Roll In or Blow. Picking one picks the lips, and the shape&#x27;s name is shown under the lips spot. <strong>Split Lips</strong> puts the shape on each lip half.</p>
+<h3 id="the-tongue-tab">The Tongue tab</h3>
+<p>The <strong>Tongue</strong> tab also carries Character Creator&#x27;s mouth and jaw regions, drawn as rings. You can open the mouth around the tongue without switching tabs.</p>
+<h3 id="dark-spots">Dark spots</h3>
+<p>A dark spot is a region this character&#x27;s export carries no shape for. Some characters&#x27; pupils are an example. A dark spot moves nothing.</p>
+<h3 id="reset-picked-and-reset-face">Reset Picked and Reset Face</h3>
+<p><strong>Reset Picked</strong> takes the picked regions back to neutral at this frame, on the active layer. <strong>Reset Face</strong> does the same for the whole face: the shapes, the jaw and the eyes, but not the head.</p>
+<p>What neutral means depends on the layer. On an additive layer, the layer stops adding anything there. On BaseAnimation or an override layer, the face goes neutral. <strong>Ease In</strong> and <strong>Ease Out</strong> fade a reset in and out the same way they fade a drag.</p>
+<p>Careful with this one: a reset works on the layer&#x27;s curves, not on a particular earlier drag. At a drag&#x27;s own frame, with the same Ease values, it cancels that drag. Anywhere else it flattens the face around the playhead.</p>
+<h3 id="recording-the-picked-regions-over-time">Recording the picked regions over time</h3>
+<p>A drag keys one pose. To perform the movement instead, pick the regions and use the <strong>Record</strong> row in the <strong>Face Key Muscle</strong> section of the Face Tools folder. Put the mouse over the viewport and press <strong>SPACE</strong>. The playbar runs and the mouse moves the picked regions, the way the Face Puppet&#x27;s pad does. <strong>SPACE</strong> again stops the take, and <strong>Esc</strong> cancels it.</p>
+<p><strong>Preview</strong> (the play triangle) is the same control with nothing keyed, for trying it out. <strong>SPACE</strong> or <strong>Esc</strong> ends it.</p>
+<p>The take is a Face Puppet take on the Face Key Muscle entry of the pad&#x27;s menu, so <doc-anchor-trigger to="#recording-settings">Recording Settings</doc-anchor-trigger> applies to it. <strong>Mouse Range</strong> sets how far you move the mouse for a full shape. With <strong>Record to New Layer</strong> on, the take lands on a layer called FaceKeyMuscle (a Face Puppet take lands on FacePuppet).</p>
+<p>The mouse gives each picked shape a straight line from neutral to its full shape. That means a take doesn&#x27;t first undo a shape that is already there, the way a drag does. Eye looks, head turns and the head tilt turn bones, so a take leaves them out.</p>
+<p>A rig built before this feature needs deleting and building again to get it.</p>
+<h3 id="settings">Settings</h3>
+<p>These are ordinary Houdini parameters: MMB value ladder, and Ctrl+MMB reverts a value. They sit in the <strong>Face Key Muscle Settings</strong> sub-folder on the rig node. The pane shows the Face Key Muscle section and Recording Settings straight from the rig node.</p>
+<ul>
+<li><strong>Symmetric</strong>: a picked region brings its other side along. Brows, lids and lips mirror, and the eyes look the same way.</li>
+<li><strong>Key</strong>: which channels a drag keys at the frame. <strong>Moved Channels</strong> keys only what the drag changed. <strong>Whole Face</strong> holds every face channel the layer has at the frame, which is useful for posing key to key.</li>
+<li><strong>Ease In</strong> and <strong>Ease Out</strong>: spread each edit over that many frames before and after the current frame, fading out. <strong>Ease Out</strong> follows <strong>Ease In</strong> until you set it on its own, and Ctrl+MMB links it back. With both at 0, an edit keys the current frame only. On a clip that shows on one frame, and a lone key on a fresh layer holds for the whole shot. With one side at 0, the edit starts or ends on the next frame.</li>
+<li><strong>Expressiveness</strong>: how far a drag can push a shape. 1 is Character Creator&#x27;s full shape, 2 is twice that. Only what a drag raises is scaled.</li>
+<li><strong>Drag Range</strong>: the pixels of drag on the drawing for a full shape. Lower is more sensitive.</li>
+</ul>
 <h2 id="face-puppet">Face Puppet</h2>
 <p>Face Puppet records a facial performance with the mouse, the way iClone&#x27;s does: you move the mouse, the playbar runs, and the face follows and is keyed.</p>
 <figure class="content-center">
@@ -481,16 +537,26 @@
 <p><strong>The pad</strong> sits bottom-left in the animate state. Its menu sprite, at the pad&#x27;s top right, picks the <strong>profile</strong>, from Character Creator&#x27;s own puppet tables: region profiles first (brows, eyes, mouth and so on), then iClone&#x27;s <strong>Full Face</strong> presets. The sprite beside it picks <strong>Solo</strong>, which limits the parts of the face the profile may move: Brow L/R, Blink L/R, Eye L/R, Eyeball L/R, Nose Tip, Nose L/R, Cheek L/R, Mouth, Jaw, Head Turn, Head Up/Down and Head Tilt. With nothing picked, the profile moves everything it drives. With some picked, the rest of the face keeps what the clip or your keys already had, and a take writes only those parts — solo <strong>Mouth</strong> and <strong>Jaw</strong> on a Full Face profile to puppet just the mouth.</p>
 <h3 id="recording-a-take">Recording a take</h3>
 <ol>
-<li>Press <strong>Record</strong> (the red dot) in the <strong>Face Tools</strong> folder.</li>
+<li>Press <strong>Record</strong> (the red dot) in the <strong>Face Puppet</strong> section of the <strong>Face Tools</strong> folder.</li>
 <li>Put the mouse over the viewport and press <strong>SPACE</strong>.</li>
 <li>A red countdown runs the <strong>Preroll</strong> seconds, so you have time to find the motion. Then the playbar plays, with a red frame around the viewport while frames are being recorded, and the mouse drives the pad.</li>
 <li><strong>SPACE</strong> again, or the end of the frame range, stops the take. <strong>Esc</strong> cancels it.</li>
 </ol>
-<p>While a take runs, hold the left mouse button to close the eyes, and press <strong>Q W E R T Y</strong> to switch to preset 1 to 6 of the current Full Face set. <strong>Preview</strong> (the play triangle) is the same control with no playbar and no keys, for trying a profile out.</p>
+<p>While a take runs, hold the left mouse button to close the eyes, and press <strong>Q W E R T Y</strong> to switch to preset 1 to 6 of the current Full Face set. <strong>Preview</strong> (the play triangle), next to <strong>Record</strong>, is the same control with no playbar and no keys, for trying a profile out.</p>
 <h3 id="where-a-take-goes">Where a take goes</h3>
 <p><strong>Record Mode</strong> decides what a take does to the animation already there: <strong>Replace</strong> (iClone&#x27;s default) makes the take the animation of the features it drives, and <strong>Blend</strong> adds it on top.</p>
 <p>With <strong>Record to New Layer</strong> on (the default), each take gets a layer of its own — FacePuppet, FacePuppet2 and so on — that you can mute, delete or re-weight without touching the clip, and one undo removes the whole take. Replace makes that layer an override (the take replaces the face over its frames), Blend an additive one. With <strong>Record to New Layer</strong> off, a Replace take overwrites the clip&#x27;s keys on BaseAnimation.</p>
-<p><strong>Recording Settings</strong> (closed by default) holds the rest: <strong>Preroll</strong>, <strong>Record Speed</strong> (1 is real time — slow it down for a tricky beat), <strong>Mouse Range</strong>, <strong>Smoothing</strong>, <strong>Return to Start</strong> and <strong>Show Controls While Recording</strong>.</p>
+<p><strong>Record Mode</strong> and <strong>Record to New Layer</strong> live in <strong>Recording Settings</strong>, not in the Face Puppet section. Face Key Muscle&#x27;s Record row uses the same two settings, and a Face Key Muscle take goes on a FaceKeyMuscle layer in the same way.</p>
+<h3 id="recording-settings">Recording Settings</h3>
+<p><strong>Recording Settings</strong> is a section of the Face Tools folder of its own, closed by default. Both Record rows use it. Besides <strong>Record Mode</strong> and <strong>Record to New Layer</strong>, it holds:</p>
+<ul>
+<li><strong>Preroll</strong>: the seconds counted down before the take starts, so you can find the motion before it is recorded. The pad already follows the mouse during the countdown.</li>
+<li><strong>Record Speed</strong>: how fast the playbar runs while recording. 1 is real time, and 0.5 is half speed for a precise performance. Slow it down for a tricky beat. Your playbar settings come back afterwards.</li>
+<li><strong>Mouse Range</strong>: the pixels of mouse travel, from where you pressed <strong>SPACE</strong>, to a full deflection of the pad (a full shape on a Face Key Muscle take). Lower is more sensitive.</li>
+<li><strong>Smoothing</strong>: the frames of smoothing on the recorded mouse path. 0 keys exactly as you performed it. A little takes the jitter out of a hand-held performance.</li>
+<li><strong>Return to Start</strong>: after a take, puts the playhead back on the frame it started from, ready to play it back.</li>
+<li><strong>Show Controls While Recording</strong>: keeps the rig&#x27;s controls drawn while a take plays, so you can watch the pad&#x27;s knob. When it&#x27;s off, the animate state&#x27;s own setting applies, which by default hides them during playback.</li>
+</ul>
 <h2 id="show-face-keys">Show Face Keys</h2>
 <p>The Animation Editor lists only the channels of the controls you select, and face morphs belong to no control — so face curves never show up there on their own.</p>
 <p>In the animate state, <strong>Show Face Keys</strong> (an icon in the rig node&#x27;s <strong>Layers</strong> row) lists every face channel with keys on the <strong>active</strong> layer. Edits there play back at once, and Ctrl+Z undoes them. It replaces whatever was pinned, and it goes away when you exit the animate state.</p>
@@ -547,8 +613,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-12T15:41:46" title="2026-10-12" data-absolute-label="Last updated on 2026-10-12" data-absolute-label-html="Last updated on 2026-10-12" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-10-12
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-14T10:46:50" title="2026-10-14" data-absolute-label="Last updated on 2026-10-14" data-absolute-label-html="Last updated on 2026-10-14" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-10-14
                     </time>
                 </div>
 

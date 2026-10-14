@@ -37,7 +37,7 @@ The face has its own sliders, and the rig node's **Face Tools** and **Auto Anima
 >>> 5. Look at your character
 Your character is built in Solaris (Houdini's `/stage` context), and Karma reads the rig node's output, so your animation is what renders. Click **Go to LOPs** (in the Rigger's **Render** folder) to jump there, then set up a viewport with a Karma render to see it.
 
-**Create Render Setup** builds a three-point light rig, a camera, and Karma render settings for you. The bright **red controller node** in the LOP network holds every look control: skin, wrinkles, eyes, hair, and more. Look development works exactly as on the Importer — see its [Rendering](/reallusion-importer/using/rendering.md) and [Lookdev Controller](/reallusion-importer/using/lookdev-controller.md) pages.
+**Create Render Setup** builds a three-point light rig, a camera, and Karma render settings for you. The bright **red controller node** in the LOP network holds every look control: skin, wrinkles, eyes, hair, and more. See [The Lookdev Controller](../lookdev/lookdev-controller.md) and [Rendering](../lookdev/rendering.md).
 >>>
 
 That's the whole workflow. From here, read [Building the Rig](../using/building-the-rig.md) for the build options, then [Animating](../using/animating.md).

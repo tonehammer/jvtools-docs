@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.845127777904">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.845282882601">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Troubleshooting &amp; FAQ</title>
     <meta name="title" content="Troubleshooting & FAQ">
-    <meta name="description" content="Look-development problems (grey characters, missing wrinkles, white accessories) are the Importer's, and its troubleshooting page covers them. This page is about the rig and the animation tools.">
+    <meta name="description" content="This page covers the rig, the animation tools, and the character's look and materials.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://jvtools.dev/docs/reallusion-rigger/reference/troubleshooting/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jvtools.dev/docs/reallusion-rigger/reference/troubleshooting/">
     <meta property="og:title" content="Troubleshooting & FAQ">
-    <meta property="og:description" content="Look-development problems (grey characters, missing wrinkles, white accessories) are the Importer's, and its troubleshooting page covers them. This page is about the rig and the animation tools.">
+    <meta property="og:description" content="This page covers the rig, the animation tools, and the character's look and materials.">
     <meta property="og:site_name" content="JVtools">
     <meta property="og:locale" content="en_US">
 
@@ -31,7 +31,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://jvtools.dev/docs/reallusion-rigger/reference/troubleshooting/">
     <meta name="twitter:title" content="Troubleshooting & FAQ">
-    <meta name="twitter:description" content="Look-development problems (grey characters, missing wrinkles, white accessories) are the Importer's, and its troubleshooting page covers them. This page is about the rig and the animation tools.">
+    <meta name="twitter:description" content="This page covers the rig, the animation tools, and the character's look and materials.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://jvtools.dev/docs/reallusion-rigger/reference/troubleshooting.md">
@@ -39,11 +39,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.845127777904" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.845282882601" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.845127777904" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.845282882601" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.845127777904" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.845282882601" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -419,7 +419,19 @@
 
                 <!-- Page content  -->
 <h1 id="troubleshooting--faq">Troubleshooting &amp; FAQ</h1>
-<p>Look-development problems (grey characters, missing wrinkles, white accessories) are the Importer&#x27;s, and its <a href="../../../reallusion-importer/reference/troubleshooting/">troubleshooting page</a> covers them. This page is about the rig and the animation tools.</p>
+<p>This page covers the rig, the animation tools, and the character&#x27;s look and materials.</p>
+<h2 id="look-and-materials">Look and materials</h2>
+<p><strong>The character is grey or has no textures.</strong> The tool can&#x27;t find the texture folder. Make sure the <code translate="no" v-pre>textures</code> folder (and the <code translate="no" v-pre>.fbm</code> folder) sit right next to the FBX, exactly as Character Creator exported them, and move them with the FBX if you move it. Textures are resolved relative to the FBX file. If you moved the export between machines through Google Drive (or another cloud download), check that you got all of it: Google Drive splits large folder downloads into multiple zip parts, and extracting only one part leaves the folder structure looking intact while half the texture files are missing. Extract every part into the same folder, then rebuild. The tool prints a console warning naming any materials it couldn&#x27;t find a diffuse texture for, so if you see it, count your zip parts.</p>
+<p><strong>Accessories are plain white, or no displacement appears.</strong> Your export is missing its material <code translate="no" v-pre>.json</code> file. Character Creator stores displacement, subsurface, wrinkle weights and the colors of custom accessories (horns, props, GoZ clothing) in a <code translate="no" v-pre>my_character.json</code> beside the FBX, not in the FBX itself. Make sure it sits next to your FBX. It is created by the <strong>Export JSON for Auto Material Setup</strong> option, which is on by default, so if you don&#x27;t have one, re-export with that option enabled. See <a href="../../getting-started/preparing-your-character/">Preparing Your Character</a>.</p>
+<p><strong>Wrinkles don&#x27;t animate.</strong> The <strong>Bake Wrinkles for Still Frame</strong> export setting was left on, which freezes the wrinkles into one pose. Re-export from Character Creator with it turned OFF. To confirm wrinkles are working, click <strong>Go to Max Wrinkle Frame</strong> in the Wrinkles folder: it jumps to the most expressive frame. See <a href="../../getting-started/preparing-your-character/">Preparing Your Character</a>.</p>
+<p><strong>A control I changed didn&#x27;t update the render.</strong> <strong>SSS Quality</strong> and the eye-light controls (Eyes Cast Light, Light Quality, Light Intensity) are Karma render properties, which Karma reads only when a render starts. Restart your Karma render after changing them. Every other control updates live.</p>
+<p><strong>My hand edits to a material disappeared.</strong> <strong>Build Character</strong> rebuilds the material networks from scratch every time, so anything you edited inside a material goes with them. Make look changes on the lookdev controller instead: its values are preserved across rebuilds, and so are your lights, camera, render settings and the rig. See <a href="../../lookdev/lookdev-controller/#what-survives-a-rebuild">What survives a rebuild</a>.</p>
+<p><strong>Clothing or an accessory pokes through the body.</strong> Use Skin Fix: <strong>Create Skin-Fix Setup</strong> in the <strong>Skin-Fix</strong> folder, then push the body in or the garment out. With <strong>Stash Rig</strong> on, press <strong>Update Motion Clips</strong> on the rig node to bring the edit into the rig. See <a href="../../using/skin-fix/">Skin Fix</a>.</p>
+<p><strong>A small element, usually facial hair, breaks up during animation.</strong> Character Creator sometimes exports duplicate blendshape targets for an element, and they fight each other once the face animates. Use the <strong>Fix Broken Blendshape</strong> folder on the Reallusion Rigger node: put the element in <strong>Broken Elements</strong> as an <code translate="no" v-pre>@name</code> group (the <code translate="no" v-pre>@name</code> attribute of that mesh), then turn on <strong>Fix Broken Blendshape</strong>. Adjust <strong>Radius</strong> if you see deforming artifacts. Leave it off otherwise: with no element picked, the toggle would bypass the whole mesh.</p>
+<p><strong>My eyes don&#x27;t look like they did in Character Creator.</strong> Character Creator&#x27;s HD eye shader bakes very little of its look into the export, so the eye imports with a neutral base color. Use the eye controls on the lookdev controller to rebuild the look in Houdini. Some aspects, such as true iris depth and pupil resize, can&#x27;t be reproduced because the data isn&#x27;t exported. See <a href="../limitations/#the-eyes">Limitations &amp; Expectations</a> and <a href="../../lookdev/eyes/">Eyes</a>.</p>
+<p><strong>A control does nothing on my character.</strong> Many features are character-dependent: they only work if your character&#x27;s export carries the data they need (hair maps, a tear-line mesh, wrinkle maps, displacement maps). If a control seems inert, your character likely doesn&#x27;t have that data. See <a href="../limitations/#character-dependent-features">Limitations &amp; Expectations</a>.</p>
+<p><strong>Does this work in an ACES pipeline?</strong> Yes. Every texture is tagged with its colorspace explicitly and the tool sets no OCIO override of its own, so it follows your scene&#x27;s config. The materials were built in ACEScg. See <a href="../../lookdev/rendering/#color-management-and-aces">Color management and ACES</a>.</p>
+<p><strong>Can I use this in a commercial studio pipeline?</strong> It is a limited-commercial (Indie) asset. Loading it into a commercial Houdini session switches that session to limited-commercial mode, per SideFX&#x27;s rules, and you are responsible for your own SideFX license compliance. See <a href="../../getting-started/installation/">Requirements &amp; Installation</a>.</p>
 <h2 id="build-and-rig">Build and rig</h2>
 <p><strong>I changed the character file or import settings and nothing happened.</strong> The rig freezes the character it was built for. Delete the rig node and press <strong>Build Character</strong> again. Pressing it with a rig in place only refreshes the materials.</p>
 <p><strong>The Face Tools and Auto Blink controls are greyed out.</strong> The rig was built with <strong>Build Facial Rig</strong> off, so it has no face tools. Auto Breathe still works. To get the face tools, delete the rig node, turn <strong>Build Facial Rig</strong> on and build again.</p>
@@ -450,6 +462,17 @@
     <h2>See also</h2>
 <div class="card-compact-group">
 <div class="card-compact-container">
+    <a href="/docs/reallusion-rigger/using/building-the-rig/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M12.876.64V.639l8.25 4.763c.541.313.875.89.875 1.515v9.525a1.75 1.75 0 0 1-.875 1.516l-8.25 4.762a1.748 1.748 0 0 1-1.75 0l-8.25-4.763a1.75 1.75 0 0 1-.875-1.515V6.917c0-.625.334-1.202.875-1.515L11.126.64a1.748 1.748 0 0 1 1.75 0Zm-1 1.298L4.251 6.34l7.75 4.474 7.75-4.474-7.625-4.402a.248.248 0 0 0-.25 0Zm.875 19.123 7.625-4.402a.25.25 0 0 0 .125-.216V7.639l-7.75 4.474ZM3.501 7.64v8.803c0 .09.048.172.125.216l7.625 4.402v-8.947Z"/></svg></span>
+                <span class="card-compact-title">Building the Rig</span>
+            </div>
+            <p class="card-compact-description">The rig is built by the same Build Character button that builds the character, in the Character ▸ Build tab. There is no separate rigging step: one press imports the character, builds its materials, and builds its rig.</p>
+        </div>
+    </a>
+</div>
+<div class="card-compact-container">
     <a href="/docs/reallusion-rigger/getting-started/quick-start/" class="group card-compact no-link">
         <div class="card-compact-body">
             <div class="card-compact-header">
@@ -465,8 +488,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-12T09:15:55" title="2026-10-12" data-absolute-label="Last updated on 2026-10-12" data-absolute-label-html="Last updated on 2026-10-12" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-10-12
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-14T10:46:50" title="2026-10-14" data-absolute-label="Last updated on 2026-10-14" data-absolute-label-html="Last updated on 2026-10-14" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-10-14
                     </time>
                 </div>
 
@@ -477,11 +500,11 @@
             
                 <nav id="retype-nextprev" class="print:hidden flex mt-14">
                     <div class="w-1/2">
-                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../reallusion-rigger/reference/limitations/">
+                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../reallusion-rigger/reference/performance/">
                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                             <span>
                                 <span class="block text-xs font-normal text-base-text-muted">Previous</span>
-                                <span class="block mt-1">Limitations &amp; Expectations</span>
+                                <span class="block mt-1">Performance &amp; Memory</span>
                             </span>
                         </a>
                     </div>

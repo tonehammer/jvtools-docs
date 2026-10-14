@@ -55,17 +55,29 @@
 ### Using the Asset
 
 - [Building the Rig](https://jvtools.dev/docs/reallusion-rigger/using/building-the-rig.md): The rig is built by the same Build Character button that builds the character, in the Character ▸ Build tab. There is no separate rigging step: one press imports the character, builds its materials, and builds its rig.
+- [Skin Fix](https://jvtools.dev/docs/reallusion-rigger/using/skin-fix.md): Character Creator outfits don't always sit perfectly on every body, so you'll sometimes see a sleeve, collar, or boot poking through the skin. Skin Fix
 - [Animating](https://jvtools.dev/docs/reallusion-rigger/using/animating.md): Everything on this page happens on the rig node, in Houdini's APEX animate state. If you've animated with APEX before, it's the same state with this character's controls in it; if you haven't, the short version is: pick a control, move it, key it.
 - [Face Tools](https://jvtools.dev/docs/reallusion-rigger/using/face-tools.md): Every Character Creator morph channel is keyable on the rig as face_channel, and a clip carries its facial performance along with its body, so playing a clip plays the face too.
 - [Auto Animation](https://jvtools.dev/docs/reallusion-rigger/using/auto-animation.md): Auto Blink and Auto Breathe take care of the two things a character does all the time and an animator never wants to key by hand. Both write ordinary keys, each press on an animation layer of its own, so the result is yours to mute, re-weight, edit or delete like any other layer.
 - [Clips & Layers](https://jvtools.dev/docs/reallusion-rigger/using/clips-and-layers.md): The Rigger has two core jobs, and it helps to know them before you plan a shot:
 - [Rig Settings](https://jvtools.dev/docs/reallusion-rigger/using/rig-settings.md): The Rig Settings folder on the rig node (closed by default) holds the settings you set once per character, and the Viewport folder above it controls how the character draws in the SOP viewport.
 
+### Look Development
+
+- [The Lookdev Controller](https://jvtools.dev/docs/reallusion-rigger/lookdev/lookdev-controller.md): When you click Build Character, the tool creates a bright red controller node in the LOP network (Solaris). This node is the heart of the whole
+- [Skin](https://jvtools.dev/docs/reallusion-rigger/lookdev/skin.md): The Skin folder on the lookdev controller fine-tunes how your character's skin reads. The tool already builds physically-based skin with subsurface scattering, normal detail, and proper roughness — these controls push it toward your taste or your shot's lighting.
+- [Wrinkles](https://jvtools.dev/docs/reallusion-rigger/lookdev/wrinkles.md): One of the tool's standout features is its animated expression-wrinkle system. Character Creator faces have a sophisticated wrinkle system — as a character frowns, squints, or opens their mouth, fine wrinkles appear in the right places.
+- [Displacement](https://jvtools.dev/docs/reallusion-rigger/lookdev/displacement.md): Displacement adds real, fine surface relief to your character — skin pores, deep wrinkles, fabric weave — by physically pushing geometry around at render time, based on displacement maps.
+- [Eyes](https://jvtools.dev/docs/reallusion-rigger/lookdev/eyes.md): The Eyes folder gives you deep control over your character's eyes — recreating much of Character Creator's HD eye look, plus stylized glow effects. Eye
+- [Hair](https://jvtools.dev/docs/reallusion-rigger/lookdev/hair.md): The Hair folder is one of the tool's most powerful features: a complete hair re-dye system. Recolor any compatible character's hair — brown to silver, ombré fades, painted-in highlight streaks — without going back to Character Creator.
+- [Rendering](https://jvtools.dev/docs/reallusion-rigger/lookdev/rendering.md): The tool builds your character's materials specifically for Karma XPU, Houdini's GPU-accelerated production renderer. This page covers getting your character on screen, plus the optional one-click render setup.
+
 ### Reference
 
-- [Parameter Reference](https://jvtools.dev/docs/reallusion-rigger/reference/parameters.md): Two nodes, one table each. Labels are exactly as they appear on the node. The look-development controls live on the lookdev controller, which is the Importer's: see its Lookdev Controller page.
+- [Parameter Reference](https://jvtools.dev/docs/reallusion-rigger/reference/parameters.md): Three panels, three tables: the Reallusion Rigger node (in SOPs), the Reallusion Rigger APEX Rig node (the rig), and the lookdev controller (a red node in LOPs, created by Build Character and reached with Go to LOPs).
 - [Limitations & Expectations](https://jvtools.dev/docs/reallusion-rigger/reference/limitations.md): Read this before you buy, and again if something surprises you.
-- [Troubleshooting & FAQ](https://jvtools.dev/docs/reallusion-rigger/reference/troubleshooting.md): Look-development problems (grey characters, missing wrinkles, white accessories) are the Importer's, and its troubleshooting page covers them. This page is about the rig and the animation tools.
+- [Performance & Memory](https://jvtools.dev/docs/reallusion-rigger/reference/performance.md): Character Creator characters are detailed, and detailed characters use memory. Here's where the cost comes from and how to keep your sessions fast and lean.
+- [Troubleshooting & FAQ](https://jvtools.dev/docs/reallusion-rigger/reference/troubleshooting.md): This page covers the rig, the animation tools, and the character's look and materials.
 - [Changelog](https://jvtools.dev/docs/reallusion-rigger/reference/changelog.md): The first release.
 - [License](https://jvtools.dev/docs/reallusion-rigger/reference/license.md): This is the End User License Agreement for Reallusion Importer and Reallusion Rigger for Houdini. It covers whichever of the two you purchased. By downloading, installing, or using the asset, you agree to these terms.
 

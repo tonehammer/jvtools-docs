@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.845127777904">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.845282882601">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -39,11 +39,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../static/favicon.png" />
-    <link href="../resources/css/retype.css?v=4.6.0.845127777904" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=4.6.0.845282882601" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=4.6.0.845127777904" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=4.6.0.845282882601" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=4.6.0.845127777904" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=4.6.0.845282882601" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -408,7 +408,7 @@
 </div>
 <p style="text-align:center; margin:0 0 1.5rem;"><a href="https://jvtonehammer.gumroad.com/l/reallusionimporterforhoudini"><strong>Get it on Gumroad →</strong></a><br><a href="https://jvtools.dev/" style="font-size:0.9em;">More Houdini tools at jvtools.dev</a></p>
 <p><strong>Reallusion Rigger</strong> (v1.0) turns a Character Creator 5 or iClone 8 character into a fully shaded character in Houdini&#x27;s Solaris environment, and builds it an APEX animation rig — body and face — that you animate right in the viewport.</p>
-<p>Export your character from Character Creator as <strong>USD</strong> (fast and light, the recommended default) or <strong>FBX</strong>, point this tool at it, and click one button. It rebuilds your character with proper Karma MaterialX materials and a look controller, exactly as the <a href="../reallusion-importer/">Reallusion Importer</a> does, and then builds a rig node below it. Press <strong>Animate</strong> on that node and you&#x27;re posing and keying the character in Houdini&#x27;s APEX animate state, face included, with the character&#x27;s own exported animation already on it.</p>
+<p>Export your character from Character Creator as <strong>USD</strong> (fast and light, the recommended default) or <strong>FBX</strong>, point this tool at it, and click one button. It rebuilds your character in Solaris with proper Karma MaterialX materials for skin, eyes, teeth, hair and clothing, gathers every meaningful look control onto a single panel, and then builds a rig node below it. Press <strong>Animate</strong> on that node and you&#x27;re posing and keying the character in Houdini&#x27;s APEX animate state, face included, with the character&#x27;s own exported animation already on it.</p>
 <p>Built for Character Creator 5 / iClone 8 and Houdini 22.0 or newer. Ships as a black-boxed Houdini Digital Asset, tuned for Karma XPU and also renders in Karma CPU.</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
@@ -454,7 +454,7 @@
 <li><strong>Poses from Character Creator.</strong> 301 expressions and 71 hand poses from Character Creator&#x27;s own templates, in Houdini&#x27;s Animation Catalog.</li>
 <li><strong>Auto Blink, Auto Breathe and Look At.</strong> Blinks from iClone&#x27;s Auto Blink profiles, breathing on an additive layer, and eyes that hold on a target while the head turns to help.</li>
 <li><strong>Motion clips and layers.</strong> Add more clips exported on your character, switch between them, and refine them on animation layers without touching the baked clip.</li>
-<li><strong>Everything the Importer does.</strong> Karma MaterialX skin, eyes, teeth and hair, the hair re-dye, glowing eyes, Skin Fix, and the render setup.</li>
+<li><strong>Karma materials and look development.</strong> Physically-based MaterialX skin with subsurface scattering, refractive eyes, teeth and card hair, the animated expression wrinkles, a full hair re-dye, glowing eyes, Skin Fix, and an optional render setup, with every look control on one lookdev controller.</li>
 </ul>
 <h2 id="who-its-for">Who it&#x27;s for</h2>
 <p>Character artists, animators, and small studios who use Character Creator or iClone and want to animate their characters in Houdini — blocking a shot, refining a clip, adding a glance or a facial beat — and render them in Karma, without building a rig by hand.</p>
@@ -468,7 +468,7 @@
 <li><a href="getting-started/preparing-your-character/">Preparing Your Character in Character Creator</a> — export your character the right way (this matters!).</li>
 <li><a href="getting-started/quick-start/">Quick Start</a> — build and animate your first character.</li>
 </ol>
-<p>After that, <strong>Using the Asset</strong> explains the rig and every animation tool, and <strong>Reference</strong> covers the parameters, troubleshooting, and what&#x27;s new in each version. Materials and look development are the Importer&#x27;s, and its <a href="../reallusion-importer/using/lookdev-controller/">documentation</a> covers them.</p>
+<p>After that, <strong>Using the Asset</strong> explains the rig and every animation tool, <strong>Look Development</strong> covers the materials and the lookdev controller, and <strong>Reference</strong> covers the parameters, performance, troubleshooting, and what&#x27;s new in each version.</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
     <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
@@ -516,8 +516,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-12T14:58:17" title="2026-10-12" data-absolute-label="Last updated on 2026-10-12" data-absolute-label-html="Last updated on 2026-10-12" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-10-12
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-14T10:46:50" title="2026-10-14" data-absolute-label="Last updated on 2026-10-14" data-absolute-label-html="Last updated on 2026-10-14" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-10-14
                     </time>
                 </div>
 

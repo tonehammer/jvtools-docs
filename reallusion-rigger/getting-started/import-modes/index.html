@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.845127777904">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.845282882601">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -39,11 +39,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.845127777904" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.845282882601" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.845127777904" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.845282882601" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.845127777904" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.845282882601" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -543,12 +543,12 @@
 <h2 id="why-usd-is-so-much-faster-and-lighter">Why USD is so much faster and lighter</h2>
 <p>Character Creator&#x27;s FBX stores every facial blendshape as a full mesh copy, and Houdini has to expand all of them on import — tens of gigabytes of RAM and a minute or more on a heavy HD character. The USD export keeps those blendshapes sparse, and the tool keeps them sparse <strong>through deformation too</strong>: only the expressions actually active on the current frame are computed. On the heaviest HD character, working footprint drops from <strong>~26 GB via FBX to under 8 GB via USD</strong>, and raw import time drops from a minute and a half to about a second — the gap grows the heavier the character.</p>
 <h2 id="what-usd-does-better--real-character-creator-eye--skin-values">What USD does <em>better</em> — real Character Creator eye &amp; skin values</h2>
-<p>The FBX export leaves out most of Character Creator&#x27;s HD eye shader, so in FBX mode the eye controls start from generic defaults you dial in by eye. <strong>The USD export carries Character Creator&#x27;s actual shader values</strong>, so in USD mode the tool reads them and seeds the controller automatically — real iris color (when CC actually tinted it), iris size and limbal ring, and sclera shading and subsurface amount from the real per-character values. It&#x27;s all still adjustable; these are just smarter starting points, and <strong>Reset to Defaults</strong> returns to them. See the Importer&#x27;s <a href="../../../reallusion-importer/using/eyes/">Eyes</a> page.</p>
+<p>The FBX export leaves out most of Character Creator&#x27;s HD eye shader, so in FBX mode the eye controls start from generic defaults you dial in by eye. <strong>The USD export carries Character Creator&#x27;s actual shader values</strong>, so in USD mode the tool reads them and seeds the controller automatically — real iris color (when CC actually tinted it), iris size and limbal ring, and sclera shading and subsurface amount from the real per-character values. It&#x27;s all still adjustable; these are just smarter starting points, and <strong>Reset to Defaults</strong> returns to them. See <a href="../../lookdev/eyes/">Eyes</a>.</p>
 <h2 id="what-usd-mode-does-not-carry">What USD mode does <em>not</em> carry</h2>
 <p>Character Creator&#x27;s USD export omits some data the FBX export includes. Where that happens, the affected controls stay visible but are <strong>disabled with an &quot;(FBX import only)&quot; note</strong> — nothing is hidden or silently broken.</p>
 <ul>
-<li><strong>Expression wrinkles</strong> — the animated head-wrinkle system is <strong>FBX only</strong>; the USD export contains no wrinkle maps or weights. See the Importer&#x27;s <a href="../../../reallusion-importer/using/wrinkles/">Wrinkles</a> page.</li>
-<li><strong>Root-to-tip and highlight hair re-dye</strong> — Character Creator&#x27;s USD export leaves out the hair root, ID, and flow maps, so the ombré recolor, highlight streaks, and flow-based sheen are <strong>FBX only</strong>. A <strong>flat re-dye and the Lightness (Bleach) control still work</strong> in USD. See the Importer&#x27;s <a href="../../../reallusion-importer/using/hair/">Hair</a> page.</li>
+<li><strong>Expression wrinkles</strong> — the animated head-wrinkle system is <strong>FBX only</strong>; the USD export contains no wrinkle maps or weights. See <a href="../../lookdev/wrinkles/">Wrinkles</a>.</li>
+<li><strong>Root-to-tip and highlight hair re-dye</strong> — Character Creator&#x27;s USD export leaves out the hair root, ID, and flow maps, so the ombré recolor, highlight streaks, and flow-based sheen are <strong>FBX only</strong>. A <strong>flat re-dye and the Lightness (Bleach) control still work</strong> in USD. See <a href="../../lookdev/hair/">Hair</a>.</li>
 </ul>
 <p>Everything else — including <strong>displacement</strong>, the rig and every animation tool — works in both modes.</p>
 <div class="flex mb-6">
@@ -576,6 +576,17 @@
     <h2>See also</h2>
 <div class="card-compact-group">
 <div class="card-compact-container">
+    <a href="/docs/reallusion-rigger/lookdev/hair/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M19.642 6.653c-1.31 1.812-3.251 3.86-4.945 5.575l-.091.092-2.69-2.69.098-.098c1.69-1.71 3.732-3.656 5.544-4.962.911-.657 1.715-1.115 2.353-1.318.652-.207.915-.091 1.039.033.113.113.231.367.019 1.02-.207.635-.668 1.436-1.327 2.348ZM10.9 10.736l2.605 2.605c-.88.754-1.684 1.294-2.378 1.655a4.832 4.832 0 0 0-1.892-1.89c.36-.69.903-1.482 1.665-2.37Zm-3.086 1.856a4.825 4.825 0 0 0-4.33 1.328c-.525.525-.88 1.302-1.13 2.079-.256.795-.43 1.682-.541 2.507a19.055 19.055 0 0 0-.173 2.216c-.004.3.003.567.022.778.009.104.022.212.044.31.01.05.027.113.053.18.02.051.074.178.19.295.117.117.245.17.297.19.066.026.13.043.178.054.099.021.207.035.31.044.211.019.479.025.779.021.603-.008 1.39-.06 2.216-.172.825-.112 1.711-.285 2.507-.54.776-.25 1.553-.606 2.079-1.132a4.825 4.825 0 0 0 1.327-4.333c1.209-.6 2.622-1.618 4.121-3.135 1.694-1.714 3.709-3.835 5.093-5.75.688-.952 1.258-1.904 1.538-2.764.274-.842.334-1.826-.384-2.544-.72-.719-1.703-.672-2.555-.401-.865.275-1.822.843-2.776 1.53-1.92 1.384-4.036 3.407-5.733 5.125-1.5 1.518-2.53 2.896-3.132 4.114Zm1.44 2.388a3.33 3.33 0 0 1 0 4.71c-.271.27-.774.537-1.478.763-.684.22-1.477.378-2.248.482-.769.104-1.495.152-2.035.16a9.247 9.247 0 0 1-.351-.002 9.182 9.182 0 0 1-.002-.35c.007-.542.055-1.267.16-2.036.104-.771.261-1.564.481-2.249.227-.703.493-1.206.764-1.478a3.33 3.33 0 0 1 4.71 0Z"/></svg></span>
+                <span class="card-compact-title">Hair</span>
+            </div>
+            <p class="card-compact-description">The Hair folder is one of the tool's most powerful features: a complete hair re-dye system. Recolor any compatible character's hair — brown to silver, ombré fades, painted-in highlight streaks — without going back to Character Creator.</p>
+        </div>
+    </a>
+</div>
+<div class="card-compact-container">
     <a href="/docs/reallusion-rigger/reference/limitations/" class="group card-compact no-link">
         <div class="card-compact-body">
             <div class="card-compact-header">
@@ -583,6 +594,17 @@
                 <span class="card-compact-title">Limitations & Expectations</span>
             </div>
             <p class="card-compact-description">Read this before you buy, and again if something surprises you.</p>
+        </div>
+    </a>
+</div>
+<div class="card-compact-container">
+    <a href="/docs/reallusion-rigger/reference/performance/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M12 2.5a9.5 9.5 0 1 0 9.5 9.5c0-1.406-.305-2.74-.852-3.939a.75.75 0 0 1 1.364-.622C22.648 8.829 23 10.374 23 12c0 6.075-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1c1.626 0 3.17.353 4.561.988a.75.75 0 1 1-.622 1.364A9.463 9.463 0 0 0 12 2.5Zm9.03.47a.75.75 0 0 1 0 1.06l-6.445 6.446a3 3 0 1 1-1.06-1.06L19.97 2.97a.75.75 0 0 1 1.06 0ZM12 10.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z"/></svg></span>
+                <span class="card-compact-title">Performance & Memory</span>
+            </div>
+            <p class="card-compact-description">Character Creator characters are detailed, and detailed characters use memory. Here's where the cost comes from and how to keep your sessions fast and lean.</p>
         </div>
     </a>
 </div>
@@ -619,13 +641,24 @@
         </div>
     </a>
 </div>
+<div class="card-compact-container">
+    <a href="/docs/reallusion-rigger/lookdev/wrinkles/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M9.002 2.5a.75.75 0 0 1 .691.464l6.302 15.305 2.56-6.301a.75.75 0 0 1 .695-.468h4a.75.75 0 0 1 0 1.5h-3.495l-3.06 7.532a.75.75 0 0 1-1.389.004L8.997 5.21l-3.054 7.329A.75.75 0 0 1 5.25 13H.75a.75.75 0 0 1 0-1.5h4l3.558-8.538a.75.75 0 0 1 .694-.462Z"/></svg></span>
+                <span class="card-compact-title">Wrinkles</span>
+            </div>
+            <p class="card-compact-description">One of the tool's standout features is its animated expression-wrinkle system. Character Creator faces have a sophisticated wrinkle system — as a character frowns, squints, or opens their mouth, fine wrinkles appear in the right places.</p>
+        </div>
+    </a>
+</div>
 </div>
 </div>
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-12T14:58:17" title="2026-10-12" data-absolute-label="Last updated on 2026-10-12" data-absolute-label-html="Last updated on 2026-10-12" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-10-12
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-14T10:46:50" title="2026-10-14" data-absolute-label="Last updated on 2026-10-14" data-absolute-label-html="Last updated on 2026-10-14" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-10-14
                     </time>
                 </div>
 

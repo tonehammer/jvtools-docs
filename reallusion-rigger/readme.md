@@ -8,7 +8,7 @@
 
 **Reallusion Rigger** (v1.0) turns a Character Creator 5 or iClone 8 character into a fully shaded character in Houdini's Solaris environment, and builds it an APEX animation rig — body and face — that you animate right in the viewport.
 
-Export your character from Character Creator as **USD** (fast and light, the recommended default) or **FBX**, point this tool at it, and click one button. It rebuilds your character with proper Karma MaterialX materials and a look controller, exactly as the [Reallusion Importer](/reallusion-importer/README.md) does, and then builds a rig node below it. Press **Animate** on that node and you're posing and keying the character in Houdini's APEX animate state, face included, with the character's own exported animation already on it.
+Export your character from Character Creator as **USD** (fast and light, the recommended default) or **FBX**, point this tool at it, and click one button. It rebuilds your character in Solaris with proper Karma MaterialX materials for skin, eyes, teeth, hair and clothing, gathers every meaningful look control onto a single panel, and then builds a rig node below it. Press **Animate** on that node and you're posing and keying the character in Houdini's APEX animate state, face included, with the character's own exported animation already on it.
 
 Built for Character Creator 5 / iClone 8 and Houdini 22.0 or newer. Ships as a black-boxed Houdini Digital Asset, tuned for Karma XPU and also renders in Karma CPU.
 
@@ -29,7 +29,7 @@ USD import is fast and light, but the **expression wrinkles** — the thing that
 * **Poses from Character Creator.** 301 expressions and 71 hand poses from Character Creator's own templates, in Houdini's Animation Catalog.
 * **Auto Blink, Auto Breathe and Look At.** Blinks from iClone's Auto Blink profiles, breathing on an additive layer, and eyes that hold on a target while the head turns to help.
 * **Motion clips and layers.** Add more clips exported on your character, switch between them, and refine them on animation layers without touching the baked clip.
-* **Everything the Importer does.** Karma MaterialX skin, eyes, teeth and hair, the hair re-dye, glowing eyes, Skin Fix, and the render setup.
+* **Karma materials and look development.** Physically-based MaterialX skin with subsurface scattering, refractive eyes, teeth and card hair, the animated expression wrinkles, a full hair re-dye, glowing eyes, Skin Fix, and an optional render setup, with every look control on one lookdev controller.
 
 ## Who it's for
 
@@ -49,7 +49,7 @@ If you're brand new, read these three pages in order:
 2. [Preparing Your Character in Character Creator](getting-started/preparing-your-character.md) — export your character the right way (this matters!).
 3. [Quick Start](getting-started/quick-start.md) — build and animate your first character.
 
-After that, **Using the Asset** explains the rig and every animation tool, and **Reference** covers the parameters, troubleshooting, and what's new in each version. Materials and look development are the Importer's, and its [documentation](/reallusion-importer/using/lookdev-controller.md) covers them.
+After that, **Using the Asset** explains the rig and every animation tool, **Look Development** covers the materials and the lookdev controller, and **Reference** covers the parameters, performance, troubleshooting, and what's new in each version.
 
 !!!info
 This tool is an independent product and is not affiliated with, endorsed by, or sponsored by Reallusion or SideFX. "Character Creator," "iClone," and "Houdini" are trademarks of their respective owners.

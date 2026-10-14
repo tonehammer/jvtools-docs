@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.845127777904">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.845282882601">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -39,11 +39,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.845127777904" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.845282882601" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.845127777904" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.845282882601" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.845127777904" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.845282882601" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -435,7 +435,7 @@
 <p>The options sit in <strong>Character ▸ Build</strong>, below <strong>Build Character</strong>. They are read when the rig is built, so set them before you press it.</p>
 <retype-table copy-text="| Option | Default | What it does |
 |---|---|---|
-| **Build APEX Rig** | On | Off gives you the Importer on its own: the character is built and plays the animation it was exported with. |
+| **Build APEX Rig** | On | Off builds the character without a rig: it is shaded and plays the animation it was exported with. |
 | **Build Facial Rig** | On | Off builds a body-only rig: faster to build and much lighter to animate. The face stays neutral and the clip's expressions do not play, but the jaw and eyes still follow the clip. |
 | **Load Expression Presets** | On | Puts about 300 expression poses in the Animation Catalog during the build. Adds roughly 5 to 20 seconds. |
 | **Load Hand Poses** | On | Puts 71 hand poses in the catalog. Adds roughly 5 seconds, and needs no facial rig. |
@@ -454,7 +454,7 @@
 <tr>
 <td><strong>Build APEX Rig</strong></td>
 <td>On</td>
-<td>Off gives you the Importer on its own: the character is built and plays the animation it was exported with.</td>
+<td>Off builds the character without a rig: it is shaded and plays the animation it was exported with.</td>
 </tr>
 <tr>
 <td><strong>Build Facial Rig</strong></td>
@@ -512,10 +512,21 @@
     </div>
 </div>
 <h2 id="the-rest-of-the-build-tab">The rest of the Build tab</h2>
-<p>The <strong>Render</strong> folder (<strong>Build In</strong>, <strong>Create Render Setup</strong>, <strong>Go to LOPs</strong>), <strong>Skin-Fix</strong> and <strong>Fix Broken Blendshape</strong> work exactly as they do on the Importer: see its <a href="../../../reallusion-importer/using/rendering/">Rendering</a> and <a href="../../../reallusion-importer/using/skin-fix/">Skin Fix</a> pages.</p>
+<p>The <strong>Render</strong> folder (<strong>Build In</strong>, <strong>Create Render Setup</strong>, <strong>Go to LOPs</strong>) is covered in <a href="../../lookdev/rendering/">Rendering</a>, <strong>Skin-Fix</strong> in <a href="../skin-fix/">Skin Fix</a>, and <strong>Fix Broken Blendshape</strong> — for a small element, usually facial hair, that breaks up once the face animates — in <a href="../../reference/troubleshooting/#look-and-materials">Troubleshooting</a>.</p>
 <div id="retype-backlinks">
     <h2>See also</h2>
 <div class="card-compact-group">
+<div class="card-compact-container">
+    <a href="/docs/reallusion-rigger/reference/performance/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M12 2.5a9.5 9.5 0 1 0 9.5 9.5c0-1.406-.305-2.74-.852-3.939a.75.75 0 0 1 1.364-.622C22.648 8.829 23 10.374 23 12c0 6.075-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1c1.626 0 3.17.353 4.561.988a.75.75 0 1 1-.622 1.364A9.463 9.463 0 0 0 12 2.5Zm9.03.47a.75.75 0 0 1 0 1.06l-6.445 6.446a3 3 0 1 1-1.06-1.06L19.97 2.97a.75.75 0 0 1 1.06 0ZM12 10.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z"/></svg></span>
+                <span class="card-compact-title">Performance & Memory</span>
+            </div>
+            <p class="card-compact-description">Character Creator characters are detailed, and detailed characters use memory. Here's where the cost comes from and how to keep your sessions fast and lean.</p>
+        </div>
+    </a>
+</div>
 <div class="card-compact-container">
     <a href="/docs/reallusion-rigger/getting-started/quick-start/" class="group card-compact no-link">
         <div class="card-compact-body">
@@ -527,13 +538,24 @@
         </div>
     </a>
 </div>
+<div class="card-compact-container">
+    <a href="/docs/reallusion-rigger/lookdev/lookdev-controller/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M11 18.25a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1-.75-.75Zm-8-12a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 3 6.25Zm13 6a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 0 1.5h-3.5a.75.75 0 0 1-.75-.75ZM8.75 16a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75Z"/><path d="M3 18.25a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Zm0-6a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1-.75-.75ZM16.75 10a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75ZM14 6.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 0 1.5h-5.5a.75.75 0 0 1-.75-.75ZM11.25 4a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75Z"/></svg></span>
+                <span class="card-compact-title">The Lookdev Controller</span>
+            </div>
+            <p class="card-compact-description">When you click Build Character, the tool creates a bright red controller node in the LOP network (Solaris). This node is the heart of the whole</p>
+        </div>
+    </a>
+</div>
 </div>
 </div>
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-12T15:33:20" title="2026-10-12" data-absolute-label="Last updated on 2026-10-12" data-absolute-label-html="Last updated on 2026-10-12" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-10-12
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-14T10:46:50" title="2026-10-14" data-absolute-label="Last updated on 2026-10-14" data-absolute-label-html="Last updated on 2026-10-14" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-10-14
                     </time>
                 </div>
 
@@ -554,10 +576,10 @@
                     </div>
             
                     <div class="w-1/2">
-                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../reallusion-rigger/using/animating/">
+                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../reallusion-rigger/using/skin-fix/">
                             <span>
                                 <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
-                                <span class="block mt-1">Animating</span>
+                                <span class="block mt-1">Skin Fix</span>
                             </span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                         </a>

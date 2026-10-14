@@ -36,14 +36,14 @@ Character Creator's FBX stores every facial blendshape as a full mesh copy, and 
 
 ## What USD does *better* — real Character Creator eye & skin values
 
-The FBX export leaves out most of Character Creator's HD eye shader, so in FBX mode the eye controls start from generic defaults you dial in by eye. **The USD export carries Character Creator's actual shader values**, so in USD mode the tool reads them and seeds the controller automatically — real iris color (when CC actually tinted it), iris size and limbal ring, and sclera shading and subsurface amount from the real per-character values. It's all still adjustable; these are just smarter starting points, and **Reset to Defaults** returns to them. See the Importer's [Eyes](/reallusion-importer/using/eyes.md) page.
+The FBX export leaves out most of Character Creator's HD eye shader, so in FBX mode the eye controls start from generic defaults you dial in by eye. **The USD export carries Character Creator's actual shader values**, so in USD mode the tool reads them and seeds the controller automatically — real iris color (when CC actually tinted it), iris size and limbal ring, and sclera shading and subsurface amount from the real per-character values. It's all still adjustable; these are just smarter starting points, and **Reset to Defaults** returns to them. See [Eyes](../lookdev/eyes.md).
 
 ## What USD mode does *not* carry
 
 Character Creator's USD export omits some data the FBX export includes. Where that happens, the affected controls stay visible but are **disabled with an "(FBX import only)" note** — nothing is hidden or silently broken.
 
-* **Expression wrinkles** — the animated head-wrinkle system is **FBX only**; the USD export contains no wrinkle maps or weights. See the Importer's [Wrinkles](/reallusion-importer/using/wrinkles.md) page.
-* **Root-to-tip and highlight hair re-dye** — Character Creator's USD export leaves out the hair root, ID, and flow maps, so the ombré recolor, highlight streaks, and flow-based sheen are **FBX only**. A **flat re-dye and the Lightness (Bleach) control still work** in USD. See the Importer's [Hair](/reallusion-importer/using/hair.md) page.
+* **Expression wrinkles** — the animated head-wrinkle system is **FBX only**; the USD export contains no wrinkle maps or weights. See [Wrinkles](../lookdev/wrinkles.md).
+* **Root-to-tip and highlight hair re-dye** — Character Creator's USD export leaves out the hair root, ID, and flow maps, so the ombré recolor, highlight streaks, and flow-based sheen are **FBX only**. A **flat re-dye and the Lightness (Bleach) control still work** in USD. See [Hair](../lookdev/hair.md).
 
 Everything else — including **displacement**, the rig and every animation tool — works in both modes.
 

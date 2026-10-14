@@ -5,7 +5,11 @@ order: 110
 
 # Parameter Reference
 
-Two nodes, one table each. Labels are exactly as they appear on the node. The look-development controls live on the lookdev controller, which is the Importer's: see its [Lookdev Controller](/reallusion-importer/using/lookdev-controller.md) page.
+Three panels, three tables: the **Reallusion Rigger** node (in SOPs), the **Reallusion Rigger APEX Rig** node (the rig), and the lookdev controller (a red node in LOPs, created by **Build Character** and reached with **Go to LOPs**). Labels are exactly as they appear on the node.
+
+!!!info
+Hovering any parameter in Houdini shows its tooltip, which is the authoritative, always-current description. If this page and a tooltip ever disagree, trust the tooltip.
+!!!
 
 ## Reallusion Rigger
 
@@ -87,6 +91,16 @@ Two nodes, one table each. Labels are exactly as they appear on the node. The lo
 | **Textured** | Which material groups draw textured: Body, Eyes, Teeth, Clothing & Accessories. |
 | **Hair** | Off, Opaque Cards or Transparent Cards. |
 
+### Rig Settings
+
+| Parameter | What it does |
+|---|---|
+| **Hair Follows Head Only** | On: every hair mesh follows the head only. Off: Character Creator's own skinning. |
+| **Stash Rig** | On: the built and baked rig is stored. Off: it is dropped and rebuilt live. |
+| **Stash In** | Inside the Hip or External File. Changing it writes nothing. |
+| **Geometry File** | The file **Save to Disk** writes the rig to and the rig reads from. |
+| **Save to Disk** | Writes the rig and its baked clips to files and reads them from there. |
+
 ### Motion Clips
 
 | Parameter | What it does |
@@ -98,23 +112,41 @@ Two nodes, one table each. Labels are exactly as they appear on the node. The lo
 | **Update Motion Clips** | Bakes the listed clips onto the rig without rebuilding it. |
 | **Clear Motion Clips** | Empties the list and updates in one step. Asks first. |
 
-### Face Tools
+### Face Tools ▸ Face Key Muscle
 
 | Parameter | What it does |
 |---|---|
-| **Face Key Muscle** | Opens Character Creator's Muscle mode for this character. |
+| **Open Face Key Muscle** | Opens the Face Key Muscle pane, Character Creator's Muscle mode for this character: a drawing of the face with its regions. |
+| **Record** | Records the picked regions over time as keys, on a FaceKeyMuscle layer. |
+| **Preview** | Tries the picked regions with the mouse, without recording. |
+
+### Face Tools ▸ Face Key Muscle ▸ Face Key Muscle Settings
+
+| Parameter | What it does |
+|---|---|
+| **Symmetric** | A picked region brings its other side along. |
+| **Key** | Which channels a drag keys at the frame: Moved Channels or Whole Face. |
+| **Ease In** | Frames before the current frame over which each edit fades in. |
+| **Ease Out** | Frames after the current frame over which each edit fades out. Follows Ease In until you set it. |
+| **Expressiveness** | How far a drag can push a shape: 1 is Character Creator's full shape, 2 twice that. |
+| **Drag Range** | Pixels of drag on the drawing for a full shape. Lower is more sensitive. |
+
+### Face Tools ▸ Face Puppet
+
+| Parameter | What it does |
+|---|---|
 | **Record** | Records a Face Puppet take as keys. |
 | **Preview** | Tries a Face Puppet profile with the mouse, without recording. |
-| **Record Mode** | Replace or Blend: what a take does to the animation already there. |
-| **Record to New Layer** | Puts each take on an animation layer of its own. On by default. |
 
 ### Face Tools ▸ Recording Settings
 
 | Parameter | What it does |
 |---|---|
+| **Record Mode** | Replace or Blend: what a take, from either Record, does to the animation already there. |
+| **Record to New Layer** | Puts each take on an animation layer of its own. On by default. |
 | **Preroll** | Seconds counted down before a take starts. |
 | **Record Speed** | How fast the playbar runs while recording. 1 is real time. |
-| **Mouse Range** | Pixels of mouse travel for a full deflection of the pad. |
+| **Mouse Range** | Pixels of mouse travel for a full deflection of the pad (a full shape on a Face Key Muscle take). |
 | **Smoothing** | Frames of smoothing on the recorded mouse path. |
 | **Return to Start** | Puts the playhead back where the take started. |
 | **Show Controls While Recording** | Keeps the rig's controls drawn while a take plays. |
@@ -134,12 +166,154 @@ Two nodes, one table each. Labels are exactly as they appear on the node. The lo
 | **Frame Range** | The frames to breathe over. |
 | **Add Auto Breathe** | Keys breaths onto an additive layer of its own. |
 
-### Rig Settings
+## Lookdev controller (LOPs)
 
-| Parameter | What it does |
-|---|---|
-| **Hair Follows Head Only** | On: every hair mesh follows the head only. Off: Character Creator's own skinning. |
-| **Stash Rig** | On: the built and baked rig is stored. Off: it is dropped and rebuilt live. |
-| **Stash In** | Inside the Hip or External File. Changing it writes nothing. |
-| **Geometry File** | The file **Save to Disk** writes the rig to and the rig reads from. |
-| **Save to Disk** | Writes the rig and its baked clips to files and reads them from there. |
+**Build Character** creates a red controller node in the LOP network hosting all look controls. Material expressions reference it, so adjusting a control updates the Karma render **live** — except the render-property controls noted below, which need the render restarted. See [The Lookdev Controller](../lookdev/lookdev-controller.md).
+
+Two buttons sit at the top: **Go to SOPs** jumps back to the Reallusion Rigger node, and **Reset to Defaults** returns every control on the controller to its original value (after a confirmation prompt).
+
+### Quality
+
+| Parameter | Description |
+| --- | --- |
+| **Quality** | Preset that sets the two toggles below. *Preview* turns subsurface off and uses cheap cutout corneas for fast look-dev; *Production* restores full quality. |
+| **Light Setup** | Switches the light rig built by **Create Render Setup** between *Cinematic* (warm, moody key) and *Neutral* (flat, even). Only affects that rig. |
+| **Remove SSS** | Disables subsurface scattering on skin and teeth — the single biggest render-time saving. |
+| **Hero Eyes** | Refractive ray-traced corneas for close-up realism. Off uses a cheaper cutout cornea for distant or background characters. |
+
+### Skin
+
+See [Skin](../lookdev/skin.md).
+
+| Parameter | Description |
+| --- | --- |
+| **Skin Normal Strength** | Intensity of the base skin normal map (pore and surface detail). |
+| **Skin Roughness** | Multiplier on skin roughness. Below 1 = glossier and more lifelike; above 1 = more matte. |
+| **Diffuse Contrast** | Contrast of the skin color texture around mid-grey. Very sensitive — useful range roughly 1.0–1.1. |
+| **Respect Metallic Maps** | Honor Character Creator's metallic textures on teeth, tongue, and clothing. Off by default (these are dielectric and CC's metallic maps on them are usually junk). |
+
+**Skin Re-tint** (sub-folder)
+
+| Parameter | Description |
+| --- | --- |
+| **Skin Re-tint Color** | The color the skin diffuse is tinted toward. White (default) is a no-op. Affects diffuse only, across all skin. |
+| **Skin Re-tint Amount** | How strongly the re-tint color is applied. 0 = untouched; 1 = full multiply. Caps at 3 but accepts higher typed values for an overdriven push. |
+| **Skip Nails** | Exclude the fingernail/toenail material from the re-tint. Off by default. |
+
+**Teeth** (sub-folder)
+
+| Parameter | Description |
+| --- | --- |
+| **Teeth Brightness** | Overall brightness of the teeth/tongue diffuse. Pull below 1 for more natural teeth (CC exports them near-white). 1 = as exported. |
+| **Teeth Roughness** | Multiplier on teeth/tongue roughness. Raise above 1 to soften a glary specular; below 1 for a wetter look. |
+| **Teeth Specular** | Strength of the wet specular reflection on teeth/tongue. Lower it to reduce blown-out catchlights. |
+| **Teeth SSS Amount** | Subsurface scattering on teeth/tongue only. Lower it to make teeth read more solid. Disabled when Remove SSS is on. |
+
+**Subsurface** (sub-folder — disabled when Remove SSS is on)
+
+| Parameter | Description |
+| --- | --- |
+| **SSS Color** | Per-channel scatter falloff color. Default a warm skin tone; cooler = bluer scatter, warmer = redder. Applies to skin and teeth. |
+| **SSS Amount** | How much subsurface scattering skin and teeth receive. 1 = full lifelike scatter; lower recovers surface detail; 0 = none. |
+| **SSS Radius** | How deep light scatters. Higher = softer and more translucent but washes out detail. |
+| **SSS Quality** | Subsurface ray limit (higher = cleaner and slower). A Karma **render property** — a change may only take effect after restarting the render. |
+
+**Wrinkles** *(FBX import only)*
+
+See [Wrinkles](../lookdev/wrinkles.md).
+
+| Parameter | Description |
+| --- | --- |
+| **Wrinkle Strength** | Master intensity of all wrinkle channels. 0 disables wrinkles; 1 is as authored. |
+| **Normal / Diffuse / Roughness Strength** | Per-channel trims on top of the master strength (relief, crease darkening, sheen). |
+
+**Displacement**
+
+See [Displacement](../lookdev/displacement.md).
+
+| Parameter | Description |
+| --- | --- |
+| **Mode** | How displacement maps render: **Bump** (cheap), **True Displacement** (real geometry, needs subdivision, slower), or **Disable**. Only matters for characters exported with displacement maps. |
+| **Displacement Strength** | Scale of the displacement effect. Small values (~0.002) are typical. |
+
+### Eyes
+
+Rebuilds Character Creator's HD eye look, which barely travels in the export. Organized into Iris / Limbus / Sclera / Eye Shadow / Wetness tabs, with Glow below. See [Eyes](../lookdev/eyes.md).
+
+| Parameter | Description |
+| --- | --- |
+| **Eye Normal Strength** | Eyeball surface detail (sclera veins, iris relief), separate from the head. Low by default (0.2) — CC's eye normal is strong. |
+| **Lightness** | Lifts the brightness of the whole eye, applied after the iris tint, limbus and sclera. 1 = unchanged; above 1 brightens (slider to 5, accepts higher); below 1 darkens. Raise this when a dark iris won't take a tint. Both import modes. |
+
+**Iris tab**
+
+| Parameter | Description |
+| --- | --- |
+| **Iris Color Tint** / **Iris Tint Amount** | Reproduce CC's iris color (masked to the iris, so the sclera stays white). Amount can exceed 1 to over-saturate. |
+| **Iris Scale** | Resizes the iris. |
+| **Iris Tint Radius** / **Iris Tint Feather** | Size and soften the tint disc. |
+
+**Limbus tab**
+
+| Parameter | Description |
+| --- | --- |
+| **Limbus Color / Width / Scale / Strength / Feather** | The dark ring at the iris/sclera edge. Strength 0 by default (a little reads as depth); Width and Feather set thickness and edge softness; Scale fits the ring to the iris. |
+
+**Sclera tab**
+
+| Parameter | Description |
+| --- | --- |
+| **Sclera Color** / **Sclera Tint Amount** | Tint the white of the eye. Amount 0 by default; the tint is the exact inverse of the iris mask, so the iris is never affected. |
+
+**Eye Shadow tab**
+
+| Parameter | Description |
+| --- | --- |
+| **Color / Strength / Radius / Feather** | The eyelid contact shadow on the eyeball (top-biased). Strength 0 by default; bigger Radius reaches further in. |
+
+**Wetness tab**
+
+| Parameter | Description |
+| --- | --- |
+| **Eye Glossiness** | Overall eyeball shine/wetness. Works on every character (try 1.2–2 for a wet look). |
+| **Tearline Gloss / Presence / Ripple** | The wet lid rim — only on characters that ship a tear-line mesh (no effect otherwise; use Eye Glossiness instead). Gloss is roughness, Presence scales the reflection, Ripple adds micro wet-bump detail. |
+
+**Glow**
+
+| Parameter | Description |
+| --- | --- |
+| **Glow Mode** | Stylized eye emission: *Flat Color*, *Use Eye Texture*, *Multiply with Texture*, *Iris (Circle)*, *Iris (Dot)*. None by default. |
+| **Eyes Cast Light** | Treats the glowing eyes as a light source that illuminates nearby surfaces. A Karma **render property** — this and the two controls below may only take effect after restarting the render. |
+| **Light Quality / Light Intensity** | Sampling quality of the eye light (reduces noise) and how strongly the eyes light their surroundings. |
+| **Glow Strength / Glow Color** | Brightness and color for the Flat, Texture, and Multiply modes. |
+| **Iris Color** | Color of the iris glow for both Iris modes. |
+| **Iris Strength / Iris Radius / Iris Feather** | Per-mode brightness, disc size, and (Dot) edge softness for the Iris modes. |
+
+### Hair
+
+Re-dye and shade the character's scalp hair. Applies to hair carrying CC's hair maps (root, ID, flow); simpler hair and caps keep their baked color. See [Hair](../lookdev/hair.md).
+
+| Parameter | Description |
+| --- | --- |
+| **Hair Color Mode** | *Baked (CC)* keeps the exported hair color; *Custom* re-dyes from the controls below, keeping strand detail. |
+| **Root Color** / **Tip Color** | The roots-to-tips ombré gradient in Custom mode. *(FBX import only — USD mode does a flat re-dye from Root Color.)* |
+| **Lightness (Bleach)** | Lightens or bleaches the hair, in **both** Baked and Custom modes. 1 = unchanged; above 1 bleaches toward light/blonde (slider to 20, accepts higher); below 1 darkens. |
+| **Highlight Color** / **Highlight Amount** | A second color blended into highlighted strands (balayage/streaks) and how strongly it shows. 0 disables highlights. *(FBX import only.)* |
+| **Controlled Specular Highlights** | Uses the hair's specular mask to restrain over-exposed highlights (CC's intended look). Off gives full specular. |
+| **Hair Anisotropy** | Stretches the specular highlight along the strands (directional hair sheen), steered by the flow map. 0 is off. *(FBX import only.)* |
+
+**Brows** (sub-folder)
+
+| Parameter | Description |
+| --- | --- |
+| **Brow Lightness** | Lifts the brows' brightness. 1 = unchanged; slider to 20, accepts higher. Applies at any tint amount, including 0. CC's brow maps are near-black, so raise this first or a tint reads as doing nothing — 6–14 is the usual working range. |
+| **Brow Tint Color** / **Brow Tint Amount** | Re-tint the eyebrows, keeping strand detail. Amount 0 by default. Use to match brows to dyed hair. Note brows also run through the scalp re-dye, so Custom mode reaches them and these controls layer on top. |
+
+**Facial Hair** (sub-folder)
+
+Beards, moustaches and sideburns. Decoupled from the scalp hair — the Hair color controls above do not touch them. See [Hair](../lookdev/hair.md#facial-hair).
+
+| Parameter | Description |
+| --- | --- |
+| **Facial Hair Lightness** | Lifts the beard's brightness. 1 = unchanged; slider to 20, accepts higher. Applies at any tint amount, including 0 — this alone greys or lightens a beard. Blows out from around 4x. |
+| **Facial Hair Tint Color** / **Facial Hair Tint Amount** | Re-tint facial hair, keeping strand detail. Amount 0 by default. CC names every piece `Beard1`, `Beard2` and so on, so moustaches, sideburns and soul patches all follow these. |

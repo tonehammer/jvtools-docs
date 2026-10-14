@@ -28,7 +28,7 @@ The options sit in **Character ▸ Build**, below **Build Character**. They are 
 
 | Option | Default | What it does |
 |---|---|---|
-| **Build APEX Rig** | On | Off gives you the Importer on its own: the character is built and plays the animation it was exported with. |
+| **Build APEX Rig** | On | Off builds the character without a rig: it is shaded and plays the animation it was exported with. |
 | **Build Facial Rig** | On | Off builds a body-only rig: faster to build and much lighter to animate. The face stays neutral and the clip's expressions do not play, but the jaw and eyes still follow the clip. |
 | **Load Expression Presets** | On | Puts about 300 expression poses in the Animation Catalog during the build. Adds roughly 5 to 20 seconds. |
 | **Load Hand Poses** | On | Puts 71 hand poses in the catalog. Adds roughly 5 seconds, and needs no facial rig. |
@@ -59,4 +59,4 @@ The rig is built from the character as it was when you pressed the button. Chang
 
 ## The rest of the Build tab
 
-The **Render** folder (**Build In**, **Create Render Setup**, **Go to LOPs**), **Skin-Fix** and **Fix Broken Blendshape** work exactly as they do on the Importer: see its [Rendering](/reallusion-importer/using/rendering.md) and [Skin Fix](/reallusion-importer/using/skin-fix.md) pages.
+The **Render** folder (**Build In**, **Create Render Setup**, **Go to LOPs**) is covered in [Rendering](../lookdev/rendering.md), **Skin-Fix** in [Skin Fix](skin-fix.md), and **Fix Broken Blendshape** — for a small element, usually facial hair, that breaks up once the face animates — in [Troubleshooting](../reference/troubleshooting.md#look-and-materials).

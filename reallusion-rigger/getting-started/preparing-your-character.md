@@ -79,7 +79,7 @@ Under Include Motion, **Current Animation ▸ All** brings in the whole clip. Us
 
 ## Other settings — leave at defaults
 
-Everything else in the Export FBX panel can stay at its defaults. In particular, the defaults already bake skin and hair color into the diffuse maps the tool reads — **Bake diffuse maps from skin color** and **Bake diffuse and specular from Digital Human Hair Shader** are on by default, so leave them on (the hair re-dye system still lets you recolor afterward — see the Importer's [Hair](/reallusion-importer/using/hair.md) page).
+Everything else in the Export FBX panel can stay at its defaults. In particular, the defaults already bake skin and hair color into the diffuse maps the tool reads — **Bake diffuse maps from skin color** and **Bake diffuse and specular from Digital Human Hair Shader** are on by default, so leave them on (the hair re-dye system still lets you recolor afterward — see [Hair](../lookdev/hair.md)).
 
 One default is worth double-checking: **Bake Wrinkles for Still Frame** must stay **OFF** (its default).
 

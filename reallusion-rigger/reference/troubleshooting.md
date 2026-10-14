@@ -5,7 +5,31 @@ order: 80
 
 # Troubleshooting & FAQ
 
-Look-development problems (grey characters, missing wrinkles, white accessories) are the Importer's, and its [troubleshooting page](/reallusion-importer/reference/troubleshooting.md) covers them. This page is about the rig and the animation tools.
+This page covers the rig, the animation tools, and the character's look and materials.
+
+## Look and materials
+
+**The character is grey or has no textures.** The tool can't find the texture folder. Make sure the `textures` folder (and the `.fbm` folder) sit right next to the FBX, exactly as Character Creator exported them, and move them with the FBX if you move it. Textures are resolved relative to the FBX file. If you moved the export between machines through Google Drive (or another cloud download), check that you got all of it: Google Drive splits large folder downloads into multiple zip parts, and extracting only one part leaves the folder structure looking intact while half the texture files are missing. Extract every part into the same folder, then rebuild. The tool prints a console warning naming any materials it couldn't find a diffuse texture for, so if you see it, count your zip parts.
+
+**Accessories are plain white, or no displacement appears.** Your export is missing its material `.json` file. Character Creator stores displacement, subsurface, wrinkle weights and the colors of custom accessories (horns, props, GoZ clothing) in a `my_character.json` beside the FBX, not in the FBX itself. Make sure it sits next to your FBX. It is created by the **Export JSON for Auto Material Setup** option, which is on by default, so if you don't have one, re-export with that option enabled. See [Preparing Your Character](../getting-started/preparing-your-character.md).
+
+**Wrinkles don't animate.** The **Bake Wrinkles for Still Frame** export setting was left on, which freezes the wrinkles into one pose. Re-export from Character Creator with it turned OFF. To confirm wrinkles are working, click **Go to Max Wrinkle Frame** in the Wrinkles folder: it jumps to the most expressive frame. See [Preparing Your Character](../getting-started/preparing-your-character.md).
+
+**A control I changed didn't update the render.** **SSS Quality** and the eye-light controls (Eyes Cast Light, Light Quality, Light Intensity) are Karma render properties, which Karma reads only when a render starts. Restart your Karma render after changing them. Every other control updates live.
+
+**My hand edits to a material disappeared.** **Build Character** rebuilds the material networks from scratch every time, so anything you edited inside a material goes with them. Make look changes on the lookdev controller instead: its values are preserved across rebuilds, and so are your lights, camera, render settings and the rig. See [What survives a rebuild](../lookdev/lookdev-controller.md#what-survives-a-rebuild).
+
+**Clothing or an accessory pokes through the body.** Use Skin Fix: **Create Skin-Fix Setup** in the **Skin-Fix** folder, then push the body in or the garment out. With **Stash Rig** on, press **Update Motion Clips** on the rig node to bring the edit into the rig. See [Skin Fix](../using/skin-fix.md).
+
+**A small element, usually facial hair, breaks up during animation.** Character Creator sometimes exports duplicate blendshape targets for an element, and they fight each other once the face animates. Use the **Fix Broken Blendshape** folder on the Reallusion Rigger node: put the element in **Broken Elements** as an `@name` group (the `@name` attribute of that mesh), then turn on **Fix Broken Blendshape**. Adjust **Radius** if you see deforming artifacts. Leave it off otherwise: with no element picked, the toggle would bypass the whole mesh.
+
+**My eyes don't look like they did in Character Creator.** Character Creator's HD eye shader bakes very little of its look into the export, so the eye imports with a neutral base color. Use the eye controls on the lookdev controller to rebuild the look in Houdini. Some aspects, such as true iris depth and pupil resize, can't be reproduced because the data isn't exported. See [Limitations & Expectations](limitations.md#the-eyes) and [Eyes](../lookdev/eyes.md).
+
+**A control does nothing on my character.** Many features are character-dependent: they only work if your character's export carries the data they need (hair maps, a tear-line mesh, wrinkle maps, displacement maps). If a control seems inert, your character likely doesn't have that data. See [Limitations & Expectations](limitations.md#character-dependent-features).
+
+**Does this work in an ACES pipeline?** Yes. Every texture is tagged with its colorspace explicitly and the tool sets no OCIO override of its own, so it follows your scene's config. The materials were built in ACEScg. See [Color management and ACES](../lookdev/rendering.md#color-management-and-aces).
+
+**Can I use this in a commercial studio pipeline?** It is a limited-commercial (Indie) asset. Loading it into a commercial Houdini session switches that session to limited-commercial mode, per SideFX's rules, and you are responsible for your own SideFX license compliance. See [Requirements & Installation](../getting-started/installation.md).
 
 ## Build and rig
 

@@ -12,7 +12,7 @@ The first release.
 
 **Import and look development**
 
-* Everything in Reallusion Importer 1.3 - Character Creator 5 and iClone 8 characters, FBX or USD, Karma XPU MaterialX materials and the lookdev controller.
+* Character Creator 5 and iClone 8 characters, FBX or USD, with Karma XPU MaterialX materials and the lookdev controller.
 
 **Rig**
 
@@ -23,7 +23,7 @@ The first release.
 **Animation**
 
 * New: **Face Puppet** recording with Character Creator's puppet profiles and Full Face presets.
-* New: **Face Key Muscle** editing.
+* New: **Face Key Muscle** posing on any layer, with Ease In / Ease Out and recording over time.
 * New: 301 expression presets and 71 hand poses in the Animation Catalog.
 * New: **Auto Blink** and **Auto Breathe**.
 * New: **Look At** with gaze-driven eye morphs.

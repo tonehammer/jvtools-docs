@@ -40,6 +40,12 @@ Houdini 22 ships three ACES-based OCIO configs under `$HFS/packages/ocio`, and w
 The **reference** config is the one exception: it doesn't define a standard sRGB texture space at all, so the tool's tags can't resolve there and you'll get an error rather than a wrong-looking render. It isn't meant for texturing work — use the cg config instead.
 !!!
 
+## Motion blur
+
+The character carries a velocity attribute, on the Reallusion Rigger node's output and on the rig node's output once a rig is built, so **motion blur works on animated characters in Karma**. Enable motion blur in your Karma render settings as usual; no other setup is needed.
+
+A rig built with an earlier download of the Rigger has no velocity yet. Press **Update Motion Clips** on the rig node once to add it; your clips and keys stay as they are.
+
 ## Where the character is built
 
 The **Build In** parameter in the same Render folder sets which LOP network **Build Character** builds into: the import, the materials, the lookdev controller and the render setup. It defaults to `/stage`. Change it before building — an existing build stays where it was made.

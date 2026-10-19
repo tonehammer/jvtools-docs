@@ -15,22 +15,15 @@ Your keys don't live on the controls you see. They live on **animation layers** 
 
 ## Controls and gears
 
-The body has IK/FK arms and legs, reverse feet, a spline spine, and FK controls for every finger and toe. Each body part also has a **gear** control holding its settings — IK/FK blend, stretch, foot roll and the like.
+The body has IK/FK arms and legs, reverse feet, a spline spine, and FK controls for every finger and toe. Each body part also has a **gear** control holding its settings — IK/FK, stretch, foot roll and the like — and the face has three gears beside the head.
 
-![The body rig in the animate state: limb boxes, spine and pelvis rings, the gears beside each body part](../static/body-controls.png)
+[The Controls](../animate-state/controls.md) names every control and what it moves, and [Gears](../animate-state/gears.md) explains every gear setting. [Getting Around](../animate-state/getting-around.md) covers the animate state's HUD, keys and menus.
 
 <div style="display:flex; flex-wrap:wrap; gap:0.75rem; margin:0 0 1.5rem;">
   <img src="../../static/hand-controls.png" alt="A hand: the IK box and the finger rings" style="height:260px; width:auto; border-radius:6px;">
   <img src="../../static/foot-controls.png" alt="The feet: reverse-foot boxes and toe controls" style="height:260px; width:auto; border-radius:6px;">
   <img src="../../static/torso-controls.png" alt="The spine, ribcage and pelvis rings" style="height:260px; width:auto; border-radius:6px;">
 </div>
-
-Two gear buttons are worth knowing, because they don't do what their names suggest:
-
-* **Pin Controls** lists that gear's channels in the Animation Editor: the spine, neck and head for the spine gear, the fingers for a hand gear. It does not lock the pose. Pinning another gear replaces the list rather than adding to it.
-* **LOD 1, 2 and 3** are independent show/hide toggles, not a level of detail you step through. On the root gear they act on the whole rig; on any other gear, only on that body part. Use them to clear controls out of the way while you work on one area.
-
-The face has its own gear beside the head; see [Face Tools](face-tools.md).
 
 ## Mirroring a pose
 
@@ -64,7 +57,7 @@ There are two ways to apply a pose, and they behave differently:
 
 Dropping a pose into the viewport always needs selected controls, for all three options in the drop menu; that's SideFX's rule, and with nothing selected it says "No controls selected". **Add to New Layer** builds its layer from the selected controls too, so select first or you get an empty layer.
 
-A pose writes **one key, at the current frame**. That explains the one thing that surprises everyone: a fist applied over a clip shows on one frame only, because the fingers already carry the clip with a key on every frame and the fist replaces just that one. An expression usually holds across the whole clip, because it lands on the face gear's channels, which had no other keys, and a single key holds everywhere. To shape that, apply a second expression at another frame and the face blends between the two, apply a neutral one where it should end, or use **Add to New Layer** and set that layer's weight over the frames you want. An expression **adds** onto the clip's own face rather than replacing it.
+A pose writes **one key, at the current frame**. That explains the one thing that surprises everyone: a fist applied over a clip shows on one frame only, because the fingers already carry the clip with a key on every frame and the fist replaces just that one. An expression usually holds across the whole clip, because it lands on the Face Blendshapes gear's channels, which had no other keys, and a single key holds everywhere. To shape that, apply a second expression at another frame and the face blends between the two, apply a neutral one where it should end, or use **Add to New Layer** and set that layer's weight over the frames you want. An expression **adds** onto the clip's own face rather than replacing it.
 
 !!!warning The catalog is not saved with the scene
 After reopening a scene, press **Reload Catalog Poses** on the rig node to put this character's poses back.

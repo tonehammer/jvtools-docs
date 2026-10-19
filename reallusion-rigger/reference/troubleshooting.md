@@ -57,9 +57,9 @@ This page covers the rig, the animation tools, and the character's look and mate
 
 **I dragged a pose into the viewport and it says "No controls selected".** Dropping a catalog item into the viewport needs selected controls, for all three options in the drop menu. That's SideFX's rule. With nothing selected, click the pose's tile and press **Apply** in the panel beside it.
 
-**Add to New Layer made an empty layer.** A new layer is built from the selected controls. Select them first: the Character Picker's Hands tab (left or right fingers) for a hand pose, the face gear for an expression.
+**Add to New Layer made an empty layer.** A new layer is built from the selected controls. Select them first: the Character Picker's Hands tab (left or right fingers) for a hand pose, the Face Blendshapes gear (the pale blue one beside the head) for an expression.
 
-**The fist showed on one frame, but the expression held across the whole clip.** A pose writes one key at the current frame. The fingers already carry the clip with a key on every frame, so the fist replaces just that frame. The expression lands on the face gear's channels, which had no other keys, and a single key holds everywhere. Apply a second expression at another frame and the face blends between the two, apply a neutral one where it should end, or use Add to New Layer and set that layer's weight over the frames you want.
+**The fist showed on one frame, but the expression held across the whole clip.** A pose writes one key at the current frame. The fingers already carry the clip with a key on every frame, so the fist replaces just that frame. The expression lands on the Face Blendshapes gear's channels, which had no other keys, and a single key holds everywhere. Apply a second expression at another frame and the face blends between the two, apply a neutral one where it should end, or use Add to New Layer and set that layer's weight over the frames you want.
 
 **I clicked Mirror and only a pale preview arm appeared.** That is the live preview. Press **Enter** over the viewport to apply it, or Shift+click the Mirror icon for a mirror that applies at once.
 
@@ -77,7 +77,7 @@ This page covers the rig, the animation tools, and the character's look and mate
 
 **A clip from another character pinches the waist, or its mouth shapes look off.** Cross-character clips are approximations. The posture follows the source body, and the face is converted between Character Creator's HD and Extended profiles through Reallusion's channel table, which has no counterpart for some HD mouth and cheek shapes. Apply the motion to your character in Character Creator 5 or iClone and export it from there.
 
-**Does Pin Controls lock the pose?** No. It lists that gear's channels in the Animation Editor, and pinning another gear replaces the list.
+**Does Pin Controls lock the pose?** No. It lists that gear's controls in the Animation Editor, and pinning another gear replaces the list. Every gear setting is explained on [Gears](../animate-state/gears.md).
 
 ---
 

@@ -55,7 +55,7 @@ If you're brand new, read these three pages in order:
 2. [Preparing Your Character in Character Creator](getting-started/preparing-your-character.md) — export your character the right way (this matters!).
 3. [Quick Start](getting-started/quick-start.md) — build and animate your first character.
 
-After that, **Using the Asset** explains the rig and every animation tool, **Look Development** covers the materials and the lookdev controller, and **Reference** covers the parameters, performance, troubleshooting, and what's new in each version.
+After that, **Using the Asset** explains the rig and every animation tool, **Animate State** explains everything you see in the animate state, every control and every gear setting, **Look Development** covers the materials and the lookdev controller, and **Reference** covers the parameters, performance, troubleshooting, and what's new in each version.
 
 !!!info
 This tool is an independent product and is not affiliated with, endorsed by, or sponsored by Reallusion or SideFX. "Character Creator," "iClone," and "Houdini" are trademarks of their respective owners.

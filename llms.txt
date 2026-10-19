@@ -62,6 +62,12 @@
 - [Clips & Layers](https://jvtools.dev/docs/reallusion-rigger/using/clips-and-layers.md): The Rigger has two core jobs, and it helps to know them before you plan a shot:
 - [Rig Settings](https://jvtools.dev/docs/reallusion-rigger/using/rig-settings.md): The Rig Settings folder on the rig node (closed by default) holds the settings you set once per character, and the Viewport folder above it controls how the character draws in the SOP viewport.
 
+### Animate State
+
+- [Getting Around](https://jvtools.dev/docs/reallusion-rigger/animate-state/getting-around.md): This section explains what you see on screen when you press Animate on the rig node, and what each part does.
+- [The Controls](https://jvtools.dev/docs/reallusion-rigger/animate-state/controls.md): This page names every control the rig draws, what it moves, and which gear setting shows the ones that are hidden by default.
+- [Gears](https://jvtools.dev/docs/reallusion-rigger/animate-state/gears.md): A gear is a control that holds settings instead of moving a joint. Each body part has one beside it, and there are three beside the head for the face and eyes.
+
 ### Look Development
 
 - [The Lookdev Controller](https://jvtools.dev/docs/reallusion-rigger/lookdev/lookdev-controller.md): When you click Build Character, the tool creates a bright red controller node in the LOP network (Solaris). This node is the heart of the whole

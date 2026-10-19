@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.845671014974">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.845686976291">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -39,11 +39,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.845671014974" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.845686976291" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.845671014974" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.845686976291" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.845671014974" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.845686976291" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -445,8 +445,8 @@
 <p><strong>Moving the Look At slider pushes the eye crosses back and forth.</strong> That is intended. See <a href="../../using/auto-animation/#look-at">Look At</a>.</p>
 <h2 id="catalog-and-posing">Catalog and posing</h2>
 <p><strong>I dragged a pose into the viewport and it says &quot;No controls selected&quot;.</strong> Dropping a catalog item into the viewport needs selected controls, for all three options in the drop menu. That&#x27;s SideFX&#x27;s rule. With nothing selected, click the pose&#x27;s tile and press <strong>Apply</strong> in the panel beside it.</p>
-<p><strong>Add to New Layer made an empty layer.</strong> A new layer is built from the selected controls. Select them first: the Character Picker&#x27;s Hands tab (left or right fingers) for a hand pose, the face gear for an expression.</p>
-<p><strong>The fist showed on one frame, but the expression held across the whole clip.</strong> A pose writes one key at the current frame. The fingers already carry the clip with a key on every frame, so the fist replaces just that frame. The expression lands on the face gear&#x27;s channels, which had no other keys, and a single key holds everywhere. Apply a second expression at another frame and the face blends between the two, apply a neutral one where it should end, or use Add to New Layer and set that layer&#x27;s weight over the frames you want.</p>
+<p><strong>Add to New Layer made an empty layer.</strong> A new layer is built from the selected controls. Select them first: the Character Picker&#x27;s Hands tab (left or right fingers) for a hand pose, the Face Blendshapes gear (the pale blue one beside the head) for an expression.</p>
+<p><strong>The fist showed on one frame, but the expression held across the whole clip.</strong> A pose writes one key at the current frame. The fingers already carry the clip with a key on every frame, so the fist replaces just that frame. The expression lands on the Face Blendshapes gear&#x27;s channels, which had no other keys, and a single key holds everywhere. Apply a second expression at another frame and the face blends between the two, apply a neutral one where it should end, or use Add to New Layer and set that layer&#x27;s weight over the frames you want.</p>
 <p><strong>I clicked Mirror and only a pale preview arm appeared.</strong> That is the live preview. Press <strong>Enter</strong> over the viewport to apply it, or Shift+click the Mirror icon for a mirror that applies at once.</p>
 <h2 id="clips-and-layers">Clips and layers</h2>
 <p><strong>Play Clip and the clip menu in the Layers tab disagree.</strong> Switch clips with <strong>Play Clip</strong>. It changes what the node plays and renders, fits the frame range, and moves the Layers-tab menu with it. The menu is SideFX&#x27;s own, and a pick there doesn&#x27;t move Play Clip or the frame range, so a longer clip is cut at the old range.</p>
@@ -455,7 +455,7 @@
 <p><strong>I changed BaseAnimation by mistake.</strong> Press <strong>Revert to Clip</strong> and pick Body, Face or Both. It also works after the scene was saved and reopened.</p>
 <p><strong>How do I animate a layer&#x27;s weight?</strong> Right-click the layer in the Animation Layers pane and use <strong>Add Weight to Channel List</strong>, <strong>Set Weight Keyframe</strong>, <strong>Remove Weight Keyframe</strong> or <strong>Set Weight from Playbar Selection</strong>. Once the weight has keys, moving its slider keys it at the current frame.</p>
 <p><strong>A clip from another character pinches the waist, or its mouth shapes look off.</strong> Cross-character clips are approximations. The posture follows the source body, and the face is converted between Character Creator&#x27;s HD and Extended profiles through Reallusion&#x27;s channel table, which has no counterpart for some HD mouth and cheek shapes. Apply the motion to your character in Character Creator 5 or iClone and export it from there.</p>
-<p><strong>Does Pin Controls lock the pose?</strong> No. It lists that gear&#x27;s channels in the Animation Editor, and pinning another gear replaces the list.</p>
+<p><strong>Does Pin Controls lock the pose?</strong> No. It lists that gear&#x27;s controls in the Animation Editor, and pinning another gear replaces the list. Every gear setting is explained on <a href="../../animate-state/gears/">Gears</a>.</p>
 <hr>
 <p>For anything not covered here, find me on the JVtools Discord - the invite link is in the <strong>Utilities</strong> folder on the HDA node.</p>
 <div id="retype-backlinks">
@@ -488,8 +488,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-14T10:46:50" title="2026-10-14" data-absolute-label="Last updated on 2026-10-14" data-absolute-label-html="Last updated on 2026-10-14" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-10-14
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-19T03:02:34" title="2026-10-19" data-absolute-label="Last updated on 2026-10-19" data-absolute-label-html="Last updated on 2026-10-19" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-10-19
                     </time>
                 </div>
 

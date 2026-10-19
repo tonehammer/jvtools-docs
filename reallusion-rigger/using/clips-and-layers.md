@@ -57,7 +57,7 @@ The additive layer adds on top of the clip and eases between its keys. This is t
 Keying on a layer of your own keeps the clip safe. These are the things that write to BaseAnimation, and that **Revert to Clip** undoes:
 
 * a catalog pose applied with **Add to New Layer** off,
-* **Face Key Muscle** drags (they key BaseAnimation by design),
+* **Face Key Muscle** drags while BaseAnimation is the active layer,
 * a Face Puppet take with **Record to New Layer** off,
 * **Clear Body Keys** or **Clear Face Keys** with BaseAnimation active.
 

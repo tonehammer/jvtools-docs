@@ -11,7 +11,7 @@ The **Face Tools** folder on the rig node is greyed out on a body-only rig (buil
 
 ## Sliders and the face board
 
-In the animate state, sliders sit on the face for the brows, blinks, gaze, cheeks, jaw, mouth, tongue and visemes, and a small panel beside the head holds the channels that have no spot on the face. A slider **adds** to the clip's value, so a keyed slider is an offset on top of the performance, not a replacement of it.
+In the animate state, sliders sit on the face for the brows, blinks, gaze, cheeks, jaw, mouth, tongue and visemes, and a small panel beside the head holds the channels that have no spot on the face. A slider **adds** to the clip's value, so a keyed slider is an offset on top of the performance, not a replacement of it. A slider on the face therefore stays at your offset while the clip plays; turn on the Face gear's **slidersFollowClip** to have it show the clip's value plus your offset instead. The face board's sliders always do.
 
 ![The face sliders on the face, the panel beside the head, and the gears](../static/face-sliders.png)
 

@@ -5,6 +5,13 @@ order: 70
 
 # Changelog
 
+## Version 1.0.1
+<p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">20 October 2026</p>
+
+* New: **slidersFollowClip** on the Face gear moves the sliders on the face with the clip.
+* **Fixed:** two-shape face sliders drove their first shape at double strength.
+* **Fixed:** the APEX Rig's type properties named a development build.
+
 ## Version 1.0
 <p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">12 October 2026</p>
 

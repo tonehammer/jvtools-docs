@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.845686976291">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.845843890263">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -45,11 +45,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.845686976291" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.845843890263" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.845686976291" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.845843890263" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.845686976291" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.845843890263" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -891,6 +891,7 @@
 | `off_face_sliders` | Menu | Left of Head | No | Where that panel sits: **Below Chin**, **Above Head**, **Left of Head**, **Right of Head**, or **None**, which hides it. Left and right are as you look at the face. The panel moves with the head. |
 | `boxlayout` | Toggle | off | No | Shows the sliders as the flat **face board** and hides the ones on the face. See [Face Tools](../using/face-tools.md#sliders-and-the-face-board). |
 | `mouthControls` | Toggle | off | No | Shows the lower teeth and tongue controls. |
+| `slidersFollowClip` | Toggle | off | No | Moves the sliders on the face with the clip: each shows the clip's value plus your offset. Off, they show your offset only. The face board's sliders always follow the clip. It changes where the sliders are drawn, not the face. |
 | `control_size` | Slider | 0 to 1 (0.5) | No | The length of the face sliders. 1 is full length; 0 is 70 percent shorter, each about its own centre. |
 | `slider_alpha` | Slider | 0 to 1 (0.75) | No | How opaque the slider lines on the face are. |
 | `pinControls` | Toggle | off | No | Lists every face slider in the Animation Editor. |
@@ -936,6 +937,13 @@
 <td>off</td>
 <td>No</td>
 <td>Shows the lower teeth and tongue controls.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>slidersFollowClip</code></td>
+<td>Toggle</td>
+<td>off</td>
+<td>No</td>
+<td>Moves the sliders on the face with the clip: each shows the clip&#x27;s value plus your offset. Off, they show your offset only. The face board&#x27;s sliders always follow the clip. It changes where the sliders are drawn, not the face.</td>
 </tr>
 <tr>
 <td><code translate="no" v-pre>control_size</code></td>
@@ -1047,8 +1055,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-19T03:02:34" title="2026-10-19" data-absolute-label="Last updated on 2026-10-19" data-absolute-label-html="Last updated on 2026-10-19" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-10-19
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-20T22:35:57" title="2026-10-20" data-absolute-label="Last updated on 2026-10-20" data-absolute-label-html="Last updated on 2026-10-20" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-10-20
                     </time>
                 </div>
 

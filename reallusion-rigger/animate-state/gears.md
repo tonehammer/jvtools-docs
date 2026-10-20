@@ -131,6 +131,7 @@ Pink, the top gear beside the head. None of its settings is keyable.
 | `off_face_sliders` | Menu | Left of Head | No | Where that panel sits: **Below Chin**, **Above Head**, **Left of Head**, **Right of Head**, or **None**, which hides it. Left and right are as you look at the face. The panel moves with the head. |
 | `boxlayout` | Toggle | off | No | Shows the sliders as the flat **face board** and hides the ones on the face. See [Face Tools](../using/face-tools.md#sliders-and-the-face-board). |
 | `mouthControls` | Toggle | off | No | Shows the lower teeth and tongue controls. |
+| `slidersFollowClip` | Toggle | off | No | Moves the sliders on the face with the clip: each shows the clip's value plus your offset. Off, they show your offset only. The face board's sliders always follow the clip. It changes where the sliders are drawn, not the face. |
 | `control_size` | Slider | 0 to 1 (0.5) | No | The length of the face sliders. 1 is full length; 0 is 70 percent shorter, each about its own centre. |
 | `slider_alpha` | Slider | 0 to 1 (0.75) | No | How opaque the slider lines on the face are. |
 | `pinControls` | Toggle | off | No | Lists every face slider in the Animation Editor. |

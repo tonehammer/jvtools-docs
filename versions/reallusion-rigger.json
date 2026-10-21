@@ -1,7 +1,6 @@
 {
   "product": "Reallusion Rigger",
-  "latest": "1.0",
-  "shipped": "1.0.1",
+  "latest": "1.1",
   "url": "https://jvtonehammer.gumroad.com/l/reallusionimporterforhoudini",
-  "notes": "First release: an APEX animation rig with a facial rig, Face Puppet, Auto Blink, Auto Breathe, Look At and motion clips, on top of everything in Reallusion Importer."
+  "notes": "Look At Target keys the eyes onto a camera or any object in the scene, and Look At can follow a camera animated in the animate state. Fixes the rig tools picking the wrong rig once an animate-state constraint exists."
 }

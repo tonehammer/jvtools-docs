@@ -5,6 +5,13 @@ order: 70
 
 # Changelog
 
+## Version 1.1
+<p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">21 October 2026</p>
+
+* New: **Look At Target** looks at a camera or any object, from the rig node's **Auto Animation** folder.
+* New: the Look At target follows a camera animated in the animate state, through Houdini's constraints.
+* **Fixed:** the rig node's tools picked the wrong rig once an animate-state constraint existed.
+
 ## Version 1.0.1
 <p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">20 October 2026</p>
 

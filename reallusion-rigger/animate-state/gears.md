@@ -109,7 +109,7 @@ One per foot, beside it. Roll and tilt drive the foot's pivots for you, so you c
 
 ## Eyes gear
 
-Yellow, the lowest of the three gears beside the head. It holds the Look At settings, which work like iClone's Look At panel, with 0 to 1 in place of iClone's 0 to 100. `headWeight`, `bodyWeight`, `angleLimit` and the lean sliders do nothing while `lookAt` is 0. `browFollow` works whenever the eyes look up or down, Look At or not.
+Yellow, the lowest of the three gears beside the head. It holds the Look At settings, with 0 to 1 in place of iClone's 0 to 100. `lookAt` has no iClone slider: it stands in for iClone's target key and its transition (see [Compared with iClone](../using/auto-animation.md#compared-with-iclone)). `headWeight`, `bodyWeight`, `angleLimit` and the lean sliders do nothing while `lookAt` is 0. `browFollow` works whenever the eyes look up or down, Look At or not.
 
 | Name in the HUD | Kind | Range (default) | Keyable | What it does |
 | --- | --- | --- | --- | --- |

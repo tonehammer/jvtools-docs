@@ -160,6 +160,12 @@ Hovering any parameter in Houdini shows its tooltip, which is the authoritative,
 | **Seed** | A different rhythm with the same profile. |
 | **Frame Range** | The frames to breathe over. |
 | **Add Auto Breathe** | Keys breaths onto an additive layer of its own. |
+| **Target** (Look At) | The camera, object or SOP node the eyes look at. |
+| **Group** | For a SOP Target, the points whose centre the eyes aim at. Empty aims at the whole geometry. |
+| **Offset** | Moves the aim point in the Target's own frame. |
+| **Transition** | Frames to turn onto the Target and back. 0 switches at once. |
+| **Frame Range** | The frames to look at the Target. |
+| **Bake Look At Target** | Keys the Look At target onto the Target over the frame range, on a layer of its own. |
 
 ## Lookdev controller (LOPs)
 

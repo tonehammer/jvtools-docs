@@ -1,6 +1,6 @@
 # Auto Animation
 
-Auto Blink and Auto Breathe take care of the two things a character does all the time and an animator never wants to key by hand. Both write ordinary keys, each press on an animation layer of its own, so the result is yours to mute, re-weight, edit or delete like any other layer. Both are in the rig node's **Auto Animation** folder.
+Auto Blink and Auto Breathe take care of the two things a character does all the time and an animator never wants to key by hand, and Look At Target keeps the eyes on a camera or an object. All three write ordinary keys, each press on an animation layer of its own, so the result is yours to mute, re-weight, edit or delete like any other layer. All three are in the rig node's **Auto Animation** folder.
 
 ## Auto Blink
 
@@ -34,4 +34,51 @@ The eyes can aim at two kinds of target, and the **Look At** slider on the Eyes 
 
 At **0** the crosses stay with the clip and the yellow target does nothing. At **1** the crosses sit on the yellow target, the eyes look at it, and the head and chest turn to help, as much as **Head Weight** and **Body Weight** say. In between, they sit partway. So moving the slider moves the crosses back and forth; that's intended, not a glitch.
 
-Why two targets? They do different jobs, and neither can do both. A target that rides with the head can't steer the head without chasing itself; a target fixed in the world would drag the eyes against every head move. So Look At blends from the first to the second, the way iClone's Look At does.
+Why two targets? They do different jobs, and neither can do both. A target that rides with the head can't steer the head without chasing itself; a target fixed in the world would drag the eyes against every head move. So Look At blends from the first to the second.
+
+### Compared with iClone
+
+iClone has no Look At slider. You turn Look At on by keying a target on the character's Look at Object track, and a transition handle on that key sets how many frames the turn takes. Here, keying **Look At** from 0 to 1 over those frames does the same job. You can see the blend because this rig draws the eye crosses: they slide from where the clip has them onto the yellow target, and halfway through the blend they sit halfway.
+
+The rest of the Eyes gear follows iClone's Look At panel, with 0 to 1 in place of 0 to 100:
+
+| iClone | Eyes gear |
+| --- | --- |
+| Head Weight, Body Weight | `headWeight`, `bodyWeight` |
+| Body Axis Weight X / Y / Z (0 to 200) | `leanX`, `leanY`, `leanZ` (0 to 1) |
+| Associated Eyebrow Movement | `browFollow` |
+| Enhance CC Characters with Head-Turn Morphs | Always on: the head-turn morphs follow the head |
+| None | `angleLimit`, the most the chest and head turn |
+
+iClone's Look at Camera and Look at Object are **Bake Look At Target** here, below.
+
+### Looking at a camera or an object
+
+The **Look At** tab in the rig node's **Auto Animation** folder puts the yellow target on something in your scene for you, at every frame, so the eyes follow it however it moves.
+
+1. Set **Target** to the camera, or to any other object. The eyes aim at its origin. For a SOP node, they aim at the centre of its **Group**; on another character's skeleton, a group such as `@name=Head` picks one joint.
+2. Set the **Frame Range**, and the **Transition**: the frames the eyes take to turn onto the target at the start and back at the end.
+3. Press **Bake Look At Target**.
+
+The yellow target is keyed onto the Target at every frame of the range, and **Look At** is keyed on, on a new layer named LookTarget (then LookTarget2, and so on). The head and chest turn by the Eyes gear's **Head Weight** and **Body Weight**, as when you move the target by hand. Outside the frame range the layer does nothing. It works in the animate state or not, as one undo step.
+
+To look just past a camera's lens rather than into it, set a small **Offset**, such as `0 0.05 0`: it moves the aim point in the Target's own frame.
+
+Nothing stays linked. If the camera or object moves afterwards, delete the layer in the Animation Layers pane and press the button again.
+
+!!!info LOP cameras
+**Target** takes an object-level camera (`/obj`). A camera that exists only in LOPs has no object to pick: aim the yellow target by hand, or add an object-level camera that follows it.
+!!!
+
+### Following a camera live in the animate state
+
+If you animate a camera inside the animate state, the yellow target can follow it live, with Houdini's own constraints instead of a bake:
+
+1. In the viewport's camera menu (top right, **No cam**), choose **New Camera**. It is made where you are looking from, inside the rig node.
+2. Turn **Look At** up to 1 on the Eyes gear.
+3. In the animate state parameters, **Constraint** tab, set **Constraint** to **Offset**, **Offset** to **None** (so the target sits on the camera rather than keeping its distance) and **Components** to translate only.
+4. Select the yellow target, Shift-select the camera's control, and press **H**.
+
+The eyes now follow the camera as you animate it, in the viewport and in the render. The constraint's **Blend** is keyable, and Shift-dragging a frame range on the timeline before pressing **H** limits it to those frames.
+
+Two limits. A camera made this way lives in the animate state only: you can look through it there, but it is not exported to `/stage`, so for the camera you render with, use **Bake Look At Target**. And the character's own hands, arms and head cannot drive the yellow target, because Look At turns the chest and head toward it: Houdini refuses that constraint and the target simply stays where it is.

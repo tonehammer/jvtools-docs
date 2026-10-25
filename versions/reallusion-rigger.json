@@ -1,6 +1,6 @@
 {
   "product": "Reallusion Rigger",
-  "latest": "1.1",
+  "latest": "1.2",
   "url": "https://jvtonehammer.gumroad.com/l/reallusionimporterforhoudini",
-  "notes": "Look At Target keys the eyes onto a camera or any object in the scene, and Look At can follow a camera animated in the animate state. Fixes the rig tools picking the wrong rig once an animate-state constraint exists."
+  "notes": "Auto Breathe gains a Shoulders toggle, and Face Puppet and Face Key Muscle recording now preroll 3 seconds. Fixes hand poses spinning a finger between keyed poses and recorded takes stopping as soon as they start."
 }

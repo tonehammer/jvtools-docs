@@ -120,7 +120,7 @@ A rig built before this feature needs deleting and building again to get it.
 
 ### Settings
 
-These are ordinary Houdini parameters: MMB value ladder, and Ctrl+MMB reverts a value. They sit in the **Face Key Muscle Settings** sub-folder on the rig node. The pane shows the Face Key Muscle section and Recording Settings straight from the rig node.
+These are ordinary Houdini parameters: MMB value ladder, and Ctrl+MMB reverts a value. They sit in the **Face Key Muscle Settings** sub-folder on the rig node. The pane shows the Face Key Muscle section and Recording Settings straight from the rig node. Open **Recording Settings** in a floating pane and the window grows to fit it, so the drawing keeps its size.
 
 * **Symmetric**: a picked region brings its other side along. Brows, lids and lips mirror, and the eyes look the same way.
 * **Key**: which channels a drag keys at the frame. **Moved Channels** keys only what the drag changed. **Whole Face** holds every face channel the layer has at the frame, which is useful for posing key to key.
@@ -157,7 +157,7 @@ With **Record to New Layer** on (the default), each take gets a layer of its own
 
 **Recording Settings** is a section of the Face Tools folder of its own, closed by default. Both Record rows use it. Besides **Record Mode** and **Record to New Layer**, it holds:
 
-* **Preroll**: the seconds counted down before the take starts, so you can find the motion before it is recorded. The pad already follows the mouse during the countdown.
+* **Preroll**: the seconds counted down before the take starts, 3 by default, so you can find the motion before it is recorded. The pad already follows the mouse during the countdown.
 * **Record Speed**: how fast the playbar runs while recording. 1 is real time, and 0.5 is half speed for a precise performance. Slow it down for a tricky beat. Your playbar settings come back afterwards.
 * **Mouse Range**: the pixels of mouse travel, from where you pressed **SPACE**, to a full deflection of the pad (a full shape on a Face Key Muscle take). Lower is more sensitive.
 * **Smoothing**: the frames of smoothing on the recorded mouse path. 0 keys exactly as you performed it. A little takes the jitter out of a hand-held performance.

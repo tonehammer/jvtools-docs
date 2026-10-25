@@ -24,9 +24,10 @@ Use **Keep** on a clip whose face already performs (a dialogue take), and **Repl
 
 * **Profile:** **Calm** is about 12 breaths a minute and shallow, **Normal** about 16, **Heavy** about 30 and deep with the shoulders lifting, **Sleeping** about 10, slow and deep, from the ribs.
 * **Depth** scales the breaths: 1 is the profile as it comes, 2 twice as far. The layer's weight scales them again, and you can key it to make the breathing build or settle.
+* **Shoulders**, on by default, lets the clavicles lift the shoulders at each inhale. The arms hold the hands where the clip puts them, so as the shoulders rise the elbows give a little: a couple of millimetres on Normal, around a centimetre on Heavy. On a character whose arms should be still that reads as fidgeting, so turn Shoulders off and the shoulders and elbows are left to the clip.
 * **Seed** and **Frame Range** work as they do for Auto Blink.
 
-What moves: the chest control tilts back and lifts a little, the two ribcage controls (`L_RibsTwist`, `R_RibsTwist`) move forward and up, and on Calm, Normal and Heavy the clavicles lift the shoulders. The neck turns back by the chest's tilt, so the head keeps its aim, and the hands stay where the clip holds them. Only whole breaths inside the Frame Range are written, so the layer adds nothing outside them.
+What moves: the chest control tilts back and lifts a little, the two ribcage controls (`L_RibsTwist`, `R_RibsTwist`) move forward and up, and on Calm, Normal and Heavy the clavicles lift the shoulders, unless **Shoulders** is off. The neck turns back by the chest's tilt, so the head keeps its aim, and the hands stay where the clip holds them. Only whole breaths inside the Frame Range are written, so the layer adds nothing outside them.
 
 ## Look At
 

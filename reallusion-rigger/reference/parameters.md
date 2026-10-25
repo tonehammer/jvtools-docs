@@ -144,7 +144,7 @@ Hovering any parameter in Houdini shows its tooltip, which is the authoritative,
 |---|---|
 | **Record Mode** | Replace or Blend: what a take, from either Record, does to the animation already there. |
 | **Record to New Layer** | Puts each take on an animation layer of its own. On by default. |
-| **Preroll** | Seconds counted down before a take starts. |
+| **Preroll** | Seconds counted down before a take starts. 3 by default. |
 | **Record Speed** | How fast the playbar runs while recording. 1 is real time. |
 | **Mouse Range** | Pixels of mouse travel for a full deflection of the pad (a full shape on a Face Key Muscle take). |
 | **Smoothing** | Frames of smoothing on the recorded mouse path. |
@@ -162,6 +162,7 @@ Hovering any parameter in Houdini shows its tooltip, which is the authoritative,
 | **Add Auto Blink** | Keys blinks onto a layer of their own. |
 | **Profile** (Auto Breathe) | Calm, Normal, Heavy or Sleeping. |
 | **Depth** | How deep the breaths are. 1 is the profile as it comes. |
+| **Shoulders** | Lifts the shoulders at each inhale. Off leaves the shoulders, and the elbows, to the animation. |
 | **Seed** | A different rhythm with the same profile. |
 | **Frame Range** | The frames to breathe over. |
 | **Add Auto Breathe** | Keys breaths onto an additive layer of its own. |

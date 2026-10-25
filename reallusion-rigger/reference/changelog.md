@@ -5,6 +5,15 @@ order: 70
 
 # Changelog
 
+## Version 1.2
+<p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">25 October 2026</p>
+
+* New: **Shoulders** on Auto Breathe turns the breathing's shoulder lift off.
+* **Preroll** for Face Puppet and Face Key Muscle recording now defaults to 3 seconds.
+* **Fixed:** some hand poses turned a finger a full circle between two keyed poses.
+* **Fixed:** a Face Puppet or Face Key Muscle take could stop as soon as it started.
+* **Fixed:** opening **Recording Settings** shrank the Face Key Muscle drawing.
+
 ## Version 1.1
 <p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">21 October 2026</p>
 

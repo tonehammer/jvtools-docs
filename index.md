@@ -16,6 +16,8 @@ before, and a *workflow* tool improves how you work inside Houdini.
 
 [!card title="RPLidar In" image="/rplidar-in/static/card.png" text="Bring live Slamtec RPLIDAR point-cloud data into Houdini as SOP geometry — stream, record, visualize, and drive live simulations."](/rplidar-in/README.md)
 
+[!card title="MAPout" image="/mapout/static/card.png" text="Native projection mapping for Houdini Copernicus — a corner pin, a mesh warp, masks and shapes drawn straight onto the projection, each with its own UV space in the COP network."](/mapout/README.md)
+
 ### Generators
 
 [!card title="Neonyte" image="/neonyte/static/card.png" text="Procedural neon signs for Houdini: click a wall, press one button, and every placeholder becomes a different lit sign, with the metal rig behind it and a Karma material."](/neonyte/README.md)

@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://jvtools.dev/docs/</loc>
-    <lastmod>2026-10-12T09:15:55Z</lastmod>
+    <lastmod>2026-10-28T17:19:56Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/reallusion-rigger/</loc>
@@ -27,6 +27,10 @@
   <url>
     <loc>https://jvtools.dev/docs/copout/</loc>
     <lastmod>2026-10-28T16:49:54Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jvtools.dev/docs/mapout/</loc>
+    <lastmod>2026-10-28T17:19:56Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/flip-dop-controller/</loc>
@@ -69,6 +73,14 @@
     <lastmod>2026-08-07T12:06:44Z</lastmod>
   </url>
   <url>
+    <loc>https://jvtools.dev/docs/reallusion-importer/reference/troubleshooting/</loc>
+    <lastmod>2026-09-24T03:32:39Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jvtools.dev/docs/reallusion-rigger/getting-started/import-modes/</loc>
+    <lastmod>2026-10-14T10:46:50Z</lastmod>
+  </url>
+  <url>
     <loc>https://jvtools.dev/docs/reallusion-importer/using/eyes/</loc>
     <lastmod>2026-08-28T11:41:25Z</lastmod>
   </url>
@@ -81,12 +93,8 @@
     <lastmod>2026-08-07T12:06:44Z</lastmod>
   </url>
   <url>
-    <loc>https://jvtools.dev/docs/reallusion-importer/reference/troubleshooting/</loc>
-    <lastmod>2026-09-24T03:32:39Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jvtools.dev/docs/reallusion-rigger/getting-started/import-modes/</loc>
-    <lastmod>2026-10-14T10:46:50Z</lastmod>
+    <loc>https://jvtools.dev/docs/advanced-velocity/timed-events/</loc>
+    <lastmod>2026-09-08T13:05:36Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/reallusion-importer/reference/limitations/</loc>
@@ -109,12 +117,24 @@
     <lastmod>2026-10-19T03:02:34Z</lastmod>
   </url>
   <url>
-    <loc>https://jvtools.dev/docs/advanced-velocity/timed-events/</loc>
-    <lastmod>2026-09-08T13:05:36Z</lastmod>
+    <loc>https://jvtools.dev/docs/advanced-velocity/using/</loc>
+    <lastmod>2026-09-18T21:24:37Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jvtools.dev/docs/neonyte/control/</loc>
+    <lastmod>2026-09-09T13:02:56Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jvtools.dev/docs/reallusion-importer/using/skin-fix/</loc>
+    <lastmod>2026-08-07T12:06:44Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/reallusion-importer/using/wrinkles/</loc>
     <lastmod>2026-08-07T12:06:44Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jvtools.dev/docs/reallusion-importer/using/rendering/</loc>
+    <lastmod>2026-09-11T00:31:25Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/reallusion-rigger/getting-started/installation/</loc>
@@ -129,40 +149,12 @@
     <lastmod>2026-10-12T15:33:20Z</lastmod>
   </url>
   <url>
-    <loc>https://jvtools.dev/docs/advanced-velocity/using/</loc>
-    <lastmod>2026-09-18T21:24:37Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jvtools.dev/docs/neonyte/control/</loc>
-    <lastmod>2026-09-09T13:02:56Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jvtools.dev/docs/reallusion-importer/using/skin-fix/</loc>
-    <lastmod>2026-08-07T12:06:44Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jvtools.dev/docs/reallusion-importer/using/rendering/</loc>
-    <lastmod>2026-09-11T00:31:25Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jvtools.dev/docs/reallusion-rigger/using/building-the-rig/</loc>
-    <lastmod>2026-10-14T10:46:50Z</lastmod>
-  </url>
-  <url>
     <loc>https://jvtools.dev/docs/advanced-velocity/getting-started/</loc>
     <lastmod>2026-09-08T13:05:36Z</lastmod>
   </url>
   <url>
-    <loc>https://jvtools.dev/docs/rplidar-in/using/</loc>
-    <lastmod>2026-08-26T09:24:56Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jvtools.dev/docs/reallusion-importer/using/skin/</loc>
-    <lastmod>2026-08-07T12:06:44Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jvtools.dev/docs/reallusion-importer/using/displacement/</loc>
-    <lastmod>2026-08-07T12:06:44Z</lastmod>
+    <loc>https://jvtools.dev/docs/reallusion-rigger/using/building-the-rig/</loc>
+    <lastmod>2026-10-14T10:46:50Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/reallusion-rigger/using/animating/</loc>
@@ -173,8 +165,20 @@
     <lastmod>2026-09-22T21:55:36Z</lastmod>
   </url>
   <url>
+    <loc>https://jvtools.dev/docs/rplidar-in/using/</loc>
+    <lastmod>2026-08-26T09:24:56Z</lastmod>
+  </url>
+  <url>
     <loc>https://jvtools.dev/docs/neonyte/using/</loc>
     <lastmod>2026-09-09T13:02:56Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jvtools.dev/docs/reallusion-importer/using/skin/</loc>
+    <lastmod>2026-08-07T12:06:44Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jvtools.dev/docs/reallusion-importer/using/displacement/</loc>
+    <lastmod>2026-08-07T12:06:44Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/reallusion-rigger/using/face-tools/</loc>
@@ -189,16 +193,8 @@
     <lastmod>2026-10-14T10:46:50Z</lastmod>
   </url>
   <url>
-    <loc>https://jvtools.dev/docs/neonyte/getting-started/</loc>
-    <lastmod>2026-09-09T13:02:56Z</lastmod>
-  </url>
-  <url>
     <loc>https://jvtools.dev/docs/neonyte/rendering/</loc>
     <lastmod>2026-09-09T13:02:56Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jvtools.dev/docs/reallusion-rigger/using/skin-fix/</loc>
-    <lastmod>2026-10-14T10:46:50Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/reallusion-rigger/animate-state/getting-around/</loc>
@@ -209,15 +205,11 @@
     <lastmod>2026-10-21T21:02:57Z</lastmod>
   </url>
   <url>
-    <loc>https://jvtools.dev/docs/reallusion-rigger/lookdev/hair/</loc>
-    <lastmod>2026-10-14T10:46:50Z</lastmod>
+    <loc>https://jvtools.dev/docs/neonyte/getting-started/</loc>
+    <lastmod>2026-09-09T13:02:56Z</lastmod>
   </url>
   <url>
-    <loc>https://jvtools.dev/docs/reallusion-importer/reference/changelog/</loc>
-    <lastmod>2026-10-12T09:15:55Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jvtools.dev/docs/reallusion-rigger/lookdev/wrinkles/</loc>
+    <loc>https://jvtools.dev/docs/reallusion-rigger/using/skin-fix/</loc>
     <lastmod>2026-10-14T10:46:50Z</lastmod>
   </url>
   <url>
@@ -225,12 +217,16 @@
     <lastmod>2026-10-14T10:46:50Z</lastmod>
   </url>
   <url>
-    <loc>https://jvtools.dev/docs/reallusion-rigger/lookdev/rendering/</loc>
-    <lastmod>2026-10-18T22:36:30Z</lastmod>
+    <loc>https://jvtools.dev/docs/reallusion-rigger/lookdev/hair/</loc>
+    <lastmod>2026-10-14T10:46:50Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/reallusion-rigger/reference/parameters/</loc>
     <lastmod>2026-10-25T13:21:38Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jvtools.dev/docs/reallusion-importer/reference/changelog/</loc>
+    <lastmod>2026-10-12T09:15:55Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/reallusion-importer/reference/license/</loc>
@@ -241,6 +237,14 @@
     <lastmod>2026-10-19T03:02:34Z</lastmod>
   </url>
   <url>
+    <loc>https://jvtools.dev/docs/reallusion-rigger/lookdev/wrinkles/</loc>
+    <lastmod>2026-10-14T10:46:50Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jvtools.dev/docs/reallusion-rigger/lookdev/rendering/</loc>
+    <lastmod>2026-10-18T22:36:30Z</lastmod>
+  </url>
+  <url>
     <loc>https://jvtools.dev/docs/reallusion-rigger/reference/performance/</loc>
     <lastmod>2026-10-14T10:46:50Z</lastmod>
   </url>
@@ -249,8 +253,20 @@
     <lastmod>2026-09-22T20:14:00Z</lastmod>
   </url>
   <url>
+    <loc>https://jvtools.dev/docs/mapout/using/</loc>
+    <lastmod>2026-10-28T17:19:56Z</lastmod>
+  </url>
+  <url>
     <loc>https://jvtools.dev/docs/copout/getting-started/</loc>
     <lastmod>2026-10-28T16:49:54Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jvtools.dev/docs/reallusion-rigger/lookdev/displacement/</loc>
+    <lastmod>2026-10-14T10:46:50Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jvtools.dev/docs/mapout/getting-started/</loc>
+    <lastmod>2026-10-28T17:19:56Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/flip-dop-controller/using/</loc>
@@ -258,10 +274,6 @@
   </url>
   <url>
     <loc>https://jvtools.dev/docs/reallusion-rigger/lookdev/skin/</loc>
-    <lastmod>2026-10-14T10:46:50Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jvtools.dev/docs/reallusion-rigger/lookdev/displacement/</loc>
     <lastmod>2026-10-14T10:46:50Z</lastmod>
   </url>
   <url>
@@ -285,6 +297,10 @@
     <lastmod>2026-09-24T03:29:19Z</lastmod>
   </url>
   <url>
+    <loc>https://jvtools.dev/docs/rplidar-in/reference/troubleshooting/</loc>
+    <lastmod>2026-09-24T03:29:19Z</lastmod>
+  </url>
+  <url>
     <loc>https://jvtools.dev/docs/deoverlap-polylines/using/</loc>
     <lastmod>2026-09-19T08:07:01Z</lastmod>
   </url>
@@ -295,10 +311,6 @@
   <url>
     <loc>https://jvtools.dev/docs/reallusion-rigger/reference/license/</loc>
     <lastmod>2026-10-12T09:15:55Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jvtools.dev/docs/rplidar-in/reference/troubleshooting/</loc>
-    <lastmod>2026-09-24T03:29:19Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/deoverlap-polylines/getting-started/</loc>
@@ -321,10 +333,6 @@
     <lastmod>2026-09-09T13:02:56Z</lastmod>
   </url>
   <url>
-    <loc>https://jvtools.dev/docs/neonyte/control/advanced/</loc>
-    <lastmod>2026-09-09T13:02:56Z</lastmod>
-  </url>
-  <url>
     <loc>https://jvtools.dev/docs/neonyte/control/notes/</loc>
     <lastmod>2026-09-09T13:02:56Z</lastmod>
   </url>
@@ -341,11 +349,11 @@
     <lastmod>2026-09-24T22:55:36Z</lastmod>
   </url>
   <url>
-    <loc>https://jvtools.dev/docs/neonyte/control/defaults/</loc>
+    <loc>https://jvtools.dev/docs/neonyte/control/advanced/</loc>
     <lastmod>2026-09-09T13:02:56Z</lastmod>
   </url>
   <url>
-    <loc>https://jvtools.dev/docs/neonyte/reference/changelog/</loc>
+    <loc>https://jvtools.dev/docs/neonyte/control/defaults/</loc>
     <lastmod>2026-09-09T13:02:56Z</lastmod>
   </url>
   <url>
@@ -353,12 +361,16 @@
     <lastmod>2026-09-24T03:29:19Z</lastmod>
   </url>
   <url>
-    <loc>https://jvtools.dev/docs/neonyte/reference/license/</loc>
-    <lastmod>2026-09-22T20:48:47Z</lastmod>
+    <loc>https://jvtools.dev/docs/neonyte/reference/changelog/</loc>
+    <lastmod>2026-09-09T13:02:56Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/copout/reference/parameters/</loc>
     <lastmod>2026-09-22T21:55:36Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jvtools.dev/docs/neonyte/reference/license/</loc>
+    <lastmod>2026-09-22T20:48:47Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/copout/reference/changelog/</loc>
@@ -367,6 +379,18 @@
   <url>
     <loc>https://jvtools.dev/docs/copout/reference/license/</loc>
     <lastmod>2026-08-26T09:24:56Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jvtools.dev/docs/mapout/reference/parameters/</loc>
+    <lastmod>2026-10-28T17:19:56Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jvtools.dev/docs/mapout/reference/changelog/</loc>
+    <lastmod>2026-10-28T17:19:56Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jvtools.dev/docs/mapout/reference/license/</loc>
+    <lastmod>2026-10-28T17:19:56Z</lastmod>
   </url>
   <url>
     <loc>https://jvtools.dev/docs/flip-dop-controller/reference/parameters/</loc>

@@ -163,7 +163,7 @@ data:
     version: "1.0"
   co:
     name: COPout
-    version: "1.1"
+    version: "1.2"
   dp:
     name: Deoverlap Polylines
     version: "1.2"

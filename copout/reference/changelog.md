@@ -5,6 +5,16 @@ order: 70
 
 # Changelog
 
+## Version 1.2
+<p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">28 October 2026</p>
+
+**Fixes**
+
+* Fixed a crash on COP images stored at 16-bit precision.
+* Undo now reverses a right-drag of the image.
+* The output is no longer capped near 20 fps.
+* The YouTube button opens the channel's current address.
+
 ## Version 1.1
 <p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">22 September 2026</p>
 

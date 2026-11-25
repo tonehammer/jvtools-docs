@@ -3,8 +3,8 @@
 > Houdini digital assets and tools for artists and technical directors. Pick a product below for its documentation.
 
 - [JVtools](https://jvtools.dev/docs/index.md): JVtools
-- [Reallusion Importer for Houdini](https://jvtools.dev/docs/reallusion-importer/readme.md): Reallusion Importer for Houdini (v1.3) turns a Character Creator 5 or iClone 8 character into a fully shaded, animatable, render-ready character in Houdini's Solaris environment — in seconds instead of hours.
-- [Reallusion Rigger for Houdini](https://jvtools.dev/docs/reallusion-rigger/readme.md): Reallusion Rigger (v1.2) turns a Character Creator 5 or iClone 8 character into a fully shaded character in Houdini's Solaris environment, and builds it an APEX animation rig — body and face — that you animate right in the viewport.
+- [Reallusion Importer for Houdini](https://jvtools.dev/docs/reallusion-importer/readme.md): Reallusion Importer for Houdini (v1.4) turns a Character Creator 5 or iClone 8 character into a fully shaded, animatable, render-ready character in Houdini's Solaris environment — in seconds instead of hours.
+- [Reallusion Rigger for Houdini](https://jvtools.dev/docs/reallusion-rigger/readme.md): Reallusion Rigger (v1.3) turns a Character Creator 5 or iClone 8 character into a fully shaded character in Houdini's Solaris environment, and builds it an APEX animation rig — body and face — that you animate right in the viewport.
 - [Advanced Velocity](https://jvtools.dev/docs/advanced-velocity/readme.md): Welcome! Advanced Velocity (v1.4.1) is a single Houdini SOP that authors the @v velocity attribute your simulations read — fixed, aimed, exploding, inherited from motion, turbulent — and blends them all together on one node.
 - [RPLidar In](https://jvtools.dev/docs/rplidar-in/readme.md): Welcome! RPLidar In (v1.0) brings live Slamtec RPLIDAR point-cloud data straight into Houdini as SOP geometry. Plug in the sensor, drop the node, and every
 - [Neonyte](https://jvtools.dev/docs/neonyte/readme.md): Neonyte is a Houdini SOP that turns placeholder boxes into generated neon signs: lettering, icons, decor tubes, the metal rig behind them, and a Karma material - for dressing buildings and streets.
@@ -41,7 +41,7 @@
 - [Limitations & Expectations](https://jvtools.dev/docs/reallusion-importer/reference/limitations.md): This page sets honest expectations before and after you buy. Character Creator's FBX export — and Houdini itself — impose some hard limits no importer can work around.
 - [Performance & Caching](https://jvtools.dev/docs/reallusion-importer/reference/performance.md): Character Creator characters are detailed, and detailed characters use memory. Here's where the cost comes from and how to keep your sessions fast and lean.
 - [Troubleshooting & FAQ](https://jvtools.dev/docs/reallusion-importer/reference/troubleshooting.md): Common issues and their fixes. Most import problems trace back to either an export setting or a moved file.
-- [Changelog](https://jvtools.dev/docs/reallusion-importer/reference/changelog.md): Fixed: USD characters no longer import and render as subdivision surfaces.
+- [Changelog](https://jvtools.dev/docs/reallusion-importer/reference/changelog.md): New: skin uses Character Creator's micro normal, cavity, specular mask, SSS and (FBX) mouth and nostril AO maps, with Micro Detail and Cavity controls.
 - [License](https://jvtools.dev/docs/reallusion-importer/reference/license.md): This is the End User License Agreement for Reallusion Importer and Reallusion Rigger for Houdini. It covers whichever of the two you purchased. By downloading, installing, or using the asset, you agree to these terms.
 
 ## Reallusion Rigger for Houdini
@@ -61,6 +61,7 @@
 - [Face Tools](https://jvtools.dev/docs/reallusion-rigger/using/face-tools.md): Every Character Creator morph channel is keyable on the rig as face_channel, and a clip carries its facial performance along with its body, so playing a clip plays the face too.
 - [Auto Animation](https://jvtools.dev/docs/reallusion-rigger/using/auto-animation.md): Auto Blink and Auto Breathe take care of the two things a character does all the time and an animator never wants to key by hand, and Look At Target keeps the eyes on a camera or an object.
 - [Clips & Layers](https://jvtools.dev/docs/reallusion-rigger/using/clips-and-layers.md): The Rigger has two core jobs, and it helps to know them before you plan a shot:
+- [Props](https://jvtools.dev/docs/reallusion-rigger/using/props.md): A prop, such as a sword, a cup or a phone, can be added to the rig's APEX scene and parented to a hand in the animate state. It then moves with the hand, and it renders with the character in Karma.
 - [Rig Settings](https://jvtools.dev/docs/reallusion-rigger/using/rig-settings.md): The Rig Settings folder on the rig node (closed by default) holds the settings you set once per character, and the Viewport folder above it controls how the character draws in the SOP viewport.
 
 ### Animate State
@@ -85,7 +86,7 @@
 - [Limitations & Expectations](https://jvtools.dev/docs/reallusion-rigger/reference/limitations.md): Read this before you buy, and again if something surprises you.
 - [Performance & Memory](https://jvtools.dev/docs/reallusion-rigger/reference/performance.md): Character Creator characters are detailed, and detailed characters use memory. Here's where the cost comes from and how to keep your sessions fast and lean.
 - [Troubleshooting & FAQ](https://jvtools.dev/docs/reallusion-rigger/reference/troubleshooting.md): This page covers the rig, the animation tools, and the character's look and materials.
-- [Changelog](https://jvtools.dev/docs/reallusion-rigger/reference/changelog.md): New: Shoulders on Auto Breathe turns the breathing's shoulder lift off.
+- [Changelog](https://jvtools.dev/docs/reallusion-rigger/reference/changelog.md): New: Boxlayout Size in Rig Settings resizes the face board.
 - [License](https://jvtools.dev/docs/reallusion-rigger/reference/license.md): This is the End User License Agreement for Reallusion Importer and Reallusion Rigger for Houdini. It covers whichever of the two you purchased. By downloading, installing, or using the asset, you agree to these terms.
 
 ## Advanced Velocity

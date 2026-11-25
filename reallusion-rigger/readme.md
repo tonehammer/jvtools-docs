@@ -6,14 +6,14 @@
 
 <p style="text-align:center; margin:0 0 1.5rem;"><a href="https://jvtonehammer.gumroad.com/l/reallusionimporterforhoudini"><strong>Get it on Gumroad →</strong></a><br><a href="https://jvtools.dev/" style="font-size:0.9em;">More Houdini tools at jvtools.dev</a></p>
 
-**Reallusion Rigger** (v1.2) turns a Character Creator 5 or iClone 8 character into a fully shaded character in Houdini's Solaris environment, and builds it an APEX animation rig — body and face — that you animate right in the viewport.
+**Reallusion Rigger** (v1.3) turns a Character Creator 5 or iClone 8 character into a fully shaded character in Houdini's Solaris environment, and builds it an APEX animation rig — body and face — that you animate right in the viewport.
 
 Export your character from Character Creator as **USD** (fast and light, the recommended default) or **FBX**, point this tool at it, and click one button. It rebuilds your character in Solaris with proper Karma MaterialX materials for skin, eyes, teeth, hair and clothing, gathers every meaningful look control onto a single panel, and then builds a rig node below it. Press **Animate** on that node and you're posing and keying the character in Houdini's APEX animate state, face included, with the character's own exported animation already on it.
 
-Built for Character Creator 5 / iClone 8, tested on Houdini 22.0.429. Ships as a black-boxed Houdini Digital Asset, tuned for Karma XPU and also renders in Karma CPU.
+Built for Character Creator 5 / iClone 8, tested on Houdini 22.0.508. Ships as a black-boxed Houdini Digital Asset, tuned for Karma XPU and also renders in Karma CPU.
 
 !!!info Rigger and Importer
-The Rigger includes everything the Importer does. **Pick the Importer** to render characters with the animation they were exported with, or if you work in Houdini 21 — it is tested on Houdini 21.0.729 and 22.0.429. **Pick the Rigger** to animate in Houdini; it is tested on Houdini 22.0.429 and needs Houdini 22, because it is built on Houdini 22's APEX autorig builder. One Gumroad page sells both as separate versions. Buying one does not include the other, and there is no upgrade from the Importer to the Rigger; they are separate purchases.
+The Rigger includes everything the Importer does. **Pick the Importer** to render characters with the animation they were exported with, or if you work in Houdini 21 — it is tested on Houdini 21.0.729 and 22.0.508. **Pick the Rigger** to animate in Houdini; it is tested on Houdini 22.0.508 and needs Houdini 22, because it is built on Houdini 22's APEX autorig builder. One Gumroad page sells both as separate versions. Buying one does not include the other, and there is no upgrade from the Importer to the Rigger; they are separate purchases.
 !!!
 
 !!!success The best-quality workflow

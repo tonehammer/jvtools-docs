@@ -1,5 +1,16 @@
 # Changelog
 
+## Version 1.3
+<p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">25 November 2026</p>
+
+* New: **Boxlayout Size** in Rig Settings resizes the face board.
+* New: each **Bake Look At Target** layer can carry its own **Layer Settings**.
+* New: skin uses Character Creator's micro normal, cavity, specular mask and SSS maps, with **Micro Detail** and **Cavity** controls.
+* New: props added to the rig's APEX scene render with the character.
+* **Fixed:** bent knees in IK no longer stretch the thigh.
+* **Fixed:** on Houdini 22.0.508, the face bones and hair roots no longer drift off the head.
+* Bug fixes and improvements.
+
 ## Version 1.2
 <p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">25 October 2026</p>
 

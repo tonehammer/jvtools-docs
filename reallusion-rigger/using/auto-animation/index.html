@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.848932778968">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.848961801886">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -45,11 +45,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.848932778968" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.848961801886" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.848932778968" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.848961801886" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.848932778968" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.848961801886" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -489,7 +489,7 @@
 | Body Axis Weight X / Y / Z (0 to 200) | `leanX`, `leanY`, `leanZ` (0 to 1) |
 | Associated Eyebrow Movement | `browFollow` |
 | Enhance CC Characters with Head-Turn Morphs | Always on: the head-turn morphs follow the head |
-| None | `angleLimit`, the most the chest and head turn |">
+| None | `angleLimit`, the most the head turns on top of the chest |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -517,7 +517,7 @@
 </tr>
 <tr>
 <td>None</td>
-<td><code translate="no" v-pre>angleLimit</code>, the most the chest and head turn</td>
+<td><code translate="no" v-pre>angleLimit</code>, the most the head turns on top of the chest</td>
 </tr>
 </tbody>
 </table>
@@ -528,12 +528,109 @@
 <p>The <strong>Look At</strong> tab in the rig node&#x27;s <strong>Auto Animation</strong> folder puts the yellow target on something in your scene for you, at every frame, so the eyes follow it however it moves.</p>
 <ol>
 <li>Set <strong>Target</strong> to the camera, or to any other object. The eyes aim at its origin. For a SOP node, they aim at the centre of its <strong>Group</strong>; on another character&#x27;s skeleton, a group such as <code translate="no" v-pre>@name=Head</code> picks one joint.</li>
+<li>Open <strong>Layer Settings</strong> and decide how the head and chest follow the eyes on this layer, or untick its checkbox to leave that to the Eyes gear. The next section explains the difference, and it matters.</li>
 <li>Set the <strong>Frame Range</strong>, and the <strong>Transition</strong>: the frames the eyes take to turn onto the target at the start and back at the end.</li>
 <li>Press <strong>Bake Look At Target</strong>.</li>
 </ol>
-<p>The yellow target is keyed onto the Target at every frame of the range, and <strong>Look At</strong> is keyed on, on a new layer named LookTarget (then LookTarget2, and so on). The head and chest turn by the Eyes gear&#x27;s <strong>Head Weight</strong> and <strong>Body Weight</strong>, as when you move the target by hand. Outside the frame range the layer does nothing. It works in the animate state or not, as one undo step.</p>
+<p>The yellow target is keyed onto the Target at every frame of the range, and <strong>Look At</strong> is keyed on, on a new layer named LookTarget (then LookTarget2, and so on). Outside the frame range the layer does nothing. It works in the animate state or not, as one undo step.</p>
 <p>To look just past a camera&#x27;s lens rather than into it, set a small <strong>Offset</strong>, such as <code translate="no" v-pre>0 0.05 0</code>: it moves the aim point in the Target&#x27;s own frame.</p>
-<p>Nothing stays linked. If the camera or object moves afterwards, delete the layer in the Animation Layers pane and press the button again.</p>
+<p>Nothing stays linked. If the camera or object moves afterwards, or you want different settings, delete the layer in the Animation Layers pane and press the button again.</p>
+<h3 id="layer-settings-or-the-eyes-gear-which-one-is-in-charge">Layer Settings or the Eyes gear: which one is in charge</h3>
+<p>The same five settings exist in two places, and they don&#x27;t do the same job. This is the part of Look At most likely to confuse you, so here it is in full.</p>
+<p><strong>The Eyes gear&#x27;s sliders are the live settings.</strong> <code translate="no" v-pre>headWeight</code>, <code translate="no" v-pre>bodyWeight</code>, <code translate="no" v-pre>angleLimit</code>, <code translate="no" v-pre>browFollow</code> and <code translate="no" v-pre>leanX</code> / <code translate="no" v-pre>leanY</code> / <code translate="no" v-pre>leanZ</code> on the yellow Eyes gear in the animate state act at every frame, whether you move the yellow target by hand or bake it. They&#x27;re ordinary channels: key them like any other.</p>
+<p><strong>The Layer Settings on the rig node are not live.</strong> Nothing reads them until you press <strong>Bake Look At Target</strong>. The bake then writes their values as keys onto the new LookTarget layer, on those same gear channels, at every frame of the range, easing in and out over the <strong>Transition</strong> like the target does. LookTarget is an override layer, so inside its range those keys beat whatever the gear holds underneath. Outside the range the gear is in charge again.</p>
+<p>Two consequences follow, and both catch people out:</p>
+<ul>
+<li><strong>Changing a Layer Setting after baking does nothing.</strong> The layer already has its keys. Delete it and bake again.</li>
+<li><strong>Inside a baked range, moving a gear slider seems to do nothing.</strong> The layer&#x27;s keys win there. That&#x27;s the layer doing its job, not a broken slider. Bake again with other settings, or with the checkbox off (below).</li>
+</ul>
+<p><strong>The checkbox on the Layer Settings header decides whether the bake writes the settings at all.</strong> It&#x27;s on by default.</p>
+<retype-table copy-text="| Layer Settings checkbox | What the bake keys on the layer | Inside the range, the settings come from |
+| --- | --- | --- |
+| On (default) | the yellow target, **Look At**, and the five settings | the layer: the gear's sliders are overridden |
+| Off | the yellow target and **Look At** only | the Eyes gear's sliders, and any keys you put on them |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Layer Settings checkbox</th>
+<th>What the bake keys on the layer</th>
+<th>Inside the range, the settings come from</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>On (default)</td>
+<td>the yellow target, <strong>Look At</strong>, and the five settings</td>
+<td>the layer: the gear&#x27;s sliders are overridden</td>
+</tr>
+<tr>
+<td>Off</td>
+<td>the yellow target and <strong>Look At</strong> only</td>
+<td>the Eyes gear&#x27;s sliders, and any keys you put on them</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<p>When to use which:</p>
+<ul>
+<li><strong>Leave it on</strong> when each look should keep its own feel. A quick glance at the camera with the head barely moving, then a proper turn toward another character with the chest joining in, are two bakes with two sets of settings, and each layer keeps its own. Where two LookTarget layers overlap, the newer one wins and eases in from the older one&#x27;s values over its <strong>Transition</strong>.</li>
+<li><strong>Turn it off</strong> when you&#x27;d rather set the settings yourself on the gear: to animate them over one long look (<code translate="no" v-pre>headWeight</code> rising as the character commits to the turn, say), or to keep tuning them after the bake and see every change straight away. With the checkbox off, the layer only aims the eyes.</li>
+</ul>
+<p>What each setting does, on the gear and in Layer Settings alike:</p>
+<retype-table copy-text="| Setting | Gear channel | What it does | Default |
+| --- | --- | --- | --- |
+| **Head Weight** | `headWeight` | How much the head turns toward the target, out of the turn still left once the chest has turned. 0 leaves the head to the animation and the eyes do the looking; 1 points the head straight at the target, up to **Angle Limit**. | 0.6 |
+| **Body Weight** | `bodyWeight` | How much the chest turns toward the target, out of the whole turn. 0 leaves the chest to the animation; 1 turns it all the way. The head turns on from wherever the chest ends up. | 0.2 |
+| **Angle Limit** | `angleLimit` | The most, in degrees, that the head turns on top of the chest. The chest's turn isn't limited; **Body Weight** alone sets it. The eyes cover whatever the head doesn't. | 70 |
+| **Brow Follow** | `browFollow` | Character Creator's eye-to-brow link: the brows rise as the eyes look up and drop as they look down, by this much. 0 is off. | 0 |
+| **Lean** | `leanX`, `leanY`, `leanZ` | Scales the chest's turn on each of the character's own axes: X leans forward and back, Y turns left and right, Z tilts to the side. X 0, Y 1, Z 0 turns the chest without leaning or tilting it. | 1, 1, 1 |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Setting</th>
+<th>Gear channel</th>
+<th>What it does</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Head Weight</strong></td>
+<td><code translate="no" v-pre>headWeight</code></td>
+<td>How much the head turns toward the target, out of the turn still left once the chest has turned. 0 leaves the head to the animation and the eyes do the looking; 1 points the head straight at the target, up to <strong>Angle Limit</strong>.</td>
+<td>0.6</td>
+</tr>
+<tr>
+<td><strong>Body Weight</strong></td>
+<td><code translate="no" v-pre>bodyWeight</code></td>
+<td>How much the chest turns toward the target, out of the whole turn. 0 leaves the chest to the animation; 1 turns it all the way. The head turns on from wherever the chest ends up.</td>
+<td>0.2</td>
+</tr>
+<tr>
+<td><strong>Angle Limit</strong></td>
+<td><code translate="no" v-pre>angleLimit</code></td>
+<td>The most, in degrees, that the head turns on top of the chest. The chest&#x27;s turn isn&#x27;t limited; <strong>Body Weight</strong> alone sets it. The eyes cover whatever the head doesn&#x27;t.</td>
+<td>70</td>
+</tr>
+<tr>
+<td><strong>Brow Follow</strong></td>
+<td><code translate="no" v-pre>browFollow</code></td>
+<td>Character Creator&#x27;s eye-to-brow link: the brows rise as the eyes look up and drop as they look down, by this much. 0 is off.</td>
+<td>0</td>
+</tr>
+<tr>
+<td><strong>Lean</strong></td>
+<td><code translate="no" v-pre>leanX</code>, <code translate="no" v-pre>leanY</code>, <code translate="no" v-pre>leanZ</code></td>
+<td>Scales the chest&#x27;s turn on each of the character&#x27;s own axes: X leans forward and back, Y turns left and right, Z tilts to the side. X 0, Y 1, Z 0 turns the chest without leaning or tilting it.</td>
+<td>1, 1, 1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
 <div class="flex mb-6">
     <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
     <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
@@ -599,6 +696,17 @@
     </a>
 </div>
 <div class="card-compact-container">
+    <a href="/docs/reallusion-rigger/reference/parameters/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M8.75 5.5h11.5a.75.75 0 0 1 0 1.5H8.75a.75.75 0 0 1 0-1.5Zm0 6h11.5a.75.75 0 0 1 0 1.5H8.75a.75.75 0 0 1 0-1.5Zm0 6h11.5a.75.75 0 0 1 0 1.5H8.75a.75.75 0 0 1 0-1.5ZM5 12a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM4 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 12a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg></span>
+                <span class="card-compact-title">Parameter Reference</span>
+            </div>
+            <p class="card-compact-description">Three panels, three tables: the Reallusion Rigger node (in SOPs), the Reallusion Rigger APEX Rig node (the rig), and the lookdev controller (a red node in LOPs, created by Build Character and reached with Go to LOPs).</p>
+        </div>
+    </a>
+</div>
+<div class="card-compact-container">
     <a href="/docs/reallusion-rigger/getting-started/quick-start/" class="group card-compact no-link">
         <div class="card-compact-body">
             <div class="card-compact-header">
@@ -636,8 +744,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-25T13:21:38" title="2026-10-25" data-absolute-label="Last updated on 2026-10-25" data-absolute-label-html="Last updated on 2026-10-25" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-10-25
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-11-25T23:43:01" title="2026-11-25" data-absolute-label="Last updated on 2026-11-25" data-absolute-label-html="Last updated on 2026-11-25" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-11-25
                     </time>
                 </div>
 

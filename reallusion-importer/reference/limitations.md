@@ -61,7 +61,7 @@ A few controls — **SSS Quality** and the **eye-light controls** (Eyes Cast Lig
 
 ## Platform
 
-The tool was developed and tested on **Windows**, with **Houdini 21.0.729 and 22.0.429**. macOS and Linux are untested. The materials are built and tuned for **Karma XPU** and also render in **Karma CPU** — XPU is the recommended path for the look and speed they were designed around, but CPU is a supported fallback. See [Requirements & Installation](../getting-started/installation.md).
+The tool was developed and tested on **Windows**, with **Houdini 21.0.729 and 22.0.508**. macOS and Linux are untested. The materials are built and tuned for **Karma XPU** and also render in **Karma CPU** — XPU is the recommended path for the look and speed they were designed around, but CPU is a supported fallback. See [Requirements & Installation](../getting-started/installation.md).
 
 ## Mesh fixes (Skin Fix)
 

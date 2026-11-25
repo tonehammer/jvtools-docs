@@ -40,16 +40,6 @@ Three per-channel trims layered on top of the master Wrinkle Strength, for tunin
 
 Usually you can leave these at 1 and just use the master Wrinkle Strength. Reach for them when you want, say, deep-looking creases without the extra darkening, or color change without the relief.
 
-## Go to Max Wrinkle Frame
+## Judging wrinkles
 
-Judging wrinkles is hard on a neutral frame — there's nothing to see. The **Go to Max Wrinkle Frame** button solves this.
-
-![](../static/max-wrinkle-frame-button.png)
-
-Click it and the tool scans your character's animation, finds the frame with the most extreme facial expression (the most wrinkle activity), and jumps the timeline there. Now you can see the wrinkles at their strongest and dial in the strength controls against a meaningful pose.
-
-Especially handy right after import — click it and you'll immediately see whether wrinkles are working and how strong they look.
-
-!!!info
-The button scans the playback range, so make sure your timeline covers the character's animation. On a long clip the scan takes a moment.
-!!!
+Wrinkles are hard to judge on a neutral frame, where there is nothing to see. Scrub to a frame with a strong expression (raised brows, a squint, a wide smile) before dialling in the strength controls.

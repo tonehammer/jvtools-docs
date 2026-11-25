@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.848932778968">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.848961801886">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -39,11 +39,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.848932778968" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.848961801886" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.848932778968" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.848961801886" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.848932778968" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.848961801886" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -775,6 +775,8 @@
 <retype-table copy-text="| Parameter | What it does |
 |---|---|
 | **Hair Follows Head Only** | On: every hair mesh follows the head only. Off: Character Creator's own skinning. |
+| **Boxlayout Size** | How big the boxlayout board (the Face gear's `boxlayout` toggle) draws in the animate state, as a multiple of the size the rig was built with. Knobs and lines keep their size, so a bigger board spreads crowded sliders apart. Takes effect when you press **Apply**. |
+| **Apply** | Resizes the board to **Boxlayout Size**. Leaves the animate state (press **Animate** again) and re-cooks the character, a few seconds. Your keys are untouched. |
 | **Stash Rig** | On: the built and baked rig is stored. Off: it is dropped and rebuilt live. |
 | **Stash In** | Inside the Hip or External File. Changing it writes nothing. |
 | **Geometry File** | The file **Save to Disk** writes the rig to and the rig reads from. |
@@ -791,6 +793,14 @@
 <tr>
 <td><strong>Hair Follows Head Only</strong></td>
 <td>On: every hair mesh follows the head only. Off: Character Creator&#x27;s own skinning.</td>
+</tr>
+<tr>
+<td><strong>Boxlayout Size</strong></td>
+<td>How big the boxlayout board (the Face gear&#x27;s <code translate="no" v-pre>boxlayout</code> toggle) draws in the animate state, as a multiple of the size the rig was built with. Knobs and lines keep their size, so a bigger board spreads crowded sliders apart. Takes effect when you press <strong>Apply</strong>.</td>
+</tr>
+<tr>
+<td><strong>Apply</strong></td>
+<td>Resizes the board to <strong>Boxlayout Size</strong>. Leaves the animate state (press <strong>Animate</strong> again) and re-cooks the character, a few seconds. Your keys are untouched.</td>
 </tr>
 <tr>
 <td><strong>Stash Rig</strong></td>
@@ -1034,9 +1044,9 @@
 | **Target** (Look At) | The camera, object or SOP node the eyes look at. |
 | **Group** | For a SOP Target, the points whose centre the eyes aim at. Empty aims at the whole geometry. |
 | **Offset** | Moves the aim point in the Target's own frame. |
-| **Transition** | Frames to turn onto the Target and back. 0 switches at once. |
+| **Transition** | Frames to turn onto the Target and back. 0 switches at once. With **Key Layer Settings** on, the layer's settings ease in and out over the same frames. |
 | **Frame Range** | The frames to look at the Target. |
-| **Bake Look At Target** | Keys the Look At target onto the Target over the frame range, on a layer of its own. |">
+| **Bake Look At Target** | Keys the Look At target onto the Target over the frame range, on a layer of its own; with **Key Layer Settings** on, the **Layer Settings** too. Where two layers overlap the newer one wins. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -1104,7 +1114,7 @@
 </tr>
 <tr>
 <td><strong>Transition</strong></td>
-<td>Frames to turn onto the Target and back. 0 switches at once.</td>
+<td>Frames to turn onto the Target and back. 0 switches at once. With <strong>Key Layer Settings</strong> on, the layer&#x27;s settings ease in and out over the same frames.</td>
 </tr>
 <tr>
 <td><strong>Frame Range</strong></td>
@@ -1112,7 +1122,54 @@
 </tr>
 <tr>
 <td><strong>Bake Look At Target</strong></td>
-<td>Keys the Look At target onto the Target over the frame range, on a layer of its own.</td>
+<td>Keys the Look At target onto the Target over the frame range, on a layer of its own; with <strong>Key Layer Settings</strong> on, the <strong>Layer Settings</strong> too. Where two layers overlap the newer one wins.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="auto-animation--look-at--layer-settings">Auto Animation ▸ Look At ▸ Layer Settings</h3>
+<p>These five are the baked layer&#x27;s own copy of the Eyes gear&#x27;s sliders, not live settings. They are read only when you press <strong>Bake Look At Target</strong>: keyed at every frame of the range on the new LookTarget layer, they override the gear&#x27;s sliders there. Changing one afterwards does nothing to a layer already baked: delete the layer and bake again. See <a href="../../using/auto-animation/#layer-settings-or-the-eyes-gear-which-one-is-in-charge">Layer Settings or the Eyes gear</a>.</p>
+<retype-table copy-text="| Parameter | What it does |
+|---|---|
+| **Key Layer Settings** | The checkbox on the folder header. On (default): the bake keys the five settings below onto the layer, and inside its range they override the Eyes gear. Off: the layer keys only where the eyes look, and the gear's sliders, and any keys on them, stay in charge. |
+| **Head Weight** | How much the head turns toward the Target, out of the turn left once the chest has turned. 0 leaves the head to the animation; 1 points it at the Target, up to **Angle Limit**. Default 0.6. Gear channel `headWeight`. |
+| **Body Weight** | How much the chest turns toward the Target, out of the whole turn. Default 0.2. Gear channel `bodyWeight`. |
+| **Angle Limit** | The most, in degrees, that the head turns on top of the chest. The chest is not limited. Default 70. Gear channel `angleLimit`. |
+| **Brow Follow** | The brows rise as the eyes look up and drop as they look down, by this much. 0 is off. Default 0. Gear channel `browFollow`. |
+| **Lean** | Scales the chest's turn on the character's own axes: X leans, Y turns, Z tilts. Default 1 1 1. Gear channels `leanX`, `leanY`, `leanZ`. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Key Layer Settings</strong></td>
+<td>The checkbox on the folder header. On (default): the bake keys the five settings below onto the layer, and inside its range they override the Eyes gear. Off: the layer keys only where the eyes look, and the gear&#x27;s sliders, and any keys on them, stay in charge.</td>
+</tr>
+<tr>
+<td><strong>Head Weight</strong></td>
+<td>How much the head turns toward the Target, out of the turn left once the chest has turned. 0 leaves the head to the animation; 1 points it at the Target, up to <strong>Angle Limit</strong>. Default 0.6. Gear channel <code translate="no" v-pre>headWeight</code>.</td>
+</tr>
+<tr>
+<td><strong>Body Weight</strong></td>
+<td>How much the chest turns toward the Target, out of the whole turn. Default 0.2. Gear channel <code translate="no" v-pre>bodyWeight</code>.</td>
+</tr>
+<tr>
+<td><strong>Angle Limit</strong></td>
+<td>The most, in degrees, that the head turns on top of the chest. The chest is not limited. Default 70. Gear channel <code translate="no" v-pre>angleLimit</code>.</td>
+</tr>
+<tr>
+<td><strong>Brow Follow</strong></td>
+<td>The brows rise as the eyes look up and drop as they look down, by this much. 0 is off. Default 0. Gear channel <code translate="no" v-pre>browFollow</code>.</td>
+</tr>
+<tr>
+<td><strong>Lean</strong></td>
+<td>Scales the chest&#x27;s turn on the character&#x27;s own axes: X leans, Y turns, Z tilts. Default 1 1 1. Gear channels <code translate="no" v-pre>leanX</code>, <code translate="no" v-pre>leanY</code>, <code translate="no" v-pre>leanZ</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -1164,6 +1221,8 @@
 | **Skin Normal Strength** | Intensity of the base skin normal map (pore and surface detail). |
 | **Skin Roughness** | Multiplier on skin roughness. Below 1 = glossier and more lifelike; above 1 = more matte. |
 | **Diffuse Contrast** | Contrast of the skin color texture around mid-grey. Very sensitive — useful range roughly 1.0–1.1. |
+| **Micro Detail** | Strength of Character Creator's tiling micro normal, the fine pore texture that breaks up skin highlights in close-ups. 1 = the strength set in Character Creator; 0 = off. |
+| **Cavity** | How much Character Creator's cavity map takes the shine out of pores and creases. 1 = the strength set in Character Creator; 0 = off. |
 | **Respect Metallic Maps** | Honor Character Creator's metallic textures on teeth, tongue, and clothing. Off by default (these are dielectric and CC's metallic maps on them are usually junk). |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
@@ -1185,6 +1244,14 @@
 <tr>
 <td><strong>Diffuse Contrast</strong></td>
 <td>Contrast of the skin color texture around mid-grey. Very sensitive — useful range roughly 1.0–1.1.</td>
+</tr>
+<tr>
+<td><strong>Micro Detail</strong></td>
+<td>Strength of Character Creator&#x27;s tiling micro normal, the fine pore texture that breaks up skin highlights in close-ups. 1 = the strength set in Character Creator; 0 = off.</td>
+</tr>
+<tr>
+<td><strong>Cavity</strong></td>
+<td>How much Character Creator&#x27;s cavity map takes the shine out of pores and creases. 1 = the strength set in Character Creator; 0 = off.</td>
 </tr>
 <tr>
 <td><strong>Respect Metallic Maps</strong></td>
@@ -1647,8 +1714,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-25T13:21:38" title="2026-10-25" data-absolute-label="Last updated on 2026-10-25" data-absolute-label-html="Last updated on 2026-10-25" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-10-25
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-11-25T23:43:01" title="2026-11-25" data-absolute-label="Last updated on 2026-11-25" data-absolute-label-html="Last updated on 2026-11-25" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-11-25
                     </time>
                 </div>
 

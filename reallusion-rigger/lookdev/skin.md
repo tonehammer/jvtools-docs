@@ -30,6 +30,18 @@ Adjusts the contrast of the skin color texture around mid-grey.
 This control is **very sensitive**. The useful range is roughly **1.0 to 1.1** — even small moves have a strong effect. Nudge it gently.
 !!!
 
+## Character Creator's skin detail maps
+
+Character Creator exports more than the colour, normal and roughness of the skin: a tiling micro normal, a cavity map, a specular mask, an SSS map and, in FBX exports, ambient occlusion for the mouth and nostrils. The skin materials use all of them, at the strengths set in Character Creator. A material whose export lacks one of these maps simply goes without it. Two of them have controls of their own.
+
+## Micro Detail
+
+The strength of Character Creator's **micro normal**: a fine pore texture tiled across the skin, which breaks up the highlights in close-ups. **Defaults to 1**, the strength set in Character Creator; 0 turns it off.
+
+## Cavity
+
+How much Character Creator's **cavity map** takes the shine out of pores and creases. **Defaults to 1**, the strength set in Character Creator; 0 turns it off.
+
 ## Skin Re-tint sub-folder
 
 A quick way to shift the **overall skin tone** — warmer or cooler, more tan, paler — without going back to Character Creator. It tints the skin **diffuse** toward a color (the subsurface color is left alone), live, across all skin materials: head, body, arms, legs, and nails.

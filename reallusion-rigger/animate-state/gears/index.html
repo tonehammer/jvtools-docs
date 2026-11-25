@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.848932778968">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.848961801886">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -45,11 +45,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.848932778968" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.848961801886" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.848932778968" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.848961801886" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.848932778968" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.848961801886" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -833,12 +833,13 @@
 </retype-table>
 <h2 id="eyes-gear">Eyes gear</h2>
 <p>Yellow, the lowest of the three gears beside the head. It holds the Look At settings, with 0 to 1 in place of iClone&#x27;s 0 to 100. <code translate="no" v-pre>lookAt</code> has no iClone slider: it stands in for iClone&#x27;s target key and its transition (see <a href="../../using/auto-animation/#compared-with-iclone">Compared with iClone</a>). <code translate="no" v-pre>headWeight</code>, <code translate="no" v-pre>bodyWeight</code>, <code translate="no" v-pre>angleLimit</code> and the lean sliders do nothing while <code translate="no" v-pre>lookAt</code> is 0. <code translate="no" v-pre>browFollow</code> works whenever the eyes look up or down, Look At or not.</p>
+<p>These sliders are the live Look At settings. The rig node&#x27;s <strong>Layer Settings</strong> carry the same five, but those are only read by <strong>Bake Look At Target</strong>, which keys them onto its LookTarget layer; inside that layer&#x27;s frame range they override the sliders here, so a slider you move there seems to do nothing. See <a href="../../using/auto-animation/#layer-settings-or-the-eyes-gear-which-one-is-in-charge">Layer Settings or the Eyes gear</a>.</p>
 <retype-table copy-text="| Name in the HUD | Kind | Range (default) | Keyable | What it does |
 | --- | --- | --- | --- | --- |
 | `lookAt` | Slider | 0 to 1 (0) | Yes | Blends the eyes from their own crosses onto the yellow three-ring Look At target. See [Auto Animation](../using/auto-animation.md#look-at). |
-| `headWeight` | Slider | 0 to 1 (0.6) | Yes | How much the head turns toward the target, out of what the chest leaves. |
-| `bodyWeight` | Slider | 0 to 1 (0.2) | Yes | How much the chest turns toward the target. |
-| `angleLimit` | Slider | 0 to 180 (70) | Yes | The most, in degrees, that the chest and head turn. The eyes do the rest. |
+| `headWeight` | Slider | 0 to 1 (0.6) | Yes | How much the head turns toward the target, out of the turn still left once the chest has turned. |
+| `bodyWeight` | Slider | 0 to 1 (0.2) | Yes | How much the chest turns toward the target, out of the whole turn. |
+| `angleLimit` | Slider | 0 to 180 (70) | Yes | The most, in degrees, that the head turns on top of the chest. The chest's turn is not limited. The eyes do the rest. |
 | `leanX` `leanY` `leanZ` | Sliders | 0 to 1 (1) | Yes | Scale the chest's turn on each of the character's axes: X leans forward and back, Y turns, Z tilts to the side. |
 | `browFollow` | Slider | 0 to 1 (0) | Yes | Adds Character Creator's eye-to-brow link: the brows rise as the eyes look up and drop as they look down. |
 | `lod1` `lod2` `lod3` | Buttons | — | — | Show or hide the eye targets by detail level. |">
@@ -866,21 +867,21 @@
 <td>Slider</td>
 <td>0 to 1 (0.6)</td>
 <td>Yes</td>
-<td>How much the head turns toward the target, out of what the chest leaves.</td>
+<td>How much the head turns toward the target, out of the turn still left once the chest has turned.</td>
 </tr>
 <tr>
 <td><code translate="no" v-pre>bodyWeight</code></td>
 <td>Slider</td>
 <td>0 to 1 (0.2)</td>
 <td>Yes</td>
-<td>How much the chest turns toward the target.</td>
+<td>How much the chest turns toward the target, out of the whole turn.</td>
 </tr>
 <tr>
 <td><code translate="no" v-pre>angleLimit</code></td>
 <td>Slider</td>
 <td>0 to 180 (70)</td>
 <td>Yes</td>
-<td>The most, in degrees, that the chest and head turn. The eyes do the rest.</td>
+<td>The most, in degrees, that the head turns on top of the chest. The chest&#x27;s turn is not limited. The eyes do the rest.</td>
 </tr>
 <tr>
 <td><code translate="no" v-pre>leanX</code> <code translate="no" v-pre>leanY</code> <code translate="no" v-pre>leanZ</code></td>
@@ -1079,8 +1080,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-21T21:02:57" title="2026-10-21" data-absolute-label="Last updated on 2026-10-21" data-absolute-label-html="Last updated on 2026-10-21" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-10-21
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-11-25T23:43:01" title="2026-11-25" data-absolute-label="Last updated on 2026-11-25" data-absolute-label-html="Last updated on 2026-11-25" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-11-25
                     </time>
                 </div>
 

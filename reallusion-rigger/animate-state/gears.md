@@ -111,12 +111,14 @@ One per foot, beside it. Roll and tilt drive the foot's pivots for you, so you c
 
 Yellow, the lowest of the three gears beside the head. It holds the Look At settings, with 0 to 1 in place of iClone's 0 to 100. `lookAt` has no iClone slider: it stands in for iClone's target key and its transition (see [Compared with iClone](../using/auto-animation.md#compared-with-iclone)). `headWeight`, `bodyWeight`, `angleLimit` and the lean sliders do nothing while `lookAt` is 0. `browFollow` works whenever the eyes look up or down, Look At or not.
 
+These sliders are the live Look At settings. The rig node's **Layer Settings** carry the same five, but those are only read by **Bake Look At Target**, which keys them onto its LookTarget layer; inside that layer's frame range they override the sliders here, so a slider you move there seems to do nothing. See [Layer Settings or the Eyes gear](../using/auto-animation.md#layer-settings-or-the-eyes-gear-which-one-is-in-charge).
+
 | Name in the HUD | Kind | Range (default) | Keyable | What it does |
 | --- | --- | --- | --- | --- |
 | `lookAt` | Slider | 0 to 1 (0) | Yes | Blends the eyes from their own crosses onto the yellow three-ring Look At target. See [Auto Animation](../using/auto-animation.md#look-at). |
-| `headWeight` | Slider | 0 to 1 (0.6) | Yes | How much the head turns toward the target, out of what the chest leaves. |
-| `bodyWeight` | Slider | 0 to 1 (0.2) | Yes | How much the chest turns toward the target. |
-| `angleLimit` | Slider | 0 to 180 (70) | Yes | The most, in degrees, that the chest and head turn. The eyes do the rest. |
+| `headWeight` | Slider | 0 to 1 (0.6) | Yes | How much the head turns toward the target, out of the turn still left once the chest has turned. |
+| `bodyWeight` | Slider | 0 to 1 (0.2) | Yes | How much the chest turns toward the target, out of the whole turn. |
+| `angleLimit` | Slider | 0 to 180 (70) | Yes | The most, in degrees, that the head turns on top of the chest. The chest's turn is not limited. The eyes do the rest. |
 | `leanX` `leanY` `leanZ` | Sliders | 0 to 1 (1) | Yes | Scale the chest's turn on each of the character's axes: X leans forward and back, Y turns, Z tilts to the side. |
 | `browFollow` | Slider | 0 to 1 (0) | Yes | Adds Character Creator's eye-to-brow link: the brows rise as the eyes look up and drop as they look down. |
 | `lod1` `lod2` `lod3` | Buttons | — | — | Show or hide the eye targets by detail level. |

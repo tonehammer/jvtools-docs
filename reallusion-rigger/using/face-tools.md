@@ -12,7 +12,7 @@ In the animate state, sliders sit on the face for the brows, blinks, gaze, cheek
 
 The **Face** gear beside the head carries the face's settings. Two you'll use:
 
-* **boxlayout** shows the same sliders as a flat panel locked to the viewport — the **face board** — and hides the ones on the face. It's easier to work with when the head is turned or small on screen. Drag the board by its circle; the X beside the circle turns it off again.
+* **boxlayout** shows the same sliders as a flat panel locked to the viewport — the **face board** — and hides the ones on the face. It's easier to work with when the head is turned or small on screen. Drag the board by its circle; the X beside the circle turns it off again. If its sliders sit too close together, make it bigger with [Boxlayout Size](rig-settings.md#boxlayout-size) in Rig Settings.
 * **mouthControls** shows the lower teeth and tongue FK controls, hidden by default.
 
 ![The face board (boxlayout on): the sliders laid out on a flat face beside the head, with the move circle and the X that turns it off](../static/face-board.png)

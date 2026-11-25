@@ -106,6 +106,8 @@ See [Skin](../using/skin.md).
 | **Skin Normal Strength** | Intensity of the base skin normal map (pore and surface detail). |
 | **Skin Roughness** | Multiplier on skin roughness. Below 1 = glossier and more lifelike; above 1 = more matte. |
 | **Diffuse Contrast** | Contrast of the skin color texture around mid-grey. Very sensitive — useful range roughly 1.0–1.1. |
+| **Micro Detail** | Strength of Character Creator's tiling micro normal, the fine pore texture that breaks up skin highlights in close-ups. 1 = the strength set in Character Creator; 0 = off. |
+| **Cavity** | How much Character Creator's cavity map takes the shine out of pores and creases. 1 = the strength set in Character Creator; 0 = off. |
 | **Respect Metallic Maps** | Honor Character Creator's metallic textures on teeth, tongue, and clothing. Off by default (these are dielectric and CC's metallic maps on them are usually junk). |
 
 **Skin Re-tint** (sub-folder)

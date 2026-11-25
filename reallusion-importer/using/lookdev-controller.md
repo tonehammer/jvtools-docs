@@ -100,7 +100,3 @@ At the top of the controller, sharing one row:
 
 * **Go to SOPs** — jumps back to the Reallusion Importer node (useful when you're deep in the LOP network).
 * **Reset to Defaults** — returns every control to its original default value, restoring the out-of-the-box look. It asks for confirmation first, since it discards all your dialed-in settings and can't be undone from here. Reset only changes the controller's values — it doesn't rebuild the character or retint the light rig.
-
-One more helper button, elsewhere:
-
-* Inside the Wrinkles folder, **Go to Max Wrinkle Frame** — scrubs the timeline to the frame where the character's facial expression is most extreme, so you can judge wrinkles at their strongest. See [Wrinkles](wrinkles.md).

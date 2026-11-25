@@ -49,7 +49,7 @@ The rest of the Eyes gear follows iClone's Look At panel, with 0 to 1 in place o
 | Body Axis Weight X / Y / Z (0 to 200) | `leanX`, `leanY`, `leanZ` (0 to 1) |
 | Associated Eyebrow Movement | `browFollow` |
 | Enhance CC Characters with Head-Turn Morphs | Always on: the head-turn morphs follow the head |
-| None | `angleLimit`, the most the chest and head turn |
+| None | `angleLimit`, the most the head turns on top of the chest |
 
 iClone's Look at Camera and Look at Object are **Bake Look At Target** here, below.
 
@@ -58,14 +58,50 @@ iClone's Look at Camera and Look at Object are **Bake Look At Target** here, bel
 The **Look At** tab in the rig node's **Auto Animation** folder puts the yellow target on something in your scene for you, at every frame, so the eyes follow it however it moves.
 
 1. Set **Target** to the camera, or to any other object. The eyes aim at its origin. For a SOP node, they aim at the centre of its **Group**; on another character's skeleton, a group such as `@name=Head` picks one joint.
-2. Set the **Frame Range**, and the **Transition**: the frames the eyes take to turn onto the target at the start and back at the end.
-3. Press **Bake Look At Target**.
+2. Open **Layer Settings** and decide how the head and chest follow the eyes on this layer, or untick its checkbox to leave that to the Eyes gear. The next section explains the difference, and it matters.
+3. Set the **Frame Range**, and the **Transition**: the frames the eyes take to turn onto the target at the start and back at the end.
+4. Press **Bake Look At Target**.
 
-The yellow target is keyed onto the Target at every frame of the range, and **Look At** is keyed on, on a new layer named LookTarget (then LookTarget2, and so on). The head and chest turn by the Eyes gear's **Head Weight** and **Body Weight**, as when you move the target by hand. Outside the frame range the layer does nothing. It works in the animate state or not, as one undo step.
+The yellow target is keyed onto the Target at every frame of the range, and **Look At** is keyed on, on a new layer named LookTarget (then LookTarget2, and so on). Outside the frame range the layer does nothing. It works in the animate state or not, as one undo step.
 
 To look just past a camera's lens rather than into it, set a small **Offset**, such as `0 0.05 0`: it moves the aim point in the Target's own frame.
 
-Nothing stays linked. If the camera or object moves afterwards, delete the layer in the Animation Layers pane and press the button again.
+Nothing stays linked. If the camera or object moves afterwards, or you want different settings, delete the layer in the Animation Layers pane and press the button again.
+
+### Layer Settings or the Eyes gear: which one is in charge
+
+The same five settings exist in two places, and they don't do the same job. This is the part of Look At most likely to confuse you, so here it is in full.
+
+**The Eyes gear's sliders are the live settings.** `headWeight`, `bodyWeight`, `angleLimit`, `browFollow` and `leanX` / `leanY` / `leanZ` on the yellow Eyes gear in the animate state act at every frame, whether you move the yellow target by hand or bake it. They're ordinary channels: key them like any other.
+
+**The Layer Settings on the rig node are not live.** Nothing reads them until you press **Bake Look At Target**. The bake then writes their values as keys onto the new LookTarget layer, on those same gear channels, at every frame of the range, easing in and out over the **Transition** like the target does. LookTarget is an override layer, so inside its range those keys beat whatever the gear holds underneath. Outside the range the gear is in charge again.
+
+Two consequences follow, and both catch people out:
+
+* **Changing a Layer Setting after baking does nothing.** The layer already has its keys. Delete it and bake again.
+* **Inside a baked range, moving a gear slider seems to do nothing.** The layer's keys win there. That's the layer doing its job, not a broken slider. Bake again with other settings, or with the checkbox off (below).
+
+**The checkbox on the Layer Settings header decides whether the bake writes the settings at all.** It's on by default.
+
+| Layer Settings checkbox | What the bake keys on the layer | Inside the range, the settings come from |
+| --- | --- | --- |
+| On (default) | the yellow target, **Look At**, and the five settings | the layer: the gear's sliders are overridden |
+| Off | the yellow target and **Look At** only | the Eyes gear's sliders, and any keys you put on them |
+
+When to use which:
+
+* **Leave it on** when each look should keep its own feel. A quick glance at the camera with the head barely moving, then a proper turn toward another character with the chest joining in, are two bakes with two sets of settings, and each layer keeps its own. Where two LookTarget layers overlap, the newer one wins and eases in from the older one's values over its **Transition**.
+* **Turn it off** when you'd rather set the settings yourself on the gear: to animate them over one long look (`headWeight` rising as the character commits to the turn, say), or to keep tuning them after the bake and see every change straight away. With the checkbox off, the layer only aims the eyes.
+
+What each setting does, on the gear and in Layer Settings alike:
+
+| Setting | Gear channel | What it does | Default |
+| --- | --- | --- | --- |
+| **Head Weight** | `headWeight` | How much the head turns toward the target, out of the turn still left once the chest has turned. 0 leaves the head to the animation and the eyes do the looking; 1 points the head straight at the target, up to **Angle Limit**. | 0.6 |
+| **Body Weight** | `bodyWeight` | How much the chest turns toward the target, out of the whole turn. 0 leaves the chest to the animation; 1 turns it all the way. The head turns on from wherever the chest ends up. | 0.2 |
+| **Angle Limit** | `angleLimit` | The most, in degrees, that the head turns on top of the chest. The chest's turn isn't limited; **Body Weight** alone sets it. The eyes cover whatever the head doesn't. | 70 |
+| **Brow Follow** | `browFollow` | Character Creator's eye-to-brow link: the brows rise as the eyes look up and drop as they look down, by this much. 0 is off. | 0 |
+| **Lean** | `leanX`, `leanY`, `leanZ` | Scales the chest's turn on each of the character's own axes: X leans forward and back, Y turns left and right, Z tilts to the side. X 0, Y 1, Z 0 turns the chest without leaning or tilting it. | 1, 1, 1 |
 
 !!!info LOP cameras
 **Target** takes an object-level camera (`/obj`). A camera that exists only in LOPs has no object to pick: aim the yellow target by hand, or add an object-level camera that follows it.

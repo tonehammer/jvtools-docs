@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.848932778968">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.848961801886">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -39,11 +39,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.848932778968" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.848961801886" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.848932778968" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.848961801886" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.848932778968" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.848961801886" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -472,6 +472,9 @@
 </div>
 <h2 id="hair-follows-head-only">Hair Follows Head Only</h2>
 <p>Off (the default), the hair keeps Character Creator&#x27;s own skinning, so long hair drapes over moving shoulders. On, every hair mesh follows the head only. Switching re-cooks the output (a few seconds, longer on heavy characters) and keeps your keys.</p>
+<h2 id="boxlayout-size">Boxlayout Size</h2>
+<p>The boxlayout board (the face board the Face gear&#x27;s <code translate="no" v-pre>boxlayout</code> toggle shows, see <a href="../face-tools/#sliders-and-the-face-board">Face Tools</a>) draws at the size the rig was built with. On a character with many face sliders the knobs can sit close together. <strong>Boxlayout Size</strong> scales the board: 1.5 draws it half as big again. The knobs and lines keep their size, so a bigger board spreads crowded sliders apart.</p>
+<p>Type the size, then press <strong>Apply</strong>. Apply leaves the animate state (press <strong>Animate</strong> again) and re-cooks the character&#x27;s output, a few seconds. Your keys are untouched. The board is resized only when you press Apply, so dragging the value costs nothing.</p>
 <h2 id="viewport-materials">Viewport materials</h2>
 <p>The <strong>Viewport</strong> folder (closed by default, with a checkbox in its header) shows the textured character in the SOP viewport, from the textures the Rigger resolved at <strong>Build Character</strong>. Off draws it plain grey. This is the viewport only; Karma renders the full materials either way.</p>
 <ul>
@@ -509,6 +512,17 @@
                 <span class="card-compact-title">Building the Rig</span>
             </div>
             <p class="card-compact-description">The rig is built by the same Build Character button that builds the character, in the Character ▸ Build tab. There is no separate rigging step: one press imports the character, builds its materials, and builds its rig.</p>
+        </div>
+    </a>
+</div>
+<div class="card-compact-container">
+    <a href="/docs/reallusion-rigger/using/face-tools/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M8.456 14.494a.75.75 0 0 1 1.068.17 3.08 3.08 0 0 0 .572.492A3.381 3.381 0 0 0 12 15.72c.855 0 1.487-.283 1.904-.562a3.081 3.081 0 0 0 .572-.492l.021-.026a.75.75 0 0 1 1.197.905l-.027.034c-.013.016-.03.038-.052.063-.044.05-.105.119-.184.198a4.569 4.569 0 0 1-.695.566A4.88 4.88 0 0 1 12 17.22a4.88 4.88 0 0 1-2.736-.814 4.57 4.57 0 0 1-.695-.566 3.253 3.253 0 0 1-.236-.261c-.259-.332-.223-.824.123-1.084Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/><path d="M9 10.75a1.25 1.25 0 1 1-2.5 0 1.25 1.25 0 0 1 2.5 0ZM16.25 12a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5Z"/></svg></span>
+                <span class="card-compact-title">Face Tools</span>
+            </div>
+            <p class="card-compact-description">Every Character Creator morph channel is keyable on the rig as face_channel, and a clip carries its facial performance along with its body, so playing a clip plays the face too.</p>
         </div>
     </a>
 </div>
@@ -583,8 +597,8 @@
 
                 <div id="retype-tags" class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mt-6 mb-6 clear-both">
                 
-                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-10-12T15:33:20" title="2026-10-12" data-absolute-label="Last updated on 2026-10-12" data-absolute-label-html="Last updated on 2026-10-12" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
-                        Last updated on 2026-10-12
+                    <time id="retype-last-updated" class="text-sm whitespace-nowrap text-base-text-muted ml-auto" datetime="2026-11-25T23:43:01" title="2026-11-25" data-absolute-label="Last updated on 2026-11-25" data-absolute-label-html="Last updated on 2026-11-25" data-relative-template="Last updated {0}" data-relative-template-html="Last updated RETYPETEMPLATELASTUPDATEDVALUETOKEN">
+                        Last updated on 2026-11-25
                     </time>
                 </div>
 
@@ -595,11 +609,11 @@
             
                 <nav id="retype-nextprev" class="print:hidden flex mt-14">
                     <div class="w-1/2">
-                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../reallusion-rigger/using/clips-and-layers/">
+                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../reallusion-rigger/using/props/">
                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                             <span>
                                 <span class="block text-xs font-normal text-base-text-muted">Previous</span>
-                                <span class="block mt-1">Clips &amp; Layers</span>
+                                <span class="block mt-1">Props</span>
                             </span>
                         </a>
                     </div>

@@ -34,7 +34,7 @@ Anyone who sets up FLIP, Pyro, Vellum, POP or RBD simulations in Houdini and is 
 
 ## Requirements
 
-* **Houdini 22.0** or newer (Indie or Apprentice — the asset ships as `.hdalc`).
+* **Tested on Houdini 22.0.429** (Indie or Apprentice — the asset ships as `.hdalc`).
 * Any geometry with points. Packed fractured RBD pieces are fully supported — the node reads and writes one velocity per piece, and measures blasts against each piece's real bounds.
 
 ## How to use this documentation

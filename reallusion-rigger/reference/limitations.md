@@ -4,7 +4,7 @@ Read this before you buy, and again if something surprises you.
 
 ## Platform
 
-The Rigger needs **Houdini 22.0 or newer**, because it is built on Houdini 22's APEX autorig builder. It was tested on Windows; macOS and Linux are untested. The materials are tuned for **Karma XPU** and also render in **Karma CPU**. XPU is the path they were designed around, and CPU is a supported fallback. See [Requirements & Installation](../getting-started/installation.md).
+The Rigger was tested on **Houdini 22.0.429** and needs Houdini 22, because it is built on Houdini 22's APEX autorig builder. It was tested on Windows; macOS and Linux are untested. The materials are tuned for **Karma XPU** and also render in **Karma CPU**. XPU is the path they were designed around, and CPU is a supported fallback. See [Requirements & Installation](../getting-started/installation.md).
 
 ## Memory
 

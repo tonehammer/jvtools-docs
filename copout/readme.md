@@ -44,7 +44,7 @@ The wire from the COP Network tells COPout which network to read; it does not ca
 
 ## Requirements
 
-- **Houdini 22.0+**, Indie or Apprentice — it ships as `.hdalc`
+- **Tested on Houdini 22.0.429**, Indie or Apprentice — it ships as `.hdalc`
 - **Windows** — the only platform it has been tested on
 - A **Copernicus network** in the scene (or nothing at all, if you just want the test pattern)
 

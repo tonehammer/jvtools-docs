@@ -29,7 +29,7 @@ RPLidar In is for artists and technical directors building **live, interactive, 
 
 ## Requirements
 
-* **Houdini 21.0 or 22.0** (Indie or Apprentice — the asset ships as `.hdalc`).
+* **Tested on Houdini 21.0.729 and 22.0.368** (Indie or Apprentice — the asset ships as `.hdalc`).
 * A **Slamtec RPLIDAR** sensor. Developed and verified against the **A2M12**; other A2-family models should work.
 * The sensor's **USB/UART adapter** (CP210x) — enumerates as a serial COM port.
 * **Windows** — the tested platform.

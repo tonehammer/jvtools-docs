@@ -25,7 +25,7 @@ It does not build your sim, decide values for you, or change solver behaviour. F
 
 ## Requirements
 
-**Houdini 22.0+**, Indie or Apprentice (ships as `.hdalc`). Windows — the tested platform.
+**Tested on Houdini 22.0.368**, Indie or Apprentice (ships as `.hdalc`). Windows — the tested platform.
 
 ---
 

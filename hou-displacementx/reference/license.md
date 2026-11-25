@@ -20,4 +20,4 @@ Extra Files).
 
 The sprite packs come from the original project under the same licence.
 
-For support questions, reach me through [jvtools.dev](https://jvtools.dev).
+For questions, reach me through [jvtools.dev](https://jvtools.dev).

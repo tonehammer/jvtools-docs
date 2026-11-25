@@ -9,7 +9,7 @@ order: 100
 
 Copy `JV-Neonyte-v1.0.hdalc` into your Houdini 22 otls folder. On Windows that is `C:\Users\<you>\Documents\houdini22.0\otls\`. Then Refresh Asset Libraries, or restart Houdini. The node is in the Tab menu under **JV**.
 
-Neonyte needs Houdini 22.0 or newer, Indie or Apprentice - it is an `.hdalc` file.
+Neonyte was tested on Houdini 22.0.429, Indie or Apprentice - it is an `.hdalc` file.
 
 !!!warning Updating from an older version
 Delete the previous version's file from the otls folder first. Two files of the same asset in that folder collide.

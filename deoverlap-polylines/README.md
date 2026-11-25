@@ -25,7 +25,7 @@ Houdini has no native node that does this. The closest is the **Detangle** SOP, 
 
 ## Requirements
 
-- **Houdini 22.0+**, Indie or Apprentice — it ships as `.hdalc`
+- **Tested on Houdini 22.0.429**, Indie or Apprentice — it ships as `.hdalc`
 - **Windows** — the only platform it has been tested on
 
 ## Pages

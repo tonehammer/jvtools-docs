@@ -9,7 +9,7 @@ order: 100
 
 Before you start, make sure you have:
 
-* **Houdini 22.0 or newer.** The rig is built on Houdini 22's APEX autorig builder, so the Rigger isn't compatible with earlier versions. (The [Reallusion Importer](/reallusion-importer/getting-started/installation.md) also runs on Houdini 21.)
+* **Tested on Houdini 22.0.429.** The rig is built on Houdini 22's APEX autorig builder, so the Rigger isn't compatible with earlier versions. (The [Reallusion Importer](/reallusion-importer/getting-started/installation.md) is also tested on Houdini 21.0.729.)
 * **Houdini Indie, Core, or FX.** The tool ships as a limited-commercial (Indie) Houdini Digital Asset. See the license note below.
 * **Windows.** The tool was developed and tested on Windows. It may work on macOS or Linux, but those platforms are untested — use them at your own risk.
 * **A Character Creator / iClone character**, exported as USD or FBX. Designed for **Character Creator 5 / iClone 8**. See [Preparing Your Character](preparing-your-character.md).

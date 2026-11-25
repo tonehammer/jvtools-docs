@@ -218,7 +218,7 @@ Rows inside a sign card carry a `#` in the internal name; on the node it is repl
 | Links | `website` | Button | Opens the JVtools website in your web browser - every tool, the docs and the store in one place. |
 | Gumroad | `gumroad` | Button | Opens the Neonyte product page in your web browser. |
 | Documentation | `docs` | Button | Opens the Neonyte documentation in your web browser. |
-| Discord | `discord` | Button | Opens the JVtools Discord server in your web browser, for community and support. |
+| Discord | `discord` | Button | Opens the JVtools Discord community in your web browser. |
 | YouTube | `youtube` | Button | Opens the JVtools YouTube channel in your web browser. |
 
 ### Signs

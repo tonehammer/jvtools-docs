@@ -50,7 +50,7 @@ So MAPout draws the projector window itself, warps the image there in a shader, 
 
 ## Requirements
 
-- **Houdini 22.0+**, Indie or Apprentice — it ships as `.hdalc`
+- **Tested on Houdini 22.0.429**, Indie or Apprentice — it ships as `.hdalc`
 - **Windows** — the only platform it has been tested on
 - **SideFX Labs** for the coloured UV check (optional; without Labs, Show UV Check falls back to a plain checkerboard)
 

@@ -35,7 +35,7 @@ Each iteration draws one randomly picked shape - rectangles, grids, columns, row
 
 ## Requirements
 
-- Houdini 22.0+ (Indie or Apprentice - ships as `.hdalc`; FX and Core can load it too, but that switches the session to limited-commercial (Indie) mode, per SideFX).
+- Tested on Houdini 22.0.429 (Indie or Apprentice - ships as `.hdalc`; FX and Core can load it too, but that switches the session to limited-commercial (Indie) mode, per SideFX).
 - Windows is the only tested platform.
 - A working OpenCL device - the whole map is drawn by an OpenCL kernel.
 

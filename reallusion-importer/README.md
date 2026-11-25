@@ -20,7 +20,7 @@ Export your character from Character Creator as **USD** (fast and light, the rec
 Built for Character Creator 5 / iClone 8, working with all CC3+ characters. Ships as a black-boxed Houdini Digital Asset, tuned for Karma XPU and also renders in Karma CPU.
 
 !!!info Reallusion Rigger
-The [Reallusion Rigger](/reallusion-rigger/README.md) is a separate product sold on the same Gumroad page: the Importer's features plus an APEX body and facial rig and animation tools, tested on Houdini 22.0.429. There is no upgrade from the Importer to the Rigger; they are separate purchases.
+The [Reallusion Rigger](/reallusion-rigger/README.md) is a separate product sold on the same Gumroad page: the Importer's features plus an APEX body and facial rig and animation tools, tested on Houdini 22.0.508. There is no upgrade from the Importer to the Rigger; they are separate purchases.
 !!!
 
 !!!success The best-quality workflow

@@ -27,7 +27,7 @@ Common issues and their fixes. Most import problems trace back to either an expo
 
 **Fix:** re-export from Character Creator with **Bake Wrinkles for Still Frame turned OFF**. See [Preparing Your Character](../getting-started/preparing-your-character.md). With it on, the wrinkles are frozen into one pose and can't react to animation.
 
-You can confirm wrinkles are working by clicking **Go to Max Wrinkle Frame** in the Wrinkles folder — it jumps to the most expressive frame so you can see them.
+You can confirm wrinkles are working by scrubbing to a frame with a strong expression, where the creases should show.
 
 ## A control I changed didn't update the render
 

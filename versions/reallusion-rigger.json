@@ -1,6 +1,6 @@
 {
   "product": "Reallusion Rigger",
-  "latest": "1.2",
+  "latest": "1.3",
   "url": "https://jvtonehammer.gumroad.com/l/reallusionimporterforhoudini",
-  "notes": "Auto Breathe gains a Shoulders toggle, and Face Puppet and Face Key Muscle recording now preroll 3 seconds. Fixes hand poses spinning a finger between keyed poses and recorded takes stopping as soon as they start."
+  "notes": "Boxlayout Size resizes the face board, each Bake Look At Target layer can carry its own Layer Settings, skin uses Character Creator's detail maps with Micro Detail and Cavity controls, and props render with the character. Fixes bent IK knees stretching the thigh and faces drifting off the head on Houdini 22.0.508."
 }

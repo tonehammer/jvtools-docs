@@ -96,6 +96,8 @@ Hovering any parameter in Houdini shows its tooltip, which is the authoritative,
 | Parameter | What it does |
 |---|---|
 | **Hair Follows Head Only** | On: every hair mesh follows the head only. Off: Character Creator's own skinning. |
+| **Boxlayout Size** | How big the boxlayout board (the Face gear's `boxlayout` toggle) draws in the animate state, as a multiple of the size the rig was built with. Knobs and lines keep their size, so a bigger board spreads crowded sliders apart. Takes effect when you press **Apply**. |
+| **Apply** | Resizes the board to **Boxlayout Size**. Leaves the animate state (press **Animate** again) and re-cooks the character, a few seconds. Your keys are untouched. |
 | **Stash Rig** | On: the built and baked rig is stored. Off: it is dropped and rebuilt live. |
 | **Stash In** | Inside the Hip or External File. Changing it writes nothing. |
 | **Geometry File** | The file **Save to Disk** writes the rig to and the rig reads from. |
@@ -169,9 +171,22 @@ Hovering any parameter in Houdini shows its tooltip, which is the authoritative,
 | **Target** (Look At) | The camera, object or SOP node the eyes look at. |
 | **Group** | For a SOP Target, the points whose centre the eyes aim at. Empty aims at the whole geometry. |
 | **Offset** | Moves the aim point in the Target's own frame. |
-| **Transition** | Frames to turn onto the Target and back. 0 switches at once. |
+| **Transition** | Frames to turn onto the Target and back. 0 switches at once. With **Key Layer Settings** on, the layer's settings ease in and out over the same frames. |
 | **Frame Range** | The frames to look at the Target. |
-| **Bake Look At Target** | Keys the Look At target onto the Target over the frame range, on a layer of its own. |
+| **Bake Look At Target** | Keys the Look At target onto the Target over the frame range, on a layer of its own; with **Key Layer Settings** on, the **Layer Settings** too. Where two layers overlap the newer one wins. |
+
+### Auto Animation ▸ Look At ▸ Layer Settings
+
+These five are the baked layer's own copy of the Eyes gear's sliders, not live settings. They are read only when you press **Bake Look At Target**: keyed at every frame of the range on the new LookTarget layer, they override the gear's sliders there. Changing one afterwards does nothing to a layer already baked: delete the layer and bake again. See [Layer Settings or the Eyes gear](../using/auto-animation.md#layer-settings-or-the-eyes-gear-which-one-is-in-charge).
+
+| Parameter | What it does |
+|---|---|
+| **Key Layer Settings** | The checkbox on the folder header. On (default): the bake keys the five settings below onto the layer, and inside its range they override the Eyes gear. Off: the layer keys only where the eyes look, and the gear's sliders, and any keys on them, stay in charge. |
+| **Head Weight** | How much the head turns toward the Target, out of the turn left once the chest has turned. 0 leaves the head to the animation; 1 points it at the Target, up to **Angle Limit**. Default 0.6. Gear channel `headWeight`. |
+| **Body Weight** | How much the chest turns toward the Target, out of the whole turn. Default 0.2. Gear channel `bodyWeight`. |
+| **Angle Limit** | The most, in degrees, that the head turns on top of the chest. The chest is not limited. Default 70. Gear channel `angleLimit`. |
+| **Brow Follow** | The brows rise as the eyes look up and drop as they look down, by this much. 0 is off. Default 0. Gear channel `browFollow`. |
+| **Lean** | Scales the chest's turn on the character's own axes: X leans, Y turns, Z tilts. Default 1 1 1. Gear channels `leanX`, `leanY`, `leanZ`. |
 
 ## Lookdev controller (LOPs)
 
@@ -197,6 +212,8 @@ See [Skin](../lookdev/skin.md).
 | **Skin Normal Strength** | Intensity of the base skin normal map (pore and surface detail). |
 | **Skin Roughness** | Multiplier on skin roughness. Below 1 = glossier and more lifelike; above 1 = more matte. |
 | **Diffuse Contrast** | Contrast of the skin color texture around mid-grey. Very sensitive — useful range roughly 1.0–1.1. |
+| **Micro Detail** | Strength of Character Creator's tiling micro normal, the fine pore texture that breaks up skin highlights in close-ups. 1 = the strength set in Character Creator; 0 = off. |
+| **Cavity** | How much Character Creator's cavity map takes the shine out of pores and creases. 1 = the strength set in Character Creator; 0 = off. |
 | **Respect Metallic Maps** | Honor Character Creator's metallic textures on teeth, tongue, and clothing. Off by default (these are dielectric and CC's metallic maps on them are usually junk). |
 
 **Skin Re-tint** (sub-folder)

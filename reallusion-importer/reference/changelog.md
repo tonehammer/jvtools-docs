@@ -5,6 +5,15 @@ order: 70
 
 # Changelog
 
+## Version 1.4
+<p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">25 November 2026</p>
+
+* New: skin uses Character Creator's micro normal, cavity, specular mask, SSS and (FBX) mouth and nostril AO maps, with **Micro Detail** and **Cavity** controls.
+* **Fixed:** the light rig aims at the character's head.
+* Removed **Go to Max Wrinkle Frame**, which could not read the animation on the shipped build.
+* **Fixed:** the YouTube button opens the current channel.
+* Bug fixes and improvements.
+
 ## Version 1.3
 <p style="font-size:0.75rem; font-weight:400; opacity:0.38; letter-spacing:0.02em; margin:-0.85rem 0 1.2rem;">12 October 2026</p>
 

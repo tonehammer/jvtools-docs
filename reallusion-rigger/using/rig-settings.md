@@ -28,6 +28,12 @@ With **External File**, the hip only points at the files. Copy the `jv_rig_cache
 
 Off (the default), the hair keeps Character Creator's own skinning, so long hair drapes over moving shoulders. On, every hair mesh follows the head only. Switching re-cooks the output (a few seconds, longer on heavy characters) and keeps your keys.
 
+## Boxlayout Size
+
+The boxlayout board (the face board the Face gear's `boxlayout` toggle shows, see [Face Tools](face-tools.md#sliders-and-the-face-board)) draws at the size the rig was built with. On a character with many face sliders the knobs can sit close together. **Boxlayout Size** scales the board: 1.5 draws it half as big again. The knobs and lines keep their size, so a bigger board spreads crowded sliders apart.
+
+Type the size, then press **Apply**. Apply leaves the animate state (press **Animate** again) and re-cooks the character's output, a few seconds. Your keys are untouched. The board is resized only when you press Apply, so dragging the value costs nothing.
+
 ## Viewport materials
 
 The **Viewport** folder (closed by default, with a checkbox in its header) shows the textured character in the SOP viewport, from the textures the Rigger resolved at **Build Character**. Off draws it plain grey. This is the viewport only; Karma renders the full materials either way.

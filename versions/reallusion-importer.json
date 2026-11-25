@@ -1,6 +1,6 @@
 {
   "product": "Reallusion Importer for Houdini",
-  "latest": "1.3",
+  "latest": "1.4",
   "url": "https://jvtonehammer.gumroad.com/l/reallusionimporterforhoudini",
-  "notes": "Faster Solaris playback on animated characters, USD characters no longer rendered as subdivision surfaces, texture colour spaces resolved against any OCIO config, eyebrow tint fixes, and working documentation links."
+  "notes": "Skin uses Character Creator's micro normal, cavity, specular mask, SSS and AO maps, with Micro Detail and Cavity controls. The light rig aims at the character's head, the YouTube button opens the current channel, and Go to Max Wrinkle Frame is removed."
 }
